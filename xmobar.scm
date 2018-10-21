@@ -1,73 +1,22 @@
 (add-to-load-path ".")
-(use-modules (ghc-dbus)
-             (ghc-mtl)
-             (gnu packages base)
-             (gnu packages haskell)
-             (gnu packages haskell-check)
-             (gnu packages haskell-web)
-             (gnu packages linux)
-             (gnu packages pkg-config)
-             (gnu packages xorg)
-             (guix build-system)
-             (guix build-system haskell)
-             (guix download)
-             ((guix licenses) #:prefix license:)
-             (guix packages))
+(define-module (ghc-xmonad)
+  #:use-module (ghc-dbus)
+  #:use-module (ghc-mtl)
+  #:use-module (gnu packages base)
+  #:use-module (gnu packages haskell)
+  #:use-module (gnu packages haskell-check)
+  #:use-module (gnu packages haskell-web)
+  #:use-module (gnu packages linux)
+  #:use-module (gnu packages pkg-config)
+  #:use-module (gnu packages xorg)
+  #:use-module (guix build-system)
+  #:use-module (guix build-system haskell)
+  #:use-module (guix download)
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (guix packages))
 
 
 ;; DEPENDENCIES
-(define ghc-alsa-core
-  (package
-   (name "ghc-alsa-core")
-   (version "0.5.0.1")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/alsa-core/alsa-core-"
-           version
-           ".tar.gz"))
-     (sha256
-      (base32
-       "1avh4a419h9d2zsslg6j8hm87ppgsgqafz8ll037rk2yy1g4jl7b"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("alsa-lib" ,alsa-lib)
-      ("ghc-extensible-exceptions" ,ghc-extensible-exceptions)
-      ("pkg-config" ,pkg-config)))
-   (home-page
-    "http://www.haskell.org/haskellwiki/ALSA")
-   (synopsis
-    "Binding to the ALSA Library API (Exceptions).")
-   (description
-    "This package provides access to ALSA infrastructure, that is needed by both alsa-seq and alsa-pcm.")
-   (license license:bsd-3)))
-
-(define ghc-alsa-mixer
-  (package
-   (name "ghc-alsa-mixer")
-   (version "0.2.0.3")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/alsa-mixer/alsa-mixer-"
-           version
-           ".tar.gz"))
-     (sha256
-      (base32
-       "13fgd78msqsyzm92cbasm8m3s1rww6r1g83qbrv4mkm2h50fnvgp"))))
-   (build-system haskell-build-system)
-   (inputs `(("ghc-alsa-core" ,ghc-alsa-core)
-             ("ghc-c2hs"      ,ghc-c2hs)))
-   (home-page
-    "https://github.com/ttuegel/alsa-mixer")
-   (synopsis
-    "Bindings to the ALSA simple mixer API.")
-   (description
-    "This package provides bindings to the ALSA simple mixer API.")
-   (license license:bsd-3)))
-
 (define ghc-libpmd
   (package
    (name "ghc-libmpd")
@@ -128,55 +77,6 @@
    (synopsis "Enhanced timezone handling for Data.Time")
    (description
     "This package endows Data.Time, from the time package, with several data types and functions for enhanced processing of timezones. For one way to create timezone series, see the timezone-olson (<http://hackage.haskell.org/package/timezone-olson>) and timezone-olson-th (<http://hackage.haskell.org/package/timezone-olson-th>) packages.")
-   (license license:bsd-3)))
-
-(define ghc-c2hs
-  (package
-   (name "ghc-c2hs")
-   (version "0.28.5")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/c2hs/c2hs-" version ".tar.gz"))
-     (sha256 (base32 "1xid997cc38rym6hsgv8xz5dg8jcsh8hs5rrwaxkij7mc09an45x"))))
-   (build-system haskell-build-system)
-   (arguments `(#:phases (modify-phases %standard-phases (delete 'check))))
-   (inputs
-    `(("ghc-dlist" ,ghc-dlist)
-      ("ghc-test-framework" ,ghc-test-framework)
-      ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-      ("ghc-hunit" ,ghc-hunit)
-      ("ghc-language-c" ,ghc-language-c-0.8)
-      ("ghc-shelly" ,ghc-shelly)))
-   (home-page "https://github.com/haskell/c2hs")
-   (synopsis "C->Haskell FFI tool that gives some cross-language type safety")
-   (description
-    "C->Haskell assists in the development of Haskell bindings to C libraries. It extracts interface information from C header files and generates Haskell code with foreign imports and marshaling. Unlike writing foreign imports by hand (or using hsc2hs), this ensures that C functions are imported with the correct Haskell types.")
-   (license license:gpl2)))
-
-(define ghc-language-c-0.8
-  (package
-   (name "ghc-language-c")
-   (version "0.8")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/"
-                         "language-c/language-c-" version ".tar.gz"))
-     (sha256
-      (base32
-       "0ms0hfg65d7phfr2dq6183vcbmq9ddpvmlqbs8nwbqhqvcdpfl4w"))))
-   (build-system haskell-build-system)
-   (inputs `(("ghc-syb" ,ghc-syb)))
-   (native-inputs
-    `(("ghc-happy" ,ghc-happy)
-      ("ghc-alex" ,ghc-alex)))
-   (home-page "https://visq.github.io/language-c/")
-   (synopsis "Analysis and generation of C code")
-   (description
-    "Language C is a Haskell library for the analysis and generation of C code.
-It features a complete, well-tested parser and pretty printer for all of C99
-and a large set of GNU extensions.")
    (license license:bsd-3)))
 
 ;; PUBLIC

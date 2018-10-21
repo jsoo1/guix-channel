@@ -1,0 +1,103 @@
+(add-to-load-path ".")
+;; define-module (ghc-alsa)
+(use-modules (gnu packages commencement)
+             (gnu packages haskell)
+             (gnu packages haskell-check)
+             (gnu packages linux)
+             (gnu packages pkg-config)
+             (guix build-system haskell)
+             (guix download)
+             ((guix licenses) #:prefix license:)
+             (guix packages))
+
+(define ghc-language-c-0.8.2
+  (package
+   (name "ghc-language-c-0.8.2")
+   (version "0.8.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append "https://hackage.haskell.org/package/language-c/language-c-" version ".tar.gz"))
+     (sha256 (base32 "05ff3ywh2lpxgd00nv6y3jnqpdl6bg0f2yn3csd043rv4srd6adp"))))
+   (build-system haskell-build-system)
+   (inputs
+    `(("gcc-toolchain" ,gcc-toolchain-8)
+      ("ghc-syb" ,ghc-syb)
+      ("ghc-alex" ,ghc-alex)
+      ("ghc-happy" ,ghc-happy)))
+   (home-page "http://visq.github.io/language-c/")
+   (synopsis "Analysis and generation of C code")
+   (description
+    "Language C is a haskell library for the analysis and generation of C code. It features a complete, well tested parser and pretty printer for all of C99 and a large set of C11 and clang/GNU extensions.")
+   (license license:bsd-3)))
+
+(define ghc-c2hs
+  (package
+   (name "ghc-c2hs")
+   (version "0.28.6")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append "https://hackage.haskell.org/package/c2hs/c2hs-" version ".tar.gz"))
+     (sha256 (base32 "1nplgxfin139x12sb656f5870rpdclrhzi8mq8pry035qld15pci"))))
+   (build-system haskell-build-system)
+   (inputs
+    `(("gcc-toolchain" ,gcc-toolchain-8)
+      ("ghc-language-c" ,ghc-language-c-0.8.2)
+      ("ghc-dlist" ,ghc-dlist)))
+   (native-inputs
+    `(("gcc-toolchain" ,gcc-toolchain-8)
+      ("ghc-shelly" ,ghc-shelly)
+      ("ghc-hunit" ,ghc-hunit)
+      ("ghc-test-framework" ,ghc-test-framework)
+      ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)))
+   (home-page "https://github.com/haskell/c2hs")
+   (synopsis "C->Haskell FFI tool that gives some cross-language type safety")
+   (description
+    "C->Haskell assists in the development of Haskell bindings to C libraries. It extracts interface information from C header files and generates Haskell code with foreign imports and marshaling. Unlike writing foreign imports by hand (or using hsc2hs), this ensures that C functions are imported with the correct Haskell types.")
+   (license license:gpl2)))
+
+(define ghc-alsa-core
+  (package
+   (name "ghc-alsa-core")
+   (version "0.5.0.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append "https://hackage.haskell.org/package/alsa-core/alsa-core-" version ".tar.gz"))
+     (sha256 (base32 "1avh4a419h9d2zsslg6j8hm87ppgsgqafz8ll037rk2yy1g4jl7b"))))
+   (build-system haskell-build-system)
+   (inputs
+    `(("ghc-extensible-exceptions"
+       ,ghc-extensible-exceptions)))
+   (native-inputs
+    `(("pkg-config" ,pkg-config)
+      ("alsa-lib" ,alsa-lib)))
+   (arguments `(#:tests? #f))
+   (home-page
+    "http://www.haskell.org/haskellwiki/ALSA")
+   (synopsis
+    "Binding to the ALSA Library API (Exceptions).")
+   (description
+    "This package provides access to ALSA infrastructure, that is needed by both alsa-seq and alsa-pcm.")
+   (license license:bsd-3)))
+
+;; define-public ghc-alsa-mixer
+(package
+ (name "ghc-alsa-mixer")
+ (version "0.2.0.3")
+ (source
+  (origin
+   (method url-fetch)
+   (uri (string-append "https://hackage.haskell.org/package/alsa-mixer/alsa-mixer-" version ".tar.gz"))
+   (sha256 (base32 "13fgd78msqsyzm92cbasm8m3s1rww6r1g83qbrv4mkm2h50fnvgp"))))
+ (build-system haskell-build-system)
+ (inputs `(("ghc-alsa-core" ,ghc-alsa-core)
+           ("gcc-toolchain" ,gcc-toolchain-8)))
+ (native-inputs `(("ghc-c2hs" ,ghc-c2hs)))
+ (arguments `(#:tests? #f))
+ (home-page "https://github.com/ttuegel/alsa-mixer")
+ (synopsis "Bindings to the ALSA simple mixer API.")
+ (description "This package provides bindings to the ALSA simple mixer API.")
+ (license license:bsd-3))
+

@@ -1,4 +1,4 @@
-(define-module (data-fix)
+(define-module (ghc-data-fix)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
