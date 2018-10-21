@@ -1,7 +1,8 @@
 (add-to-load-path ".")
-(define-module (ghc-xmonad)
+(define-module (xmobar)
   #:use-module (ghc-dbus)
   #:use-module (ghc-mtl)
+  #:use-module (ghc-alsa)
   #:use-module (gnu packages base)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
@@ -15,6 +16,50 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
+;; PUBLIC
+(define-public my-xmobar
+  (package
+   (name "my-xmobar")
+   (version "0.26")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append "mirror://hackage/package/xmobar/" "xmobar-" version ".tar.gz"))
+     (sha256 (base32 "19g40vqj3cs94i27f66194k7d5cazrv1lx54bz9kc0qy2npxjzgz"))))
+   (build-system haskell-build-system)
+   (inputs
+    `(("ghc-alsa-core"       ,ghc-alsa-core)
+      ("ghc-alsa-mixer"      ,ghc-alsa-mixer)
+      ("ghc-dbus"            ,ghc-dbus)
+      ("ghc-hinotify"        ,ghc-hinotify)
+      ("ghc-http"            ,ghc-http)
+      ("ghc-iwlib"           ,ghc-iwlib)
+      ("ghc-libpmd"          ,ghc-libpmd)
+      ("ghc-parsec"          ,ghc-parsec)
+      ("ghc-regex-compat"    ,ghc-regex-compat)
+      ("ghc-stm"             ,ghc-stm)
+      ("ghc-timezone-olson"  ,ghc-timezone-olson)
+      ("ghc-timezone-series" ,ghc-timezone-series)
+      ("ghc-x11-xft"         ,ghc-x11-xft)
+      ("libxpm"              ,libxpm)
+      ("pkg-config"          ,pkg-config)))
+   (arguments
+    `(#:configure-flags
+      (list (string-append "--flags="
+                           (string-join (list "with_alsa"
+                                              "with_inotify"
+                                              "with_iwlib"
+                                              "with_threaded"
+                                              "with_utf8"
+                                              "with_weather"
+                                              "with_xft"
+                                              "with_xpm")
+                                        " ")))
+      #:tests? #f))
+   (home-page "http://xmobar.org")
+   (synopsis "Minimalistic text based status bar")
+   (description "My version of xmobar with alsa")
+   (license license:bsd-3)))
 
 ;; DEPENDENCIES
 (define ghc-libpmd
@@ -78,47 +123,3 @@
    (description
     "This package endows Data.Time, from the time package, with several data types and functions for enhanced processing of timezones. For one way to create timezone series, see the timezone-olson (<http://hackage.haskell.org/package/timezone-olson>) and timezone-olson-th (<http://hackage.haskell.org/package/timezone-olson-th>) packages.")
    (license license:bsd-3)))
-
-;; PUBLIC
-(package
- (name "my-xmobar")
- (version "0.26")
- (source
-  (origin
-   (method url-fetch)
-   (uri (string-append "mirror://hackage/package/xmobar/" "xmobar-" version ".tar.gz"))
-   (sha256 (base32 "19g40vqj3cs94i27f66194k7d5cazrv1lx54bz9kc0qy2npxjzgz"))))
- (build-system haskell-build-system)
- (inputs
-  `(("ghc-alsa-core"       ,ghc-alsa-core)
-    ("ghc-alsa-mixer"      ,ghc-alsa-mixer)
-    ("ghc-dbus"            ,ghc-dbus)
-    ("ghc-hinotify"        ,ghc-hinotify)
-    ("ghc-http"            ,ghc-http)
-    ("ghc-iwlib"           ,ghc-iwlib)
-    ("ghc-libpmd"          ,ghc-libpmd)
-    ("ghc-parsec"          ,ghc-parsec)
-    ("ghc-regex-compat"    ,ghc-regex-compat)
-    ("ghc-stm"             ,ghc-stm)
-    ("ghc-timezone-olson"  ,ghc-timezone-olson)
-    ("ghc-timezone-series" ,ghc-timezone-series)
-    ("ghc-x11-xft"         ,ghc-x11-xft)
-    ("libxpm"              ,libxpm)
-    ("pkg-config"          ,pkg-config)))
- (arguments
-  `(#:configure-flags
-    (list (string-append "--flags="
-                         (string-join (list "with_alsa"
-                                            "with_inotify"
-                                            "with_iwlib"
-                                            "with_threaded"
-                                            "with_utf8"
-                                            "with_weather"
-                                            "with_xft"
-                                            "with_xpm")
-                                      " ")))
-    #:tests? #f))
- (home-page "http://xmobar.org")
- (synopsis "Minimalistic text based status bar")
- (description "My version of xmobar with alsa")
- (license license:bsd-3))
