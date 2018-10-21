@@ -1,14 +1,13 @@
-(add-to-load-path ".")
-;; define-module (ghc-alsa)
-(use-modules (gnu packages commencement)
-             (gnu packages haskell)
-             (gnu packages haskell-check)
-             (gnu packages linux)
-             (gnu packages pkg-config)
-             (guix build-system haskell)
-             (guix download)
-             ((guix licenses) #:prefix license:)
-             (guix packages))
+(define-module (ghc-alsa)
+  #:use-module (gnu packages commencement)
+  #:use-module (gnu packages haskell)
+  #:use-module (gnu packages haskell-check)
+  #:use-module (gnu packages linux)
+  #:use-module (gnu packages pkg-config)
+  #:use-module (guix build-system haskell)
+  #:use-module (guix download)
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (guix packages))
 
 (define ghc-language-c-0.8.2
   (package
@@ -82,22 +81,23 @@
     "This package provides access to ALSA infrastructure, that is needed by both alsa-seq and alsa-pcm.")
    (license license:bsd-3)))
 
-;; define-public ghc-alsa-mixer
-(package
- (name "ghc-alsa-mixer")
- (version "0.2.0.3")
- (source
-  (origin
-   (method url-fetch)
-   (uri (string-append "https://hackage.haskell.org/package/alsa-mixer/alsa-mixer-" version ".tar.gz"))
-   (sha256 (base32 "13fgd78msqsyzm92cbasm8m3s1rww6r1g83qbrv4mkm2h50fnvgp"))))
- (build-system haskell-build-system)
- (inputs `(("ghc-alsa-core" ,ghc-alsa-core)
-           ("gcc-toolchain" ,gcc-toolchain-8)))
- (native-inputs `(("ghc-c2hs" ,ghc-c2hs)))
- (arguments `(#:tests? #f))
- (home-page "https://github.com/ttuegel/alsa-mixer")
- (synopsis "Bindings to the ALSA simple mixer API.")
- (description "This package provides bindings to the ALSA simple mixer API.")
- (license license:bsd-3))
+
+(define-public ghc-alsa-mixer
+  (package
+   (name "ghc-alsa-mixer")
+   (version "0.2.0.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append "https://hackage.haskell.org/package/alsa-mixer/alsa-mixer-" version ".tar.gz"))
+     (sha256 (base32 "13fgd78msqsyzm92cbasm8m3s1rww6r1g83qbrv4mkm2h50fnvgp"))))
+   (build-system haskell-build-system)
+   (inputs `(("ghc-alsa-core" ,ghc-alsa-core)
+             ("gcc-toolchain" ,gcc-toolchain-8)))
+   (native-inputs `(("ghc-c2hs" ,ghc-c2hs)))
+   (arguments `(#:tests? #f))
+   (home-page "https://github.com/ttuegel/alsa-mixer")
+   (synopsis "Bindings to the ALSA simple mixer API.")
+   (description "This package provides bindings to the ALSA simple mixer API.")
+   (license license:bsd-3)))
 
