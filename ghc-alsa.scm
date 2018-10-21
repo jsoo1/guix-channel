@@ -9,6 +9,52 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
+;; PUBLIC
+(define-public ghc-alsa-core
+  (package
+   (name "ghc-alsa-core")
+   (version "0.5.0.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append "https://hackage.haskell.org/package/alsa-core/alsa-core-" version ".tar.gz"))
+     (sha256 (base32 "1avh4a419h9d2zsslg6j8hm87ppgsgqafz8ll037rk2yy1g4jl7b"))))
+   (build-system haskell-build-system)
+   (inputs
+    `(("ghc-extensible-exceptions"
+       ,ghc-extensible-exceptions)))
+   (native-inputs
+    `(("pkg-config" ,pkg-config)
+      ("alsa-lib" ,alsa-lib)))
+   (arguments `(#:tests? #f))
+   (home-page
+    "http://www.haskell.org/haskellwiki/ALSA")
+   (synopsis
+    "Binding to the ALSA Library API (Exceptions).")
+   (description
+    "This package provides access to ALSA infrastructure, that is needed by both alsa-seq and alsa-pcm.")
+   (license license:bsd-3)))
+
+(define-public ghc-alsa-mixer
+  (package
+   (name "ghc-alsa-mixer")
+   (version "0.2.0.3")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append "https://hackage.haskell.org/package/alsa-mixer/alsa-mixer-" version ".tar.gz"))
+     (sha256 (base32 "13fgd78msqsyzm92cbasm8m3s1rww6r1g83qbrv4mkm2h50fnvgp"))))
+   (build-system haskell-build-system)
+   (inputs `(("ghc-alsa-core" ,ghc-alsa-core)
+             ("gcc-toolchain" ,gcc-toolchain-8)))
+   (native-inputs `(("ghc-c2hs" ,ghc-c2hs)))
+   (arguments `(#:tests? #f))
+   (home-page "https://github.com/ttuegel/alsa-mixer")
+   (synopsis "Bindings to the ALSA simple mixer API.")
+   (description "This package provides bindings to the ALSA simple mixer API.")
+   (license license:bsd-3)))
+
+;; DEPENDENCIES
 (define ghc-language-c-0.8.2
   (package
    (name "ghc-language-c-0.8.2")
@@ -55,49 +101,3 @@
    (description
     "C->Haskell assists in the development of Haskell bindings to C libraries. It extracts interface information from C header files and generates Haskell code with foreign imports and marshaling. Unlike writing foreign imports by hand (or using hsc2hs), this ensures that C functions are imported with the correct Haskell types.")
    (license license:gpl2)))
-
-(define ghc-alsa-core
-  (package
-   (name "ghc-alsa-core")
-   (version "0.5.0.1")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/alsa-core/alsa-core-" version ".tar.gz"))
-     (sha256 (base32 "1avh4a419h9d2zsslg6j8hm87ppgsgqafz8ll037rk2yy1g4jl7b"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-extensible-exceptions"
-       ,ghc-extensible-exceptions)))
-   (native-inputs
-    `(("pkg-config" ,pkg-config)
-      ("alsa-lib" ,alsa-lib)))
-   (arguments `(#:tests? #f))
-   (home-page
-    "http://www.haskell.org/haskellwiki/ALSA")
-   (synopsis
-    "Binding to the ALSA Library API (Exceptions).")
-   (description
-    "This package provides access to ALSA infrastructure, that is needed by both alsa-seq and alsa-pcm.")
-   (license license:bsd-3)))
-
-
-(define-public ghc-alsa-mixer
-  (package
-   (name "ghc-alsa-mixer")
-   (version "0.2.0.3")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/alsa-mixer/alsa-mixer-" version ".tar.gz"))
-     (sha256 (base32 "13fgd78msqsyzm92cbasm8m3s1rww6r1g83qbrv4mkm2h50fnvgp"))))
-   (build-system haskell-build-system)
-   (inputs `(("ghc-alsa-core" ,ghc-alsa-core)
-             ("gcc-toolchain" ,gcc-toolchain-8)))
-   (native-inputs `(("ghc-c2hs" ,ghc-c2hs)))
-   (arguments `(#:tests? #f))
-   (home-page "https://github.com/ttuegel/alsa-mixer")
-   (synopsis "Bindings to the ALSA simple mixer API.")
-   (description "This package provides bindings to the ALSA simple mixer API.")
-   (license license:bsd-3)))
-
