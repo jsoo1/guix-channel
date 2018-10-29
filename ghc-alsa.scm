@@ -80,7 +80,7 @@
    (outputs '("out"))
    (inputs `(("gcc" ,gcc-8)))))
 
-(define-public ghc-language-c-0.8.2
+(define ghc-language-c-0.8.2
   (package
    (name "ghc-language-c-0.8.2")
    (version "0.8.2")
@@ -91,8 +91,7 @@
      (sha256 (base32 "05ff3ywh2lpxgd00nv6y3jnqpdl6bg0f2yn3csd043rv4srd6adp"))))
    (build-system haskell-build-system)
    (inputs
-    `(("cc" ,cc)
-      ("ghc-syb" ,ghc-syb)
+    `(("ghc-syb" ,ghc-syb)
       ("ghc-alex" ,ghc-alex)
       ("ghc-happy" ,ghc-happy)))
    (arguments `(#:configure-flags '("--flags=-iecFpExtension")))
@@ -102,7 +101,7 @@
     "Language C is a haskell library for the analysis and generation of C code. It features a complete, well tested parser and pretty printer for all of C99 and a large set of C11 and clang/GNU extensions.")
    (license license:bsd-3)))
 
-(define-public ghc-c2hs
+(define ghc-c2hs
   (package
    (name "ghc-c2hs")
    (version "0.28.6")
@@ -121,6 +120,7 @@
       ("ghc-hunit" ,ghc-hunit)
       ("ghc-test-framework" ,ghc-test-framework)
       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)))
+   (arguments `(#:tests? #f))
    (home-page "https://github.com/haskell/c2hs")
    (synopsis "C->Haskell FFI tool that gives some cross-language type safety")
    (description
