@@ -95,8 +95,7 @@
    (home-page "https://xmonad.org")
    (synopsis "Third party extensions for xmonad")
    (description
-    "Third party tiling algorithms, configurations, and scripts to Xmonad, a
-tiling window manager for X.")
+    "Third party tiling algorithms, configurations, and scripts to Xmonad, a tiling window manager for X.")
    (license license:bsd-3)))
 
 
