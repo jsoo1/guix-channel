@@ -16,49 +16,51 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
-;; PUBLIC
-(define-public my-xmobar
+(define-public xmobar-plus
   (package
-   (name "my-xmobar")
-   (version "0.26")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "mirror://hackage/package/xmobar/" "xmobar-" version ".tar.gz"))
-     (sha256 (base32 "19g40vqj3cs94i27f66194k7d5cazrv1lx54bz9kc0qy2npxjzgz"))))
+   (name "xmobar-plus")
+   (version "0.28.1")
+   (source (origin
+            (method url-fetch)
+            (uri (string-append "https://hackage.haskell.org/package/xmobar/xmobar-" version ".tar.gz"))
+            (sha256
+             (base32
+              "1zrpvr1nr6a55sxmjbacacflrxvnw6aibsdal19wx404r74qjgz5"))))
    (build-system haskell-build-system)
+   (native-inputs
+    `(("ghc-hspec" ,ghc-hspec)
+      ("hspec-discover" ,hspec-discover)))
    (inputs
-    `(("ghc-alsa-core"       ,ghc-alsa-core)
-      ("ghc-alsa-mixer"      ,ghc-alsa-mixer)
-      ("ghc-dbus"            ,ghc-dbus)
-      ("ghc-hinotify"        ,ghc-hinotify)
-      ("ghc-http"            ,ghc-http)
-      ("ghc-iwlib"           ,ghc-iwlib)
-      ("ghc-libpmd"          ,ghc-libpmd)
-      ("ghc-parsec"          ,ghc-parsec)
-      ("ghc-regex-compat"    ,ghc-regex-compat)
-      ("ghc-stm"             ,ghc-stm)
-      ("ghc-timezone-olson"  ,ghc-timezone-olson)
-      ("ghc-timezone-series" ,ghc-timezone-series)
-      ("ghc-x11-xft"         ,ghc-x11-xft)
-      ("libxpm"              ,libxpm)
-      ("pkg-config"          ,pkg-config)))
+    `(("ghc-hinotify" ,ghc-hinotify)
+      ("ghc-alsa-core" ,ghc-alsa-core)
+      ("ghc-alsa-mixer" ,ghc-alsa-mixer)
+      ("ghc-dbus" ,ghc-dbus)
+      ("ghc-http" ,ghc-http)
+      ("ghc-iwlib" ,ghc-iwlib)
+      ("ghc-parsec" ,ghc-parsec)
+      ("ghc-parsec-numbers" ,ghc-parsec-numbers)
+      ("ghc-regex-compat" ,ghc-regex-compat)
+      ("ghc-stm" ,ghc-stm)
+      ("ghc-x11-xft" ,ghc-x11-xft)
+      ("libxpm" ,libxpm)))
    (arguments
     `(#:configure-flags
       (list (string-append "--flags="
-                           (string-join (list "with_alsa"
-                                              "with_inotify"
+                           (string-join (list "with_inotify"
+                                              "with_alsa"
                                               "with_iwlib"
+                                              "with_dbus"
                                               "with_threaded"
-                                              "with_utf8"
-                                              "with_weather"
                                               "with_xft"
                                               "with_xpm")
-                                        " ")))
-      #:tests? #f))
+                                        " ")))))
    (home-page "http://xmobar.org")
    (synopsis "Minimalistic text based status bar")
-   (description "My version of xmobar with alsa")
+   (description
+    "@code{xmobar} is a lightweight, text-based, status bar written in
+Haskell.  It was originally designed to be used together with Xmonad, but it
+is also usable with any other window manager.  While xmobar is written in
+Haskell, no knowledge of the language is required to install and use it.")
    (license license:bsd-3)))
 
 ;; DEPENDENCIES
@@ -123,3 +125,4 @@
    (description
     "This package endows Data.Time, from the time package, with several data types and functions for enhanced processing of timezones. For one way to create timezone series, see the timezone-olson (<http://hackage.haskell.org/package/timezone-olson>) and timezone-olson-th (<http://hackage.haskell.org/package/timezone-olson-th>) packages.")
    (license license:bsd-3)))
+
