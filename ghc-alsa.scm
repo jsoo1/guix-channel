@@ -57,7 +57,7 @@
    (license license:bsd-3)))
 
 ;; DEPENDENCIES
-(define-public cc
+(define cc
   (package
    (name "cc")
    (version (package-version gcc-8))
