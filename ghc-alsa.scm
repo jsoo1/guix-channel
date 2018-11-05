@@ -10,10 +10,11 @@
   #:use-module (guix build-system trivial)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (guix packages))
+  #:use-module (guix packages)
+  #:export (ghc-alsa-core ghc-alsa-mixer))
 
 ;; PUBLIC
-(define-public ghc-alsa-core
+(define ghc-alsa-core
   (package
    (name "ghc-alsa-core")
    (version "0.5.0.1")
@@ -37,7 +38,7 @@
     "This package provides access to ALSA infrastructure, that is needed by both alsa-seq and alsa-pcm.")
    (license license:bsd-3)))
 
-(define-public ghc-alsa-mixer
+(define ghc-alsa-mixer
   (package
    (name "ghc-alsa-mixer")
    (version "0.2.0.3")

@@ -6,9 +6,10 @@
   #:use-module (guix build-system haskell)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
-  #:use-module (gnu packages haskell-web))
+  #:use-module (gnu packages haskell-web)
+  #:export (stylish-haskell))
 
-(define-public stylish-haskell
+(define stylish-haskell
   (package
    (name "stylish-haskell")
    (version "0.9.2.0")

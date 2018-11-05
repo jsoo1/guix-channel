@@ -8,10 +8,11 @@
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-crypto)
   #:use-module (gnu packages haskell-web)
-  #:use-module (gnu packages tls))
+  #:use-module (gnu packages tls)
+  #:export (hoogle))
 
 ;; PUBLIC
-(define-public hoogle
+(define hoogle
   (package
    (name "hoogle")
    (version "5.0.17.3")

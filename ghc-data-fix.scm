@@ -3,22 +3,18 @@
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system haskell)
-  #:use-module (gnu packages haskell))
+  #:use-module (gnu packages haskell)
+  #:export (ghc-data-fix))
 
-(define-public ghc-data-fix
+(define ghc-data-fix
   (package
    (name "ghc-data-fix")
    (version "0.2.0")
    (source
     (origin
      (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/data-fix/data-fix-"
-           version
-           ".tar.gz"))
-     (sha256
-      (base32
-       "14hk6hq5hdb3l5bhmzhw086jpzlvp9qbw9dzw30wlz5jbh2ihmvy"))))
+     (uri (string-append "https://hackage.haskell.org/package/data-fix/data-fix-" version ".tar.gz"))
+     (sha256 (base32 "14hk6hq5hdb3l5bhmzhw086jpzlvp9qbw9dzw30wlz5jbh2ihmvy"))))
    (build-system haskell-build-system)
    (home-page "https://github.com/anton-k/data-fix")
    (synopsis "Fixpoint data types")

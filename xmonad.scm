@@ -7,25 +7,8 @@
   #:use-module (guix build-system haskell)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (guix packages))
-
-;; DEPENDENCIES
-(define ghc-semigroups
-  (package
-   (name "ghc-semigroups")
-   (version "0.18.5")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/semigroups/semigroups-" version ".tar.gz"))
-     (sha256 (base32 "17g29h62g1k51ghhvzkw72zksjgi6vs6bfipkj81pqw1dsprcamb"))))
-   (build-system haskell-build-system)
-   (home-page "http://github.com/ekmett/semigroups/")
-   (synopsis "Anything that associates")
-   (description
-    "In mathematics, a semigroup is an algebraic structure consisting of a set together with an associative binary operation. A semigroup generalizes a monoid in that there might not exist an identity element. It also (originally) generalized a group (a monoid with all inverses) to a type where every element did not have to have an inverse, thus the name semigroup.")
-   (license license:bsd-3)))
+  #:use-module (guix packages)
+  #:export (my-xmonad my-ghc-xmonad-contrib))
 
 ;; PUBLIC
 (define-public my-xmonad
@@ -98,4 +81,21 @@
     "Third party tiling algorithms, configurations, and scripts to Xmonad, a tiling window manager for X.")
    (license license:bsd-3)))
 
+;; DEPENDENCIES
+(define ghc-semigroups
+  (package
+   (name "ghc-semigroups")
+   (version "0.18.5")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append
+           "https://hackage.haskell.org/package/semigroups/semigroups-" version ".tar.gz"))
+     (sha256 (base32 "17g29h62g1k51ghhvzkw72zksjgi6vs6bfipkj81pqw1dsprcamb"))))
+   (build-system haskell-build-system)
+   (home-page "http://github.com/ekmett/semigroups/")
+   (synopsis "Anything that associates")
+   (description
+    "In mathematics, a semigroup is an algebraic structure consisting of a set together with an associative binary operation. A semigroup generalizes a monoid in that there might not exist an identity element. It also (originally) generalized a group (a monoid with all inverses) to a type where every element did not have to have an inverse, thus the name semigroup.")
+   (license license:bsd-3)))
 

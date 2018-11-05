@@ -14,9 +14,10 @@
   #:use-module (guix build-system haskell)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (guix packages))
+  #:use-module (guix packages)
+  #:export (xmobar-plus))
 
-(define-public xmobar-plus
+(define xmobar-plus
   (package
    (name "xmobar-plus")
    (version "0.28.1")

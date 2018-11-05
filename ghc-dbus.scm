@@ -6,10 +6,11 @@
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages pkg-config)
-  #:use-module (gnu packages xml))
+  #:use-module (gnu packages xml)
+  #:export (ghc-dbus))
 
 ;; PUBLIC
-(define-public ghc-dbus
+(define ghc-dbus
   (package
    (name "ghc-dbus")
    (version "1.0.1")
@@ -39,7 +40,7 @@
    (license license:asl2.0)))
 
 ;; DEPENDENCIES
-(define-public ghc-libxml-sax
+(define ghc-libxml-sax
   (package
    (name "ghc-libxml-sax")
    (version "0.7.5")

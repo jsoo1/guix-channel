@@ -4,9 +4,10 @@
   #:use-module (guix build-system gnu)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license)
-  #:use-module (guix packages))
+  #:use-module (guix packages)
+  #:export (yaft))
 
-(define-public yaft
+(define yaft
   (package
    (name "yaft")
    (version "0.2.9")
