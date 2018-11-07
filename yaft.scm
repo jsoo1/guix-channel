@@ -1,11 +1,17 @@
 (define-module (yaft)
   #:use-module (gnu packages gcc)
+  #:use-module (gnu packages image)
   #:use-module (gnu packages ncurses)
   #:use-module (guix build-system gnu)
   #:use-module (guix download)
+  #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license)
   #:use-module (guix packages)
-  #:export (yaft))
+  #:export (yaft
+            idump
+            ;; TODO
+            ;; sdump
+            ))
 
 (define yaft
   (package
@@ -56,3 +62,43 @@ Features:
    ;; TODO: Fix license
    (license #f)))
 
+(define idump
+  (let ((commit "f3d0da4ac1675604ccb14d9f34887777d2e20181")
+        (revision "1"))
+    (package
+     (name "idump")
+     (version (git-version "v0.2.0" revision commit))
+     (source
+      (origin
+       (method git-fetch)
+       (uri (git-reference (url "https://github.com/uobikiemukot/idump")
+                           (commit commit)))
+       (file-name (git-file-name name version))
+       (sha256 (base32 "1h29hp67ynmwffnskkhrnrp8xq8ac6cg1qipqx51zp1b6znnlcvw"))))
+     (build-system gnu-build-system)
+     (inputs `(("gcc" ,gcc)
+               ("libjpeg" ,libjpeg)
+               ("libpng" ,libpng)
+               ("libtiff" ,libtiff)))
+     (arguments
+      `(#:tests? #f
+        #:phases
+        (modify-phases %standard-phases
+                       (delete 'configure)
+                       (delete 'install)
+                       (add-before 'build 'make-locale
+                                   (lambda* (#:key inputs outputs #:allow-other-keys)
+                                     (setenv "LANG" "en_US.UTF-8")
+                                     (setenv "CC" (string-append (assoc-ref inputs "gcc") "/bin/gcc"))
+                                     (setenv "DESTDIR" (assoc-ref outputs "out"))
+                                     #t))
+                       (add-after 'build 'jank-install
+                                  (lambda* (#:key outputs #:allow-other-keys)
+                                    (let ((out (assoc-ref outputs "out")))
+                                          (install-file "idump" (string-append out "/bin"))
+                                          #t))))))
+     ;; TODO: fix license
+     (home-page "https://github.com/uobikiemukot/idump")
+     (synopsis "tiny image viewer for framebuffer")
+     (description "")
+     (license #f))))
