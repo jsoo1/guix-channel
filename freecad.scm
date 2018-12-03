@@ -1,5 +1,5 @@
 (define-module (freecad)
-  #:use-module ((coin3d) #:select (coin, pivy))
+  #:use-module ((coin3d) #:select (coin pivy))
   #:use-module ((gnu packages algebra) #:select (eigen))
   #:use-module ((gnu packages boost) #:select (boost))
   #:use-module ((gnu packages compression) #:select (zlib))
