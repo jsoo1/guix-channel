@@ -14,8 +14,11 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/mtl/mtl-" version ".tar.gz"))
-     (sha256 (base32 "1xmy5741h8cyy0d91ahvqdz2hykkk20l8br7lg1rccnkis5g80w8"))))
+     (uri
+      (string-append "https://hackage.haskell.org/package/mtl/mtl-"
+                     version ".tar.gz"))
+     (sha256
+      (base32 "1xmy5741h8cyy0d91ahvqdz2hykkk20l8br7lg1rccnkis5g80w8"))))
    (build-system haskell-build-system)
    (home-page "http://github.com/haskell/mtl")
    (synopsis "Monad classes, using functional dependencies")
