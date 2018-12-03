@@ -1,0 +1,4 @@
+* Some guix packages
+  This is a very unofficial personal set of packages for [[https://www.gnu.org/s/guix][gnu guix]].
+  Many packages are works in progress (notably termonad and freecad).
+  I just thought I'd share my work and see if anyone can help ;) ;) ;)
