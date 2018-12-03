@@ -1,4 +1,4 @@
-(define-module (sixel)
+(define-module (libsixel)
   #:use-module (gnu packages image)
   #:use-module (guix build-system gnu)
   #:use-module (guix download)
