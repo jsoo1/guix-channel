@@ -45,7 +45,5 @@
      (description
       "Area is a CAM-related software for pocketing operation.
 
-This project provides library and associated python-module to compute pocket operations.
-
-Written by Dan Heeks danheeks@gmail.com, derived from the kbool library written by Klaas Holwerda")
+This project provides library and associated python-module to compute pocket operations.")
      (license license:bsd-3))))
