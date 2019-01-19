@@ -1,6 +1,7 @@
 (define-module (python-shiboken)
   #:use-module ((gnu packages cmake) #:select (cmake))
-  #:use-module ((gnu packages python) #:select (python-wheel python-2))
+  #:use-module ((gnu packages python) #:select (python-2))
+  #:use-module ((gnu packages python-xyz) #:select (python-wheel))
   #:use-module ((gnu packages qt) #:select (qt-4))
   #:use-module ((gnu packages xml) #:select (libxml2 libxslt))
   #:use-module (guix build-system python)
