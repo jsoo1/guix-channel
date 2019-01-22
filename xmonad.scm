@@ -11,7 +11,7 @@
   #:export (my-xmonad my-ghc-xmonad-contrib))
 
 ;; PUBLIC
-(define-public my-xmonad
+(define my-xmonad
   (package
    (name "my-xmonad")
    (version "0.15")
@@ -52,7 +52,7 @@
     "My packaging of xmonad to fix deps on gcc tools.")
    (license license:bsd-3)))
 
-(define-public my-ghc-xmonad-contrib
+(define my-ghc-xmonad-contrib
   (package
    (name "my-ghc-xmonad-contrib")
    (version "0.15")
