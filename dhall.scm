@@ -1,4 +1,5 @@
 (define-module (dhall)
+  #:use-module (ghc-megaparsec)
   #:use-module (ghc-mtl)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
@@ -8,7 +9,8 @@
   #:use-module (guix build-system haskell)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (dhall))
+  #:export (dhall
+            dhall-json))
 
 (define dhall
   (package
@@ -62,6 +64,7 @@
        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)
        ("ghc-mockery" ,ghc-mockery)
        ("ghc-doctest" ,ghc-doctest)))
+    (arguments `(#:tests? #f))
     (home-page
      "http://hackage.haskell.org/package/dhall")
     (synopsis
@@ -69,6 +72,42 @@
     (description
      "Dhall is an explicitly typed configuration language that is not Turing complete.  Despite being Turing incomplete, Dhall is a real programming language with a type-checker and evaluator. . Use this library to parse, type-check, evaluate, and pretty-print the Dhall configuration language.  This package also includes an executable which type-checks a Dhall file and reduces the file to a fully evaluated normal form. . Read \"Dhall.Tutorial\" to learn how to use this library")
     (license license:bsd-3)))
+
+(define dhall-json
+  (package
+    (name "dhall-json")
+    (version "1.2.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/dhall-json/dhall-json-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0f18kn15v8pzkdayj2hql28fbba9i75msbi41yscik40lw2sg2cr"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-aeson" ,ghc-aeson)
+       ("ghc-dhall" ,dhall)
+       ("ghc-optparse-applicative" ,ghc-optparse-applicative)
+       ("ghc-text" ,ghc-text)
+       ("ghc-unordered-containers" ,ghc-unordered-containers)
+       ("ghc-aeson-pretty" ,ghc-aeson-pretty)
+       ("ghc-yaml" ,ghc-yaml)
+       ("ghc-vector" ,ghc-vector)))
+    (native-inputs
+     `(("ghc-tasty" ,ghc-tasty)
+       ("ghc-tasty-hunit" ,ghc-tasty-hunit)))
+    (home-page
+     "http://hackage.haskell.org/package/dhall-json")
+    (synopsis "Compile Dhall to JSON or YAML")
+    (description
+     "Use this package if you want to compile Dhall expressions to JSON or YAML. You can use this package as a library or an executable: . * See the \"Dhall.JSON\" module if you want to use this package as a library . * Use the @dhall-to-json@ or @dhall-to-yaml@ programs from this package if you want an executable . The \"Dhall.JSON\" module also contains instructions for how to use this package")
+    (license license:bsd-3)))
+
+;; DEPENDENCIES
 
 (define ghc-pgp-wordlist
   (package
@@ -123,7 +162,7 @@
     (home-page
      "http://github.com/quchen/prettyprinter")
     (synopsis
-     "ANSI terminal backend for the Â»prettyprinterÂ« package.")
+     "ANSI terminal backend for the prettyprinter package.")
     (description "See README.md")
     (license license:bsd-2)))
 
@@ -234,7 +273,7 @@
      "http://hackage.haskell.org/package/lens-family-core")
     (synopsis "Haskell 98 Lens Families")
     (description
-     "This package provides first class(â\x80\xa0) functional references. In addition to the usual operations of getting, setting and composition, plus integration with the state monad, lens families provide some unique features: . * Polymorphic updating . * Traversals . * Cast projection functions to read-only lenses . * Cast \\\"toList\\\" functions to read-only traversals . * Cast semantic editor combinators to modify-only traversals. . (â\x80\xa0) For optimal first-class support use the @lens-family@ package with rank 2 / rank N polymorphism. \"Lens.Family.Clone\" allows for first-class support of lenses and traversals for those who require Haskell 98.")
+     "This package provides first class functional references. In addition to the usual operations of getting, setting and composition, plus integration with the state monad, lens families provide some unique features: . * Polymorphic updating . * Traversals . * Cast projection functions to read-only lenses . * Cast \\\"toList\\\" functions to read-only traversals . * Cast semantic editor combinators to modify-only traversals. . (â\x80\xa0) For optimal first-class support use the lens-family package with rank 2 / rank N polymorphism. \"Lens.Family.Clone\" allows for first-class support of lenses and traversals for those who require Haskell 98.")
     (license license:bsd-3)))
 
 (define ghc-dotgen
@@ -322,37 +361,3 @@
     (description
      "This package (formerly @binary-serialise-cbor@) provides an efficient implementation of the Concise Binary Object Representation (CBOR), as specified by [RFC 7049](https://tools.ietf.org/html/rfc7049). . If you are looking for a library for serialisation of Haskell values, have a look at the [serialise](/package/serialise) package, which is built upon this library. . An implementation of the standard bijection between CBOR and JSON is provided by the [cborg-json](/package/cborg-json) package. Also see [cbor-tool](/package/cbor-tool) for a convenient command-line utility for working with CBOR data.")
     (license license:bsd-3)))
-
-(define ghc-megaparsec-7.0.4
-  (package
-    (name "ghc-megaparsec-7.0.4")
-    (version "7.0.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/megaparsec/megaparsec-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1hg83m85f4v78mqdkznd1ddk9y32hnrv0bgva7ir3vydx37aanrj"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-case-insensitive" ,ghc-case-insensitive)
-       ("ghc-mtl" ,ghc-mtl)
-       ("ghc-parser-combinators" ,ghc-parser-combinators)
-       ("ghc-scientific" ,ghc-scientific)
-       ("ghc-text" ,ghc-text)))
-    (native-inputs
-     `(("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-hspec" ,ghc-hspec)
-       ("ghc-hspec-expectations" ,ghc-hspec-expectations)))
-    (arguments
-     `(#:tests? #f))
-    (home-page
-     "https://github.com/mrkkrp/megaparsec")
-    (synopsis "Monadic parser combinators")
-    (description
-     "This is an industrial-strength monadic parser combinator library. Megaparsec is a feature-rich package that strikes a nice balance between speed, flexibility, and quality of parse errors.")
-    (license license:bsd-2)))

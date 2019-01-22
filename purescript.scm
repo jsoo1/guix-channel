@@ -1,4 +1,6 @@
 (define-module (purescript)
+  #:use-module (dhall)
+  #:use-module (ghc-megaparsec)
   #:use-module (ghc-microlens)
   #:use-module (ghc-mtl)
   #:use-module (gnu packages haskell)
@@ -6,10 +8,12 @@
   #:use-module (gnu packages haskell-crypto)
   #:use-module (gnu packages haskell-web)
   #:use-module (guix download)
+  #:use-module (guix git-download)
   #:use-module (guix packages)
   #:use-module (guix build-system haskell)
   #:use-module ((guix licenses) #:prefix license:)
-  #:export (purescript))
+  #:export (purescript
+            purescript-spago))
 
 (define purescript
   (package
@@ -81,12 +85,56 @@
        ("ghc-hspec-discover" ,ghc-hspec-discover)
        ("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-hspec" ,ghc-tasty-hspec)))
+    (arguments
+     ;; There is no npm yet
+     `(#:tests? #f))
     (home-page "http://www.purescript.org/")
     (synopsis
      "PureScript Programming Language Compiler")
     (description
      "A small strongly, statically typed programming language with expressive types, inspired by Haskell and compiling to JavaScript.")
     (license license:bsd-3)))
+
+(define purescript-spago
+  (let ((revision "1")
+        (commit "838e627461f58181bb69fd3828a161bc88b97e6d"))
+    (package
+      (name "purescript-spago")
+      (version (git-version "0.6.3" revision commit))
+      (source
+       (origin
+         (method git-fetch)
+         (uri (git-reference (url "https://github.com/spachetti/spago")
+                             (commit commit)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32
+           "1vq8irdknf6vvvyf6xbpni4qjgycp2j3vpzlc07rb37pjgsd5grp"))))
+      (build-system haskell-build-system)
+      (inputs
+       `(("dhall" ,dhall)
+         ("dhall-json" ,dhall-json)
+         ("ghc-aeson" ,ghc-aeson)
+         ("ghc-aeson-pretty" ,ghc-aeson-pretty)
+         ("ghc-async-pool" ,ghc-async-pool)
+         ("ghc-containers" ,ghc-containers)
+         ("ghc-bytestring" ,ghc-bytestring)
+         ("ghc-dotgen" ,ghc-dotgen)
+         ("ghc-megaparsec" ,ghc-megaparsec-7.0.4)
+         ("ghc-process" ,ghc-process)
+         ("ghc-repline" ,ghc-repline)
+         ("ghc-serialise" ,ghc-serialise)
+         ("ghc-turtle" ,ghc-turtle)
+         ("ghc-filepath" ,ghc-filepath)
+         ("ghc-file-embed" ,ghc-file-embed)))
+      (home-page "https://github.com/spacchetti/spago")
+      (synopsis "spaghetti PureScript package manager and build tool powered by Dhall and Spacchetti package-sets")
+      (description "spago aims to tie together the UX of developing a PureScript project.
+In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo and Haskell's Stack, and builds on top of ideas from existing PureScript infrastructure and tooling, as psc-package, pulp and purp.")
+      ;; TODO figure it out
+      (license #f))))
+
+;; DEPENDENCIES
 
 (define ghc-pattern-arrows
   (package
@@ -531,3 +579,176 @@
      "A portable library of functor and monad transformers, inspired by the paper \\\"Functional Programming with Overloading and Higher-Order Polymorphism\\\", by Mark P Jones, in /Advanced School of Functional Programming/, 1995 (<http://web.cecs.pdx.edu/~mpj/pubs/springschool.html>). . This package contains: . * the monad transformer class (in \"Control.Monad.Trans.Class\") . * concrete functor and monad transformers, each with associated operations and functions to lift operations associated with other transformers. . The package can be used on its own in portable Haskell code, in which case operations need to be manually lifted through transformer stacks (see \"Control.Monad.Trans.Class\" for some examples). Alternatively, it can be used with the non-portable monad classes in the @mtl@ or @monads-tf@ packages, which automatically lift operations introduced by monad transformers through other transformers.")
     (license license:bsd-3)))
 
+(define ghc-dotgen
+  (package
+    (name "ghc-dotgen")
+    (version "0.4.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/dotgen/dotgen-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "148q93qsmqgr5pzdwvpjqfd6bdm1pwzcp2rblfwswx2x8c5f43fg"))))
+    (build-system haskell-build-system)
+    (home-page "https://github.com/ku-fpg/dotgen")
+    (synopsis
+     "A simple interface for building .dot graph files.")
+    (description
+     "This package provides a simple interface for building .dot graph files, for input into the dot and graphviz tools. It includes a monadic interface for building graphs.")
+    (license license:bsd-3)))
+
+(define ghc-repline
+  (package
+    (name "ghc-repline")
+    (version "0.2.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/repline/repline-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1ph21kbbanlcs8n5lwk16g9vqkb98mkbz5mzwrp8j2rls2921izc"))))
+    (build-system haskell-build-system)
+    (inputs `(("ghc-mtl" ,ghc-mtl)))
+    (home-page "https://github.com/sdiehl/repline")
+    (synopsis
+     "Haskeline wrapper for GHCi-like REPL interfaces.")
+    (description
+     "Haskeline wrapper for GHCi-like REPL interfaces. Composable with normal mtl transformers.")
+    (license license:expat)))
+
+(define ghc-async-pool
+  (package
+    (name "ghc-async-pool")
+    (version "0.9.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/async-pool/async-pool-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1wg78y80zd7qyizyis073dmmvq4s67ni1pkaq31jl5klr49rs5g0"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-fgl" ,ghc-fgl)
+       ("ghc-async" ,ghc-async)
+       ("ghc-stm" ,ghc-stm)
+       ("ghc-transformers-base" ,ghc-transformers-base)
+       ("ghc-monad-control" ,ghc-monad-control)))
+    (native-inputs `(("ghc-hspec" ,ghc-hspec)))
+    (home-page
+     "http://hackage.haskell.org/package/async-pool")
+    (synopsis
+     "A modified version of async that supports worker groups and many-to-many task dependencies")
+    (description
+     "This library modifies the @async@ package to allow for task pooling and many-to-many dependencies between tasks.")
+    (license license:expat)))
+
+(define ghc-serialise
+  (package
+    (name "ghc-serialise")
+    (version "0.2.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/serialise/serialise-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "19ary6ivzk8z7wcxhm860qmh7pwqj0qjqzav1h42y85l608zqgh4"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-cborg" ,ghc-cborg)
+       ("ghc-half" ,ghc-half)
+       ("ghc-hashable" ,ghc-hashable)
+       ("ghc-primitive" ,ghc-primitive)
+       ("ghc-text" ,ghc-text)
+       ("ghc-unordered-containers"
+        ,ghc-unordered-containers)
+       ("ghc-vector" ,ghc-vector)))
+    (native-inputs
+     `(("ghc-quickcheck" ,ghc-quickcheck)
+       ("ghc-tasty" ,ghc-tasty)
+       ("ghc-tasty-hunit" ,ghc-tasty-hunit)
+       ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)
+       ("ghc-quickcheck-instances"
+        ,ghc-quickcheck-instances)))
+    (home-page "https://github.com/well-typed/cborg")
+    (synopsis
+     "A binary serialisation library for Haskell values.")
+    (description
+     "This package (formerly @binary-serialise-cbor@) provides pure, efficient serialization of Haskell values directly into @ByteString@s for storage or transmission purposes. By providing a set of type class instances, you can also serialise any custom data type you have as well. . The underlying binary format used is the 'Concise Binary Object Representation', or CBOR, specified in RFC 7049. As a result, serialised Haskell values have implicit structure outside of the Haskell program itself, meaning they can be inspected or analyzed without custom tools. . An implementation of the standard bijection between CBOR and JSON is provided by the [cborg-json](/package/cborg-json) package. Also see [cbor-tool](/package/cbor-tool) for a convenient command-line utility for working with CBOR data.")
+    (license license:bsd-3)))
+
+(define ghc-turtle
+  (package
+    (name "ghc-turtle")
+    (version "1.5.13")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/turtle/turtle-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1124yhw0l8924cwkmap1qn2z0hf4vn3r73h4pmi9icahg8zpc1hg"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-ansi-wl-pprint" ,ghc-ansi-wl-pprint)
+       ("ghc-async" ,ghc-async)
+       ("ghc-clock" ,ghc-clock)
+       ("ghc-exceptions" ,ghc-exceptions)
+       ("ghc-foldl" ,ghc-foldl)
+       ("ghc-hostname" ,ghc-hostname)
+       ("ghc-managed" ,ghc-managed)
+       ("ghc-semigroups" ,ghc-semigroups)
+       ("ghc-system-filepath" ,ghc-system-filepath)
+       ("ghc-system-fileio" ,ghc-system-fileio)
+       ("ghc-stm" ,ghc-stm)
+       ("ghc-temporary" ,ghc-temporary)
+       ("ghc-optparse-applicative" ,ghc-optparse-applicative)
+       ("ghc-optional-args" ,ghc-optional-args)
+       ("ghc-unix-compat" ,ghc-unix-compat)))
+    (native-inputs `(("ghc-doctest" ,ghc-doctest)))
+    (home-page
+     "http://hackage.haskell.org/package/turtle")
+    (synopsis "Shell programming, Haskell-style")
+    (description
+     "@turtle@ is a reimplementation of the Unix command line environment in Haskell so that you can use Haskell as both a shell and a scripting language. . Features include: . * Batteries included: Command an extended suite of predefined utilities . * Interoperability: You can still run external shell commands . * Portability: Works on Windows, OS X, and Linux . * Exception safety: Safely acquire and release resources . * Streaming: Transform or fold command output in constant space . * Patterns: Use typed regular expressions that can parse structured values . * Formatting: Type-safe @printf@-style text formatting . * Modern: Supports @text@ and @system-filepath@ . Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a quick-start guide . @turtle@ is designed to be beginner-friendly, but as a result lacks certain features, like tracing commands.  If you feel comfortable using @turtle@ then you should also check out the @Shelly@ library which provides similar functionality.")
+    (license license:bsd-3)))
+
+(define ghc-process
+  (package
+    (name "ghc-process")
+    (version "1.6.5.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/process/process-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0a04jch13d0va47yhkf1ni7pk9hxsdr3m4h8645r4qs0mzvsby60"))))
+    (build-system haskell-build-system)
+    (home-page
+     "http://hackage.haskell.org/package/process")
+    (synopsis "Process libraries")
+    (description
+     "This package contains libraries for dealing with system processes. . The typed-process package is a more recent take on a process API, which uses this package internally. It features better binary support, easier concurrency, and a more composable API. You can read more about it at <https://haskell-lang.org/library/typed-process>.")
+    (license license:bsd-3)))
