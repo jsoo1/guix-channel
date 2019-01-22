@@ -110,57 +110,6 @@
      "A library for generating concise pretty printers based on precedence rules.")
     (license license:expat)))
 
-(define ghc-microlens-ghc
-  (package
-    (name "ghc-microlens-ghc")
-    (version "0.4.10")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/microlens-ghc/microlens-ghc-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "102dbrdsdadxbbhvx8avv1wbk84767a7lkb8ckp3zxk9g7qlly33"))))
-    (build-system haskell-build-system)
-    (inputs `(("ghc-microlens" ,ghc-microlens)))
-    (home-page
-     "http://github.com/monadfix/microlens")
-    (synopsis
-     "microlens + array, bytestring, containers, transformers")
-    (description
-     "Use this package instead of <http://hackage.haskell.org/package/microlens microlens> if you don't mind depending on all dependencies here â\x80\x93 @Lens.Micro.GHC@ reexports everything from @Lens.Micro@ and additionally provides orphan instances of microlens classes for packages coming with GHC (<http://hackage.haskell.org/package/array array>, <http://hackage.haskell.org/package/bytestring bytestring>, <http://hackage.haskell.org/package/containers containers>, <http://hackage.haskell.org/package/transfromers transformers>). . The minor and major versions of microlens-ghc are incremented whenever the minor and major versions of microlens are incremented, so you can depend on the exact version of microlens-ghc without specifying the version of microlens you need. . This package is a part of the <http://hackage.haskell.org/package/microlens microlens> family; see the readme <https://github.com/monadfix/microlens#readme on Github>.")
-    (license license:bsd-3)))
-
-(define ghc-microlens-mtl
-  (package
-    (name "ghc-microlens-mtl")
-    (version "0.1.11.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/microlens-mtl/microlens-mtl-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0l6z1gkzwcpv89bxf5vgfrjb6gq2pj7sjjc53nvi5b9alx34zryk"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-microlens" ,ghc-microlens)
-       ("ghc-mtl" ,ghc-mtl)
-       ("ghc-transformers-compat"
-        ,ghc-transformers-compat)))
-    (home-page "http://github.com/aelve/microlens")
-    (synopsis
-     "microlens support for Reader/Writer/State from mtl")
-    (description
-     "This package contains functions (like 'view' or '+=') which work on 'MonadReader', 'MonadWriter', and 'MonadState' from the mtl package. . This package is a part of the <http://hackage.haskell.org/package/microlens microlens> family; see the readme <https://github.com/aelve/microlens#readme on Github>.")
-    (license license:bsd-3)))
-
 (define ghc-protolude
   (package
     (name "ghc-protolude")
