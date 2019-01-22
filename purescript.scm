@@ -1,4 +1,5 @@
 (define-module (purescript)
+  #:use-module (ghc-microlens)
   #:use-module (ghc-mtl)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
@@ -131,8 +132,7 @@
        ("ghc-stm" ,ghc-stm)
        ("ghc-mtl" ,ghc-mtl)
        ("ghc-mtl-compat" ,ghc-mtl-compat)
-       ("ghc-transformers-compat"
-        ,ghc-transformers-compat)))
+       ("ghc-transformers-compat" ,ghc-transformers-compat)))
     (home-page "https://github.com/sdiehl/protolude")
     (synopsis "A small prelude.")
     (description
@@ -156,47 +156,17 @@
     (build-system haskell-build-system)
     (inputs
      `(("ghc-aeson" ,ghc-aeson)
-       ("ghc-unordered-containers"
-        ,ghc-unordered-containers)
+       ("ghc-unordered-containers" ,ghc-unordered-containers)
        ("ghc-attoparsec" ,ghc-attoparsec)
        ("ghc-utf8-string" ,ghc-utf8-string)))
+    (arguments
+     `(#:tests? #f))
     (home-page
      "http://hackage.haskell.org/package/sourcemap")
     (synopsis
      "Implementation of source maps as proposed by Google and Mozilla.")
     (description
      "Implementation of source maps, revision 3, proposed by Google and Mozilla here <https://wiki.mozilla.org/DevTools/Features/SourceMap> and here <https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit>")
-    (license license:bsd-3)))
-
-(define ghc-microlens-platform
-  (package
-    (name "ghc-microlens-platform")
-    (version "0.3.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/microlens-platform/microlens-platform-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "18950lxgmsg5ksvyyi3zs1smjmb1qf1q73a3p3g44bh21miz0xwb"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-hashable" ,ghc-hashable)
-       ("ghc-microlens" ,ghc-microlens)
-       ("ghc-microlens-ghc" ,ghc-microlens-ghc)
-       ("ghc-microlens-mtl" ,ghc-microlens-mtl)
-       ("ghc-microlens-th" ,ghc-microlens-th)
-       ("ghc-unordered-containers"
-        ,ghc-unordered-containers)
-       ("ghc-vector" ,ghc-vector)))
-    (home-page
-     "http://github.com/monadfix/microlens")
-    (synopsis "Feature-complete microlens")
-    (description
-     "This package exports a module which is the recommended starting point for using <http://hackage.haskell.org/package/microlens microlens> if you aren't trying to keep your dependencies minimal. By importing @Lens.Micro.Platform@ you get all functions and instances from <http://hackage.haskell.org/package/microlens microlens>, <http://hackage.haskell.org/package/microlens-th microlens-th>, <http://hackage.haskell.org/package/microlens-mtl microlens-mtl>, <http://hackage.haskell.org/package/microlens-ghc microlens-ghc>, as well as instances for @Vector@, @Text@, and @HashMap@. . The minor and major versions of microlens-platform are incremented whenever the minor and major versions of any other microlens package are incremented, so you can depend on the exact version of microlens-platform without specifying the version of microlens (microlens-mtl, etc) you need. . This package is a part of the <http://hackage.haskell.org/package/microlens microlens> family; see the readme <https://github.com/monadfix/microlens#readme on Github>.")
     (license license:bsd-3)))
 
 (define ghc-utf8-light
@@ -220,8 +190,6 @@
     (description "Lightweight UTF8 handling.")
     (license license:bsd-3)))
 
-#f
-
 (define ghc-language-javascript
   (package
     (name "ghc-language-javascript")
@@ -242,7 +210,9 @@
        ("ghc-blaze-builder" ,ghc-blaze-builder)
        ("ghc-utf8-string" ,ghc-utf8-string)))
     (native-inputs
-     `(("ghc-quickcheck" ,ghc-quickcheck)
+     `(("ghc-alex" ,ghc-alex)
+       ("ghc-quickcheck" ,ghc-quickcheck)
+       ("ghc-happy" ,ghc-happy)
        ("ghc-hspec" ,ghc-hspec)
        ("ghc-utf8-light" ,ghc-utf8-light)))
     (home-page
@@ -272,62 +242,15 @@
        ("ghc-case-insensitive" ,ghc-case-insensitive)
        ("ghc-network" ,ghc-network)
        ("ghc-websockets" ,ghc-websockets)
-       ("ghc-http-types" ,ghc-http-types)
-       ("ghc-warp" ,ghc-warp)
-       ("ghc-wai-app-static" ,ghc-wai-app-static)
-       ("ghc-file-embed" ,ghc-file-embed)))
+       ("ghc-http-types" ,ghc-http-types)))
+    (arguments
+     `(#:configure-flags '("--flags=-example")))
     (home-page "http://github.com/yesodweb/wai")
     (synopsis
      "Provide a bridge between WAI and the websockets package.")
     (description
      "API docs and the README are available at <http://www.stackage.org/package/wai-websockets>.")
     (license license:expat)))
-
-(define ghc-wai-app-static
-  (package
-    (name "ghc-wai-app-static")
-    (version "3.1.6.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/wai-app-static/wai-app-static-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0gnwq6ad5m8w8sqq4dzpz23l5rjdphfsf8h9h27lrvv1prkabc6h"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-blaze-html" ,ghc-blaze-html)
-       ("ghc-blaze-markup" ,ghc-blaze-markup)
-       ("ghc-containers" ,ghc-containers)
-       ("ghc-cryptonite" ,ghc-cryptonite)
-       ("ghc-directory" ,ghc-directory)
-       ("ghc-file-embed" ,ghc-file-embed)
-       ("ghc-filepath" ,ghc-filepath)
-       ("ghc-http-date" ,ghc-http-date)
-       ("ghc-http-types" ,ghc-http-types)
-       ("ghc-memory" ,ghc-memory)
-       ("ghc-mime-types" ,ghc-mime-types)
-       ("ghc-old-locale" ,ghc-old-locale)
-       ("ghc-optparse-applicative" ,ghc-optparse-applicative)
-       ("ghc-time" ,ghc-time)
-       ("ghc-transformers" ,ghc-transformers)
-       ("ghc-unix-compat" ,ghc-unix-compat)
-       ("ghc-unordered-containers" ,ghc-unordered-containers)
-       ("ghc-wai" ,ghc-wai)
-       ("ghc-wai-app-static" ,ghc-wai-app-static)
-       ("ghc-wai-extra" ,ghc-wai-extra)
-       ("ghc-warp" ,ghc-warp)
-       ("ghc-zlib" ,ghc-zlib)))
-    (home-page "http://www.yesodweb.com/book/web-application-interface")
-    (synopsis "WAI application for static serving")
-    (description
-     "WAI application for static serving
-
-Also provides some helper functions and datatypes for use outside of WAI.")
-    (license #f)))
 
 (define ghc-containers
   (package
@@ -345,60 +268,11 @@ Also provides some helper functions and datatypes for use outside of WAI.")
          "0smc1g58l968jxcjxhxcd4qpfm4zk7zr6r4q6wf6ay75av9rf4d7"))))
     (build-system haskell-build-system)
     (native-inputs
-     `(("ghc-hunit" ,ghc-hunit)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
+     `(("ghc-chasingbottoms" ,ghc-chasingbottoms)
        ("ghc-hunit" ,ghc-hunit)
        ("ghc-quickcheck" ,ghc-quickcheck)
        ("ghc-test-framework" ,ghc-test-framework)
        ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-hunit" ,ghc-hunit)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-hunit" ,ghc-hunit)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-hunit" ,ghc-hunit)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-hunit" ,ghc-hunit)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-chasingbottoms" ,ghc-chasingbottoms)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-chasingbottoms" ,ghc-chasingbottoms)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-chasingbottoms" ,ghc-chasingbottoms)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)
-       ("ghc-chasingbottoms" ,ghc-chasingbottoms)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
        ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)))
     (home-page
      "http://hackage.haskell.org/package/containers")
@@ -475,11 +349,7 @@ Also provides some helper functions and datatypes for use outside of WAI.")
        ("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-hunit" ,ghc-tasty-hunit)
        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)
-       ("ghc-random" ,ghc-random)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-tasty" ,ghc-tasty)
-       ("ghc-tasty-hunit" ,ghc-tasty-hunit)
-       ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)))
+       ("ghc-random" ,ghc-random)))
     (home-page "https://github.com/haskell/time")
     (synopsis "A time library")
     (description "Time, clocks and calendars")
@@ -503,8 +373,7 @@ Also provides some helper functions and datatypes for use outside of WAI.")
     (inputs
      `(("ghc-attoparsec" ,ghc-attoparsec)
        ("ghc-base64-bytestring" ,ghc-base64-bytestring)
-       ("ghc-bytestring-builder"
-        ,ghc-bytestring-builder)
+       ("ghc-bytestring-builder" ,ghc-bytestring-builder)
        ("ghc-case-insensitive" ,ghc-case-insensitive)
        ("ghc-network" ,ghc-network)
        ("ghc-random" ,ghc-random)
@@ -515,10 +384,8 @@ Also provides some helper functions and datatypes for use outside of WAI.")
      `(("ghc-hunit" ,ghc-hunit)
        ("ghc-quickcheck" ,ghc-quickcheck)
        ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-hunit"
-        ,ghc-test-framework-hunit)
-       ("ghc-test-framework-quickcheck2"
-        ,ghc-test-framework-quickcheck2)))
+       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
+       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)))
     (home-page "http://jaspervdj.be/websockets")
     (synopsis
      "A sensible and clean way to write WebSocket-capable servers in Haskell.")
@@ -634,6 +501,9 @@ Also provides some helper functions and datatypes for use outside of WAI.")
        ("ghc-scientific" ,ghc-scientific)
        ("ghc-transformers" ,ghc-transformers)
        ("ghc-unordered-containers" ,ghc-unordered-containers)))
+    (native-inputs
+     `(("ghc-tasty" ,ghc-tasty)
+       ("ghc-tasty-hunit" ,ghc-tasty-hunit)))
     (home-page "https://github.com/hdgarrood/bower-json")
     (synopsis "Read bower.json from Haskell")
     (description "Bower is a package manager for the web (see http://bower.io). This package provides a data type and ToJSON/FromJSON instances for Bower's package manifest file, bower.json.")
@@ -660,6 +530,4 @@ Also provides some helper functions and datatypes for use outside of WAI.")
     (description
      "A portable library of functor and monad transformers, inspired by the paper \\\"Functional Programming with Overloading and Higher-Order Polymorphism\\\", by Mark P Jones, in /Advanced School of Functional Programming/, 1995 (<http://web.cecs.pdx.edu/~mpj/pubs/springschool.html>). . This package contains: . * the monad transformer class (in \"Control.Monad.Trans.Class\") . * concrete functor and monad transformers, each with associated operations and functions to lift operations associated with other transformers. . The package can be used on its own in portable Haskell code, in which case operations need to be manually lifted through transformer stacks (see \"Control.Monad.Trans.Class\" for some examples). Alternatively, it can be used with the non-portable monad classes in the @mtl@ or @monads-tf@ packages, which automatically lift operations introduced by monad transformers through other transformers.")
     (license license:bsd-3)))
-
-
 
