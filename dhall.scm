@@ -223,8 +223,7 @@ The PGP Word List consists of two phonetic alphabets, each with one word per pos
        ("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-hunit" ,ghc-tasty-hunit)
        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)
-       ("ghc-quickcheck-instances"
-        ,ghc-quickcheck-instances)))
+       ("ghc-quickcheck-instances" ,ghc-quickcheck-instances)))
     (home-page "https://github.com/well-typed/cborg")
     (synopsis "A binary serialisation library for Haskell values.")
     (description
