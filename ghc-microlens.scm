@@ -12,7 +12,7 @@
 
 (define ghc-microlens-0.4.10
   (package
-    (name "ghc-microlens")
+    (name "ghc-microlens-0.4.10")
     (version "0.4.10")
     (source
      (origin

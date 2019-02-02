@@ -1,6 +1,5 @@
 (define-module (purescript)
   #:use-module (dhall)
-  #:use-module (ghc-megaparsec)
   #:use-module (ghc-microlens)
   #:use-module (ghc-mtl)
   #:use-module (gnu packages haskell)
@@ -788,3 +787,34 @@ Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a qui
     (description
      "This package contains libraries for dealing with system processes. The typed-process package is a more recent take on a process API, which uses this package internally. It features better binary support, easier concurrency, and a more composable API. You can read more about it at https://haskell-lang.org/library/typed-process.")
     (license license:bsd-3)))
+(define ghc-megaparsec-7.0.4
+  (package
+    (name "ghc-megaparsec-7.0.4")
+    (version "7.0.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/megaparsec/megaparsec-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1hg83m85f4v78mqdkznd1ddk9y32hnrv0bgva7ir3vydx37aanrj"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-case-insensitive" ,ghc-case-insensitive)
+       ("ghc-mtl" ,ghc-mtl)
+       ("ghc-parser-combinators" ,ghc-parser-combinators)
+       ("ghc-scientific" ,ghc-scientific)
+       ("ghc-text" ,ghc-text)))
+    (native-inputs
+     `(("ghc-quickcheck" ,ghc-quickcheck)
+       ("ghc-hspec" ,ghc-hspec)
+       ("ghc-hspec-expectations" ,ghc-hspec-expectations)))
+    (arguments `(#:tests? #f))
+    (home-page "https://github.com/mrkkrp/megaparsec")
+    (synopsis "Monadic parser combinators")
+    (description
+     "This is an industrial-strength monadic parser combinator library. Megaparsec is a feature-rich package that strikes a nice balance between speed, flexibility, and quality of parse errors.")
+    (license license:bsd-2)))
