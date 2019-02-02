@@ -20,7 +20,9 @@
               (uri (string-append "https://github.com/uobikiemukot/yaft/archive/v" version ".tar.gz"))
               (sha256 (base32 "0k1pn1fph7zinb44mb0bdrlmvi93irplss4whmvlz8zhgy9ydxw0"))))
     (build-system gnu-build-system)
-    (inputs `(("gcc" ,gcc)))
+    (inputs `(("gcc" ,gcc)
+              ("ncurses" ,ncurses)))
+    (outputs '("out"))
     (arguments
      `(#:make-flags (list (string-append "DESTDIR=" (assoc-ref %outputs "out")))
        #:tests? #f
@@ -41,8 +43,6 @@
                (copy-recursively (string-append out "/usr/share") (string-append out "/share"))
                (delete-file-recursively (string-append out "/usr"))
                #t))))))
-    (inputs `(("ncurses" ,ncurses)))
-    (outputs '("out"))
     (synopsis "Yet another framebuffer terminal")
     (home-page "https://github.com/uobikiemukot/yaft")
     (description
