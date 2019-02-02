@@ -24,7 +24,7 @@
    (home-page "http://github.com/haskell/mtl")
    (synopsis "Monad classes, using functional dependencies")
    (description
-    "Monad classes using functional dependencies, with instances for various monad transformers, inspired by the paper /Functional Programming with Overloading and Higher-Order Polymorphism/, by Mark P Jones, in /Advanced School of Functional Programming/, 1995 (<http://web.cecs.pdx.edu/~mpj/pubs/springschool.html>).")
+    "Monad classes using functional dependencies, with instances for various monad transformers, inspired by the paper \"Functional Programming with Overloading and Higher-Order Polymorphism\", by Mark P Jones, in \"Advanced School of Functional Programming\", 1995 http://web.cecs.pdx.edu/~mpj/pubs/springschool.html.")
    (license license:bsd-3)))
 
 (define ghc-mtl-compat
@@ -51,5 +51,9 @@
     (synopsis
      "Backported Control.Monad.Except module from mtl")
     (description
-     "This package backports the \"Control.Monad.Except\" module from @mtl@ (if using @mtl-2.2.0.1@ or earlier), which reexports the @ExceptT@ monad transformer and the @MonadError@ class. . This package should only be used if there is a need to use the @Control.Monad.Except@ module specifically. If you just want the @mtl@ class instances for @ExceptT@, use @transformers-compat@ instead, since @mtl-compat@ does nothing but reexport the instances from that package. . Note that unlike how @mtl-2.2@ or later works, the \"Control.Monad.Except\" module defined in this package exports all of @ExceptT@'s monad class instances. Therefore, you may have to declare @import Control.Monad.Except ()@ at the top of your file to get all of the @ExceptT@ instances in scope.")
+     "This package backports the \"Control.Monad.Except\" module from mtl (if using mtl-2.2.0.1 or earlier), which reexports the ExceptT monad transformer and the MonadError class.
+
+This package should only be used if there is a need to use the Control.Monad.Except module specifically. If you just want the mtl class instances for ExceptT, use transformers-compat instead, since mtl-compat does nothing but reexport the instances from that package.
+
+Note that unlike how mtl-2.2 or later works, the \"Control.Monad.Except\" module defined in this package exports all of ExceptT's monad class instances. Therefore, you may have to declare import Control.Monad.Except () at the top of your file to get all of the ExceptT instances in scope.")
     (license license:bsd-3)))

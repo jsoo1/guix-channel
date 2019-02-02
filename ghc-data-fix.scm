@@ -19,5 +19,7 @@
    (home-page "https://github.com/anton-k/data-fix")
    (synopsis "Fixpoint data types")
    (description
-    "Fixpoint types and recursion schemes. If you define your AST as fixpoint type, you get fold and unfold operations for free. . Thanks for contribution to: Matej Kollar, Herbert Valerio Riedel")
+    "Fixpoint types and recursion schemes. If you define your AST as fixpoint type, you get fold and unfold operations for free.
+
+Thanks for contribution to: Matej Kollar, Herbert Valerio Riedel")
    (license license:bsd-3)))

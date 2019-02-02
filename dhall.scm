@@ -65,12 +65,14 @@
        ("ghc-mockery" ,ghc-mockery)
        ("ghc-doctest" ,ghc-doctest)))
     (arguments `(#:tests? #f))
-    (home-page
-     "http://hackage.haskell.org/package/dhall")
-    (synopsis
-     "A configuration language guaranteed to terminate")
+    (home-page "http://hackage.haskell.org/package/dhall")
+    (synopsis "A configuration language guaranteed to terminate")
     (description
-     "Dhall is an explicitly typed configuration language that is not Turing complete.  Despite being Turing incomplete, Dhall is a real programming language with a type-checker and evaluator. . Use this library to parse, type-check, evaluate, and pretty-print the Dhall configuration language.  This package also includes an executable which type-checks a Dhall file and reduces the file to a fully evaluated normal form. . Read \"Dhall.Tutorial\" to learn how to use this library")
+     "Dhall is an explicitly typed configuration language that is not Turing complete.  Despite being Turing incomplete, Dhall is a real programming language with a type-checker and evaluator.
+
+Use this library to parse, type-check, evaluate, and pretty-print the Dhall configuration language.  This package also includes an executable which type-checks a Dhall file and reduces the file to a fully evaluated normal form.
+
+Read \"Dhall.Tutorial\" to learn how to use this library")
     (license license:bsd-3)))
 
 (define dhall-json
@@ -100,11 +102,15 @@
     (native-inputs
      `(("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-hunit" ,ghc-tasty-hunit)))
-    (home-page
-     "http://hackage.haskell.org/package/dhall-json")
+    (home-page "http://hackage.haskell.org/package/dhall-json")
     (synopsis "Compile Dhall to JSON or YAML")
     (description
-     "Use this package if you want to compile Dhall expressions to JSON or YAML. You can use this package as a library or an executable: . * See the \"Dhall.JSON\" module if you want to use this package as a library . * Use the @dhall-to-json@ or @dhall-to-yaml@ programs from this package if you want an executable . The \"Dhall.JSON\" module also contains instructions for how to use this package")
+     "Use this package if you want to compile Dhall expressions to JSON or YAML. You can use this package as a library or an executable:
+
+  * See the \"Dhall.JSON\" module if you want to use this package as a library.
+  * Use the dhall-to-json or dhall-to-yaml programs from this package if you want an executable.
+
+The \"Dhall.JSON\" module also contains instructions for how to use this package")
     (license license:bsd-3)))
 
 ;; DEPENDENCIES
@@ -137,7 +143,9 @@
     (synopsis
      "Translate between binary data and a human-readable collection of words.")
     (description
-     "Translate between binary data and a human-readable collection of words. . The PGP Word List consists of two phonetic alphabets, each with one word per possible byte value. A string of bytes is translated with these alphabets, alternating between them at each byte. . The PGP words corresponding to the bytes @5B 1D CA 6E@ are \"erase breakaway spellbind headwaters\", for example. . For further information, see <http://en.wikipedia.org/wiki/PGP_word_list Wikipedia>.")
+     "Translate between binary data and a human-readable collection of words.
+
+The PGP Word List consists of two phonetic alphabets, each with one word per possible byte value. A string of bytes is translated with these alphabets, alternating between them at each byte. . The PGP words corresponding to the bytes 5B 1D CA 6E are \"erase breakaway spellbind headwaters\", for example. . For further information, see http://en.wikipedia.org/wiki/PGP_word_list Wikipedia.")
     (license license:bsd-3)))
 
 (define ghc-prettyprinter-ansi-terminal
@@ -183,8 +191,7 @@
     (build-system haskell-build-system)
     (inputs `(("ghc-mtl" ,ghc-mtl)))
     (home-page "https://github.com/sdiehl/repline")
-    (synopsis
-     "Haskeline wrapper for GHCi-like REPL interfaces.")
+    (synopsis "Haskeline wrapper for GHCi-like REPL interfaces.")
     (description
      "Haskeline wrapper for GHCi-like REPL interfaces. Composable with normal mtl transformers.")
     (license license:expat)))
@@ -219,10 +226,13 @@
        ("ghc-quickcheck-instances"
         ,ghc-quickcheck-instances)))
     (home-page "https://github.com/well-typed/cborg")
-    (synopsis
-     "A binary serialisation library for Haskell values.")
+    (synopsis "A binary serialisation library for Haskell values.")
     (description
-     "This package (formerly @binary-serialise-cbor@) provides pure, efficient serialization of Haskell values directly into @ByteString@s for storage or transmission purposes. By providing a set of type class instances, you can also serialise any custom data type you have as well. . The underlying binary format used is the 'Concise Binary Object Representation', or CBOR, specified in RFC 7049. As a result, serialised Haskell values have implicit structure outside of the Haskell program itself, meaning they can be inspected or analyzed without custom tools. . An implementation of the standard bijection between CBOR and JSON is provided by the [cborg-json](/package/cborg-json) package. Also see [cbor-tool](/package/cbor-tool) for a convenient command-line utility for working with CBOR data.")
+     "This package (formerly binary-serialise-cbor) provides pure, efficient serialization of Haskell values directly into ByteStrings for storage or transmission purposes. By providing a set of type class instances, you can also serialise any custom data type you have as well.
+
+The underlying binary format used is the 'Concise Binary Object Representation', or CBOR, specified in RFC 7049. As a result, serialised Haskell values have implicit structure outside of the Haskell program itself, meaning they can be inspected or analyzed without custom tools.
+
+An implementation of the standard bijection between CBOR and JSON is provided by the https://hackage.haskell.org/package/cborg-json package. Also see https://hackage.haskell.org/package/cbor-tool for a convenient command-line utility for working with CBOR data.")
     (license license:bsd-3)))
 
 (define ghc-prettyprinter
@@ -246,8 +256,7 @@
        ("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-hunit" ,ghc-tasty-hunit)
        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)))
-    (home-page
-     "http://github.com/quchen/prettyprinter")
+    (home-page "http://github.com/quchen/prettyprinter")
     (synopsis
      "A modern, easy to use, well-documented, extensible pretty-printer.")
     (description
@@ -273,7 +282,15 @@
      "http://hackage.haskell.org/package/lens-family-core")
     (synopsis "Haskell 98 Lens Families")
     (description
-     "This package provides first class functional references. In addition to the usual operations of getting, setting and composition, plus integration with the state monad, lens families provide some unique features: . * Polymorphic updating . * Traversals . * Cast projection functions to read-only lenses . * Cast \\\"toList\\\" functions to read-only traversals . * Cast semantic editor combinators to modify-only traversals. . (â\x80\xa0) For optimal first-class support use the lens-family package with rank 2 / rank N polymorphism. \"Lens.Family.Clone\" allows for first-class support of lenses and traversals for those who require Haskell 98.")
+     "This package provides first class functional references. In addition to the usual operations of getting, setting and composition, plus integration with the state monad, lens families provide some unique features:
+
+  * Polymorphic updating
+  * Traversals
+  * Cast projection functions to read-only lenses
+  * Cast \"toList\" functions to read-only traversals
+  * Cast semantic editor combinators to modify-only traversals.
+
+For optimal first-class support use the lens-family package with rank 2/rank N polymorphism. \"Lens.Family.Clone\" allows for first-class support of lenses and traversals for those who require Haskell 98.")
     (license license:bsd-3)))
 
 (define ghc-dotgen
@@ -292,8 +309,7 @@
          "148q93qsmqgr5pzdwvpjqfd6bdm1pwzcp2rblfwswx2x8c5f43fg"))))
     (build-system haskell-build-system)
     (home-page "https://github.com/ku-fpg/dotgen")
-    (synopsis
-     "A simple interface for building .dot graph files.")
+    (synopsis "A simple interface for building .dot graph files.")
     (description
      "This package provides a simple interface for building .dot graph files, for input into the dot and graphviz tools. It includes a monadic interface for building graphs.")
     (license license:bsd-3)))
@@ -355,9 +371,14 @@
        ("ghc-tasty-hunit" ,ghc-tasty-hunit)
        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)
        ("ghc-vector" ,ghc-vector)))
-    (home-page
-     "http://hackage.haskell.org/package/cborg")
+    (home-page "http://hackage.haskell.org/package/cborg")
     (synopsis "Concise Binary Object Representation")
     (description
-     "This package (formerly @binary-serialise-cbor@) provides an efficient implementation of the Concise Binary Object Representation (CBOR), as specified by [RFC 7049](https://tools.ietf.org/html/rfc7049). . If you are looking for a library for serialisation of Haskell values, have a look at the [serialise](/package/serialise) package, which is built upon this library. . An implementation of the standard bijection between CBOR and JSON is provided by the [cborg-json](/package/cborg-json) package. Also see [cbor-tool](/package/cbor-tool) for a convenient command-line utility for working with CBOR data.")
+     "This package (formerly binary-serialise-cbor) provides an efficient implementation of the Concise Binary Object Representation (CBOR), as specified by RFC 7049 at https://tools.ietf.org/html/rfc7049.
+
+If you are looking for a library for serialisation of Haskell values, have a look at the https://hackage.haskell.org/package/serialise package, which is built upon this library.
+
+An implementation of the standard bijection between CBOR and JSON is provided by the https://hackage.haskell.org/package/cborg-json package.
+
+Also see https://hackage.haskell.org/package/cbor-tool for a convenient command-line utility for working with CBOR data.")
     (license license:bsd-3)))

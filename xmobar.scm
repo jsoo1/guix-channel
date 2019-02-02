@@ -58,7 +58,7 @@
    (home-page "http://xmobar.org")
    (synopsis "Minimalistic text based status bar")
    (description
-    "@code{xmobar} is a lightweight, text-based, status bar written in
+    "code{xmobar} is a lightweight, text-based, status bar written in
 Haskell.  It was originally designed to be used together with Xmonad, but it
 is also usable with any other window manager.  While xmobar is written in
 Haskell, no knowledge of the language is required to install and use it.")

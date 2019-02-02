@@ -214,7 +214,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (synopsis
      "Implementation of source maps as proposed by Google and Mozilla.")
     (description
-     "Implementation of source maps, revision 3, proposed by Google and Mozilla here <https://wiki.mozilla.org/DevTools/Features/SourceMap> and here <https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit>")
+     "Implementation of source maps, revision 3, proposed by Google and Mozilla here https://wiki.mozilla.org/DevTools/Features/SourceMap and here https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit")
     (license license:bsd-3)))
 
 (define ghc-utf8-light
@@ -267,7 +267,9 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      "https://github.com/erikd/language-javascript https://github.com/erikd/language-javascript")
     (synopsis "Parser for JavaScript")
     (description
-     "Parses Javascript into an Abstract Syntax Tree (AST).  Initially intended as frontend to hjsmin. . Note: Version 0.5.0 breaks compatibility with prior versions, the AST has been reworked to allow round trip processing of JavaScript.")
+     "Parses Javascript into an Abstract Syntax Tree (AST). Initially intended as frontend to hjsmin.
+
+ Note: Version 0.5.0 breaks compatibility with prior versions, the AST has been reworked to allow round trip processing of JavaScript.")
     (license license:bsd-3)))
 
 (define ghc-wai-websockets
@@ -297,7 +299,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (synopsis
      "Provide a bridge between WAI and the websockets package.")
     (description
-     "API docs and the README are available at <http://www.stackage.org/package/wai-websockets>.")
+     "API docs and the README are available at http://www.stackage.org/package/wai-websockets.")
     (license license:expat)))
 
 (define ghc-containers
@@ -326,7 +328,11 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      "http://hackage.haskell.org/package/containers")
     (synopsis "Assorted concrete container types")
     (description
-     ". This package contains efficient general-purpose implementations of various immutable container types including sets, maps, sequences, trees, and graphs. . For a walkthrough of what this package provides with examples of common operations see the [containers introduction](https://haskell-containers.readthedocs.io). . The declared cost of each operation is either worst-case or amortized, but remains valid even if structures are shared.")
+     "This package contains efficient general-purpose implementations of various immutable container types including sets, maps, sequences, trees, and graphs.
+
+For a walkthrough of what this package provides with examples of common operations see the containers introduction at https://haskell-containers.readthedocs.io.
+
+The declared cost of each operation is either worst-case or amortized, but remains valid even if structures are shared.")
     (license license:bsd-3)))
 
 (define ghc-directory
@@ -374,7 +380,13 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (synopsis
      "Library for manipulating FilePaths in a cross platform way.")
     (description
-     "This package provides functionality for manipulating @FilePath@ values, and is shipped with both <https://www.haskell.org/ghc/ GHC> and the <https://www.haskell.org/platform/ Haskell Platform>. It provides three modules: . * \"System.FilePath.Posix\" manipulates POSIX\\/Linux style @FilePath@ values (with @\\/@ as the path separator). . * \"System.FilePath.Windows\" manipulates Windows style @FilePath@ values (with either @\\\\@ or @\\/@ as the path separator, and deals with drives). . * \"System.FilePath\" is an alias for the module appropriate to your platform. . All three modules provide the same API, and the same documentation (calling out differences in the different variants).")
+     "This package provides functionality for manipulating FilePath values, and is shipped with both GHC and the Haskell Platform. It provides three modules:
+
+  * \"System.FilePath.Posix\" manipulates POSIX/Linux style FilePath values (with / as the path separator).
+  * \"System.FilePath.Windows\" manipulates Windows style FilePath values (with either \\ or / as the path separator, and deals with drives).
+  * \"System.FilePath\" is an alias for the module appropriate to your platform.
+
+All three modules provide the same API, and the same documentation (calling out differences in the different variants).")
     (license license:bsd-3)))
 
 (define ghc-time
@@ -438,7 +450,15 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (synopsis
      "A sensible and clean way to write WebSocket-capable servers in Haskell.")
     (description
-     "This library allows you to write WebSocket-capable servers. . An example server: <https://github.com/jaspervdj/websockets/blob/master/example/server.lhs> . An example client: <https://github.com/jaspervdj/websockets/blob/master/example/client.hs> . See also: . * The specification of the WebSocket protocol: <http://www.whatwg.org/specs/web-socket-protocol/> . * The JavaScript API for dealing with WebSockets: <http://www.w3.org/TR/websockets/>")
+     "This library allows you to write WebSocket-capable servers.
+
+An example server: https://github.com/jaspervdj/websockets/blob/master/example/server.lhs
+An example client: https://github.com/jaspervdj/websockets/blob/master/example/client.hs
+
+See also:
+
+  * The specification of the WebSocket protocol: http://www.whatwg.org/specs/web-socket-protocol/ .
+  * The JavaScript API for dealing with WebSockets: http://www.w3.org/TR/websockets/")
     (license license:bsd-3)))
 
 (define ghc-hspec-discover
@@ -463,7 +483,9 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (synopsis
      "Automatically discover and run Hspec tests")
     (description
-     "Automatically discover and run Hspec tests . <http://hspec.github.io/hspec-discover.html>")
+     "Automatically discover and run Hspec tests.
+
+http://hspec.github.io/hspec-discover.html")
     (license license:expat)))
 
 (define ghc-tasty-hspec
@@ -576,7 +598,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      "http://hackage.haskell.org/package/transformers")
     (synopsis "Concrete functor and monad transformers")
     (description
-     "A portable library of functor and monad transformers, inspired by the paper \\\"Functional Programming with Overloading and Higher-Order Polymorphism\\\", by Mark P Jones, in /Advanced School of Functional Programming/, 1995 (<http://web.cecs.pdx.edu/~mpj/pubs/springschool.html>). . This package contains: . * the monad transformer class (in \"Control.Monad.Trans.Class\") . * concrete functor and monad transformers, each with associated operations and functions to lift operations associated with other transformers. . The package can be used on its own in portable Haskell code, in which case operations need to be manually lifted through transformer stacks (see \"Control.Monad.Trans.Class\" for some examples). Alternatively, it can be used with the non-portable monad classes in the @mtl@ or @monads-tf@ packages, which automatically lift operations introduced by monad transformers through other transformers.")
+     "A portable library of functor and monad transformers, inspired by the paper \"Functional Programming with Overloading and Higher-Order Polymorphism\", by Mark P Jones, in Advanced School of Functional Programming, 1995 http://web.cecs.pdx.edu/~mpj/pubs/springschool.html. . This package contains: . * the monad transformer class (in \"Control.Monad.Trans.Class\") . * concrete functor and monad transformers, each with associated operations and functions to lift operations associated with other transformers. . The package can be used on its own in portable Haskell code, in which case operations need to be manually lifted through transformer stacks (see \"Control.Monad.Trans.Class\" for some examples). Alternatively, it can be used with the non-portable monad classes in the mtl or monads-tf packages, which automatically lift operations introduced by monad transformers through other transformers.")
     (license license:bsd-3)))
 
 (define ghc-dotgen
@@ -651,7 +673,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (synopsis
      "A modified version of async that supports worker groups and many-to-many task dependencies")
     (description
-     "This library modifies the @async@ package to allow for task pooling and many-to-many dependencies between tasks.")
+     "This library modifies the async package to allow for task pooling and many-to-many dependencies between tasks.")
     (license license:expat)))
 
 (define ghc-serialise
@@ -675,8 +697,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
        ("ghc-hashable" ,ghc-hashable)
        ("ghc-primitive" ,ghc-primitive)
        ("ghc-text" ,ghc-text)
-       ("ghc-unordered-containers"
-        ,ghc-unordered-containers)
+       ("ghc-unordered-containers" ,ghc-unordered-containers)
        ("ghc-vector" ,ghc-vector)))
     (native-inputs
      `(("ghc-quickcheck" ,ghc-quickcheck)
@@ -689,7 +710,11 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (synopsis
      "A binary serialisation library for Haskell values.")
     (description
-     "This package (formerly @binary-serialise-cbor@) provides pure, efficient serialization of Haskell values directly into @ByteString@s for storage or transmission purposes. By providing a set of type class instances, you can also serialise any custom data type you have as well. . The underlying binary format used is the 'Concise Binary Object Representation', or CBOR, specified in RFC 7049. As a result, serialised Haskell values have implicit structure outside of the Haskell program itself, meaning they can be inspected or analyzed without custom tools. . An implementation of the standard bijection between CBOR and JSON is provided by the [cborg-json](/package/cborg-json) package. Also see [cbor-tool](/package/cbor-tool) for a convenient command-line utility for working with CBOR data.")
+     "This package (formerly binary-serialise-cbor) provides pure, efficient serialization of Haskell values directly into ByteStrings for storage or transmission purposes. By providing a set of type class instances, you can also serialise any custom data type you have as well.
+
+The underlying binary format used is the 'Concise Binary Object Representation', or CBOR, specified in RFC 7049. As a result, serialised Haskell values have implicit structure outside of the Haskell program itself, meaning they can be inspected or analyzed without custom tools.
+
+An implementation of the standard bijection between CBOR and JSON is provided by the https://haskell.hackage.org/package/cborg-json package. Also see https://hackage.haskell.org/package/cbor-tool for a convenient command-line utility for working with CBOR data.")
     (license license:bsd-3)))
 
 (define ghc-turtle
@@ -728,7 +753,18 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      "http://hackage.haskell.org/package/turtle")
     (synopsis "Shell programming, Haskell-style")
     (description
-     "@turtle@ is a reimplementation of the Unix command line environment in Haskell so that you can use Haskell as both a shell and a scripting language. . Features include: . * Batteries included: Command an extended suite of predefined utilities . * Interoperability: You can still run external shell commands . * Portability: Works on Windows, OS X, and Linux . * Exception safety: Safely acquire and release resources . * Streaming: Transform or fold command output in constant space . * Patterns: Use typed regular expressions that can parse structured values . * Formatting: Type-safe @printf@-style text formatting . * Modern: Supports @text@ and @system-filepath@ . Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a quick-start guide . @turtle@ is designed to be beginner-friendly, but as a result lacks certain features, like tracing commands.  If you feel comfortable using @turtle@ then you should also check out the @Shelly@ library which provides similar functionality.")
+     "turtle is a reimplementation of the Unix command line environment in Haskell so that you can use Haskell as both a shell and a scripting language. Features include:
+ 
+  * Batteries included: Command an extended suite of predefined utilities.
+  * Interoperability: You can still run external shell commands.
+  * Portability: Works on Windows, OS X, and Linux.
+  * Exception safety: Safely acquire and release resources.
+  * Streaming: Transform or fold command output in constant space.
+  * Patterns: Use typed regular expressions that can parse structured values.
+  * Formatting: Type-safe printf-style text formatting.
+  * Modern: Supports text and system-filepath.
+
+Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a quick-start guide. turtle is designed to be beginner-friendly, but as a result lacks certain features, like tracing commands.  If you feel comfortable using turtle then you should also check out the Shelly library which provides similar functionality.")
     (license license:bsd-3)))
 
 (define ghc-process
@@ -750,5 +786,5 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      "http://hackage.haskell.org/package/process")
     (synopsis "Process libraries")
     (description
-     "This package contains libraries for dealing with system processes. . The typed-process package is a more recent take on a process API, which uses this package internally. It features better binary support, easier concurrency, and a more composable API. You can read more about it at <https://haskell-lang.org/library/typed-process>.")
+     "This package contains libraries for dealing with system processes. The typed-process package is a more recent take on a process API, which uses this package internally. It features better binary support, easier concurrency, and a more composable API. You can read more about it at https://haskell-lang.org/library/typed-process.")
     (license license:bsd-3)))
