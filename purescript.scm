@@ -12,7 +12,7 @@
   #:use-module (guix build-system haskell)
   #:use-module ((guix licenses) #:prefix license:)
   #:export (purescript
-            psc-spago))
+            purescript-spago))
 
 (define purescript
   (package
@@ -94,11 +94,11 @@
      "A small strongly, statically typed programming language with expressive types, inspired by Haskell and compiling to JavaScript.")
     (license license:bsd-3)))
 
-(define psc-spago
+(define purescript-spago
   (let ((revision "1")
         (commit "838e627461f58181bb69fd3828a161bc88b97e6d"))
     (package
-      (name "psc-spago")
+      (name "purescript-spago")
       (version (git-version "0.6.3" revision commit))
       (source
        (origin
