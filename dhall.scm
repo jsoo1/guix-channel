@@ -3,6 +3,8 @@
                                       ghc-cborg-json
                                       ghc-serialise))
   #:use-module (ghc-mtl)
+  #:use-module (ghc-parsing)
+  #:use-module (ghc-repline)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-crypto)
@@ -96,7 +98,6 @@ Read \"Dhall.Tutorial\" to learn how to use this library")
      `(("ghc-aeson" ,ghc-aeson)
        ("ghc-dhall" ,dhall)
        ("ghc-optparse-applicative" ,ghc-optparse-applicative)
-       ("ghc-text" ,ghc-text)
        ("ghc-unordered-containers" ,ghc-unordered-containers)
        ("ghc-aeson-pretty" ,ghc-aeson-pretty)
        ("ghc-yaml" ,ghc-yaml)
@@ -176,28 +177,6 @@ The PGP Word List consists of two phonetic alphabets, each with one word per pos
     (description "See README.md")
     (license license:bsd-2)))
 
-(define ghc-repline
-  (package
-    (name "ghc-repline")
-    (version "0.2.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/repline/repline-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1ph21kbbanlcs8n5lwk16g9vqkb98mkbz5mzwrp8j2rls2921izc"))))
-    (build-system haskell-build-system)
-    (inputs `(("ghc-mtl" ,ghc-mtl)))
-    (home-page "https://github.com/sdiehl/repline")
-    (synopsis "Haskeline wrapper for GHCi-like REPL interfaces.")
-    (description
-     "Haskeline wrapper for GHCi-like REPL interfaces. Composable with normal mtl transformers.")
-    (license license:expat)))
-
 (define ghc-prettyprinter
   (package
     (name "ghc-prettyprinter")
@@ -276,35 +255,3 @@ For optimal first-class support use the lens-family package with rank 2/rank N p
     (description
      "This package provides a simple interface for building .dot graph files, for input into the dot and graphviz tools. It includes a monadic interface for building graphs.")
     (license license:bsd-3)))
-
-(define ghc-megaparsec-7.0.4
-  (package
-    (name "ghc-megaparsec-7.0.4")
-    (version "7.0.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/megaparsec/megaparsec-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1hg83m85f4v78mqdkznd1ddk9y32hnrv0bgva7ir3vydx37aanrj"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-case-insensitive" ,ghc-case-insensitive)
-       ("ghc-mtl" ,ghc-mtl)
-       ("ghc-parser-combinators" ,ghc-parser-combinators)
-       ("ghc-scientific" ,ghc-scientific)
-       ("ghc-text" ,ghc-text)))
-    (native-inputs
-     `(("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-hspec" ,ghc-hspec)
-       ("ghc-hspec-expectations" ,ghc-hspec-expectations)))
-    (arguments `(#:tests? #f))
-    (home-page "https://github.com/mrkkrp/megaparsec")
-    (synopsis "Monadic parser combinators")
-    (description
-     "This is an industrial-strength monadic parser combinator library. Megaparsec is a feature-rich package that strikes a nice balance between speed, flexibility, and quality of parse errors.")
-    (license license:bsd-2)))

@@ -3,10 +3,13 @@
   #:use-module ((ghc-cborg) #:select (ghc-serialise))
   #:use-module (ghc-microlens)
   #:use-module (ghc-mtl)
+  #:use-module (ghc-parsing)
+  #:use-module (ghc-repline)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-crypto)
   #:use-module (gnu packages haskell-web)
+  #:use-module ((gnu packages python) #:select (python))
   #:use-module (guix download)
   #:use-module (guix git-download)
   #:use-module (guix packages)
@@ -111,21 +114,29 @@
           (base32
            "18pfdhiqn0a3iwvkxzw4lkg8g6h5c60gj917y0n6k08pdi3vv800"))))
       (build-system haskell-build-system)
+      (native-inputs
+       `(("ghc-hpack" ,ghc-hpack)
+         ("python" ,python)
+         ("dhall" ,dhall)
+         ("dhall-json" ,dhall-json)))
       (inputs
-       `(("dhall" ,dhall)
-         ("dhall-json" ,dhall-json)
-         ("ghc-aeson" ,ghc-aeson)
+       `(("ghc-aeson" ,ghc-aeson)
          ("ghc-aeson-pretty" ,ghc-aeson-pretty)
          ("ghc-async-pool" ,ghc-async-pool)
          ("ghc-containers" ,ghc-containers)
          ("ghc-dotgen" ,ghc-dotgen)
-         ("ghc-megaparsec" ,ghc-megaparsec-7.0.4)
+         ("ghc-megaparsec-7.0.4" ,ghc-megaparsec-7.0.4)
          ("ghc-process" ,ghc-process)
          ("ghc-repline" ,ghc-repline)
          ("ghc-serialise" ,ghc-serialise)
          ("ghc-turtle" ,ghc-turtle)
          ("ghc-filepath" ,ghc-filepath)
          ("ghc-file-embed" ,ghc-file-embed)))
+      (arguments
+       `(#:phases
+         (modify-phases %standard-phases
+           (add-before 'setup-compiler 'hpack
+             (lambda _ (invoke "hpack") #t)))))
       (home-page "https://github.com/spacchetti/spago")
       (synopsis "spaghetti PureScript package manager and build tool powered by Dhall and Spacchetti package-sets")
       (description "spago aims to tie together the UX of developing a PureScript project.
@@ -622,29 +633,6 @@ http://hspec.github.io/hspec-discover.html")
      "This package provides a simple interface for building .dot graph files, for input into the dot and graphviz tools. It includes a monadic interface for building graphs.")
     (license license:bsd-3)))
 
-(define ghc-repline
-  (package
-    (name "ghc-repline")
-    (version "0.2.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/repline/repline-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1ph21kbbanlcs8n5lwk16g9vqkb98mkbz5mzwrp8j2rls2921izc"))))
-    (build-system haskell-build-system)
-    (inputs `(("ghc-mtl" ,ghc-mtl)))
-    (home-page "https://github.com/sdiehl/repline")
-    (synopsis
-     "Haskeline wrapper for GHCi-like REPL interfaces.")
-    (description
-     "Haskeline wrapper for GHCi-like REPL interfaces. Composable with normal mtl transformers.")
-    (license license:expat)))
-
 (define ghc-async-pool
   (let ((revision "1")
         (commit "edec25439593093331c89090951399ccdd400124"))
@@ -713,7 +701,7 @@ http://hspec.github.io/hspec-discover.html")
     (synopsis "Shell programming, Haskell-style")
     (description
      "turtle is a reimplementation of the Unix command line environment in Haskell so that you can use Haskell as both a shell and a scripting language. Features include:
- 
+
   * Batteries included: Command an extended suite of predefined utilities.
   * Interoperability: You can still run external shell commands.
   * Portability: Works on Windows, OS X, and Linux.
@@ -747,38 +735,6 @@ Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a qui
     (description
      "This package contains libraries for dealing with system processes. The typed-process package is a more recent take on a process API, which uses this package internally. It features better binary support, easier concurrency, and a more composable API. You can read more about it at https://haskell-lang.org/library/typed-process.")
     (license license:bsd-3)))
-
-(define ghc-megaparsec-7.0.4
-  (package
-    (name "ghc-megaparsec-7.0.4")
-    (version "7.0.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/megaparsec/megaparsec-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1hg83m85f4v78mqdkznd1ddk9y32hnrv0bgva7ir3vydx37aanrj"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-case-insensitive" ,ghc-case-insensitive)
-       ("ghc-mtl" ,ghc-mtl)
-       ("ghc-parser-combinators" ,ghc-parser-combinators)
-       ("ghc-scientific" ,ghc-scientific)
-       ("ghc-text" ,ghc-text)))
-    (native-inputs
-     `(("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-hspec" ,ghc-hspec)
-       ("ghc-hspec-expectations" ,ghc-hspec-expectations)))
-    (arguments `(#:tests? #f))
-    (home-page "https://github.com/mrkkrp/megaparsec")
-    (synopsis "Monadic parser combinators")
-    (description
-     "This is an industrial-strength monadic parser combinator library. Megaparsec is a feature-rich package that strikes a nice balance between speed, flexibility, and quality of parse errors.")
-    (license license:bsd-2)))
 
 (define-public ghc-managed
   (package
@@ -828,4 +784,3 @@ Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a qui
 
 Read the tutorial in \"Data.Optional\" to learn more")
     (license license:bsd-3)))
-
