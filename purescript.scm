@@ -116,14 +116,13 @@
       (build-system haskell-build-system)
       (native-inputs
        `(("ghc-hpack" ,ghc-hpack)
-         ("python" ,python)
-         ("dhall" ,dhall)
-         ("dhall-json" ,dhall-json)))
+         ("python" ,python)))
       (inputs
-       `(("ghc-aeson" ,ghc-aeson)
+       `(("dhall" ,dhall)
+         ("dhall-json" ,dhall-json)
+         ("ghc-aeson" ,ghc-aeson)
          ("ghc-aeson-pretty" ,ghc-aeson-pretty)
          ("ghc-async-pool" ,ghc-async-pool)
-         ("ghc-containers" ,ghc-containers)
          ("ghc-dotgen" ,ghc-dotgen)
          ("ghc-megaparsec-7.0.4" ,ghc-megaparsec-7.0.4)
          ("ghc-process" ,ghc-process)
@@ -136,13 +135,19 @@
        `(#:phases
          (modify-phases %standard-phases
            (add-before 'setup-compiler 'hpack
-             (lambda _ (invoke "hpack") #t)))))
+             (lambda _
+               (invoke "hpack")
+               (substitute* "spago.cabal"
+                 (("filepath") "filepath <= 1.4.2"))
+               (substitute* "spago.cabal"
+                 (("process") "process <= 1.6.3.0"))
+               #t)))))
       (home-page "https://github.com/spacchetti/spago")
       (synopsis "spaghetti PureScript package manager and build tool powered by Dhall and Spacchetti package-sets")
       (description "spago aims to tie together the UX of developing a PureScript project.
 In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo and Haskell's Stack, and builds on top of ideas from existing PureScript infrastructure and tooling, as psc-package, pulp and purp.")
       ;; TODO figure it out
-      (license #f))))
+      (license license:bsd-3))))
 
 ;; DEPENDENCIES
 
@@ -311,39 +316,6 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (description
      "API docs and the README are available at http://www.stackage.org/package/wai-websockets.")
     (license license:expat)))
-
-(define ghc-containers
-  (package
-    (name "ghc-containers")
-    (version "0.6.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/containers/containers-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0smc1g58l968jxcjxhxcd4qpfm4zk7zr6r4q6wf6ay75av9rf4d7"))))
-    (build-system haskell-build-system)
-    (native-inputs
-     `(("ghc-chasingbottoms" ,ghc-chasingbottoms)
-       ("ghc-hunit" ,ghc-hunit)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-test-framework" ,ghc-test-framework)
-       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
-       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)))
-    (home-page
-     "http://hackage.haskell.org/package/containers")
-    (synopsis "Assorted concrete container types")
-    (description
-     "This package contains efficient general-purpose implementations of various immutable container types including sets, maps, sequences, trees, and graphs.
-
-For a walkthrough of what this package provides with examples of common operations see the containers introduction at https://haskell-containers.readthedocs.io.
-
-The declared cost of each operation is either worst-case or amortized, but remains valid even if structures are shared.")
-    (license license:bsd-3)))
 
 (define ghc-directory
   (package
