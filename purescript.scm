@@ -1,5 +1,6 @@
 (define-module (purescript)
   #:use-module (dhall)
+  #:use-module ((ghc-cborg) #:select (ghc-serialise))
   #:use-module (ghc-microlens)
   #:use-module (ghc-mtl)
   #:use-module (gnu packages haskell)
@@ -103,12 +104,12 @@
       (source
        (origin
          (method git-fetch)
-         (uri (git-reference (url "https://github.com/spachetti/spago")
+         (uri (git-reference (url "https://github.com/spacchetti/spago")
                              (commit commit)))
          (file-name (git-file-name name version))
          (sha256
           (base32
-           "1vq8irdknf6vvvyf6xbpni4qjgycp2j3vpzlc07rb37pjgsd5grp"))))
+           "18pfdhiqn0a3iwvkxzw4lkg8g6h5c60gj917y0n6k08pdi3vv800"))))
       (build-system haskell-build-system)
       (inputs
        `(("dhall" ,dhall)
@@ -117,7 +118,6 @@
          ("ghc-aeson-pretty" ,ghc-aeson-pretty)
          ("ghc-async-pool" ,ghc-async-pool)
          ("ghc-containers" ,ghc-containers)
-         ("ghc-bytestring" ,ghc-bytestring)
          ("ghc-dotgen" ,ghc-dotgen)
          ("ghc-megaparsec" ,ghc-megaparsec-7.0.4)
          ("ghc-process" ,ghc-process)
@@ -646,75 +646,35 @@ http://hspec.github.io/hspec-discover.html")
     (license license:expat)))
 
 (define ghc-async-pool
-  (package
-    (name "ghc-async-pool")
-    (version "0.9.0.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/async-pool/async-pool-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1wg78y80zd7qyizyis073dmmvq4s67ni1pkaq31jl5klr49rs5g0"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-fgl" ,ghc-fgl)
-       ("ghc-async" ,ghc-async)
-       ("ghc-stm" ,ghc-stm)
-       ("ghc-transformers-base" ,ghc-transformers-base)
-       ("ghc-monad-control" ,ghc-monad-control)))
-    (native-inputs `(("ghc-hspec" ,ghc-hspec)))
-    (home-page
-     "http://hackage.haskell.org/package/async-pool")
-    (synopsis
-     "A modified version of async that supports worker groups and many-to-many task dependencies")
-    (description
-     "This library modifies the async package to allow for task pooling and many-to-many dependencies between tasks.")
-    (license license:expat)))
-
-(define ghc-serialise
-  (package
-    (name "ghc-serialise")
-    (version "0.2.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "https://hackage.haskell.org/package/serialise/serialise-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "19ary6ivzk8z7wcxhm860qmh7pwqj0qjqzav1h42y85l608zqgh4"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-cborg" ,ghc-cborg)
-       ("ghc-half" ,ghc-half)
-       ("ghc-hashable" ,ghc-hashable)
-       ("ghc-primitive" ,ghc-primitive)
-       ("ghc-text" ,ghc-text)
-       ("ghc-unordered-containers" ,ghc-unordered-containers)
-       ("ghc-vector" ,ghc-vector)))
-    (native-inputs
-     `(("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-tasty" ,ghc-tasty)
-       ("ghc-tasty-hunit" ,ghc-tasty-hunit)
-       ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)
-       ("ghc-quickcheck-instances"
-        ,ghc-quickcheck-instances)))
-    (home-page "https://github.com/well-typed/cborg")
-    (synopsis
-     "A binary serialisation library for Haskell values.")
-    (description
-     "This package (formerly binary-serialise-cbor) provides pure, efficient serialization of Haskell values directly into ByteStrings for storage or transmission purposes. By providing a set of type class instances, you can also serialise any custom data type you have as well.
-
-The underlying binary format used is the 'Concise Binary Object Representation', or CBOR, specified in RFC 7049. As a result, serialised Haskell values have implicit structure outside of the Haskell program itself, meaning they can be inspected or analyzed without custom tools.
-
-An implementation of the standard bijection between CBOR and JSON is provided by the https://haskell.hackage.org/package/cborg-json package. Also see https://hackage.haskell.org/package/cbor-tool for a convenient command-line utility for working with CBOR data.")
-    (license license:bsd-3)))
+  (let ((revision "1")
+        (commit "edec25439593093331c89090951399ccdd400124"))
+    (package
+      (name "ghc-async-pool")
+      (version (git-version "0.9.0.2" revision commit))
+      (source
+       (origin
+         (method git-fetch)
+         (uri (git-reference (url "https://github.com/jwiegley/async-pool")
+                             (commit commit)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32
+           "1pf3dpyi86w99c38d6yi4yjx267rizxhrkrnnqzi7b5qfg7p394b"))))
+      (build-system haskell-build-system)
+      (inputs
+       `(("ghc-fgl" ,ghc-fgl)
+         ("ghc-async" ,ghc-async)
+         ("ghc-stm" ,ghc-stm)
+         ("ghc-transformers-base" ,ghc-transformers-base)
+         ("ghc-monad-control" ,ghc-monad-control)))
+      (native-inputs `(("ghc-hspec" ,ghc-hspec)))
+      (home-page
+       "http://hackage.haskell.org/package/async-pool")
+      (synopsis
+       "A modified version of async that supports worker groups and many-to-many task dependencies")
+      (description
+       "This library modifies the async package to allow for task pooling and many-to-many dependencies between tasks.")
+      (license license:expat))))
 
 (define ghc-turtle
   (package
@@ -787,6 +747,7 @@ Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a qui
     (description
      "This package contains libraries for dealing with system processes. The typed-process package is a more recent take on a process API, which uses this package internally. It features better binary support, easier concurrency, and a more composable API. You can read more about it at https://haskell-lang.org/library/typed-process.")
     (license license:bsd-3)))
+
 (define ghc-megaparsec-7.0.4
   (package
     (name "ghc-megaparsec-7.0.4")
@@ -818,3 +779,53 @@ Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a qui
     (description
      "This is an industrial-strength monadic parser combinator library. Megaparsec is a feature-rich package that strikes a nice balance between speed, flexibility, and quality of parse errors.")
     (license license:bsd-2)))
+
+(define-public ghc-managed
+  (package
+    (name "ghc-managed")
+    (version "1.0.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/managed/managed-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1kbrw99yh5x5blykmx2n88mplbbi4ss1ij5j17b7asw6q0ihm9zi"))))
+    (build-system haskell-build-system)
+    (home-page "http://hackage.haskell.org/package/managed")
+    (synopsis "A monad for managed values")
+    (description
+     "In Haskell you very often acquire values using the with... idiom using functions of type (a -> IO r) -> IO r.  This idiom forms a Monad, which is a special case of the ContT monad (from transformers) or the Codensity monad (from kan-extensions).  The main purpose behind this package is to provide a restricted form of these monads specialized to this unusually common case. . The reason this package defines a specialized version of these types is to:
+
+  * be more beginner-friendly,
+  * simplify inferred types and error messages, and:
+  * provide some additional type class instances that would otherwise be orphan instances")
+    (license license:bsd-3)))
+
+(define-public ghc-optional-args
+  (package
+    (name "ghc-optional-args")
+    (version "1.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/optional-args/optional-args-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1r5hhn6xvc01grggxdyy48daibwzi0aikgidq0ahpa6bfynm8d1f"))))
+    (build-system haskell-build-system)
+    (home-page
+     "http://hackage.haskell.org/package/optional-args")
+    (synopsis "Optional function arguments")
+    (description
+     "This library provides a type for specifying `Optional` function arguments
+
+Read the tutorial in \"Data.Optional\" to learn more")
+    (license license:bsd-3)))
+
