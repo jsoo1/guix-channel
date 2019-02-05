@@ -8,7 +8,7 @@
   #:use-module ((gnu packages image-processing) #:select (vtk))
   #:use-module ((gnu packages maths) #:select (hdf5 opencascade-oce))
   #:use-module ((gnu packages pkg-config) #:select (pkg-config))
-  #:use-module ((gnu packages python) #:select (python-2))
+  #:use-module ((gnu packages python) #:select (python-2.7))
   #:use-module ((gnu packages qt) #:select (qt-4))
   #:use-module ((gnu packages swig) #:select (swig))
   #:use-module ((gnu packages xml) #:select (xerces-c))
@@ -19,6 +19,7 @@
   #:use-module (guix packages)
   #:use-module ((libarea) #:select (libarea))
   #:use-module ((open-mpi) #:select (open-mpi))
+  #:use-module ((python-shiboken) #:select (python-shiboken))
   #:use-module ((salome) #:select (lib-med-file))
   #:export (freecad))
 
@@ -50,7 +51,8 @@
                ;; TODO uncomment when pivy is fixed
                ;; ("pivy" ,pivy)
                ("pkg-config" ,pkg-config)
-               ("python" ,python-2)
+               ("python-2.7" ,python-2.7)
+               ("python-shiboken" ,python-shiboken)
                ("qt-4" ,qt-4)
                ("swig" ,swig)
                ("vtk" ,vtk)
