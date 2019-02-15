@@ -1,6 +1,7 @@
 (define-module (bower)
   #:use-module (gnu packages node)
   #:use-module (guix download)
+  #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module (guix build utils)
   #:use-module (guix build-system gnu)
@@ -50,5 +51,4 @@
     (synopsis
      "The browser package manager")
     (description "The browser package manager")
-    ;; MIT
-    (license #f)))
+    (license license:expat)))

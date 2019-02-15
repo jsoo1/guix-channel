@@ -12,9 +12,7 @@
   #:use-module (guix hg-download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (coin
-            pivy
-            soqt))
+  #:export (coin pivy soqt))
 
 (define coin
   (let ((changeset "e74da184f75b9803e80c3feaf52a9cf2527f7cf8")
