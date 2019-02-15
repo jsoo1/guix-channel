@@ -33,17 +33,26 @@
       ("ghc-syb" ,ghc-syb)
       ("ghc-yaml" ,ghc-yaml)
       ("ghc-strict" ,ghc-strict)
-      ("ghc-optparse-applicative"
-       ,ghc-optparse-applicative)
+      ("ghc-optparse-applicative" ,ghc-optparse-applicative)
       ("ghc-hunit" ,ghc-hunit)
       ("ghc-test-framework" ,ghc-test-framework)
-      ("ghc-test-framework-hunit"
-       ,ghc-test-framework-hunit)))
+      ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)))
+   (arguments
+    `(#:phases
+      (modify-phases %standard-phases
+        ;; There is only a binary
+        (add-after 'install 'remove-lib
+          (lambda* (#:key outputs #:allow-other-keys)
+            (delete-file-recursively
+             (string-append (assoc-ref outputs "out") "/lib"))
+            #t)))))
    (home-page
     "https://github.com/jaspervdj/stylish-haskell")
    (synopsis "Haskell code prettifier")
    (description
-    "A Haskell code prettifier. For more information, see: . <https://github.com/jaspervdj/stylish-haskell/blob/master/README.markdown>")
+    "A Haskell code prettifier. For more information, see:
+
+https://github.com/jaspervdj/stylish-haskell/blob/master/README.markdown")
    (license license:bsd-3)))
 
 (define ghc-file-embed
