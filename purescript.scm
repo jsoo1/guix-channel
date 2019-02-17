@@ -479,7 +479,7 @@ http://hspec.github.io/hspec-discover.html")
     (home-page "https://github.com/hdgarrood/bower-json")
     (synopsis "Read bower.json from Haskell")
     (description "Bower is a package manager for the web (see http://bower.io). This package provides a data type and ToJSON/FromJSON instances for Bower's package manifest file, bower.json.")
-    (license #f)))
+    (license license:expat)))
 
 (define ghc-transformers
   (package
