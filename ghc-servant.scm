@@ -9,7 +9,11 @@
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (ghc-servant ghc-servant-server))
+  #:export (ghc-servant
+            ghc-servant-server
+            ghc-servant-websockets
+            ghc-aeson-1.4.2.0
+            ghc-conduit-1.3.0.3))
 
 (define ghc-servant-server
   (package
@@ -125,6 +129,39 @@ You can learn about the basics in the tutorial at http://haskell-servant.readthe
 CHANGELOG https://github.com/haskell-servant/servant/blob/master/servant/CHANGELOG.md")
     (license license:bsd-3)))
 
+(define ghc-servant-websockets
+  (package
+    (name "ghc-servant-websockets")
+    (version "1.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/servant-websockets/servant-websockets-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0l8a5zc6wiwdfxv2kirb7kxky4zwj71rcrrg1zh07gc3vf4lqf33"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-aeson" ,ghc-aeson-1.4.2.0)
+       ("ghc-async" ,ghc-async)
+       ("ghc-conduit" ,ghc-conduit-1.3.0.3)
+       ("ghc-exceptions" ,ghc-exceptions)
+       ("ghc-resourcet" ,ghc-resourcet-1.2.2)
+       ("ghc-servant-server" ,ghc-servant-server)
+       ("ghc-wai" ,ghc-wai-3.2.1.2)
+       ("ghc-wai-websockets" ,ghc-wai-websockets)
+       ("ghc-warp" ,ghc-warp-3.2.26)
+       ("ghc-websockets" ,ghc-websockets)))
+    (home-page
+     "https://github.com/moesenle/servant-websockets#readme")
+    (synopsis
+     "Small library providing WebSocket endpoints for servant.")
+    (description
+     "Small library providing WebSocket endpoints for servant.")
+    (license license:bsd-3)))
 
 ;; DEPENDENCIES
 (define ghc-cabal-doctest
@@ -1417,7 +1454,7 @@ are the bottleneck of web servers.")
          "1vw1nm3s8vz1hqnjnqd3wh5rr4q3m2r4izn5ynhf93h9185qwqzd"))))
     (build-system haskell-build-system)
     (arguments `(#:tests? #f)) ; FIXME: Tests cannot find System.ByteOrder,
-                               ; exported by ghc-byteorder.  Doctest issue.
+                                        ; exported by ghc-byteorder.  Doctest issue.
     (inputs
      `(("ghc-appar" ,ghc-appar)
        ("ghc-byteorder" ,ghc-byteorder)
@@ -1528,7 +1565,7 @@ dependencies.  The basic idea is that this package should only depend on
          "0w5ldq4gplc16zzk5ikmbbjw79imaqvw8p6lylaw3hlsbn3zzm4d"))))
     (build-system haskell-build-system)
     (arguments `(#:tests? #f)) ; FIXME: Tests cannot find libraries exported
-                               ; by propagated-inputs.
+                                        ; by propagated-inputs.
     (inputs
      `(("ghc-auto-update" ,ghc-auto-update)
        ("ghc-byteorder" ,ghc-byteorder)
@@ -1622,7 +1659,7 @@ and any other types of tests into a single test suite.")
         (base32 "1ncph7vi2q6ywwc8ysxl1ibw6i5dwfvln88ssfazk8jgpj4iyykw"))))
     (build-system haskell-build-system)
     (arguments `(#:tests? #f)) ;; Testing suite depends on tasty and
-                               ;; tasty-quickcheck, which need clock to build.
+    ;; tasty-quickcheck, which need clock to build.
     (home-page "https://hackage.haskell.org/package/clock")
     (synopsis "High-resolution clock for Haskell")
     (description "A package for convenient access to high-resolution clock and
@@ -1772,3 +1809,105 @@ Dual to @code{Traversable}.")
     (description
      "The mockery package provides support functions for automated testing.")
     (license license:expat)))
+
+(define ghc-wai-websockets
+  (package
+    (name "ghc-wai-websockets")
+    (version "3.0.1.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/wai-websockets/wai-websockets-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0b2xmdsrsqpssyib53wbr6r8hf75789ndyyanv37sv99iyqcwz4i"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-wai" ,ghc-wai-3.2.1.2)
+       ("ghc-case-insensitive" ,ghc-case-insensitive)
+       ("ghc-network" ,ghc-network-2.8.0.0)
+       ("ghc-websockets" ,ghc-websockets)
+       ("ghc-http-types" ,ghc-http-types-0.12.2)))
+    (arguments
+     `(#:configure-flags '("--flags=-example")))
+    (home-page "http://github.com/yesodweb/wai")
+    (synopsis
+     "Provide a bridge between WAI and the websockets package.")
+    (description
+     "API docs and the README are available at http://www.stackage.org/package/wai-websockets.")
+    (license license:expat)))
+
+(define ghc-websockets
+  (package
+    (name "ghc-websockets")
+    (version "0.12.5.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/websockets/websockets-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0wacifjbskkfv6xq1sbmc8p60wn767xcjhz8hn8hyijxrrmjabci"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-attoparsec" ,ghc-attoparsec)
+       ("ghc-base64-bytestring" ,ghc-base64-bytestring)
+       ("ghc-bytestring-builder" ,ghc-bytestring-builder)
+       ("ghc-case-insensitive" ,ghc-case-insensitive)
+       ("ghc-network" ,ghc-network-2.8.0.0)
+       ("ghc-random" ,ghc-random)
+       ("ghc-sha" ,ghc-sha)
+       ("ghc-streaming-commons" ,ghc-streaming-commons-0.2.1.0)
+       ("ghc-entropy" ,ghc-entropy)))
+    (native-inputs
+     `(("ghc-hunit" ,ghc-hunit)
+       ("ghc-quickcheck" ,ghc-quickcheck-2.12.6.1)
+       ("ghc-test-framework" ,ghc-test-framework)
+       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
+       ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2-0.3.0.5)))
+    (home-page "http://jaspervdj.be/websockets")
+    (synopsis
+     "A sensible and clean way to write WebSocket-capable servers in Haskell.")
+    (description
+     "This library allows you to write WebSocket-capable servers.
+
+An example server: https://github.com/jaspervdj/websockets/blob/master/example/server.lhs
+An example client: https://github.com/jaspervdj/websockets/blob/master/example/client.hs
+
+See also:
+
+  * The specification of the WebSocket protocol: http://www.whatwg.org/specs/web-socket-protocol/ .
+  * The JavaScript API for dealing with WebSockets: http://www.w3.org/TR/websockets/")
+    (license license:bsd-3)))
+
+(define ghc-test-framework-quickcheck2-0.3.0.5
+  (package
+    (name "ghc-test-framework-quickcheck2-0.3.0.5")
+    (version "0.3.0.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://hackage.haskell.org/package/"
+                           "test-framework-quickcheck2/"
+                           "test-framework-quickcheck2-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0ngf9vvby4nrdf1i7dxf5m9jn0g2pkq32w48xdr92n9hxka7ixn9"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-extensible-exceptions" ,ghc-extensible-exceptions)
+       ("ghc-quickcheck" ,ghc-quickcheck-2.12.6.1)
+       ("ghc-random" ,ghc-random)
+       ("ghc-test-framework" ,ghc-test-framework)))
+    (home-page "https://batterseapower.github.io/test-framework/")
+    (synopsis "QuickCheck2 support for test-framework")
+    (description
+     "This packages provides QuickCheck2 support for the test-framework
+package.")
+    (license license:bsd-3)))
