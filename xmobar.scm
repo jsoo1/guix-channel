@@ -1,4 +1,3 @@
-(add-to-load-path ".")
 (define-module (xmobar)
   #:use-module (ghc-dbus)
   #:use-module (ghc-mtl)

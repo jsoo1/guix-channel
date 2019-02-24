@@ -11,32 +11,7 @@
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (ghc-alsa-core ghc-alsa-mixer))
-
-;; PUBLIC
-(define ghc-alsa-core
-  (package
-   (name "ghc-alsa-core")
-   (version "0.5.0.1")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/alsa-core/alsa-core-" version ".tar.gz"))
-     (sha256 (base32 "1avh4a419h9d2zsslg6j8hm87ppgsgqafz8ll037rk2yy1g4jl7b"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-extensible-exceptions" ,ghc-extensible-exceptions)))
-   (native-inputs
-    `(("pkg-config" ,pkg-config)
-      ("alsa-lib" ,alsa-lib)))
-   (arguments `(#:tests? #f))
-   (home-page
-    "http://www.haskell.org/haskellwiki/ALSA")
-   (synopsis
-    "Binding to the ALSA Library API (Exceptions).")
-   (description
-    "This package provides access to ALSA infrastructure, that is needed by both alsa-seq and alsa-pcm.")
-   (license license:bsd-3)))
+  #:export (ghc-alsa-mixer))
 
 (define ghc-alsa-mixer
   (package
