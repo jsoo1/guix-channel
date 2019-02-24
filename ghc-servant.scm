@@ -12,6 +12,7 @@
   #:export (ghc-servant
             ghc-servant-server
             ghc-servant-websockets
+            ghc-websockets
             ghc-aeson-1.4.2.0
             ghc-conduit-1.3.0.3))
 
