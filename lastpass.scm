@@ -1,4 +1,5 @@
 (define-module (lastpass)
+  #:use-module ((gnu packages bash) #:select (bash-completion))
   #:use-module ((gnu packages cmake) #:select (cmake))
   #:use-module ((gnu packages curl) #:select (curl))
   #:use-module ((gnu packages documentation) #:select (asciidoc))
@@ -36,6 +37,7 @@
          ("libxml2" ,libxml2)))
       (native-inputs
        `(("asciidoc" ,asciidoc)
+         ("bash-completion" ,bash-completion)
          ("cmake" ,cmake)
          ("pkg-config" ,pkg-config)))
       (arguments
@@ -46,11 +48,14 @@
            (replace 'install
              (lambda* (#:key outputs #:allow-other-keys)
                (let ((out (assoc-ref outputs "out")))
-                 (setenv "DESTDIR" out)
-                 (invoke "make" "install")
-                 (mkdir (string-append out "/bin"))
-                 (copy-file (string-append out "/usr/bin/lpass")
-                            (string-append out "/bin/lpass"))
+                 (mkdir-p (string-append out "/bin"))
+                 (copy-file "build/lpass" (string-append out "/bin/lpass"))
+                 #t)))
+           (add-after 'install 'install-doc
+             (lambda* (#:key outputs #:allow-other-keys)
+               (let ((out (assoc-ref outputs "out")))
+                 (setenv "PREFIX" out)
+                 (invoke "make" "install-doc")
                  #t))))))
       (home-page "https://github.com/lastpass/lastpass-cli")
       (synopsis "LastPass command line interface tool")
