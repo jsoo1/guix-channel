@@ -1,10 +1,16 @@
 (define-module (python-pyside)
   #:use-module ((gnu packages base) #:select (which))
   #:use-module ((gnu packages cmake) #:select (cmake))
+  #:use-module ((gnu packages version-control) #:select (git))
   #:use-module ((gnu packages llvm) #:select (clang))
-  #:use-module ((gnu packages python) #:select (python-2.7))
+  #:use-module ((gnu packages python) #:select (python-2))
   #:use-module ((gnu packages python-xyz) #:select (python-wheel))
-  #:use-module ((gnu packages qt) #:select (qt qt-4))
+  #:use-module ((gnu packages qt)
+                #:select (qt-4
+                          qtbase
+                          qtmultimedia
+                          qttools
+                          qtxmlpatterns))
   #:use-module ((gnu packages xml) #:select (libxml2 libxslt))
   #:use-module (guix build-system cmake)
   #:use-module (guix build-system python)
@@ -15,10 +21,10 @@
 
 (define python-pyside-2
   (let ((revision "1")
-        (commit "9ef7df3e333177c7d71b5e7bb725f9f5ceb6cd9f"))
+        (commit "4018787a3cc01d632fdca7891ac8aa9487110c26"))
     (package
       (name "python-pyside-2")
-      (version (git-version "v5.12.1" revision commit))
+      (version (git-version "v5.11.3" revision commit))
       (source
        (origin
          (method git-fetch)
@@ -28,55 +34,45 @@
          (file-name (git-file-name name version))
          (sha256
           (base32
-           "15x8iib4xf3glp28fz73cgx4l2rsmrjkki93clflhfsw422lv8sr"))))
+           "0g8jacm2iqd7lw2m7f1dp1nnrsk38bl3m8pihm8zz9gxs8d31sf5"))))
       (build-system python-build-system)
-      (native-inputs
-       `(("qt" ,qt)
-         ("which" ,which)))
       (inputs
-       `(("clang" ,clang)
-         ("cmake" ,cmake)
-         ("libxml2" ,libxml2)
+       `(("libxml2" ,libxml2)
          ("libxslt" ,libxslt)
          ("python-wheel" ,python-wheel)))
+      (native-inputs
+       `(("clang" ,clang)
+         ("cmake" ,cmake)
+         ("git" ,git)
+         ("qtbase" ,qtbase)
+         ("qtmultimedia" ,qtmultimedia)
+         ("qttools" ,qttools)
+         ("qtxmlpatterns" ,qtxmlpatterns)
+         ("which" ,which)))
       (arguments
-       `(#:phases
+       `(#:tests? #f
+         #:use-setuptools? #f
+         #:phases
          (modify-phases %standard-phases
-           (delete 'build)
-           ;; (replace 'build
-           ;;   (lambda* (#:key outputs inputs #:allow-other-keys)
-           ;;     (let ((out (assoc-ref outputs "out"))
-           ;;           (qt (assoc-ref inputs "qt"))
-           ;;           (cmake (assoc-ref inputs "cmake")))
-           ;;       (invoke
-           ;;        (which "python")
-           ;;        "setup.py" "build"
-           ;;        ;; (string-append "--prefix=" out)
-           ;;        ;; "--single-version-externally-managed"
-           ;;        ;; "--root=/"
-           ;;        (string-append "--cmake=" (string-append cmake "/bin/cmake"))
-           ;;        (string-append "--qmake=" (string-append qt "/bin/qmake"))
-           ;;        "--build-tests"))))
-
-           ;; TODO
-           (delete 'check)
-           ;; (replace 'check
-           ;;   (lambda _
-           ;;     (invoke
-           ;;      (which "python")
-           ;;      "testrunner.py" "test")))
-           (replace 'install
-             (lambda* (#:key outputs inputs #:allow-other-keys)
-               (let ((out (assoc-ref outputs "out"))
-                     (qt (assoc-ref inputs "qt")))
-                 (invoke
-                  (which "python")
-                  "setup.py" "install"
-                  (string-append "--prefix=" out)
-                  "--single-version-externally-managed"
-                  "--root=/"
-                  (string-append "--qmake=" (string-append qt "/bin/qmake"))
-                  "--build-tests")))))))
+           (add-before 'build 'fix-build-paths
+             (lambda* (#:key inputs #:allow-other-keys)
+               (let ((clang (assoc-ref inputs "clang"))
+                     (libxml2 (assoc-ref inputs "libxml2"))
+                     (libxslt (assoc-ref inputs "libxslt")))
+                 (substitute* "sources/shiboken2/CMakeLists.txt"
+                   (("\\$\\{CLANG_DIR\\}")
+                    (string-append (assoc-ref inputs "clang"))))
+                 (substitute* "sources/pyside2/CMakeLists.txt"
+                   (("include\\(FindQt5Extra\\)") ""))
+                 (setenv "LIBXML2_LIBRARY"
+                         (string-append libxml2 "/lib"))
+                 (setenv "LIBXML2_INCLUDE_DIR"
+                         (string-append libxml2 "/include"))
+                 (setenv "LIBXSLT_LIBRARIES"
+                         (string-append libxslt "/lib"))
+                 (setenv "LIBXSLT_INCLUDE_DIR"
+                         (string-append libxslt "/include"))
+                 #t))))))
       (home-page "https://wiki.qt.io/Qt_for_Python")
       (synopsis
        "The Qt for Python product enables the use of Qt5 APIs in Python applications.")
@@ -93,6 +89,33 @@
          license:lgpl3
          license:bsd3 ; pyside-tools
          )))))
+
+;; package="libshiboken2-dev"
+;; for directory in "cmake/Shiboken2-$MAIN_VERSION_UPSTREAM" "pkgconfig"; do
+;;         sed -i "s|build.*relwithdebinfo/lib|usr/lib/$DEB_HOST_MULTIARCH|" \
+;; 	    debian/$package/usr/lib/$DEB_HOST_MULTIARCH/$directory/*;
+;;         sed -i "s|build.*relwithdebinfo|usr|" \
+;; 	    debian/$package/usr/lib/$DEB_HOST_MULTIARCH/$directory/*;
+;; done
+
+;; package="libpyside2-dev"
+;; for directory in "pkgconfig" "cmake/PySide2-$MAIN_VERSION_UPSTREAM"; do
+;;         sed -i "s|build.*relwithdebinfo/lib|usr/lib/$DEB_HOST_MULTIARCH|" \
+;; 	    debian/$package/usr/lib/$DEB_HOST_MULTIARCH/$directory/*;
+;;         sed -i "s|build.*relwithdebinfo|usr|" \
+;; 	    debian/$package/usr/lib/$DEB_HOST_MULTIARCH/$directory/*;
+;; done
+
+;; # Set correctly the python path for pyside2 (Python2 for now)
+;; sed -i "s|^pythonpath=.*|pythonpath=/usr/lib/python2.7/dist-packages|" \
+;;     debian/libpyside2-dev/usr/lib/$DEB_HOST_MULTIARCH/pkgconfig/pyside2.pc
+
+;; sed -i "s|^SET(PYSIDE_PYTHONPATH.*|SET(PYSIDE_PYTHONPATH \"/usr/lib/python2.7/dist-packages\")|" \
+;;     debian/libpyside2-dev/usr/lib/$DEB_HOST_MULTIARCH/cmake/PySide2-$MAIN_VERSION_UPSTREAM/PySide2Config-python2.7.$DEB_HOST_MULTIARCH.cmake
+
+;; # Set correctly the python path for pyside2 (Python3)
+;; sed -i "s|^SET(PYSIDE_PYTHONPATH.*|SET(PYSIDE_PYTHONPATH \"/usr/lib/python3/dist-packages\")|" \
+;;     debian/libpyside2-dev/usr/lib/$DEB_HOST_MULTIARCH/cmake/PySide2-$MAIN_VERSION_UPSTREAM/PySide2Config.cpython-3*m-$DEB_HOST_MULTIARCH.cmake
 
 (define python-shiboken-2
   (let ((revision "1")
@@ -128,7 +151,7 @@
       (synopsis
        "Shiboken generates bindings for C++ libraries using CPython source code")
       (description
-              "Shiboken generates bindings for C++ libraries using CPython source code")
+       "Shiboken generates bindings for C++ libraries using CPython source code")
       ;; TODO understand
       (license
        '(license:fdl1.3+
