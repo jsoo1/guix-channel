@@ -118,51 +118,39 @@
 ;;     debian/libpyside2-dev/usr/lib/$DEB_HOST_MULTIARCH/cmake/PySide2-$MAIN_VERSION_UPSTREAM/PySide2Config.cpython-3*m-$DEB_HOST_MULTIARCH.cmake
 
 (define python-shiboken-2
-  (let ((revision "1")
-        (commit "9ef7df3e333177c7d71b5e7bb725f9f5ceb6cd9f"))
-    (package
-      (name "python-shiboken-2")
-      (version (git-version "v5.12.1" revision commit))
-      (source
-       (origin
-         (method git-fetch)
-         (uri (git-reference
-               (url "https://code.qt.io/pyside/pyside-setup")
-               (commit commit)))
-         (file-name (git-file-name name version))
-         (sha256
-          (base32
-           "15x8iib4xf3glp28fz73cgx4l2rsmrjkki93clflhfsw422lv8sr"))))
-      (build-system cmake-build-system)
-      (native-inputs
-       `(("qt" ,qt)))
-      (inputs
-       `(("clang" ,clang)
-         ("cmake" ,cmake)
-         ("libxml2" ,libxml2)
-         ("libxslt" ,libxslt)
-         ("python-wheel" ,python-wheel)))
-      (arguments
-       `(#:phases
-         (modify-phases %standard-phases
-           (replace 'unpack
-             (lambda* _ #f)))))
-      (home-page "https://wiki.qt.io/Qt_for_Python")
-      (synopsis
-       "Shiboken generates bindings for C++ libraries using CPython source code")
-      (description
-       "Shiboken generates bindings for C++ libraries using CPython source code")
-      ;; TODO understand
-      (license
-       '(license:fdl1.3+
-         license:gpl2+
-         license:gpl3+
-         ;; TODO understand
-         ;; https://code.qt.io/cgit/pyside/pyside-setup.git/tree/LICENSE.GPLv3-EXCEPT
-         ;; https://code.qt.io/cgit/pyside/pyside-setup.git/tree/LICENSE.COMMERCIAL
-         license:lgpl3
-         license:bsd3 ; pyside-tools
-         )))))
+  (package
+    (name "python-shiboken-2")
+    (version "5.11.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-"
+             version
+             "-src/pyside-setup-everywhere-src-"
+             version
+             ".tar.xz"))
+       (sha256
+        (base32
+         "15x8iib4xf3glp28fz73cgx4l2rsmrjkki93clflhfsw422lv8sr"))))
+    (build-system cmake-build-system)
+    (native-inputs
+     `(("qtbase" ,qtbase)
+       ("qtxmlpatterns" ,qtxmlpatterns)))
+    (inputs
+     `(("clang" ,clang)
+       ("cmake" ,cmake)
+       ("libxml2" ,libxml2)
+       ("libxslt" ,libxslt)
+       ("python-wheel" ,python-wheel)))
+    (home-page "https://wiki.qt.io/Qt_for_Python")
+    (synopsis
+     "Shiboken generates bindings for C++ libraries using CPython source code")
+    (description
+     "Shiboken generates bindings for C++ libraries using CPython source code")
+    (license
+     '(license:gpl2+
+       license:lgpl))))
 
 (define python-shiboken
   (let ((revision "1")
