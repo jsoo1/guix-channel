@@ -18,7 +18,10 @@
   #:use-module (guix git-download)
   #:use-module (guix packages)
   #:use-module ((guix licenses) #:prefix license:)
-  #:export (python-pyside-2 python-apiextractor-2 python-shiboken-2))
+  #:export (python-pyside-2
+            python-pyside-2-tools
+            python-apiextractor-2
+            python-shiboken-2))
 
 (define python-pyside-2
   (let ((revision "1")
@@ -91,32 +94,33 @@
          license:bsd3 ; pyside-tools
          )))))
 
-;; package="libshiboken2-dev"
-;; for directory in "cmake/Shiboken2-$MAIN_VERSION_UPSTREAM" "pkgconfig"; do
-;;         sed -i "s|build.*relwithdebinfo/lib|usr/lib/$DEB_HOST_MULTIARCH|" \
-;; 	    debian/$package/usr/lib/$DEB_HOST_MULTIARCH/$directory/*;
-;;         sed -i "s|build.*relwithdebinfo|usr|" \
-;; 	    debian/$package/usr/lib/$DEB_HOST_MULTIARCH/$directory/*;
-;; done
-
-;; package="libpyside2-dev"
-;; for directory in "pkgconfig" "cmake/PySide2-$MAIN_VERSION_UPSTREAM"; do
-;;         sed -i "s|build.*relwithdebinfo/lib|usr/lib/$DEB_HOST_MULTIARCH|" \
-;; 	    debian/$package/usr/lib/$DEB_HOST_MULTIARCH/$directory/*;
-;;         sed -i "s|build.*relwithdebinfo|usr|" \
-;; 	    debian/$package/usr/lib/$DEB_HOST_MULTIARCH/$directory/*;
-;; done
-
-;; # Set correctly the python path for pyside2 (Python2 for now)
-;; sed -i "s|^pythonpath=.*|pythonpath=/usr/lib/python2.7/dist-packages|" \
-;;     debian/libpyside2-dev/usr/lib/$DEB_HOST_MULTIARCH/pkgconfig/pyside2.pc
-
-;; sed -i "s|^SET(PYSIDE_PYTHONPATH.*|SET(PYSIDE_PYTHONPATH \"/usr/lib/python2.7/dist-packages\")|" \
-;;     debian/libpyside2-dev/usr/lib/$DEB_HOST_MULTIARCH/cmake/PySide2-$MAIN_VERSION_UPSTREAM/PySide2Config-python2.7.$DEB_HOST_MULTIARCH.cmake
-
-;; # Set correctly the python path for pyside2 (Python3)
-;; sed -i "s|^SET(PYSIDE_PYTHONPATH.*|SET(PYSIDE_PYTHONPATH \"/usr/lib/python3/dist-packages\")|" \
-;;     debian/libpyside2-dev/usr/lib/$DEB_HOST_MULTIARCH/cmake/PySide2-$MAIN_VERSION_UPSTREAM/PySide2Config.cpython-3*m-$DEB_HOST_MULTIARCH.cmake
+(define python-pyside-2-tools
+  (let ((revision "1")
+        (commit "f1b775537e7fbd718516749583b2abf1cb6adbce"))
+    (package
+      (name "python-pyside-2-tools")
+      (version (git-version "v5.11.2" revision commit))
+      (source
+       (origin
+         (method git-fetch)
+         (uri (git-reference
+               (url "https://code.qt.io/pyside/pyside-tools")
+               (commit commit)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32
+           "0g8jacm2iqd7lw2m7f1dp1nnrsk38bl3m8pihm8zz9gxs8d31sf5"))))
+      (build-system cmake-build-system)
+      (arguments
+       `(#:tests? #f
+         #:configure-flags '("-DBUILD_TESTS=off")))
+      (home-page "https://wiki.qt.io/Qt_for_Python")
+      (synopsis
+       "lupdate, rcc and uic tools for PySide2")
+      (description
+       "TODO")
+      ;; TODO: understand (this is per the arch repo)
+      (license license:lgpl2.1+))))
 
 (define python-shiboken-2
   (let ((revision "1")

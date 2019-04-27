@@ -3,13 +3,21 @@
   #:use-module ((gnu packages algebra) #:select (eigen))
   #:use-module ((gnu packages boost) #:select (boost))
   #:use-module ((gnu packages compression) #:select (zlib))
+  #:use-module ((gnu packages documentation) #:select (doxygen))
   #:use-module ((gnu packages fontutils) #:select (freetype))
   #:use-module ((gnu packages gl) #:select (glu))
+  #:use-module ((gnu packages graphviz) #:select (graphviz))
   #:use-module ((gnu packages image-processing) #:select (vtk))
   #:use-module ((gnu packages maths) #:select (hdf5 opencascade-oce))
+  #:use-module ((gnu packages mpi) #:select (openmpi))
   #:use-module ((gnu packages pkg-config) #:select (pkg-config))
-  #:use-module ((gnu packages python) #:select (python-2.7))
-  #:use-module ((gnu packages qt) #:select (qtbase))
+  #:use-module ((gnu packages python) #:select (python-wrapper))
+  #:use-module ((gnu packages qt)
+                #:select (qt
+                          qtbase
+                          qtsvg
+                          qttools
+                          qtxmlpatterns))
   #:use-module ((gnu packages swig) #:select (swig))
   #:use-module ((gnu packages xml) #:select (xerces-c))
   #:use-module (guix build-system cmake)
@@ -18,8 +26,7 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module ((libarea) #:select (libarea))
-  #:use-module ((open-mpi) #:select (open-mpi))
-  #:use-module ((python-pyside) #:select (python-pyside-2))
+  #:use-module ((python-pyside) #:select (python-shiboken-2))
   #:use-module ((salome) #:select (medfile))
   #:export (freecad))
 
@@ -32,33 +39,42 @@
       (source
        (origin
          (method git-fetch)
-         (uri (git-reference (url "https://github.com/FreeCAD/FreeCAD.git")
-                             (commit commit)))
+         (uri (git-reference
+               (url "https://github.com/FreeCAD/FreeCAD.git")
+               (commit commit)))
          (file-name (git-file-name name version))
          (sha256
-          (base32 "0wf2h1nc34pvq88hfnyv7zlysavxmqdmfmyp5wz9ky3hlhv72xh0"))))
+          (base32 "1v8nx58m60nacvqaynnmhq2nxd4nf4nicmb3078l16g3h47005cg"))))
       (build-system cmake-build-system)
       (inputs
        `(("boost" ,boost)
          ("coin" ,coin)
+         ("doxygen" ,doxygen)
          ("eigen" ,eigen)
          ("freetype" ,freetype)
          ("glu" ,glu)
+         ("graphviz" ,graphviz)
          ("hdf5" ,hdf5)
          ("libarea" ,libarea)
          ("medfile" ,medfile)
-         ("open-mpi" ,open-mpi)
+         ("openmpi" ,openmpi)
          ("opencascade-oce" ,opencascade-oce)
          ;; TODO uncomment when pivy is fixed
          ;; ("pivy" ,pivy)
          ("pkg-config" ,pkg-config)
-         ("python-2.7" ,python-2.7)
+         ("python-wrapper" ,python-wrapper)
          ("python-shiboken-2" ,python-shiboken-2)
-         ("qtbase" ,qtbase)
+         ("qt" ,qt)
+         ;; ("qtbase" ,qtbase)
+         ;; ("qtsvg" ,qtsvg)
+         ;; ("qttools" ,qttools)
+         ;; ("qtxmlpatterns" ,qtxmlpatterns)
          ("swig" ,swig)
          ("vtk" ,vtk)
          ("xerces-c" ,xerces-c)
          ("zlib" ,zlib)))
+      (arguments
+       `(#:configure-flags '("-DBUILD_QT5=ON")))
       (home-page "http://www.freecadweb.org/")
       (synopsis "Your Own 3D Parametric Modeler")
       (description
@@ -67,4 +83,3 @@
 FreeCAD is based on OpenCASCADE, a powerful geometry kernel, features an Open Inventor-compliant 3D scene representation model provided by the Coin 3D library, and a broad Python API. The interface is built with Qt. FreeCAD runs exactly the same way on Windows, Mac OSX, BSD and Linux platforms.")
       ;; TODO is there more?
       (license license:lgpl2.1+))))
-
