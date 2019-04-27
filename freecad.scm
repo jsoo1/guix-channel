@@ -9,7 +9,7 @@
   #:use-module ((gnu packages maths) #:select (hdf5 opencascade-oce))
   #:use-module ((gnu packages pkg-config) #:select (pkg-config))
   #:use-module ((gnu packages python) #:select (python-2.7))
-  #:use-module ((gnu packages qt) #:select (qt-4))
+  #:use-module ((gnu packages qt) #:select (qtbase))
   #:use-module ((gnu packages swig) #:select (swig))
   #:use-module ((gnu packages xml) #:select (xerces-c))
   #:use-module (guix build-system cmake)
@@ -24,11 +24,11 @@
   #:export (freecad))
 
 (define freecad
-  (let ((commit "0.18_pre")
-        (revision "0"))
+  (let ((commit "f7dccfaa909e5b9da26bf50c4a22ccca9bb10c40")
+        (revision "1"))
     (package
       (name "freecad")
-      (version (git-version "0.18_pre" revision commit))
+      (version (git-version "0.18.1" revision commit))
       (source
        (origin
          (method git-fetch)
@@ -53,8 +53,8 @@
          ;; ("pivy" ,pivy)
          ("pkg-config" ,pkg-config)
          ("python-2.7" ,python-2.7)
-         ("python-pyside-2" ,python-pyside-2)
-         ("qt-4" ,qt-4)
+         ("python-shiboken-2" ,python-shiboken-2)
+         ("qtbase" ,qtbase)
          ("swig" ,swig)
          ("vtk" ,vtk)
          ("xerces-c" ,xerces-c)
