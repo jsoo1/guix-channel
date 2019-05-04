@@ -36,6 +36,17 @@
             python-apiextractor-2
             python-shiboken-2))
 
+;; (define libcxx-6
+;;   (package
+;;     (inherit libcxx)
+;;     (name "libcxx-6")
+;;     (version (package-version llvm-6))
+;;     (source
+;;      (inherit (package-source libcxx))
+;;      (sha256
+;;       (base32
+;;        "1wdrxg365ig0kngx52pd0n820sncp24blb0zpalc579iidhh4002")))))
+
 (define python-pyside-2
   (let ((revision "1")
         (commit "4018787a3cc01d632fdca7891ac8aa9487110c26"))
@@ -55,7 +66,7 @@
       (build-system cmake-build-system)
       (inputs
        `(("clang-6" ,clang-6)
-         ("libcxx-6" ,libcxx-6)
+         ;; ("libcxx-6" ,libcxx-6)
          ("libxml2" ,libxml2)
          ("libxslt" ,libxslt)
          ("llvm-6" ,llvm-6)
@@ -108,17 +119,6 @@
          ;; https://code.qt.io/cgit/pyside/pyside-setup.git/tree/LICENSE.COMMERCIAL
          license:lgpl3
          )))))
-
-(define libcxx-6
-  (package
-    (inherit libcxx)
-    (name "libcxx-6")
-    (version (package-version llvm-6))
-    (source
-     (inherit (package-source libcxx))
-     (sha256
-      (base32
-       "1wdrxg365ig0kngx52pd0n820sncp24blb0zpalc579iidhh4002")))))
 
 (define python-shiboken-2
   (let ((revision "1")
