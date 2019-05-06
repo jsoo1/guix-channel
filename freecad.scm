@@ -26,7 +26,10 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module ((libarea) #:select (libarea))
-  #:use-module ((python-pyside) #:select (python-shiboken-2))
+  #:use-module ((python-pyside)
+                #:select (python-pyside-2
+                          python-pyside-2-tools
+                          python-shiboken-2))
   #:use-module ((salome) #:select (medfile))
   #:export (freecad))
 
@@ -62,8 +65,10 @@
          ;; TODO uncomment when pivy is fixed
          ;; ("pivy" ,pivy)
          ("pkg-config" ,pkg-config)
-         ("python-wrapper" ,python-wrapper)
+         ("python-pyside-2" ,python-pyside-2)
+         ("python-pyside-2-tools" ,python-pyside-2-tools)
          ("python-shiboken-2" ,python-shiboken-2)
+         ("python-wrapper" ,python-wrapper)
          ("qt" ,qt)
          ;; ("qtbase" ,qtbase)
          ;; ("qtsvg" ,qtsvg)
