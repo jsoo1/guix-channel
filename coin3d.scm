@@ -12,7 +12,7 @@
   #:use-module (guix hg-download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (coin pivy soqt))
+  #:export (coin python-pivy soqt))
 
 (define coin
   (let ((changeset "e74da184f75b9803e80c3feaf52a9cf2527f7cf8")
@@ -73,11 +73,11 @@ with SGI and TGS Open Inventor, and the API is based on the API of the
 InventorXt GUI component toolkit.")
       (license license:bsd-3))))
 
-(define pivy
+(define python-pivy
   (let ((changeset "db2e64a4a8803f4fbbcb4e03efaf37e5f988bcec")
         (revision "1"))
     (package
-      (name "pivy")
+      (name "python-pivy")
       (version (string-append "0.6.4" revision "." (string-take changeset 7)))
       (source
        (origin

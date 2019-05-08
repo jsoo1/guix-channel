@@ -1,11 +1,11 @@
 (define-module (freecad)
-  #:use-module ((coin3d) #:select (coin pivy))
+  #:use-module ((coin3d) #:select (coin python-pivy))
   #:use-module ((gnu packages algebra) #:select (eigen))
   #:use-module ((gnu packages boost) #:select (boost))
   #:use-module ((gnu packages compression) #:select (zlib))
   #:use-module ((gnu packages documentation) #:select (doxygen))
   #:use-module ((gnu packages fontutils) #:select (freetype))
-  #:use-module ((gnu packages gl) #:select (glu))
+  #:use-module ((gnu packages gl) #:select (glew))
   #:use-module ((gnu packages graphviz) #:select (graphviz))
   #:use-module ((gnu packages image-processing) #:select (vtk))
   #:use-module ((gnu packages maths) #:select (hdf5 opencascade-oce))
@@ -55,7 +55,7 @@
          ("doxygen" ,doxygen)
          ("eigen" ,eigen)
          ("freetype" ,freetype)
-         ("glu" ,glu)
+         ("glew" ,glew)
          ("graphviz" ,graphviz)
          ("hdf5" ,hdf5)
          ("libarea" ,libarea)
@@ -63,12 +63,13 @@
          ("openmpi" ,openmpi)
          ("opencascade-oce" ,opencascade-oce)
          ;; TODO uncomment when pivy is fixed
-         ;; ("pivy" ,pivy)
+         ;; ("python-pivy" ,python-pivy)
          ("pkg-config" ,pkg-config)
          ("python-pyside-2" ,python-pyside-2)
          ("python-pyside-2-tools" ,python-pyside-2-tools)
          ("python-shiboken-2" ,python-shiboken-2)
          ("python-wrapper" ,python-wrapper)
+         ;; TODO Split up qt
          ("qt" ,qt)
          ;; ("qtbase" ,qtbase)
          ;; ("qtsvg" ,qtsvg)
@@ -79,7 +80,8 @@
          ("xerces-c" ,xerces-c)
          ("zlib" ,zlib)))
       (arguments
-       `(#:configure-flags '("-DBUILD_QT5=ON")))
+       `(#:tests? #f
+         #:configure-flags '("-DBUILD_QT5=ON")))
       (home-page "http://www.freecadweb.org/")
       (synopsis "Your Own 3D Parametric Modeler")
       (description
