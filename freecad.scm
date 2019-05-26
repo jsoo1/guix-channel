@@ -1,5 +1,5 @@
 (define-module (freecad)
-  #:use-module ((coin3d) #:select (coin3D-3 soqt-1.5 python-pivy-0.6.4))
+  #:use-module ((coin3d) #:select (coin3D soqt python-pivy))
   #:use-module ((gnu packages algebra) #:select (eigen))
   #:use-module ((gnu packages boost) #:select (boost))
   #:use-module ((gnu packages compression) #:select (zlib))
@@ -53,7 +53,7 @@
      (build-system cmake-build-system)
      (inputs
       `(("boost" ,boost)
-        ("coin3D-3" ,coin3D-3)
+        ("coin3D" ,coin3D)
         ("doxygen" ,doxygen)
         ("eigen" ,eigen)
         ("freetype" ,freetype)
@@ -66,7 +66,7 @@
         ("openmpi" ,openmpi)
         ("opencascade-oce" ,opencascade-oce)
         ;; FIXME
-        ;; ("python-pivy-0.6.4" ,python-pivy-0.6.4)
+        ;; ("python-pivy" ,python-pivy)
         ("pkg-config" ,pkg-config)
         ("python-matplotlib" ,python-matplotlib)
         ("python-pyside-2" ,python-pyside-2)
@@ -79,7 +79,7 @@
         ;; ("qtsvg" ,qtsvg)
         ;; ("qttools" ,qttools)
         ;; ("qtxmlpatterns" ,qtxmlpatterns)
-        ("soqt-1.5" ,soqt-1.5)
+        ("soqt" ,soqt)
         ("swig" ,swig)
         ("vtk" ,vtk)
         ("xerces-c" ,xerces-c)
