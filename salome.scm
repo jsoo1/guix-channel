@@ -6,8 +6,10 @@
   #:use-module ((gnu packages python-xyz) #:select (python-numpy
                                                     python-scipy))
   #:use-module ((gnu packages swig) #:select (swig))
+  #:use-module ((gnu packages tls) #:select (openssl))
   #:use-module ((gnu packages xml) #:select (libxml2))
   #:use-module (guix build-system cmake)
+  #:use-module (guix build-system gnu)
   #:use-module (guix build-system trivial)
   #:use-module (guix download)
   #:use-module (guix git-download)
@@ -152,6 +154,8 @@
          ("boost-for-mysql" ,boost-for-mysql)
          ("hdf5" ,hdf5)
          ("libxml2" ,libxml2)
+         ("omniorb" ,omniorb)
+         ("omniorbpy" ,omniorbpy)
          ("python-numpy" ,python-numpy)
          ("python-scipy" ,python-scipy)
          ("python-wrapper" ,python-wrapper)
@@ -189,3 +193,60 @@
       (synopsis "SALOME Kernel module")
       (description "SALOME Kernel module")
       (license license:lgpl2.1))))
+
+(define omniorb
+  (package
+    (name "omniorb")
+    (version "4.2.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri
+        (string-append
+         "https://sourceforge.net/projects/omniorb/files/omniORB/"
+         "omniORB-" version "/omniORB-" version ".tar.bz2/download"))
+       (sha256
+        (base32
+         "1jlb0wps6311dmhnphn64gv46z0bl8grch4fd9dcx5dlib02lh96"))))
+    (build-system gnu-build-system)
+    (inputs
+     `(("python-wrapper" ,python-wrapper)
+       ("openssl" ,openssl)))
+    (arguments
+     `(#:tests? #f
+       ;; FIXME
+       #:validate-runpath? #f))
+    (home-page "http://www.omniorb-support.com/index.html")
+    (synopsis
+     "Robust high performance CORBA ORB for C++ and Python")
+    (description
+     "omniORB is a robust high performance CORBA ORB for C++ and Python. It is freely available under the terms of the GNU Lesser General Public License (for the libraries), and GNU General Public License (for the tools). omniORB is largely CORBA 2.6 compliant")
+    (license license:gpl2+)))
+
+(define omniorbpy
+  (package
+    (name "omniorbpy")
+    (version "4.2.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri
+        (string-append
+         "https://sourceforge.net/projects/omniorb/files/omniORBpy/"
+         "omniORBpy-" version "/omniORBpy-" version ".tar.bz2/download"))
+       (sha256
+        (base32
+         "1jlb0wps6311dmhnphn64gv46z0bl8grch4fd9dcx5dlib02lh96"))))
+    (build-system gnu-build-system)
+    (inputs
+     `(("python-wrapper" ,python-wrapper)))
+    (arguments
+     `(#:tests? #f
+       ;; FIXME
+       #:validate-runpath? #f))
+    (home-page "http://www.omniorb-support.com/index.html")
+    (synopsis
+     "Robust high performance CORBA ORB for C++ and Python")
+    (description
+     "omniORB is a robust high performance CORBA ORB for C++ and Python. It is freely available under the terms of the GNU Lesser General Public License (for the libraries), and GNU General Public License (for the tools). omniORB is largely CORBA 2.6 compliant")
+    (license license:lgpl2.0+)))
