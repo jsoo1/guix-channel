@@ -24,51 +24,55 @@
             python-pivy-0.6.4))
 
 (define coin3D
-  (let ((changeset "30674a94a67fb14e506bc6d3ce51c4e6dd284950")
+  (let (;; (changeset "30674a94a67fb14e506bc6d3ce51c4e6dd284950")
+        (changeset  "99d4d98ed546e99208686e33beef7ca3fd429586")
         (revision "1"))
     (package
-     (name "coin3D")
-     (version (string-append "4.0.0-" revision "." (string-take changeset 7)))
-     (source
-      (origin
-       (method hg-fetch)
-       (uri (hg-reference (url "https://bitbucket.org/Coin3D/coin")
-                          (changeset changeset)))
-       (sha256
-        (base32
-         "0jj45gnrfa64x1qxsvd5q3xg46in3y6diw1p3q55vaq0iafvaac9"))
-       (file-name (git-file-name "coin3D" version))))
-     (build-system cmake-build-system)
-     (inputs
-      `(("boost" ,boost)
-        ("doxygen" ,doxygen)
-        ("freeglut" ,freeglut)
-        ("glew" ,glew)
-        ("graphviz" ,graphviz)))
-     (arguments
-      `(#:configure-flags
-        (list
-         (string-append "-B" (assoc-ref %outputs "out"))
-         (string-append "-DBOOST_ROOT="
+      (name "coin3D")
+      (version (string-append "4.0.0-" revision "." (string-take changeset 7)))
+      (source
+       (origin
+         (method hg-fetch)
+         (uri (hg-reference (url "https://bitbucket.org/VolkerEnderlein/coin")
+                            (changeset changeset)))
+         ;; (uri (hg-reference (url "https://bitbucket.org/Coin3D/coin")
+         ;;                    (changeset changeset)))
+         (sha256
+          (base32
+           "0m01pfhx0gzhpsxikhi723pzyh23b33j68gbiwr3z1rphqdch907"
+           ;; "0jj45gnrfa64x1qxsvd5q3xg46in3y6diw1p3q55vaq0iafvaac9"
+           ))
+         (file-name (git-file-name "coin3D" version))))
+      (build-system cmake-build-system)
+      (inputs
+       `(("boost" ,boost)
+         ("doxygen" ,doxygen)
+         ("freeglut" ,freeglut)
+         ("glew" ,glew)
+         ("graphviz" ,graphviz)))
+      (arguments
+       `(#:configure-flags
+         (list
+          (string-append "-B" "coin_build")
+          (string-append "-DBOOST_ROOT="
                          (assoc-ref %build-inputs "boost")))
-        #:phases
-        (modify-phases %standard-phases
-         ;; (add-before 'configure 'make-build-dir
-         ;;             (lambda _ (mkdir-p "coin_build")))
-         ;; (add-before 'build 'use-build-dir
-         ;;             (lambda _ (chdir "coin_build")))
-         )))
-     (home-page "https://bitbucket.org/Coin3D/coin/wiki/Home")
-     (synopsis
-      "A high-level 3D visualization library with Open Inventor 2.1 API")
-     (description
-      "Coin is a 3D graphics library with an Application Programming Interface
+         #:phases
+         (modify-phases %standard-phases
+           (add-before 'configure 'make-build-dir
+             (lambda _ (mkdir-p "coin_build")))
+           (add-before 'build 'use-build-dir
+             (lambda _ (chdir "coin_build"))) )))
+      (home-page "https://bitbucket.org/Coin3D/coin/wiki/Home")
+      (synopsis
+       "A high-level 3D visualization library with Open Inventor 2.1 API")
+      (description
+       "Coin is a 3D graphics library with an Application Programming Interface
 based on the Open Inventor 2.1 API.  For those who are not familiar with
 Open Inventor, it is a scene-graph based retain-mode rendering and model
 interaction library, written in C++, which has become the de facto
 standard graphics library for 3D visualization and visual simulation
 software in the scientific and engineering community.")
-     (license license:bsd-3))))
+      (license license:bsd-3))))
 
 (define coin3D-3
   (let ((changeset "e74da184f75b9803e80c3feaf52a9cf2527f7cf8")
