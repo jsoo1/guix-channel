@@ -44,6 +44,7 @@
     (description "Library to read and write MED files")
     (license license:lgpl2.1)))
 
+;; Use outdated version that is included in freecad's source
 (define smesh
   (let ((commit "976def5878c6e3905816b97c67d6eadccc39673d")
         (revision "1"))
@@ -103,22 +104,20 @@
       (arguments
        `(#:modules ((guix build utils))
          #:builder
-         (begin
+         (let ((out (assoc-ref %outputs "out")))
            (use-modules (guix build utils)
                         (ice-9 match)
                         (srfi srfi-1))
            (copy-recursively
             (assoc-ref %build-inputs "source")
-            (assoc-ref %outputs "out"))
+            out)
            ;; Remove ubuntu-only version check, assuming we use the
            ;; same version python libs as executable
            (substitute*
-               (string-append (assoc-ref %outputs "out")
-                              "/cmake/FindSalomePythonLibs.cmake")
+               (string-append out "/cmake/FindSalomePythonLibs.cmake")
              (("MESSAGE\\(FATAL_ERROR.*") ""))
            (substitute*
-               (string-append (assoc-ref %outputs "out")
-                              "/cmake/SalomeMacros.cmake")
+               (string-append out "/cmake/SalomeMacros.cmake")
              (("MESSAGE\\(FATAL_ERROR \"Problem parsing version.*")
               ""))
            #t)))
