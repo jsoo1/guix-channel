@@ -102,7 +102,7 @@ InventorXt GUI component toolkit.")
       (license license:bsd-3))))
 
 (define python-pivy
-  (let ((changeset "30674a94a67fb14e506bc6d3ce51c4e6dd284950")
+  (let ((changeset "db2e64a4a8803f4fbbcb4e03efaf37e5f988bcec")
         (revision "1"))
     (package
       (name "python-pivy")
