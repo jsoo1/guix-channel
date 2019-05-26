@@ -1,10 +1,14 @@
 (define-module (salome)
   #:use-module (gnu packages)
   #:use-module ((gnu packages boost) #:select (boost-for-mysql))
+  #:use-module ((gnu packages check) #:select (cppunit))
+  #:use-module ((gnu packages documentation) #:select (doxygen))
+  #:use-module ((gnu packages graphviz) #:select (graphviz))
   #:use-module ((gnu packages maths) #:select (hdf5))
   #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module ((gnu packages python-xyz) #:select (python-numpy
-                                                    python-scipy))
+                                                    python-scipy
+                                                    python-sphinx))
   #:use-module ((gnu packages swig) #:select (swig))
   #:use-module ((gnu packages tls) #:select (openssl))
   #:use-module ((gnu packages xml) #:select (libxml2))
@@ -75,13 +79,16 @@
          (list
           (string-append
            "-DCONFIGURATION_ROOT_DIR="
-           (assoc-ref %build-inputs "salome-configuration")))))
+           (assoc-ref %build-inputs "salome-configuration"))
+          (string-append
+           "-DKERNEL_ROOT_DIR="
+           (assoc-ref %build-inputs "salome-kernel")))))
       (home-page "https://www.salome-platform.org")
       (synopsis "SALOME Mesh module")
       (description "The goal of this module is to create meshes on the basis of geometrical models created or imported into GEOM. It uses a set of meshing algorithms and their corresponding conditions (hypotheses) to compute meshes. In addition, a new mesher can be easily connected to this module by using the existing plugin mechanism.")
       (license license:lgpl2.1))))
 
-;; ------------------------- DEPENDENCIES ------------------------- 
+;; ----------------------- PRIVATE DEPENDENCIES -----------------------
 
 (define salome-configuration
   (let ((commit "43e69d59237a6d1b6cdf852636c62ad7048a32e1")
@@ -152,12 +159,16 @@
       (inputs
        `(;; Salome wants boost 1.58 and this is the closest we have
          ("boost-for-mysql" ,boost-for-mysql)
+         ("cppunit" ,cppunit)
+         ("doxygen" ,doxygen)
+         ("graphviz" ,graphviz)
          ("hdf5" ,hdf5)
          ("libxml2" ,libxml2)
          ("omniorb" ,omniorb)
          ("omniorbpy" ,omniorbpy)
          ("python-numpy" ,python-numpy)
          ("python-scipy" ,python-scipy)
+         ("python-sphinx" ,python-sphinx)
          ("python-wrapper" ,python-wrapper)
          ("salome-configuration" ,salome-configuration)
          ("swig" ,swig)))
@@ -188,7 +199,21 @@
           (string-append
            "-DSWIG_ROOT_DIR="
            (assoc-ref %build-inputs "swig"))
-          "-DSALOME_CMAKE_DEBUG=ON")))
+          (string-append
+           "-DOMNIORB_ROOT_DIR="
+           (assoc-ref %build-inputs "omniorb"))
+          (string-append
+           "-DOMNIORBPY_ROOT_DIR="
+           (assoc-ref %build-inputs "omniorbpy"))
+          (string-append
+           "-DOMNIORB_PYTHON_BACKEND="
+           (assoc-ref %build-inputs "omniorbpy"))
+          "-DSALOME_LIGHT_ONLY=ON"
+          (string-append
+           "-DCPPUNIT_ROOT_DIR="
+           (assoc-ref %build-inputs "cppunit")))
+         ;; FIXME
+         #:validate-runpath? #f))
       (home-page "https://www.salome-platform.org")
       (synopsis "SALOME Kernel module")
       (description "SALOME Kernel module")
