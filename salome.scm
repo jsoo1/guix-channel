@@ -7,8 +7,8 @@
   #:use-module ((gnu packages maths) #:select (hdf5))
   #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module ((gnu packages python-xyz) #:select (python-numpy
-                                                    python-scipy
-                                                    python-sphinx))
+                                                    python-scipy))
+  #:use-module ((gnu packages sphinx) #:select (python-sphinx))
   #:use-module ((gnu packages swig) #:select (swig))
   #:use-module ((gnu packages tls) #:select (openssl))
   #:use-module ((gnu packages xml) #:select (libxml2))
