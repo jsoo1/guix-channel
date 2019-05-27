@@ -91,11 +91,11 @@
 ;; ----------------------- PRIVATE DEPENDENCIES -----------------------
 
 (define salome-configuration
-  (let ((commit "43e69d59237a6d1b6cdf852636c62ad7048a32e1")
+  (let ((commit "de7bac0ee58007a9501fffa7c1488de029b19cdc")
         (revision "1"))
     (package
       (name "salome-configuration")
-      (version "8.3.0")
+      (version "9.3.0")
       (source
        (origin
          (method git-fetch)
@@ -108,27 +108,15 @@
          (file-name (git-file-name name version))
          (sha256
           (base32
-           "1wnsxgsh07fadqy0ijdajwacgrsqsp2j3a98xz1dbs4d45girc4l"))))
+           "0ng9igy6fp84hn60ifw5b97ww5gkfbfmk5dxp1z3n09q2vx4jdir"))))
       (build-system trivial-build-system)
       (arguments
-       `(#:modules ((guix build utils))
+       `(#:modules ((guix build union))
          #:builder
-         (let ((out (assoc-ref %outputs "out")))
-           (use-modules (guix build utils)
-                        (ice-9 match)
-                        (srfi srfi-1))
-           (copy-recursively
-            (assoc-ref %build-inputs "source")
-            out)
-           ;; Remove ubuntu-only version check, assuming we use the
-           ;; same version python libs as executable
-           (substitute*
-               (string-append out "/cmake/FindSalomePythonLibs.cmake")
-             (("MESSAGE\\(FATAL_ERROR.*") ""))
-           (substitute*
-               (string-append out "/cmake/SalomeMacros.cmake")
-             (("MESSAGE\\(FATAL_ERROR \"Problem parsing version.*")
-              ""))
+         (begin
+           (use-modules (guix build union))
+           (union-build (assoc-ref %outputs "out")
+                        (list (assoc-ref %build-inputs "source")))
            #t)))
       (home-page "https://www.salome-platform.org")
       (synopsis "Configuration files and other utilities for SALOME platform")
@@ -136,11 +124,11 @@
       (license license:lgpl2.1))))
 
 (define salome-kernel
-  (let ((commit "134af64b7b3b2fdf6bf495ab8eab833631482d78")
+  (let ((commit "e4e3b4b5f80c31944ba1f62f9f56f43edb9a6c01")
         (revision "1"))
     (package
       (name "salome-kernel")
-      (version "8.3.0")
+      (version "9.3.0")
       (source
        (origin
          (method git-fetch)
@@ -154,7 +142,7 @@
          (file-name (git-file-name name version))
          (sha256
           (base32
-           "0h3gaz1j9j2czsmbdzly544k745i4c6kg1zb0d8wyqq4cb84g2h2"))))
+           "1yrgp4k4xwi9ng0wjfahqw2q5b6fdxb0m28rp8v1azvnqrnwcg84"))))
       (build-system cmake-build-system)
       (inputs
        `(;; Salome wants boost 1.58 and this is the closest we have
@@ -206,12 +194,24 @@
            "-DOMNIORBPY_ROOT_DIR="
            (assoc-ref %build-inputs "omniorbpy"))
           (string-append
+           "-DOMNIORBPY_INCLUDE_DIR="
+           (assoc-ref %build-inputs "omniorbpy")
+           "/include")
+          (string-append
            "-DOMNIORB_PYTHON_BACKEND="
            (assoc-ref %build-inputs "omniorbpy"))
-          "-DSALOME_LIGHT_ONLY=ON"
           (string-append
            "-DCPPUNIT_ROOT_DIR="
-           (assoc-ref %build-inputs "cppunit")))
+           (assoc-ref %build-inputs "cppunit"))
+          ;; TODO: Patch paths in salome-configuration so sphinx works
+          "-DSALOME_BUILD_DOC=OFF"
+          (string-append
+           "-DSPHINX_ROOT_DIR="
+           (assoc-ref %build-inputs "python-sphinx"))
+          (string-append
+           "-DSPHINX_EXECUTABLE="
+           (assoc-ref %build-inputs "python-sphinx")
+           "/bin/sphinx-build"))
          ;; FIXME
          #:validate-runpath? #f))
       (home-page "https://www.salome-platform.org")
