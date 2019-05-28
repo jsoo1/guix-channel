@@ -89,7 +89,6 @@
          ("python-wrapper" ,python-wrapper)
          ("salome-configuration" ,salome-configuration)
          ("salome-geom" ,salome-geom)
-         ;; ("salome-gui" ,salome-gui)
          ("salome-kernel" ,salome-kernel)
          ("swig" ,swig)
          ("zlib" ,zlib)))
@@ -102,11 +101,9 @@
           (string-append
            "-DKERNEL_ROOT_DIR="
            (assoc-ref %build-inputs "salome-kernel"))
-          ;; (string-append
-          ;;  "-DFC="
-          ;;  (assoc-ref %build-inputs "gfortran")
-          ;;  "/bin/gfortran")
-
+          (string-append
+           "-DGEOM_ROOT_DIR="
+           (assoc-ref %build-inputs "salome-geom"))
           ;; not needed for freecad?
           "-DSALOME_BUILD_GUI=OFF"
           ;; TODO: Fix salome-configuration sphinx resolution
@@ -277,7 +274,7 @@
          ("libxml2" ,libxml2)
          ("omniorb" ,omniorb)
          ("omniorbpy" ,omniorbpy)
-         ("opencascade-oce" ,opencascade-oce)
+         ("opencascade-oce-0.18.3" ,opencascade-oce-0.18.3)
          ("python-wrapper" ,python-wrapper)
          ("qtbase" ,qtbase)
          ("salome-configuration" ,salome-configuration)
@@ -295,8 +292,8 @@
            (assoc-ref %build-inputs "salome-kernel"))
           (string-append
            "-DOPENCASCADE_ROOT_DIR="
-           (assoc-ref %build-inputs "opencascade-oce"))
-          "-DSALOME_CMAKE_DEBUG=ON"
+           (assoc-ref %build-inputs "opencascade-oce-0.18.3")
+           "/lib/oce-0.18")
           "-DSALOME_BUILD_GUI=OFF")))
       (home-page "https://www.salome-platform.org")
       (synopsis "SALOME GEOM module")
@@ -405,3 +402,21 @@
     (description
      "omniORB is a robust high performance CORBA ORB for and Python. It is freely available under the terms of the GNU Lesser General Public License (for the libraries), and GNU General Public License (for the tools). omniORB is largely CORBA 2.6 compliant")
     (license license:lgpl2.0+)))
+
+;; TODO: See if this effects us:
+;; https://github.com/tpaviot/oce/issues/592
+;; Some includes are pointing to the build dir
+(define opencascade-oce-0.18.3
+  (package
+    (inherit opencascade-oce)
+    (version "0.18.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tpaviot/oce.git")
+             (commit (string-append "OCE-" version))))
+       (file-name (git-file-name "opencascade-oce" version))
+       ;; (patches (search-patches "opencascade-oce-glibc-2.26.patch"))
+       (sha256
+        (base32 "17wy8dcf44vqisishv1jjf3cmcxyygqq29y9c3wjdj983qi2hsig"))))))
