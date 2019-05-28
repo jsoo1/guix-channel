@@ -2,12 +2,19 @@
   #:use-module (gnu packages)
   #:use-module ((gnu packages boost) #:select (boost-for-mysql))
   #:use-module ((gnu packages check) #:select (cppunit))
+  #:use-module ((gnu packages compression) #:select (zlib))
   #:use-module ((gnu packages documentation) #:select (doxygen))
   #:use-module ((gnu packages graphviz) #:select (graphviz))
-  #:use-module ((gnu packages maths) #:select (hdf5))
+  #:use-module ((gnu packages image-processing) #:select (vtk))
+  #:use-module ((gnu packages maths) #:select (hdf5
+                                               opencascade-oce))
   #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module ((gnu packages python-xyz) #:select (python-numpy
                                                     python-scipy))
+  #:use-module ((gnu packages qt) #:select (python-pyqt
+                                            python-sip
+                                            qtbase
+                                            qwt))
   #:use-module ((gnu packages sphinx) #:select (python-sphinx))
   #:use-module ((gnu packages swig) #:select (swig))
   #:use-module ((gnu packages tls) #:select (openssl))
@@ -19,7 +26,7 @@
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (medfile salome-kernel smesh))
+  #:export (medfile salome-geom salome-smesh))
 
 (define medfile
   (package
@@ -50,13 +57,12 @@
     (description "Library to read and write MED files")
     (license license:lgpl2.1)))
 
-;; Use outdated version that is included in freecad's source
-(define smesh
-  (let ((commit "976def5878c6e3905816b97c67d6eadccc39673d")
+(define salome-smesh
+  (let ((commit "4e9fa6a7f415f8dfa6f72a4b638faf91c3770d01")
         (revision "1"))
     (package
-      (name "smesh")
-      (version "8.3.0")
+      (name "salome-smesh")
+      (version "9.3.0")
       (source
        (origin
          (method git-fetch)
@@ -69,11 +75,24 @@
          (file-name (git-file-name name version))
          (sha256
           (base32
-           "1i4qks6v8ydar0nh5i5fz2b7zgnppcssh77vgpv51mvrsq2h9gj7"))))
+           "0ncnjsx7jyq9vbv86di8bgr632lnbgydvbyh0y71wy396x0ay2lh"))))
       (build-system cmake-build-system)
       (inputs
-       `(("salome-configuration" ,salome-configuration)
-         ("salome-kernel" ,salome-kernel)))
+       `(("boost-for-mysql" ,boost-for-mysql)
+         ("cppunit" ,cppunit)
+         ;; TODO: use normal module lookup when merged
+         ("gfortran" ,(@ (gnu packages gcc) gfortran))
+         ("hdf5" ,hdf5)
+         ("libxml2" ,libxml2)
+         ("omniorb" ,omniorb)
+         ("omniorbpy" ,omniorbpy)
+         ("python-wrapper" ,python-wrapper)
+         ("salome-configuration" ,salome-configuration)
+         ("salome-geom" ,salome-geom)
+         ;; ("salome-gui" ,salome-gui)
+         ("salome-kernel" ,salome-kernel)
+         ("swig" ,swig)
+         ("zlib" ,zlib)))
       (arguments
        `(#:configure-flags
          (list
@@ -82,7 +101,17 @@
            (assoc-ref %build-inputs "salome-configuration"))
           (string-append
            "-DKERNEL_ROOT_DIR="
-           (assoc-ref %build-inputs "salome-kernel")))))
+           (assoc-ref %build-inputs "salome-kernel"))
+          ;; (string-append
+          ;;  "-DFC="
+          ;;  (assoc-ref %build-inputs "gfortran")
+          ;;  "/bin/gfortran")
+
+          ;; not needed for freecad?
+          "-DSALOME_BUILD_GUI=OFF"
+          ;; TODO: Fix salome-configuration sphinx resolution
+          "-DSALOME_BUILD_DOC=OFF"
+          )))
       (home-page "https://www.salome-platform.org")
       (synopsis "SALOME Mesh module")
       (description "The goal of this module is to create meshes on the basis of geometrical models created or imported into GEOM. It uses a set of meshing algorithms and their corresponding conditions (hypotheses) to compute meshes. In addition, a new mesher can be easily connected to this module by using the existing plugin mechanism.")
@@ -217,6 +246,104 @@
       (home-page "https://www.salome-platform.org")
       (synopsis "SALOME Kernel module")
       (description "SALOME Kernel module")
+      (license license:lgpl2.1))))
+
+(define salome-geom
+  (let ((commit "aa818f57a9421a3777f1849926f70df77a446c0d")
+        (revision "1"))
+    (package
+      (name "salome-geom")
+      (version "9.3.0")
+      (source
+       (origin
+         (method git-fetch)
+         (uri
+          (git-reference
+           (url
+            (string-append
+             "https://git.salome-platform.org/gitpub/"
+             "modules/geom.git"))
+           (commit commit)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32
+           "0phm2xbvhs25hzc081j8zxypl7v8izbsnsw6mxwb7qjz2434nzdr"))))
+      (build-system cmake-build-system)
+      (inputs
+       `(("boost-for-mysql" ,boost-for-mysql)
+         ("doxygen" ,doxygen)
+         ("graphviz" ,graphviz)
+         ("hdf5" ,hdf5)
+         ("libxml2" ,libxml2)
+         ("omniorb" ,omniorb)
+         ("omniorbpy" ,omniorbpy)
+         ("opencascade-oce" ,opencascade-oce)
+         ("python-wrapper" ,python-wrapper)
+         ("qtbase" ,qtbase)
+         ("salome-configuration" ,salome-configuration)
+         ("salome-kernel" ,salome-kernel)
+         ("swig" ,swig)
+         ("vtk" ,vtk)))
+      (arguments
+       `(#:configure-flags
+         (list
+          (string-append
+           "-DCONFIGURATION_ROOT_DIR="
+           (assoc-ref %build-inputs "salome-configuration"))
+          (string-append
+           "-DKERNEL_ROOT_DIR="
+           (assoc-ref %build-inputs "salome-kernel"))
+          (string-append
+           "-DOPENCASCADE_ROOT_DIR="
+           (assoc-ref %build-inputs "opencascade-oce"))
+          "-DSALOME_CMAKE_DEBUG=ON"
+          "-DSALOME_BUILD_GUI=OFF")))
+      (home-page "https://www.salome-platform.org")
+      (synopsis "SALOME GEOM module")
+      (description "SALOME GEOM module")
+      (license license:lgpl2.1))))
+
+(define salome-gui
+  (let ((commit "7c60cc16008a1ee6a5c2ab9271ec31e7c8819dd5")
+        (revision "1"))
+    (package
+      (name "salome-gui")
+      (version "9.3.0")
+      (source
+       (origin
+         (method git-fetch)
+         (uri
+          (git-reference
+           (url
+            (string-append
+             "https://git.salome-platform.org/gitpub/"
+             "modules/gui.git"))
+           (commit commit)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32
+           "1n9dnvwapy8qaiczckb4svkid7njh8bi9a8j40j2lyi91f263s5i"))))
+      (build-system cmake-build-system)
+      (inputs
+       `(("boost-for-mysql" ,boost-for-mysql)
+         ("hdf5" ,hdf5)
+         ("libxml2" ,libxml2)
+         ("omniorb" ,omniorb)
+         ("omniorbpy" ,omniorbpy)
+         ("opencascade-oce" ,opencascade-oce)
+         ("python-numpy" ,python-numpy)
+         ("python-pyqt" ,python-pyqt)
+         ("python-sip" ,python-sip)
+         ("python-wrapper" ,python-wrapper)
+         ("qtbase" ,qtbase)
+         ("qwt" ,qwt)
+         ("salome-configuration" ,salome-configuration)
+         ("salome-kernel" ,salome-kernel)
+         ("swig" ,swig)
+         ("vtk" ,vtk)))
+      (home-page "https://www.salome-platform.org")
+      (synopsis "SALOME GUI module")
+      (description "SALOME GUI module")
       (license license:lgpl2.1))))
 
 (define omniorb
