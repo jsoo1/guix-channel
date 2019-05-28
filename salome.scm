@@ -172,7 +172,7 @@
           (string-append
            "-DLIBXML2_INCLUDE_DIR="
            (assoc-ref %build-inputs "libxml2")
-           "/include")
+           "/include/libxml2")
           (string-append
            "-DPYTHONINTERP_ROOT_DIR="
            (assoc-ref %build-inputs "python-wrapper")
@@ -228,8 +228,8 @@
        (method url-fetch)
        (uri
         (string-append
-         "https://sourceforge.net/projects/omniorb/files/omniORB/"
-         "omniORB-" version "/omniORB-" version ".tar.bz2/download"))
+         "mirror://sourceforge/omniorb/omniORB/"
+         "omniORB-" version "/omniORB-" version ".tar.bz2"))
        (sha256
         (base32
          "1jlb0wps6311dmhnphn64gv46z0bl8grch4fd9dcx5dlib02lh96"))))
@@ -241,7 +241,7 @@
      `(#:tests? #f
        ;; FIXME
        #:validate-runpath? #f))
-    (home-page "http://www.omniorb-support.com/index.html")
+    (home-page "http://www.omniorb-support.com")
     (synopsis
      "Robust high performance CORBA ORB for C++ and Python")
     (description
@@ -257,21 +257,24 @@
        (method url-fetch)
        (uri
         (string-append
-         "https://sourceforge.net/projects/omniorb/files/omniORBpy/"
-         "omniORBpy-" version "/omniORBpy-" version ".tar.bz2/download"))
+         "mirror://sourceforge/omniorb/omniORBpy/"
+         "omniORBpy-" version "/omniORBpy-" version ".tar.bz2"))
        (sha256
         (base32
-         "1jlb0wps6311dmhnphn64gv46z0bl8grch4fd9dcx5dlib02lh96"))))
+         "1rdfq2ghc98sh8lvlvxlay04d73ky98bx8ap8cr68xkwwn41hq2w"))))
     (build-system gnu-build-system)
     (inputs
-     `(("python-wrapper" ,python-wrapper)))
+     `(("omniorb" ,omniorb)
+       ("python-wrapper" ,python-wrapper)))
     (arguments
      `(#:tests? #f
-       ;; FIXME
-       #:validate-runpath? #f))
-    (home-page "http://www.omniorb-support.com/index.html")
+       #:configure-flags
+       (list
+        (string-append
+         "--with-omniorb=" (assoc-ref %build-inputs "omniorb")))))
+    (home-page "http://www.omniorb-support.com")
     (synopsis
-     "Robust high performance CORBA ORB for C++ and Python")
+     "Robust high performance CORBA ORB for Python")
     (description
-     "omniORB is a robust high performance CORBA ORB for C++ and Python. It is freely available under the terms of the GNU Lesser General Public License (for the libraries), and GNU General Public License (for the tools). omniORB is largely CORBA 2.6 compliant")
+     "omniORB is a robust high performance CORBA ORB for and Python. It is freely available under the terms of the GNU Lesser General Public License (for the libraries), and GNU General Public License (for the tools). omniORB is largely CORBA 2.6 compliant")
     (license license:lgpl2.0+)))
