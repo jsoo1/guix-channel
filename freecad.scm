@@ -14,11 +14,12 @@
   #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module ((gnu packages python-xyz) #:select (python-matplotlib))
   #:use-module ((gnu packages qt)
-                #:select (qt
-                          qtbase
+                #:select (qtbase
                           qtsvg
                           qttools
-                          qtxmlpatterns))
+                          qtx11extras
+                          qtxmlpatterns
+                          qtwebkit))
   #:use-module ((gnu packages swig) #:select (swig))
   #:use-module ((gnu packages xml) #:select (xerces-c))
   #:use-module (guix build-system cmake)
@@ -75,19 +76,19 @@
          ("python-pyside-2-tools" ,python-pyside-2-tools)
          ("python-shiboken-2" ,python-shiboken-2)
          ("python-wrapper" ,python-wrapper)
-         ;; TODO Split up qt
-         ("qt" ,qt)
-         ;; ("qtbase" ,qtbase)
-         ;; ("qtsvg" ,qtsvg)
-         ;; ("qttools" ,qttools)
-         ;; ("qtxmlpatterns" ,qtxmlpatterns)
+         ("qtbase" ,qtbase)
+         ("qtsvg" ,qtsvg)
+         ("qttools" ,qttools)
+         ("qtx11extras" ,qtx11extras)
+         ("qtxmlpatterns" ,qtxmlpatterns)
+         ("qtwebkit" ,qtwebkit)
          ("soqt" ,soqt)
          ("vtk" ,vtk)
          ("xerces-c" ,xerces-c)
          ("zlib" ,zlib)))
       (arguments
        `(#:tests? #f
-         #:configure-flags '("-DBUILD_QT5=ON" "-DBUILD_SMESH=ON")))
+         #:configure-flags '("-DBUILD_QT5=ON")))
       (home-page "http://www.freecadweb.org/")
       (synopsis "Your Own 3D Parametric Modeler")
       (description
