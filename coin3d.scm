@@ -130,17 +130,30 @@ InventorXt GUI component toolkit.")
       (arguments
        `(#:phases
          (modify-phases %standard-phases
-           (add-before 'build 'add-missing-fake-headers
-             (lambda _
-               (let ((missing-fake-headers
-                      '("cassert"
-                        "cstdarg"
-                        "cstddef")))
+           (add-before 'build 'patch-swig-headers
+             (lambda* (#:key inputs #:allow-other-keys)
+               (let ((soqt (assoc-ref inputs "soqt"))
+                     (coin (assoc-ref inputs "coin3D"))
+                     (missing-fake-headers
+                      '("cassert" "cstdarg" "cstddef")))
                  (with-directory-excursion "fake_headers"
-                   (for-each (lambda (filename)
-                               (call-with-output-file filename
-                                 (lambda (p) (display "" p))))
-                             missing-fake-headers)))
+                   (for-each
+                    (lambda (filename)
+                      (call-with-output-file filename
+                        (lambda (p) (display "" p))))
+                    missing-fake-headers))
+                 (substitute*
+                  "setup.py"
+                  (("(^[[:space:]]+)if module == \"soqt\":" all space)
+                   (let ((replacement
+                          (string-append
+                           all "\n    " space
+                           "INCLUDE_DIR = '"
+                           soqt "/include\""
+                           " -I\"" coin "/include"
+                           "'")))
+                     (format #t "Replacing: ~A -> ~A~%" all replacement)
+                     replacement))))
                #t)))))
       (home-page "https://bitbucket.org/Coin3D/pivy")
       (synopsis "Python bindings to Coin3D.")
