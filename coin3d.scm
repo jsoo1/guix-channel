@@ -19,22 +19,19 @@
   #:export (coin3D soqt python-pivy))
 
 (define coin3D
-  (let ((changeset  "99d4d98ed546e99208686e33beef7ca3fd429586")
+  (let ((changeset  "8d860d7ba112b22c4e9b289268fd8b3625ab81d3")
         (revision "1"))
     (package
       (name "coin3D")
-      (version (string-append "4.0.0-" revision "." (string-take changeset 7)))
+      (version (string-append "4.0.0a-" revision "." (string-take changeset 7)))
       (source
        (origin
          (method hg-fetch)
-         ;; TODO: use patched coin3D source
-         (uri (hg-reference (url "https://bitbucket.org/VolkerEnderlein/coin")
+         (uri (hg-reference (url "https://bitbucket.org/Coin3D/coin")
                             (changeset changeset)))
-         ;; (uri (hg-reference (url "https://bitbucket.org/Coin3D/coin")
-         ;;                    (changeset changeset)))
          (sha256
           (base32
-           "0m01pfhx0gzhpsxikhi723pzyh23b33j68gbiwr3z1rphqdch907"))
+           "0kgg782j8lkd4bicd8x207mj66vali6kxh6idczjszcxq2iifsr0"))
          (file-name (git-file-name "coin3D" version))))
       (build-system cmake-build-system)
       (inputs
@@ -46,15 +43,8 @@
       (arguments
        `(#:configure-flags
          (list
-          (string-append "-B" "coin_build")
           (string-append "-DBOOST_ROOT="
-                         (assoc-ref %build-inputs "boost")))
-         #:phases
-         (modify-phases %standard-phases
-           (add-before 'configure 'make-build-dir
-             (lambda _ (mkdir-p "coin_build")))
-           (add-before 'build 'use-build-dir
-             (lambda _ (chdir "coin_build"))) )))
+                         (assoc-ref %build-inputs "boost")))))
       (home-page "https://bitbucket.org/Coin3D/coin/wiki/Home")
       (synopsis
        "A high-level 3D visualization library with Open Inventor 2.1 API")
@@ -120,6 +110,7 @@ InventorXt GUI component toolkit.")
       (build-system python-build-system)
       (inputs
        `(("coin3D" ,coin3D)
+         ("glew" ,glew)
          ("qtbase" ,qtbase)
          ("soqt" ,soqt)))
       (native-inputs
@@ -145,15 +136,13 @@ InventorXt GUI component toolkit.")
                  (substitute*
                   "setup.py"
                   (("(^[[:space:]]+)if module == \"soqt\":" all space)
-                   (let ((replacement
-                          (string-append
-                           all "\n    " space
-                           "INCLUDE_DIR = '"
-                           soqt "/include\""
-                           " -I\"" coin "/include"
-                           "'")))
-                     (format #t "Replacing: ~A -> ~A~%" all replacement)
-                     replacement))))
+                   (string-append
+                    all "\n    " space
+                    "INCLUDE_DIR = '"
+                    soqt "/include\""
+                    " -I\"" coin "/include"
+                    "'")
+                     )))
                #t)))))
       (home-page "https://bitbucket.org/Coin3D/pivy")
       (synopsis "Python bindings to Coin3D.")
