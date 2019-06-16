@@ -5,10 +5,8 @@
   #:use-module ((gnu packages gl) #:select (freeglut glew))
   #:use-module ((gnu packages graphviz) #:select (graphviz))
   #:use-module ((gnu packages llvm) #:select (libcxx))
-  #:use-module ((gnu packages python) #:select (python-wrapper))
-  #:use-module ((gnu packages qt) #:select (qt qtbase))
+  #:use-module ((gnu packages qt) #:select (qtbase))
   #:use-module ((gnu packages swig) #:select (swig))
-  #:use-module ((gnu packages version-control) #:select (mercurial))
   #:use-module (guix build-system cmake)
   #:use-module (guix build-system python)
   #:use-module (guix download)
@@ -43,6 +41,8 @@
       (arguments
        `(#:configure-flags
          (list
+          ;; TODO: Build QT html documentation
+          "-DCOIN_BUILD_DOCUMENTATION_MAN=ON"
           (string-append "-DBOOST_ROOT="
                          (assoc-ref %build-inputs "boost")))))
       (home-page "https://bitbucket.org/Coin3D/coin/wiki/Home")
@@ -124,25 +124,23 @@ InventorXt GUI component toolkit.")
            (add-before 'build 'patch-swig-headers
              (lambda* (#:key inputs #:allow-other-keys)
                (let ((soqt (assoc-ref inputs "soqt"))
-                     (coin (assoc-ref inputs "coin3D"))
-                     (missing-fake-headers
-                      '("cassert" "cstdarg" "cstddef")))
+                     (coin (assoc-ref inputs "coin3D")))
+
                  (with-directory-excursion "fake_headers"
                    (for-each
                     (lambda (filename)
                       (call-with-output-file filename
                         (lambda (p) (display "" p))))
-                    missing-fake-headers))
+                    '("cassert" "cstdarg" "cstddef")))
+
                  (substitute*
                   "setup.py"
                   (("(^[[:space:]]+)if module == \"soqt\":" all space)
                    (string-append
                     all "\n    " space
-                    "INCLUDE_DIR = '"
-                    soqt "/include\""
+                    "INCLUDE_DIR = '" soqt "/include\""
                     " -I\"" coin "/include"
-                    "'")
-                     )))
+                    "'"))))
                #t)))))
       (home-page "https://bitbucket.org/Coin3D/pivy")
       (synopsis "Python bindings to Coin3D.")
