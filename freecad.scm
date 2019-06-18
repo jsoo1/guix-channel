@@ -91,9 +91,22 @@
          #:configure-flags
          (list
           "-DBUILD_QT5=ON"
-          (string-append
-           "-DCMAKE_INSTALL_LIBDIR="
-           (assoc-ref %outputs "out") "/lib"))))
+          (string-append "-DCMAKE_INSTALL_LIBDIR="
+                         (assoc-ref %outputs "out") "/lib"))
+         #:phases
+         (modify-phases %standard-phases
+           (add-before 'configure 'restore-pythonpath
+             (lambda _
+               (substitute* "src/Main/MainGui.cpp"
+                 (("_?putenv\\(\"PYTHONPATH=\"\\);") ""))
+               #t))
+           (add-after 'install 'wrap-pythonpath
+             (lambda* (#:key outputs #:allow-other-keys)
+               (let ((out (assoc-ref outputs "out")))
+                 (wrap-program (string-append out "/bin/FreeCAD")
+                   (list "PYTHONPATH"
+                         'prefix (list (getenv "PYTHONPATH")))))
+               #t)))))
       (home-page "http://www.freecadweb.org/")
       (synopsis "Your Own 3D Parametric Modeler")
       (description
