@@ -26,6 +26,7 @@
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
+  #:use-module ((guix utils) #:select (version-major+minor))
   #:export (medfile salome-geom salome-smesh))
 
 (define medfile
@@ -137,12 +138,17 @@
            "0ng9igy6fp84hn60ifw5b97ww5gkfbfmk5dxp1z3n09q2vx4jdir"))))
       (build-system trivial-build-system)
       (arguments
-       `(#:modules ((guix build union))
+       `(#:modules ((guix build union)
+                    (guix build utils))
          #:builder
-         (begin
-           (use-modules (guix build union))
-           (union-build (assoc-ref %outputs "out")
-                        (list (assoc-ref %build-inputs "source")))
+         (let ((out (assoc-ref %outputs "out")))
+           (use-modules (guix build union)
+                        (guix build utils))
+           (copy-recursively (assoc-ref %build-inputs "source") out)
+           ;; Assume we are using oce for all salome packages
+           (substitute*
+               (string-append out "/cmake/FindSalomeOpenCASCADE.cmake")
+             (("OpenCASCADE") "OCE"))
            #t)))
       (home-page "https://www.salome-platform.org")
       (synopsis "Configuration files and other utilities for SALOME platform")
@@ -294,6 +300,9 @@
            "-DOPENCASCADE_ROOT_DIR="
            (assoc-ref %build-inputs "opencascade-oce-0.18.3")
            "/lib/oce-0.18")
+          (string-append
+           "-DVTK_DIR="
+           (assoc-ref %build-inputs "vtk"))
           "-DSALOME_BUILD_GUI=OFF")))
       (home-page "https://www.salome-platform.org")
       (synopsis "SALOME GEOM module")
@@ -417,6 +426,5 @@
              (url "https://github.com/tpaviot/oce.git")
              (commit (string-append "OCE-" version))))
        (file-name (git-file-name "opencascade-oce" version))
-       ;; (patches (search-patches "opencascade-oce-glibc-2.26.patch"))
        (sha256
         (base32 "17wy8dcf44vqisishv1jjf3cmcxyygqq29y9c3wjdj983qi2hsig"))))))

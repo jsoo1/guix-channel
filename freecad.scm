@@ -88,7 +88,12 @@
          ("zlib" ,zlib)))
       (arguments
        `(#:tests? #f
-         #:configure-flags '("-DBUILD_QT5=ON")))
+         #:configure-flags
+         (list
+          "-DBUILD_QT5=ON"
+          (string-append
+           "-DCMAKE_INSTALL_LIBDIR="
+           (assoc-ref %outputs "out") "/lib"))))
       (home-page "http://www.freecadweb.org/")
       (synopsis "Your Own 3D Parametric Modeler")
       (description
