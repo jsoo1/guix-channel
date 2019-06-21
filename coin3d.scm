@@ -3,6 +3,7 @@
   #:use-module ((gnu packages cmake) #:select (cmake))
   #:use-module ((gnu packages documentation) #:select (doxygen))
   #:use-module ((gnu packages gl) #:select (freeglut glew))
+  #:use-module ((gnu packages graphics) #:select (coin3D soqt))
   #:use-module ((gnu packages graphviz) #:select (graphviz))
   #:use-module ((gnu packages llvm) #:select (libcxx))
   #:use-module ((gnu packages qt) #:select (qtbase))
