@@ -1,6 +1,8 @@
 (define-module ripgrep
   #:use-module (build system cargo)
   #:use-module (guix download)
+  #:use-module ((guix license) #:prefix license:)
+  #:use-module (guix packages)
   #:export (ripgrep))
 
 (define ripgrep
@@ -260,4 +262,280 @@ against file paths.")
      "lightweight logging facade for Rust")
     (description
      "This package provides a lightweight logging facade for Rust.")
+    (license #f)))
+
+(define rust-num-cpus
+  (package
+    (name "rust-num-cpus")
+    (version "1.10.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "num_cpus" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0wrj3zvj6h3q26sqj9zxpd59frjb54n7jhjwf307clq31ic47vxw"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libc" ,rust-libc))
+       #:cargo-development-inputs
+       (("rust-doc-comment" ,rust-doc-comment))))
+    (home-page
+     "https://github.com/seanmonstar/num_cpus")
+    (synopsis "Get the number of CPUs on a machine")
+    (description
+     "Get the number of CPUs on a machine.")
+    (license #f)))
+
+(define rust-regex
+  (package
+    (name "rust-regex")
+    (version "1.1.7")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "regex" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1pabajpp0wzb7dm2x32gy8w7k0mwykr6zsvzn0fgpr6pww40hbqb"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-aho-corasick" ,rust-aho-corasick)
+        ("rust-memchr" ,rust-memchr)
+        ("rust-regex-syntax" ,rust-regex-syntax)
+        ("rust-thread-local" ,rust-thread-local)
+        ("rust-utf8-ranges" ,rust-utf8-ranges))
+       #:cargo-development-inputs
+       (("rust-doc-comment" ,rust-doc-comment)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-rand" ,rust-rand))))
+    (home-page "https://github.com/rust-lang/regex")
+    (synopsis
+     "implementation of regular expressions for Rust")
+    (description
+     "An implementation of regular expressions for Rust.  This implementation
+uses finite automata and guarantees linear time matching on all inputs.")
+    (license #f)))
+
+(define rust-serde-json
+  (package
+    (name "rust-serde-json")
+    (version "1.0.40")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde_json" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "010pa89zx07aqx1cwgw2a603wcp3q5n2iy0k71ppqbr8kwi4j705"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-indexmap" ,rust-indexmap)
+        ("rust-itoa" ,rust-itoa)
+        ("rust-ryu" ,rust-ryu)
+        ("rust-serde" ,rust-serde))
+       #:cargo-development-inputs
+       (("rust-automod" ,rust-automod)
+        ("rust-select-rustc" ,rust-select-rustc)
+        ("rust-serde-bytes" ,rust-serde-bytes)
+        ("rust-serde-derive" ,rust-serde-derive)
+        ("rust-serde-stacker" ,rust-serde-stacker)
+        ("rust-trybuild" ,rust-trybuild))))
+    (home-page "https://github.com/serde-rs/json")
+    (synopsis "A JSON serialization file format")
+    (description
+     "This package provides a JSON serialization file format.")
+    (license #f)))
+
+(define rust-termcolor
+  (package
+    (name "rust-termcolor")
+    (version "1.0.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "termcolor" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0vjfsn1a8zvqhnrbygrz1id6yckwv1dncw3w4zj65qdx0f00kmln"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-wincolor" ,rust-wincolor))))
+    (home-page
+     "https://github.com/BurntSushi/termcolor")
+    (synopsis
+     "simple cross platform library for writing colored text to a terminal")
+    (description
+     "This package provides a simple cross platform library for writing
+colored text to a terminal.")
+    (license #f)))
+
+(define rust-serde-derive
+  (package
+    (name "rust-serde-derive")
+    (version "1.0.94")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde_derive" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0yzy4wki4v4l39fc42q5lrdigh5pk0vjhvg1z7sj4fs6srwynigg"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-syn" ,rust-syn))
+       #:cargo-development-inputs
+       (("rust-serde" ,rust-serde))))
+    (home-page "https://serde.rs")
+    (synopsis
+     "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]")
+    (description
+     "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]")
+    (license #f)))
+
+(define rust-spin
+  (package
+    (name "rust-spin")
+    (version "0.5.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "spin" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0m9clchsj0rf13bggsgvbv9haiy0f6rhvnvkpvkk8720a5pkydj4"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/mvdnes/spin-rs.git")
+    (synopsis
+     "Synchronization primitives based on spinning")
+    (description
+     "Synchronization primitives based on spinning.
+They may contain data, are usable without `std`,
+and static initializers are available.")
+    (license #f)))
+
+(define rust-syn
+  (package
+    (name "rust-syn")
+    (version "0.15.39")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "syn" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0z7vqbx065q28p9y3gp0gcy00b308gdiv1ky2vdmcpm556w61ndl"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-unicode-xid" ,rust-unicode-xid))
+       #:cargo-development-inputs
+       (("rust-insta" ,rust-insta)
+        ("rust-rayon" ,rust-rayon)
+        ("rust-ref-cast" ,rust-ref-cast)
+        ("rust-regex" ,rust-regex)
+        ("rust-termcolor" ,rust-termcolor)
+        ("rust-walkdir" ,rust-walkdir))))
+    (home-page "https://github.com/dtolnay/syn")
+    (synopsis "Parser for Rust source code")
+    (description "Parser for Rust source code")
+    (license #f)))
+
+(define rust-quote
+  (package
+    (name "rust-quote")
+    (version "0.6.12")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "quote" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1nw0klza45hf127kfyrpxsxd5jw2l6h21qxalil3hkr7bnf7kx7s"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2))))
+    (home-page "https://github.com/dtolnay/quote")
+    (synopsis "Quasi-quoting macro quote!(...)")
+    (description "Quasi-quoting macro quote!(...)")
+    (license #f)))
+
+(define rust-proc-macro2
+  (package
+    (name "rust-proc-macro2")
+    (version "0.4.30")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "proc-macro2" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0nd71fl24sys066jrha6j7i34nfkjv44yzw8yww9742wmc8j0gfg"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-unicode-xid" ,rust-unicode-xid))
+       #:cargo-development-inputs
+       (("rust-quote" ,rust-quote))))
+    (home-page
+     "https://github.com/alexcrichton/proc-macro2")
+    (synopsis
+     "stable implementation of the upcoming new `proc_macro` API")
+    (description
+     "This package provides a stable implementation of the upcoming new
+`proc_macro` API.  Comes with an option, off by default, to also reimplement
+itself in terms of the upstream unstable API.")
+    (license #f)))
+
+(define rust-unicode-xid
+  (package
+    (name "rust-unicode-xid")
+    (version "0.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "unicode-xid" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1z57lqh4s18rr4x0j4fw4fmp9hf9346h0kmdgqsqx0fhjr3k0wpw"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/unicode-rs/unicode-xid")
+    (synopsis
+     "Determine whether characters have the XID_Start or XID_Continue properties")
+    (description
+     "Determine whether characters have the XID_Start or XID_Continue properties
+according to Unicode Standard Annex #31.")
     (license #f)))
