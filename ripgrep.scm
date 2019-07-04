@@ -8581,11 +8581,9 @@ repositories.
     (home-page
      "https://github.com/alexcrichton/openssl-probe")
     (synopsis
-     "Tool for helping to find SSL certificate locations on the system for OpenSSL
-")
+     "Tool for helping to find SSL certificate locations on the system for OpenSSL")
     (description
-     "Tool for helping to find SSL certificate locations on the system for OpenSSL
-")
+     "Tool for helping to find SSL certificate locations on the system for OpenSSL")
     (license #f)))
 
 (define rust-openssl-sys
@@ -8634,11 +8632,9 @@ repositories.
     (home-page
      "https://github.com/storyyeller/stable_deref_trait")
     (synopsis
-     "An unsafe marker trait for types like Box and Rc that dereference to a stable address even when moved, and hence can be used with libraries such as owning_ref and rental.
-")
+     "An unsafe marker trait for types like Box and Rc that dereference to a stable address even when moved, and hence can be used with libraries such as owning_ref and rental.")
     (description
-     "An unsafe marker trait for types like Box and Rc that dereference to a stable address even when moved, and hence can be used with libraries such as owning_ref and rental.
-")
+     "An unsafe marker trait for types like Box and Rc that dereference to a stable address even when moved, and hence can be used with libraries such as owning_ref and rental.")
     (license #f)))
 
 (define rust-test-assembler
@@ -8877,11 +8873,9 @@ repositories.
     (home-page
      "https://github.com/alexcrichton/openssl-src-rs")
     (synopsis
-     "Source of OpenSSL and logic to build it.
-")
+     "Source of OpenSSL and logic to build it.")
     (description
-     "Source of OpenSSL and logic to build it.
-")
+     "Source of OpenSSL and logic to build it.")
     (license #f)))
 
 (define rust-md5
@@ -9339,11 +9333,9 @@ repositories.
     (home-page
      "https://github.com/tormol/encode_unicode")
     (synopsis
-     "UTF-8 and UTF-16 character types, iterators and related methods for char, u8 and u16.
-")
+     "UTF-8 and UTF-16 character types, iterators and related methods for char, u8 and u16.")
     (description
-     "UTF-8 and UTF-16 character types, iterators and related methods for char, u8 and u16.
-")
+     "UTF-8 and UTF-16 character types, iterators and related methods for char, u8 and u16.")
     (license #f)))
 
 (define rust-ucd-trie
@@ -9365,11 +9357,9 @@ repositories.
        (("rust-lazy-static" ,rust-lazy-static))))
     (home-page "https://github.com/BurntSushi/rucd")
     (synopsis
-     "A trie for storing Unicode codepoint sets and maps.
-")
+     "A trie for storing Unicode codepoint sets and maps.")
     (description
-     "This package provides a trie for storing Unicode codepoint sets and maps.
-")
+     "This package provides a trie for storing Unicode codepoint sets and maps.")
     (license #f)))
 
 (define rust-pest-generator
@@ -9757,11 +9747,9 @@ repositories.
     (build-system cargo-build-system)
     (home-page "https://github.com/comex/rust-shlex")
     (synopsis
-     "Split a string into shell words, like Python's shlex.
-")
+     "Split a string into shell words, like Python's shlex.")
     (description
-     "Split a string into shell words, like Python's shlex.
-")
+     "Split a string into shell words, like Python's shlex.")
     (license #f)))
 
 (define rust-nom
@@ -9846,11 +9834,9 @@ repositories.
     (home-page
      "https://github.com/gnzlbg/jemallocator")
     (synopsis
-     "A Rust allocator backed by jemalloc
-")
+     "A Rust allocator backed by jemalloc")
     (description
-     "This package provides a Rust allocator backed by jemalloc
-")
+     "This package provides a Rust allocator backed by jemalloc")
     (license #f)))
 
 (define rust-lexical-core
