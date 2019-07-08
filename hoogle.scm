@@ -14,176 +14,133 @@
 ;; PUBLIC
 (define hoogle
   (package
-   (name "hoogle")
-   (version "5.0.17.3")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/hoogle/hoogle-" version ".tar.gz"))
-     (sha256 (base32 "174gp41v0krzj37m75pnr3aawyhkbk2wq4q6zk2z3zh0avvvmgk6"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-network-uri" ,ghc-network-uri)
-      ("ghc-network" ,ghc-network)
-      ("ghc-quickcheck" ,ghc-quickcheck)
-      ("ghc-aeson" ,ghc-aeson)
-      ("ghc-cmdargs" ,ghc-cmdargs)
-      ("ghc-conduit" ,ghc-conduit)
-      ("ghc-conduit-extra" ,ghc-conduit-extra)
-      ("ghc-connection" ,ghc-connection)
-      ("ghc-extra" ,ghc-extra)
-      ("ghc-old-locale" ,ghc-old-locale)
-      ("ghc-haskell-src-exts" ,ghc-haskell-src-exts)
-      ("ghc-http-conduit" ,ghc-http-conduit)
-      ("ghc-http-types" ,ghc-http-types)
-      ("ghc-js-flot" ,ghc-js-flot)
-      ("ghc-js-jquery" ,ghc-js-jquery)
-      ("ghc-mmap" ,ghc-mmap)
-      ("ghc-process-extras" ,ghc-process-extras)
-      ("ghc-resourcet" ,ghc-resourcet)
-      ("ghc-storable-tuple" ,ghc-storable-tuple)
-      ("ghc-tar" ,ghc-tar)
-      ("ghc-uniplate" ,ghc-uniplate)
-      ("ghc-utf8-string" ,ghc-utf8-string)
-      ("ghc-vector" ,ghc-vector)
-      ("ghc-wai" ,ghc-wai)
-      ("ghc-wai-logger" ,ghc-wai-logger)
-      ("ghc-warp" ,ghc-warp)
-      ("ghc-warp-tls" ,ghc-warp-tls)
-      ("ghc-zlib" ,ghc-zlib)))
-   (arguments `(#:tests? #f))
-   (home-page "http://hoogle.haskell.org/")
-   (synopsis "Haskell API Search")
-   (description
-    "Hoogle is a Haskell API search engine, which allows you to search many standard Haskell libraries by either function name, or by approximate type signature.")
-   (license license:bsd-3)))
+    (name "hoogle")
+    (version "5.0.17.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://hackage.haskell.org/package/hoogle/hoogle-" version ".tar.gz"))
+       (sha256 (base32 "174gp41v0krzj37m75pnr3aawyhkbk2wq4q6zk2z3zh0avvvmgk6"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-network-uri" ,ghc-network-uri)
+       ("ghc-network" ,ghc-network)
+       ("ghc-quickcheck" ,ghc-quickcheck)
+       ("ghc-aeson" ,ghc-aeson)
+       ("ghc-cmdargs" ,ghc-cmdargs)
+       ("ghc-conduit" ,ghc-conduit)
+       ("ghc-conduit-extra" ,ghc-conduit-extra)
+       ("ghc-connection" ,ghc-connection)
+       ("ghc-extra" ,ghc-extra)
+       ("ghc-old-locale" ,ghc-old-locale)
+       ("ghc-haskell-src-exts" ,ghc-haskell-src-exts)
+       ("ghc-http-conduit" ,ghc-http-conduit)
+       ("ghc-http-types" ,ghc-http-types)
+       ("ghc-js-flot" ,ghc-js-flot)
+       ("ghc-js-jquery" ,ghc-js-jquery)
+       ("ghc-mmap" ,ghc-mmap)
+       ("ghc-process-extras" ,ghc-process-extras)
+       ("ghc-resourcet" ,ghc-resourcet)
+       ("ghc-storable-tuple" ,ghc-storable-tuple)
+       ("ghc-tar" ,ghc-tar)
+       ("ghc-uniplate" ,ghc-uniplate)
+       ("ghc-utf8-string" ,ghc-utf8-string)
+       ("ghc-vector" ,ghc-vector)
+       ("ghc-wai" ,ghc-wai)
+       ("ghc-wai-logger" ,ghc-wai-logger)
+       ("ghc-warp" ,ghc-warp)
+       ("ghc-warp-tls" ,ghc-warp-tls)
+       ("ghc-zlib" ,ghc-zlib)))
+    (arguments `(#:tests? #f))
+    (home-page "http://hoogle.haskell.org/")
+    (synopsis "Haskell API Search")
+    (description
+     "Hoogle is a Haskell API search engine, which allows you to search many standard Haskell libraries by either function name, or by approximate type signature.")
+    (license license:bsd-3)))
 
 ;; DEPENDENCIES
-(define ghc-unsafe
-  (package
-   (name "ghc-unsafe")
-   (version "0.0")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/unsafe/unsafe-" version ".tar.gz"))
-     (sha256 (base32 "0hc6xr1i3hkz25gdgfx1jqgpsc9mwa05bkfynp0mcfdlyz6782nz"))))
-   (build-system haskell-build-system)
-   (arguments `(#:tests? #f))
-   (home-page "http://code.haskell.org/~thielema/unsafe/")
-   (synopsis "Unified interface to unsafe functions")
-   (description
-    "SafeHaskell introduced the notion of safe and unsafe modules. In order to make as many as possible modules \\\"safe\\\", the well-known unsafe functions were moved to distinguished modules. This makes it hard to write packages that work with both old and new versions of GHC. This package provides a single module System.Unsafe that exports the unsafe functions from the base package. It provides them in a style ready for qualification, that is, you should import them by
-
-import qualified System.Unsafe as Unsafe
-
-The package also contains a script called rename-unsafe.sh. It replaces all occurrences of the original identifiers with the qualified identifiers from this package. You still have to adapt the import commands. It uses the darcs-replace-rec script from the darcs-scripts package.")
-   (license license:bsd-3)))
-
-(define ghc-non-negative
-  (package
-   (name "ghc-non-negative")
-   (version "0.1.2")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/non-negative/non-negative-" version ".tar.gz"))
-     (sha256 (base32 "0f01q916dzkl1i0v15qrw9cviycki5g3fgi6x8gs45iwbzssq52n"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-semigroups" ,ghc-semigroups)
-      ("ghc-utility-ht" ,ghc-utility-ht)
-      ("ghc-quickcheck" ,ghc-quickcheck)))
-   (arguments `(#:tests? #f))
-   (home-page "http://code.haskell.org/~thielema/non-negative/")
-   (synopsis "Non-negative numbers")
-   (description
-    "Provides a class for non-negative numbers, a wrapper which can turn any ordered numeric type into a member of that class, and a lazy number type for non-negative numbers (a generalization of Peano numbers). This library is used by the event-list package.")
-   ;; TODO Fix this license to be the right one
-   (license license:gpl3+)))
 
 (define ghc-timeit
   (package
-   (name "ghc-timeit")
-   (version "2.0")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/timeit/timeit-" version ".tar.gz"))
-     (sha256 (base32 "1sliqpvl501rlcj6s0lhmsf5ym24j4h881wzc1f1wdyvg3jz8kd1"))))
-   (build-system haskell-build-system)
-   (arguments `(#:tests? #f))
-   (home-page "https://github.com/merijn/timeit")
-   (synopsis "Time monadic computations with an IO base.")
-   (description "A simple wrapper to show the used CPU time of monadic computation with an IO base.")
-   (license license:bsd-3)))
+    (name "ghc-timeit")
+    (version "2.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://hackage.haskell.org/package/timeit/timeit-" version ".tar.gz"))
+       (sha256 (base32 "1sliqpvl501rlcj6s0lhmsf5ym24j4h881wzc1f1wdyvg3jz8kd1"))))
+    (build-system haskell-build-system)
+    (arguments `(#:tests? #f))
+    (home-page "https://github.com/merijn/timeit")
+    (synopsis "Time monadic computations with an IO base.")
+    (description "A simple wrapper to show the used CPU time of monadic computation with an IO base.")
+    (license license:bsd-3)))
 
 (define ghc-storablevector
   (package
-   (name "ghc-storablevector")
-   (version "0.2.13")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/storablevector/storablevector-" version ".tar.gz"))
-     (sha256 (base32 "1zmr738vwnhnyxbikayqnaz31ilv2qlmscp6iqgl7adcfbal4dzq"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-non-negative" ,ghc-non-negative)
-      ("ghc-utility-ht" ,ghc-utility-ht)
-      ("ghc-semigroups" ,ghc-semigroups)
-      ("ghc-unsafe" ,ghc-unsafe)
-      ("ghc-quickcheck" ,ghc-quickcheck)
-      ("ghc-syb" ,ghc-syb)))
-   (arguments `(#:tests? #f))
-   (home-page "http://www.haskell.org/haskellwiki/Storable_Vector")
-   (synopsis "Fast, packed, strict storable arrays with a list interface like ByteString")
-   (description
-    "Fast, packed, strict storable arrays with a list interface, a chunky lazy list interface with variable chunk size and an interface for write access via the ST monad. This is much like bytestring and binary but can be used for every 'Foreign.Storable.Storable' type. See also package with a similar intention at http://hackage.haskell.org/package/vector.
+    (name "ghc-storablevector")
+    (version "0.2.13")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/storablevector/storablevector-" version ".tar.gz"))
+       (sha256 (base32 "1zmr738vwnhnyxbikayqnaz31ilv2qlmscp6iqgl7adcfbal4dzq"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-non-negative" ,ghc-non-negative)
+       ("ghc-utility-ht" ,ghc-utility-ht)
+       ("ghc-semigroups" ,ghc-semigroups)
+       ("ghc-unsafe" ,ghc-unsafe)
+       ("ghc-quickcheck" ,ghc-quickcheck)
+       ("ghc-syb" ,ghc-syb)))
+    (arguments `(#:tests? #f))
+    (home-page "http://www.haskell.org/haskellwiki/Storable_Vector")
+    (synopsis "Fast, packed, strict storable arrays with a list interface like ByteString")
+    (description
+     "Fast, packed, strict storable arrays with a list interface, a chunky lazy list interface with variable chunk size and an interface for write access via the ST monad. This is much like bytestring and binary but can be used for every 'Foreign.Storable.Storable' type. See also package with a similar intention at http://hackage.haskell.org/package/vector.
 
 We do not provide advanced fusion optimization, since especially for lazy vectors this would either be incorrect or not applicable. However we provide fusion with lazy lists in the package http://hackage.haskell.org/package/storablevector-streamfusion.")
-   (license license:bsd-3)))
+    (license license:bsd-3)))
 
 (define ghc-fmlist
   (package
-   (name "ghc-fmlist")
-   (version "0.9.2")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/fmlist/fmlist-" version ".tar.gz"))
-     (sha256 (base32 "02868865hqm189h5wjd916abvqwkhbrx5b0119s1dwp70ifvbi4g"))))
-   (build-system haskell-build-system)
-   (arguments `(#:tests? #f))
-   (home-page "https://github.com/sjoerdvisscher/fmlist")
-   (synopsis "FoldMap lists")
-   (description
-    "FoldMap lists are lists represented by their foldMap function. FoldMap lists have O(1) cons, snoc and append, just like DLists, but other operations might have favorable performance characteristics as well. These wild claims are still completely unverified though.")
-   (license license:bsd-3)))
+    (name "ghc-fmlist")
+    (version "0.9.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://hackage.haskell.org/package/fmlist/fmlist-" version ".tar.gz"))
+       (sha256 (base32 "02868865hqm189h5wjd916abvqwkhbrx5b0119s1dwp70ifvbi4g"))))
+    (build-system haskell-build-system)
+    (arguments `(#:tests? #f))
+    (home-page "https://github.com/sjoerdvisscher/fmlist")
+    (synopsis "FoldMap lists")
+    (description
+     "FoldMap lists are lists represented by their foldMap function. FoldMap lists have O(1) cons, snoc and append, just like DLists, but other operations might have favorable performance characteristics as well. These wild claims are still completely unverified though.")
+    (license license:bsd-3)))
 
 (define ghc-storable-record
   (package
-   (name "ghc-storable-record")
-   (version "0.0.4")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/storable-record/storable-record-" version ".tar.gz"))
-     (sha256 (base32 "0hjs1km0fc9ch0i1rbycxia5w3939hk4p4md73ikgg4aipqb5zyf"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-semigroups" ,ghc-semigroups)
-      ("ghc-utility-ht" ,ghc-utility-ht)
-      ("ghc-storablevector" ,ghc-storablevector)
-      ("ghc-timeit" ,ghc-timeit)))
-   (arguments `(#:tests? #f))
-   (home-page "http://code.haskell.org/~thielema/storable-record/")
-   (synopsis "Elegant definition of Storable instances for records")
-   (description
-    "With this package you can build a Storable instance of a record type from Storable instances of its elements in an elegant way. It does not do any magic, just a bit arithmetic to compute the right offsets, that would be otherwise done manually or by a preprocessor like C2HS. I cannot promise that the generated memory layout is compatible with that of a corresponding C struct. However, the module generates the smallest layout that is possible with respect to the alignment of the record elements. If you encounter, that a record does not have a compatible layout, we should fix that. But also without C compatibility this package is useful e.g. in connection with StorableVector.
+    (name "ghc-storable-record")
+    (version "0.0.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/storable-record/storable-record-" version ".tar.gz"))
+       (sha256 (base32 "0hjs1km0fc9ch0i1rbycxia5w3939hk4p4md73ikgg4aipqb5zyf"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-semigroups" ,ghc-semigroups)
+       ("ghc-utility-ht" ,ghc-utility-ht)
+       ("ghc-storablevector" ,ghc-storablevector)
+       ("ghc-timeit" ,ghc-timeit)))
+    (arguments `(#:tests? #f))
+    (home-page "http://code.haskell.org/~thielema/storable-record/")
+    (synopsis "Elegant definition of Storable instances for records")
+    (description
+     "With this package you can build a Storable instance of a record type from Storable instances of its elements in an elegant way. It does not do any magic, just a bit arithmetic to compute the right offsets, that would be otherwise done manually or by a preprocessor like C2HS. I cannot promise that the generated memory layout is compatible with that of a corresponding C struct. However, the module generates the smallest layout that is possible with respect to the alignment of the record elements. If you encounter, that a record does not have a compatible layout, we should fix that. But also without C compatibility this package is useful e.g. in connection with StorableVector.
 
 We provide Storable instance support for several cases:
 
