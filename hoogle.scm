@@ -151,110 +151,110 @@ We provide Storable instance support for several cases:
 Note however that the Storable instances defined with this package are quite slow in (up to) GHC-6.12.1. I'm afraid this is due to incomplete inlining, but we have still to investigate the problem.
 
 For examples see packages storable-tuple and sample-frame.")
-   (license license:bsd-3)))
+    (license license:bsd-3)))
 
 (define ghc-listlike
   (package
-   (name "ghc-listlike")
-   (version "4.6")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/ListLike/ListLike-" version ".tar.gz"))
-     (sha256 (base32 "16jsj979mzjrgmpa20pls9ganym3wsps49paks1sb1gmlmwyrkf1"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-vector" ,ghc-vector)
-      ("ghc-dlist" ,ghc-dlist)
-      ("ghc-fmlist" ,ghc-fmlist)
-      ("ghc-utf8-string" ,ghc-utf8-string)))
-   (arguments `(#:tests? #f))
-   (home-page "http://github.com/JohnLato/listlike")
-   (synopsis "Generic support for list-like structures")
-   (description
-    "Generic support for list-like structures in Haskell.
+    (name "ghc-listlike")
+    (version "4.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://hackage.haskell.org/package/ListLike/ListLike-" version ".tar.gz"))
+       (sha256 (base32 "16jsj979mzjrgmpa20pls9ganym3wsps49paks1sb1gmlmwyrkf1"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-vector" ,ghc-vector)
+       ("ghc-dlist" ,ghc-dlist)
+       ("ghc-fmlist" ,ghc-fmlist)
+       ("ghc-utf8-string" ,ghc-utf8-string)))
+    (arguments `(#:tests? #f))
+    (home-page "http://github.com/JohnLato/listlike")
+    (synopsis "Generic support for list-like structures")
+    (description
+     "Generic support for list-like structures in Haskell.
 
 The ListLike module provides a common interface to the various Haskell types that are list-like.  Predefined interfaces include standard Haskell lists, Arrays, ByteStrings, and lazy ByteStrings.  Custom types can easily be made ListLike instances as well.
 
 ListLike also provides for String-like types, such as String and ByteString, for types that support input and output, and for types that can handle infinite lists.")
-   (license license:bsd-3)))
+    (license license:bsd-3)))
 
 (define ghc-storable-tuple
   (package
-   (name "ghc-storable-tuple")
-   (version "0.0.3.3")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/storable-tuple/storable-tuple-" version ".tar.gz"))
-     (sha256 (base32 "0dfzhxgkn1l6ls7zh6iifhyvhm8l47n40z0ar23c6ibsa94w1ynw"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-storable-record" ,ghc-storable-record)
-      ("ghc-utility-ht" ,ghc-utility-ht)
-      ("ghc-base-orphans" ,ghc-base-orphans)))
-   (arguments `(#:tests? #f))
-   (home-page "http://code.haskell.org/~thielema/storable-tuple/")
-   (synopsis "Storable instance for pairs and triples")
-   (description
-    "Provides a Storable instance for pair and triple which should be binary compatible with C99 and C++. The only purpose of this package is to provide a standard location for this instance so that other packages needing this instance can play nicely together.")
-   (license license:bsd-3)))
+    (name "ghc-storable-tuple")
+    (version "0.0.3.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/storable-tuple/storable-tuple-" version ".tar.gz"))
+       (sha256 (base32 "0dfzhxgkn1l6ls7zh6iifhyvhm8l47n40z0ar23c6ibsa94w1ynw"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-storable-record" ,ghc-storable-record)
+       ("ghc-utility-ht" ,ghc-utility-ht)
+       ("ghc-base-orphans" ,ghc-base-orphans)))
+    (arguments `(#:tests? #f))
+    (home-page "http://code.haskell.org/~thielema/storable-tuple/")
+    (synopsis "Storable instance for pairs and triples")
+    (description
+     "Provides a Storable instance for pair and triple which should be binary compatible with C99 and C++. The only purpose of this package is to provide a standard location for this instance so that other packages needing this instance can play nicely together.")
+    (license license:bsd-3)))
 
 (define ghc-process-extras
   (package
-   (name "ghc-process-extras")
-   (version "0.7.4")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "https://hackage.haskell.org/package/process-extras/process-extras-" version ".tar.gz"))
-     (sha256 (base32 "0klqgr37f1z2z6i0a9b0giapmq0p35l5k9kz1p7f0k1597w7agi9"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-data-default" ,ghc-data-default)
-      ("ghc-listlike" ,ghc-listlike)
-      ("ghc-mtl" ,ghc-mtl)
-      ("ghc-generic-deriving" ,ghc-generic-deriving)))
-   (arguments `(#:tests? #f))
-   (home-page "https://github.com/seereason/process-extras")
-   (synopsis "Process extras")
-   (description
-    "Extends http://hackage.haskell.org/package/process. Read process input and output as ByteStrings or Text, or write your own ProcessOutput instance. Lazy process input and output.  ProcessMaker class for more flexibility in the process creation API.")
-   (license license:expat)))
+    (name "ghc-process-extras")
+    (version "0.7.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/process-extras/process-extras-" version ".tar.gz"))
+       (sha256 (base32 "0klqgr37f1z2z6i0a9b0giapmq0p35l5k9kz1p7f0k1597w7agi9"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-data-default" ,ghc-data-default)
+       ("ghc-listlike" ,ghc-listlike)
+       ("ghc-mtl" ,ghc-mtl)
+       ("ghc-generic-deriving" ,ghc-generic-deriving)))
+    (arguments `(#:tests? #f))
+    (home-page "https://github.com/seereason/process-extras")
+    (synopsis "Process extras")
+    (description
+     "Extends http://hackage.haskell.org/package/process. Read process input and output as ByteStrings or Text, or write your own ProcessOutput instance. Lazy process input and output.  ProcessMaker class for more flexibility in the process creation API.")
+    (license license:expat)))
 
 (define ghc-js-jquery
   (package
-   (name "ghc-js-jquery")
-   (version "3.3.1")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/js-jquery/js-jquery-" version ".tar.gz"))
-     (sha256 (base32 "16q68jzbs7kp07dnq8cprdcc8fd41rim38039vg0w4x11lgniq70"))))
-   (build-system haskell-build-system)
-   (arguments `(#:tests? #f))
-   (home-page "https://github.com/ndmitchell/js-jquery#readme")
-   (synopsis "Obtain minified jQuery code")
-   (description
-    "This package bundles the minified jQuery code (http://jquery.com/) into a Haskell package, so it can be depended upon by Cabal packages. The first three components of the version number match the upstream jQuery version. The package is designed to meet the redistribution requirements of downstream users (e.g. Debian).")
-   (license license:expat)))
+    (name "ghc-js-jquery")
+    (version "3.3.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://hackage.haskell.org/package/js-jquery/js-jquery-" version ".tar.gz"))
+       (sha256 (base32 "16q68jzbs7kp07dnq8cprdcc8fd41rim38039vg0w4x11lgniq70"))))
+    (build-system haskell-build-system)
+    (arguments `(#:tests? #f))
+    (home-page "https://github.com/ndmitchell/js-jquery#readme")
+    (synopsis "Obtain minified jQuery code")
+    (description
+     "This package bundles the minified jQuery code (http://jquery.com/) into a Haskell package, so it can be depended upon by Cabal packages. The first three components of the version number match the upstream jQuery version. The package is designed to meet the redistribution requirements of downstream users (e.g. Debian).")
+    (license license:expat)))
 
 (define ghc-js-flot
   (package
-   (name "ghc-js-flot")
-   (version "0.8.3")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/js-flot/js-flot-" version ".tar.gz"))
-     (sha256 (base32 "0yjyzqh3qzhy5h3nql1fckw0gcfb0f4wj9pm85nafpfqp2kg58hv"))))
-   (build-system haskell-build-system)
-   (arguments `(#:tests? #f))
-   (home-page "https://github.com/ndmitchell/js-flot#readme")
-   (synopsis "Obtain minified flot code")
-   (description
-    "This package bundles the minified Flot code (http://www.flotcharts.org/) (a jQuery plotting library) into a Haskell package, so it can be depended upon by Cabal packages. The first three components of the version number match the upstream flot version. The package is designed to meet the redistribution requirements of downstream users (e.g. Debian).")
-   (license license:expat)))
+    (name "ghc-js-flot")
+    (version "0.8.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://hackage.haskell.org/package/js-flot/js-flot-" version ".tar.gz"))
+       (sha256 (base32 "0yjyzqh3qzhy5h3nql1fckw0gcfb0f4wj9pm85nafpfqp2kg58hv"))))
+    (build-system haskell-build-system)
+    (arguments `(#:tests? #f))
+    (home-page "https://github.com/ndmitchell/js-flot#readme")
+    (synopsis "Obtain minified flot code")
+    (description
+     "This package bundles the minified Flot code (http://www.flotcharts.org/) (a jQuery plotting library) into a Haskell package, so it can be depended upon by Cabal packages. The first three components of the version number match the upstream flot version. The package is designed to meet the redistribution requirements of downstream users (e.g. Debian).")
+    (license license:expat)))
 
