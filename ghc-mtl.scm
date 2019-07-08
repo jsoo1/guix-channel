@@ -24,7 +24,11 @@
    (home-page "http://github.com/haskell/mtl")
    (synopsis "Monad classes, using functional dependencies")
    (description
-    "Monad classes using functional dependencies, with instances for various monad transformers, inspired by the paper \"Functional Programming with Overloading and Higher-Order Polymorphism\", by Mark P Jones, in \"Advanced School of Functional Programming\", 1995 http://web.cecs.pdx.edu/~mpj/pubs/springschool.html.")
+    "Monad classes using functional dependencies, with instances for various
+monad transformers, inspired by the paper \"Functional Programming with
+Overloading and Higher-Order Polymorphism\", by Mark P Jones, in \"Advanced
+School of Functional Programming\", 1995
+http://web.cecs.pdx.edu/~mpj/pubs/springschool.html.")
    (license license:bsd-3)))
 
 (define ghc-mtl-compat
