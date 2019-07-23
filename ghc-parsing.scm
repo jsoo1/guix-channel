@@ -1,5 +1,4 @@
 (define-module (ghc-parsing)
-  #:use-module (ghc-mtl)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
   #:use-module (guix build-system haskell)
@@ -25,7 +24,6 @@
     (build-system haskell-build-system)
     (inputs
      `(("ghc-case-insensitive" ,ghc-case-insensitive)
-       ("ghc-mtl" ,ghc-mtl)
        ("ghc-parser-combinators" ,ghc-parser-combinators)
        ("ghc-scientific" ,ghc-scientific) ))
     (native-inputs

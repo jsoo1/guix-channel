@@ -1,5 +1,4 @@
 (define-module (ghc-repline)
-  #:use-module (ghc-mtl)
   #:use-module (guix build-system haskell)
   #:use-module (guix download)
   #:use-module (guix packages)
@@ -21,7 +20,6 @@
         (base32
          "1ph21kbbanlcs8n5lwk16g9vqkb98mkbz5mzwrp8j2rls2921izc"))))
     (build-system haskell-build-system)
-    (inputs `(("ghc-mtl" ,ghc-mtl)))
     (home-page "https://github.com/sdiehl/repline")
     (synopsis "Haskeline wrapper for GHCi-like REPL interfaces.")
     (description

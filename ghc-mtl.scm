@@ -5,8 +5,7 @@
   #:use-module (guix build-system haskell)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
-  #:export (ghc-mtl
-            ghc-mtl-compat))
+  #:export (ghc-mtl-compat))
 
 (define ghc-mtl-compat
   (package
@@ -23,7 +22,6 @@
         (base32
          "15388p9ybdn6digk6cpdsw6havd0yva8vvwl3p7fnc9sb59wln34"))))
     (build-system haskell-build-system)
-    (inputs `(("ghc-mtl" ,ghc-mtl)))
     (arguments `(#:tests? #f
                  #:phases (modify-phases %standard-phases
                             (delete 'haddock))))

@@ -1,5 +1,4 @@
 (define-module (xmonad)
-  #:use-module (ghc-mtl)
   #:use-module (gnu packages commencement)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
@@ -24,7 +23,6 @@
    (build-system haskell-build-system)
    (inputs
     `(("ghc-extensible-exceptions" ,ghc-extensible-exceptions)
-      ("ghc-mtl"                   ,ghc-mtl)
       ("ghc-quickcheck"            ,ghc-quickcheck)
       ("ghc-setlocale"             ,ghc-setlocale)
       ("ghc-utf8-string"           ,ghc-utf8-string)
@@ -66,8 +64,7 @@
        "0r9yzgy67j4mi3dyxx714f0ssk5qzca5kh4zw0fhiz1pf008cxms"))))
    (build-system haskell-build-system)
    (propagated-inputs
-    `(("ghc-mtl" ,ghc-mtl)
-      ("ghc-old-time" ,ghc-old-time)
+    `(("ghc-old-time" ,ghc-old-time)
       ("ghc-random" ,ghc-random)
       ("ghc-utf8-string" ,ghc-utf8-string)
       ("ghc-extensible-exceptions" ,ghc-extensible-exceptions)

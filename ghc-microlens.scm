@@ -1,5 +1,4 @@
 (define-module (ghc-microlens)
-  #:use-module (ghc-mtl)
   #:use-module (gnu packages haskell)
   #:use-module (guix build-system haskell)
   #:use-module (guix download)
@@ -84,7 +83,6 @@ This package is a part of the microlens family; see the readme on Github at http
     (build-system haskell-build-system)
     (inputs
      `(("ghc-microlens" ,ghc-microlens-0.4.10)
-       ("ghc-mtl" ,ghc-mtl)
        ("ghc-transformers-compat"
         ,ghc-transformers-compat)))
     (home-page "http://github.com/aelve/microlens")

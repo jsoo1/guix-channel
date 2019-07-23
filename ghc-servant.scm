@@ -1,5 +1,4 @@
 (define-module (ghc-servant)
-  #:use-module (ghc-mtl)
   #:use-module (gnu packages curl)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-check)
@@ -32,8 +31,7 @@
          "1qlkdgls2z71sx09lbkrqcxwx1wam3hn7dnyps6z2i7qixhlw0wq"))))
     (build-system haskell-build-system)
     (inputs
-     `(("ghc-mtl" ,ghc-mtl)
-       ("ghc-servant" ,ghc-servant)
+     `(("ghc-servant" ,ghc-servant)
        ("ghc-http-api-data" ,ghc-http-api-data-0.4)
        ("ghc-base-compat" ,ghc-base-compat-0.10.5)
        ("ghc-base64-bytestring" ,ghc-base64-bytestring)
@@ -95,8 +93,7 @@ CHANGELOG: https://github.com/haskell-servant/servant/blob/master/servant-server
          "0fgsddg8yn23izk3g4bmax6rlh56qhx13j8h5n6fxr7mq34kagsg"))))
     (build-system haskell-build-system)
     (inputs
-     `(("ghc-mtl" ,ghc-mtl)
-       ("ghc-http-api-data" ,ghc-http-api-data-0.4)
+     `(("ghc-http-api-data" ,ghc-http-api-data-0.4)
        ("ghc-singleton-bool" ,ghc-singleton-bool)
        ("ghc-base-compat" ,ghc-base-compat-0.10.5)
        ("ghc-aeson" ,ghc-aeson-1.4.2.0)
@@ -1197,8 +1194,7 @@ In network-2.6 the Network.URI module was split off into its own package, networ
          "1rfbfcv3r1h29y0yqr3x6a1s04lbc3vzm3jqnfg4f9rqp9d448qk"))))
     (build-system haskell-build-system)
     (inputs
-     `(("ghc-mtl" ,ghc-mtl)
-       ("ghc-exceptions" ,ghc-exceptions)
+     `(("ghc-exceptions" ,ghc-exceptions)
        ("ghc-unliftio-core" ,ghc-unliftio-core)
        ("ghc-primitive" ,ghc-primitive)))
     (native-inputs `(("ghc-hspec" ,ghc-hspec-2.6.1)))

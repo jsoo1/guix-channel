@@ -1,5 +1,4 @@
 (define-module (stylish-haskell)
-  #:use-module (ghc-mtl)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
@@ -28,7 +27,6 @@
     `(("ghc-aeson" ,ghc-aeson)
       ("ghc-file-embed" ,ghc-file-embed)
       ("ghc-haskell-src-exts" ,ghc-haskell-src-exts)
-      ("ghc-mtl" ,ghc-mtl)
       ("ghc-semigroups" ,ghc-semigroups)
       ("ghc-syb" ,ghc-syb)
       ("ghc-yaml" ,ghc-yaml)

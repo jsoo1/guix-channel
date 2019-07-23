@@ -2,7 +2,6 @@
   #:use-module ((ghc-cborg) #:select (ghc-cborg
                                       ghc-cborg-json
                                       ghc-serialise))
-  #:use-module (ghc-mtl)
   #:use-module (ghc-parsing)
   #:use-module (ghc-repline)
   #:use-module (gnu packages haskell)
@@ -46,7 +45,6 @@
        ("ghc-lens-family-core" ,ghc-lens-family-core)
        ("ghc-megaparsec" ,ghc-megaparsec-7.0.4)
        ("ghc-memory" ,ghc-memory)
-       ("ghc-mtl" ,ghc-mtl)
        ("ghc-optparse-applicative" ,ghc-optparse-applicative)
        ("ghc-parsers" ,ghc-parsers)
        ("ghc-prettyprinter" ,ghc-prettyprinter)

@@ -2,7 +2,7 @@
   #:use-module (dhall)
   #:use-module ((ghc-cborg) #:select (ghc-serialise))
   #:use-module (ghc-microlens)
-  #:use-module (ghc-mtl)
+  #:use-module ((ghc-mtl) #:select (ghc-mtl-compat))
   #:use-module (ghc-parsing)
   #:use-module (ghc-repline)
   #:use-module (ghc-system)
@@ -55,7 +55,6 @@
        ("ghc-microlens-platform" ,ghc-microlens-platform)
        ("ghc-monad-control" ,ghc-monad-control)
        ("ghc-monad-logger" ,ghc-monad-logger)
-       ("ghc-mtl" ,ghc-mtl)
        ("ghc-parallel" ,ghc-parallel)
        ("ghc-parsec" ,ghc-parsec)
        ("ghc-pattern-arrows" ,ghc-pattern-arrows)
@@ -166,7 +165,6 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
         (base32
          "13q7bj19hd60rnjfc05wxlyck8llxy11z3mns8kxg197wxrdkhkg"))))
     (build-system haskell-build-system)
-    (inputs `(("ghc-mtl" ,ghc-mtl)))
     (home-page
      "http://blog.functorial.com/posts/2013-10-27-Pretty-Printing-Arrows.html")
     (synopsis "Arrows for Pretty Printing")
@@ -193,7 +191,6 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      `(("ghc-async" ,ghc-async)
        ("ghc-hashable" ,ghc-hashable)
        ("ghc-stm" ,ghc-stm)
-       ("ghc-mtl" ,ghc-mtl)
        ("ghc-mtl-compat" ,ghc-mtl-compat)
        ("ghc-transformers-compat" ,ghc-transformers-compat)))
     (home-page "https://github.com/sdiehl/protolude")
@@ -269,8 +266,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
          "0hv1rj3yarv035mpnnnbqys4sgd0awqlm5hyf29wp051r6dnwxfl"))))
     (build-system haskell-build-system)
     (inputs
-     `(("ghc-mtl" ,ghc-mtl)
-       ("ghc-blaze-builder" ,ghc-blaze-builder)
+     `(("ghc-blaze-builder" ,ghc-blaze-builder)
        ("ghc-utf8-string" ,ghc-utf8-string)))
     (native-inputs
      `(("ghc-alex" ,ghc-alex)
@@ -442,7 +438,6 @@ http://hspec.github.io/hspec-discover.html")
        ("ghc-scientific" ,ghc-scientific)
        ("ghc-vector" ,ghc-vector)
        ("ghc-transformers-compat" ,ghc-transformers-compat)
-       ("ghc-mtl" ,ghc-mtl)
        ("ghc-void" ,ghc-void)))
     (home-page
      "https://github.com/hdgarrood/aeson-better-errors")
