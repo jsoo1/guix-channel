@@ -3,7 +3,7 @@
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (ripgrep rust-ci-info-0.3.1))
+  #:export (ripgrep rust-insta))
 
 (define ripgrep
   (package
@@ -1569,6 +1569,38 @@ matching branch is the item that gets emitted.")
      "Random number generators and other randomness functionality.
 ")
     (license #f)))
+
+(define rust-rand-0.6.5
+  (package
+    (inherit rust-rand)
+    (version "0.6.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand" version))
+       (file-name
+        (string-append (package-name rust-rand) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0b05gwx8nnxr9bydyjxd1rszdvqnm946ky15z103ssfrhc7anznl"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-autocfg" ,rust-autocfg)
+        ("rust-libc" ,rust-libc)
+        ("rust-rand-chacha" ,rust-rand-chacha)
+        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rand-hc" ,rust-rand-hc)
+        ("rust-rand-isaac" ,rust-rand-isaac)
+        ("rust-rand-jitter" ,rust-rand-jitter)
+        ("rust-rand-pcg" ,rust-rand-pcg)
+        ("rust-rand-xorshift" ,rust-rand-xorshift)
+        ("rust-winapi" ,rust-winapi)
+        ("rust-log" ,rust-log)
+        ("rust-packed_simd" ,rust-packed_simd)
+        ("rust-rand-os" ,rust-rand-os))
+       #:rust-cargo-rust-development-rust-inputs
+       (("rust-average" ,rust-average)
+        ("rust-rand-xoshiro" ,rust-rand-xoshiro))))))
 
 (define rust-indexmap
   (package
@@ -8727,7 +8759,7 @@ repositories.
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder)
         ("rust-md5" ,rust-md5)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.6.5)
         ("rust-serde" ,rust-serde)
         ("rust-sha1" ,rust-sha1)
         ("rust-slog" ,rust-slog)
@@ -9026,7 +9058,7 @@ repositories.
     (arguments
      `(#:cargo-inputs
        (("rust-chrono" ,rust-chrono)
-        ("rust-ci-info" ,rust-ci-info)
+        ("rust-ci-info" ,rust-ci-info-0.3.1)
         ("rust-console" ,rust-console)
         ("rust-difference" ,rust-difference)
         ("rust-failure" ,rust-failure)
@@ -9081,10 +9113,15 @@ repositories.
        (method url-fetch)
        (uri (crate-uri "ci_info" version))
        (file-name
-        (string-append name "-" version ".tar.gz"))
+        (string-append (package-name rust-ci-info) "-" version ".tar.gz"))
        (sha256
         (base32
-         "00pr17g6q6i752acrkycg0hkq3lm0p634anm41g3m6lqg8q83s75"))))))
+         "00pr17g6q6i752acrkycg0hkq3lm0p634anm41g3m6lqg8q83s75"))))
+    (arguments
+     `(#:tests? #f ; Has failing tests
+       #:cargo-inputs
+       (("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive))))))
 
 (define rust-console
   (package
@@ -9199,7 +9236,7 @@ repositories.
 (define rust-ron
   (package
     (name "rust-ron")
-    (version "0.5.1")
+    (version "0.4.1") ; Current is 0.5.1, rust-insta has pinned version
     (source
      (origin
        (method url-fetch)
@@ -9208,7 +9245,7 @@ repositories.
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "1mb2bavvp8jg5wx0kx9n45anrsbjwhjzddim987bjaa11hg45kif"))))
+         "1mrqdgw3w0yypg24jyq9mphp4zr9lr0ks7yam82m4n34x6njijyr"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -11207,4 +11244,52 @@ creation from raw pointers and start, end pointer accessors.
      "https://github.com/crossbeam-rs/crossbeam")
     (synopsis "Tools for concurrent programming")
     (description "Tools for concurrent programming")
+    (license #f)))
+
+(define rust-nodrop-union
+  (package
+    (name "rust-nodrop-union")
+    (version "0.1.10")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "nodrop-union" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0jsnkdn9l8jlmb9h4wssi76sxnyxwnyi00p6y1p2gdq7c1gdw2b7"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/bluss/arrayvec")
+    (synopsis
+     "A wrapper type to inhibit drop (destructor)")
+    (description
+     "This package provides a wrapper type to inhibit drop (destructor).  Implementation crate for nodrop, the untagged unions implementation (which is unstable / requires nightly) as of this writing.")
+    (license #f)))
+
+(define rust-rand-jitter
+  (package
+    (name "rust-rand-jitter")
+    (version "0.2.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_jitter" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1mnjbfzj97g788jslz0k77bpsg6qjhz676cibk82ibbvgqp4sy43"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libc" ,rust-libc)
+        ("rust-log" ,rust-log)
+        ("rust-rand-core" ,rust-rand-core)
+        ("rust-winapi" ,rust-winapi))))
+    (home-page "https://github.com/rust-random/rand")
+    (synopsis
+     "Random number generator based on timing jitter")
+    (description
+     "Random number generator based on timing jitter")
     (license #f)))
