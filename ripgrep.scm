@@ -3,7 +3,7 @@
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (ripgrep rust-insta))
+  #:export (ripgrep rust-insta rust-pest-meta))
 
 (define ripgrep
   (package
@@ -1563,12 +1563,56 @@ matching branch is the item that gets emitted.")
         ("rust-rand-xoshiro" ,rust-rand-xoshiro))))
     (home-page "https://crates.io/crates/rand")
     (synopsis
-     "Random number generators and other randomness functionality.
-")
+     "Random number generators and other randomness functionality")
     (description
-     "Random number generators and other randomness functionality.
-")
+     "Random number generators and other randomness functionality.")
     (license #f)))
+
+(define rust-rand-chacha
+  (package
+    (name "rust-rand-chacha")
+    (version "0.2.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_chacha" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "178d36jfkc4v95s25scc2vibj2hd2hlk64cs6id4hvzg89whd4z1"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-c2-chacha" ,rust-c2-chacha)
+        ("rust-rand-core" ,rust-rand-core))
+       #:cargo-development-inputs
+       (("rust-autocfg" ,rust-autocfg))))
+    (home-page
+     "https://crates.io/crates/rand_chacha")
+    (synopsis "ChaCha random number generator")
+    (description "ChaCha random number generator.")
+    (license #f)))
+
+(define rust-rand-chacha-0.1.1
+  (package
+    (inherit rust-rand-chacha)
+    (version "0.1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_chacha" version))
+       (file-name
+        (string-append (package-name rust-rand-chacha) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1vxwyzs4fy1ffjc8l00fsyygpiss135irjf7nyxgq2v0lqf3lvam"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-autocfg" ,rust-c2-chacha)
+        ("rust-rand-core" ,rust-rand-core))
+       #:cargo-development-inputs
+       (("rust-autocfg" ,rust-autocfg))))))
 
 (define rust-rand-0.6.5
   (package
@@ -1582,22 +1626,22 @@ matching branch is the item that gets emitted.")
         (string-append (package-name rust-rand) "-" version ".tar.gz"))
        (sha256
         (base32
-         "0b05gwx8nnxr9bydyjxd1rszdvqnm946ky15z103ssfrhc7anznl"))))
+         "1jl4449jcl4wgmzld6ffwqj5gwxrp8zvx8w573g1z368qg6xlwbd"))))
     (arguments
      `(#:cargo-inputs
        (("rust-autocfg" ,rust-autocfg)
         ("rust-libc" ,rust-libc)
-        ("rust-rand-chacha" ,rust-rand-chacha)
-        ("rust-rand-core" ,rust-rand-core)
-        ("rust-rand-hc" ,rust-rand-hc)
-        ("rust-rand-isaac" ,rust-rand-isaac)
-        ("rust-rand-jitter" ,rust-rand-jitter)
-        ("rust-rand-pcg" ,rust-rand-pcg)
-        ("rust-rand-xorshift" ,rust-rand-xorshift)
+        ("rust-rand-chacha" ,rust-rand-chacha-0.1.1)
+        ("rust-rand-core" ,rust-rand-core-0.4.0)
+        ("rust-rand-hc" ,rust-rand-hc-0.1.0)
+        ("rust-rand-isaac" ,rust-rand-isaac-0.1.1)
+        ("rust-rand-jitter" ,rust-rand-jitter-0.1.4)
+        ("rust-rand-pcg" ,rust-rand-pcg-0.1.2)
+        ("rust-rand-xorshift" ,rust-rand-xorshift-0.1.1)
         ("rust-winapi" ,rust-winapi)
         ("rust-log" ,rust-log)
-        ("rust-packed_simd" ,rust-packed_simd)
-        ("rust-rand-os" ,rust-rand-os))
+        ("rust-packed-simd" ,rust-packed-simd)
+        ("rust-rand-os" ,rust-rand-os-0.1.3))
        #:rust-cargo-rust-development-rust-inputs
        (("rust-average" ,rust-average)
         ("rust-rand-xoshiro" ,rust-rand-xoshiro))))))
@@ -1969,12 +2013,29 @@ variable.
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://crates.io/crates/rand_core")
     (synopsis
-     "Core random number generator traits and tools for implementation.
-")
+     "Core random number generator traits and tools for implementation")
     (description
-     "Core random number generator traits and tools for implementation.
-")
+     "Core random number generator traits and tools for implementation.")
     (license #f)))
+
+(define rust-rand-core-0.4.0
+  (package
+    (inherit rust-rand-core)
+    (version "0.4.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_core" version))
+       (file-name
+        (string-append (package-name rust-rand-core) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1h3dbrhi5qgflqnzzd86s48v1dn1l17bmdssi5q170whsm4sbryh"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive))))))
 
 (define rust-winapi
   (package
@@ -2021,7 +2082,7 @@ variable.
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc)
-        ("rust-numtoa" ,rust-numtoa)
+        ("rust-numtoa" ,rust-numtoa-0.1.0)
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-redox-termios" ,rust-redox-termios))))
     (home-page
@@ -2187,12 +2248,32 @@ instantiate to generate your own pieces of pseudo-random text.
        (("rust-bincode" ,rust-bincode))))
     (home-page
      "https://crates.io/crates/rand_xorshift")
-    (synopsis "Xorshift random number generator
-")
+    (synopsis "Xorshift random number generator")
     (description
-     "Xorshift random number generator
-")
+     "Xorshift random number generator")
     (license #f)))
+
+(define rust-rand-xorshift-0.1.1
+  (package
+    (inherit rust-rand-xorshift)
+    (version "0.1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_xorshift" version))
+       (file-name
+        (string-append (package-name rust-rand-xorshift) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0p2x8nr00hricpi2m6ca5vysiha7ybnghz79yqhhx6sl4gkfkxyb"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-rand-core" ,rust-rand-core)
+        ("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive))
+       #:cargo-development-inputs
+       (("rust-bincode" ,rust-bincode))))))
+
 
 (define rust-linked-hash-map
   (package
@@ -2835,11 +2916,23 @@ instantiate to generate your own pieces of pseudo-random text.
      `(#:cargo-inputs
        (("rust-rand-core" ,rust-rand-core))))
     (home-page "https://crates.io/crates/rand_hc")
-    (synopsis "HC128 random number generator
-")
-    (description "HC128 random number generator
-")
+    (synopsis "HC128 random number generator")
+    (description "HC128 random number generator")
     (license #f)))
+
+(define rust-rand-hc-0.1.0
+  (package
+    (inherit rust-rand-hc)
+    (version "0.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_hc" version))
+       (file-name
+        (string-append (package-name rust-rand-hc) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1i0vl8q5ddvvy0x8hf1zxny393miyzxkwqnw31ifg6p0gdy6fh3v"))))))
 
 (define rust-rand-pcg
   (package
@@ -2871,6 +2964,28 @@ instantiate to generate your own pieces of pseudo-random text.
 ")
     (license #f)))
 
+(define rust-rand-pcg-0.1.2
+  (package
+    (inherit rust-rand-pcg)
+    (version "0.1.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_pcg" version))
+       (file-name
+        (string-append (package-name rust-rand-pcg) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0i0bdla18a8x4jn1w0fxsbs3jg7ajllz6azmch1zw33r06dv1ydb"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-autocfg" ,rust-autocfg)
+        ("rust-rand-core" ,rust-rand-core)
+        ("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive))
+       #:cargo-development-inputs
+       (("rust-bincode" ,rust-bincode))))))
+
 (define rust-rand-isaac
   (package
     (name "rust-rand-isaac")
@@ -2892,11 +3007,29 @@ instantiate to generate your own pieces of pseudo-random text.
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode))))
     (home-page "https://crates.io/crates/rand_isaac")
-    (synopsis "ISAAC random number generator
-")
-    (description "ISAAC random number generator
-")
+    (synopsis "ISAAC random number generator")
+    (description "ISAAC random number generator")
     (license #f)))
+
+(define rust-rand-isaac-0.1.1
+  (package
+    (inherit rust-rand-isaac)
+    (version "0.1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_isaac" version))
+       (file-name
+        (string-append (package-name rust-rand-isaac) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "027flpjr4znx2csxk7gxb7vrf9c7y5mydmvg5az2afgisp4rgnfy"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-rand-core" ,rust-rand-core)
+        ("rust-serde" ,rust-serde))
+       #:cargo-development-inputs
+       (("rust-bincode" ,rust-bincode))))))
 
 (define rust-rand-xoshiro
   (package
@@ -3081,6 +3214,20 @@ instantiate to generate your own pieces of pseudo-random text.
     (description
      "Convert numbers into stack-allocated byte arrays")
     (license #f)))
+
+(define rust-numtoa-0.1.0
+  (package
+    (inherit rust-numtoa)
+    (version "0.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "numtoa" version))
+       (file-name
+        (string-append (package-name rust-numtoa) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1vs9rhggqbql1p26x8nkha1j06wawwgb2jp5fs88b5gi7prvvy5q"))))))
 
 (define rust-redox-termios
   (package
@@ -4429,6 +4576,32 @@ strings (> 1 billion is possible).
     (synopsis "OS backed Random Number Generator")
     (description "OS backed Random Number Generator")
     (license #f)))
+
+(define rust-rand-os-0.1.3
+  (package
+    (inherit rust-rand-os)
+    (version "0.1.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_os" version))
+       (file-name
+        (string-append (package-name rust-rand-os) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0wahppm0s64gkr2vmhcgwc0lij37in1lgfxg5rbgqlz0l5vgcxbv"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-cloudabi" ,rust-cloudabi)
+        ("rust-fuchsia-cprng" ,rust-fuchsia-cprng)
+        ("rust-libc" ,rust-libc)
+        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rdrand" ,rust-rdrand)
+        ("rust-winapi" ,rust-winapi)
+        ("rust-log" ,rust-log)
+        ("rust-stdweb" ,rust-stdweb)
+        ("rust-wasm" ,rust-wasm))))))
 
 (define rust-rayon
   (package
@@ -7024,6 +7197,37 @@ possible intended.
     (description "Encode/decode any base")
     (license #f)))
 
+(define rust-openssl
+  (package
+    (name "rust-openssl")
+    (version "0.10.24")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "openssl" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "05dg25rmg17rl3ykfl2yf69ghfd5z6zf6di38qw1awjvkddbnll1"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-libc" ,rust-libc)
+        ("rust-openssl-sys" ,rust-openssl-sys))
+       #:cargo-development-inputs
+       (("rust-hex" ,rust-hex)
+        ("rust-tempdir" ,rust-tempdir))))
+    (home-page
+     "https://github.com/sfackler/rust-openssl")
+    (synopsis "OpenSSL bindings")
+    (description "OpenSSL bindings")
+    (license #f)))
+
 (define rust-sha1
   (package
     (name "rust-sha1")
@@ -9041,6 +9245,58 @@ repositories.
      "High level wrapper library for PCRE2.")
     (license #f)))
 
+(define rust-unindent
+  (package
+    (name "rust-unindent")
+    (version "0.1.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "unindent" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1x21ilf78aqcq9xzb9b7i628wm10rhk0jp0chlv06rkc690l8jw3"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/dtolnay/indoc")
+    (synopsis
+     "Remove a column of leading whitespace from a string")
+    (description
+     "Remove a column of leading whitespace from a string")
+    (license #f)))
+
+
+(define rust-serde-yaml
+  (package
+    (name "rust-serde-yaml")
+    (version "0.8.9")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde_yaml" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "10mmjpnshgrwij01a13679nxy1hnh5yfr0343kh0y9p5j2d8mc1q"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-dtoa" ,rust-dtoa)
+        ("rust-linked-hash-map" ,rust-linked-hash-map)
+        ("rust-serde" ,rust-serde)
+        ("rust-yaml-rust" ,rust-yaml-rust))
+       #:cargo-development-inputs
+       (("rust-serde-derive" ,rust-serde-derive)
+        ("rust-unindent" ,rust-unindent)
+        ("rust-version-sync" ,rust-version-sync))))
+    (home-page
+     "https://github.com/dtolnay/serde-yaml")
+    (synopsis "YAML support for Serde")
+    (description "YAML support for Serde")
+    (license #f)))
+
 (define rust-insta
   (package
     (name "rust-insta")
@@ -10042,32 +10298,6 @@ repositories.
      "The uninhabited void type for use in statically impossible cases.")
     (license #f)))
 
-(define rust-rand-chacha
-  (package
-    (name "rust-rand-chacha")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_chacha" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "178d36jfkc4v95s25scc2vibj2hd2hlk64cs6id4hvzg89whd4z1"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-c2-chacha" ,rust-c2-chacha)
-        ("rust-rand-core" ,rust-rand-core))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
-    (home-page
-     "https://crates.io/crates/rand_chacha")
-    (synopsis "ChaCha random number generator")
-    (description "ChaCha random number generator.")
-    (license #f)))
-
 (define rust-c2-chach
   (package
     (name "rust-c2-chacha")
@@ -10276,6 +10506,20 @@ repositories.
     (description
      "Generic types implementing functionality of arrays")
     (license #f)))
+
+(define rust-generic-array-0.12.3
+  (package
+    (inherit rust-generic-array)
+    (version "0.12.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "generic-array" version))
+       (file-name
+        (string-append (package-name rust-generic-array) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1v5jg7djicq34nbiv1dwaki71gkny002wyy9qfn3y0hfmrs053y6"))))))
 
 (define rust-hex
   (package
@@ -10490,37 +10734,6 @@ dependency.")
      "This package provides a fast bump allocation arena for Rust.")
     (license #f)))
 
-(define rust-openssl
-  (package
-    (name "rust-openssl")
-    (version "0.10.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "openssl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "05dg25rmg17rl3ykfl2yf69ghfd5z6zf6di38qw1awjvkddbnll1"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
-        ("rust-cfg-if" ,rust-cfg-if)
-        ("rust-foreign-types" ,rust-foreign-types)
-        ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-libc" ,rust-libc)
-        ("rust-openssl-sys" ,rust-openssl-sys))
-       #:cargo-development-inputs
-       (("rust-hex" ,rust-hex)
-        ("rust-tempdir" ,rust-tempdir))))
-    (home-page
-     "https://github.com/sfackler/rust-openssl")
-    (synopsis "OpenSSL bindings")
-    (description "OpenSSL bindings")
-    (license #f)))
-
 (define rust-foreign-types
   (package
     (name "rust-foreign-types")
@@ -10647,57 +10860,6 @@ dependency.")
      "Types and traits for working with bytes")
     (license #f)))
 
-(define rust-serde-yaml
-  (package
-    (name "rust-serde-yaml")
-    (version "0.8.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde_yaml" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "10mmjpnshgrwij01a13679nxy1hnh5yfr0343kh0y9p5j2d8mc1q"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-dtoa" ,rust-dtoa)
-        ("rust-linked-hash-map" ,rust-linked-hash-map)
-        ("rust-serde" ,rust-serde)
-        ("rust-yaml-rust" ,rust-yaml-rust))
-       #:cargo-development-inputs
-       (("rust-serde-derive" ,rust-serde-derive)
-        ("rust-unindent" ,rust-unindent)
-        ("rust-version-sync" ,rust-version-sync))))
-    (home-page
-     "https://github.com/dtolnay/serde-yaml")
-    (synopsis "YAML support for Serde")
-    (description "YAML support for Serde")
-    (license #f)))
-
-(define rust-unindent
-  (package
-    (name "rust-unindent")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unindent" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1x21ilf78aqcq9xzb9b7i628wm10rhk0jp0chlv06rkc690l8jw3"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/dtolnay/indoc")
-    (synopsis
-     "Remove a column of leading whitespace from a string")
-    (description
-     "Remove a column of leading whitespace from a string")
-    (license #f)))
-
 (define rust-scopeguard
   (package
     (name "rust-scopeguard")
@@ -10822,7 +10984,7 @@ shorthands for guards with one of the implemented strategies.")
        (("rust-block-padding" ,rust-block-padding)
         ("rust-byte-tools" ,rust-byte-tools)
         ("rust-byteorder" ,rust-byteorder)
-        ("rust-generic-array" ,rust-generic-array))))
+        ("rust-generic-array" ,rust-generic-array-0.12.3))))
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis
      "Fixed size buffer for block processing of data")
@@ -11292,4 +11454,325 @@ creation from raw pointers and start, end pointer accessors.
      "Random number generator based on timing jitter")
     (description
      "Random number generator based on timing jitter")
+    (license #f)))
+
+(define rust-rand-jitter-0.1.4
+  (package
+    (inherit rust-rand-jitter)
+    (version "0.1.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_jitter" version))
+       (file-name
+        (string-append (package-name rust-rand-jitter) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "16z387y46bfz3csc42zxbjq89vcr1axqacncvv8qhyy93p4xarhi"))))))
+
+(define rust-average
+  (package
+    (name "rust-average")
+    (version "0.10.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "average" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "077wbjzn2hwdjnglp8pjvirvsjgfgbgnlirwh5g2hk14xqx7f57l"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-conv" ,rust-conv)
+        ("rust-float-ord" ,rust-float-ord)
+        ("rust-num-traits" ,rust-num-traits)
+        ("rust-serde" ,rust-serde)
+        ("rust-serde-big-array" ,rust-serde-big-array)
+        ("rust-serde-derive" ,rust-serde-derive))
+       #:cargo-development-inputs
+       (("rust-bencher" ,rust-bencher)
+        ("rust-proptest" ,rust-proptest)
+        ("rust-quantiles" ,rust-quantiles)
+        ("rust-rand" ,rust-rand)
+        ("rust-rand-distr" ,rust-rand-distr)
+        ("rust-rand-xoshiro" ,rust-rand-xoshiro)
+        ("rust-serde-json" ,rust-serde-json)
+        ("rust-streaming-stats" ,rust-streaming-stats))))
+    (home-page "https://github.com/vks/average")
+    (synopsis "Calculate statistics iteratively")
+    (description "Calculate statistics iteratively")
+    (license #f)))
+
+(define rust-conv
+  (package
+    (name "rust-conv")
+    (version "0.3.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "conv" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "168j1npqrif1yqxbgbk0pdrx9shzhs5ylc5a4xw49b6hbxi11zvq"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-custom-derive" ,rust-custom-derive))
+       #:cargo-development-inputs
+       (("rust-quickcheck" ,rust-quickcheck)
+        ("rust-winapi" ,rust-winapi))))
+    (home-page
+     "https://github.com/DanielKeep/rust-conv")
+    (synopsis
+     "This crate provides a number of conversion traits with more specific semantics than those provided by 'as' or 'From'/'Into'.")
+    (description
+     "This crate provides a number of conversion traits with more specific semantics than those provided by 'as' or 'From'/'Into'.")
+    (license #f)))
+
+(define rust-float-ord
+  (package
+    (name "rust-float-ord")
+    (version "0.2.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "float-ord" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0kin50365sr3spnbscq43lksymybi99ai9rkqdw90m6vixhlibbv"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-rand" ,rust-rand))))
+    (home-page
+     "https://github.com/notriddle/rust-float-ord")
+    (synopsis
+     "A total ordering for floating-point numbers")
+    (description
+     "This package provides a total ordering for floating-point numbers")
+    (license #f)))
+
+(define rust-serde-big-array
+  (package
+    (name "rust-serde-big-array")
+    (version "0.1.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde-big-array" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0gkyqxk760mp1lfcg6lhjk95ajc89nr0qdd0vl4ic0g8pyxcy9mr"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive))
+       #:cargo-development-inputs
+       (("rust-serde-json" ,rust-serde-json))))
+    (home-page
+     "https://github.com/est31/serde-big-array")
+    (synopsis "Big array helper for serde")
+    (description "Big array helper for serde.")
+    (license #f)))
+
+(define rust-quantiles
+  (package
+    (name "rust-quantiles")
+    (version "0.7.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "quantiles" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1wjp16a3d4bmldq9w2wds0q4gjz4mnsqac3g38r6ryr6zc9sh3y1"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive))
+       #:cargo-development-inputs
+       (("rust-quickcheck" ,rust-quickcheck))))
+    (home-page
+     "https://github.com/postmates/quantiles")
+    (synopsis
+     "a collection of approximate quantile algorithms")
+    (description
+     "a collection of approximate quantile algorithms")
+    (license #f)))
+
+(define rust-rand-distr
+  (package
+    (name "rust-rand-distr")
+    (version "0.2.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rand_distr" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "08drhcw9k4a79pri3rd1vkv7v9cbm6cf4i342nai39f527c58zn3"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-rand" ,rust-rand))
+       #:cargo-development-inputs
+       (("rust-average" ,rust-average)
+        ("rust-rand-pcg" ,rust-rand-pcg))))
+    (home-page "https://crates.io/crates/rand_distr")
+    (synopsis
+     "Sampling from random number distributions")
+    (description
+     "Sampling from random number distributions")
+    (license #f)))
+
+(define rust-streaming-stats
+  (package
+    (name "rust-streaming-stats")
+    (version "0.2.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "streaming-stats" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0l7xz4g6709s80zqpvlhrg0qhgz64r94cwhmfsg8xhabgznbp2px"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-num-traits" ,rust-num-traits))))
+    (home-page
+     "https://github.com/BurntSushi/rust-stats")
+    (synopsis
+     "Experimental crate for computing basic statistics on streams")
+    (description
+     "Experimental crate for computing basic statistics on streams.")
+    (license #f)))
+
+(define rust-custom-derive
+  (package
+    (name "rust-custom-derive")
+    (version "0.1.7")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "custom_derive" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1f81bavw1wnykwh21hh4yyzigs6zl6f6pkk9p3car8kq95yfb2pg"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-rustc-serialize" ,rust-rustc-serialize))))
+    (home-page
+     "https://github.com/DanielKeep/rust-custom-derive/tree/custom_derive-master")
+    (synopsis
+     "This crate provides a macro that enables the use of custom derive attributes")
+    (description
+     "(Note: superseded by `macro-attr`) This crate provides a macro that enables the use of custom derive attributes.")
+    (license #f)))
+
+(define rust-fuchsia-cprng
+  (package
+    (name "rust-fuchsia-cprng")
+    (version "0.1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "fuchsia-cprng" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1fnkqrbz7ixxzsb04bsz9p0zzazanma8znfdqjvh39n14vapfvx0"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://fuchsia.googlesource.com/fuchsia/+/master/garnet/public/rust/fuchsia-cprng")
+    (synopsis
+     "Rust crate for the Fuchsia cryptographically secure pseudorandom number generator")
+    (description
+     "Rust crate for the Fuchsia cryptographically secure pseudorandom number generator")
+    (license #f)))
+
+(define rust-rdrand
+  (package
+    (name "rust-rdrand")
+    (version "0.6.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rdrand" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1ir1d2xwknd9r2dpygpphdc7h7wmfy23kjivbp0n0psinm1gh52h"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-rand-core" ,rust-rand-core))))
+    (home-page
+     "https://github.com/nagisa/rust_rdrand/")
+    (synopsis
+     "An implementation of random number generator based on rdrand and rdseed instructions")
+    (description
+     "An implementation of random number generator based on rdrand and rdseed instructions")
+    (license #f)))
+
+(define rust-wasm
+  (package
+    (name "rust-wasm")
+    (version "0.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "wasm" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "136d50gyi3l4nzr9mv0j3p2p50ywdqzf59kkyj33zmcbxmwi42zs"))))
+    (build-system cargo-build-system)
+    (home-page "")
+    (synopsis "WASM tools")
+    (description "WASM tools")
+    (license #f)))
+
+(define rust-opaque-debug
+  (package
+    (name "rust-opaque-debug")
+    (version "0.2.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "opaque-debug" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "02942l2gc7w5r4js7i9063x99szic5mzzk1055j83v4diqpbpxck"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/RustCrypto/utils")
+    (synopsis
+     "Macro for opaque Debug trait implementation")
+    (description
+     "Macro for opaque Debug trait implementation")
     (license #f)))
