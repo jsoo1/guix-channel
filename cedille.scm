@@ -48,10 +48,7 @@
            (lambda* (#:key outputs #:allow-other-keys)
              (copy-recursively
               "cedille-mode"
-              (string-append
-               (assoc-ref outputs "out")
-               "/share/emacs/site-lisp/guix.d/cedille-" ,version "/"
-               "cedille-mode"))
+              (assoc-ref outputs "out"))
              #t))
          ;; Byte compilation fails
          (delete 'build)
@@ -144,9 +141,7 @@ Cedille programming mode.")
        (modify-phases %standard-phases
          (delete 'configure)
          (add-before 'build 'patch-dependencies
-           (lambda _
-             (patch-shebang "find-deps.sh")
-             #t))
+           (lambda _ (patch-shebang "find-deps.sh") #t))
          (delete 'check)
          (replace 'install
            (lambda* (#:key outputs #:allow-other-keys)
