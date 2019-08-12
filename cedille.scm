@@ -75,7 +75,7 @@
                 "lib" (string-append out "/lib/cedille"))
                (install-file "cedille" (string-append out "/bin"))
                #t))))))
-    (propogated-inputs
+    (propagated-inputs
      `(("emacs-se-mode" ,emacs-se-mode)))
     (home-page "https://cedille.github.io/")
     (synopsis
