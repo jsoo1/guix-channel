@@ -48,7 +48,9 @@
            (lambda* (#:key outputs #:allow-other-keys)
              (copy-recursively
               "cedille-mode"
-              (assoc-ref outputs "out"))
+              (string-append
+               (assoc-ref outputs "out")
+               "/share/emacs/site-lisp/guix.d/cedille-" ,version "/"))
              #t))
          ;; Byte compilation fails
          (delete 'build)
