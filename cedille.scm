@@ -72,6 +72,7 @@
              (delete-file "ial/main.agda")
              #t))
          (add-after 'check 'build-cedille
+           ;; Agda has a hard time with parallel compilation
            (lambda _ (invoke "make" "--jobs=1")))
          (add-after 'install 'install-cedille
            (lambda* (#:key outputs #:allow-other-keys)
@@ -117,8 +118,10 @@ conditions, not by virtue of the definition of the type theory.")
        (modify-phases %standard-phases
          (add-after 'unpack 'chdir-se-mode
            (lambda _ (chdir "se-mode") #t))
-         ;; Byte compilation fails
-         (delete 'build))))
+         (add-after 'chdir-se-mode 'fix-se-hole-el
+           (lambda _
+             (substitute* "se-hole.el"
+               (("\\(&rest beg end args\\)") "(beg end)")))))))
     (home-page "https://cedille.github.io/")
     (synopsis
      "Structural navigation for emacs")
