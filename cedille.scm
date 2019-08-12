@@ -42,16 +42,22 @@
                (("/usr/share/emacs/site-lisp/cedille-mode")
                 (string-append
                  (assoc-ref outputs "out")
-                 "/share/emacs/site-lisp/guix.d/cedille-" ,version "/"
-                 "cedille-mode")))))
+                 "/share/emacs/site-lisp/guix.d/cedille-"
+                 ,version "/cedille-mode")))))
          (add-before 'install 'copy-cedille-mode-libraries
            (lambda* (#:key outputs #:allow-other-keys)
-             (copy-recursively
-              "cedille-mode"
-              (string-append
-               (assoc-ref outputs "out")
-               "/share/emacs/site-lisp/guix.d/cedille-" ,version "/"))
-             #t))
+             (let ((out (assoc-ref outputs "out")))
+               (mkdir-p
+                (string-append
+                 out "/share/emacs/site-lisp/guix.d/cedille-"
+                 ,version "/cedille-mode"))
+               (copy-recursively
+                "cedille-mode"
+                (string-append
+                 (assoc-ref outputs "out")
+                 "/share/emacs/site-lisp/guix.d/cedille-"
+                 ,version "/cedille-mode"))
+               #t)))
          ;; Byte compilation fails
          (delete 'build)
          (add-after 'unpack 'patch-libraries
