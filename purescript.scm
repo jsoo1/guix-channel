@@ -188,7 +188,6 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (inputs
      `(("ghc-async" ,ghc-async)
        ("ghc-hashable" ,ghc-hashable)
-       ("ghc-stm" ,ghc-stm)
        ("ghc-mtl-compat" ,ghc-mtl-compat)
        ("ghc-transformers-compat" ,ghc-transformers-compat)))
     (home-page "https://github.com/sdiehl/protolude")
@@ -537,7 +536,6 @@ http://hspec.github.io/hspec-discover.html")
       (inputs
        `(("ghc-fgl" ,ghc-fgl)
          ("ghc-async" ,ghc-async)
-         ("ghc-stm" ,ghc-stm)
          ("ghc-transformers-base" ,ghc-transformers-base)
          ("ghc-monad-control" ,ghc-monad-control)))
       (native-inputs `(("ghc-hspec" ,ghc-hspec)))
