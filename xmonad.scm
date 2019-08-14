@@ -74,7 +74,7 @@
       ("ghc-x11-xft" ,ghc-x11-xft)
       ("xmonad" ,my-xmonad)))
    (arguments
-    `(#:haskell ,ghc-8.6))
+    `(#:haskell ,ghc-8.4))
    (home-page "https://xmonad.org")
    (synopsis "Third party extensions for xmonad")
    (description
