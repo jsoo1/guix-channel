@@ -13,11 +13,11 @@
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:export (xmobar-plus))
+  #:export (xmobar-plus xmobar-plus2))
 
-(define xmobar-plus
+(define xmobar-plus2
   (package
-   (name "xmobar-plus")
+   (name "xmobar-plus2")
    (version "0.28.1")
    (source (origin
             (method url-fetch)
@@ -35,24 +35,79 @@
       ("ghc-alsa-mixer" ,ghc-alsa-mixer)
       ("ghc-dbus" ,ghc-dbus)
       ("ghc-http" ,ghc-http)
+      ("ghc-old-locale" ,ghc-old-locale)
       ("ghc-iwlib" ,ghc-iwlib)
-      ("ghc-parsec" ,ghc-parsec)
       ("ghc-parsec-numbers" ,ghc-parsec-numbers)
       ("ghc-regex-compat" ,ghc-regex-compat)
-      ("ghc-stm" ,ghc-stm)
+      ("ghc-x11" ,ghc-x11)
       ("ghc-x11-xft" ,ghc-x11-xft)
       ("libxpm" ,libxpm)))
    (arguments
-    `(#:configure-flags
-      (list (string-append "--flags="
-                           (string-join (list "with_inotify"
-                                              "with_alsa"
-                                              "with_iwlib"
-                                              "with_dbus"
-                                              "with_threaded"
-                                              "with_xft"
-                                              "with_xpm")
-                                        " ")))))
+    `(#:haskell ,ghc-8.4
+      #:configure-flags
+      (list
+       (string-append
+        "--flags="
+        (string-join
+         (list "with_inotify"
+               "with_alsa"
+               "with_iwlib"
+               "with_dbus"
+               "with_threaded"
+               "with_xft"
+               "with_xpm")
+         " ")))))
+   (home-page "http://xmobar.org")
+   (synopsis "Minimalistic text based status bar")
+   (description
+    "code{xmobar} is a lightweight, text-based, status bar written in
+Haskell.  It was originally designed to be used together with Xmonad, but it
+is also usable with any other window manager.  While xmobar is written in
+Haskell, no knowledge of the language is required to install and use it.")
+   (license license:bsd-3)))
+
+(define xmobar-plus
+  (package
+   (name "xmobar-plus")
+   (version "0.28.1")
+   (source (origin
+            (method url-fetch)
+            (uri (string-append "https://hackage.haskell.org/package/xmobar/xmobar-" version ".tar.gz"))
+            (sha256
+             (base32
+              "1zrpvr1nr6a55sxmjbacacflrxvnw6aibsdal19wx404r74qjgz5"))))
+   (build-system haskell-build-system)
+   (native-inputs
+    `(("ghc-hspec" ,my-ghc-hspec)
+      ("hspec-discover" ,hspec-discover)))
+   (inputs
+    `(("ghc-hinotify" ,ghc-hinotify)
+      ("ghc-alsa-core" ,ghc-alsa-core)
+      ("ghc-alsa-mixer" ,ghc-alsa-mixer)
+      ("ghc-dbus" ,ghc-dbus)
+      ("ghc-http" ,ghc-http)
+      ("ghc-old-locale" ,ghc-old-locale)
+      ("ghc-iwlib" ,ghc-iwlib)
+      ("ghc-parsec-numbers" ,my-ghc-parsec-numbers)
+      ("ghc-regex-compat" ,my-ghc-regex-compat)
+      ("ghc-x11" ,my-ghc-x11)
+      ("ghc-x11-xft" ,ghc-x11-xft)
+      ("libxpm" ,libxpm)))
+   (arguments
+    `(#:haskell ,ghc-8.6
+      #:configure-flags
+      (list
+       (string-append
+        "--flags="
+        (string-join
+         (list "with_inotify"
+               "with_alsa"
+               "with_iwlib"
+               "with_dbus"
+               "with_threaded"
+               "with_xft"
+               "with_xpm")
+         " ")))))
    (home-page "http://xmobar.org")
    (synopsis "Minimalistic text based status bar")
    (description
@@ -63,6 +118,21 @@ Haskell, no knowledge of the language is required to install and use it.")
    (license license:bsd-3)))
 
 ;; DEPENDENCIES
+(define my-ghc-parsec-numbers
+  (package
+    (inherit ghc-parsec-numbers)
+    (arguments `(#:haskell ,ghc-8.6))))
+
+(define my-ghc-x11
+  (package
+    (inherit ghc-x11)
+    (arguments `(#:haskell ,ghc-8.6))))
+
+(define my-ghc-regex-compat
+  (package
+    (inherit ghc-regex-compat)
+    (arguments `(#:haskell ,ghc-8.6))))
+
 (define ghc-libpmd
   (package
    (name "ghc-libmpd")
@@ -81,7 +151,9 @@ Haskell, no knowledge of the language is required to install and use it.")
       ("ghc-utf8-string" ,ghc-utf8-string)
       ("ghc-quickcheck" ,ghc-quickcheck)
       ("ghc-hspec" ,ghc-hspec)))
-   (arguments `(#:tests? #f))
+   (arguments
+    `(#:haskell ,ghc-8.6
+      #:tests? #f))
    (home-page "http://github.com/vimus/libmpd-haskell#readme")
    (synopsis "An MPD client library.")
    (description "A client library for MPD, the Music Player Daemon.")
@@ -101,6 +173,8 @@ Haskell, no knowledge of the language is required to install and use it.")
    (inputs
     `(("ghc-timezone-series" ,ghc-timezone-series)
       ("ghc-extensible-exceptions" ,ghc-extensible-exceptions)))
+   (arguments
+    `(#:haskell ,ghc-8.6))
    (home-page "http://projects.haskell.org/time-ng/")
    (synopsis "A pure Haskell parser and renderer for binary Olson timezone files")
    (description
@@ -118,6 +192,8 @@ Haskell, no knowledge of the language is required to install and use it.")
            "https://hackage.haskell.org/package/timezone-series/timezone-series-" version ".tar.gz"))
      (sha256 (base32 "1blwgnyzqn917rgqkl4dncv9whv3xmk0lav040qq0214vksmvlz5"))))
    (build-system haskell-build-system)
+   (arguments
+    `(#:haskell ,ghc-8.6))
    (home-page "http://projects.haskell.org/time-ng/")
    (synopsis "Enhanced timezone handling for Data.Time")
    (description

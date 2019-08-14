@@ -27,7 +27,6 @@
       ("ghc-lens" ,ghc-lens)
       ("ghc-libxml-sax" ,ghc-libxml-sax)
       ("ghc-network" ,ghc-network)
-      ("ghc-parsec" ,ghc-parsec)
       ("ghc-random" ,ghc-random)
       ("ghc-split" ,ghc-split)
       ("ghc-th-lift" ,ghc-th-lift)

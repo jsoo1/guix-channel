@@ -29,7 +29,8 @@
       ("ghc-x11"                   ,ghc-x11)))
    (propagated-inputs `(("gcc-toolchain" ,gcc-toolchain)))
    (arguments
-    `(#:phases
+    `(#:haskell ,ghc-8.4
+      #:phases
       (modify-phases %standard-phases
                      (add-after
                       'install 'install-xsession
@@ -72,6 +73,8 @@
       ("ghc-x11" ,ghc-x11)
       ("ghc-x11-xft" ,ghc-x11-xft)
       ("xmonad" ,my-xmonad)))
+   (arguments
+    `(#:haskell ,ghc-8.6))
    (home-page "https://xmonad.org")
    (synopsis "Third party extensions for xmonad")
    (description

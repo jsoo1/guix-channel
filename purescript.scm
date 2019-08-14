@@ -56,7 +56,6 @@
        ("ghc-monad-control" ,ghc-monad-control)
        ("ghc-monad-logger" ,ghc-monad-logger)
        ("ghc-parallel" ,ghc-parallel)
-       ("ghc-parsec" ,ghc-parsec)
        ("ghc-pattern-arrows" ,ghc-pattern-arrows)
        ("ghc-protolude" ,ghc-protolude)
        ("ghc-regex-tdfa" ,ghc-regex-tdfa)

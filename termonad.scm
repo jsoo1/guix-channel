@@ -622,7 +622,6 @@
     `(("ghc-blaze-html" ,ghc-blaze-html)
       ("ghc-blaze-markup" ,ghc-blaze-markup)
       ("ghc-dlist" ,ghc-dlist)
-      ("ghc-parsec" ,ghc-parsec)
       ("ghc-shakespeare" ,ghc-shakespeare)))
    (arguments `(#:tests? #f))
    (home-page "https://github.com/arowM/heterocephalus#readme")
