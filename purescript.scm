@@ -64,7 +64,6 @@
        ("ghc-semigroups" ,ghc-semigroups)
        ("ghc-sourcemap" ,ghc-sourcemap)
        ("ghc-split" ,ghc-split)
-       ("ghc-stm" ,ghc-stm)
        ("ghc-stringsearch" ,ghc-stringsearch)
        ("ghc-syb" ,ghc-syb)
        ("ghc-transformers-base" ,ghc-transformers-base)
