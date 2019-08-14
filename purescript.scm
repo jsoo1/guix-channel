@@ -52,7 +52,7 @@
        ("ghc-fsnotify" ,ghc-fsnotify)
        ("ghc-language-javascript" ,ghc-language-javascript)
        ("ghc-lifted-base" ,ghc-lifted-base)
-       ("ghc-microlens-platform" ,ghc-microlens-platform)
+       ("ghc-microlens-platform" ,ghc-microlens-platform-3.11)
        ("ghc-monad-control" ,ghc-monad-control)
        ("ghc-monad-logger" ,ghc-monad-logger)
        ("ghc-parallel" ,ghc-parallel)

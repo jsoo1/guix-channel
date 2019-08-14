@@ -7,7 +7,7 @@
   #:export (ghc-microlens-0.4.10
             ghc-microlens-ghc
             ghc-microlens-mtl
-            ghc-microlens-platform))
+            ghc-microlens-platform-3.11))
 
 (define ghc-microlens-0.4.10
   (package
@@ -93,7 +93,7 @@ This package is a part of the microlens family; see the readme on Github at http
     (license license:bsd-3)))
 
 
-(define ghc-microlens-platform
+(define ghc-microlens-platform-3.11
   (package
     (name "ghc-microlens-platform")
     (version "0.3.11")
