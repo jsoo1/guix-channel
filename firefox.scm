@@ -17,6 +17,7 @@
   #:use-module (gnu packages autotools)
   #:use-module (gnu packages base)
   #:use-module (gnu packages bash)
+  #:use-module (gnu packages commencement)
   #:use-module (gnu packages databases)
   #:use-module (gnu packages glib)
   #:use-module (gnu packages gtk)
@@ -122,12 +123,13 @@
 
        ("patch" ,(canonical-package patch))
 
-       ;; Icecat 60 checks for rust>=1.24
-       ("rust" ,rust-1.24)
-       ("cargo" ,rust-1.24 "cargo")
+       ("rust" ,rust)
+       ("cargo" ,rust "cargo")
        ("llvm" ,llvm-3.9.1)
        ("clang" ,clang-3.9.1)
+       ("gcc-toolchain" ,gcc-toolchain-8)
        ("perl" ,perl)
+       ("python3" ,python-3)
        ("python" ,python-2) ; Python 3 not supported
        ("python2-pysqlite" ,python2-pysqlite)
        ("yasm" ,yasm)
@@ -154,7 +156,7 @@
                            "--disable-tests"
                            "--disable-updater"
                            "--disable-crashreporter"
-                           "--disable-maintenance-service"
+                           ;; "--disable-maintenance-service"
                            "--disable-eme"
                            "--disable-gconf"
 
@@ -182,8 +184,8 @@
                            "--with-system-bz2"
                            "--with-system-jpeg"        ; must be libjpeg-turbo
                            "--with-system-libevent"
-                           "--with-system-ogg"
-                           "--with-system-vorbis"
+                           
+                           ;; "--with-system-vorbis"
                            ;; "--with-system-theora" ; wants theora-1.2, not yet released
                            "--with-system-libvpx"
                            "--with-system-icu"
@@ -194,11 +196,11 @@
                            ;; UNBUNDLE-ME! "--with-system-nspr"
                            ;; UNBUNDLE-ME! "--with-system-nss"
                            
-                           "--with-system-harfbuzz"
-                           "--with-system-graphite2"
+                           ;; "--with-system-harfbuzz"
+                           ;; "--with-system-graphite2"
                            "--enable-system-pixman"
                            "--enable-system-ffi"
-                           "--enable-system-hunspell"
+                           ;; "--enable-system-hunspell"
                            "--enable-system-sqlite"
 
                            ;; Fails with "--with-system-png won't work because
@@ -332,7 +334,7 @@
              ;; that the <cstddef> and "c++config.h" headers cannot be found.
              ;; Note that the 'build' keyword argument contains the GNU
              ;; triplet, e.g. "x86_64-unknown-linux-gnu".
-             (let ((gcc (assoc-ref inputs "gcc")))
+             (let ((gcc (assoc-ref inputs "gcc-toolchain")))
                (setenv "CPLUS_INCLUDE_PATH"
                        (string-append gcc "/include/c++" ":"
                                       gcc "/include/c++/" build ":"
@@ -361,35 +363,34 @@
                (apply invoke bash
                       (string-append srcdir "/configure")
                       flags))))
-         (add-before 'configure 'install-desktop-entry
-           (lambda* (#:key outputs #:allow-other-keys)
-             ;; Install the '.desktop' file.
-             (let* ((desktop-file "taskcluster/docker/icecat-snap/icecat.desktop")
-                    (out          (assoc-ref outputs "out"))
-                    (applications (string-append out "/share/applications")))
-               (substitute* desktop-file
-                 (("^Exec=icecat")     (string-append "Exec=" out "/bin/icecat"))
-                 (("IceCat")           "GNU IceCat")
-                 (("Icon=.*")          "Icon=icecat\n")
-                 (("NewWindow")        "new-window")
-                 (("NewPrivateWindow") "new-private-window"))
-               (install-file desktop-file applications)
-               #t)))
-         (add-after 'install-desktop-entry 'install-icons
-           (lambda* (#:key outputs #:allow-other-keys)
-             (let ((out (assoc-ref outputs "out")))
-               (with-directory-excursion "browser/branding/official"
-                 (for-each
-                  (lambda (file)
-                    (let* ((size (string-filter char-numeric? file))
-                           (icons (string-append out "/share/icons/hicolor/"
-                                                 size "x" size "/apps")))
-                      (mkdir-p icons)
-                      (copy-file file (string-append icons "/icecat.png"))))
-                  '("default16.png" "default22.png" "default24.png"
-                    "default32.png" "default48.png" "content/icon64.png"
-                    "mozicon128.png" "default256.png"))
-                 #t))))
+         ;; (add-before 'configure 'install-desktop-entry
+         ;;   (lambda* (#:key outputs #:allow-other-keys)
+         ;;     ;; Install the '.desktop' file.
+         ;;     (let* ((desktop-file "taskcluster/docker/icecat-snap/icecat.desktop")
+         ;;            (out          (assoc-ref outputs "out"))
+         ;;            (applications (string-append out "/share/applications")))
+         ;;       (substitute* desktop-file
+         ;;         (("^Exec=icecat")     (string-append "Exec=" out "/bin/icecat"))
+         ;;         (("Firefox")           "Firefox")
+         ;;         (("NewWindow")        "new-window")
+         ;;         (("NewPrivateWindow") "new-private-window"))
+         ;;       (install-file desktop-file applications)
+         ;;       #t)))
+         ;; (add-after 'install-desktop-entry 'install-icons
+         ;;   (lambda* (#:key outputs #:allow-other-keys)
+         ;;     (let ((out (assoc-ref outputs "out")))
+         ;;       (with-directory-excursion "browser/branding/official"
+         ;;         (for-each
+         ;;          (lambda (file)
+         ;;            (let* ((size (string-filter char-numeric? file))
+         ;;                   (icons (string-append out "/share/icons/hicolor/"
+         ;;                                         size "x" size "/apps")))
+         ;;              (mkdir-p icons)
+         ;;              (copy-file file (string-append icons "/icecat.png"))))
+         ;;          '("default16.png" "default22.png" "default24.png"
+         ;;            "default32.png" "default48.png" "content/icon64.png"
+         ;;            "mozicon128.png" "default256.png"))
+         ;;         #t))))
          ;; This fixes the file chooser crash that happens with GTK 3.
          (add-after 'install 'wrap-program
            (lambda* (#:key inputs outputs #:allow-other-keys)
@@ -397,15 +398,13 @@
                     (lib (string-append out "/lib"))
                     (gtk (assoc-ref inputs "gtk+"))
                     (gtk-share (string-append gtk "/share")))
-               (wrap-program (car (find-files lib "^icecat$"))
+               (wrap-program (car (find-files lib "^firefox$"))
                  `("XDG_DATA_DIRS" ":" prefix (,gtk-share)))
                #t))))))
-    (home-page "https://www.gnu.org/software/gnuzilla/")
-    (synopsis "Entirely free browser derived from Mozilla Firefox")
+    (home-page "https://mozilla.org/firefox")
+    (synopsis "Firefox")
     (description
-     "IceCat is the GNU version of the Firefox browser.  It is entirely free
-software, which does not recommend non-free plugins and addons.  It also
-features built-in privacy-protecting features.")
+     "Firefox")
     (license license:mpl2.0)     ;and others, see toolkit/content/license.html
     (properties
      `((ftp-directory . "/gnu/gnuzilla")
