@@ -1,5 +1,6 @@
 (define-module (firefox)
   #:use-module ((srfi srfi-1) #:hide (zip))
+  #:use-module (srfi srfi-26)
   #:use-module (ice-9 match)
   #:use-module (gnu packages)
   #:use-module ((guix licenses) #:prefix license:)
@@ -17,7 +18,8 @@
   #:use-module (gnu packages autotools)
   #:use-module (gnu packages base)
   #:use-module (gnu packages bash)
-  #:use-module (gnu packages commencement)
+  #:use-module ((gnu packages commencement) #:select (gcc-toolchain-8))
+  #:use-module (gnu packages crates-io)
   #:use-module (gnu packages databases)
   #:use-module (gnu packages glib)
   #:use-module (gnu packages gtk)
@@ -26,6 +28,7 @@
   #:use-module (gnu packages cups)
   #:use-module (gnu packages kerberos)
   #:use-module (gnu packages linux)
+  #:use-module (gnu packages node)
   #:use-module (gnu packages perl)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages compression)
@@ -48,7 +51,8 @@
   #:use-module (gnu packages xiph)
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu packages readline)
-  #:use-module (gnu packages sqlite))
+  #:use-module (gnu packages sqlite)
+  #:use-module (rust-xyz))
 
 (define-public firefox
   (package
@@ -104,7 +108,8 @@
        ;;   and related comments in the 'remove-bundled-libraries' phase.
        ;; UNBUNDLE-ME! ("nspr" ,nspr)
        ;; UNBUNDLE-ME! ("nss" ,nss)
-       ("sqlite" ,sqlite)
+       ("node" ,node)
+       ("sqlite" ,sqlite-3.28.0)
        ("startup-notification" ,startup-notification)
        ("unzip" ,unzip)
        ("zip" ,zip)
@@ -121,17 +126,20 @@
        ;; ("icecat-use-system-media-libs.patch"
        ;;  ,(search-patch "icecat-use-system-media-libs.patch"))
 
+       ("firefox-avoid-third-party.patch" "./firefox-avoid-third-party.patch")
        ("patch" ,(canonical-package patch))
 
        ("rust" ,rust)
+       ("rust-cbindgen" ,rust-cbindgen)
        ("cargo" ,rust "cargo")
        ("llvm" ,llvm-3.9.1)
-       ("clang" ,clang-3.9.1)
+       ("clang" ,clang)
        ("gcc-toolchain" ,gcc-toolchain-8)
        ("perl" ,perl)
        ("python3" ,python-3)
        ("python" ,python-2) ; Python 3 not supported
        ("python2-pysqlite" ,python2-pysqlite)
+       ("nasm" ,nasm)
        ("yasm" ,yasm)
        ("pkg-config" ,pkg-config)
        ("autoconf" ,autoconf-2.13)
@@ -229,7 +237,7 @@
                                          "/bin/patch")))
                (for-each (match-lambda
                            ((label . file)
-                            (when (and (string-prefix? "icecat-" label)
+                            (when (and (string-prefix? "firefox-" label)
                                        (string-suffix? ".patch" label))
                               (format #t "applying '~a'...~%" file)
                               (invoke patch "--force" "--no-backup-if-mismatch"
@@ -274,7 +282,7 @@
                          "modules/freetype2"
                          "modules/zlib"
                          ;; "modules/libbz2"
-                         "ipc/chromium/src/third_party/libevent"
+                         ;; "ipc/chromium/src/third_party/libevent"
                          "media/libjpeg"
                          "media/libvpx"
                          "media/libogg"
@@ -349,8 +357,8 @@
                     (abs-srcdir (getcwd))
                     (srcdir (string-append "../" (basename abs-srcdir)))
                     (flags `(,(string-append "--prefix=" out)
-                             ,(string-append "--with-l10n-base="
-                                             abs-srcdir "/l10n")
+                             ;; ,(string-append "--with-l10n-base="
+                             ;;                 abs-srcdir "/l10n")
                              ,@configure-flags)))
                (setenv "SHELL" bash)
                (setenv "CONFIG_SHELL" bash)
@@ -410,3 +418,55 @@
      `((ftp-directory . "/gnu/gnuzilla")
        (cpe-name . "firefox_esr")
        (cpe-version . ,(first (string-split version #\-)))))))
+
+(define-public rust-cbindgen
+  (package
+    (name "rust-cbindgen")
+    (version "0.9.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "cbindgen" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0xzjh4g3mca8qhvffq0viy98l1lnh4hwvgfbfj6ci4iqkbdijzhf"))))
+    (build-system cargo-build-system)
+    (arguments
+     ;; Something is failing compiling a c++ program here
+     `(#:tests? #f
+       #:cargo-inputs
+       (("rust-clap" ,rust-clap)
+        ("rust-log" ,rust-log)
+        ("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-serde" ,rust-serde)
+        ("rust-serde-json" ,rust-serde-json)
+        ("rust-syn" ,rust-syn)
+        ("rust-tempfile" ,rust-tempfile)
+        ("rust-toml" ,rust-toml))))
+    (home-page "https://github.com/rayon-rs/rayon")
+    (synopsis "Core APIs for Rayon")
+    (description "Core APIs for Rayon")
+    (license #f)))
+
+(define-public sqlite-3.28.0
+  (package (inherit sqlite)
+    (version "3.28.0")
+    (source (origin
+              (method url-fetch)
+              (uri (let ((numeric-version
+                          (match (string-split version #\.)
+                            ((first-digit other-digits ...)
+                             (string-append first-digit
+                                            (string-pad-right
+                                             (string-concatenate
+                                              (map (cut string-pad <> 2 #\0)
+                                                   other-digits))
+                                             6 #\0))))))
+                     (string-append "https://sqlite.org/2019/sqlite-autoconf-"
+                                    numeric-version ".tar.gz")))
+              (sha256
+               (base32
+                "1hxpi45crbqp6lacl7z611lna02k956m9bsy2bjzrbb2y23546yn"))))))
