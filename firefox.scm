@@ -129,9 +129,9 @@
        ("firefox-avoid-third-party.patch" "./firefox-avoid-third-party.patch")
        ("patch" ,(canonical-package patch))
 
-       ("rust" ,rust)
+       ("rust" ,rust-1.35)
        ("rust-cbindgen" ,rust-cbindgen)
-       ("cargo" ,rust "cargo")
+       ("cargo" ,rust-1.35 "cargo")
        ("llvm" ,llvm-3.9.1)
        ("clang" ,clang)
        ("gcc-toolchain" ,gcc-toolchain-8)
@@ -320,7 +320,8 @@
            (lambda _
              (use-modules (guix build cargo-utils))
              (let ((null-hash "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"))
-               (substitute* "Cargo.lock" ;; '("Cargo.lock" "servo/Cargo.lock")
+               (substitute* '("Cargo.lock" ;; "servo/Cargo.lock"
+                              "gfx/wr/Cargo.lock")
                  (("(\"checksum .* = )\".*\"" all name)
                   (string-append name "\"" null-hash "\"")))
                (for-each
@@ -366,6 +367,8 @@
                (setenv "CC" "gcc")  ; apparently needed when Stylo is enabled
                (mkdir "../build")
                (chdir "../build")
+               (setenv "CARGO_HOME" (string-append (getcwd) "/.cargo"))
+               (mkdir-p ".cargo")
                (format #t "build directory: ~s~%" (getcwd))
                (format #t "configure flags: ~s~%" flags)
                (apply invoke bash
