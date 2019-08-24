@@ -22,7 +22,7 @@
 (define purescript
   (package
     (name "purescript")
-    (version "0.12.2")
+    (version "0.13.3")
     (source
      (origin
        (method url-fetch)
@@ -32,12 +32,13 @@
              ".tar.gz"))
        (sha256
         (base32
-         "1y7bcfj6fdlwmisdd75xcdkz7grch0pcmb9xsh6zwyvi6c40a3g2"))))
+         "05cz0ilxawrcn4hm6mbd0qpkbfp0g8mcqvcscl4ghagjljgimaqv"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-glob" ,ghc-glob)
        ("ghc-aeson" ,ghc-aeson)
        ("ghc-aeson-better-errors" ,ghc-aeson-better-errors)
+       ("ghc-aeson-pretty" ,ghc-aeson-pretty)
        ("ghc-ansi-terminal" ,ghc-ansi-terminal)
        ("ghc-base-compat" ,ghc-base-compat)
        ("ghc-blaze-html" ,ghc-blaze-html)
@@ -50,11 +51,14 @@
        ("ghc-edit-distance" ,ghc-edit-distance)
        ("ghc-file-embed" ,ghc-file-embed)
        ("ghc-fsnotify" ,ghc-fsnotify)
+       ("ghc-happy" ,ghc-happy)
        ("ghc-language-javascript" ,ghc-language-javascript)
+       ("ghc-lifted-async" ,ghc-lifted-async-0.10.0.4)
        ("ghc-lifted-base" ,ghc-lifted-base)
        ("ghc-microlens-platform" ,ghc-microlens-platform-3.11)
        ("ghc-monad-control" ,ghc-monad-control)
        ("ghc-monad-logger" ,ghc-monad-logger)
+       ("ghc-network" ,ghc-network-3.0.1.1)
        ("ghc-parallel" ,ghc-parallel)
        ("ghc-pattern-arrows" ,ghc-pattern-arrows)
        ("ghc-protolude" ,ghc-protolude)
@@ -88,7 +92,11 @@
        ("ghc-tasty-hspec" ,ghc-tasty-hspec)))
     (arguments
      ;; There is no npm yet
-     `(#:tests? #f))
+     `(#:tests? #f
+       #:phases
+       (modify-phases %standard-phases
+         ;; Haddock fails
+         (delete 'haddock))))
     (home-page "http://www.purescript.org/")
     (synopsis
      "PureScript Programming Language Compiler")
@@ -250,7 +258,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
 (define ghc-language-javascript
   (package
     (name "ghc-language-javascript")
-    (version "0.6.0.11")
+    (version "0.6.0.13")
     (source
      (origin
        (method url-fetch)
@@ -260,7 +268,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
              ".tar.gz"))
        (sha256
         (base32
-         "0hv1rj3yarv035mpnnnbqys4sgd0awqlm5hyf29wp051r6dnwxfl"))))
+         "0dzvbnzkrxg9v78x2g7mhhr76viyxcgjyqpksaw7l0p1x7brjsck"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-blaze-builder" ,ghc-blaze-builder)
@@ -547,3 +555,32 @@ http://hspec.github.io/hspec-discover.html")
        "This library modifies the async package to allow for task pooling and many-to-many dependencies between tasks.")
       (license license:expat))))
 
+(define-public ghc-lifted-async-0.10.0.4
+  (package
+    (inherit ghc-lifted-async)
+    (version "0.10.0.4")
+    (source
+     (origin
+       (inherit (package-source ghc-lifted-async))
+       (uri (string-append
+             "https://hackage.haskell.org/package/lifted-async/lifted-async-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0cwl1d0wjpdk0v1l1qxiqiksmak950c8gx169c1q77cg0z18ijf9"))))))
+
+(define-public ghc-network-3.0.1.1
+  (package
+    (inherit ghc-network)
+    (version "3.0.1.1")
+    (source
+     (origin
+       (inherit (package-source ghc-network))
+       (uri (string-append
+             "https://hackage.haskell.org/package/network/network-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1xacvl5wf47cz61igb94zf961b9ks0yhr02myxgjf53clm70dg6j"))))))
