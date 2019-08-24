@@ -119,6 +119,7 @@
      ;; and therefore we prefer to leave them out of 'source', which should be
      ;; a tarball suitable for compilation on any system that IceCat supports.
      ;; (Bug fixes and security fixes, however, should go in 'source').
+     ;; They are commented out because they fail
      `(;; ("icecat-avoid-bundled-libraries.patch"
        ;;  ,(search-patch "icecat-avoid-bundled-libraries.patch"))
        ;; ("icecat-use-system-graphite2+harfbuzz.patch"
@@ -127,6 +128,7 @@
        ;;  ,(search-patch "icecat-use-system-media-libs.patch"))
 
        ("firefox-avoid-third-party.patch" "./firefox-avoid-third-party.patch")
+       ("firefox-rust-binary-validation.patch" "./firefox-rust-binary-validation.patch")
        ("patch" ,(canonical-package patch))
 
        ("rust" ,rust-1.35)
@@ -193,6 +195,7 @@
                            "--with-system-jpeg"        ; must be libjpeg-turbo
                            "--with-system-libevent"
                            
+                           ;; Not valid anymore
                            ;; "--with-system-vorbis"
                            ;; "--with-system-theora" ; wants theora-1.2, not yet released
                            "--with-system-libvpx"
@@ -204,10 +207,12 @@
                            ;; UNBUNDLE-ME! "--with-system-nspr"
                            ;; UNBUNDLE-ME! "--with-system-nss"
                            
+                           ;; Not valid anymore
                            ;; "--with-system-harfbuzz"
                            ;; "--with-system-graphite2"
                            "--enable-system-pixman"
                            "--enable-system-ffi"
+                           ;; Not valid anymore
                            ;; "--enable-system-hunspell"
                            "--enable-system-sqlite"
 
@@ -281,7 +286,9 @@
                          ;;
                          "modules/freetype2"
                          "modules/zlib"
+                         ;; Do not exist anymore
                          ;; "modules/libbz2"
+                         ;; Can't find the build rule that mentions this
                          ;; "ipc/chromium/src/third_party/libevent"
                          "media/libjpeg"
                          "media/libvpx"
@@ -292,6 +299,7 @@
                          "gfx/harfbuzz"
                          "gfx/graphite2"
                          "js/src/ctypes/libffi"
+                         ;; Does not exist anymore
                          ;; "db/sqlite3"
                          ))
              #t))
@@ -320,7 +328,10 @@
            (lambda _
              (use-modules (guix build cargo-utils))
              (let ((null-hash "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"))
-               (substitute* '("Cargo.lock" ;; "servo/Cargo.lock"
+               (substitute* '("Cargo.lock"
+                              ;; Does not exist anymore
+                              ;; "servo/Cargo.lock"
+                              ;; New
                               "gfx/wr/Cargo.lock")
                  (("(\"checksum .* = )\".*\"" all name)
                   (string-append name "\"" null-hash "\"")))
@@ -358,6 +369,7 @@
                     (abs-srcdir (getcwd))
                     (srcdir (string-append "../" (basename abs-srcdir)))
                     (flags `(,(string-append "--prefix=" out)
+                             ;; Doesn't exist anymore
                              ;; ,(string-append "--with-l10n-base="
                              ;;                 abs-srcdir "/l10n")
                              ,@configure-flags)))
@@ -367,6 +379,7 @@
                (setenv "CC" "gcc")  ; apparently needed when Stylo is enabled
                (mkdir "../build")
                (chdir "../build")
+               ;; ??? Not sure why/how to fix the rust build steps
                (setenv "CARGO_HOME" (string-append (getcwd) "/.cargo"))
                (mkdir-p ".cargo")
                (format #t "build directory: ~s~%" (getcwd))
@@ -374,34 +387,33 @@
                (apply invoke bash
                       (string-append srcdir "/configure")
                       flags))))
-         ;; (add-before 'configure 'install-desktop-entry
-         ;;   (lambda* (#:key outputs #:allow-other-keys)
-         ;;     ;; Install the '.desktop' file.
-         ;;     (let* ((desktop-file "taskcluster/docker/icecat-snap/icecat.desktop")
-         ;;            (out          (assoc-ref outputs "out"))
-         ;;            (applications (string-append out "/share/applications")))
-         ;;       (substitute* desktop-file
-         ;;         (("^Exec=icecat")     (string-append "Exec=" out "/bin/icecat"))
-         ;;         (("Firefox")           "Firefox")
-         ;;         (("NewWindow")        "new-window")
-         ;;         (("NewPrivateWindow") "new-private-window"))
-         ;;       (install-file desktop-file applications)
-         ;;       #t)))
-         ;; (add-after 'install-desktop-entry 'install-icons
-         ;;   (lambda* (#:key outputs #:allow-other-keys)
-         ;;     (let ((out (assoc-ref outputs "out")))
-         ;;       (with-directory-excursion "browser/branding/official"
-         ;;         (for-each
-         ;;          (lambda (file)
-         ;;            (let* ((size (string-filter char-numeric? file))
-         ;;                   (icons (string-append out "/share/icons/hicolor/"
-         ;;                                         size "x" size "/apps")))
-         ;;              (mkdir-p icons)
-         ;;              (copy-file file (string-append icons "/icecat.png"))))
-         ;;          '("default16.png" "default22.png" "default24.png"
-         ;;            "default32.png" "default48.png" "content/icon64.png"
-         ;;            "mozicon128.png" "default256.png"))
-         ;;         #t))))
+         (add-before 'configure 'install-desktop-entry
+           (lambda* (#:key outputs #:allow-other-keys)
+             ;; Install the '.desktop' file.
+             (let* ((desktop-file "taskcluster/docker/firefox-snap/firefox.desktop")
+                    (out          (assoc-ref outputs "out"))
+                    (applications (string-append out "/share/applications")))
+               (substitute* desktop-file
+                 (("^Exec=firefox")     (string-append "Exec=" out "/bin/firefox"))
+                 (("NewWindow")        "new-window")
+                 (("NewPrivateWindow") "new-private-window"))
+               (install-file desktop-file applications)
+               #t)))
+         (add-after 'build 'install-icons
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let ((out (assoc-ref outputs "out")))
+               (with-directory-excursion "browser/branding/official"
+                 (for-each
+                  (lambda (file)
+                    (let* ((size (string-filter char-numeric? file))
+                           (icons (string-append out "/share/icons/hicolor/"
+                                                 size "x" size "/apps")))
+                      (mkdir-p icons)
+                      (copy-file file (string-append icons "/firefox.png"))))
+                  '("default16.png" "default22.png" "default24.png"
+                    "default32.png" "default48.png" "content/icon64.png"
+                    "mozicon128.png" "default256.png"))
+                 #t))))
          ;; This fixes the file chooser crash that happens with GTK 3.
          (add-after 'install 'wrap-program
            (lambda* (#:key inputs outputs #:allow-other-keys)
