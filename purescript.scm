@@ -91,8 +91,8 @@
        ("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-hspec" ,ghc-tasty-hspec)))
     (arguments
-     ;; There is no npm yet
-     `(#:tests? #f
+     `(;; Tests require npm
+       #:tests? #f
        #:configure-flags '("--flags=release")
        #:phases
        (modify-phases %standard-phases
