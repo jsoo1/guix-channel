@@ -445,30 +445,6 @@
 against file paths.")
     (license #f)))
 
-(define-public rust-lazy-static
-  (package
-    (name "rust-lazy-static")
-    (version "1.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "lazy_static" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "052ac27w189hrf1j3hz7sga46rp84zl2hqnzyihxv78mgzr2jmxw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-spin" ,rust-spin))))
-    (home-page
-     "https://github.com/rust-lang-nursery/lazy-static.rs")
-    (synopsis
-     "macro for declaring lazily evaluated statics in Rust")
-    (description
-     "This package provides a macro for declaring lazily evaluated statics in Rust.")
-    (license #f)))
-
 (define-public rust-log
   (package
     (name "rust-log")
@@ -494,32 +470,6 @@ against file paths.")
      "lightweight logging facade for Rust")
     (description
      "This package provides a lightweight logging facade for Rust.")
-    (license #f)))
-
-(define-public rust-num-cpus
-  (package
-    (name "rust-num-cpus")
-    (version "1.10.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "num_cpus" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0wrj3zvj6h3q26sqj9zxpd59frjb54n7jhjwf307clq31ic47vxw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc))
-       #:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment))))
-    (home-page
-     "https://github.com/seanmonstar/num_cpus")
-    (synopsis "Get the number of CPUs on a machine")
-    (description
-     "Get the number of CPUs on a machine.")
     (license #f)))
 
 (define-public rust-regex
@@ -554,32 +504,6 @@ against file paths.")
     (description
      "An implementation of regular expressions for Rust.  This implementation
 uses finite automata and guarantees linear time matching on all inputs.")
-    (license #f)))
-
-(define-public rust-termcolor
-  (package
-    (name "rust-termcolor")
-    (version "1.0.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "termcolor" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0vjfsn1a8zvqhnrbygrz1id6yckwv1dncw3w4zj65qdx0f00kmln"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-wincolor" ,rust-wincolor))))
-    (home-page
-     "https://github.com/BurntSushi/termcolor")
-    (synopsis
-     "simple cross platform library for writing colored text to a terminal")
-    (description
-     "This package provides a simple cross platform library for writing
-colored text to a terminal.")
     (license #f)))
 
 (define-public rust-spin
