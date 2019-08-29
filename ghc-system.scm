@@ -19,7 +19,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/directory/directory-"
+             "mirror://hackage/package/directory/directory-"
              version
              ".tar.gz"))
        (sha256
@@ -42,7 +42,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/optional-args/optional-args-"
+             "mirror://hackage/package/optional-args/optional-args-"
              version
              ".tar.gz"))
        (sha256
@@ -66,7 +66,7 @@ Read the tutorial in \"Data.Optional\" to learn more")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/process/process-"
+             "mirror://hackage/package/process/process-"
              version
              ".tar.gz"))
        (sha256
@@ -88,7 +88,7 @@ Read the tutorial in \"Data.Optional\" to learn more")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/time/time-"
+             "mirror://hackage/package/time/time-"
              version
              ".tar.gz"))
        (sha256
@@ -114,7 +114,7 @@ Read the tutorial in \"Data.Optional\" to learn more")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/turtle/turtle-"
+             "mirror://hackage/package/turtle/turtle-"
              version
              ".tar.gz"))
        (sha256
@@ -163,7 +163,7 @@ Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a qui
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/managed/managed-"
+             "mirror://hackage/package/managed/managed-"
              version
              ".tar.gz"))
        (sha256

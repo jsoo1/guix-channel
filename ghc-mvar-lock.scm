@@ -14,7 +14,7 @@
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/mvar-lock/mvar-lock-"
+           "mirror://hackage/package/mvar-lock/mvar-lock-"
            version
            ".tar.gz"))
      (sha256

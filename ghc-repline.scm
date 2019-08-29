@@ -13,7 +13,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/repline/repline-"
+             "mirror://hackage/package/repline/repline-"
              version
              ".tar.gz"))
        (sha256

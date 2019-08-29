@@ -15,7 +15,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/ghcid/ghcid-"
+             "mirror://hackage/package/ghcid/ghcid-"
              version
              ".tar.gz"))
        (sha256

@@ -21,7 +21,7 @@
    (version "0.28.1")
    (source (origin
             (method url-fetch)
-            (uri (string-append "https://hackage.haskell.org/package/xmobar/xmobar-" version ".tar.gz"))
+            (uri (string-append "mirror://hackage/package/xmobar/xmobar-" version ".tar.gz"))
             (sha256
              (base32
               "1zrpvr1nr6a55sxmjbacacflrxvnw6aibsdal19wx404r74qjgz5"))))
@@ -72,7 +72,7 @@ Haskell, no knowledge of the language is required to install and use it.")
    (version "0.28.1")
    (source (origin
             (method url-fetch)
-            (uri (string-append "https://hackage.haskell.org/package/xmobar/xmobar-" version ".tar.gz"))
+            (uri (string-append "mirror://hackage/package/xmobar/xmobar-" version ".tar.gz"))
             (sha256
              (base32
               "1zrpvr1nr6a55sxmjbacacflrxvnw6aibsdal19wx404r74qjgz5"))))
@@ -140,7 +140,7 @@ Haskell, no knowledge of the language is required to install and use it.")
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/libmpd/libmpd-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/libmpd/libmpd-" version ".tar.gz"))
      (sha256 (base32 "0kpdj4ciwrfd6vmr60y7c276h5z2r40avs26a0x8s51rbr00lasq"))))
    (build-system haskell-build-system)
    (inputs
@@ -167,7 +167,7 @@ Haskell, no knowledge of the language is required to install and use it.")
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/timezone-olson/timezone-olson-" version ".tar.gz"))
+           "mirror://hackage/package/timezone-olson/timezone-olson-" version ".tar.gz"))
      (sha256 (base32 "05abywx1nrcaz0nqzfy4zw62bc5qd7pdfnjvv4drxkwv084ha8rj"))))
    (build-system haskell-build-system)
    (inputs
@@ -189,7 +189,7 @@ Haskell, no knowledge of the language is required to install and use it.")
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/timezone-series/timezone-series-" version ".tar.gz"))
+           "mirror://hackage/package/timezone-series/timezone-series-" version ".tar.gz"))
      (sha256 (base32 "1blwgnyzqn917rgqkl4dncv9whv3xmk0lav040qq0214vksmvlz5"))))
    (build-system haskell-build-system)
    (arguments

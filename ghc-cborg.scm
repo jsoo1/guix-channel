@@ -18,7 +18,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/serialise/serialise-"
+             "mirror://hackage/package/serialise/serialise-"
              version
              ".tar.gz"))
        (sha256
@@ -67,7 +67,7 @@ convenient command-line utility for working with CBOR data.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/cborg-json/cborg-json-"
+             "mirror://hackage/package/cborg-json/cborg-json-"
              version
              ".tar.gz"))
        (sha256
@@ -96,7 +96,7 @@ defined in the CBOR specification, RFC 7049.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/cborg/cborg-"
+             "mirror://hackage/package/cborg/cborg-"
              version
              ".tar.gz"))
        (sha256

@@ -14,7 +14,7 @@
       (origin
         (method url-fetch)
         (uri (string-append
-               "https://hackage.haskell.org/package/Only/Only-"
+               "mirror://hackage/package/Only/Only-"
                version
                ".tar.gz"))
         (sha256
@@ -37,7 +37,7 @@
       (origin
         (method url-fetch)
         (uri (string-append
-               "https://hackage.haskell.org/package/optparse-generic/optparse-generic-"
+               "mirror://hackage/package/optparse-generic/optparse-generic-"
                version
                ".tar.gz"))
         (sha256

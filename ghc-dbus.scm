@@ -19,7 +19,7 @@
      (method url-fetch)
      (uri
       (string-append
-       "https://hackage.haskell.org/package/dbus/dbus-" version ".tar.gz"))
+       "mirror://hackage/package/dbus/dbus-" version ".tar.gz"))
      (sha256 (base32 "1xg8wzs7xnh3455v3bbw9nd8inzr06n5939pzlq3nd4ajp3ba9d3"))))
    (build-system haskell-build-system)
    (inputs
@@ -48,7 +48,7 @@
      (method url-fetch)
      (uri
       (string-append
-       "https://hackage.haskell.org/package/libxml-sax/libxml-sax-"
+       "mirror://hackage/package/libxml-sax/libxml-sax-"
        version ".tar.gz"))
      (sha256 (base32 "0lbdq6lmiyrnzk6gkx09vvp928wj8qnqnqfzy14mfv0drj21f54r"))))
    (build-system haskell-build-system)

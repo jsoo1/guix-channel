@@ -23,7 +23,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/servant-server/servant-server-"
+             "mirror://hackage/package/servant-server/servant-server-"
              version
              ".tar.gz"))
        (sha256
@@ -85,7 +85,7 @@ CHANGELOG: https://github.com/haskell-servant/servant/blob/master/servant-server
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/servant/servant-"
+             "mirror://hackage/package/servant/servant-"
              version
              ".tar.gz"))
        (sha256
@@ -135,7 +135,7 @@ CHANGELOG https://github.com/haskell-servant/servant/blob/master/servant/CHANGEL
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/servant-websockets/servant-websockets-"
+             "mirror://hackage/package/servant-websockets/servant-websockets-"
              version
              ".tar.gz"))
        (sha256
@@ -170,7 +170,7 @@ CHANGELOG https://github.com/haskell-servant/servant/blob/master/servant/CHANGEL
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/cabal-doctest/cabal-doctest-"
+             "mirror://hackage/package/cabal-doctest/cabal-doctest-"
              version
              ".tar.gz"))
        (sha256
@@ -192,7 +192,7 @@ CHANGELOG https://github.com/haskell-servant/servant/blob/master/servant/CHANGEL
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/string-conversions/string-conversions-"
+             "mirror://hackage/package/string-conversions/string-conversions-"
              version
              ".tar.gz"))
        (sha256
@@ -221,7 +221,7 @@ CHANGELOG https://github.com/haskell-servant/servant/blob/master/servant/CHANGEL
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/http-media/http-media-"
+             "mirror://hackage/package/http-media/http-media-"
              version
              ".tar.gz"))
        (sha256
@@ -265,7 +265,7 @@ The API is agnostic to your choice of server.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/singleton-bool/singleton-bool-"
+             "mirror://hackage/package/singleton-bool/singleton-bool-"
              version
              ".tar.gz"))
        (sha256
@@ -288,7 +288,7 @@ singletons package provides similar functionality, but it has tight dependency c
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/QuickCheck/QuickCheck-"
+             "mirror://hackage/package/QuickCheck/QuickCheck-"
              version
              ".tar.gz"))
        (sha256
@@ -325,7 +325,7 @@ The quickcheck-instances (see http://hackage.haskell.org/package/quickcheck-inst
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/aeson/aeson-"
+             "mirror://hackage/package/aeson/aeson-"
              version
              ".tar.gz"))
        (sha256
@@ -377,7 +377,7 @@ To get started, see the documentation for the Data.Aeson module below.
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/base-compat/base-compat-"
+             "mirror://hackage/package/base-compat/base-compat-"
              version
              ".tar.gz"))
        (sha256
@@ -406,7 +406,7 @@ base-compat is designed to have zero dependencies. For a version of base-compat 
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-discover/hspec-discover-"
+             "mirror://hackage/package/hspec-discover/hspec-discover-"
              version
              ".tar.gz"))
        (sha256
@@ -431,7 +431,7 @@ base-compat is designed to have zero dependencies. For a version of base-compat 
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec/hspec-"
+             "mirror://hackage/package/hspec/hspec-"
              version
              ".tar.gz"))
        (sha256
@@ -464,7 +464,7 @@ The Hspec Manual is at http://hspec.github.io/.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-core/hspec-core-"
+             "mirror://hackage/package/hspec-core/hspec-core-"
              version
              ".tar.gz"))
        (sha256
@@ -500,7 +500,7 @@ The Hspec Manual is at http://hspec.github.io/.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/quickcheck-io/quickcheck-io-"
+             "mirror://hackage/package/quickcheck-io/quickcheck-io-"
              version
              ".tar.gz"))
        (sha256
@@ -526,7 +526,7 @@ The Hspec Manual is at http://hspec.github.io/.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-meta/hspec-meta-"
+             "mirror://hackage/package/hspec-meta/hspec-meta-"
              version
              ".tar.gz"))
        (sha256
@@ -558,7 +558,7 @@ The Hspec Manual is at http://hspec.github.io/.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/http-api-data/http-api-data-"
+             "mirror://hackage/package/http-api-data/http-api-data-"
              version
              ".tar.gz"))
        (sha256
@@ -605,7 +605,7 @@ Please see README.md")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec/hspec-"
+             "mirror://hackage/package/hspec/hspec-"
              version
              ".tar.gz"))
        (sha256
@@ -633,7 +633,7 @@ The Hspec Manual is at http://hspec.github.io/.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-core/hspec-core-"
+             "mirror://hackage/package/hspec-core/hspec-core-"
              version
              ".tar.gz"))
        (sha256
@@ -669,7 +669,7 @@ The Hspec Manual is at http://hspec.github.io/.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-discover/hspec-discover-"
+             "mirror://hackage/package/hspec-discover/hspec-discover-"
              version
              ".tar.gz"))
        (sha256
@@ -694,7 +694,7 @@ The Hspec Manual is at http://hspec.github.io/.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/quickcheck-instances/quickcheck-instances-"
+             "mirror://hackage/package/quickcheck-instances/quickcheck-instances-"
              version
              ".tar.gz"))
        (sha256
@@ -734,7 +734,7 @@ For information on writing a test-suite with Cabal see https://www.haskell.org/c
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/http-types/http-types-"
+             "mirror://hackage/package/http-types/http-types-"
              version
              ".tar.gz"))
        (sha256
@@ -765,7 +765,7 @@ For information on writing a test-suite with Cabal see https://www.haskell.org/c
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/attoparsec-iso8601/attoparsec-iso8601-"
+             "mirror://hackage/package/attoparsec-iso8601/attoparsec-iso8601-"
              version
              ".tar.gz"))
        (sha256
@@ -790,7 +790,7 @@ For information on writing a test-suite with Cabal see https://www.haskell.org/c
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/doctest/doctest-"
+             "mirror://hackage/package/doctest/doctest-"
              version
              ".tar.gz"))
        (sha256
@@ -821,7 +821,7 @@ Documentation is at https://github.com/sol/doctest#readme.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/with-location/with-location-"
+             "mirror://hackage/package/with-location/with-location-"
              version
              ".tar.gz"))
        (sha256
@@ -845,7 +845,7 @@ Documentation is at https://github.com/sol/doctest#readme.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/tagged/tagged-"
+             "mirror://hackage/package/tagged/tagged-"
              version
              ".tar.gz"))
        (sha256
@@ -867,7 +867,7 @@ Documentation is at https://github.com/sol/doctest#readme.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/wai-app-static/wai-app-static-"
+             "mirror://hackage/package/wai-app-static/wai-app-static-"
              version
              ".tar.gz"))
        (sha256
@@ -911,7 +911,7 @@ Documentation is at https://github.com/sol/doctest#readme.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-wai/hspec-wai-"
+             "mirror://hackage/package/hspec-wai/hspec-wai-"
              version
              ".tar.gz"))
        (sha256
@@ -946,7 +946,7 @@ Documentation is at https://github.com/sol/doctest#readme.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/should-not-typecheck/should-not-typecheck-"
+             "mirror://hackage/package/should-not-typecheck/should-not-typecheck-"
              version
              ".tar.gz"))
        (sha256
@@ -973,7 +973,7 @@ Documentation is at https://github.com/sol/doctest#readme.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-discover/hspec-discover-"
+             "mirror://hackage/package/hspec-discover/hspec-discover-"
              version
              ".tar.gz"))
        (sha256
@@ -1000,7 +1000,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec/hspec-"
+             "mirror://hackage/package/hspec/hspec-"
              version
              ".tar.gz"))
        (sha256
@@ -1033,7 +1033,7 @@ The Hspec Manual is at http://hspec.github.io/.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-discover/hspec-discover-"
+             "mirror://hackage/package/hspec-discover/hspec-discover-"
              version
              ".tar.gz"))
        (sha256
@@ -1060,7 +1060,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-core/hspec-core-"
+             "mirror://hackage/package/hspec-core/hspec-core-"
              version
              ".tar.gz"))
        (sha256
@@ -1096,7 +1096,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-meta/hspec-meta-"
+             "mirror://hackage/package/hspec-meta/hspec-meta-"
              version
              ".tar.gz"))
        (sha256
@@ -1128,7 +1128,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/quickcheck-io/quickcheck-io-"
+             "mirror://hackage/package/quickcheck-io/quickcheck-io-"
              version
              ".tar.gz"))
        (sha256
@@ -1154,7 +1154,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/network/network-"
+             "mirror://hackage/package/network/network-"
              version
              ".tar.gz"))
        (sha256
@@ -1181,7 +1181,7 @@ In network-2.6 the Network.URI module was split off into its own package, networ
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/resourcet/resourcet-"
+             "mirror://hackage/package/resourcet/resourcet-"
              version
              ".tar.gz"))
        (sha256
@@ -1208,7 +1208,7 @@ In network-2.6 the Network.URI module was split off into its own package, networ
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/wai-extra/wai-extra-"
+             "mirror://hackage/package/wai-extra/wai-extra-"
              version
              ".tar.gz"))
        (sha256
@@ -1254,7 +1254,7 @@ In network-2.6 the Network.URI module was split off into its own package, networ
     (source
      (origin
        (method url-fetch)
-       (uri (string-append "https://hackage.haskell.org/package/"
+       (uri (string-append "mirror://hackage/package/"
                            "warp-" version "/" "warp-" version
                            ".tar.gz"))
        (sha256
@@ -1302,7 +1302,7 @@ based WAI (Web Application Interface in Haskell).")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/wai/wai-"
+             "mirror://hackage/package/wai/wai-"
              version
              ".tar.gz"))
        (sha256
@@ -1321,7 +1321,7 @@ based WAI (Web Application Interface in Haskell).")
        ("ghc-quickcheck" ,ghc-quickcheck-2.12.6.1)
        ("ghc-hunit" ,ghc-hunit)
        ("ghc-hspec" ,ghc-hspec-2.6.1)))
-    (home-page "https://hackage.haskell.org/package/wai")
+    (home-page "mirror://hackage/package/wai")
     (synopsis "Web application interface for Haskell")
     (description "This package provides a Web Application Interface (WAI)
 library for the Haskell language.  It defines a common protocol for
@@ -1334,7 +1334,7 @@ communication between web applications and web servers.")
     (version "0.5.13.1")
     (source (origin
               (method url-fetch)
-              (uri (string-append "https://hackage.haskell.org/package/"
+              (uri (string-append "mirror://hackage/package/"
                                   "http-client/http-client-"
                                   version ".tar.gz"))
               (sha256
@@ -1376,7 +1376,7 @@ for more user-friendly packages.")
     (source
      (origin
        (method url-fetch)
-       (uri (string-append "https://hackage.haskell.org/package/"
+       (uri (string-append "mirror://hackage/package/"
                            "streaming-commons/streaming-commons-"
                            version ".tar.gz"))
        (sha256
@@ -1393,7 +1393,7 @@ for more user-friendly packages.")
      `(("ghc-quickcheck" ,ghc-quickcheck-2.12.6.1)
        ("ghc-hspec" ,ghc-hspec-2.6.1)
        ("hspec-discover" ,ghc-hspec-discover-2.6.1)))
-    (home-page "https://hackage.haskell.org/package/streaming-commons")
+    (home-page "mirror://hackage/package/streaming-commons")
     (synopsis "Conduit and pipes needed by some streaming data libraries")
     (description "This package provides low-dependency functionality commonly
 needed by various Haskell streaming data libraries, such as @code{conduit} and
@@ -1407,7 +1407,7 @@ needed by various Haskell streaming data libraries, such as @code{conduit} and
     (source
      (origin
        (method url-fetch)
-       (uri (string-append "https://hackage.haskell.org/package/"
+       (uri (string-append "mirror://hackage/package/"
                            "simple-sendfile-" version "/"
                            "simple-sendfile-" version ".tar.gz"))
        (sha256
@@ -1436,7 +1436,7 @@ are the bottleneck of web servers.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/iproute/iproute-"
+             "mirror://hackage/package/iproute/iproute-"
              version
              ".tar.gz"))
        (sha256
@@ -1463,7 +1463,7 @@ removed.  Both IPv4 and IPv6 are supported.")
     (version "1.3.0.3")
     (source (origin
               (method url-fetch)
-              (uri (string-append "https://hackage.haskell.org/package/"
+              (uri (string-append "mirror://hackage/package/"
                                   "conduit/conduit-" version ".tar.gz"))
               (sha256
                (base32
@@ -1503,7 +1503,7 @@ space as enumerator/iteratee and pipes.")
     (source
      (origin
        (method url-fetch)
-       (uri (string-append "https://hackage.haskell.org/package/"
+       (uri (string-append "mirror://hackage/package/"
                            "conduit-extra/conduit-extra-"
                            version ".tar.gz"))
        (sha256
@@ -1546,7 +1546,7 @@ dependencies.  The basic idea is that this package should only depend on
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/wai-logger/wai-logger-"
+             "mirror://hackage/package/wai-logger/wai-logger-"
              version
              ".tar.gz"))
        (sha256
@@ -1566,7 +1566,7 @@ dependencies.  The basic idea is that this package should only depend on
        ("ghc-http-types" ,ghc-http-types-0.12.2)
        ("ghc-network" ,ghc-network-2.8.0.0)
        ("ghc-wai" ,ghc-wai-3.2.1.2)))
-    (home-page "https://hackage.haskell.org/package/wai-logger")
+    (home-page "mirror://hackage/package/wai-logger")
     (synopsis "Logging system for WAI")
     (description "This package provides the logging system for WAI.")
     (license license:bsd-3)))
@@ -1579,7 +1579,7 @@ dependencies.  The basic idea is that this package should only depend on
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/tasty-quickcheck/"
+             "mirror://hackage/package/tasty-quickcheck/"
              "tasty-quickcheck-" version ".tar.gz"))
        (sha256
         (base32
@@ -1607,7 +1607,7 @@ Haskell test framework.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/tasty/tasty-"
+             "mirror://hackage/package/tasty/tasty-"
              version
              ".tar.gz"))
        (sha256
@@ -1640,7 +1640,7 @@ and any other types of tests into a single test suite.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/"
+             "mirror://hackage/package/"
              "clock/"
              "clock-" version ".tar.gz"))
        (sha256
@@ -1648,7 +1648,7 @@ and any other types of tests into a single test suite.")
     (build-system haskell-build-system)
     (arguments `(#:tests? #f)) ;; Testing suite depends on tasty and
     ;; tasty-quickcheck, which need clock to build.
-    (home-page "https://hackage.haskell.org/package/clock")
+    (home-page "mirror://hackage/package/clock")
     (synopsis "High-resolution clock for Haskell")
     (description "A package for convenient access to high-resolution clock and
 timer functions of different operating systems via a unified API.")
@@ -1662,7 +1662,7 @@ timer functions of different operating systems via a unified API.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/tasty-hunit/tasty-hunit-"
+             "mirror://hackage/package/tasty-hunit/tasty-hunit-"
              version
              ".tar.gz"))
        (sha256
@@ -1686,7 +1686,7 @@ test framework.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/bifunctors/bifunctors-"
+             "mirror://hackage/package/bifunctors/bifunctors-"
              version
              ".tar.gz"))
        (sha256
@@ -1717,7 +1717,7 @@ test framework.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/comonad/comonad-"
+             "mirror://hackage/package/comonad/comonad-"
              version
              ".tar.gz"))
        (sha256
@@ -1746,7 +1746,7 @@ test framework.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/distributive/distributive-"
+             "mirror://hackage/package/distributive/distributive-"
              version
              ".tar.gz"))
        (sha256
@@ -1779,7 +1779,7 @@ Dual to @code{Traversable}.")
     (version "0.3.5")
     (source (origin
               (method url-fetch)
-              (uri (string-append "https://hackage.haskell.org/package/"
+              (uri (string-append "mirror://hackage/package/"
                                   "mockery/mockery-" version ".tar.gz"))
               (sha256
                (base32
@@ -1792,7 +1792,7 @@ Dual to @code{Traversable}.")
     (native-inputs
      `(("ghc-hspec" ,ghc-hspec-2.6.1)
        ("hspec-discover" ,ghc-hspec-discover-2.6.1)))
-    (home-page "https://hackage.haskell.org/package/mockery")
+    (home-page "mirror://hackage/package/mockery")
     (synopsis "Support functions for automated testing")
     (description
      "The mockery package provides support functions for automated testing.")
@@ -1806,7 +1806,7 @@ Dual to @code{Traversable}.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/wai-websockets/wai-websockets-"
+             "mirror://hackage/package/wai-websockets/wai-websockets-"
              version
              ".tar.gz"))
        (sha256
@@ -1836,7 +1836,7 @@ Dual to @code{Traversable}.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/websockets/websockets-"
+             "mirror://hackage/package/websockets/websockets-"
              version
              ".tar.gz"))
        (sha256
@@ -1881,7 +1881,7 @@ See also:
     (source
      (origin
        (method url-fetch)
-       (uri (string-append "https://hackage.haskell.org/package/"
+       (uri (string-append "mirror://hackage/package/"
                            "test-framework-quickcheck2/"
                            "test-framework-quickcheck2-" version ".tar.gz"))
        (sha256

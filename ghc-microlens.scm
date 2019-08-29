@@ -17,7 +17,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/microlens/microlens-"
+             "mirror://hackage/package/microlens/microlens-"
              version
              ".tar.gz"))
        (sha256
@@ -44,7 +44,7 @@ There's a longer readme on Github at https://github.com/monadfix/microlens#readm
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/microlens-ghc/microlens-ghc-"
+             "mirror://hackage/package/microlens-ghc/microlens-ghc-"
              version
              ".tar.gz"))
        (sha256
@@ -74,7 +74,7 @@ This package is a part of the microlens family; see the readme on Github at http
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/microlens-mtl/microlens-mtl-"
+             "mirror://hackage/package/microlens-mtl/microlens-mtl-"
              version
              ".tar.gz"))
        (sha256
@@ -101,7 +101,7 @@ This package is a part of the microlens family; see the readme on Github at http
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/microlens-platform/microlens-platform-"
+             "mirror://hackage/package/microlens-platform/microlens-platform-"
              version
              ".tar.gz"))
        (sha256

@@ -15,7 +15,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/mtl-compat/mtl-compat-"
+             "mirror://hackage/package/mtl-compat/mtl-compat-"
              version
              ".tar.gz"))
        (sha256

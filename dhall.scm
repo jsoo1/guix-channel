@@ -23,7 +23,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/dhall/dhall-"
+             "mirror://hackage/package/dhall/dhall-"
              version
              ".tar.gz"))
        (sha256
@@ -85,7 +85,7 @@ Read \"Dhall.Tutorial\" to learn how to use this library")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/dhall-json/dhall-json-"
+             "mirror://hackage/package/dhall-json/dhall-json-"
              version
              ".tar.gz"))
        (sha256
@@ -124,7 +124,7 @@ The \"Dhall.JSON\" module also contains instructions for how to use this package
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/pgp-wordlist/pgp-wordlist-"
+             "mirror://hackage/package/pgp-wordlist/pgp-wordlist-"
              version
              ".tar.gz"))
        (sha256
@@ -157,7 +157,7 @@ The PGP Word List consists of two phonetic alphabets, each with one word per pos
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/prettyprinter-ansi-terminal/prettyprinter-ansi-terminal-"
+             "mirror://hackage/package/prettyprinter-ansi-terminal/prettyprinter-ansi-terminal-"
              version
              ".tar.gz"))
        (sha256
@@ -183,7 +183,7 @@ The PGP Word List consists of two phonetic alphabets, each with one word per pos
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/prettyprinter/prettyprinter-"
+             "mirror://hackage/package/prettyprinter/prettyprinter-"
              version
              ".tar.gz"))
        (sha256
@@ -211,7 +211,7 @@ The PGP Word List consists of two phonetic alphabets, each with one word per pos
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/lens-family-core/lens-family-core-"
+             "mirror://hackage/package/lens-family-core/lens-family-core-"
              version
              ".tar.gz"))
        (sha256
@@ -241,7 +241,7 @@ For optimal first-class support use the lens-family package with rank 2/rank N p
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/dotgen/dotgen-"
+             "mirror://hackage/package/dotgen/dotgen-"
              version
              ".tar.gz"))
        (sha256

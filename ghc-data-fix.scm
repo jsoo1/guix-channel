@@ -13,7 +13,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/data-fix/data-fix-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/data-fix/data-fix-" version ".tar.gz"))
      (sha256 (base32 "14hk6hq5hdb3l5bhmzhw086jpzlvp9qbw9dzw30wlz5jbh2ihmvy"))))
    (build-system haskell-build-system)
    (home-page "https://github.com/anton-k/data-fix")

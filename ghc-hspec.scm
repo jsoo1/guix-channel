@@ -98,7 +98,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/primitive/primitive-"
+             "mirror://hackage/package/primitive/primitive-"
              version
              ".tar.gz"))
        (sha256
@@ -116,7 +116,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/QuickCheck/QuickCheck-"
+             "mirror://hackage/package/QuickCheck/QuickCheck-"
              version
              ".tar.gz"))
        (sha256
@@ -169,7 +169,7 @@ for types in Haskell Platform packages at the cost of additional dependencies.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/splitmix/splitmix-"
+             "mirror://hackage/package/splitmix/splitmix-"
              version
              ".tar.gz"))
        (sha256
@@ -220,7 +220,7 @@ two successive outputs suffice to reconstruct the internal state).")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/"
+             "mirror://hackage/package/"
              "base-compat-batteries/base-compat-batteries-"
              version
              ".tar.gz"))
@@ -269,7 +269,7 @@ base-compat-batteries.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/base-compat/base-compat-"
+             "mirror://hackage/package/base-compat/base-compat-"
              version
              ".tar.gz"))
        (sha256
@@ -286,7 +286,7 @@ base-compat-batteries.")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/contravariant/contravariant-"
+             "mirror://hackage/package/contravariant/contravariant-"
              version
              ".tar.gz"))
        (sha256

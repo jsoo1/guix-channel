@@ -20,7 +20,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/alsa-mixer/alsa-mixer-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/alsa-mixer/alsa-mixer-" version ".tar.gz"))
      (sha256 (base32 "13fgd78msqsyzm92cbasm8m3s1rww6r1g83qbrv4mkm2h50fnvgp"))))
    (build-system haskell-build-system)
    (inputs `(("ghc-alsa-core" ,ghc-alsa-core)))
@@ -63,7 +63,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/language-c/language-c-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/language-c/language-c-" version ".tar.gz"))
      (sha256 (base32 "05ff3ywh2lpxgd00nv6y3jnqpdl6bg0f2yn3csd043rv4srd6adp"))))
    (build-system haskell-build-system)
    (inputs
@@ -84,7 +84,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/c2hs/c2hs-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/c2hs/c2hs-" version ".tar.gz"))
      (sha256 (base32 "1nplgxfin139x12sb656f5870rpdclrhzi8mq8pry035qld15pci"))))
    (build-system haskell-build-system)
    (inputs

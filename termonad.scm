@@ -19,7 +19,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/termonad/termonad-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/termonad/termonad-" version ".tar.gz"))
      (sha256 (base32 "1js9sj0gj4igigdnbc5ygbn5l2wfhbrm1k565y3advi99imidsd3"))))
    (build-system haskell-build-system)
    (inputs
@@ -56,7 +56,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-gobject/gi-gobject-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-gobject/gi-gobject-" version ".tar.gz"))
      (sha256 (base32 "1bgn4ywx94py0v213iv7mbjjvvy3y7gvpgw4wpn38s2np7al8y65"))))
    (build-system haskell-build-system)
    (inputs
@@ -79,7 +79,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-gdkpixbuf/gi-gdkpixbuf-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-gdkpixbuf/gi-gdkpixbuf-" version ".tar.gz"))
      (sha256 (base32 "0vqnskshbfp9nsgyfg4pifrh007rb7k176ci8niik96kxh95zfzx"))))
    (build-system haskell-build-system)
    (inputs
@@ -104,7 +104,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-gio/gi-gio-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-gio/gi-gio-" version ".tar.gz"))
      (sha256 (base32 "0h7liqxf63wmhjzgbjshv7pa4fx743jpvkphn5yyjkc0bnfcvsqk"))))
    (build-system haskell-build-system)
    (inputs
@@ -128,7 +128,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-cairo/gi-cairo-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-cairo/gi-cairo-" version ".tar.gz"))
      (sha256 (base32 "1ax7aly9ahvb18m3zjmy0dk47qfdx5yl15q52c3wp4wa0c5aggax"))))
    (build-system haskell-build-system)
    (inputs
@@ -152,7 +152,7 @@
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/haskell-gi-overloading/haskell-gi-overloading-"
+           "mirror://hackage/package/haskell-gi-overloading/haskell-gi-overloading-"
            version ".tar.gz"))
      (sha256 (base32 "0ak8f79ia9zlk94zr02sq8bqi5n5pd8ria8w1dj3adcdvpw9gmry"))))
    (build-system haskell-build-system)
@@ -170,7 +170,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/haskell-gi/haskell-gi-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/haskell-gi/haskell-gi-" version ".tar.gz"))
      (sha256 (base32 "1rvi9bmgxq7q6js8yb5yb156yxmnm9px9amgjwzxmr7sxz31dl8j"))))
    (build-system haskell-build-system)
    (inputs
@@ -199,7 +199,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-gtk/gi-gtk-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-gtk/gi-gtk-" version ".tar.gz"))
      (sha256 (base32 "0l6xnh85agjagdmjy72akvxviwkzyngh7rii5idrsd62bb27abx1"))))
    (build-system haskell-build-system)
    (inputs
@@ -229,7 +229,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-gdk/gi-gdk-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-gdk/gi-gdk-" version ".tar.gz"))
      (sha256 (base32 "0jp3d3zfm20b4ax1g5k1wzh8fxxzsw4ssw7zqx0d13167m4smc3y"))))
    (build-system haskell-build-system)
    (inputs
@@ -257,7 +257,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-pango/gi-pango-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-pango/gi-pango-" version ".tar.gz"))
      (sha256 (base32 "1x3q1q4ww1v6v42p1wcaghxsja8cigqaqvklkfg4gxyp2f2cdg57"))))
    (build-system haskell-build-system)
    (inputs
@@ -282,7 +282,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/io-storage/io-storage-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/io-storage/io-storage-" version ".tar.gz"))
      (sha256 (base32 "1ga9bd7iri6vlsxnjx765yy3bxc4lbz644wyw88yzvpjgz6ga3cs"))))
    (build-system haskell-build-system)
    (arguments `(#:tests? #f))
@@ -299,7 +299,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-glib/gi-glib-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-glib/gi-glib-" version ".tar.gz"))
      (sha256 (base32 "0rxbkrwlwnjf46z0qpw0vjw1nv9kl91xp7k2098rqs36kl5bwylx"))))
    (build-system haskell-build-system)
    (inputs
@@ -322,7 +322,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/dyre/dyre-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/dyre/dyre-" version ".tar.gz"))
      (sha256 (base32 "10hnlysy4bjvvznk8v902mlk4jx95qf972clyi1l32xkqrf30972"))))
    (build-system haskell-build-system)
    (inputs
@@ -344,7 +344,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/basic-prelude/basic-prelude-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/basic-prelude/basic-prelude-" version ".tar.gz"))
      (sha256 (base32 "0yckmnvm6i4vw0mykj4fzl4ldsf67v8d2h0vp1bakyj84n4myx8h"))))
    (build-system haskell-build-system)
    (inputs
@@ -365,7 +365,7 @@
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/dlist-instances/dlist-instances-" version ".tar.gz"))
+           "mirror://hackage/package/dlist-instances/dlist-instances-" version ".tar.gz"))
      (sha256 (base32 "0nsgrr25r4qxv2kpn7i20hra8jjkyllxfrhh5hml3ysjdz010jni"))))
    (build-system haskell-build-system)
    (inputs
@@ -385,7 +385,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-atk/gi-atk-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-atk/gi-atk-" version ".tar.gz"))
      (sha256 (base32 "1vmzby12nvbrka6f44pr1pjwccl0p6s984pxvibajzp72x2knxc9"))))
    (build-system haskell-build-system)
    (inputs
@@ -410,7 +410,7 @@
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/mono-traversable-instances/mono-traversable-instances-"
+           "mirror://hackage/package/mono-traversable-instances/mono-traversable-instances-"
            version ".tar.gz"))
      (sha256 (base32 "0zh81hvqnracil2nvkx14xzwv9vavsnx739acp6gycdyrs5jpzxm"))))
    (build-system haskell-build-system)
@@ -436,7 +436,7 @@
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/mutable-containers/mutable-containers-"
+           "mirror://hackage/package/mutable-containers/mutable-containers-"
            version
            ".tar.gz"))
      (sha256
@@ -460,7 +460,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/say/say-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/say/say-" version ".tar.gz"))
      (sha256 (base32 "1r5kffjfwpas45g74sip8glrj1m9nygrnxjm7xgw898rq9pnafgn"))))
    (build-system haskell-build-system)
    (arguments `(#:tests? #f))
@@ -476,7 +476,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/pointed/pointed-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/pointed/pointed-" version ".tar.gz"))
      (sha256 (base32 "1p91a762xglckscnhpflxzav8byf49a02mli3983i4kpr2jkaimr"))))
    (build-system haskell-build-system)
    (inputs
@@ -502,7 +502,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/keys/keys-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/keys/keys-" version ".tar.gz"))
      (sha256 (base32 "1yqm4gpshsgswx6w78z64c83gpydh6jhgslx2lnc10nzhy0s9kkz"))))
    (build-system haskell-build-system)
    (inputs
@@ -518,7 +518,7 @@
    (home-page "http://github.com/ekmett/keys/")
    (synopsis "Keyed functors and containers")
    (description
-    "This package provides a bunch of ad hoc classes for accessing parts of a container. . In practice this package is largely subsumed by the <https://hackage.haskell.org/package/lens lens package>, but it is maintained for now as it has much simpler dependencies.")
+    "This package provides a bunch of ad hoc classes for accessing parts of a container. . In practice this package is largely subsumed by the <mirror://hackage/package/lens lens package>, but it is maintained for now as it has much simpler dependencies.")
    (license license:bsd-3)))
 
 (define ghc-gi-vte
@@ -528,7 +528,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/gi-vte/gi-vte-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/gi-vte/gi-vte-" version ".tar.gz"))
      (sha256 (base32 "1hnhidjr7jh7i826lj6kdn264i592sfl5kwvymnpiycmcb37dd4y"))))
    (build-system haskell-build-system)
    (inputs
@@ -558,7 +558,7 @@
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/haskell-gi-base/haskell-gi-base-" version ".tar.gz"))
+           "mirror://hackage/package/haskell-gi-base/haskell-gi-base-" version ".tar.gz"))
      (sha256 (base32 "0vrl0cqws1l0ba7avf16c9zyfsvq7gd8wv4sjzd7rjk6jmg38vds"))))
    (native-inputs
     `(("pkg-config" ,pkg-config)
@@ -578,7 +578,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/pretty-simple/pretty-simple-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/pretty-simple/pretty-simple-" version ".tar.gz"))
      (sha256 (base32 "0cf7pfx98dq8ykxja7gi2y7zpczj41sqfg4dindm8v5knlv1ppik"))))
    (build-system haskell-build-system)
    (inputs
@@ -598,7 +598,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/from-sum/from-sum-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/from-sum/from-sum-" version ".tar.gz"))
      (sha256 (base32 "0rv66a7mhswb4sqkyarg9kxxfpiymsmrk49gprq8mpwq7d1qmvd1"))))
    (build-system haskell-build-system)
    (arguments `(#:tests? #f))
@@ -614,7 +614,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/heterocephalus/heterocephalus-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/heterocephalus/heterocephalus-" version ".tar.gz"))
      (sha256 (base32 "08sr2ps3kb2v6pglkls814w6fpvwkysd3k2s15pj9fhmhx82kf2h"))))
    (build-system haskell-build-system)
    (inputs
@@ -636,7 +636,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/html-conduit/html-conduit-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/html-conduit/html-conduit-" version ".tar.gz"))
      (sha256 (base32 "0l5hc7bf57p5jiqh3wvnqapc27ibnlv00zm6szc0nqbvknzvvz85"))))
    (build-system haskell-build-system)
    (inputs
@@ -661,7 +661,7 @@
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/vector-instances/vector-instances-" version ".tar.gz"))
+           "mirror://hackage/package/vector-instances/vector-instances-" version ".tar.gz"))
      (sha256 (base32 "10akvpa5w9bp0d8hflab63r9laa9gy2hv167smhjsdzq1kplc0hv"))))
    (build-system haskell-build-system)
    (inputs
@@ -685,7 +685,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/xml-html-qq/xml-html-qq-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/xml-html-qq/xml-html-qq-" version ".tar.gz"))
      (sha256 (base32 "0ni354ihiaax7dlghq0qsili0sqy4z9vc3a75i24z2m59hgvnbhs"))))
    (build-system haskell-build-system)
    (inputs
@@ -712,7 +712,7 @@
    (source
     (origin
      (method url-fetch)
-     (uri (string-append "https://hackage.haskell.org/package/cabal-doctest/cabal-doctest-" version ".tar.gz"))
+     (uri (string-append "mirror://hackage/package/cabal-doctest/cabal-doctest-" version ".tar.gz"))
      (sha256 (base32 "0bgd4jdmzxq5y465r4sf4jv2ix73yvblnr4c9wyazazafddamjny"))))
    (build-system haskell-build-system)
    (arguments `(#:tests? #f
@@ -731,7 +731,7 @@
     (origin
      (method url-fetch)
      (uri (string-append
-           "https://hackage.haskell.org/package/classy-prelude/classy-prelude-" version ".tar.gz"))
+           "mirror://hackage/package/classy-prelude/classy-prelude-" version ".tar.gz"))
      (sha256 (base32 "1nm4lygxqb1wq503maki6dsah2gpn5rd22jmbwjxfwyzgyqy9fnk"))))
    (build-system haskell-build-system)
    (inputs

@@ -27,7 +27,7 @@
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/purescript/purescript-"
+             "mirror://hackage/package/purescript/purescript-"
              version
              ".tar.gz"))
        (sha256
@@ -165,7 +165,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/pattern-arrows/pattern-arrows-"
+             "mirror://hackage/package/pattern-arrows/pattern-arrows-"
              version
              ".tar.gz"))
        (sha256
@@ -187,7 +187,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/protolude/protolude-"
+             "mirror://hackage/package/protolude/protolude-"
              version
              ".tar.gz"))
        (sha256
@@ -213,7 +213,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/sourcemap/sourcemap-"
+             "mirror://hackage/package/sourcemap/sourcemap-"
              version
              ".tar.gz"))
        (sha256
@@ -243,7 +243,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/utf8-light/utf8-light-"
+             "mirror://hackage/package/utf8-light/utf8-light-"
              version
              ".tar.gz"))
        (sha256
@@ -264,7 +264,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/language-javascript/language-javascript-"
+             "mirror://hackage/package/language-javascript/language-javascript-"
              version
              ".tar.gz"))
        (sha256
@@ -297,7 +297,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/wai-websockets/wai-websockets-"
+             "mirror://hackage/package/wai-websockets/wai-websockets-"
              version
              ".tar.gz"))
        (sha256
@@ -327,7 +327,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/websockets/websockets-"
+             "mirror://hackage/package/websockets/websockets-"
              version
              ".tar.gz"))
        (sha256
@@ -373,7 +373,7 @@ See also:
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/hspec-discover/hspec-discover-"
+             "mirror://hackage/package/hspec-discover/hspec-discover-"
              version
              ".tar.gz"))
        (sha256
@@ -400,7 +400,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/tasty-hspec/tasty-hspec-"
+             "mirror://hackage/package/tasty-hspec/tasty-hspec-"
              version
              ".tar.gz"))
        (sha256
@@ -430,7 +430,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/aeson-better-errors/aeson-better-errors-"
+             "mirror://hackage/package/aeson-better-errors/aeson-better-errors-"
              version
              ".tar.gz"))
        (sha256
@@ -461,7 +461,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/bower-json/bower-json-"
+             "mirror://hackage/package/bower-json/bower-json-"
              version
              ".tar.gz"))
        (sha256
@@ -490,7 +490,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/transformers/transformers-"
+             "mirror://hackage/package/transformers/transformers-"
              version
              ".tar.gz"))
        (sha256
@@ -512,7 +512,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (method url-fetch)
        (uri (string-append
-             "https://hackage.haskell.org/package/dotgen/dotgen-"
+             "mirror://hackage/package/dotgen/dotgen-"
              version
              ".tar.gz"))
        (sha256
@@ -564,7 +564,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (inherit (package-source ghc-lifted-async))
        (uri (string-append
-             "https://hackage.haskell.org/package/lifted-async/lifted-async-"
+             "mirror://hackage/package/lifted-async/lifted-async-"
              version
              ".tar.gz"))
        (sha256
@@ -579,7 +579,7 @@ http://hspec.github.io/hspec-discover.html")
      (origin
        (inherit (package-source ghc-network))
        (uri (string-append
-             "https://hackage.haskell.org/package/network/network-"
+             "mirror://hackage/package/network/network-"
              version
              ".tar.gz"))
        (sha256
