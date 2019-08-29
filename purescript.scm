@@ -93,6 +93,7 @@
     (arguments
      ;; There is no npm yet
      `(#:tests? #f
+       #:configure-flags '("--flags=release")
        #:phases
        (modify-phases %standard-phases
          ;; Haddock fails
