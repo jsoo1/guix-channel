@@ -41,11 +41,22 @@
     (home-page "https://github.com/well-typed/cborg")
     (synopsis "A binary serialisation library for Haskell values.")
     (description
-     "This package (formerly binary-serialise-cbor) provides pure, efficient serialization of Haskell values directly into ByteStrings for storage or transmission purposes. By providing a set of type class instances, you can also serialise any custom data type you have as well.
+     "This package (formerly binary-serialise-cbor) provides pure,
+efficient serialization of Haskell values directly into ByteStrings
+for storage or transmission purposes. By providing a set of type class
+instances, you can also serialise any custom data type you have as
+well.
 
-The underlying binary format used is the 'Concise Binary Object Representation', or CBOR, specified in RFC 7049. As a result, serialised Haskell values have implicit structure outside of the Haskell program itself, meaning they can be inspected or analyzed without custom tools.
+The underlying binary format used is the 'Concise Binary Object
+Representation', or CBOR, specified in RFC 7049. As a result,
+serialised Haskell values have implicit structure outside of the
+Haskell program itself, meaning they can be inspected or analyzed
+without custom tools.
 
-An implementation of the standard bijection between CBOR and JSON is provided by the https://hackage.haskell.org/package/cborg-json package. Also see https://hackage.haskell.org/package/cbor-tool for a convenient command-line utility for working with CBOR data.")
+An implementation of the standard bijection between CBOR and JSON is
+provided by the https://hackage.haskell.org/package/cborg-json
+package. Also see https://hackage.haskell.org/package/cbor-tool for a
+convenient command-line utility for working with CBOR data.")
     (license license:bsd-3)))
 
 (define ghc-cborg-json
@@ -73,7 +84,8 @@ An implementation of the standard bijection between CBOR and JSON is provided by
     (home-page "https://github.com/well-typed/cborg")
     (synopsis "A library for encoding JSON as CBOR")
     (description
-     "This package implements the bijection between JSON and CBOR defined in the CBOR specification, RFC 7049.")
+     "This package implements the bijection between JSON and CBOR
+defined in the CBOR specification, RFC 7049.")
     (license license:bsd-3)))
 
 (define ghc-cborg
@@ -108,11 +120,19 @@ An implementation of the standard bijection between CBOR and JSON is provided by
     (home-page "http://hackage.haskell.org/package/cborg")
     (synopsis "Concise Binary Object Representation")
     (description
-     "This package (formerly binary-serialise-cbor) provides an efficient implementation of the Concise Binary Object Representation (CBOR), as specified by RFC 7049 at https://tools.ietf.org/html/rfc7049.
+     "This package (formerly binary-serialise-cbor) provides an
+efficient implementation of the Concise Binary Object
+Representation (CBOR), as specified by RFC 7049 at
+https://tools.ietf.org/html/rfc7049.
 
-If you are looking for a library for serialisation of Haskell values, have a look at the https://hackage.haskell.org/package/serialise package, which is built upon this library.
+If you are looking for a library for serialisation of Haskell values,
+have a look at the https://hackage.haskell.org/package/serialise
+package, which is built upon this library.
 
-An implementation of the standard bijection between CBOR and JSON is provided by the https://hackage.haskell.org/package/cborg-json package.
+An implementation of the standard bijection between CBOR and JSON is
+provided by the https://hackage.haskell.org/package/cborg-json
+package.
 
-Also see https://hackage.haskell.org/package/cbor-tool for a convenient command-line utility for working with CBOR data.")
+Also see https://hackage.haskell.org/package/cbor-tool for a
+convenient command-line utility for working with CBOR data.")
     (license license:bsd-3)))
