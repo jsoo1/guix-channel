@@ -99,10 +99,10 @@
          ;; Haddock fails
          (delete 'haddock))))
     (home-page "http://www.purescript.org/")
-    (synopsis
-     "PureScript Programming Language Compiler")
+    (synopsis "PureScript Programming Language Compiler")
     (description
-     "A small strongly, statically typed programming language with expressive types, inspired by Haskell and compiling to JavaScript.")
+     "A small strongly, statically typed programming language with
+expressive types, inspired by Haskell and compiling to JavaScript.")
     (license license:bsd-3)))
 
 (define purescript-spago
@@ -149,9 +149,12 @@
                  (("process") "process <= 1.6.3.0"))
                #t)))))
       (home-page "https://github.com/spacchetti/spago")
-      (synopsis "spaghetti PureScript package manager and build tool powered by Dhall and Spacchetti package-sets")
-      (description "spago aims to tie together the UX of developing a PureScript project.
-In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo and Haskell's Stack, and builds on top of ideas from existing PureScript infrastructure and tooling, as psc-package, pulp and purp.")
+      (synopsis "Package manager and build tool for PureScript")
+      (description
+       "Aims to tie together the UX of developing a PureScript project.
+it is heavily inspired by Rust's Cargo and Haskell's Stack, and builds
+on top of ideas from existing PureScript infrastructure and tooling,
+as psc-package, pulp and purp.")
       ;; TODO figure it out
       (license license:bsd-3))))
 
@@ -176,7 +179,8 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      "http://blog.functorial.com/posts/2013-10-27-Pretty-Printing-Arrows.html")
     (synopsis "Arrows for Pretty Printing")
     (description
-     "A library for generating concise pretty printers based on precedence rules.")
+     "A library for generating concise pretty printers based on
+precedence rules.")
     (license license:expat)))
 
 (define ghc-protolude
@@ -200,7 +204,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
        ("ghc-mtl-compat" ,ghc-mtl-compat)
        ("ghc-transformers-compat" ,ghc-transformers-compat)))
     (home-page "https://github.com/sdiehl/protolude")
-    (synopsis "A small prelude.")
+    (synopsis "Small prelude")
     (description
      "A sensible set of defaults for writing custom Preludes.")
     (license license:expat)))
@@ -230,9 +234,12 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (home-page
      "http://hackage.haskell.org/package/sourcemap")
     (synopsis
-     "Implementation of source maps as proposed by Google and Mozilla.")
+     "Implementation of source maps as proposed by Google and Mozilla")
     (description
-     "Implementation of source maps, revision 3, proposed by Google and Mozilla here https://wiki.mozilla.org/DevTools/Features/SourceMap and here https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit")
+     "Implementation of source maps, revision 3, proposed by Google
+and Mozilla here https://wiki.mozilla.org/DevTools/Features/SourceMap
+and here
+https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit")
     (license license:bsd-3)))
 
 (define ghc-utf8-light
@@ -252,7 +259,7 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
     (build-system haskell-build-system)
     (home-page
      "http://hackage.haskell.org/package/utf8-light")
-    (synopsis "Unicode")
+    (synopsis "Lightweight unicode support for Haskell")
     (description "Lightweight UTF8 handling.")
     (license license:bsd-3)))
 
@@ -281,12 +288,14 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
        ("ghc-hspec" ,ghc-hspec)
        ("ghc-utf8-light" ,ghc-utf8-light)))
     (home-page
-     "https://github.com/erikd/language-javascript https://github.com/erikd/language-javascript")
+     "https://github.com/erikd/language-javascript")
     (synopsis "Parser for JavaScript")
     (description
-     "Parses Javascript into an Abstract Syntax Tree (AST). Initially intended as frontend to hjsmin.
+     "Parses Javascript into an Abstract Syntax Tree (AST). Initially
+intended as frontend to hjsmin.
 
- Note: Version 0.5.0 breaks compatibility with prior versions, the AST has been reworked to allow round trip processing of JavaScript.")
+ Note: Version 0.5.0 breaks compatibility with prior versions, the AST
+has been reworked to allow round trip processing of JavaScript.")
     (license license:bsd-3)))
 
 (define ghc-wai-websockets
@@ -314,9 +323,10 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
      `(#:configure-flags '("--flags=-example")))
     (home-page "http://github.com/yesodweb/wai")
     (synopsis
-     "Provide a bridge between WAI and the websockets package.")
+     "Provide a bridge between WAI and the websockets package")
     (description
-     "API docs and the README are available at http://www.stackage.org/package/wai-websockets.")
+     "API docs and the README are available at
+http://www.stackage.org/package/wai-websockets.")
     (license license:expat)))
 
 (define ghc-websockets
@@ -352,17 +362,22 @@ In this Pursuit (see what I did there) it is heavily inspired by Rust's Cargo an
        ("ghc-test-framework-quickcheck2" ,ghc-test-framework-quickcheck2)))
     (home-page "http://jaspervdj.be/websockets")
     (synopsis
-     "A sensible and clean way to write WebSocket-capable servers in Haskell.")
+     "Way to write WebSocket-capable servers in Haskell")
     (description
      "This library allows you to write WebSocket-capable servers.
 
-An example server: https://github.com/jaspervdj/websockets/blob/master/example/server.lhs
-An example client: https://github.com/jaspervdj/websockets/blob/master/example/client.hs
+An example server:
+https://github.com/jaspervdj/websockets/blob/master/example/server.lhs
+An example client:
+https://github.com/jaspervdj/websockets/blob/master/example/client.hs
 
 See also:
 
-  * The specification of the WebSocket protocol: http://www.whatwg.org/specs/web-socket-protocol/ .
-  * The JavaScript API for dealing with WebSockets: http://www.w3.org/TR/websockets/")
+  * The specification of the WebSocket protocol:
+http://www.whatwg.org/specs/web-socket-protocol/.
+
+  * The JavaScript API for dealing with WebSockets:
+http://www.w3.org/TR/websockets/")
     (license license:bsd-3)))
 
 (define ghc-hspec-discover
@@ -448,9 +463,11 @@ http://hspec.github.io/hspec-discover.html")
     (home-page
      "https://github.com/hdgarrood/aeson-better-errors")
     (synopsis
-     "Better error messages when decoding JSON values.")
+     "Better error messages when decoding JSON values in Haskell")
     (description
-     "A small package which gives you the tools to build parsers to decode JSON values, and gives good error messages when parsing fails. See also <http://harry.garrood.me/blog/aeson-better-errors/>.")
+     "A small package which gives you the tools to build parsers to
+decode JSON values, and gives good error messages when parsing
+fails. See also http://harry.garrood.me/blog/aeson-better-errors/.")
     (license license:expat)))
 
 (define ghc-bower-json
@@ -479,7 +496,11 @@ http://hspec.github.io/hspec-discover.html")
        ("ghc-tasty-hunit" ,ghc-tasty-hunit)))
     (home-page "https://github.com/hdgarrood/bower-json")
     (synopsis "Read bower.json from Haskell")
-    (description "Bower is a package manager for the web (see http://bower.io). This package provides a data type and ToJSON/FromJSON instances for Bower's package manifest file, bower.json.")
+    (description
+     "Bower is a package manager for the web (see
+http://bower.io). This package provides a data type and
+ToJSON/FromJSON instances for Bower's package manifest file,
+bower.json.")
     (license license:expat)))
 
 (define ghc-transformers
@@ -501,7 +522,27 @@ http://hspec.github.io/hspec-discover.html")
      "http://hackage.haskell.org/package/transformers")
     (synopsis "Concrete functor and monad transformers")
     (description
-     "A portable library of functor and monad transformers, inspired by the paper \"Functional Programming with Overloading and Higher-Order Polymorphism\", by Mark P Jones, in Advanced School of Functional Programming, 1995 http://web.cecs.pdx.edu/~mpj/pubs/springschool.html. . This package contains: . * the monad transformer class (in \"Control.Monad.Trans.Class\") . * concrete functor and monad transformers, each with associated operations and functions to lift operations associated with other transformers. . The package can be used on its own in portable Haskell code, in which case operations need to be manually lifted through transformer stacks (see \"Control.Monad.Trans.Class\" for some examples). Alternatively, it can be used with the non-portable monad classes in the mtl or monads-tf packages, which automatically lift operations introduced by monad transformers through other transformers.")
+     "A portable library of functor and monad transformers, inspired
+by the paper \"Functional Programming with Overloading and
+Higher-Order Polymorphism\", by Mark P Jones, in Advanced School of
+Functional Programming, 1995
+http://web.cecs.pdx.edu/~mpj/pubs/springschool.html.
+
+This package contains:
+
+* the monad transformer class (in \"Control.Monad.Trans.Class\")
+
+* concrete functor and monad
+transformers, each with associated operations and functions to lift
+operations associated with other transformers.
+
+The package can be used on its own in portable Haskell code, in which
+case operations need to be manually lifted through transformer
+stacks (see \"Control.Monad.Trans.Class\" for some
+examples). Alternatively, it can be used with the non-portable monad
+classes in the mtl or monads-tf packages, which automatically lift
+operations introduced by monad transformers through other
+transformers.")
     (license license:bsd-3)))
 
 (define ghc-dotgen
@@ -521,9 +562,11 @@ http://hspec.github.io/hspec-discover.html")
     (build-system haskell-build-system)
     (home-page "https://github.com/ku-fpg/dotgen")
     (synopsis
-     "A simple interface for building .dot graph files.")
+     "Simple interface for building .dot graph files")
     (description
-     "This package provides a simple interface for building .dot graph files, for input into the dot and graphviz tools. It includes a monadic interface for building graphs.")
+     "This package provides a simple interface for building .dot graph
+files, for input into the dot and graphviz tools.  It includes a
+monadic interface for building graphs.")
     (license license:bsd-3)))
 
 (define ghc-async-pool
@@ -551,9 +594,11 @@ http://hspec.github.io/hspec-discover.html")
       (home-page
        "http://hackage.haskell.org/package/async-pool")
       (synopsis
-       "A modified version of async that supports worker groups and many-to-many task dependencies")
+       "Modified version of Async that supports worker groups and
+many-to-many task dependencies")
       (description
-       "This library modifies the async package to allow for task pooling and many-to-many dependencies between tasks.")
+       "This library modifies the async package to allow for task
+pooling and many-to-many dependencies between tasks.")
       (license license:expat))))
 
 (define-public ghc-lifted-async-0.10.0.4
