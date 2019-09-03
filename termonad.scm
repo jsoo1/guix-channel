@@ -5,6 +5,7 @@
   #:use-module (guix build-system haskell)
   #:use-module (gnu packages glib)
   #:use-module (gnu packages gtk)
+  #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-web)

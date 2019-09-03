@@ -3,7 +3,7 @@
   #:use-module (guix download)
   #:use-module (guix build-system haskell)
   #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (gnu packages haskell-xyz)
+  #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-check)
   #:export (my-ghc-hspec
