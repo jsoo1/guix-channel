@@ -1,7 +1,7 @@
 (define-module (ghc-alsa)
   #:use-module (gnu packages commencement)
   #:use-module (gnu packages gcc)
-  #:use-module (gnu packages haskell)
+  #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages pkg-config)

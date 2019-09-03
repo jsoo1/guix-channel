@@ -1,5 +1,5 @@
 (define-module (ghc-mvar-lock)
-  #:use-module ((gnu packages haskell) #:select (ghc-safe-exceptions))
+  #:use-module ((gnu packages haskell-xyz) #:select (ghc-safe-exceptions))
   #:use-module (guix build-system haskell)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)

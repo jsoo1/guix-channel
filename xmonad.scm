@@ -1,6 +1,6 @@
 (define-module (xmonad)
   #:use-module (gnu packages commencement)
-  #:use-module (gnu packages haskell)
+  #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages wm)
   #:use-module (guix build-system haskell)

@@ -1,5 +1,5 @@
 (define-module (ghcid)
-  #:use-module (gnu packages haskell)
+  #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-check)
   #:use-module (guix build-system haskell)
   #:use-module (guix download)

@@ -2,7 +2,7 @@
   #:use-module (ghc-dbus)
   #:use-module (ghc-alsa)
   #:use-module (gnu packages base)
-  #:use-module (gnu packages haskell)
+  #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-web)
   #:use-module (gnu packages linux)
