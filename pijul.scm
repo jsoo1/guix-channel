@@ -2,6 +2,7 @@
   #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crypto)
   #:use-module (gnu packages llvm)
+  #:use-module (gnu packages nettle)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages tls)
   #:use-module (guix build-system cargo)
@@ -28,6 +29,7 @@
      `(("clang" ,clang)
        ("libressl" ,libressl)
        ("libsodium" ,libsodium)
+       ("nettle" ,nettle)
        ("pkg-config" ,pkg-config)))
     (arguments
      `(#:cargo-inputs
@@ -70,10 +72,18 @@
         ("rust-toml" ,rust-toml-0.4)
         ("rust-username" ,rust-username))
        #:cargo-development-inputs
-       (("rust-walkdir" ,rust-walkdir))))
+       (("rust-walkdir" ,rust-walkdir))
+       #:phases
+       (modify-phases %standard-phases
+         (add-before 'build 'set-clang-env
+           (lambda* (#:key inputs #:allow-other-keys)
+             (setenv
+              "LIBCLANG_PATH"
+              (string-append (assoc-ref inputs "clang") "/lib"))
+             #t)))))
     (home-page "https://pijul.org/")
     (synopsis
-     "A patch-based distributed version control system, easy to use and fast")
+     "Patch-based distributed version control system")
     (description
      "This package provides a patch-based distributed version control
 system, easy to use and fast.  Command-line interface.")
