@@ -2,6 +2,7 @@
   #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crypto)
   #:use-module (gnu packages llvm)
+  #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages tls)
   #:use-module (guix build-system cargo)
   #:use-module (guix download)
@@ -26,7 +27,8 @@
     (inputs
      `(("clang" ,clang)
        ("libressl" ,libressl)
-       ("libsodium" ,libsodium)))
+       ("libsodium" ,libsodium)
+       ("pkg-config" ,pkg-config)))
     (arguments
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty)
