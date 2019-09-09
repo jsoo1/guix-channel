@@ -80,7 +80,38 @@
              (setenv
               "LIBCLANG_PATH"
               (string-append (assoc-ref inputs "clang") "/lib"))
-             #t)))))
+             #t))
+         (add-after 'install 'install-completions
+           (lambda* (#:key outputs #:allow-other-keys)
+             (use-modules (ice-9 popen)
+                          (ice-9 textual-ports))
+             (let* ((out (assoc-ref outputs "out"))
+                    (bin (string-append out "/bin"))
+                    (share (string-append out "/share"))
+                    (bash (string-append
+                           share "/bash-completion/completions"))
+                    (zsh (string-append
+                          share "/zsh/site-functions"))
+                    (fish (string-append
+                           share "/fish/vendor_completions.d")))
+               (for-each
+                (lambda (x)
+                  (let ((dir (cddr x))
+                        (file (cadr x))
+                        (shell (car x)))
+                    (mkdir-p dir)
+                    (call-with-output-file (string-append dir "/" file)
+                      (lambda (f)
+                        (let* ((cmd (string-append
+                                     bin "/pijul generate-completions --"
+                                     shell))
+                               (pipe (open-input-pipe cmd))
+                               (completion (get-string-all pipe)))
+                          (format f "~A" completion)))) ))
+                `(("bash" . ("pijul" . ,bash))
+                  ("zsh" . ("_pijul" . ,zsh))
+                  ("fish" . ("pijul.fish" . ,fish))))
+               #t))))))
     (home-page "https://pijul.org/")
     (synopsis
      "Patch-based distributed version control system")
