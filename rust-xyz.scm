@@ -1830,16 +1830,27 @@ indexmap.
     (home-page
      "https://github.com/alexcrichton/toml-rs")
     (synopsis
-     "A native Rust encoder and decoder of TOML-formatted files and streams. Provides
-implementations of the standard Serialize/Deserialize traits for TOML data to
-facilitate deserializing and serializing Rust structures.
-")
+     "Native Rust encoder and decoder of TOML-formatted files and streams")
     (description
-     "This package provides a native Rust encoder and decoder of TOML-formatted files and streams.  Provides
-implementations of the standard Serialize/Deserialize traits for TOML data to
-facilitate deserializing and serializing Rust structures.
-")
+     "This package provides a native Rust encoder and decoder of
+TOML-formatted files and streams.  Provides implementations of the
+standard Serialize/Deserialize traits for TOML data to facilitate
+deserializing and serializing Rust structures.")
     (license #f)))
+
+(define-public rust-toml-0.4
+  (package
+    (inherit rust-toml)
+    (version "0.4.10")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "toml" version))
+       (file-name
+        (string-append (package-name rust-toml) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "07qilkzinn8z13vq2sss65n2lza7wrmqpvkbclw919m3f7y691km"))))))
 
 (define-public rust-env-logger
   (package
@@ -2392,6 +2403,20 @@ instantiate to generate your own pieces of pseudo-random text.
     (description
      "encodes and decodes base64 as bytes or utf8")
     (license #f)))
+
+(define-public rust-base64-0.9
+  (package
+    (inherit rust-base64)
+    (version "0.9.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "base64" version))
+       (file-name
+        (string-append (package-name rust-base64) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0hs62r35bgxslawyrn1vp9rmvrkkm76fqv0vqcwd048vs876r7a8"))))))
 
 (define-public rust-bytecount
   (package
@@ -4290,7 +4315,7 @@ backed applications.
     (description "Date and time library for Rust")
     (license #f)))
 
-(define-public rust-time
+(define-public rust-time-0.1.42
   (package
     (name "rust-time")
     (version "0.1.42")
@@ -7155,10 +7180,10 @@ possible intended.
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags)
         ("rust-cfg-if" ,rust-cfg-if)
-        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-foreign-types" ,rust-foreign-types-0.3)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-libc" ,rust-libc)
-        ("rust-openssl-sys" ,rust-openssl-sys))
+        ("rust-openssl-sys" ,rust-openssl-sys-0.9.49))
        #:cargo-development-inputs
        (("rust-hex" ,rust-hex)
         ("rust-tempdir" ,rust-tempdir))))
@@ -8791,6 +8816,35 @@ repositories.
     (description "FFI bindings to OpenSSL")
     (license #f)))
 
+(define-public rust-openssl-sys-0.9.49
+  (package
+    (name "rust-openssl-sys")
+    (version "0.9.49")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "openssl-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1168vivyqbzaxl48bvv9r1x714c03f5c1za8pv5x8fyj9gjxkypl"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libc" ,rust-libc))
+       #:cargo-development-inputs
+       (("rust-autocfg" ,rust-autocfg)
+        ("rust-cc" ,rust-cc)
+        ("rust-openssl-src" ,rust-openssl-src)
+        ("rust-pkg-config" ,rust-pkg-config)
+        ("rust-vcpkg" ,rust-vcpkg))))
+    (home-page
+     "https://github.com/sfackler/rust-openssl")
+    (synopsis "FFI bindings to OpenSSL")
+    (description "FFI bindings to OpenSSL")
+    (license #f)))
+
 (define-public rust-stable-deref-trait
   (package
     (name "rust-stable-deref-trait")
@@ -9413,6 +9467,20 @@ repositories.
     (description
      "Safe bindings for the termios library.")
     (license #f)))
+
+(define-public rust-termios-0.2
+  (package
+    (inherit rust-termios)
+    (version "0.2.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "termios" version))
+       (file-name
+        (string-append (package-name rust-termios) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0fk8nl0rmk43jrh6hjz6c6d83ri7l6fikag6lh0ffz3di9cwznfm"))))))
 
 (define-public rust-clicolors-control
   (package
@@ -10416,9 +10484,10 @@ repositories.
     (home-page
      "https://rustwasm.github.io/wasm-bindgen/")
     (synopsis
-     "Definition of the `#[wasm_bindgen]` attribute, an internal dependency")
+     "Definition of the @code{#[wasm_bindgen]} attribute")
     (description
-     "Definition of the `#[wasm_bindgen]` attribute, an internal dependency")
+     "Definition of the @code{#[wasm_bindgen]} attribute, an internal
+dependency")
     (license #f)))
 
 (define-public rust-trybuild
@@ -10476,9 +10545,10 @@ repositories.
     (home-page
      "https://rustwasm.github.io/wasm-bindgen/")
     (synopsis
-     "The part of the implementation of the `#[wasm_bindgen]` attribute that is not in the shared backend crate")
+     "The part of the implementation of the @code{#[wasm_bindgen]}")
     (description
-     "The part of the implementation of the `#[wasm_bindgen]` attribute that is not in the shared backend crate")
+     "The part of the implementation of the @code{#[wasm_bindgen]}
+attribute that is not in the shared backend crate.")
     (license #f)))
 
 (define-public rust-wasm-bindgen-backend
@@ -10574,6 +10644,34 @@ dependency.")
        (sha256
         (base32
          "0ca4i38yrf9iy5k47lr1ylb3rvcbn36d81k5pr5kzf6kmj6p111n"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-foreign-types-macros"
+         ,rust-foreign-types-macros)
+        ("rust-foreign-types-shared"
+         ,rust-foreign-types-shared))))
+    (home-page
+     "https://github.com/sfackler/foreign-types")
+    (synopsis
+     "A framework for Rust wrappers over C APIs")
+    (description
+     "This package provides a framework for Rust wrappers over C APIs")
+    (license #f)))
+
+(define-public rust-foreign-types-0.3
+  (package
+    (name "rust-foreign-types")
+    (version "0.3.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "foreign-types" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1cgk0vyd7r45cj769jym4a6s7vwshvd0z4bqrb92q1fwibmkkwzn"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -11733,9 +11831,10 @@ size 2, 4, 8, 16, 32, and 64.")
         ("rust-winapi" ,rust-winapi))))
     (home-page "https://pijul.org/cryptovec")
     (synopsis
-     "A vector which zeroes its memory on clears and reallocations.")
+     "A vector which zeroes its memory on clears and reallocations")
     (description
-     "This package provides a vector which zeroes its memory on clears and reallocations.")
+     "This package provides a vector which zeroes its memory on clears
+and reallocations.")
     (license license:asl2.0)))
 
 (define-public rust-getch
@@ -11755,13 +11854,14 @@ size 2, 4, 8, 16, 32, and 64.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc)
-        ("rust-termios" ,rust-termios))))
+        ("rust-termios" ,rust-termios-0.2))))
     (home-page
      "https://nest.pijul.com/pijul_org/getch")
     (synopsis
-     "A portable implementation of getch, using _getch on Windows, and termios on Unix.")
+     "Portable implementation of getch")
     (description
-     "This package provides a portable implementation of getch, using _getch on Windows, and termios on Unix.")
+     "This package provides a portable implementation of getch, using
+_getch on Windows, and termios on Unix.")
     (license license:asl2.0)))
 
 (define-public rust-libpijul
@@ -11794,7 +11894,7 @@ size 2, 4, 8, 16, 32, and 64.")
         ("rust-log" ,rust-log)
         ("rust-openssl" ,rust-openssl)
         ("rust-rand" ,rust-rand)
-        ("rust-sanakirja" ,rust-sanakirja)
+        ("rust-sanakirja" ,rust-sanakirja-0.10)
         ("rust-sequoia-openpgp" ,rust-sequoia-openpgp)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
@@ -11855,6 +11955,58 @@ size 2, 4, 8, 16, 32, and 64.")
      "Library for diffing paths to obtain relative paths")
     (license #f)))
 
+(define-public rust-rpassword
+  (package
+    (name "rust-rpassword")
+    (version "4.0.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rpassword" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1k8g5lk2y41rj9zr8syqrrd381z8flg2wr4pzmp595hsy4qxjwph"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libc" ,rust-libc)
+        ("rust-winapi" ,rust-winapi))))
+    (home-page
+     "https://github.com/conradkdotcom/rpassword")
+    (synopsis
+     "Read passwords in console applications.")
+    (description
+     "Read passwords in console applications.")
+    (license license:asl2.0)))
+
+(define-public rust-rpassword-2.1.0
+  (package
+    (name "rust-rpassword")
+    (version "2.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rpassword" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1v255xqkig5lwnczvm3achydhxx6kf9jcdxdlgzndgpd18bp6x6k"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libc" ,rust-libc)
+        ("rust-winapi" ,rust-winapi))))
+    (home-page
+     "https://github.com/conradkdotcom/rpassword")
+    (synopsis
+     "Read passwords in console applications.")
+    (description
+     "Read passwords in console applications.")
+    (license license:asl2.0)))
+
 (define-public rust-progrs
   (package
     (name "rust-progrs")
@@ -11893,10 +12045,10 @@ size 2, 4, 8, 16, 32, and 64.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.9)
         ("rust-bytes" ,rust-bytes)
         ("rust-cookie" ,rust-cookie)
-        ("rust-cookie-store" ,rust-cookie-store)
+        ("rust-cookie-store" ,rust-cookie-store-0.7)
         ("rust-encoding-rs" ,rust-encoding-rs)
         ("rust-flate2" ,rust-flate2)
         ("rust-futures" ,rust-futures)
@@ -11914,7 +12066,7 @@ size 2, 4, 8, 16, 32, and 64.")
         ("rust-serde-json" ,rust-serde-json)
         ("rust-serde-urlencoded" ,rust-serde-urlencoded)
         ("rust-socks" ,rust-socks)
-        ("rust-time" ,rust-time)
+        ("rust-time" ,rust-time-0.1.42)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-executor" ,rust-tokio-executor)
         ("rust-tokio-io" ,rust-tokio-io)
@@ -12000,6 +12152,46 @@ size 2, 4, 8, 16, 32, and 64.")
        #:cargo-development-inputs
        (("rust-lalrpop" ,rust-lalrpop)
         ("rust-rpassword" ,rust-rpassword))))
+    (home-page "https://sequoia-pgp.org/")
+    (synopsis
+     "OpenPGP data types and associated machinery")
+    (description
+     "OpenPGP data types and associated machinery")
+    (license license:gpl3)))
+
+(define-public rust-sequoia-openpgp-0.9.0
+  (package
+    (name "rust-sequoia-openpgp")
+    (version "0.9.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "sequoia-openpgp" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "007h2pi7lcph5jf5bxjydm7hjwjai33yk6dic3cxknki22lxlkfw"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-base64" ,rust-base64)
+        ("rust-buffered-reader" ,rust-buffered-reader)
+        ("rust-bzip2" ,rust-bzip2)
+        ("rust-failure" ,rust-failure)
+        ("rust-flate2" ,rust-flate2)
+        ("rust-idna" ,rust-idna)
+        ("rust-lalrpop" ,rust-lalrpop)
+        ("rust-lalrpop-util" ,rust-lalrpop-util)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-memsec" ,rust-memsec)
+        ("rust-nettle" ,rust-nettle)
+        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-rand" ,rust-rand)
+        ("rust-sequoia-rfc2822" ,rust-sequoia-rfc2822)
+        ("rust-time" ,rust-time))
+       #:cargo-development-inputs
+       (("rust-rpassword" ,rust-rpassword))))
     (home-page "https://sequoia-pgp.org/")
     (synopsis
      "OpenPGP data types and associated machinery")
@@ -12112,7 +12304,7 @@ size 2, 4, 8, 16, 32, and 64.")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
-        ("rust-bit-vec" ,rust-bit-vec)
+        ("rust-bit-vec" ,rust-bit-vec-0.4)
         ("rust-byteorder" ,rust-byteorder)
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-dirs" ,rust-dirs)
@@ -12316,6 +12508,20 @@ size 2, 4, 8, 16, 32, and 64.")
      "This package provides a key-value dictionary, using copy-on-write and B trees.")
     (license #f)))
 
+(define-public rust-sanakirja-0.10
+  (package
+    (inherit rust-sanakirja)
+    (version "0.10.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "sanakirja" version))
+       (file-name
+        (string-append (package-name rust-sanakirja) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1fhn5lb6jn0pimnk0nbf5h4xvp28xdkdh33d57gq1ixy8b2y091y"))))))
+
 (define-public rust-utf8parse
   (package
     (name "rust-utf8parse")
@@ -12400,10 +12606,47 @@ and private (encrypted + signed) jars.")
      "Implementation of Cookie storage and retrieval per [RFC6265](http://tools.ietf.org/html/rfc6265)")
     (license #f)))
 
+(define-public rust-cookie-store-0.7
+  (package
+    (name "rust-cookie-store")
+    (version "0.7.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "cookie-store" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "174i9k9g62pfx7y1nqynywdpjplkl3j4hi3ck6bz2r996qzhnxa6"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-cookie" ,rust-cookie)
+        ("rust-idna" ,rust-idna)
+        ("rust-log" ,rust-log)
+        ("rust-publicsuffix" ,rust-publicsuffix)
+        ("rust-serde" ,rust-serde)
+        ("rust-serde-json" ,rust-serde-json)
+        ("rust-time" ,rust-time)
+        ("rust-try-from" ,rust-try-from)
+        ("rust-url" ,rust-url))
+       #:cargo-development-inputs
+       (("rust-env-logger" ,rust-env-logger)
+        ("rust-pretty-assertions"
+         ,rust-pretty-assertions))))
+    (home-page
+     "https://github.com/pfernie/cookie_store")
+    (synopsis
+     "Implementation of Cookie storage and retrieval per [RFC6265](http://tools.ietf.org/html/rfc6265)")
+    (description
+     "Implementation of Cookie storage and retrieval per [RFC6265](http://tools.ietf.org/html/rfc6265)")
+    (license #f)))
+
 (define-public rust-hyper
   (package
     (name "rust-hyper")
-    (version "0.13.0-alpha.1")
+    (version "0.12.22")
     (source
      (origin
        (method url-fetch)
@@ -12412,7 +12655,7 @@ and private (encrypted + signed) jars.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "1ba01k7ybybwsmic82xm6mfxbvfk2bm1m7c29ap32z5yx22277dj"))))
+         "1zcq9jf5m3z4lzwagkbg2x9p58xm6cr38mwy2pin9kw70c9bhbb2"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -12421,6 +12664,7 @@ and private (encrypted + signed) jars.")
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview)
+        ("rust-futures-cpupool" ,rust-futures-cpupool)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
         ("rust-h2" ,rust-h2)
@@ -12529,7 +12773,7 @@ and private (encrypted + signed) jars.")
 (define-public rust-hyper-tls
   (package
     (name "rust-hyper-tls")
-    (version "0.4.0-alpha.1")
+    (version "0.3.2")
     (source
      (origin
        (method url-fetch)
@@ -12538,7 +12782,7 @@ and private (encrypted + signed) jars.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "0nvn47biv5xi9k5l82dvr3ivdv3jvhzfvzm4sp8mj8r3w4n7qg1f"))))
+         "0kqp4sz8613j6nv375wfj3gh95ff4nb6a3rb1f2vbx0almm0v01s"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -12659,7 +12903,7 @@ and private (encrypted + signed) jars.")
 (define-public rust-serde-urlencoded
   (package
     (name "rust-serde-urlencoded")
-    (version "0.6.1")
+    (version "0.5.5")
     (source
      (origin
        (method url-fetch)
@@ -12668,7 +12912,7 @@ and private (encrypted + signed) jars.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "15rcwfkff0md5i231m2ym5756ksw1mkh5b5g2rw72wsc5mzdgicy"))))
+         "0nhnzllx5xrij4x17g351n14md691r95mxr7sbpz4sl80n8xcbb4"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -12886,7 +13130,7 @@ types.  The Client can be used for other queries.")
 (define-public rust-buffered-reader
   (package
     (name "rust-buffered-reader")
-    (version "0.10.0")
+    (version "0.9.0")
     (source
      (origin
        (method url-fetch)
@@ -12895,7 +13139,7 @@ types.  The Client can be used for other queries.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "0sdw98v8gj85l5zmbsic3m7p1fm5mgdlsbxb3ijsxjjlk8kfmgx4"))))
+         "05rklfiia1k4c4ifpim08l22i0q0l3j9xdg2yh3njrp6w58z6z13"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -13021,7 +13265,7 @@ exposed as Reader/Writer streams.")
 (define-public rust-sequoia-rfc2822
   (package
     (name "rust-sequoia-rfc2822")
-    (version "0.10.0")
+    (version "0.9.0")
     (source
      (origin
        (method url-fetch)
@@ -13030,7 +13274,7 @@ exposed as Reader/Writer streams.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "0qbk61lrbm1nngj4wb8yjafq431aywi67y94vk4hzk72gxi1c397"))))
+         "1aj34i6862718m162rqfv69fkmvdw063s6ws7hbp42n73gb08p5c"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -13139,10 +13383,24 @@ exposed as Reader/Writer streams.")
      "This package provides a vector of bits")
     (license #f)))
 
+(define-public rust-bit-vec-0.4
+  (package
+    (inherit rust-bit-vec)
+    (version "0.4.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "bit-vec" version))
+       (file-name
+        (string-append (package-name rust-bit-vec) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0pw902a8ail0k64a7092a8vngfzsq7xkj2r22hz6q1z62s5zzd02"))))))
+
 (define-public rust-num-bigint
   (package
     (name "rust-num-bigint")
-    (version "0.2.3")
+    (version "0.1.44")
     (source
      (origin
        (method url-fetch)
@@ -13151,7 +13409,7 @@ exposed as Reader/Writer streams.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "06hsaiahwbx98xbph5k9086r4hd2m2zzi6sx4v5k9wr4vm6g7hzr"))))
+         "1hg80xd7vd5yqzks1h0zk2fcgqnf84m2cdj9q4cffk581nnrjf76"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -13175,7 +13433,7 @@ exposed as Reader/Writer streams.")
 (define-public rust-yasna
   (package
     (name "rust-yasna")
-    (version "0.3.1")
+    (version "0.1.3")
     (source
      (origin
        (method url-fetch)
@@ -13184,7 +13442,7 @@ exposed as Reader/Writer streams.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "1na5cqvvgcd5fwzhsp2dxsy71bcmyi04zm2pwfcdgql7ml7d2qx5"))))
+         "1frcd79rzi6dlly7lldjn2avnhfmj6yxrjsgvb2p1k2zbxdzyc9s"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -13739,7 +13997,7 @@ composability, and iterator-like interfaces.")
 (define-public rust-h2
   (package
     (name "rust-h2")
-    (version "0.2.0-alpha.1")
+    (version "0.1.26")
     (source
      (origin
        (method url-fetch)
@@ -13748,7 +14006,7 @@ composability, and iterator-like interfaces.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "1nrgp4a5802v40var85ybjg5a1g2mvfpyr0aisz8cjg541ifs030"))))
+         "0qn457y8xh03p7c7cpk76r22gqpyqxc58g5022j3iya7d0j4rcx5"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -14793,4 +15051,1789 @@ functions.")
      "A `tracing` subscriber that formats and logs trace data")
     (description
      "This package provides a `tracing` subscriber that formats and logs trace data.  Moved to the `tracing-subscriber` crate.")
+    (license license:expat)))
+
+(define-public rust-log-0.4
+  (package
+    (inherit rust-log)
+    (version "0.4.8")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "log" version))
+        (file-name (string-append (package-name rust-log) "-" version ".tar.gz"))
+        (sha256
+         (base32
+          "1xz18ixccl5c6np4linv3ypc7hpmmgpc5zzd2ymp2ssfx0mhbdhl"))))))
+
+(define-public rust-rustc-tools-util
+  (package
+    (name "rust-rustc-tools-util")
+    (version "0.2.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rustc-tools-util" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1vj4ymv29igs7n52m12k138zbsn5k5d7ya4sys6lig7sx7ddl9dp"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/rust-lang/rust-clippy")
+    (synopsis
+     "small helper to generate version information for git packages")
+    (description
+     "small helper to generate version information for git packages")
+    (license #f)))
+
+(define-public rust-errno
+  (package
+    (name "rust-errno")
+    (version "0.2.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "errno" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0kn8mlygxxr02cm97401nppd2dbkwsalpcbai67rh6yh3rh73862"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-errno-dragonfly" ,rust-errno-dragonfly)
+        ("rust-libc" ,rust-libc)
+        ("rust-winapi" ,rust-winapi))))
+    (home-page
+     "https://github.com/lfairy/rust-errno")
+    (synopsis
+     "Cross-platform interface to the `errno` variable.")
+    (description
+     "Cross-platform interface to the `errno` variable.")
+    (license #f)))
+
+(define-public rust-errno
+  (package
+    (name "rust-errno")
+    (version "0.2.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "errno" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0kn8mlygxxr02cm97401nppd2dbkwsalpcbai67rh6yh3rh73862"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-errno-dragonfly" ,rust-errno-dragonfly)
+        ("rust-libc" ,rust-libc)
+        ("rust-winapi" ,rust-winapi))))
+    (home-page
+     "https://github.com/lfairy/rust-errno")
+    (synopsis
+     "Cross-platform interface to the `errno` variable.")
+    (description
+     "Cross-platform interface to the `errno` variable.")
+    (license #f)))
+
+(define-public rust-errno-dragonfly
+  (package
+    (name "rust-errno-dragonfly")
+    (version "0.1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "errno-dragonfly" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0rshlc00nv45f14v2l1w0ma2nf1jg5j7q9pvw7hh018r6r73bjhl"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libc" ,rust-libc))
+       #:cargo-development-inputs
+       (("rust-gcc" ,rust-gcc))))
+    (home-page
+     "https://github.com/mneumann/errno-dragonfly-rs")
+    (synopsis
+     "Exposes errno functionality to stable Rust on DragonFlyBSD")
+    (description
+     "Exposes errno functionality to stable Rust on DragonFlyBSD")
+    (license license:expat)))
+
+(define-public rust-glutin
+  (package
+    (name "rust-glutin")
+    (version "0.22.0-alpha3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "glutin" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1fnfpdmymj6s53p9ahpmqpqay7plj7fsshhsla0l408mnn93bpgw"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-android-glue" ,rust-android-glue)
+        ("rust-cgl" ,rust-cgl)
+        ("rust-cocoa" ,rust-cocoa)
+        ("rust-core-foundation" ,rust-core-foundation)
+        ("rust-core-graphics" ,rust-core-graphics)
+        ("rust-derivative" ,rust-derivative)
+        ("rust-glutin-egl-sys" ,rust-glutin-egl-sys)
+        ("rust-glutin-egl-sys" ,rust-glutin-egl-sys)
+        ("rust-glutin-egl-sys" ,rust-glutin-egl-sys)
+        ("rust-glutin-emscripten-sys"
+         ,rust-glutin-emscripten-sys)
+        ("rust-glutin-gles2-sys" ,rust-glutin-gles2-sys)
+        ("rust-glutin-glx-sys" ,rust-glutin-glx-sys)
+        ("rust-glutin-wgl-sys" ,rust-glutin-wgl-sys)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-libloading" ,rust-libloading)
+        ("rust-libloading" ,rust-libloading)
+        ("rust-log" ,rust-log)
+        ("rust-objc" ,rust-objc)
+        ("rust-osmesa-sys" ,rust-osmesa-sys)
+        ("rust-parking-lot" ,rust-parking-lot)
+        ("rust-parking-lot" ,rust-parking-lot)
+        ("rust-parking-lot" ,rust-parking-lot)
+        ("rust-wayland-client" ,rust-wayland-client)
+        ("rust-winapi" ,rust-winapi)
+        ("rust-winit" ,rust-winit))))
+    (home-page "https://github.com/tomaka/glutin")
+    (synopsis
+     "Cross-platform OpenGL context provider.")
+    (description
+     "Cross-platform OpenGL context provider.")
+    (license license:asl2.0)))
+
+(define-public rust-android-glue
+  (package
+    (name "rust-android-glue")
+    (version "0.2.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "android-glue" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "01y495x4i9vqkwmklwn2xk7sqg666az2axjcpkr4iwngdwi48100"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/tomaka/android-rs-glue")
+    (synopsis "Glue for the Android JNI")
+    (description "Glue for the Android JNI")
+    (license license:expat)))
+
+(define-public rust-cgl
+  (package
+    (name "rust-cgl")
+    (version "0.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "cgl" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1x8jp663viih8mj587qyyi5wy7zd7v9kg6w7dr6iji8m0lad0k72"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-gleam" ,rust-gleam)
+        ("rust-libc" ,rust-libc))))
+    (home-page "https://github.com/servo/cgl-rs")
+    (synopsis "Rust bindings for CGL on Mac")
+    (description "Rust bindings for CGL on Mac")
+    (license #f)))
+
+(define-public rust-cocoa
+  (package
+    (name "rust-cocoa")
+    (version "0.19.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "cocoa" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1n9pklag536ghbw93hhld8gzp1fykag67mc6h953p2c0x12h1llc"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-block" ,rust-block)
+        ("rust-core-foundation" ,rust-core-foundation)
+        ("rust-core-graphics" ,rust-core-graphics)
+        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-libc" ,rust-libc)
+        ("rust-objc" ,rust-objc))))
+    (home-page
+     "https://github.com/servo/core-foundation-rs")
+    (synopsis "Bindings to Cocoa for macOS")
+    (description "Bindings to Cocoa for macOS")
+    (license #f)))
+
+(define-public rust-core-graphics
+  (package
+    (name "rust-core-graphics")
+    (version "0.17.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "core-graphics" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1acm3vygngnilzlr6klym5ywh7kfzh2xxrh2l41152hwmdl0jyan"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-core-foundation" ,rust-core-foundation)
+        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-libc" ,rust-libc))))
+    (home-page
+     "https://github.com/servo/core-graphics-rs")
+    (synopsis "Bindings to Core Graphics for OS X")
+    (description
+     "Bindings to Core Graphics for OS X")
+    (license #f)))
+
+(define-public rust-derivative
+  (package
+    (name "rust-derivative")
+    (version "1.0.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "derivative" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0fpfcw0if70gnp8hvz6ki2wasldzi31pnwx6jmjq18zpxqqa8b4l"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-syn" ,rust-syn)
+        ("rust-trybuild" ,rust-trybuild))))
+    (home-page
+     "https://github.com/mcarton/rust-derivative")
+    (synopsis
+     "A set of alternative `derive` attributes for Rust")
+    (description
+     "This package provides a set of alternative `derive` attributes for Rust")
+    (license #f)))
+
+(define-public rust-glutin-egl-sys
+  (package
+    (name "rust-glutin-egl-sys")
+    (version "0.1.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "glutin-egl-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "09nk7nknjsw2svzqrxmggc53h37xl9a9xd83v4dbdckcmf3qkx13"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-winapi" ,rust-winapi))
+       #:cargo-development-inputs
+       (("rust-gl-generator" ,rust-gl-generator))))
+    (home-page "https://github.com/tomaka/glutin")
+    (synopsis "The egl bindings for glutin")
+    (description "The egl bindings for glutin")
+    (license license:asl2.0)))
+
+(define-public rust-glutin-emscripten-sys
+  (package
+    (name "rust-glutin-emscripten-sys")
+    (version "0.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "glutin-emscripten-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1ix0jmm8p5if4qarzdfl5mz9rbq4hhgqarakb3bzwvyz13dkynr4"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/tomaka/glutin")
+    (synopsis "The emscripten bindings for glutin")
+    (description
+     "The emscripten bindings for glutin")
+    (license license:asl2.0)))
+
+(define-public rust-glutin-gles2-sys
+  (package
+    (name "rust-glutin-gles2-sys")
+    (version "0.1.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "glutin-gles2-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1pswvl5zyqmqwzjr674yzslj0al2xbqsp2ai9ggb9qbshlq6r6c9"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-objc" ,rust-objc))
+       #:cargo-development-inputs
+       (("rust-gl-generator" ,rust-gl-generator))))
+    (home-page "https://github.com/tomaka/glutin")
+    (synopsis "The gles2 bindings for glutin")
+    (description "The gles2 bindings for glutin")
+    (license license:asl2.0)))
+
+(define-public rust-glutin-glx-sys
+  (package
+    (name "rust-glutin-glx-sys")
+    (version "0.1.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "glutin-glx-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0mxs3mil68xqqb49466n5rpwpcllj6fwqjgrcrzzmz26bv5ab40j"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-x11-dl" ,rust-x11-dl))
+       #:cargo-development-inputs
+       (("rust-gl-generator" ,rust-gl-generator))))
+    (home-page "https://github.com/tomaka/glutin")
+    (synopsis "The glx bindings for glutin")
+    (description "The glx bindings for glutin")
+    (license license:asl2.0)))
+
+(define-public rust-glutin-wgl-sys
+  (package
+    (name "rust-glutin-wgl-sys")
+    (version "0.1.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "glutin-wgl-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "08chlfzpj59q36qm212i4k879gvjzha7i90q90fds8pw3v4vn0gq"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-gl-generator" ,rust-gl-generator))))
+    (home-page "https://github.com/tomaka/glutin")
+    (synopsis "The wgl bindings for glutin")
+    (description "The wgl bindings for glutin")
+    (license license:asl2.0)))
+
+(define-public rust-objc
+  (package
+    (name "rust-objc")
+    (version "0.2.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "objc" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "03ar7qxhailxgb0zi5lszv7fhwl6b1xkas5y4m8wy1vyng90zlii"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-malloc-buf" ,rust-malloc-buf)
+        ("rust-objc-exception" ,rust-objc-exception))))
+    (home-page
+     "http://github.com/SSheldon/rust-objc")
+    (synopsis
+     "Objective-C Runtime bindings and wrapper for Rust.")
+    (description
+     "Objective-C Runtime bindings and wrapper for Rust.")
+    (license license:expat)))
+
+(define-public rust-osmesa-sys
+  (package
+    (name "rust-osmesa-sys")
+    (version "0.1.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "osmesa-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0fq1q1zcgfb0qydrg9r2738jlwc4hqxgb9vj11z72bjxx7kfrkw8"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-shared-library" ,rust-shared-library))))
+    (home-page
+     "https://github.com/Daggerbot/osmesa-rs.git")
+    (synopsis "OSMesa library bindings for Rust")
+    (description "OSMesa library bindings for Rust")
+    (license license:cc0)))
+
+(define-public rust-wayland-client
+  (package
+    (name "rust-wayland-client")
+    (version "0.23.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "wayland-client" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1nmw2kz70llc5mxwzg6bglnqy0qnyr9224zjmq9czazgw3mq045g"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-calloop" ,rust-calloop)
+        ("rust-downcast-rs" ,rust-downcast-rs)
+        ("rust-libc" ,rust-libc)
+        ("rust-mio" ,rust-mio)
+        ("rust-nix" ,rust-nix)
+        ("rust-wayland-commons" ,rust-wayland-commons)
+        ("rust-wayland-sys" ,rust-wayland-sys))
+       #:cargo-development-inputs
+       (("rust-byteorder" ,rust-byteorder)
+        ("rust-tempfile" ,rust-tempfile)
+        ("rust-wayland-scanner" ,rust-wayland-scanner))))
+    (home-page
+     "https://github.com/smithay/wayland-rs")
+    (synopsis
+     "Bindings to the standard C implementation of the wayland protocol, client side.")
+    (description
+     "Bindings to the standard C implementation of the wayland protocol, client side.")
+    (license license:expat)))
+
+(define-public rust-winit
+  (package
+    (name "rust-winit")
+    (version "0.20.0-alpha3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "winit" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0k824r3lisbsxb89wd0p1nv8mdnmhmbchypv52xpk5yh9dqlgj97"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-android-glue" ,rust-android-glue)
+        ("rust-bitflags" ,rust-bitflags)
+        ("rust-calloop" ,rust-calloop)
+        ("rust-cocoa" ,rust-cocoa)
+        ("rust-core-foundation" ,rust-core-foundation)
+        ("rust-core-graphics" ,rust-core-graphics)
+        ("rust-core-video-sys" ,rust-core-video-sys)
+        ("rust-derivative" ,rust-derivative)
+        ("rust-dispatch" ,rust-dispatch)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-libc" ,rust-libc)
+        ("rust-log" ,rust-log)
+        ("rust-objc" ,rust-objc)
+        ("rust-objc" ,rust-objc)
+        ("rust-parking-lot" ,rust-parking-lot)
+        ("rust-percent-encoding" ,rust-percent-encoding)
+        ("rust-raw-window-handle"
+         ,rust-raw-window-handle)
+        ("rust-serde" ,rust-serde)
+        ("rust-smithay-client-toolkit"
+         ,rust-smithay-client-toolkit)
+        ("rust-wayland-client" ,rust-wayland-client)
+        ("rust-winapi" ,rust-winapi)
+        ("rust-x11-dl" ,rust-x11-dl))
+       #:cargo-development-inputs
+       (("rust-env-logger" ,rust-env-logger)
+        ("rust-image" ,rust-image))))
+    (home-page
+     "https://github.com/rust-windowing/winit")
+    (synopsis
+     "Cross-platform window creation library.")
+    (description
+     "Cross-platform window creation library.")
+    (license license:asl2.0)))
+
+(define-public rust-calloop
+  (package
+    (name "rust-calloop")
+    (version "0.4.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "calloop" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0q6ic9lr0s86886mbyn4yncg68b2sykgwjf3iygdw01swmxhk8ks"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-mio" ,rust-mio)
+        ("rust-mio-extras" ,rust-mio-extras)
+        ("rust-nix" ,rust-nix))
+       #:cargo-development-inputs
+       (("rust-lazycell" ,rust-lazycell))))
+    (home-page "https://github.com/Smithay/calloop")
+    (synopsis "A callback-based event loop")
+    (description
+     "This package provides a callback-based event loop")
+    (license license:expat)))
+
+(define-public rust-core-video-sys
+  (package
+    (name "rust-core-video-sys")
+    (version "0.1.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "core-video-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1l59cg88482hkl95ssb30ac9x65hpbdsmxz9s5r6y222jlhnbh4d"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-cfg-if" ,rust-cfg-if)
+        ("rust-core-foundation-sys"
+         ,rust-core-foundation-sys)
+        ("rust-core-graphics" ,rust-core-graphics)
+        ("rust-libc" ,rust-libc)
+        ("rust-metal" ,rust-metal)
+        ("rust-objc" ,rust-objc))))
+    (home-page
+     "https://github.com/luozijun/rust-core-video-sys")
+    (synopsis
+     "Bindings to CoreVideo.framework for macOS and iOS")
+    (description
+     "Bindings to CoreVideo.framework for macOS and iOS")
+    (license license:expat)))
+
+(define-public rust-dispatch
+  (package
+    (name "rust-dispatch")
+    (version "0.1.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "dispatch" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "019nzy993hxaiazcdnayx3csv2iki34i535asw11ki96hakkrs84"))))
+    (build-system cargo-build-system)
+    (home-page
+     "http://github.com/SSheldon/rust-dispatch")
+    (synopsis
+     "Rust wrapper for Apple's Grand Central Dispatch.")
+    (description
+     "Rust wrapper for Apple's Grand Central Dispatch.")
+    (license license:expat)))
+
+(define-public rust-raw-window-handle
+  (package
+    (name "rust-raw-window-handle")
+    (version "0.1.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "raw-window-handle" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "11wfzz3w2jqkjlk478765imwwf9lzy5rmhpgf4hzzcsk20p3ngdg"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-libc" ,rust-libc))))
+    (home-page
+     "https://github.com/rust-windowing/raw-window-handle")
+    (synopsis
+     "Raw platform window types for interoperability")
+    (description
+     "Raw platform window types for interoperability")
+    (license license:unlicense)))
+
+(define-public rust-smithay-client-toolkit
+  (package
+    (name "rust-smithay-client-toolkit")
+    (version "0.6.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "smithay-client-toolkit" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0m20687zs36l6xak2s5k9s7qp78ly8xfjpbmrhacp7whfn4hx5lk"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-andrew" ,rust-andrew)
+        ("rust-bitflags" ,rust-bitflags)
+        ("rust-dlib" ,rust-dlib)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-memmap" ,rust-memmap)
+        ("rust-nix" ,rust-nix)
+        ("rust-wayland-client" ,rust-wayland-client)
+        ("rust-wayland-protocols"
+         ,rust-wayland-protocols))
+       #:cargo-development-inputs
+       (("rust-byteorder" ,rust-byteorder)
+        ("rust-image" ,rust-image)
+        ("rust-wayland-client" ,rust-wayland-client))))
+    (home-page
+     "https://github.com/smithay/client-toolkit")
+    (synopsis
+     "Toolkit for making client wayland applications.")
+    (description
+     "Toolkit for making client wayland applications.")
+    (license license:expat)))
+
+(define-public rust-x11-dl
+  (package
+    (name "rust-x11-dl")
+    (version "2.18.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "x11-dl" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0n1w837xagxqgwx2880d7c9ks6l3g1kk00yd75afdaiv58sf2rdy"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-lazy-static" ,rust-lazy-static)
+        ("rust-libc" ,rust-libc)
+        ("rust-maybe-uninit" ,rust-maybe-uninit))
+       #:cargo-development-inputs
+       (("rust-pkg-config" ,rust-pkg-config))))
+    (home-page
+     "https://github.com/erlepereira/x11-rs.git")
+    (synopsis "X11 library bindings for Rust")
+    (description "X11 library bindings for Rust")
+    (license license:cc0)))
+
+(define-public rust-image
+  (package
+    (name "rust-image")
+    (version "0.22.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "image" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0rrcghjyvnf3mdah80ysq6qybc3qb1w7nxr180asvwm09906a1pf"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-byteorder" ,rust-byteorder)
+        ("rust-gif" ,rust-gif)
+        ("rust-jpeg-decoder" ,rust-jpeg-decoder)
+        ("rust-num-iter" ,rust-num-iter)
+        ("rust-num-rational" ,rust-num-rational)
+        ("rust-num-traits" ,rust-num-traits)
+        ("rust-png" ,rust-png)
+        ("rust-scoped-threadpool"
+         ,rust-scoped-threadpool)
+        ("rust-tiff" ,rust-tiff))
+       #:cargo-development-inputs
+       (("rust-crc32fast" ,rust-crc32fast)
+        ("rust-glob" ,rust-glob)
+        ("rust-num-complex" ,rust-num-complex)
+        ("rust-quickcheck" ,rust-quickcheck))))
+    (home-page "https://github.com/image-rs/image")
+    (synopsis
+     "Imaging library written in Rust. Provides basic filters and decoders for the most common image formats.")
+    (description
+     "Imaging library written in Rust.  Provides basic filters and decoders for the most common image formats.")
+    (license license:expat)))
+
+(define-public rust-downcast-rs
+  (package
+    (name "rust-downcast-rs")
+    (version "1.0.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "downcast-rs" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "03q2pqjk1wik3agbwgsypah7qziqbpwp41bmpw62cx9gbkyjvfgj"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/marcianx/downcast-rs")
+    (synopsis
+     "Trait object downcasting support using only safe Rust. It supports type
+parameters, associated types, and type constraints.
+")
+    (description
+     "Trait object downcasting support using only safe Rust.  It supports type
+parameters, associated types, and type constraints.
+")
+    (license #f)))
+
+(define-public rust-nix
+  (package
+    (name "rust-nix")
+    (version "0.15.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "nix" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0aa2l7wg9pzx24ks4p97gdy09a4hhs1sr9drxnm75v906d7hnbiv"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-libc" ,rust-libc)
+        ("rust-void" ,rust-void))
+       #:cargo-development-inputs
+       (("rust-bytes" ,rust-bytes)
+        ("rust-caps" ,rust-caps)
+        ("rust-cc" ,rust-cc)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-rand" ,rust-rand)
+        ("rust-sysctl" ,rust-sysctl)
+        ("rust-tempfile" ,rust-tempfile))))
+    (home-page "https://github.com/nix-rust/nix")
+    (synopsis "Rust friendly bindings to *nix APIs")
+    (description
+     "Rust friendly bindings to *nix APIs")
+    (license license:expat)))
+
+(define-public rust-wayland-commons
+  (package
+    (name "rust-wayland-commons")
+    (version "0.23.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "wayland-commons" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1nyvcs6xxxzqgh0wvc7z0fgi89bf3h9p4qrbf77bnfbwlb8v0rmv"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-nix" ,rust-nix)
+        ("rust-wayland-sys" ,rust-wayland-sys))))
+    (home-page
+     "https://github.com/smithay/wayland-rs")
+    (synopsis
+     "Common types and structures used by wayland-client and wayland-server.")
+    (description
+     "Common types and structures used by wayland-client and wayland-server.")
+    (license license:expat)))
+
+(define-public rust-wayland-sys
+  (package
+    (name "rust-wayland-sys")
+    (version "0.23.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "wayland-sys" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1x2qafvj8hd2x5qfaan2dfpw9amg0f5g9sqrkdy7qvbddsl8jknr"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-dlib" ,rust-dlib)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-libc" ,rust-libc))))
+    (home-page
+     "https://github.com/smithay/wayland-rs")
+    (synopsis
+     "FFI bindings to the various libwayland-*.so libraries. You should only need this crate if you are working on custom wayland protocol extensions. Look at the crate wayland-client for usable bindings.")
+    (description
+     "FFI bindings to the various libwayland-*.so libraries.  You should only need this crate if you are working on custom wayland protocol extensions.  Look at the crate wayland-client for usable bindings.")
+    (license license:expat)))
+
+(define-public rust-wayland-scanner
+  (package
+    (name "rust-wayland-scanner")
+    (version "0.23.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "wayland-scanner" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0g8wcphykjrcpslznyi3qccx1pckw97rckq5b295nfbg6r3j5c4k"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-xml-rs" ,rust-xml-rs))))
+    (home-page
+     "https://github.com/smithay/wayland-rs")
+    (synopsis
+     "Wayland Scanner for generating rust APIs from XML wayland protocol files. Intented for use with wayland-sys. You should only need this crate if you are working on custom wayland protocol extensions. Look at the crate wayland-client for usable bindings.")
+    (description
+     "Wayland Scanner for generating rust APIs from XML wayland protocol files.  Intented for use with wayland-sys.  You should only need this crate if you are working on custom wayland protocol extensions.  Look at the crate wayland-client for usable bindings.")
+    (license license:expat)))
+
+(define-public rust-shared-library
+  (package
+    (name "rust-shared-library")
+    (version "0.1.9")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "shared-library" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "04fs37kdak051hm524a360978g58ayrcarjsbf54vqps5c7px7js"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-lazy-static" ,rust-lazy-static)
+        ("rust-libc" ,rust-libc))))
+    (home-page
+     "https://github.com/tomaka/shared_library/")
+    (synopsis
+     "Easily bind to and load shared libraries")
+    (description
+     "Easily bind to and load shared libraries")
+    (license #f)))
+
+(define-public rust-malloc-buf
+  (package
+    (name "rust-malloc-buf")
+    (version "1.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "malloc-buf" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1zap9m0xmd5sdsxil7v2rgb1dzlq0308f826pwvqdvjyaz0chciz"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-libc" ,rust-libc))))
+    (home-page
+     "https://github.com/SSheldon/malloc_buf")
+    (synopsis
+     "Structs for handling malloc'd memory passed to Rust.")
+    (description
+     "Structs for handling malloc'd memory passed to Rust.")
+    (license license:expat)))
+
+(define-public rust-objc-exception
+  (package
+    (name "rust-objc-exception")
+    (version "0.1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "objc-exception" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1p00damjvy4nbfmrc90d9kbdygycrk76kq1s8v9k1hm35ydd5309"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-gcc" ,rust-gcc))))
+    (home-page
+     "http://github.com/SSheldon/rust-objc-exception")
+    (synopsis
+     "Rust interface for Objective-C's throw and try/catch statements.")
+    (description
+     "Rust interface for Objective-C's throw and try/catch statements.")
+    (license license:expat)))
+
+(define-public rust-gl-generator
+  (package
+    (name "rust-gl-generator")
+    (version "0.13.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "gl-generator" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0jpqjqpyrl73sf8y20p5rv50qz8glnsvv9infg8h4vi52zgbp66a"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-khronos-api" ,rust-khronos-api)
+        ("rust-log" ,rust-log)
+        ("rust-xml-rs" ,rust-xml-rs))))
+    (home-page
+     "https://github.com/brendanzab/gl-rs/")
+    (synopsis
+     "Code generators for creating bindings to the Khronos OpenGL APIs.")
+    (description
+     "Code generators for creating bindings to the Khronos OpenGL APIs.")
+    (license license:asl2.0)))
+
+(define-public rust-block
+  (package
+    (name "rust-block")
+    (version "0.1.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "block" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "16k9jgll25pzsq14f244q22cdv0zb4bqacldg3kx6h89d7piz30d"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-objc-test-utils" ,rust-objc-test-utils))))
+    (home-page
+     "http://github.com/SSheldon/rust-block")
+    (synopsis
+     "Rust interface for Apple's C language extension of blocks.")
+    (description
+     "Rust interface for Apple's C language extension of blocks.")
+    (license license:expat)))
+
+(define-public rust-gleam
+  (package
+    (name "rust-gleam")
+    (version "0.7.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "gleam" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0jf8fimzj9rx0cm7yd96r7skfksg3f0zn0b4a403zbhifjxgk94y"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-gl-generator" ,rust-gl-generator))))
+    (home-page "https://github.com/servo/gleam")
+    (synopsis
+     "Generated OpenGL bindings and wrapper for Servo.")
+    (description
+     "Generated OpenGL bindings and wrapper for Servo.")
+    (license #f)))
+
+(define-public rust-uninit
+  (package
+    (name "rust-uninit")
+    (version "0.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "uninit" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "04q75v0hnkm0jnqch06z2a52r9pms22z5asmqq9sf56nyjpxcbsf"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-require-unsafe-in-body"
+         ,rust-require-unsafe-in-body))))
+    (home-page "https://crates.io/crates/uninit")
+    (synopsis
+     "A collection of tools for a safer usage of uninitialized memory")
+    (description
+     "This package provides a collection of tools for a safer usage of uninitialized memory")
+    (license license:expat)))
+
+(define-public rust-maybe-uninit
+  (package
+    (name "rust-maybe-uninit")
+    (version "2.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "maybe-uninit" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "004y0nzmpfdrhz251278341z6ql34iv1k6dp1h6af7d6nd6jwc30"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/est31/maybe-uninit")
+    (synopsis
+     "MaybeUninit for friends of backwards compatibility")
+    (description
+     "MaybeUninit for friends of backwards compatibility")
+    (license (list license:asl2.0 license:expat))))
+
+(define rust-andrew
+  (package
+    (name "rust-andrew")
+    (version "0.2.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "andrew" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0pmklwcwy8g1jras46fz8xcny779zfqpg4riksrbdhkjk3w0jzwv"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-line-drawing" ,rust-line-drawing)
+        ("rust-rusttype" ,rust-rusttype)
+        ("rust-walkdir" ,rust-walkdir)
+        ("rust-xdg" ,rust-xdg)
+        ("rust-xml-rs" ,rust-xml-rs))
+       #:cargo-development-inputs
+       (("rust-smithay-client-toolkit"
+         ,rust-smithay-client-toolkit))))
+    (home-page "https://github.com/trimental/andrew")
+    (synopsis
+     "The andrew crate provides convenient drawing of objects such as shapes, lines and text to buffers")
+    (description
+     "The andrew crate provides convenient drawing of objects such as shapes, lines and text to buffers")
+    (license license:expat)))
+
+(define-public rust-dlib
+  (package
+    (name "rust-dlib")
+    (version "0.4.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "dlib" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0smp2cdvy12xfw26qyqms273w5anszfadv73g75s88yqm54i5rbp"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libloading" ,rust-libloading))))
+    (home-page "https://github.com/vberger/dlib")
+    (synopsis
+     "Helper macros for handling manually loading optional system libraries.")
+    (description
+     "Helper macros for handling manually loading optional system libraries.")
+    (license license:expat)))
+
+(define-public rust-wayland-protocols
+  (package
+    (name "rust-wayland-protocols")
+    (version "0.23.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "wayland-protocols" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1ygwbzqlnks5xzafka3c8ag6k92g2h6ygj2xsmvjfx2n6rj8dhkc"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-wayland-client" ,rust-wayland-client)
+        ("rust-wayland-commons" ,rust-wayland-commons)
+        ("rust-wayland-server" ,rust-wayland-server))
+       #:cargo-development-inputs
+       (("rust-wayland-scanner" ,rust-wayland-scanner))))
+    (home-page
+     "https://github.com/smithay/wayland-rs")
+    (synopsis
+     "Generated API for the officials wayland protocol extensions")
+    (description
+     "Generated API for the officials wayland protocol extensions")
+    (license license:expat)))
+
+(define-public rust-metal
+  (package
+    (name "rust-metal")
+    (version "0.17.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "metal" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1sy17s9pyhqxhxfyckw0ficyx6hmp7vpngrx57v7l73040phby6x"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-block" ,rust-block)
+        ("rust-cocoa" ,rust-cocoa)
+        ("rust-core-graphics" ,rust-core-graphics)
+        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-log" ,rust-log)
+        ("rust-objc" ,rust-objc))
+       #:cargo-development-inputs
+       (("rust-sema" ,rust-sema)
+        ("rust-winit" ,rust-winit))))
+    (home-page "https://github.com/gfx-rs/metal-rs")
+    (synopsis "Rust bindings for Metal")
+    (description "Rust bindings for Metal")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-mio-extras
+  (package
+    (name "rust-mio-extras")
+    (version "2.0.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "mio-extras" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0h6fc7pmvsh5r1vpg5xz48lyraalsmb4s4q2v2w50qpsq823mrs6"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-lazycell" ,rust-lazycell)
+        ("rust-log" ,rust-log)
+        ("rust-mio" ,rust-mio)
+        ("rust-slab" ,rust-slab))))
+    (home-page
+     "https://github.com/dimbleby/mio-extras")
+    (synopsis "Extra components for use with Mio")
+    (description "Extra components for use with Mio")
+    (license license:expat)))
+
+(define-public rust-caps
+  (package
+    (name "rust-caps")
+    (version "0.3.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "caps" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1vplgzx8nifzr3f0l8ca77jqnz3fdymdg0ickacgdvawc44a3n90"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-errno" ,rust-errno)
+        ("rust-error-chain" ,rust-error-chain)
+        ("rust-libc" ,rust-libc))))
+    (home-page "https://github.com/lucab/caps-rs")
+    (synopsis
+     "A pure-Rust library to work with Linux capabilities")
+    (description
+     "This package provides a pure-Rust library to work with Linux capabilities")
+    (license #f)))
+
+(define-public rust-sysctl
+  (package
+    (name "rust-sysctl")
+    (version "0.4.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "sysctl" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0p6bfjsw3v12nb2qsgm6r9klwb5qyh4w55zzmccv8r5aqb8g0085"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-byteorder" ,rust-byteorder)
+        ("rust-failure" ,rust-failure)
+        ("rust-libc" ,rust-libc)
+        ("rust-walkdir" ,rust-walkdir))))
+    (home-page
+     "https://github.com/johalun/sysctl-rs")
+    (synopsis "Simplified interface to libc::sysctl")
+    (description
+     "Simplified interface to libc::sysctl")
+    (license license:expat)))
+
+(define-public rust-objc-test-utils
+  (package
+    (name "rust-objc-test-utils")
+    (version "0.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "objc-test-utils" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "09rckmp5h9bbns08xzicdlk7y5lxj2ygbg3yqk1cszfnzd5n8kzx"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-gcc" ,rust-gcc))))
+    (home-page
+     "http://github.com/SSheldon/rust-objc")
+    (synopsis
+     "Utilities for testing Objective-C interop.")
+    (description
+     "Utilities for testing Objective-C interop.")
+    (license license:expat)))
+
+(define-public rust-wayland-server
+  (package
+    (name "rust-wayland-server")
+    (version "0.23.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "wayland-server" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1ccsalq6gnf07klnbjx2dxcbibhw03rqsgi578p913s3zsjlcg8a"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-calloop" ,rust-calloop)
+        ("rust-downcast-rs" ,rust-downcast-rs)
+        ("rust-libc" ,rust-libc)
+        ("rust-mio" ,rust-mio)
+        ("rust-nix" ,rust-nix)
+        ("rust-wayland-commons" ,rust-wayland-commons)
+        ("rust-wayland-sys" ,rust-wayland-sys))
+       #:cargo-development-inputs
+       (("rust-wayland-scanner" ,rust-wayland-scanner))))
+    (home-page
+     "https://github.com/smithay/wayland-rs")
+    (synopsis
+     "Bindings to the standard C implementation of the wayland protocol, server side.")
+    (description
+     "Bindings to the standard C implementation of the wayland protocol, server side.")
+    (license license:expat)))
+
+(define-public rust-line-drawing
+  (package
+    (name "rust-line-drawing")
+    (version "0.8.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "line-drawing" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1chawny039jkj0lj6abkbykfbhk5wwilshn60fqh4c288bjh46gq"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-num-traits" ,rust-num-traits))
+       #:cargo-development-inputs
+       (("rust-bresenham" ,rust-bresenham)
+        ("rust-image" ,rust-image)
+        ("rust-rand" ,rust-rand))))
+    (home-page
+     "https://github.com/expenses/line_drawing")
+    (synopsis
+     "A collection of line-drawing algorithms for use in graphics and video games.")
+    (description
+     "This package provides a collection of line-drawing algorithms for use in graphics and video games.")
+    (license license:expat)))
+
+(define-public rust-rusttype
+  (package
+    (name "rust-rusttype")
+    (version "0.8.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rusttype" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0hk9j3fghwf6kgxkynhs2gprvlmvrylkyacyqfb05k0dz56pvih7"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-approx" ,rust-approx)
+        ("rust-arrayvec" ,rust-arrayvec)
+        ("rust-crossbeam-deque" ,rust-crossbeam-deque)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-libm" ,rust-libm)
+        ("rust-linked-hash-map" ,rust-linked-hash-map)
+        ("rust-num-cpus" ,rust-num-cpus)
+        ("rust-ordered-float" ,rust-ordered-float)
+        ("rust-rustc-hash" ,rust-rustc-hash)
+        ("rust-stb-truetype" ,rust-stb-truetype))))
+    (home-page
+     "https://gitlab.redox-os.org/redox-os/rusttype")
+    (synopsis
+     "Pure Rust alternative to libraries like FreeType")
+    (description
+     "This package provides a pure Rust alternative to libraries like
+FreeType.
+
+RustType provides an API for loading, querying and rasterising
+TrueType fonts.
+
+It also provides an implementation of a dynamic GPU glyph cache for
+hardware font rendering.")
+    (license #f)))
+
+(define-public rust-xml-rs
+  (package
+    (name "rust-xml-rs")
+    (version "0.8.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "xml-rs" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1db4v716rbpgjiasaim2s17rmvsfcq1qzwg6nji6mdf5k34i46sl"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/netvl/xml-rs")
+    (synopsis "An XML library in pure Rust")
+    (description "An XML library in pure Rust")
+    (license license:expat)))
+
+(define-public rust-sema
+  (package
+    (name "rust-sema")
+    (version "0.1.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "sema" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0ckq33sg84785p195m54h03jcn7fai8w08hjnb94nzaakgzibbz3"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libc" ,rust-libc)
+        ("rust-rand" ,rust-rand)
+        ("rust-time" ,rust-time))
+       #:cargo-development-inputs
+       (("rust-lazy-static" ,rust-lazy-static)
+        ("rust-nix" ,rust-nix))))
+    (home-page "https://github.com/cpjreynolds/sema")
+    (synopsis "Rust semaphore library")
+    (description "Rust semaphore library")
+    (license license:expat)))
+
+(define-public rust-libm
+  (package
+    (name "rust-libm")
+    (version "0.1.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "libm" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "16pc0gx4gkg0q2s1ssq8268brn14j8344623vwhadmivc4lsmivz"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-no-panic" ,rust-no-panic)
+        ("rust-rand" ,rust-rand))))
+    (home-page
+     "https://github.com/rust-lang-nursery/libm")
+    (synopsis "libm in pure Rust")
+    (description "libm in pure Rust")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-ordered-float
+  (package
+    (name "rust-ordered-float")
+    (version "1.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "ordered-float" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0625x96987kspdxbikry5mb7hsf5pdc5bbanxd8wjwqlx0ar71hq"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-num-traits" ,rust-num-traits)
+        ("rust-serde" ,rust-serde))
+       #:cargo-development-inputs
+       (("rust-serde-test" ,rust-serde-test))))
+    (home-page
+     "https://github.com/reem/rust-ordered-float")
+    (synopsis
+     "Wrappers for total ordering on floats")
+    (description
+     "Wrappers for total ordering on floats")
+    (license license:expat)))
+
+(define-public rust-rustc-hash
+  (package
+    (name "rust-rustc-hash")
+    (version "1.0.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rustc-hash" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1f4cnbcmz2c3zjidqszc9c4fip37ch4xl74nkkp9dw291j5zqh3m"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-byteorder" ,rust-byteorder))))
+    (home-page
+     "https://github.com/rust-lang-nursery/rustc-hash")
+    (synopsis
+     "speed, non-cryptographic hash used in rustc")
+    (description
+     "speed, non-cryptographic hash used in rustc")
+    (license #f)))
+
+(define-public rust-stb-truetype
+  (package
+    (name "rust-stb-truetype")
+    (version "0.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "stb-truetype" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0ykggf9iaifsg2q441j5lld33iv0d2nhw9s54nnw7jsjzgb10hl2"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-byteorder" ,rust-byteorder)
+        ("rust-libm" ,rust-libm))
+       #:cargo-development-inputs
+       (("rust-approx" ,rust-approx))))
+    (home-page
+     "https://gitlab.redox-os.org/redox-os/stb_truetype-rs")
+    (synopsis
+     "A straight translation of the font loading code in stb_truetype.h from C to Rust.")
+    (description
+     "This package provides a straight translation of the font loading code in stb_truetype.h from C to Rust.")
+    (license #f)))
+
+(define-public rust-bresenham
+  (package
+    (name "rust-bresenham")
+    (version "0.1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "bresenham" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1mvg3zcyll0m3z79jwbg183ha4kb7bw06rd286ijwvgn4mi13hdz"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/mbr/bresenham-rs")
+    (synopsis
+     "Iterator-based integer-only implementation of Bresenham's line algorithm")
+    (description
+     "This package provides a fast, iterator-based integer-only
+implementation of Bresenham's line algorithm.")
+    (license license:expat)))
+
+(define-public rust-ascii-canvas
+  (package
+    (name "rust-ascii-canvas")
+    (version "2.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "ascii-canvas" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0a9s8vrbc5jr6ry5ygjyfqmbs9gyya1v6dsxzsczpai8z4nvg3pz"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-term" ,rust-term))))
+    (home-page
+     "https://github.com/nikomatsakis/ascii-canvas")
+    (synopsis
+     "simple canvas for drawing lines and styled text and emitting to the terminal")
+    (description
+     "simple canvas for drawing lines and styled text and emitting to the terminal")
+    (license #f)))
+
+(define-public rust-bit-set
+  (package
+    (name "rust-bit-set")
+    (version "0.5.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "bit-set" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "100ac8867bvbx9kv634w4xjk98b71i8nq4wdcvpf3cf4ha4j6k78"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bit-vec" ,rust-bit-vec))
+       #:cargo-development-inputs
+       (("rust-rand" ,rust-rand))))
+    (home-page
+     "https://github.com/contain-rs/bit-set")
+    (synopsis "A set of bits")
+    (description
+     "This package provides a set of bits")
+    (license #f)))
+
+(define-public rust-ena
+  (package
+    (name "rust-ena")
+    (version "0.13.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "ena" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "11wxfhfrywr7pwwqc5kfbfl1mjh2f4hsksrsbaaq98wcw1l1vh1x"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-dogged" ,rust-dogged)
+        ("rust-log" ,rust-log)
+        ("rust-petgraph" ,rust-petgraph))))
+    (home-page "https://github.com/nikomatsakis/ena")
+    (synopsis
+     "Union-find, congruence closure, and other unification code. Based on code from rustc.")
+    (description
+     "Union-find, congruence closure, and other unification code.  Based on code from rustc.")
+    (license #f)))
+
+(define-public rust-phf-shared
+  (package
+    (name "rust-phf-shared")
+    (version "0.7.24")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "phf-shared" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "18371fla0vsj7d6d5rlfb747xbr2in11ar9vgv5qna72bnhp2kr3"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-siphasher" ,rust-siphasher)
+        ("rust-unicase" ,rust-unicase))))
+    (home-page
+     "https://github.com/sfackler/rust-phf")
+    (synopsis "Support code shared by PHF libraries")
+    (description
+     "Support code shared by PHF libraries")
+    (license license:expat)))
+
+(define-public rust-string-cache-shared
+  (package
+    (name "rust-string-cache-shared")
+    (version "0.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "string-cache-shared" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1z7dpdix1m42x6ddshdcpjf91ml9mhvnskmiv5kd8hcpq0dlv25i"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/servo/string-cache")
+    (synopsis
+     "Code share between string_cache and string_cache_codegen.")
+    (description
+     "Code share between string_cache and string_cache_codegen.")
+    (license #f)))
+
+(define-public rust-string-cache-codegen
+  (package
+    (name "rust-string-cache-codegen")
+    (version "0.4.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "string-cache-codegen" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1npl9zq9cd16d7irksblgk7l7g6qknnzsmr12hrhky2fcpp1xshy"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-phf-generator" ,rust-phf-generator)
+        ("rust-phf-shared" ,rust-phf-shared)
+        ("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-string-cache-shared"
+         ,rust-string-cache-shared))))
+    (home-page
+     "https://github.com/servo/string-cache")
+    (synopsis
+     "A codegen library for string-cache, developed as part of the Servo project.")
+    (description
+     "This package provides a codegen library for string-cache, developed as part of the Servo project.")
+    (license #f)))
+
+(define-public rust-dogged
+  (package
+    (name "rust-dogged")
+    (version "0.2.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "dogged" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0yk5l6qqidl5y935x15gi9kkd6niim1wb64r1l7kdzl9jw8dyf16"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs
+       (("rust-rand" ,rust-rand))))
+    (home-page
+     "https://github.com/nikomatsakis/dogged")
+    (synopsis
+     "Persistent vector, similar to Clojure")
+    (description
+     "Persistent vector, similar to Clojure")
+    (license #f)))
+
+(define-public rust-pin-convert
+  (package
+    (name "rust-pin-convert")
+    (version "0.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "pin-convert" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "01j8zskmg91xqk39126a93n82a5xdl0fkirqcd3017mlg271dk90"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/carllerche/pin-convert")
+    (synopsis
+     "Traits for converting to `Pin` variants.")
+    (description
+     "Traits for converting to `Pin` variants.")
     (license license:expat)))
