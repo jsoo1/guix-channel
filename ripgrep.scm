@@ -27,7 +27,7 @@
         ("rust-grep" ,rust-grep)
         ("rust-ignore" ,rust-ignore)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-log" ,rust-log)
+        ("rust-log" ,rust-log-0.4)
         ("rust-num-cpus" ,rust-num-cpus)
         ("rust-regex" ,rust-regex)
         ("rust-serde-json" ,rust-serde-json)
