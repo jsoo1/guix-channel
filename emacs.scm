@@ -34,49 +34,50 @@
   #:export (emacs-27))
 
 (define emacs-27
-  (let ((commit "57fc1a5f7c49fbe7288de6ad567c934db2ceaf96")
+  (let ((commit "405f851f4bf64e2290e841b65ffabf37c61187f4")
         (revision "1"))
     (package
       (inherit emacs)
       (version "27.alpha")
-      (source (origin
-                (inherit (package-source emacs))
-                (method git-fetch)
-                (uri
-                 (git-reference
-                  (url "https://github.com/emacs-mirror/emacs")
-                  (commit commit)))
-                (sha256
-                 (base32
-                  "1gg6833vvcy2sam44gr5kbz0fcfd2xxdnhgki9dy0w3j44jk04z4"))
-                (snippet
-                 ;; Delete the bundled byte-compiled elisp files and
-                 ;; generated autoloads.
-                 '(with-directory-excursion "lisp"
-                    (for-each delete-file
-                              (append (find-files "." "\\.elc$")
-                                      (find-files "." "loaddefs\\.el$")))
+      (source
+       (origin
+         (inherit (package-source emacs))
+         (method git-fetch)
+         (uri
+          (git-reference
+           (url "https://github.com/emacs-mirror/emacs")
+           (commit commit)))
+         (sha256
+          (base32
+           "1gg6833vvcy2sam44gr5kbz0fcfd2xxdnhgki9dy0w3j44jk04z4"))
+         (snippet
+          ;; Delete the bundled byte-compiled elisp files and
+          ;; generated autoloads.
+          '(with-directory-excursion "lisp"
+             (for-each delete-file
+                       (append (find-files "." "\\.elc$")
+                               (find-files "." "loaddefs\\.el$")))
 
-                    ;; Make sure Tramp looks for binaries in the right places on
-                    ;; remote Guix System machines, where 'getconf PATH' returns
-                    ;; something bogus.
-                    (substitute* "net/tramp-sh.el"
-                      ;; Patch the line after "(defcustom tramp-remote-path".
-                      (("\\(tramp-default-remote-path")
-                       (format #f "(tramp-default-remote-path ~s ~s ~s ~s "
-                               "~/.guix-profile/bin" "~/.guix-profile/sbin"
-                               "/run/current-system/profile/bin"
-                               "/run/current-system/profile/sbin")))
+             ;; Make sure Tramp looks for binaries in the right places on
+             ;; remote Guix System machines, where 'getconf PATH' returns
+             ;; something bogus.
+             (substitute* "net/tramp-sh.el"
+               ;; Patch the line after "(defcustom tramp-remote-path".
+               (("\\(tramp-default-remote-path")
+                (format #f "(tramp-default-remote-path ~s ~s ~s ~s "
+                        "~/.guix-profile/bin" "~/.guix-profile/sbin"
+                        "/run/current-system/profile/bin"
+                        "/run/current-system/profile/sbin")))
 
-                    ;; Make sure Man looks for C header files in the right
-                    ;; places.
-                    (substitute* "man.el"
-                      (("\"/usr/local/include\"" line)
-                       (string-join
-                        (list line
-                              "\"~/.guix-profile/include\""
-                              "\"/var/guix/profiles/system/profile/include\"")
-                        " ")))
-                    #t))))
+             ;; Make sure Man looks for C header files in the right
+             ;; places.
+             (substitute* "man.el"
+               (("\"/usr/local/include\"" line)
+                (string-join
+                 (list line
+                       "\"~/.guix-profile/include\""
+                       "\"/var/guix/profiles/system/profile/include\"")
+                 " ")))
+             #t))))
       (inputs
        (cons `("autoconf" ,autoconf) (package-inputs emacs))))))
