@@ -52,7 +52,8 @@
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu packages readline)
   #:use-module (gnu packages sqlite)
-  #:use-module (rust-xyz))
+  #:use-module (rust-xyz)
+  #:use-module (rustfmt))
 
 (define-public firefox
   (package
@@ -131,8 +132,10 @@
        ("firefox-rust-binary-validation.patch" "./firefox-rust-binary-validation.patch")
        ("patch" ,(canonical-package patch))
 
+       ("autoconf" ,autoconf-2.13)
        ("rust" ,rust-1.35)
        ("rust-cbindgen" ,rust-cbindgen)
+       ("rustfmt" ,rustfmt)
        ("cargo" ,rust-1.35 "cargo")
        ("llvm" ,llvm-3.9.1)
        ("clang" ,clang)
@@ -144,7 +147,6 @@
        ("nasm" ,nasm)
        ("yasm" ,yasm)
        ("pkg-config" ,pkg-config)
-       ("autoconf" ,autoconf-2.13)
        ("which" ,which)))
     (arguments
      `(#:tests? #f          ; no check target
@@ -327,23 +329,26 @@
          (add-after 'patch-source-shebangs 'patch-cargo-checksums
            (lambda _
              (use-modules (guix build cargo-utils))
-             (let ((null-hash "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"))
-               (substitute* '("Cargo.lock"
-                              ;; Does not exist anymore
-                              ;; "servo/Cargo.lock"
-                              ;; New
-                              "gfx/wr/Cargo.lock")
+             (let ((null-hash "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855")
+                   ;; I think this is copied from cargo-build-system.
+                   ;; It is awaiting a move to (guix build cargo-utils)
+                   (generate-all-checksums
+                    (lambda* (d #:optional f)
+                      (for-each
+                       (lambda (filename)
+                         (delete-file filename)
+                         (let ((dir (dirname filename)))
+                           (display (string-append
+                                     "patch-cargo-checksums: generate-checksums for "
+                                     dir "\n"))
+                           (generate-checksums dir)))
+                       (find-files d f)))))
+               ;; Remove pinned third party crates
+               (substitute* '("Cargo.lock" "gfx/wr/Cargo.lock")
                  (("(\"checksum .* = )\".*\"" all name)
                   (string-append name "\"" null-hash "\"")))
-               (for-each
-                (lambda (filename)
-                  (delete-file filename)
-                  (let ((dir (dirname filename)))
-                    (display (string-append
-                              "patch-cargo-checksums: generate-checksums for "
-                              dir "\n"))
-                    (generate-checksums dir)))
-                (find-files "third_party/rust" ".cargo-checksum.json")))
+               ;; Generate checksums to refer to guix packages
+               (generate-all-checksums "third_party/rust" ".cargo-checksum.json"))
              #t))
          (add-before 'configure 'augment-CPLUS_INCLUDE_PATH
            (lambda* (#:key build inputs #:allow-other-keys)
