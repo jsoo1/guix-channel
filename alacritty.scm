@@ -1,5 +1,8 @@
 (define-module (alacritty)
+  #:use-module ((gnu packages cmake) #:select (cmake))
   #:use-module (gnu packages crates-io)
+  #:use-module ((gnu packages fontutils) #:select (fontconfig))
+  #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module (guix build-system cargo)
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license:)
@@ -21,6 +24,10 @@
         (base32
          "1h9zid7bi19qga3a8a2d4x3ma9wf1njmj74s4xnw7nzqqf3dh750"))))
     (build-system cargo-build-system)
+    (inputs
+     `(("cmake" ,cmake)
+       ("fontconfig" ,fontconfig)
+       ("python-wrapper" ,python-wrapper)))
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)

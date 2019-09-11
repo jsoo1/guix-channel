@@ -469,7 +469,19 @@ uses finite automata and guarantees linear time matching on all inputs.")
         (string-append (package-name rust-regex) "-" version ".tar.gz"))
        (sha256
         (base32
-         "1163ir1k5zjspirfjl4wqbviwrxlhmfwy95xxb69y4irkv4snack"))))))
+         "1163ir1k5zjspirfjl4wqbviwrxlhmfwy95xxb69y4irkv4snack"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-aho-corasick" ,rust-aho-corasick-0.6)
+        ("rust-memchr" ,rust-memchr)
+        ("rust-regex-syntax" ,rust-regex-syntax-0.5)
+        ("rust-thread-local" ,rust-thread-local)
+        ("rust-utf8-ranges" ,rust-utf8-ranges))
+       #:cargo-development-inputs
+       (("rust-doc-comment" ,rust-doc-comment)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-rand" ,rust-rand))))))
 
 (define-public rust-spin
   (package
@@ -571,6 +583,20 @@ according to Unicode Standard Annex #31.")
     (synopsis "Safe interface to memchr")
     (description "Safe interface to memchr.")
     (license #f)))
+
+(define-public rust-memchr-1
+  (package
+    (inherit rust-memchr)
+    (version "1.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "memchr" version))
+       (file-name
+        (string-append (package-name rust-memchr) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0yjyja34pzhipdl855q3m21w1lyih4lw79x2dp3czwdla4pap3ql"))))))
 
 (define-public rust-regex-automata
   (package
@@ -1447,6 +1473,20 @@ matching branch is the item that gets emitted.")
      "Fast multiple substring searching.")
     (license #f)))
 
+(define-public rust-aho-corasick-0.6
+  (package
+    (inherit rust-aho-corasick)
+    (version "0.6.10")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "aho-corasick" version))
+       (file-name
+        (string-append (package-name rust-aho-corasick) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "19f8v503ibvlyr824g5ynicrh1lsmp2i0zmpszr8lqay0qw3vkl1"))))))
+
 (define-public rust-regex-syntax
   (package
     (name "rust-regex-syntax")
@@ -1469,6 +1509,20 @@ matching branch is the item that gets emitted.")
     (description
      "This package provides a regular expression parser.")
     (license #f)))
+
+(define-public rust-regex-syntax-0.5
+  (package
+    (inherit rust-regex-syntax)
+    (version "0.5.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "regex-syntax" version))
+       (file-name
+        (string-append (package-name rust-regex-syntax) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "19zp25jr3dhmclg3qqjk3bh1yrn7bqi05zgr5v52szv3l97plw3x"))))))
 
 (define-public rust-utf8-ranges
   (package
@@ -4703,7 +4757,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-deque" ,rust-crossbeam-deque)
+       (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.6)
         ("rust-either" ,rust-either)
         ("rust-rayon-core" ,rust-rayon-core))
        #:cargo-development-inputs
@@ -6611,6 +6665,20 @@ be stored into TLS.
     (synopsis "Concurrent work-stealing deque")
     (description "Concurrent work-stealing deque")
     (license #f)))
+
+(define-public rust-crossbeam-deque-0.6
+  (package
+    (inherit rust-crossbeam-deque)
+    (version "0.6.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "crossbeam-deque" version))
+       (file-name
+        (string-append (package-name rust-crossbeam-deque) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "04rcpgjs6ns57vag8a3dzx26190dhbvy2l0p9n22b9p1yf64pr05"))))))
 
 (define-public rust-crossbeam-queue
   (package
@@ -10149,7 +10217,7 @@ repositories.
         ("rust-quote" ,rust-quote-0.3)
         ("rust-regex" ,rust-regex-0.2)
         ("rust-shlex" ,rust-shlex)
-        ("rust-which" ,rust-which))
+        ("rust-which" ,rust-which-1))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap)
         ("rust-diff" ,rust-diff)
@@ -10217,7 +10285,12 @@ repositories.
         (string-append (package-name rust-cexpr) "-" version ".tar.gz"))
        (sha256
         (base32
-         "0v1xa3758czmj8h97gh548mr8g0v13ixxvrlm1s79nb7jmgc9aj2"))))))
+         "0v1xa3758czmj8h97gh548mr8g0v13ixxvrlm1s79nb7jmgc9aj2"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-nom" ,rust-nom-3))
+       #:cargo-development-inputs
+       (("rust-clang-sys" ,rust-clang-sys))))))
 
 (define-public rust-clang-sys
   (package
@@ -10285,7 +10358,14 @@ repositories.
         (string-append (package-name rust-clang-sys) "-" version ".tar.gz"))
        (sha256
         (base32
-         "0f65dw1ydnzq4wrv894fql78n4ikb53jjp53xck0s4hb64s1m6lk"))))))
+         "0f65dw1ydnzq4wrv894fql78n4ikb53jjp53xck0s4hb64s1m6lk"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-glob" ,rust-glob-0.2)
+        ("rust-libc" ,rust-libc)
+        ("rust-libloading" ,rust-libloading))
+       #:cargo-development-inputs
+       (("rust-glob" ,rust-glob))))))
 
 (define-public rust-fxhash
   (package
@@ -10420,6 +10500,31 @@ repositories.
     (description
      "This package provides a byte-oriented, zero-copy, parser combinators library")
     (license #f)))
+
+(define-public rust-nom-3
+  (package
+    (inherit rust-nom)
+    (version "3.2.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "nom" version))
+       (file-name
+        (string-append (package-name rust-nom) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0yr8fazcspgawl6s7wmx5llz61s68jl88cnrph18fa7xf06cbbh5"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-lazy-static" ,rust-lazy-static)
+        ("rust-lexical-core" ,rust-lexical-core)
+        ("rust-memchr" ,rust-memchr-1)
+        ("rust-regex" ,rust-regex))
+       #:cargo-development-inputs
+       (("rust-criterion" ,rust-criterion)
+        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-jemallocator" ,rust-jemallocator)
+        ("rust-version-check" ,rust-version-check))))))
 
 (define-public rust-libloading
   (package
@@ -16364,7 +16469,21 @@ functions.")
         (string-append (package-name rust-smithay-client-toolkit) "-" version ".tar.gz"))
        (sha256
         (base32
-         "1yj8yzd0lhqpsgq0x4iikl9a02q2hnkky81brk938alv0ibqrjrc"))))))
+         "1yj8yzd0lhqpsgq0x4iikl9a02q2hnkky81brk938alv0ibqrjrc"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-andrew" ,rust-andrew)
+        ("rust-bitflags" ,rust-bitflags)
+        ("rust-dlib" ,rust-dlib)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-memmap" ,rust-memmap)
+        ("rust-nix" ,rust-nix)
+        ("rust-wayland-client" ,rust-wayland-client)
+        ("rust-wayland-protocols" ,rust-wayland-protocols-0.21))
+       #:cargo-development-inputs
+       (("rust-byteorder" ,rust-byteorder)
+        ("rust-image" ,rust-image)
+        ("rust-wayland-client" ,rust-wayland-client))))))
 
 (define-public rust-x11-dl
   (package
@@ -16863,7 +16982,7 @@ supports type parameters, associated types, and type constraints.")
          "0jf8fimzj9rx0cm7yd96r7skfksg3f0zn0b4a403zbhifjxgk94y"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-development-inputs
+     `(#:cargo-inputs
        (("rust-gl-generator" ,rust-gl-generator))))
     (home-page "https://github.com/servo/gleam")
     (synopsis
@@ -17019,6 +17138,20 @@ supports type parameters, associated types, and type constraints.")
     (description
      "Generated API for the officials wayland protocol extensions")
     (license license:expat)))
+
+(define-public rust-wayland-protocols-0.21
+  (package
+    (inherit rust-wayland-protocols)
+    (version "0.21.13")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "wayland-protocols" version))
+       (file-name
+        (string-append (package-name rust-wayland-protocols) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0i91yh3nxk9llhly2ly3nvlfx0lbpvyq919cgmnyx3j25bmf5zaa"))))))
 
 (define-public rust-metal
   (package
@@ -17803,6 +17936,20 @@ complex, rational, range iterators, generic integers, and more!
     (description
      "This package provides a Rust equivalent of Unix command \"which\".  Locate installed execuable in cross platforms.")
     (license license:expat)))
+
+(define-public rust-which-1
+  (package
+    (inherit rust-which)
+    (version "1.0.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "which" version))
+       (file-name
+        (string-append (package-name rust-which) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1cjwa57kzfgzs681a27m5pjmq580pv3hkcg23smf270bgqz60jp8"))))))
 
 (define-public rust-hashbrown-0.1
   (package
@@ -19823,9 +19970,10 @@ for computer graphics.")
          "1yj5pqynds776ay8wg9mhi3hvna4fv7vf244yr1864r0i5r1k3v5"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-development-inputs
-       (("rust-cmake" ,rust-cmake)
-        ("rust-pkg-config" ,rust-pkg-config))))
+     `(#:cargo-inputs
+       (("rust-cmake" ,rust-cmake))
+       #:cargo-development-inputs
+       (("rust-pkg-config" ,rust-pkg-config))))
     (home-page "http://www.libexpat.org/")
     (synopsis "XML parser library written in C")
     (description "XML parser library written in C")
