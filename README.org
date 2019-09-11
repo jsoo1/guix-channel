@@ -17,6 +17,8 @@
    - pijul
    - ripgrep
    - xmobar with dbus and alsa support
+   - rustfmt
+   - cbindgen
 ** In progress
    - alacritty
    - emacs@27
