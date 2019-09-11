@@ -16,9 +16,12 @@
    - bower (needs tweaks)
    - pijul
    - ripgrep
+   - xmobar with dbus and alsa support
 ** In progress
    - alacritty
    - emacs@27
    - firefox
    - termonad
    - ghc-hspec with ghc@8.6
+   - mlton
+   - urweb
