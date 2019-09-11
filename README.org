@@ -6,6 +6,7 @@
    - yaft
    - libsixel
    - sdump
+   - idump
    - purescript
    - dhall
    - purescript-spago
