@@ -1,4 +1,24 @@
 * Some guix packages
   This is a very unofficial personal set of packages for [[https://guix.gnu.org/][gnu guix]].
-  Many packages are works in progress (notably termonad and freecad).
+  Many packages are works in progress, some might not work correctly.
   I just thought I'd share my work and see if anyone can help ;) ;) ;)
+** Working
+   - yaft
+   - libsixel
+   - sdump
+   - purescript
+   - dhall
+   - purescript-spago
+   - ghc-servant
+   - ghcid (needs tweaks)
+   - ghc-servant
+   - all in ghc-* (except ghc-hspec)
+   - bower (needs tweaks)
+   - pijul
+   - ripgrep
+** In progress
+   - alacritty
+   - emacs@27
+   - firefox
+   - termonad
+   - ghc-hspec with ghc@8.6
