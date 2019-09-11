@@ -20318,3 +20318,35 @@ for computer graphics.")
        (sha256
         (base32
          "0yhnnix4dzsv8y4wwz4csbnqjfh73al33j35msr10py6cl5r4vks"))))))
+
+(define-public rust-cbindgen
+  (package
+    (name "rust-cbindgen")
+    (version "0.9.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "cbindgen" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0xzjh4g3mca8qhvffq0viy98l1lnh4hwvgfbfj6ci4iqkbdijzhf"))))
+    (build-system cargo-build-system)
+    (arguments
+     ;; Something is failing compiling a c++ program here
+     `(#:tests? #f
+       #:cargo-inputs
+       (("rust-clap" ,rust-clap)
+        ("rust-log" ,rust-log-0.4)
+        ("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-serde" ,rust-serde)
+        ("rust-serde-json" ,rust-serde-json)
+        ("rust-syn" ,rust-syn)
+        ("rust-tempfile" ,rust-tempfile)
+        ("rust-toml" ,rust-toml))))
+    (home-page "https://github.com/rayon-rs/rayon")
+    (synopsis "Core APIs for Rayon")
+    (description "Core APIs for Rayon")
+    (license #f)))

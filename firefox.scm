@@ -434,38 +434,6 @@
        (cpe-name . "firefox_esr")
        (cpe-version . ,(first (string-split version #\-)))))))
 
-(define-public rust-cbindgen
-  (package
-    (name "rust-cbindgen")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cbindgen" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0xzjh4g3mca8qhvffq0viy98l1lnh4hwvgfbfj6ci4iqkbdijzhf"))))
-    (build-system cargo-build-system)
-    (arguments
-     ;; Something is failing compiling a c++ program here
-     `(#:tests? #f
-       #:cargo-inputs
-       (("rust-clap" ,rust-clap)
-        ("rust-log" ,rust-log)
-        ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
-        ("rust-serde" ,rust-serde)
-        ("rust-serde-json" ,rust-serde-json)
-        ("rust-syn" ,rust-syn)
-        ("rust-tempfile" ,rust-tempfile)
-        ("rust-toml" ,rust-toml))))
-    (home-page "https://github.com/rayon-rs/rayon")
-    (synopsis "Core APIs for Rayon")
-    (description "Core APIs for Rayon")
-    (license #f)))
-
 (define-public sqlite-3.28.0
   (package (inherit sqlite)
     (version "3.28.0")
