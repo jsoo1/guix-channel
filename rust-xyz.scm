@@ -57,9 +57,10 @@
        (("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://serde.rs")
     (synopsis
-     "A generic serialization/deserialization framework")
+     "Generic serialization/deserialization framework")
     (description
-     "This package provides a generic serialization/deserialization framework.")
+     "This package provides a generic serialization/deserialization
+framework.")
     (license #f)))
 
 (define-public rust-serde-derive
@@ -85,9 +86,10 @@
        (("rust-serde" ,rust-serde))))
     (home-page "https://serde.rs")
     (synopsis
-     "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]")
+     "Macros 1.1 implementation of derived de/serialization")
     (description
-     "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]")
+     "Macros 1.1 implementation of
+@code{#[derive(Serialize, Deserialize)]}")
     (license #f)))
 
 (define-public rust-serde-test
@@ -173,9 +175,9 @@
         ("rust-serde-test" ,rust-serde-test))))
     (home-page "https://github.com/serde-rs/bytes")
     (synopsis
-     "Optimized handling of `&[u8]` and `Vec<u8>` for Serde")
+     "Hanlde of integer arrays and vectors for Serde")
     (description
-     "Optimized handling of `&[u8]` and `Vec<u8>` for Serde")
+     "Optimized handling of @code{&[u8]} and @code{Vec<u8>} for Serde")
     (license #f)))
 
 (define-public rust-serde-stacker
@@ -203,7 +205,8 @@
     (synopsis
      "Serde adapter that avoids stack overflow")
     (description
-     "Serde adapter that avoids stack overflow by dynamically growing the stack")
+     "Serde adapter that avoids stack overflow by dynamically growing
+the stack.")
     (license #f)) )
 
 (define-public rust-serde-yaml
@@ -258,7 +261,7 @@
        #:cargo-development-inputs
        (("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://github.com/pyfisch/cbor")
-    (synopsis "CBOR support for serde.")
+    (synopsis "CBOR support for serde")
     (description "CBOR support for serde.")
     (license #f)))
 
@@ -311,13 +314,13 @@
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck)
         ("rust-ucd-parse" ,rust-ucd-parse)
-        ("rust-unicode-segmentation"
-         ,rust-unicode-segmentation))))
+        ("rust-unicode-segmentation" ,rust-unicode-segmentation))))
     (home-page "https://github.com/BurntSushi/bstr")
     (synopsis
-     "string type that is not required to be valid UTF-8")
+     "String type that is not required to be valid UTF-8")
     (description
-     "This package provides a string type that is not required to be valid UTF-8.")
+     "This package provides a string type that is not required to be
+valid UTF-8.")
     (license #f)))
 
 (define-public rust-bstr-0.1
@@ -343,13 +346,13 @@
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck)
         ("rust-ucd-parse" ,rust-ucd-parse)
-        ("rust-unicode-segmentation"
-         ,rust-unicode-segmentation))))
+        ("rust-unicode-segmentation" ,rust-unicode-segmentation))))
     (home-page "https://github.com/BurntSushi/bstr")
     (synopsis
      "string type that is not required to be valid UTF-8")
     (description
-     "This package provides a string type that is not required to be valid UTF-8.")
+     "This package provides a string type that is not required to be
+valid UTF-8.")
     (license #f)))
 
 (define-public rust-grep
@@ -380,7 +383,7 @@
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
-     "Fast line oriented regex searching as a library")
+     "Line oriented regex searching as a library")
     (description
      "Fast line oriented regex searching as a library.")
     (license #f)))
@@ -417,10 +420,10 @@
     (home-page
      "https://github.com/BurntSushi/ripgrep/tree/master/ignore")
     (synopsis
-     "fast library for efficiently matching ignore files such as `.gitignore`")
+     "Efficiently match ignore files such as .gitignore")
     (description
-     "This package provides a fast library for efficiently matching ignore files such as `.gitignore`
-against file paths.")
+     "This package provides a fast library for efficiently matching
+ignore files such as `.gitignore` against file paths.")
     (license #f)))
 
 (define-public rust-regex
@@ -451,10 +454,11 @@ against file paths.")
         ("rust-rand" ,rust-rand))))
     (home-page "https://github.com/rust-lang/regex")
     (synopsis
-     "implementation of regular expressions for Rust")
+     "Regular expressions for Rust")
     (description
-     "An implementation of regular expressions for Rust.  This implementation
-uses finite automata and guarantees linear time matching on all inputs.")
+     "An implementation of regular expressions for Rust.  This
+implementation uses finite automata and guarantees linear time
+matching on all inputs.")
     (license #f)))
 
 (define-public rust-regex-0.2
@@ -507,35 +511,6 @@ They may contain data, are usable without `std`,
 and static initializers are available.")
     (license #f)))
 
-;; (define-public rust-proc-macro2
-;;   (package
-;;     (name "rust-proc-macro2")
-;;     (version "0.4.30")
-;;     (source
-;;      (origin
-;;        (method url-fetch)
-;;        (uri (crate-uri "proc-macro2" version))
-;;        (file-name
-;;         (string-append name "-" version ".tar.gz"))
-;;        (sha256
-;;         (base32
-;;          "0nd71fl24sys066jrha6j7i34nfkjv44yzw8yww9742wmc8j0gfg"))))
-;;     (build-system cargo-build-system)
-;;     (arguments
-;;      `(#:cargo-inputs
-;;        (("rust-unicode-xid" ,rust-unicode-xid))
-;;        #:cargo-development-inputs
-;;        (("rust-quote" ,rust-quote))))
-;;     (home-page
-;;      "https://github.com/alexcrichton/proc-macro2")
-;;     (synopsis
-;;      "stable implementation of the upcoming new `proc_macro` API")
-;;     (description
-;;      "This package provides a stable implementation of the upcoming new
-;; `proc_macro` API.  Comes with an option, off by default, to also reimplement
-;; itself in terms of the upstream unstable API.")
-;;     (license #f)))
-
 (define-public rust-unicode-xid
   (package
     (name "rust-unicode-xid")
@@ -553,10 +528,10 @@ and static initializers are available.")
     (home-page
      "https://github.com/unicode-rs/unicode-xid")
     (synopsis
-     "Determine whether characters have the XID_Start or XID_Continue properties")
+     "Determine whether characters have XID_Start or XID_Continue")
     (description
-     "Determine whether characters have the XID_Start or XID_Continue properties
-according to Unicode Standard Annex #31.")
+     "Determine whether characters have the XID_Start or XID_Continue
+properties according to Unicode Standard Annex #31.")
     (license #f)))
 
 (define-public rust-memchr
@@ -681,7 +656,7 @@ according to Unicode Standard Annex #31.")
     (home-page
      "https://github.com/BurntSushi/ucd-generate")
     (synopsis
-     "library for parsing data files in the Unicode character database")
+     "Parse data files in the Unicode character database")
     (description
      "This package provides a library for parsing data files in the
 Unicode character database.")
@@ -707,10 +682,10 @@ Unicode character database.")
     (home-page
      "https://github.com/unicode-rs/unicode-segmentation")
     (synopsis
-     "This crate provides Grapheme Cluster, Word and Sentence boundaries")
+     "Grapheme Cluster, Word and Sentence boundaries")
     (description
-     "This crate provides Grapheme Cluster, Word and Sentence boundaries
-according to Unicode Standard Annex #29 rules.")
+     "This crate provides Grapheme Cluster, Word and Sentence
+boundaries according to Unicode Standard Annex #29 rules.")
     (license #f)))
 
 (define-public rust-ansi-term
@@ -732,7 +707,7 @@ according to Unicode Standard Annex #29 rules.")
     (home-page
      "https://github.com/ogham/rust-ansi-term")
     (synopsis
-     "Library for ANSI terminal colours and styles (bold, underline)")
+     "ANSI terminal colours and styles")
     (description
      "Library for ANSI terminal colours and styles (bold, underline)")
     (license #f)))
@@ -754,9 +729,10 @@ according to Unicode Standard Annex #29 rules.")
     (home-page
      "https://github.com/bitflags/bitflags")
     (synopsis
-     "Macro to generate structures which behave like bitflags")
+     "Generate structures which behave like bitflags")
     (description
-     "This package provides a macro to generate structures which behave like bitflags.")
+     "This package provides a macro to generate structures which
+behave like bitflags.")
     (license #f)))
 
 (define-public rust-bitflags-0.9
@@ -793,9 +769,10 @@ according to Unicode Standard Annex #29 rules.")
     (home-page
      "https://github.com/rust-lang-nursery/rust-clippy")
     (synopsis
-     "A bunch of helpful lints to avoid common pitfalls in Rust.")
+     "Lints to avoid common pitfalls in Rust")
     (description
-     "This package provides a bunch of helpful lints to avoid common pitfalls in Rust.")
+     "This package provides a bunch of helpful lints to avoid common
+pitfalls in Rust.")
     (license #f)))
 
 (define-public rust-strsim
@@ -814,36 +791,26 @@ according to Unicode Standard Annex #29 rules.")
     (build-system cargo-build-system)
     (home-page "https://github.com/dguo/strsim-rs")
     (synopsis
-     "Implementations of string similarity metrics.
-Includes Hamming, Levenshtein, OSA, Damerau-Levenshtein, Jaro, and Jaro-Winkler.
-")
+     "String similarity metrics")
     (description
      "Implementations of string similarity metrics.
-Includes Hamming, Levenshtein, OSA, Damerau-Levenshtein, Jaro, and Jaro-Winkler.
-")
+Includes Hamming, Levenshtein, OSA, Damerau-Levenshtein, Jaro, and
+Jaro-Winkler.")
     (license #f)))
 
 (define-public rust-strsim-0.8
   (package
-    (name "rust-strsim")
+    (inherit rust-strsim)
     (version "0.8.0")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "strsim" version))
        (file-name
-        (string-append name "-" version ".tar.gz"))
+        (string-append (package-name rust-strsim) "-" version ".tar.gz"))
        (sha256
         (base32
-         "0sjsm7hrvjdifz661pjxq5w4hf190hx53fra8dfvamacvff139cf"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/dguo/strsim-rs")
-    (synopsis
-     "Implementations of string similarity metrics")
-    (description
-     "Implementations of string similarity metrics.
-Includes Hamming, Levenshtein, OSA, Damerau-Levenshtein, Jaro, and Jaro-Winkler.")
-    (license #f)))
+         "0sjsm7hrvjdifz661pjxq5w4hf190hx53fra8dfvamacvff139cf"))))))
 
 (define-public rust-term-size
   (package
@@ -868,38 +835,24 @@ Includes Hamming, Levenshtein, OSA, Damerau-Levenshtein, Jaro, and Jaro-Winkler.
     (home-page
      "https://github.com/kbknapp/term_size-rs.git")
     (synopsis
-     "functions for determining terminal sizes and dimensions")
+     "Determine terminal sizes and dimensions")
     (description
-     "functions for determining terminal sizes and dimensions")
+     "Functions for determining terminal sizes and dimensions")
     (license #f)))
 
 (define-public rust-term-size-0.3
   (package
-    (name "rust-term-size")
+    (inherit rust-term-size)
     (version "0.3.1")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "term_size" version))
        (file-name
-        (string-append name "-" version ".tar.gz"))
+        (string-append (package-name rust-term-size) "-" version ".tar.gz"))
        (sha256
         (base32
-         "09wk3173ngmb710qs9rwgibq4w250q8lgnwjvb9cypc1vdk9lnwy"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-clippy" ,rust-clippy)
-        ("rust-kernel32-sys" ,rust-kernel32-sys)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi-0.2.8))))
-    (home-page
-     "https://github.com/kbknapp/term_size-rs.git")
-    (synopsis
-     "functions for determining terminal sizes and dimensions")
-    (description
-     "functions for determining terminal sizes and dimensions")
-    (license #f)))
+         "09wk3173ngmb710qs9rwgibq4w250q8lgnwjvb9cypc1vdk9lnwy"))))))
 
 (define-public rust-textwrap
   (package
@@ -928,38 +881,14 @@ Includes Hamming, Levenshtein, OSA, Damerau-Levenshtein, Jaro, and Jaro-Winkler.
     (home-page
      "https://github.com/mgeisler/textwrap")
     (synopsis
-     "library for word wrapping, indenting, and dedenting strings")
+     "Word wrapping, indenting, and dedenting strings")
     (description
      "Textwrap is a small library for word wrapping, indenting, and
 dedenting strings.
 
 You can use it to format strings (such as help and error messages) for
 display in commandline applications.  It is designed to be efficient
-and handle Unicode characters correctly.
-")
-    (license #f)))
-
-(define-public rust-unicode-width
-  (package
-    (name "rust-unicode-width")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unicode-width" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09k5lipygardwy0660jhls08fsgknrazzivmn804gps53hiqc8w8"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/unicode-rs/unicode-width")
-    (synopsis
-     "Determine displayed width of `char` and `str` types")
-    (description
-     "Determine displayed width of `char` and `str` types
-according to Unicode Standard Annex #11 rules.")
+and handle Unicode charactersec-map")
     (license #f)))
 
 (define-public rust-vec-map
@@ -981,9 +910,10 @@ according to Unicode Standard Annex #11 rules.")
     (home-page
      "https://github.com/contain-rs/vec-map")
     (synopsis
-     "A simple map based on a vector for small integer keys")
+     "Vector for small integer keys")
     (description
-     "This package provides a simple map based on a vector for small integer keys.")
+     "This package provides a simple map based on a vector for small
+integer keys.")
     (license #f)))
 
 (define-public rust-yaml-rust
@@ -1064,10 +994,10 @@ according to Unicode Standard Annex #11 rules.")
     (home-page
      "https://github.com/mgeisler/version-sync")
     (synopsis
-     "Simple crate for ensuring that version numbers in READMEs are updated")
+     "Ensure that version numbers in READMEs are updated")
     (description
-     "Simple crate for ensuring that version numbers in README files are
-updated when the crate version changes.")
+     "Simple crate for ensuring that version numbers in README files
+are updated when the crate version changes.")
     (license #f)))
 
 (define-public rust-grep-cli
@@ -1098,11 +1028,9 @@ updated when the crate version changes.")
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
-     "Utilities for search oriented command line applications.
-")
+     "Utilities for search oriented command line applications")
     (description
-     "Utilities for search oriented command line applications.
-")
+     "Utilities for search oriented command line applications.")
     (license #f)))
 
 (define-public rust-grep-matcher
@@ -1127,9 +1055,10 @@ updated when the crate version changes.")
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
-     "trait for regular expressions, with a focus on line oriented search")
+     "Trait for regular expressions")
     (description
-     "This package provides a trait for regular expressions, with a focus on line oriented search.")
+     "This package provides a trait for regular expressions, with a
+focus on line oriented search.")
     (license #f)))
 
 (define-public rust-grep-pcre2
@@ -1152,8 +1081,8 @@ updated when the crate version changes.")
         ("rust-pcre2" ,rust-pcre2))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
-    (synopsis "Use PCRE2 with the 'grep' crate")
-    (description "Use PCRE2 with the 'grep' crate.")
+    (synopsis "Use PCRE2 with the grep crate")
+    (description "Use PCRE2 with the grep crate.")
     (license #f)))
 
 (define-public rust-grep-printer
@@ -1185,10 +1114,10 @@ updated when the crate version changes.")
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
-     "provides standard printing of search results")
+     "Standard printing of search results")
     (description
-     "An implementation of the grep crate's Sink trait that provides standard
-printing of search results, similar to grep itself.")
+     "An implementation of the grep crate's Sink trait that provides
+standard printing of search results, similar to grep itself.")
     (license #f)))
 
 (define-public rust-grep-regex
@@ -1217,9 +1146,9 @@ printing of search results, similar to grep itself.")
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
-     "Use Rust's regex library with the 'grep' crate")
+     "Use Rust's regex library with the grep crate")
     (description
-     "Use Rust's regex library with the 'grep' crate.")
+     "Use Rust's regex library with the grep crate.")
     (license #f)))
 
 (define-public rust-grep-searcher
@@ -1251,7 +1180,7 @@ printing of search results, similar to grep itself.")
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
-     "Fast line oriented regex searching as a library")
+     "Line oriented regex searching as a library")
     (description
      "Fast line oriented regex searching as a library.")
     (license #f)))
@@ -1313,10 +1242,10 @@ printing of search results, similar to grep itself.")
     (synopsis
      "Cross platform single glob and glob set matching")
     (description
-     "Cross platform single glob and glob set matching.  Glob set matching is the
-process of matching one or more glob patterns against a single candidate path
-simultaneously, and returning all of the globs that matched.
-")
+     "Cross platform single glob and glob set matching.  Glob set
+matching is the process of matching one or more glob patterns against
+a single candidate path simultaneously, and returning all of the globs
+that matched.")
     (license #f)))
 
 (define-public rust-same-file
@@ -1341,7 +1270,7 @@ simultaneously, and returning all of the globs that matched.
     (home-page
      "https://github.com/BurntSushi/same-file")
     (synopsis
-     "determine whether two file paths point to the same file")
+     "Determine whether two file paths point to the same file")
     (description
      "This package provides a simple crate for determining whether two
 file paths point to the same file.")
@@ -7483,11 +7412,9 @@ possible intended.
         ("rust-tempdir" ,rust-tempdir))))
     (home-page "https://docs.rs/crate/semver/")
     (synopsis
-     "Semantic version parsing and comparison.
-")
+     "Semantic version parsing and comparison")
     (description
-     "Semantic version parsing and comparison.
-")
+     "Semantic version parsing and comparison.")
     (license #f)))
 
 (define-public rust-tempdir
@@ -7511,13 +7438,10 @@ possible intended.
     (home-page
      "https://github.com/rust-lang/tempdir")
     (synopsis
-     "A library for managing a temporary directory and deleting all contents when it's
-dropped.
-")
+     "Manage a temporary directory and deleting all contents")
     (description
-     "This package provides a library for managing a temporary directory and deleting all contents when it's
-dropped.
-")
+     "This package provides a library for managing a temporary
+directory and deleting all contents when it's dropped.")
     (license #f)))
 
 (define-public rust-crc32fast
@@ -7573,11 +7497,9 @@ dropped.
     (home-page
      "https://github.com/alexcrichton/libz-sys")
     (synopsis
-     "Bindings to the system libz library (also known as zlib).
-")
+     "Bindings to the system libz library")
     (description
-     "Bindings to the system libz library (also known as zlib).
-")
+     "Bindings to the system libz library (also known as zlib).")
     (license #f)))
 
 (define-public rust-miniz-sys
@@ -7601,11 +7523,9 @@ dropped.
        (("rust-cc" ,rust-cc))))
     (home-page
      "https://github.com/alexcrichton/flate2-rs")
-    (synopsis "Bindings to the miniz.c library.
-")
+    (synopsis "Bindings to the miniz.c library")
     (description
-     "Bindings to the miniz.c library.
-")
+     "Bindings to the miniz.c library.")
     (license #f)))
 
 (define-public rust-miniz-oxide-c-api
@@ -7632,9 +7552,10 @@ dropped.
     (home-page
      "https://github.com/Frommi/miniz_oxide/")
     (synopsis
-     "DEFLATE compression and decompression API designed to be Rust drop-in replacement for miniz")
+     "DEFLATE compression and decompression API")
     (description
-     "DEFLATE compression and decompression API designed to be Rust drop-in replacement for miniz")
+     "DEFLATE compression and decompression API designed to be Rust
+drop-in replacement for miniz")
     (license #f)))
 
 (define-public rust-tokio-tcp
@@ -7663,10 +7584,8 @@ dropped.
        (("rust-env-logger" ,rust-env-logger)
         ("rust-tokio" ,rust-tokio))))
     (home-page "https://tokio.rs")
-    (synopsis "TCP bindings for tokio.
-")
-    (description "TCP bindings for tokio.
-")
+    (synopsis "TCP bindings for tokio")
+    (description "TCP bindings for tokio.")
     (license #f)))
 
 (define-public rust-seahash
@@ -7686,9 +7605,10 @@ dropped.
     (home-page
      "https://gitlab.redox-os.org/redox-os/seahash")
     (synopsis
-     "A blazingly fast, portable hash function with proven statistical guarantees.")
+     "Hash function with proven statistical guarantees")
     (description
-     "This package provides a blazingly fast, portable hash function with proven statistical guarantees.")
+     "This package provides a blazingly fast, portable hash function
+with proven statistical guarantees.")
     (license #f)))
 
 (define-public rust-pico-sys
@@ -7712,7 +7632,7 @@ dropped.
        (("rust-gcc" ,rust-gcc))))
     (home-page
      "https://github.com/reem/rust-pico-sys.git")
-    (synopsis "Bindings to the PicoHTTPParser.")
+    (synopsis "Bindings to the PicoHTTPParser")
     (description "Bindings to the PicoHTTPParser.")
     (license #f)))
 
@@ -7786,7 +7706,7 @@ dropped.
     (home-page
      "https://github.com/BurntSushi/utf8-ranges")
     (synopsis
-     "Convert ranges of Unicode codepoints to UTF-8 byte ranges.")
+     "Convert ranges of Unicode codepoints to UTF-8 byte ranges")
     (description
      "Convert ranges of Unicode codepoints to UTF-8 byte ranges.")
     (license #f)))
@@ -7873,8 +7793,7 @@ dropped.
     (home-page
      "https://github.com/sfackler/rust-phf")
     (synopsis "Support code shared by PHF libraries")
-    (description
-     "Support code shared by PHF libraries")
+    (description "Support code shared by PHF libraries")
     (license #f)))
 
 (define-public rust-new-debug-unreachable
@@ -7894,9 +7813,10 @@ dropped.
     (home-page
      "https://github.com/mbrubeck/rust-debug-unreachable")
     (synopsis
-     "panic in debug, intrinsics::unreachable() in release (fork of debug_unreachable)")
+     "Panic in debug, @code{intrinsics::unreachable()} in release")
     (description
-     "panic in debug, intrinsics::unreachable() in release (fork of debug_unreachable)")
+     "Panic in debug, @code{intrinsics::unreachable() }in release (fork of
+debug_unreachable)")
     (license #f)))
 
 (define-public rust-precomputed-hash
@@ -7916,9 +7836,10 @@ dropped.
     (home-page
      "https://github.com/emilio/precomputed-hash")
     (synopsis
-     "A library intending to be a base dependency to expose a precomputed hash")
+     "Base dependency to expose a precomputed hash")
     (description
-     "This package provides a library intending to be a base dependency to expose a precomputed hash")
+     "This package provides a library intending to be a base
+dependency to expose a precomputed hash.")
     (license #f)))
 
 (define-public rust-thread-id
@@ -7969,9 +7890,10 @@ dropped.
     (home-page
      "https://github.com/cesarb/blake2-rfc")
     (synopsis
-     "A pure Rust implementation of BLAKE2 based on RFC 7693.")
+     "Rust implementation of BLAKE2 based on RFC 7693")
     (description
-     "This package provides a pure Rust implementation of BLAKE2 based on RFC 7693.")
+     "This package provides a pure Rust implementation of BLAKE2 based
+on RFC 7693.")
     (license #f)))
 
 (define-public rust-scoped-threadpool
@@ -7994,9 +7916,10 @@ dropped.
     (home-page
      "https://github.com/Kimundi/scoped-threadpool-rs")
     (synopsis
-     "A library for scoped and cached threadpools.")
+     "Library for scoped and cached threadpools")
     (description
-     "This package provides a library for scoped and cached threadpools.")
+     "This package provides a library for scoped and cached
+threadpools.")
     (license #f)))
 
 (define-public rust-cargon
@@ -8018,9 +7941,10 @@ dropped.
        (("rust-gcc" ,rust-gcc))))
     (home-page "https://github.com/bryant/argon2rs")
     (synopsis
-     "Thin wrapper around the Argon2 C library. Used in argon2rs' bench suite.")
+     "Wrapper around the Argon2 C library")
     (description
-     "Thin wrapper around the Argon2 C library.  Used in argon2rs' bench suite.")
+     "Thin wrapper around the Argon2 C library.  Used in argon2rs'
+bench suite.")
     (license #f)))
 
 (define-public rust-backtrace
@@ -8058,11 +7982,10 @@ dropped.
     (home-page
      "https://github.com/rust-lang/backtrace-rs")
     (synopsis
-     "A library to acquire a stack trace (backtrace) at runtime in a Rust program.
-")
+     "Acquire a stack trace (backtrace) at runtime in a Rust program")
     (description
-     "This package provides a library to acquire a stack trace (backtrace) at runtime in a Rust program.
-")
+     "This package provides a library to acquire a stack
+trace (backtrace) at runtime in a Rust program.")
     (license #f)))
 
 (define-public rust-failure-derive
@@ -8089,8 +8012,8 @@ dropped.
        (("rust-failure" ,rust-failure))))
     (home-page
      "https://rust-lang-nursery.github.io/failure/")
-    (synopsis "derives for the failure crate")
-    (description "derives for the failure crate")
+    (synopsis "Derives for the failure crate")
+    (description "Derives for the failure crate")
     (license #f)))
 
 (define-public rust-crates-index
@@ -8120,9 +8043,10 @@ dropped.
     (home-page
      "https://github.com/frewsxcv/rust-crates-index")
     (synopsis
-     "Library for retrieving and interacting with the crates.io index")
+     "Retrieving and interacting with the crates.io index")
     (description
-     "Library for retrieving and interacting with the crates.io index")
+     "Library for retrieving and interacting with the crates.io
+index")
     (license #f)))
 
 (define-public rust-cc
@@ -8147,15 +8071,11 @@ dropped.
     (home-page
      "https://github.com/alexcrichton/cc-rs")
     (synopsis
-     "A build-time dependency for Cargo build scripts to assist in invoking the native
-C compiler to compile native C code into a static archive to be linked into Rust
-code.
-")
+     "Invoke the native C compiler from Cargo")
     (description
-     "This package provides a build-time dependency for Cargo build scripts to assist in invoking the native
-C compiler to compile native C code into a static archive to be linked into Rust
-code.
-")
+     "This package provides a build-time dependency for Cargo build
+scripts to assist in invoking the native C compiler to compile native
+C code into a static archive to be linked into Rust code.")
     (license #f)))
 
 (define-public rust-pkg-config
@@ -8178,13 +8098,10 @@ code.
     (home-page
      "https://github.com/alexcrichton/pkg-config-rs")
     (synopsis
-     "A library to run the pkg-config system tool at build time in order to be used in
-Cargo build scripts.
-")
+     "Run the pkg-config system tool in Cargo build scripts")
     (description
-     "This package provides a library to run the pkg-config system tool at build time in order to be used in
-Cargo build scripts.
-")
+     "This package provides a library to run the pkg-config system
+tool at build time in order to be used in Cargo build scripts.")
     (license #f)))
 
 (define-public rust-vcpkg
@@ -8207,13 +8124,10 @@ Cargo build scripts.
         ("rust-tempdir" ,rust-tempdir))))
     (home-page "https://github.com/mcgoo/vcpkg-rs")
     (synopsis
-     "A library to find native dependencies in a vcpkg tree at build
-time in order to be used in Cargo build scripts.
-")
+     "Find native dependencies in a vcpkg from Cargo")
     (description
-     "This package provides a library to find native dependencies in a vcpkg tree at build
-time in order to be used in Cargo build scripts.
-")
+     "This package provides a library to find native dependencies in a
+vcpkg tree at build time in order to be used in Cargo build scripts.")
     (license #f)))
 
 (define-public rust-gcc
@@ -8238,19 +8152,13 @@ time in order to be used in Cargo build scripts.
     (home-page
      "https://github.com/alexcrichton/gcc-rs")
     (synopsis
-     "**Deprecated** crate, renamed to `cc`
-
-A build-time dependency for Cargo build scripts to assist in invoking the native
-C compiler to compile native C code into a static archive to be linked into Rust
-code.
-")
+     "Invoke the native C compiler from Cargo")
     (description
-     "**Deprecated** crate, renamed to `cc`
+     "**Deprecated** crate, renamed to rust-cc
 
-A build-time dependency for Cargo build scripts to assist in invoking the native
-C compiler to compile native C code into a static archive to be linked into Rust
-code.
-")
+A build-time dependency for Cargo build scripts to assist in invoking
+the native C compiler to compile native C code into a static archive
+to be linked into Rust code.")
     (license #f)))
 
 (define-public rust-memoffset
@@ -8269,9 +8177,9 @@ code.
     (build-system cargo-build-system)
     (home-page "https://github.com/Gilnaa/memoffset")
     (synopsis
-     "offset_of functionality for Rust structs.")
+     "offset_of functionality for Rust structs")
     (description
-     "offset_of functionality for Rust structs.")
+     "@code{offset_of} functionality for Rust structs.")
     (license #f)))
 
 (define-public rust-phf-generator
@@ -8317,9 +8225,10 @@ code.
     (home-page
      "https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide")
     (synopsis
-     "DEFLATE compression and decompression library rewritten in Rust based on miniz")
+     "DEFLATE compression and decompression library written in Rust")
     (description
-     "DEFLATE compression and decompression library rewritten in Rust based on miniz")
+     "DEFLATE compression and decompression library rewritten in Rust
+based on miniz.")
     (license #f)))
 
 (define-public rust-siphasher
@@ -8381,7 +8290,7 @@ code.
     (home-page
      "https://github.com/cesarb/constant_time_eq")
     (synopsis
-     "Compares two equal-sized byte strings in constant time.")
+     "Compares two equal-sized byte strings in constant time")
     (description
      "Compares two equal-sized byte strings in constant time.")
     (license #f)))
@@ -8403,8 +8312,7 @@ code.
     (arguments
      `(#:cargo-inputs
        (("rust-cpp-demangle" ,rust-cpp-demangle)
-        ("rust-fallible-iterator"
-         ,rust-fallible-iterator)
+        ("rust-fallible-iterator" ,rust-fallible-iterator)
         ("rust-gimli" ,rust-gimli)
         ("rust-intervaltree" ,rust-intervaltree)
         ("rust-lazycell" ,rust-lazycell)
@@ -8420,9 +8328,10 @@ code.
     (home-page
      "https://github.com/gimli-rs/addr2line")
     (synopsis
-     "A cross-platform symbolication library written in Rust, using `gimli`")
+     "Symbolication library written in Rust, using gimli")
     (description
-     "This package provides a cross-platform symbolication library written in Rust, using `gimli`")
+     "This package provides a cross-platform symbolication library
+written in Rust, using gimli.")
     (license #f)))
 
 (define-public rust-backtrace-sys
@@ -8479,13 +8388,10 @@ code.
     (home-page
      "https://github.com/rust-lang-nursery/compiler-builtins")
     (synopsis
-     "Compiler intrinsics used by the Rust compiler. Also available for other targets
-if necessary!
-")
+     "Compiler intrinsics used by the Rust compiler")
     (description
-     "Compiler intrinsics used by the Rust compiler.  Also available for other targets
-if necessary!
-")
+     "Compiler intrinsics used by the Rust compiler.  Also available
+for other targets if necessary!")
     (license #f)))
 
 (define-public rust-cpp-demangle
@@ -8512,7 +8418,7 @@ if necessary!
         ("rust-glob" ,rust-glob))))
     (home-page
      "https://github.com/gimli-rs/cpp_demangle")
-    (synopsis "A crate for demangling C++ symbols")
+    (synopsis "Demangle C++ symbols")
     (description
      "This package provides a crate for demangling C++ symbols")
     (license #f)))
@@ -8538,9 +8444,10 @@ if necessary!
     (home-page
      "https://github.com/gimli-rs/findshlibs")
     (synopsis
-     "Find the set of shared libraries loaded in the current process with a cross platform API")
+     "Find the set of shared libraries loaded in the current process")
     (description
-     "Find the set of shared libraries loaded in the current process with a cross platform API")
+     "Find the set of shared libraries loaded in the current process
+with a cross platform API")
     (license #f)))
 
 (define-public rust-goblin
@@ -8564,9 +8471,11 @@ if necessary!
         ("rust-scroll" ,rust-scroll))))
     (home-page "https://github.com/m4b/goblin")
     (synopsis
-     "An impish, cross-platform, ELF, Mach-o, and PE binary parsing and loading crate")
+     "impish, cross-platform, ELF, Mach-o, and PE binary parsing and
+loading")
     (description
-     "An impish, cross-platform, ELF, Mach-o, and PE binary parsing and loading crate")
+     "An impish, cross-platform, ELF, Mach-o, and PE binary parsing
+and loading crate.")
     (license #f)))
 
 (define-public rust-rustc-demangle
@@ -8591,11 +8500,8 @@ if necessary!
          ,rust-rustc-std-workspace-core))))
     (home-page
      "https://github.com/alexcrichton/rustc-demangle")
-    (synopsis "Rust compiler symbol demangling.
-")
-    (description
-     "Rust compiler symbol demangling.
-")
+    (synopsis "Rust compiler symbol demangling")
+    (description "Rust compiler symbol demangling.")
     (license #f)))
 
 (define-public rust-synstructure
@@ -8651,7 +8557,7 @@ if necessary!
     (home-page
      "https://github.com/rust-lang-nursery/error-chain")
     (synopsis
-     "Yet another error boilerplate library.")
+     "Yet another error boilerplate library")
     (description
      "Yet another error boilerplate library.")
     (license #f)))
@@ -8689,15 +8595,11 @@ if necessary!
     (home-page
      "https://github.com/rust-lang/git2-rs")
     (synopsis
-     "Bindings to libgit2 for interoperating with git repositories. This library is
-both threadsafe and memory safe and allows both reading and writing git
-repositories.
-")
+     "Rust bindings to libgit2")
     (description
-     "Bindings to libgit2 for interoperating with git repositories.  This library is
-both threadsafe and memory safe and allows both reading and writing git
-repositories.
-")
+     "Bindings to libgit2 for interoperating with git repositories.
+This library is both threadsafe and memory safe and allows both
+reading and writing git repositories.")
     (license #f)))
 
 (define-public rust-adler32
@@ -8720,7 +8622,7 @@ repositories.
     (home-page
      "https://github.com/remram44/adler32-rs")
     (synopsis
-     "Minimal Adler32 implementation for Rust.")
+     "Minimal Adler32 implementation for Rust")
     (description
      "Minimal Adler32 implementation for Rust.")
     (license #f)))
@@ -8763,11 +8665,9 @@ repositories.
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec)
         ("rust-byteorder" ,rust-byteorder)
-        ("rust-fallible-iterator"
-         ,rust-fallible-iterator)
+        ("rust-fallible-iterator" ,rust-fallible-iterator)
         ("rust-indexmap" ,rust-indexmap)
-        ("rust-stable-deref-trait"
-         ,rust-stable-deref-trait))
+        ("rust-stable-deref-trait" ,rust-stable-deref-trait))
        #:cargo-development-inputs
        (("rust-crossbeam" ,rust-crossbeam)
         ("rust-getopts" ,rust-getopts)
@@ -8780,9 +8680,10 @@ repositories.
         ("rust-typed-arena" ,rust-typed-arena))))
     (home-page "https://github.com/gimli-rs/gimli")
     (synopsis
-     "A library for reading and writing the DWARF debugging format.")
+     "Reading and writing the DWARF debugging format")
     (description
-     "This package provides a library for reading and writing the DWARF debugging format.")
+     "This package provides a library for reading and writing the
+DWARF debugging format.")
     (license #f)))
 
 (define-public rust-intervaltree
@@ -8805,9 +8706,10 @@ repositories.
     (home-page
      "https://github.com/main--/rust-intervaltree")
     (synopsis
-     "A simple and generic implementation of an immutable interval tree.")
+     "Immutable interval trees")
     (description
-     "This package provides a simple and generic implementation of an immutable interval tree.")
+     "This package provides a simple and generic implementation of an
+immutable interval tree.")
     (license #f)))
 
 (define-public rust-lazycell
@@ -8828,9 +8730,9 @@ repositories.
      `(#:cargo-inputs (("rust-clippy" ,rust-clippy))))
     (home-page "https://github.com/indiv0/lazycell")
     (synopsis
-     "A library providing a lazily filled Cell struct")
+     "Lazily filled Cell struct")
     (description
-     "This package provides a library providing a lazily filled Cell struct")
+     "This package provides a library providing a lazily filled Cell struct.")
     (license #f)))
 
 (define-public rust-object
@@ -8858,9 +8760,10 @@ repositories.
        (("rust-memmap" ,rust-memmap))))
     (home-page "https://github.com/gimli-rs/object")
     (synopsis
-     "A unified interface for parsing object file formats.")
+     "Parse object file formats")
     (description
-     "This package provides a unified interface for parsing object file formats.")
+     "This package provides a unified interface for parsing object
+file formats.")
     (license #f)))
 
 (define-public rust-afl
@@ -8890,7 +8793,7 @@ repositories.
     (synopsis
      "Fuzzing Rust code with american-fuzzy-lop")
     (description
-     "Fuzzing Rust code with american-fuzzy-lop")
+     "Fuzz Rust code with american-fuzzy-lop.")
     (license #f)))
 
 (define-public rust-diff
@@ -8914,7 +8817,7 @@ repositories.
     (home-page
      "https://github.com/utkarshkukreti/diff.rs")
     (synopsis
-     "An LCS based slice and string diffing implementation.")
+     "LCS based slice and string diffing implementation")
     (description
      "An LCS based slice and string diffing implementation.")
     (license #f)))
@@ -8935,9 +8838,10 @@ repositories.
     (build-system cargo-build-system)
     (home-page "https://github.com/randomites/plain")
     (synopsis
-     "A small Rust library that allows users to reinterpret data of certain types safely.")
+     "Reinterpret data of certain types safely")
     (description
-     "This package provides a small Rust library that allows users to reinterpret data of certain types safely.")
+     "This package provides a small Rust library that allows users to
+reinterpret data of certain types safely.")
     (license #f)))
 
 (define-public rust-scroll
@@ -8963,9 +8867,10 @@ repositories.
         ("rust-rustc-version" ,rust-rustc-version))))
     (home-page "https://github.com/m4b/scroll")
     (synopsis
-     "A suite of powerful, extensible, generic, endian-aware Read/Write traits for byte buffers")
+     "Read/Write traits for byte buffers")
     (description
-     "This package provides a suite of powerful, extensible, generic, endian-aware Read/Write traits for byte buffers")
+     "This package provides a suite of powerful, extensible, generic,
+endian-aware Read/Write traits for byte buffers.")
     (license #f)))
 
 (define-public rust-synstructure-test-traits
@@ -9037,9 +8942,10 @@ repositories.
     (home-page
      "https://github.com/alexcrichton/openssl-probe")
     (synopsis
-     "Tool for helping to find SSL certificate locations on the system for OpenSSL")
+     "Find SSL certificate locations on the system for OpenSSL")
     (description
-     "Tool for helping to find SSL certificate locations on the system for OpenSSL")
+     "Tool for helping to find SSL certificate locations on the system
+for OpenSSL")
     (license #f)))
 
 (define-public rust-openssl-sys
@@ -9117,9 +9023,11 @@ repositories.
     (home-page
      "https://github.com/storyyeller/stable_deref_trait")
     (synopsis
-     "An unsafe marker trait for types like Box and Rc that dereference to a stable address even when moved, and hence can be used with libraries such as owning_ref and rental.")
+     "Unsafe marker trait")
     (description
-     "An unsafe marker trait for types like Box and Rc that dereference to a stable address even when moved, and hence can be used with libraries such as owning_ref and rental.")
+     "An unsafe marker trait for types like Box and Rc that
+dereference to a stable address even when moved, and hence can be used
+with libraries such as owning_ref and rental.")
     (license #f)))
 
 (define-public rust-test-assembler
@@ -9142,9 +9050,10 @@ repositories.
     (home-page
      "https://github.com/luser/rust-test-assembler")
     (synopsis
-     "A set of types for building complex binary streams.")
+     "Build complex binary streams")
     (description
-     "This package provides a set of types for building complex binary streams.")
+     "This package provides a set of types for building complex binary
+streams.")
     (license #f)))
 
 (define-public rust-typed-arena
@@ -9164,7 +9073,7 @@ repositories.
     (home-page
      "https://github.com/SimonSapin/rust-typed-arena")
     (synopsis
-     "The arena, a fast but limited type of allocator")
+     "The arena allocator")
     (description
      "The arena, a fast but limited type of allocator")
     (license #f)))
@@ -9189,7 +9098,7 @@ repositories.
     (home-page
      "https://github.com/paritytech/parity-wasm")
     (synopsis
-     "WebAssembly binary format serialization/deserialization/interpreter")
+     "WebAssembly binary format de/serialization and interpreter")
     (description
      "WebAssembly binary format serialization/deserialization/interpreter")
     (license #f)))
@@ -9224,7 +9133,7 @@ repositories.
         ("rust-serde-test" ,rust-serde-test))))
     (home-page "https://github.com/uuid-rs/uuid")
     (synopsis
-     "A library to generate and parse UUIDs.")
+     "Generate and parse UUIDs")
     (description
      "This package provides a library to generate and parse UUIDs.")
     (license #f)))
@@ -9246,9 +9155,10 @@ repositories.
     (home-page
      "https://github.com/whitequark/rust-xdg")
     (synopsis
-     "A library for storing and retrieving files according to XDG Base Directory specification")
+     "Store and retreive files according to XDG")
     (description
-     "This package provides a library for storing and retrieving files according to XDG Base Directory specification")
+     "This package provides a library for storing and retrieving files
+according to XDG Base Directory specification")
     (license #f)))
 
 (define-public rust-speculate
@@ -9274,7 +9184,7 @@ repositories.
     (home-page
      "https://github.com/utkarshkukreti/speculate.rs")
     (synopsis
-     "An RSpec inspired minimal testing framework for Rust.")
+     "RSpec inspired testing framework for Rust")
     (description
      "An RSpec inspired minimal testing framework for Rust.")
     (license #f)))

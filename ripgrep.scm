@@ -40,9 +40,10 @@
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
-     "line-oriented search tool that recursively searches your current directory")
+     "Line-oriented search tool")
     (description
-     "ripgrep is a line-oriented search tool that recursively searches your current
-directory for a regex pattern while respecting your gitignore rules.  ripgrep
-has first class support on Windows, macOS and Linux")
+     "ripgrep is a line-oriented search tool that recursively searches
+your current directory for a regex pattern while respecting your
+gitignore rules.  ripgrep has first class support on Windows, macOS
+and Linux")
     (license #f)))
