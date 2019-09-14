@@ -549,6 +549,21 @@ properties according to Unicode Standard Annex #31.")
         (base32
          "0z09fn515xm7zyr0mmdyxa9mx2f7azcpv74pqmg611iralwpcvl2"))))))
 
+(define-public rust-unicode-xid-0.0.3
+  (package
+    (inherit rust-unicode-xid)
+    (version "0.0.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "unicode-xid" version))
+       (file-name
+        (string-append
+         (package-name rust-unicode-xid) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1sqvl06884cy3hh14shik5afcv6bhsvb0gh2y267rv5lmyfg1prn"))))))
+
 (define-public rust-memchr
   (package
     (name "rust-memchr")
@@ -740,6 +755,20 @@ boundaries according to Unicode Standard Annex #29 rules.")
        (sha256
         (base32
          "19dk39gfwmhi3iy1x0wgml1fv1bkb525ywy25zwihbm063i05zaf"))))))
+
+(define-public rust-bitflags-0.7
+  (package
+    (inherit rust-bitflags)
+    (version "0.7.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "bitflags" version))
+       (file-name
+        (string-append (package-name rust-bitflags) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0v8hh6wdkpk9my8z8442g4hqrqf05h0qj53dsay6mv18lqvqklda"))))))
 
 (define-public rust-clippy
   (package
@@ -1466,6 +1495,20 @@ matching branch is the item that gets emitted.")
         (base32
          "19zp25jr3dhmclg3qqjk3bh1yrn7bqi05zgr5v52szv3l97plw3x"))))))
 
+(define-public rust-regex-syntax-0.3
+  (package
+    (inherit rust-regex-syntax)
+    (version "0.3.9")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "regex-syntax" version))
+       (file-name
+        (string-append (package-name rust-regex-syntax) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0ms9hgdhhsxw9w920i7gipydvagf100bb56jbs192rz86ln01v7r"))))))
+
 (define-public rust-utf8-ranges
   (package
     (name "rust-utf8-ranges")
@@ -1839,6 +1882,20 @@ deserializing and serializing Rust structures.")
        (sha256
         (base32
          "07qilkzinn8z13vq2sss65n2lza7wrmqpvkbclw919m3f7y691km"))))))
+
+(define-public rust-toml-0.1
+  (package
+    (inherit rust-toml)
+    (version "0.1.30")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "toml" version))
+       (file-name
+        (string-append (package-name rust-toml) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
 (define-public rust-env-logger
   (package
@@ -7457,6 +7514,31 @@ possible intended.
      "Semantic version parsing and comparison.")
     (license #f)))
 
+(define-public rust-semver-0.2
+  (package
+    (inherit rust-semver)
+    (version "0.2.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "semver" version))
+       (file-name
+        (string-append
+         (package-name rust-semver) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0gv28l5ggain32flkvw3sss0szz810y3pjw89vciaf7hl4w7cnrd"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-nom" ,rust-nom-1)
+        ("rust-semver-parser" ,rust-semver-parser-0.7)
+        ("rust-serde" ,rust-serde))
+       #:cargo-development-inputs
+       (("rust-crates-index" ,rust-crates-index)
+        ("rust-serde-derive" ,rust-serde-derive)
+        ("rust-serde-json" ,rust-serde-json)
+        ("rust-tempdir" ,rust-tempdir))))))
+
 (define-public rust-tempdir
   (package
     (name "rust-tempdir")
@@ -10433,6 +10515,31 @@ according to XDG Base Directory specification")
        (sha256
         (base32
          "0yr8fazcspgawl6s7wmx5llz61s68jl88cnrph18fa7xf06cbbh5"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-lazy-static" ,rust-lazy-static)
+        ("rust-lexical-core" ,rust-lexical-core)
+        ("rust-memchr" ,rust-memchr-1)
+        ("rust-regex" ,rust-regex))
+       #:cargo-development-inputs
+       (("rust-criterion" ,rust-criterion)
+        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-jemallocator" ,rust-jemallocator)
+        ("rust-version-check" ,rust-version-check))))))
+
+(define-public rust-nom-1
+  (package
+    (inherit rust-nom)
+    (version "1.2.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "nom" version))
+       (file-name
+        (string-append (package-name rust-nom) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1kjh42w67z1hh1dw3jrilgqrf54jk2xcvhw4rcdm4wclzmbc5f55"))))
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static)
@@ -20417,6 +20524,21 @@ for computer graphics.")
     (description "Backport of libsyntax_pos")
     (license #f)))
 
+(define-public rust-syntex-pos-0.52
+  (package
+    (inherit rust-syntex-pos)
+    (version "0.52.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "syntex-pos" version))
+       (file-name
+        (string-append
+         (package-name rust-syntex-pos) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1b0mbspiby8qkrj8109kgmaqya7zfgw9f50dd3j6ii7ldaqz8plm"))))))
+
 (define-public rust-extprim
   (package
     (name "rust-extprim")
@@ -21289,7 +21411,7 @@ for computer graphics.")
         ("rust-semver" ,rust-semver)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
-        ("rust-toml" ,rust-toml)
+        ("rust-toml" ,rust-toml-0.1)
         ("rust-unicode-normalization" ,rust-unicode-normalization)
         ("rust-url" ,rust-url))))
     (home-page
@@ -21300,3 +21422,174 @@ for computer graphics.")
      "This package provides a bunch of helpful lints to avoid common
 pitfalls in Rust")
     (license license:mpl2.0)))
+
+(define-public rust-clippy-lints-0.0.103
+  (package
+    (inherit rust-clippy-lints)
+    (version "0.0.103")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "clippy-lints" version))
+       (file-name
+        (string-append
+         (package-name rust-clippy-lints) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "06k5jkavj2kqcbjg5w0zk0bj5sjh93jib89xskas0670pw2yr5nf"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-cargo-metadata" ,rust-cargo-metadata)
+        ("rust-if-chain" ,rust-if-chain)
+        ("rust-itertools" ,rust-itertools)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-matches" ,rust-matches)
+        ("rust-pulldown-cmark" ,rust-pulldown-cmark)
+        ("rust-quine-mc-cluskey" ,rust-quine-mc-cluskey)
+        ("rust-regex-syntax" ,rust-regex-syntax-0.3)
+        ("rust-semver" ,rust-semver-0.2)
+        ("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive)
+        ("rust-toml" ,rust-toml-0.1)
+        ("rust-unicode-normalization" ,rust-unicode-normalization)
+        ("rust-url" ,rust-url))))))
+
+(define-public rust-cargo-metadata
+  (package
+    (name "rust-cargo-metadata")
+    (version "0.8.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "cargo-metadata" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "09n4fp9hrg0z84y5q0q98rlinh0832zls3q0s0ip4dbxzlqkf2vh"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-semver" ,rust-semver)
+        ("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive)
+        ("rust-serde-json" ,rust-serde-json))
+       #:cargo-development-inputs
+       (("rust-clap" ,rust-clap)
+        ("rust-docopt" ,rust-docopt)
+        ("rust-structopt" ,rust-structopt))))
+    (home-page
+     "https://github.com/oli-obk/cargo_metadata")
+    (synopsis
+     "structured access to the output of `cargo metadata`")
+    (description
+     "structured access to the output of `cargo metadata`")
+    (license license:expat)))
+
+(define-public rust-if-chain
+  (package
+    (name "rust-if-chain")
+    (version "1.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "if-chain" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0zgcn31bahnsmsjc0cgk0cy38p8sfjs79yvi6rjs5zz5b5xhqdn3"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/lfairy/if_chain")
+    (synopsis
+     "Macro for writing nested `if let` expressions.")
+    (description
+     "Macro for writing nested `if let` expressions.")
+    (license #f)))
+
+(define-public rust-pulldown-cmark
+  (package
+    (name "rust-pulldown-cmark")
+    (version "0.6.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "pulldown-cmark" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1916kszqfa9h8ja7wjbx945qb0qzwzslynxvwrg9c0hp9h6svc45"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bitflags" ,rust-bitflags)
+        ("rust-getopts" ,rust-getopts)
+        ("rust-memchr" ,rust-memchr)
+        ("rust-unicase" ,rust-unicase))
+       #:cargo-development-inputs
+       (("rust-criterion" ,rust-criterion)
+        ("rust-html5ever" ,rust-html5ever)
+        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-regex" ,rust-regex)
+        ("rust-tendril" ,rust-tendril))))
+    (home-page
+     "https://github.com/raphlinus/pulldown-cmark")
+    (synopsis "A pull parser for CommonMark")
+    (description
+     "This package provides a pull parser for CommonMark")
+    (license license:expat)))
+
+(define-public rust-quine-mc-cluskey
+  (package
+    (name "rust-quine-mc-cluskey")
+    (version "0.2.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "quine-mc-cluskey" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0iazdlwffhrlksb8yhhs1prgwpa68rwjwqm4v26hr9hrswarcn07"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-quickcheck" ,rust-quickcheck))))
+    (home-page
+     "https://github.com/oli-obk/quine-mc_cluskey")
+    (synopsis
+     "Rust implementation of the Quine-McCluskey algorithm and Petrick's method")
+    (description
+     "Rust implementation of the Quine-McCluskey algorithm and Petrick's method")
+    (license license:expat)))
+
+(define-public rust-structopt
+  (package
+    (name "rust-structopt")
+    (version "0.3.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "structopt" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0k400yfx199b1j4xmyf6c0wh9qv68p0sbkc9pwbv54np7plxdj9a"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-clap" ,rust-clap)
+        ("rust-structopt-derive" ,rust-structopt-derive))
+       #:cargo-development-inputs
+       (("rust-trybuild" ,rust-trybuild)
+        ("rust-version-check" ,rust-version-check))))
+    (home-page
+     "https://github.com/TeXitoi/structopt")
+    (synopsis
+     "Parse command line argument by defining a struct")
+    (description
+     "Parse command line argument by defining a struct.")
+    (license #f)))

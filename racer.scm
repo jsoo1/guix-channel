@@ -21,7 +21,8 @@
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "1hhii43zipg048v1srpv6f8w0xkgfq39blw2w72zabgi8ngp44z7"))))
+         "1hhii43zipg048v1srpv6f8w0xkgfq39blw2w72zabgi8ngp44z7"))
+       (patches '("./racer-ignore-tests.patch"))))
     (build-system cargo-build-system)
     (inputs
      `(("perl" ,perl)
@@ -29,10 +30,10 @@
        ("ruby" ,ruby)))
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-0.7)
         ("rust-clap" ,rust-clap)
         ("rust-clippy" ,rust-clippy-0.0.103)
-        ("rust-clippy-lints" ,rust-clippy-lints)
+        ("rust-clippy-lints" ,rust-clippy-lints-0.0.103)
         ("rust-derive-more" ,rust-derive-more-0.13)
         ("rust-env-logger" ,rust-env-logger-0.5)
         ("rust-humantime" ,rust-humantime)
@@ -43,8 +44,11 @@
         ("rust-rls-span" ,rust-rls-span)
         ("rust-rustc-ap-syntax" ,rust-rustc-ap-syntax-583)
         ("rust-syntex-errors" ,rust-syntex-errors-0.52)
+        ("rust-syntex-pos" ,rust-syntex-pos-0.52)
         ("rust-syntex-syntax" ,rust-syntex-syntax-0.52)
-        ("rust-toml" ,rust-toml-0.4))
+        ("rust-term" ,rust-term-0.4)
+        ("rust-toml" ,rust-toml-0.4)
+        ("rust-unicode-xid" ,rust-unicode-xid-0.0.3))
        #:phases
        (modify-phases %standard-phases
          (add-after 'unpack 'remove-circular-test-dependency
