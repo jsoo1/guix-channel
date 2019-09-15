@@ -1,8 +1,11 @@
 (define-module (alacritty)
   #:use-module ((gnu packages cmake) #:select (cmake))
   #:use-module (gnu packages crates-io)
-  #:use-module ((gnu packages fontutils) #:select (fontconfig))
+  #:use-module ((gnu packages fontutils) #:select (fontconfig freetype))
+  #:use-module ((gnu packages pkg-config) #:select (pkg-config))
   #:use-module ((gnu packages python) #:select (python-wrapper))
+  #:use-module ((gnu packages version-control) #:select (git))
+  #:use-module ((gnu packages xorg) #:select (libxcb))
   #:use-module (guix build-system cargo)
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license:)
@@ -27,6 +30,9 @@
     (inputs
      `(("cmake" ,cmake)
        ("fontconfig" ,fontconfig)
+       ("freetype" ,freetype)
+       ("libxcb" ,libxcb)
+       ("pkg-config" ,pkg-config)
        ("python-wrapper" ,python-wrapper)))
     (arguments
      `(#:cargo-inputs
@@ -73,7 +79,13 @@
         ("rust-winpty-sys" ,rust-winpty-sys)
         ("rust-x11-clipboard" ,rust-x11-clipboard)
         ("rust-zip" ,rust-zip))
-       #:cargo-development-inputs ()))
+       #:phases
+       (modify-phases %standard-phases
+         (replace 'install
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let ((out (assoc-ref outputs "out")))
+               (install-file
+                "target/release/alacritty" (string-append out "/bin"))))))))
     (home-page "https://github.com/jwilm/alacritty")
     (synopsis "GPU accelerated terminal emulator")
     (description "GPU accelerated terminal emulator")
