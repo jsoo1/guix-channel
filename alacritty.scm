@@ -8,6 +8,7 @@
   #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module ((gnu packages version-control) #:select (git))
   #:use-module ((gnu packages xdisorg) #:select (libxkbcommon))
+  #:use-module ((gnu packages xml) #:select (expat))
   #:use-module ((gnu packages xorg)
                 #:select (libx11
                           libxcb
@@ -38,6 +39,7 @@
     (build-system cargo-build-system)
     (inputs
      `(("cmake" ,cmake)
+       ("expat" ,expat)
        ("fontconfig" ,fontconfig)
        ("freetype" ,freetype)
        ("glew" ,glew)
