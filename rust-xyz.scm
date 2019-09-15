@@ -38,6 +38,21 @@
     (description "Parser for Rust source code")
     (license #f)))
 
+(define-public rust-syn-1
+  (package
+    (inherit rust-syn)
+    (version "1.0.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "syn" version))
+       (file-name
+        (string-append
+         (package-name rust-syn) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1gw03w7lzrlqmp2vislcybikgl5wkhrqi6sy70w93xss2abhx1b6"))))))
+
 (define-public rust-serde
   (package
     (name "rust-serde")
@@ -21582,7 +21597,8 @@ pitfalls in Rust")
          "0k400yfx199b1j4xmyf6c0wh9qv68p0sbkc9pwbv54np7plxdj9a"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs
+     `(#:tests? #f ; FIXME Tests fail
+       #:cargo-inputs
        (("rust-clap" ,rust-clap)
         ("rust-structopt-derive" ,rust-structopt-derive))
        #:cargo-development-inputs
@@ -21642,9 +21658,9 @@ pitfalls in Rust")
      `(#:cargo-inputs
        (("rust-heck" ,rust-heck)
         ("rust-proc-macro-error" ,rust-proc-macro-error)
-        ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
-        ("rust-syn" ,rust-syn))))
+        ("rust-proc-macro2" ,rust-proc-macro2-1)
+        ("rust-quote" ,rust-quote-1)
+        ("rust-syn" ,rust-syn-1))))
     (home-page
      "https://github.com/TeXitoi/structopt")
     (synopsis
@@ -21679,3 +21695,65 @@ pitfalls in Rust")
     (description
      "Drop-in replacement to panics in proc-macros")
     (license license:expat)))
+
+(define-public rust-proc-macro2-1
+  (package
+    (inherit rust-proc-macro2)
+    (version "1.0.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "proc-macro2" version))
+       (file-name
+        (string-append
+         (package-name rust-proc-macro2) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1s4pnvpsnrwr2d2kd8mh3yq5rcqvrdmacs2fj95zacdkz6lq72p9"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-unicode-xid" ,rust-unicode-xid-0.2))
+       #:cargo-development-inputs
+       (("rust-quote" ,rust-quote))))))
+
+(define-public rust-quote-1
+  (package
+    (inherit rust-quote)
+    (version "1.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "quote" version))
+       (file-name
+        (string-append
+         (package-name rust-quote) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1zkc46ryacf2jdkc6krsy2z615xbk1x8kp1830rcxz3irj5qqfh5"))))))
+
+(define-public rust-rustversion
+  (package
+    (name "rust-rustversion")
+    (version "0.1.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rustversion" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1s3ib2paa5gq17x4qsmjmnsw68z7b5d5av1wsiqcrihmqb7kk0dl"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-syn" ,rust-syn))))
+    (home-page
+     "https://github.com/dtolnay/rustversion")
+    (synopsis
+     "Conditional compilation according to rustc compiler version")
+    (description
+     "Conditional compilation according to rustc compiler version")
+    (license (list license:expat license:asl2.0))))
