@@ -1,6 +1,8 @@
 (define-module (rust-xyz)
   #:use-module (gnu packages crates-io)
+  #:use-module (gnu packages rust)
   #:use-module (guix build-system cargo)
+  #:use-module (guix build-system gnu)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
@@ -21593,3 +21595,26 @@ pitfalls in Rust")
     (description
      "Parse command line argument by defining a struct.")
     (license #f)))
+
+(define-public rust-src
+  (package
+    (inherit rust)
+    (name "rust-src")
+    (build-system gnu-build-system)
+    (outputs '("out"))
+    (arguments
+     `(#:phases
+       (modify-phases %standard-phases
+         (delete 'configure)
+         (delete 'build)
+         (delete 'check)
+         (delete 'strip)
+         (delete 'validate-runpath)
+         (delete 'compress-documentation)
+         (delete 'delete-info-dir-file)
+         (delete 'validate-documentation-location)
+         (replace 'install
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let ((out (assoc-ref outputs "out")))
+             (copy-recursively "src" (string-append out "/src"))
+             #t))))))))
