@@ -2,10 +2,19 @@
   #:use-module ((gnu packages cmake) #:select (cmake))
   #:use-module (gnu packages crates-io)
   #:use-module ((gnu packages fontutils) #:select (fontconfig freetype))
+  #:use-module ((gnu packages freedesktop) #:select (wayland))
+  #:use-module ((gnu packages gl) #:select (glew))
   #:use-module ((gnu packages pkg-config) #:select (pkg-config))
   #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module ((gnu packages version-control) #:select (git))
-  #:use-module ((gnu packages xorg) #:select (libx11 libxcb))
+  #:use-module ((gnu packages xdisorg) #:select (libxkbcommon))
+  #:use-module ((gnu packages xorg)
+                #:select (libx11
+                          libxcb
+                          libxcursor
+                          libxi
+                          libxrandr
+                          libxxf86vm))
   #:use-module (guix build-system cargo)
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license:)
@@ -31,10 +40,17 @@
      `(("cmake" ,cmake)
        ("fontconfig" ,fontconfig)
        ("freetype" ,freetype)
+       ("glew" ,glew)
        ("libx11" ,libx11)
        ("libxcb" ,libxcb)
+       ("libxcursor" ,libxcursor)
+       ("libxi" ,libxi)
+       ("libxxf86vm" ,libxxf86vm)
+       ("libxkbcommon" ,libxkbcommon)
+       ("libxrandr" ,libxrandr)
        ("pkg-config" ,pkg-config)
-       ("python-wrapper" ,python-wrapper)))
+       ("python-wrapper" ,python-wrapper)
+       ("wayland" ,wayland)))
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
