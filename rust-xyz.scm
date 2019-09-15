@@ -21617,5 +21617,9 @@ pitfalls in Rust")
            (lambda* (#:key outputs #:allow-other-keys)
              (let ((out (assoc-ref outputs "out")))
              (copy-recursively
-              "src" (string-append out "/src/rust/"))
-             #t))))))))
+              "src" (string-append out "/lib/rustlib/src/rust/src"))
+             #t))))))
+    (native-search-paths
+     (list (search-path-specification
+            (variable "RUST_SRC_DIR")
+            (files '("lib/rustlib/src/rust/src")))))))

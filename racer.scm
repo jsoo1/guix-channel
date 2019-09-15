@@ -27,8 +27,9 @@
     (inputs
      `(("perl" ,perl)
        ("python-wrapper" ,python-wrapper)
-       ("ruby" ,ruby)
-       ("rust-src" ,rust-src)))
+       ("ruby" ,ruby)))
+    (propagated-inputs
+     `(("rust-src" ,rust-src)))
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-0.7)
@@ -58,13 +59,7 @@
              (substitute* "Cargo.toml"
                (("\\[dev-dependencies.racer-testutils\\]") "")
                (("version = \"0.1\"") "")
-               (("path = \"testutils\"") ""))))
-         (add-before 'build 'set-rust-src-path
-           (lambda* (#:key inputs #:allow-other-keys)
-             (setenv
-              "RUST_SRC_PATH"
-              (string-append (assoc-ref inputs "rust-src") "/src/rust"))
-             #t)))))
+               (("path = \"testutils\"") "")))))))
     (home-page "https://github.com/racer-rust/racer")
     (synopsis "Code completion for Rust")
     (description "Code completion for Rust")
