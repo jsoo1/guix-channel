@@ -21623,3 +21623,59 @@ pitfalls in Rust")
      (list (search-path-specification
             (variable "RUST_SRC_DIR")
             (files '("lib/rustlib/src/rust/src")))))))
+
+(define-public rust-structopt-derive
+  (package
+    (name "rust-structopt-derive")
+    (version "0.3.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "structopt-derive" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0dzz8bl90dw4lji3l5pmgc2id4qgilgh4zcnfvm0sfj6blbfbs9a"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-heck" ,rust-heck)
+        ("rust-proc-macro-error" ,rust-proc-macro-error)
+        ("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-syn" ,rust-syn))))
+    (home-page
+     "https://github.com/TeXitoi/structopt")
+    (synopsis
+     "Parse command line argument by defining a struct, derive crate.")
+    (description
+     "Parse command line argument by defining a struct, derive crate.")
+    (license #f)))
+
+(define-public rust-proc-macro-error
+  (package
+    (name "rust-proc-macro-error")
+    (version "0.2.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "proc-macro-error" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "15v0ghpanf8zzdbd76dxccfi5x706w3av8p4y3apb8cfbm6zxk5f"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-syn" ,rust-syn))))
+    (home-page
+     "https://github.com/CreepySkeleton/proc-macro-error")
+    (synopsis
+     "Drop-in replacement to panics in proc-macros")
+    (description
+     "Drop-in replacement to panics in proc-macros")
+    (license license:expat)))
