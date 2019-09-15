@@ -63,7 +63,7 @@
            (lambda* (#:key inputs #:allow-other-keys)
              (setenv
               "RUST_SRC_PATH"
-              (string-append (assoc-ref inputs "rust-src") "/src"))
+              (string-append (assoc-ref inputs "rust-src") "/src/rust"))
              #t)))))
     (home-page "https://github.com/racer-rust/racer")
     (synopsis "Code completion for Rust")

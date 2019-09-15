@@ -21616,5 +21616,6 @@ pitfalls in Rust")
          (replace 'install
            (lambda* (#:key outputs #:allow-other-keys)
              (let ((out (assoc-ref outputs "out")))
-             (copy-recursively "src" (string-append out "/src"))
+             (copy-recursively
+              "src" (string-append out "/src/rust/"))
              #t))))))))
