@@ -2,7 +2,8 @@
   #:use-module (gnu packages rust)
   #:use-module (guix build-system trivial)
   #:use-module (guix utils)
-  #:use-module (guix packages))
+  #:use-module (guix packages)
+  #:use-module (ice-9 match))
 
 (define-public (cargo-for rust)
   (package
@@ -27,4 +28,28 @@
     (description (package-description rust))
     (license (package-license rust))))
 
-(define-public cargo (cargo-for rust))
+(define rusts
+  `((rust      . ,rust)
+    (rust-1.36 . ,rust-1.36)
+    (rust-1.35 . ,rust-1.35)
+    (rust-1.34 . ,rust-1.34)
+    (rust-1.33 . ,rust-1.33)
+    (rust-1.32 . ,rust-1.32)
+    (rust-1.31 . ,rust-1.31)
+    (rust-1.30 . ,rust-1.30)
+    (rust-1.29 . ,rust-1.29)
+    (rust-1.28 . ,rust-1.28)
+    (rust-1.27 . ,rust-1.27)
+    (rust-1.26 . ,rust-1.26)
+    (rust-1.25 . ,rust-1.25)
+    (rust-1.24 . ,rust-1.24)
+    (rust-1.23 . ,rust-1.23)
+    (rust-1.22 . ,rust-1.22)
+    (rust-1.21 . ,rust-1.21)
+    (rust-1.20 . ,rust-1.20)))
+
+(for-each
+ (match-lambda
+   ((n . r)
+    (eval `(define-public ,n (cargo-for ,r)) (current-module))))
+ rusts)
