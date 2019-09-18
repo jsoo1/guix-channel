@@ -21757,3 +21757,60 @@ pitfalls in Rust")
     (description
      "Conditional compilation according to rustc compiler version")
     (license (list license:expat license:asl2.0))))
+
+;; FIXME
+(define-public rust-simd
+  (package
+    (name "rust-simd")
+    (version "0.2.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "simd" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1dgpmfzd4favsckd5m0p6bna1dcgw19hjigkqcgwfhc4d05hxczj"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-serde" ,rust-serde)
+        ("rust-serde-derive" ,rust-serde-derive))
+       #:cargo-development-inputs
+       (("rust-cfg-if" ,rust-cfg-if))))
+    (home-page "https://github.com/hsivonen/simd")
+    (synopsis
+     "Offers limited cross-platform access to SIMD instructions on")
+    (description
+     "This simd crate offers limited cross-platform access to SIMD instructions
+on CPUs, as well as raw interfaces to platform-specific instructions.
+(To be obsoleted by the `std::simd` implementation RFC 2366.)")
+    (license #f)))
+
+(define-public rust-rental-impl
+  (package
+    (name "rust-rental-impl")
+    (version "0.5.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rental-impl" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1djsnbzw57fkspjgjfm159qaw7z8k1y7w7qnvw49dgicrxa0s9l2"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2)
+        ("rust-quote" ,rust-quote)
+        ("rust-syn" ,rust-syn))))
+    (home-page "https://www.jpernst.com")
+    (synopsis
+     "An implementation detail of rental")
+    (description
+     "An implementation detail of rental.  Should not be used
+directly.")
+    (license #f)))
