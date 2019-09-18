@@ -134,7 +134,6 @@
 
                ;; Manpages
                (mkdir-p (string-append out "/share/man/man1"))
-               (mkdir-p (string-append out "/share/terminfo/"))
                (call-with-output-file
                    (string-append out "/share/man/man1/alacritty.1.gz")
                  (lambda (f)
@@ -146,6 +145,7 @@
                      (close-pipe pipe))))
 
                ;; Terminfo
+               (mkdir-p (string-append out "/share/terminfo/"))
                (invoke
                 tic "-x"
                 "-o" (string-append out "/share/terminfo/")
