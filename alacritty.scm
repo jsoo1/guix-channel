@@ -45,6 +45,7 @@
        ("expat" ,expat)
        ("fontconfig" ,fontconfig)
        ("freetype" ,freetype)
+       ("gzip" ,gzip)
        ("libx11" ,libx11)
        ("libxcb" ,libxcb)
        ("libxcursor" ,libxcursor)
@@ -52,12 +53,11 @@
        ("libxxf86vm" ,libxxf86vm)
        ("libxkbcommon" ,libxkbcommon)
        ("libxrandr" ,libxrandr)
+       ("mesa" ,mesa)
+       ("ncurses" ,ncurses)
        ("pkg-config" ,pkg-config)
        ("python-wrapper" ,python-wrapper)
        ("wayland" ,wayland)))
-    (native-inputs
-     `(("gzip" ,gzip)
-       ("ncurses" ,ncurses)))
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
@@ -111,7 +111,7 @@
                    (gzip (string-append
                           (assoc-ref inputs "gzip") "/bin/gzip"))
                    (tic (string-append
-                         (assoc-ref inputs "terminfo") "/bin/tic")))
+                         (assoc-ref inputs "ncurses") "/bin/tic")))
                ;; Binary
                (install-file
                 "target/release/alacritty" (string-append out "/bin"))
@@ -133,12 +133,23 @@
                 (string-append out "/share/applications"))
 
                ;; Manpages
-               (invoke gzip "-c" "extra/alacritty.man"
-                       ">" (string-append out "/share/man/man1/alacritty.1.gz"))
+               (mkdir-p (string-append out "/share/man/man1"))
+               (mkdir-p (string-append out "/share/terminfo/"))
+               (call-with-output-file
+                   (string-append out "/share/man/man1/alacritty.1.gz")
+                 (lambda (f)
+                   (use-modules (ice-9 popen) (ice-9 binary-ports))
+                   (let* ((cmd (string-append gzip " -c extra/alacritty.man"))
+                          (pipe (open-input-pipe cmd))
+                          (man (get-bytevector-all pipe)))
+                     (put-bytevector f man)
+                     (close-pipe pipe))))
 
                ;; Terminfo
-               (invoke tic "-x"
-                       "-o" (string-append out "/share/terminfo/"))
+               (invoke
+                tic "-x"
+                "-o" (string-append out "/share/terminfo/")
+                "extra/alacritty.info")
                #t))))))
     (home-page "https://github.com/jwilm/alacritty")
     (synopsis "GPU accelerated terminal emulator")
