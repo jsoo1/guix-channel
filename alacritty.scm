@@ -1,9 +1,11 @@
 (define-module (alacritty)
   #:use-module ((gnu packages cmake) #:select (cmake))
+  #:use-module ((gnu packages compression) #:select (gzip))
   #:use-module (gnu packages crates-io)
   #:use-module ((gnu packages fontutils) #:select (fontconfig freetype))
   #:use-module ((gnu packages freedesktop) #:select (wayland))
-  #:use-module ((gnu packages gl) #:select (glew))
+  #:use-module ((gnu packages gl) #:select (freeglut glew mesa))
+  #:use-module ((gnu packages ncurses) #:select (ncurses))
   #:use-module ((gnu packages pkg-config) #:select (pkg-config))
   #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module ((gnu packages version-control) #:select (git))
@@ -17,6 +19,7 @@
                           libxrandr
                           libxxf86vm))
   #:use-module (guix build-system cargo)
+  #:use-module ((guix build-system gnu) #:prefix gnu:)
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
@@ -42,7 +45,6 @@
        ("expat" ,expat)
        ("fontconfig" ,fontconfig)
        ("freetype" ,freetype)
-       ("glew" ,glew)
        ("libx11" ,libx11)
        ("libxcb" ,libxcb)
        ("libxcursor" ,libxcursor)
@@ -53,6 +55,9 @@
        ("pkg-config" ,pkg-config)
        ("python-wrapper" ,python-wrapper)
        ("wayland" ,wayland)))
+    (native-inputs
+     `(("gzip" ,gzip)
+       ("ncurses" ,ncurses)))
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
@@ -101,10 +106,40 @@
        #:phases
        (modify-phases %standard-phases
          (replace 'install
-           (lambda* (#:key outputs #:allow-other-keys)
-             (let ((out (assoc-ref outputs "out")))
+           (lambda* (#:key inputs outputs #:allow-other-keys)
+             (let ((out (assoc-ref outputs "out"))
+                   (gzip (string-append
+                          (assoc-ref inputs "gzip") "/bin/gzip"))
+                   (tic (string-append
+                         (assoc-ref inputs "terminfo") "/bin/tic")))
+               ;; Binary
                (install-file
-                "target/release/alacritty" (string-append out "/bin"))))))))
+                "target/release/alacritty" (string-append out "/bin"))
+
+               ;; Completions
+               (install-file
+                "extra/completions/_alacritty"
+                (string-append out "/share/zsh/site-functions"))
+               (install-file
+                "extra/completions/alacritty.bash"
+                (string-append out "/etc/bash_completion.d"))
+               (install-file
+                "extra/completions/alacritty.fish"
+                (string-append out "/share/fish/vendor_completions.d"))
+
+               ;; .desktop file
+               (install-file
+                "extra/linux/alacritty.desktop"
+                (string-append out "/share/applications"))
+
+               ;; Manpages
+               (invoke gzip "-c" "extra/alacritty.man"
+                       ">" (string-append out "/share/man/man1/alacritty.1.gz"))
+
+               ;; Terminfo
+               (invoke tic "-x"
+                       "-o" (string-append out "/share/terminfo/"))
+               #t))))))
     (home-page "https://github.com/jwilm/alacritty")
     (synopsis "GPU accelerated terminal emulator")
     (description "GPU accelerated terminal emulator")
