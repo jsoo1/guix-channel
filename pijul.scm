@@ -63,7 +63,7 @@
         ("rust-shell-escape" ,rust-shell-escape)
         ("rust-tar" ,rust-tar)
         ("rust-tempfile" ,rust-tempfile)
-        ("rust-term" ,rust-term)
+        ("rust-term" ,rust-term-0.5)
         ("rust-thrussh" ,rust-thrussh)
         ("rust-thrussh-config" ,rust-thrussh-config)
         ("rust-thrussh-keys" ,rust-thrussh-keys)

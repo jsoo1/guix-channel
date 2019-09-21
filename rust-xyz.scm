@@ -2078,30 +2078,19 @@ variable.")
      "This package provides a bindless library for manipulating terminals.")
     (license #f)))
 
-(define-public rust-term
+(define-public rust-term-0.5
   (package
-    (name "rust-term")
+    (inherit rust-term)
     (version "0.5.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "term" version))
        (file-name
-        (string-append name "-" version ".tar.gz"))
+        (string-append (package-name rust-term) "-" version ".tar.gz"))
        (sha256
         (base32
-         "0hkgjrfisj6zjwz525639pmsvzhlc48a0h65nw87qrdp6jihdlgd"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
-        ("rust-dirs" ,rust-dirs)
-        ("rust-winapi" ,rust-winapi))))
-    (home-page "https://github.com/Stebalien/term")
-    (synopsis "A terminal formatting library")
-    (description
-     "This package provides a terminal formatting library")
-    (license #f)))
+         "0hkgjrfisj6zjwz525639pmsvzhlc48a0h65nw87qrdp6jihdlgd"))))))
 
 (define-public rust-term-0.5.1
   (package
@@ -2116,20 +2105,6 @@ variable.")
        (sha256
         (base32
          "0qbmqd8jbjlqr4608qdmvp6yin5ypifzi5s2xyhlw8g8s5ynfssy"))))))
-
-(define-public rust-term-0.4
-  (package
-    (inherit rust-term)
-    (version "0.4.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "term" version))
-       (file-name
-        (string-append (package-name rust-term) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1wbh8ngqkqr3f6wz902yplf60bd5yapnckvrkgmzp5nffi7n8qzs"))))))
 
 (define-public rust-hyphenation
   (package
@@ -3947,7 +3922,7 @@ the same way and no more (caveat: black_box is still missing!).")
        (("rust-getopts" ,rust-getopts)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-rustc-serialize" ,rust-rustc-serialize)
-        ("rust-term" ,rust-term)
+        ("rust-term" ,rust-term-0.5)
         ("rust-time" ,rust-time))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version))))
@@ -9690,7 +9665,7 @@ according to XDG Base Directory specification")
        (("rust-getopts" ,rust-getopts))
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck)
-        ("rust-term" ,rust-term))))
+        ("rust-term" ,rust-term-0.5))))
     (home-page
      "https://github.com/johannhof/difference.rs")
     (synopsis
@@ -10106,12 +10081,11 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-pkg-config" ,rust-pkg-config))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+        ("rust-pkg-config" ,rust-pkg-config)
+        ("rust-cc" ,rust-cc))))
     (home-page
      "https://github.com/BurntSushi/rust-pcre2")
-    (synopsis "Low level bindings to PCRE2.")
+    (synopsis "Low level bindings to PCRE2")
     (description "Low level bindings to PCRE2.")
     (license #f)))
 
@@ -10680,27 +10654,19 @@ according to XDG Base Directory specification")
      "Fast functions for printing floating-point primitives to an io::Write")
     (license #f)))
 
-(define-public rust-static-assertions
+(define-public rust-static-assertions-0.3.3
   (package
-    (name "rust-static-assertions")
+    (inherit rust-static-assertions)
     (version "0.3.3")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "static_assertions" version))
        (file-name
-        (string-append name "-" version ".tar.gz"))
+        (string-append (package-name rust-static-assertions) "-" version ".tar.gz"))
        (sha256
         (base32
-         "0hdj6cxknz53vxnf7szpifs16rk4l3x0n0i4bzmm6li1v8vdxy5l"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/nvzqz/static-assertions-rs")
-    (synopsis
-     "Compile-time assertions to ensure that invariants are met.")
-    (description
-     "Compile-time assertions to ensure that invariants are met.")
-    (license #f)))
+         "0hdj6cxknz53vxnf7szpifs16rk4l3x0n0i4bzmm6li1v8vdxy5l"))))))
 
 (define-public rust-stackvector
   (package
@@ -13974,7 +13940,7 @@ exposed as Reader/Writer streams.")
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-sha2" ,rust-sha2)
         ("rust-string-cache" ,rust-string-cache)
-        ("rust-term" ,rust-term)
+        ("rust-term" ,rust-term-0.5)
         ("rust-unicode-xid" ,rust-unicode-xid))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand))))
@@ -17652,7 +17618,7 @@ implementation of Bresenham's line algorithm.")
          "0a9s8vrbc5jr6ry5ygjyfqmbs9gyya1v6dsxzsczpai8z4nvg3pz"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-term" ,rust-term))))
+     `(#:cargo-inputs (("rust-term" ,rust-term-0.5))))
     (home-page
      "https://github.com/nikomatsakis/ascii-canvas")
     (synopsis
@@ -18540,7 +18506,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-glium" ,rust-glium)
         ("rust-glob" ,rust-glob)
         ("rust-rand" ,rust-rand)
-        ("rust-term" ,rust-term))))
+        ("rust-term" ,rust-term-0.5))))
     (home-page
      "https://github.com/image-rs/image-png.git")
     (synopsis
@@ -18573,7 +18539,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-glium" ,rust-glium)
         ("rust-glob" ,rust-glob)
         ("rust-rand" ,rust-rand)
-        ("rust-term" ,rust-term))))))
+        ("rust-term" ,rust-term-0.5))))))
 
 (define-public rust-tiff
   (package
@@ -19244,7 +19210,7 @@ inter-process communication.")
        (("rust-atty" ,rust-atty)
         ("rust-chrono" ,rust-chrono)
         ("rust-slog" ,rust-slog)
-        ("rust-term" ,rust-term)
+        ("rust-term" ,rust-term-0.5)
         ("rust-thread-local" ,rust-thread-local))
        #:cargo-development-inputs
        (("rust-slog-async" ,rust-slog-async))))
@@ -20394,7 +20360,8 @@ for computer graphics.")
      ;; Something is failing compiling a c++ program here
      `(#:tests? #f
        #:cargo-inputs
-       (("rust-clap" ,rust-clap)
+       (("rust-cfg-if" ,rust-cfg-if)
+        ("rust-clap" ,rust-clap)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2)
         ("rust-quote" ,rust-quote)
@@ -20451,7 +20418,7 @@ for computer graphics.")
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-syntex-pos" ,rust-syntex-pos)
-        ("rust-term" ,rust-term)
+        ("rust-term" ,rust-term-0.5)
         ("rust-unicode-xid" ,rust-unicode-xid))))
     (home-page "https://github.com/serde-rs/syntex")
     (synopsis "Backport of librustc_errors")
@@ -20573,11 +20540,11 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-num-traits" ,rust-num-traits)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.6.5)
+        ("rust-rustc-version" ,rust-rustc-version)
         ("rust-serde" ,rust-serde))
        #:cargo-development-inputs
        (("rust-extprim-literals" ,rust-extprim-literals)
-        ("rust-rustc-version" ,rust-rustc-version)
         ("rust-semver" ,rust-semver))))
     (home-page "https://github.com/kennytm/extprim")
     (synopsis "Extra primitive types")
