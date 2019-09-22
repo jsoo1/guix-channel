@@ -38,6 +38,7 @@
         (revision "1"))
     (package
       (inherit emacs)
+      (name "emacs-next")
       (version "27.alpha")
       (source
        (origin
