@@ -55,6 +55,7 @@
   #:use-module (rust-xyz)
   #:use-module (rustfmt))
 
+;; Like IceCat but using bundled media libraries
 (define-public firefox
   (package
     (name "firefox")
@@ -87,10 +88,13 @@
        ("hunspell" ,hunspell)
        ("libcanberra" ,libcanberra)
        ("libgnome" ,libgnome)
-       ("libjpeg-turbo" ,libjpeg-turbo)
-       ("libogg" ,libogg)
+       ;; JPEG now killing the build
+       ;; ("libjpeg-turbo" ,libjpeg-turbo)
+       ;; No longer has a --with-system-ogg option
+       ;; ("libogg" ,libogg)
        ;; ("libtheora" ,libtheora) ; wants theora-1.2, not yet released
-       ("libvorbis" ,libvorbis)
+       ;; vorbis unused??
+       ;; ("libvorbis" ,libvorbis)
        ("libxft" ,libxft)
        ("libevent" ,libevent)
        ("libxinerama" ,libxinerama)
@@ -194,21 +198,25 @@
                            ;; Avoid bundled libraries.
                            "--with-system-zlib"
                            "--with-system-bz2"
-                           "--with-system-jpeg"        ; must be libjpeg-turbo
+                           ;; Seems to break
+                           ;; "--with-system-jpeg"        ; must be libjpeg-turbo
                            "--with-system-libevent"
-                           
+
+                           ;; No longer has this option
+                           ;; "--with-system-ogg"
+
                            ;; Not valid anymore
                            ;; "--with-system-vorbis"
                            ;; "--with-system-theora" ; wants theora-1.2, not yet released
                            "--with-system-libvpx"
                            "--with-system-icu"
-                           
+
                            ;; See <https://bugs.gnu.org/32833>
                            ;;   and related comments in the
                            ;;   'remove-bundled-libraries' phase below.
                            ;; UNBUNDLE-ME! "--with-system-nspr"
                            ;; UNBUNDLE-ME! "--with-system-nss"
-                           
+
                            ;; Not valid anymore
                            ;; "--with-system-harfbuzz"
                            ;; "--with-system-graphite2"
@@ -292,12 +300,14 @@
                          ;; "modules/libbz2"
                          ;; Can't find the build rule that mentions this
                          ;; "ipc/chromium/src/third_party/libevent"
-                         "media/libjpeg"
+                         ;; JPEG now killing the build
+                         ;; "media/libjpeg"
                          "media/libvpx"
-                         "media/libogg"
-                         "media/libvorbis"
+                         ;; No longer has a --with-system-ogg option
+                         ;; "media/libogg"
+                         ;; "media/libvorbis"
                          ;; "media/libtheora" ; wants theora-1.2, not yet released
-                         "media/libtremor"
+                         ;; "media/libtremor"
                          "gfx/harfbuzz"
                          "gfx/graphite2"
                          "js/src/ctypes/libffi"
