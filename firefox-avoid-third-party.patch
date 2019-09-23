@@ -1,4 +1,32 @@
 Fix references to unused moz.build files
+--- firefox-69.0/config/external/moz.build
++++ firefox-69.0/config/external/moz.build
+@@ -10,8 +10,6 @@ DIRS += [
+     'lgpllibs',
+     'sqlite',
+ ]
+-if not CONFIG['MOZ_SYSTEM_JPEG']:
+-    external_dirs += ['media/libjpeg']
+ 
+ DIRS += [
+     '/third_party/prio',
+@@ -22,8 +22,5 @@ external_dirs += ['modules/woff2']
+ 
+ external_dirs += ['modules/xz-embedded']
+ 
+-if CONFIG['MOZ_VORBIS']:
+-    external_dirs += ['media/libvorbis']
+-
+ if CONFIG['MOZ_TREMOR']:
+     external_dirs += ['media/libtremor']
+@@ -51,7 +51,6 @@ external_dirs += [
+     'media/kiss_fft',
+     'media/libcubeb',
+     'media/libnestegg',
+-    'media/libogg',
+     'media/libopus',
+     'media/libtheora',
+     'media/libspeex_resampler',
 --- firefox-69.0/media/webrtc/trunk/webrtc/rtc_base/rtc_task_queue_gn/moz.build
 +++ firefox-69.0/media/webrtc/trunk/webrtc/rtc_base/rtc_task_queue_gn/moz.build
 @@ -21,7 +21,6 @@ FINAL_LIBRARY = "webrtc"
@@ -9,3 +37,14 @@ Fix references to unused moz.build files
      "/ipc/glue",
      "/media/webrtc/trunk/webrtc/"
  ]
+--- firefox-69.0/gfx/moz.build
++++ firefox-69.0/gfx/moz.build
+@@ -20,8 +20,6 @@ DIRS += [
+     'qcms',
+     'gl',
+     'layers',
+-    'graphite2/src',
+-    'harfbuzz/src',
+     'ots/src',
+     'thebes',
+     'ipc',

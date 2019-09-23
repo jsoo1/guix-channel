@@ -85,17 +85,17 @@
        ("pango" ,pango)
        ("freetype" ,freetype)
        ;; Not setup properly
-       ;; ("harfbuzz" ,harfbuzz)
+       ("harfbuzz" ,harfbuzz)
        ("hunspell" ,hunspell)
        ("libcanberra" ,libcanberra)
        ("libgnome" ,libgnome)
        ;; JPEG now killing the build
-       ;; ("libjpeg-turbo" ,libjpeg-turbo)
+       ("libjpeg-turbo" ,libjpeg-turbo)
        ;; No longer has a --with-system-ogg option
-       ;; ("libogg" ,libogg)
+       ("libogg" ,libogg)
        ;; ("libtheora" ,libtheora) ; wants theora-1.2, not yet released
        ;; vorbis unused??
-       ;; ("libvorbis" ,libvorbis)
+       ("libvorbis" ,libvorbis)
        ("libxft" ,libxft)
        ("libevent" ,libevent)
        ("libxinerama" ,libxinerama)
@@ -135,6 +135,8 @@
 
        ("firefox-avoid-third-party.patch" "./firefox-avoid-third-party.patch")
        ("firefox-rust-binary-validation.patch" "./firefox-rust-binary-validation.patch")
+       ("firefox-use-system-graphite2+harfbuzz.patch" "./firefox-use-system-graphite2+harfbuzz.patch")
+       ("firefox-avoid-bundled-libraries.patch" "./firefox-avoid-bundled-libraries.patch")
        ("patch" ,(canonical-package patch))
 
        ("autoconf" ,autoconf-2.13)
@@ -200,14 +202,14 @@
                            "--with-system-zlib"
                            "--with-system-bz2"
                            ;; Seems to break
-                           ;; "--with-system-jpeg"        ; must be libjpeg-turbo
+                           "--with-system-jpeg"        ; must be libjpeg-turbo
                            "--with-system-libevent"
 
                            ;; No longer has this option
-                           ;; "--with-system-ogg"
+                           "--with-system-ogg"
 
                            ;; Not valid anymore
-                           ;; "--with-system-vorbis"
+                           "--with-system-vorbis"
                            ;; "--with-system-theora" ; wants theora-1.2, not yet released
                            "--with-system-libvpx"
                            "--with-system-icu"
@@ -218,13 +220,11 @@
                            ;; UNBUNDLE-ME! "--with-system-nspr"
                            ;; UNBUNDLE-ME! "--with-system-nss"
 
-                           ;; Not valid anymore
-                           ;; "--with-system-harfbuzz"
-                           ;; "--with-system-graphite2"
+                           "--with-system-harfbuzz"
+                           "--with-system-graphite2"
                            "--enable-system-pixman"
                            "--enable-system-ffi"
-                           ;; Not valid anymore
-                           ;; "--enable-system-hunspell"
+                           "--enable-system-hunspell"
                            "--enable-system-sqlite"
 
                            ;; Fails with "--with-system-png won't work because
@@ -302,15 +302,15 @@
                          ;; Can't find the build rule that mentions this
                          ;; "ipc/chromium/src/third_party/libevent"
                          ;; JPEG now killing the build
-                         ;; "media/libjpeg"
-                         ;; "media/libvpx"
+                         "media/libjpeg"
+                         "media/libvpx"
                          ;; No longer has a --with-system-ogg option
-                         ;; "media/libogg"
-                         ;; "media/libvorbis"
+                         "media/libogg"
+                         "media/libvorbis"
                          ;; "media/libtheora" ; wants theora-1.2, not yet released
-                         ;; "media/libtremor"
-                         ;; "gfx/harfbuzz"
-                         ;; "gfx/graphite2"
+                         "media/libtremor"
+                         "gfx/harfbuzz"
+                         "gfx/graphite2"
                          "js/src/ctypes/libffi"
                          ;; Does not exist anymore
                          ;; "db/sqlite3"
