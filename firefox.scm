@@ -84,7 +84,8 @@
        ("graphite2" ,graphite2)
        ("pango" ,pango)
        ("freetype" ,freetype)
-       ("harfbuzz" ,harfbuzz)
+       ;; Not setup properly
+       ;; ("harfbuzz" ,harfbuzz)
        ("hunspell" ,hunspell)
        ("libcanberra" ,libcanberra)
        ("libgnome" ,libgnome)
@@ -302,14 +303,14 @@
                          ;; "ipc/chromium/src/third_party/libevent"
                          ;; JPEG now killing the build
                          ;; "media/libjpeg"
-                         "media/libvpx"
+                         ;; "media/libvpx"
                          ;; No longer has a --with-system-ogg option
                          ;; "media/libogg"
                          ;; "media/libvorbis"
                          ;; "media/libtheora" ; wants theora-1.2, not yet released
                          ;; "media/libtremor"
-                         "gfx/harfbuzz"
-                         "gfx/graphite2"
+                         ;; "gfx/harfbuzz"
+                         ;; "gfx/graphite2"
                          "js/src/ctypes/libffi"
                          ;; Does not exist anymore
                          ;; "db/sqlite3"
@@ -414,7 +415,7 @@
                  (("NewPrivateWindow") "new-private-window"))
                (install-file desktop-file applications)
                #t)))
-         (add-after 'build 'install-icons
+         (add-before 'configure 'install-icons
            (lambda* (#:key outputs #:allow-other-keys)
              (let ((out (assoc-ref outputs "out")))
                (with-directory-excursion "browser/branding/official"
@@ -426,8 +427,8 @@
                       (mkdir-p icons)
                       (copy-file file (string-append icons "/firefox.png"))))
                   '("default16.png" "default22.png" "default24.png"
-                    "default32.png" "default48.png" "content/icon64.png"
-                    "mozicon128.png" "default256.png"))
+                    "default32.png" "default48.png" "default64.png"
+                    "default128.png" "default256.png"))
                  #t))))
          ;; This fixes the file chooser crash that happens with GTK 3.
          (add-after 'install 'wrap-program
@@ -445,8 +446,9 @@
      "Firefox")
     (license license:mpl2.0)     ;and others, see toolkit/content/license.html
     (properties
-     `((ftp-directory . "/gnu/gnuzilla")
-       (cpe-name . "firefox_esr")
+     `(;; not sure this is needed
+       ;; (ftp-directory . "/gnu/gnuzilla")
+       (cpe-name . "firefox")
        (cpe-version . ,(first (string-split version #\-)))))))
 
 (define-public sqlite-3.28.0
