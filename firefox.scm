@@ -133,10 +133,12 @@
        ;; ("icecat-use-system-media-libs.patch"
        ;;  ,(search-patch "icecat-use-system-media-libs.patch"))
 
+       ("firefox-avoid-bundled-libraries.patch"
+        "./firefox-avoid-bundled-libraries.patch")
        ("firefox-avoid-third-party.patch" "./firefox-avoid-third-party.patch")
        ("firefox-rust-binary-validation.patch" "./firefox-rust-binary-validation.patch")
-       ("firefox-use-system-graphite2+harfbuzz.patch" "./firefox-use-system-graphite2+harfbuzz.patch")
-       ("firefox-avoid-bundled-libraries.patch" "./firefox-avoid-bundled-libraries.patch")
+       ("firefox-use-system-graphite2+harfbuzz.patch"
+        "./firefox-use-system-graphite2+harfbuzz.patch")
        ("patch" ,(canonical-package patch))
 
        ("autoconf" ,autoconf-2.13)

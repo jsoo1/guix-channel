@@ -28,7 +28,7 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
          'vpx_mem/vpx_mem.h',
 --- firefox-69.0/dom/base/moz.build
 +++ firefox-69.0/dom/base/moz.build
-@@ -474,6 +474,9 @@
+@@ -530,6 +530,9 @@
  if CONFIG['MOZ_X11']:
      CXXFLAGS += CONFIG['TK_CFLAGS']
  
@@ -81,15 +81,6 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  DIRS += [
      '2d',
      'ycbcr',
-@@ -18,8 +24,6 @@ DIRS += [
-     'qcms',
-     'gl',
-     'layers',
--    'graphite2/src',
--    'harfbuzz/src',
-     'ots/src',
-     'thebes',
-     'ipc',
 --- firefox-69.0/gfx/skia/generate_mozbuild.py
 +++ firefox-69.0/gfx/skia/generate_mozbuild.py
 @@ -148,6 +148,9 @@
@@ -180,9 +171,9 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  dnl Check for pixman and cairo
  dnl ========================================================
  
---- firefox-69.0/toolkit/library/moz.build
+--- firefox-69.0/toolkit/library/moz.build.orig
 +++ firefox-69.0/toolkit/library/moz.build
-@@ -235,6 +235,12 @@
+@@ -222,6 +222,12 @@ if CONFIG['MOZ_SYSTEM_JPEG']:
  if CONFIG['MOZ_SYSTEM_PNG']:
      OS_LIBS += CONFIG['MOZ_PNG_LIBS']
  
@@ -192,14 +183,14 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
 +if CONFIG['MOZ_SYSTEM_HARFBUZZ']:
 +    OS_LIBS += CONFIG['MOZ_HARFBUZZ_LIBS']
 +
- if CONFIG['MOZ_SYSTEM_HUNSPELL']:
-     OS_LIBS += CONFIG['MOZ_HUNSPELL_LIBS']
+ if CONFIG['MOZ_SYSTEM_WEBP']:
+     OS_LIBS += CONFIG['MOZ_WEBP_LIBS']
  
 --- firefox-69.0/toolkit/moz.configure
 +++ firefox-69.0/toolkit/moz.configure
-@@ -1051,6 +1051,26 @@
- add_old_configure_assignment('FT2_CFLAGS',
-                              ft2_info.cflags)
+@@ -1046,5 +1046,25 @@
+ set_define('MOZ_WEBRTC_HARDWARE_AEC_NS',
+            depends_if('--enable-hardware-aec-ns', when=webrtc)(lambda _: True))
  
 +# Graphite2
 +# ==============================================================
@@ -221,6 +212,5 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
 +
 +set_config('MOZ_SYSTEM_HARFBUZZ', depends_if(system_harfbuzz)(lambda _: True))
 +
- # Mortar
+ # RAW media
  # ==============================================================
- option('--enable-mortar', help='Enable mortar extension')
