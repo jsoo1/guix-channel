@@ -50,7 +50,7 @@
            (commit commit)))
          (sha256
           (base32
-           "1gg6833vvcy2sam44gr5kbz0fcfd2xxdnhgki9dy0w3j44jk04z4"))
+           "06gwrjwyaad11vfx5929y2cy0kb6bhy2r6z43a03k2f7cx6l1jg4"))
          (snippet
           ;; Delete the bundled byte-compiled elisp files and
           ;; generated autoloads.
