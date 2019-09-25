@@ -121,24 +121,21 @@
        ("zip" ,zip)
        ("zlib" ,zlib)))
     (native-inputs
-     ;; The following patches are specific to the Guix packaging of IceCat,
+     ;; The following patches are specific to the Guix packaging of Firefox,
      ;; and therefore we prefer to leave them out of 'source', which should be
-     ;; a tarball suitable for compilation on any system that IceCat supports.
+     ;; a tarball suitable for compilation on any system that Firefox supports.
      ;; (Bug fixes and security fixes, however, should go in 'source').
      ;; They are commented out because they fail
-     `(;; ("icecat-avoid-bundled-libraries.patch"
-       ;;  ,(search-patch "icecat-avoid-bundled-libraries.patch"))
-       ;; ("icecat-use-system-graphite2+harfbuzz.patch"
-       ;;  ,(search-patch "icecat-use-system-graphite2+harfbuzz.patch"))
-       ;; ("icecat-use-system-media-libs.patch"
-       ;;  ,(search-patch "icecat-use-system-media-libs.patch"))
-
-       ("firefox-avoid-bundled-libraries.patch"
+     `(("firefox-avoid-bundled-libraries.patch"
         "./firefox-avoid-bundled-libraries.patch")
-       ("firefox-avoid-third-party.patch" "./firefox-avoid-third-party.patch")
-       ("firefox-rust-binary-validation.patch" "./firefox-rust-binary-validation.patch")
+       ("firefox-avoid-third-party.patch"
+        "./firefox-avoid-third-party.patch")
+       ("firefox-rust-binary-validation.patch"
+        "./firefox-rust-binary-validation.patch")
        ("firefox-use-system-graphite2+harfbuzz.patch"
         "./firefox-use-system-graphite2+harfbuzz.patch")
+       ("firef0x-use-system-media-libs.patch"
+        "./firefox-use-system-media-libs.patch")
        ("patch" ,(canonical-package patch))
 
        ("autoconf" ,autoconf-2.13)
@@ -162,7 +159,7 @@
        #:out-of-source? #t  ; must be built outside of the source directory
 
        ;; XXX: There are RUNPATH issues such as
-       ;; $prefix/lib/icecat-31.6.0/plugin-container NEEDing libmozalloc.so,
+       ;; $prefix/lib/firefox-89.0/plugin-container NEEDing libmozalloc.so,
        ;; which is not in its RUNPATH, but they appear to be harmless in
        ;; practice somehow.  See <http://hydra.gnu.org/build/378133>.
        #:validate-runpath? #f
@@ -278,7 +275,7 @@
                          ;; FIXME: A script from the bundled nspr is used.
                          ;;"nsprpub"
                          ;;
-                         ;; FIXME: With the update to IceCat 60, using system NSS
+                         ;; FIXME: With the update to Firefox 60, using system NSS
                          ;;        broke certificate validation.  See
                          ;;        <https://bugs.gnu.org/32833>.  For now, we use
                          ;;        the bundled NSPR and NSS.  TODO: Investigate,
@@ -455,20 +452,20 @@
 
 (define-public sqlite-3.28.0
   (package (inherit sqlite)
-    (version "3.28.0")
-    (source (origin
-              (method url-fetch)
-              (uri (let ((numeric-version
-                          (match (string-split version #\.)
-                            ((first-digit other-digits ...)
-                             (string-append first-digit
-                                            (string-pad-right
-                                             (string-concatenate
-                                              (map (cut string-pad <> 2 #\0)
-                                                   other-digits))
-                                             6 #\0))))))
-                     (string-append "https://sqlite.org/2019/sqlite-autoconf-"
-                                    numeric-version ".tar.gz")))
-              (sha256
-               (base32
-                "1hxpi45crbqp6lacl7z611lna02k956m9bsy2bjzrbb2y23546yn"))))))
+           (version "3.28.0")
+           (source (origin
+                     (method url-fetch)
+                     (uri (let ((numeric-version
+                                 (match (string-split version #\.)
+                                   ((first-digit other-digits ...)
+                                    (string-append first-digit
+                                                   (string-pad-right
+                                                    (string-concatenate
+                                                     (map (cut string-pad <> 2 #\0)
+                                                          other-digits))
+                                                    6 #\0))))))
+                            (string-append "https://sqlite.org/2019/sqlite-autoconf-"
+                                           numeric-version ".tar.gz")))
+                     (sha256
+                      (base32
+                       "1hxpi45crbqp6lacl7z611lna02k956m9bsy2bjzrbb2y23546yn"))))))
