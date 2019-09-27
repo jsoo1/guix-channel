@@ -59,7 +59,7 @@
 (define-public firefox
   (package
     (name "firefox")
-    (version "69.0b9")
+    (version "60.9.0esr")
     (source
      (origin
        (method url-fetch)
@@ -70,7 +70,7 @@
          "firefox-" version ".source.tar.xz"))
        (sha256
         (base32
-         "0wxd6dz0na4w44gwrp0ldyaiv76hxmpqpfn5r6zciwwgzjz77vlw"))))
+         "0gy5x2rnnbkqmjd9sq93s3q5na9nkba68xwpizild7k6qn63qicz"))))
     (build-system gnu-build-system)
     (inputs
      `(("alsa-lib" ,alsa-lib)
@@ -127,15 +127,15 @@
      ;; (Bug fixes and security fixes, however, should go in 'source').
      ;; They are commented out because they fail
      `(("firefox-avoid-bundled-libraries.patch"
-        "./firefox-avoid-bundled-libraries.patch")
-       ("firefox-avoid-third-party.patch"
-        "./firefox-avoid-third-party.patch")
-       ("firefox-rust-binary-validation.patch"
-        "./firefox-rust-binary-validation.patch")
+        "./icecat-avoid-bundled-libraries.patch")
+       ;; ("firefox-avoid-third-party.patch"
+       ;;  "./firefox-avoid-third-party.patch")
+       ;; ("firefox-rust-binary-validation.patch"
+       ;;  "./firefox-rust-binary-validation.patch")
        ("firefox-use-system-graphite2+harfbuzz.patch"
-        "./firefox-use-system-graphite2+harfbuzz.patch")
+        "./icecat-use-system-graphite2+harfbuzz.patch")
        ("firef0x-use-system-media-libs.patch"
-        "./firefox-use-system-media-libs.patch")
+        "./icecat-use-system-media-libs.patch")
        ("patch" ,(canonical-package patch))
 
        ("autoconf" ,autoconf-2.13)

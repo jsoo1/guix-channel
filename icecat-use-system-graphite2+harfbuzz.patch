@@ -4,8 +4,8 @@ Based on:
   https://svnweb.freebsd.org/ports/head/www/firefox-esr/files/patch-bug847568?revision=472833&view=co
 Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
 
---- firefox-69.0/config/system-headers.mozbuild
-+++ firefox-69.0/config/system-headers.mozbuild
+--- firefox-60.9.0esr/config/system-headers.mozbuild
++++ firefox-60.9.0esr/config/system-headers.mozbuild
 @@ -1311,6 +1311,19 @@
          'pixman.h',
      ]
@@ -26,9 +26,9 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  if CONFIG['MOZ_SYSTEM_LIBVPX']:
      system_headers += [
          'vpx_mem/vpx_mem.h',
---- firefox-69.0/dom/base/moz.build
-+++ firefox-69.0/dom/base/moz.build
-@@ -530,6 +530,9 @@
+--- firefox-60.9.0esr/dom/base/moz.build
++++ firefox-60.9.0esr/dom/base/moz.build
+@@ -474,6 +474,9 @@
  if CONFIG['MOZ_X11']:
      CXXFLAGS += CONFIG['TK_CFLAGS']
  
@@ -38,8 +38,8 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  GENERATED_FILES += [
      'PropertyUseCounterMap.inc',
      'UseCounterList.h',
---- firefox-69.0/gfx/graphite2/moz-gr-update.sh
-+++ firefox-69.0/gfx/graphite2/moz-gr-update.sh
+--- firefox-60.9.0esr/gfx/graphite2/moz-gr-update.sh
++++ firefox-60.9.0esr/gfx/graphite2/moz-gr-update.sh
 @@ -1,6 +1,7 @@
  #!/bin/bash
  
@@ -66,8 +66,8 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  
  echo
  echo If gfx/graphite2/src/files.mk has changed, please make corresponding
---- firefox-69.0/gfx/moz.build
-+++ firefox-69.0/gfx/moz.build
+--- firefox-60.9.0esr/gfx/moz.build
++++ firefox-60.9.0esr/gfx/moz.build
 @@ -10,6 +10,12 @@ with Files('**'):
  if CONFIG['MOZ_TREE_CAIRO']:
      DIRS += ['cairo']
@@ -81,8 +81,17 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  DIRS += [
      '2d',
      'ycbcr',
---- firefox-69.0/gfx/skia/generate_mozbuild.py
-+++ firefox-69.0/gfx/skia/generate_mozbuild.py
+@@ -18,8 +24,6 @@ DIRS += [
+     'qcms',
+     'gl',
+     'layers',
+-    'graphite2/src',
+-    'harfbuzz/src',
+     'ots/src',
+     'thebes',
+     'ipc',
+--- firefox-60.9.0esr/gfx/skia/generate_mozbuild.py
++++ firefox-60.9.0esr/gfx/skia/generate_mozbuild.py
 @@ -148,6 +148,9 @@
          '-Wno-unused-private-field',
      ]
@@ -93,8 +102,8 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  if CONFIG['MOZ_WIDGET_TOOLKIT'] in ('gtk3', 'android'):
      CXXFLAGS += CONFIG['MOZ_CAIRO_CFLAGS']
      CXXFLAGS += CONFIG['CAIRO_FT_CFLAGS']
---- firefox-69.0/gfx/skia/moz.build
-+++ firefox-69.0/gfx/skia/moz.build
+--- firefox-60.9.0esr/gfx/skia/moz.build
++++ firefox-60.9.0esr/gfx/skia/moz.build
 @@ -822,6 +822,9 @@
          '-Wno-unused-private-field',
      ]
@@ -105,8 +114,8 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  if CONFIG['MOZ_WIDGET_TOOLKIT'] in ('gtk3', 'android'):
      CXXFLAGS += CONFIG['MOZ_CAIRO_CFLAGS']
      CXXFLAGS += CONFIG['CAIRO_FT_CFLAGS']
---- firefox-69.0/gfx/thebes/moz.build
-+++ firefox-69.0/gfx/thebes/moz.build
+--- firefox-60.9.0esr/gfx/thebes/moz.build
++++ firefox-60.9.0esr/gfx/thebes/moz.build
 @@ -272,7 +272,13 @@
  
  LOCAL_INCLUDES += CONFIG['SKIA_INCLUDES']
@@ -122,8 +131,8 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  
  if CONFIG['CC_TYPE'] == 'clang':
      # Suppress warnings from Skia header files.
---- firefox-69.0/intl/unicharutil/util/moz.build
-+++ firefox-69.0/intl/unicharutil/util/moz.build
+--- firefox-60.9.0esr/intl/unicharutil/util/moz.build
++++ firefox-60.9.0esr/intl/unicharutil/util/moz.build
 @@ -25,4 +25,7 @@ UNIFIED_SOURCES += [
      'nsUnicodeProperties.cpp',
  ]
@@ -132,8 +141,8 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
 +    CXXFLAGS += CONFIG['MOZ_HARFBUZZ_CFLAGS']
 +
  FINAL_LIBRARY = 'xul'
---- firefox-69.0/netwerk/dns/moz.build
-+++ firefox-69.0/netwerk/dns/moz.build
+--- firefox-60.9.0esr/netwerk/dns/moz.build
++++ firefox-60.9.0esr/netwerk/dns/moz.build
 @@ -76,3 +76,6 @@
  
  if CONFIG['CC_TYPE'] in ('clang', 'gcc'):
@@ -141,8 +150,8 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
 +
 +if CONFIG['MOZ_SYSTEM_HARFBUZZ']:
 +    CXXFLAGS += CONFIG['MOZ_HARFBUZZ_CFLAGS']
---- firefox-69.0/old-configure.in
-+++ firefox-69.0/old-configure.in
+--- firefox-60.9.0esr/old-configure.in
++++ firefox-60.9.0esr/old-configure.in
 @@ -3971,6 +3971,27 @@
  AC_SUBST(MOZ_LINUX_32_SSE2_STARTUP_ERROR)
  
@@ -171,9 +180,9 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
  dnl Check for pixman and cairo
  dnl ========================================================
  
---- firefox-69.0/toolkit/library/moz.build.orig
-+++ firefox-69.0/toolkit/library/moz.build
-@@ -222,6 +222,12 @@ if CONFIG['MOZ_SYSTEM_JPEG']:
+--- firefox-60.9.0esr/toolkit/library/moz.build
++++ firefox-60.9.0esr/toolkit/library/moz.build
+@@ -235,6 +235,12 @@
  if CONFIG['MOZ_SYSTEM_PNG']:
      OS_LIBS += CONFIG['MOZ_PNG_LIBS']
  
@@ -183,14 +192,14 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
 +if CONFIG['MOZ_SYSTEM_HARFBUZZ']:
 +    OS_LIBS += CONFIG['MOZ_HARFBUZZ_LIBS']
 +
- if CONFIG['MOZ_SYSTEM_WEBP']:
-     OS_LIBS += CONFIG['MOZ_WEBP_LIBS']
+ if CONFIG['MOZ_SYSTEM_HUNSPELL']:
+     OS_LIBS += CONFIG['MOZ_HUNSPELL_LIBS']
  
---- firefox-69.0/toolkit/moz.configure
-+++ firefox-69.0/toolkit/moz.configure
-@@ -1046,5 +1046,25 @@
- set_define('MOZ_WEBRTC_HARDWARE_AEC_NS',
-            depends_if('--enable-hardware-aec-ns', when=webrtc)(lambda _: True))
+--- firefox-60.9.0esr/toolkit/moz.configure
++++ firefox-60.9.0esr/toolkit/moz.configure
+@@ -1051,6 +1051,26 @@
+ add_old_configure_assignment('FT2_CFLAGS',
+                              ft2_info.cflags)
  
 +# Graphite2
 +# ==============================================================
@@ -212,5 +221,6 @@ Modified for use with patch -p1, and to apply cleanly to GNU IceCat.
 +
 +set_config('MOZ_SYSTEM_HARFBUZZ', depends_if(system_harfbuzz)(lambda _: True))
 +
- # RAW media
+ # Mortar
  # ==============================================================
+ option('--enable-mortar', help='Enable mortar extension')

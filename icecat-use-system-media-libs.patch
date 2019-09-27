@@ -6,10 +6,10 @@ Based on:
 
 Changes to files within the bundled libraries are omitted, since those files
 are removed from Guix sources.  Modified for use with patch -p1, and to apply
-cleanly.
+cleanly to GNU IceCat.
 
---- firefox-69.0/build/moz.configure/old.configure
-+++ firefox-69.0/build/moz.configure/old.configure
+--- firefox-60.9.0esr/build/moz.configure/old.configure
++++ firefox-60.9.0esr/build/moz.configure/old.configure
 @@ -273,7 +273,12 @@
      '--with-system-libvpx',
      '--with-system-nspr',
@@ -23,8 +23,8 @@ cleanly.
      '--with-system-zlib',
      '--with-thumb',
      '--with-thumb-interwork',
---- firefox-69.0/config/external/moz.build
-+++ firefox-69.0/config/external/moz.build
+--- firefox-60.9.0esr/config/external/moz.build
++++ firefox-60.9.0esr/config/external/moz.build
 @@ -23,12 +23,21 @@
  
  external_dirs += ['modules/xz-embedded']
@@ -61,8 +61,8 @@ cleanly.
      'media/mp4parse-rust',
      'media/psshparser'
  ]
---- firefox-69.0/config/system-headers.mozbuild
-+++ firefox-69.0/config/system-headers.mozbuild
+--- firefox-60.9.0esr/config/system-headers.mozbuild
++++ firefox-60.9.0esr/config/system-headers.mozbuild
 @@ -1324,6 +1324,28 @@
          'harfbuzz/hb.h',
      ]
@@ -92,8 +92,8 @@ cleanly.
  if CONFIG['MOZ_SYSTEM_LIBVPX']:
      system_headers += [
          'vpx_mem/vpx_mem.h',
---- firefox-69.0/dom/media/AudioStream.cpp
-+++ firefox-69.0/dom/media/AudioStream.cpp
+--- firefox-60.9.0esr/dom/media/AudioStream.cpp
++++ firefox-60.9.0esr/dom/media/AudioStream.cpp
 @@ -128,7 +128,9 @@
      : mMonitor("AudioStream"),
        mChannels(0),
@@ -128,8 +128,8 @@ cleanly.
      mTimeStretcher->setSampleRate(mAudioClock.GetInputRate());
      mTimeStretcher->setChannels(mOutChannels);
      mTimeStretcher->setPitch(1.0);
---- firefox-69.0/dom/media/AudioStream.h
-+++ firefox-69.0/dom/media/AudioStream.h
+--- firefox-60.9.0esr/dom/media/AudioStream.h
++++ firefox-60.9.0esr/dom/media/AudioStream.h
 @@ -15,7 +15,11 @@
  #include "mozilla/TimeStamp.h"
  #include "mozilla/UniquePtr.h"
@@ -154,8 +154,8 @@ cleanly.
  
    // Output file for dumping audio
    FILE* mDumpFile;
---- firefox-69.0/dom/media/moz.build
-+++ firefox-69.0/dom/media/moz.build
+--- firefox-60.9.0esr/dom/media/moz.build
++++ firefox-60.9.0esr/dom/media/moz.build
 @@ -327,6 +327,21 @@
  
  DEFINES['MOZILLA_INTERNAL_API'] = True
@@ -178,8 +178,8 @@ cleanly.
  if CONFIG['MOZ_ANDROID_HLS_SUPPORT']:
      DEFINES['MOZ_ANDROID_HLS_SUPPORT'] = True
  
---- firefox-69.0/dom/media/platforms/ffmpeg/ffvpx/FFVPXRuntimeLinker.cpp
-+++ firefox-69.0/dom/media/platforms/ffmpeg/ffvpx/FFVPXRuntimeLinker.cpp
+--- firefox-60.9.0esr/dom/media/platforms/ffmpeg/ffvpx/FFVPXRuntimeLinker.cpp
++++ firefox-60.9.0esr/dom/media/platforms/ffmpeg/ffvpx/FFVPXRuntimeLinker.cpp
 @@ -15,9 +15,13 @@
  #include <windows.h>
  #endif
@@ -215,8 +215,8 @@ cleanly.
    if (path.IsEmpty()) {
      return false;
    }
---- firefox-69.0/old-configure.in
-+++ firefox-69.0/old-configure.in
+--- firefox-60.9.0esr/old-configure.in
++++ firefox-60.9.0esr/old-configure.in
 @@ -2417,6 +2417,111 @@
  fi
  fi # COMPILE_ENVIRONMENT
@@ -329,8 +329,8 @@ cleanly.
  dnl system libvpx Support
  dnl ========================================================
  MOZ_ARG_WITH_BOOL(system-libvpx,
---- firefox-69.0/toolkit/library/moz.build
-+++ firefox-69.0/toolkit/library/moz.build
+--- firefox-60.9.0esr/toolkit/library/moz.build
++++ firefox-60.9.0esr/toolkit/library/moz.build
 @@ -244,6 +244,21 @@
  if CONFIG['MOZ_SYSTEM_HUNSPELL']:
      OS_LIBS += CONFIG['MOZ_HUNSPELL_LIBS']
@@ -353,8 +353,8 @@ cleanly.
  if CONFIG['MOZ_SYSTEM_LIBEVENT']:
      OS_LIBS += CONFIG['MOZ_LIBEVENT_LIBS']
  
---- firefox-69.0/xpcom/build/XPCOMInit.cpp
-+++ firefox-69.0/xpcom/build/XPCOMInit.cpp
+--- firefox-60.9.0esr/xpcom/build/XPCOMInit.cpp
++++ firefox-60.9.0esr/xpcom/build/XPCOMInit.cpp
 @@ -139,7 +139,9 @@
  
  #include "mozilla/ipc/GeckoChildProcessHost.h"
