@@ -84,14 +84,11 @@
        ("graphite2" ,graphite2)
        ("pango" ,pango)
        ("freetype" ,freetype)
-       ;; Not setup properly
        ("harfbuzz" ,harfbuzz)
        ("hunspell" ,hunspell)
        ("libcanberra" ,libcanberra)
        ("libgnome" ,libgnome)
-       ;; JPEG now killing the build
        ("libjpeg-turbo" ,libjpeg-turbo)
-       ;; No longer has a --with-system-ogg option
        ("libogg" ,libogg)
        ;; ("libtheora" ,libtheora) ; wants theora-1.2, not yet released
        ;; vorbis unused??
@@ -115,7 +112,7 @@
        ;; UNBUNDLE-ME! ("nspr" ,nspr)
        ;; UNBUNDLE-ME! ("nss" ,nss)
        ("node" ,node)
-       ("sqlite" ,sqlite-3.28.0)
+       ("sqlite" ,sqlite)
        ("startup-notification" ,startup-notification)
        ("unzip" ,unzip)
        ("zip" ,zip)
@@ -128,10 +125,6 @@
      ;; They are commented out because they fail
      `(("firefox-avoid-bundled-libraries.patch"
         "./icecat-avoid-bundled-libraries.patch")
-       ;; ("firefox-avoid-third-party.patch"
-       ;;  "./firefox-avoid-third-party.patch")
-       ;; ("firefox-rust-binary-validation.patch"
-       ;;  "./firefox-rust-binary-validation.patch")
        ("firefox-use-system-graphite2+harfbuzz.patch"
         "./icecat-use-system-graphite2+harfbuzz.patch")
        ("firef0x-use-system-media-libs.patch"
@@ -174,7 +167,7 @@
                            "--disable-tests"
                            "--disable-updater"
                            "--disable-crashreporter"
-                           ;; "--disable-maintenance-service"
+                           "--disable-maintenance-service"
                            "--disable-eme"
                            "--disable-gconf"
 
@@ -197,28 +190,27 @@
                                            (assoc-ref %build-inputs "clang")
                                            "/lib")
 
+                           ;; Hack to work around missing
+                           ;; "unofficial" branding in icecat.
+                           "--enable-official-branding"
+
                            ;; Avoid bundled libraries.
                            "--with-system-zlib"
                            "--with-system-bz2"
-                           ;; Seems to break
                            "--with-system-jpeg"        ; must be libjpeg-turbo
                            "--with-system-libevent"
-
-                           ;; No longer has this option
                            "--with-system-ogg"
-
-                           ;; Not valid anymore
                            "--with-system-vorbis"
                            ;; "--with-system-theora" ; wants theora-1.2, not yet released
                            "--with-system-libvpx"
                            "--with-system-icu"
-
+                           
                            ;; See <https://bugs.gnu.org/32833>
                            ;;   and related comments in the
                            ;;   'remove-bundled-libraries' phase below.
                            ;; UNBUNDLE-ME! "--with-system-nspr"
                            ;; UNBUNDLE-ME! "--with-system-nss"
-
+                           
                            "--with-system-harfbuzz"
                            "--with-system-graphite2"
                            "--enable-system-pixman"
@@ -275,7 +267,7 @@
                          ;; FIXME: A script from the bundled nspr is used.
                          ;;"nsprpub"
                          ;;
-                         ;; FIXME: With the update to Firefox 60, using system NSS
+                         ;; FIXME: With the update to IceCat 60, using system NSS
                          ;;        broke certificate validation.  See
                          ;;        <https://bugs.gnu.org/32833>.  For now, we use
                          ;;        the bundled NSPR and NSS.  TODO: Investigate,
@@ -296,14 +288,10 @@
                          ;;
                          "modules/freetype2"
                          "modules/zlib"
-                         ;; Do not exist anymore
-                         ;; "modules/libbz2"
-                         ;; Can't find the build rule that mentions this
-                         ;; "ipc/chromium/src/third_party/libevent"
-                         ;; JPEG now killing the build
+                         "modules/libbz2"
+                         "ipc/chromium/src/third_party/libevent"
                          "media/libjpeg"
                          "media/libvpx"
-                         ;; No longer has a --with-system-ogg option
                          "media/libogg"
                          "media/libvorbis"
                          ;; "media/libtheora" ; wants theora-1.2, not yet released
@@ -311,9 +299,7 @@
                          "gfx/harfbuzz"
                          "gfx/graphite2"
                          "js/src/ctypes/libffi"
-                         ;; Does not exist anymore
-                         ;; "db/sqlite3"
-                         ))
+                         "db/sqlite3"))
              #t))
          (add-after 'remove-bundled-libraries 'link-libxul-with-libraries
            (lambda _
@@ -354,7 +340,7 @@
                            (generate-checksums dir)))
                        (find-files d f)))))
                ;; Remove pinned third party crates
-               (substitute* '("Cargo.lock" "gfx/wr/Cargo.lock")
+               (substitute* '("Cargo.lock" "servo/Cargo.lock")
                  (("(\"checksum .* = )\".*\"" all name)
                   (string-append name "\"" null-hash "\"")))
                ;; Generate checksums to refer to guix packages
@@ -414,7 +400,7 @@
                  (("NewPrivateWindow") "new-private-window"))
                (install-file desktop-file applications)
                #t)))
-         (add-before 'configure 'install-icons
+         (add-after 'configure 'install-icons
            (lambda* (#:key outputs #:allow-other-keys)
              (let ((out (assoc-ref outputs "out")))
                (with-directory-excursion "browser/branding/official"
@@ -426,8 +412,8 @@
                       (mkdir-p icons)
                       (copy-file file (string-append icons "/firefox.png"))))
                   '("default16.png" "default22.png" "default24.png"
-                    "default32.png" "default48.png" "default64.png"
-                    "default128.png" "default256.png"))
+                    "default32.png" "default48.png" "content/icon64.png"
+                    "mozicon128.png" "default256.png"))
                  #t))))
          ;; This fixes the file chooser crash that happens with GTK 3.
          (add-after 'install 'wrap-program
@@ -449,23 +435,3 @@
        ;; (ftp-directory . "/gnu/gnuzilla")
        (cpe-name . "firefox")
        (cpe-version . ,(first (string-split version #\-)))))))
-
-(define-public sqlite-3.28.0
-  (package (inherit sqlite)
-           (version "3.28.0")
-           (source (origin
-                     (method url-fetch)
-                     (uri (let ((numeric-version
-                                 (match (string-split version #\.)
-                                   ((first-digit other-digits ...)
-                                    (string-append first-digit
-                                                   (string-pad-right
-                                                    (string-concatenate
-                                                     (map (cut string-pad <> 2 #\0)
-                                                          other-digits))
-                                                    6 #\0))))))
-                            (string-append "https://sqlite.org/2019/sqlite-autoconf-"
-                                           numeric-version ".tar.gz")))
-                     (sha256
-                      (base32
-                       "1hxpi45crbqp6lacl7z611lna02k956m9bsy2bjzrbb2y23546yn"))))))
