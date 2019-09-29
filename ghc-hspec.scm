@@ -5,10 +5,7 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages haskell)
   #:use-module (gnu packages haskell-xyz)
-  #:use-module (gnu packages haskell-check)
-  #:export (my-ghc-hspec
-            my-ghc-quickcheck
-            ghc-quickcheck-2.13))
+  #:use-module (gnu packages haskell-check))
 
 (define my-ghc-hspec
   (package

@@ -67,56 +67,56 @@ is also usable with any other window manager.  While xmobar is written in
 Haskell, no knowledge of the language is required to install and use it.")
    (license license:bsd-3)))
 
-(define xmobar-plus
-  (package
-   (name "xmobar-plus")
-   (version "0.28.1")
-   (source (origin
-            (method url-fetch)
-            (uri (string-append "mirror://hackage/package/xmobar/xmobar-" version ".tar.gz"))
-            (sha256
-             (base32
-              "1zrpvr1nr6a55sxmjbacacflrxvnw6aibsdal19wx404r74qjgz5"))))
-   (build-system haskell-build-system)
-   (native-inputs
-    `(("ghc-hspec" ,my-ghc-hspec)
-      ("hspec-discover" ,hspec-discover)))
-   (inputs
-    `(("ghc-hinotify" ,ghc-hinotify)
-      ("ghc-alsa-core" ,ghc-alsa-core)
-      ("ghc-alsa-mixer" ,ghc-alsa-mixer)
-      ("ghc-dbus" ,ghc-dbus)
-      ("ghc-http" ,ghc-http)
-      ("ghc-old-locale" ,ghc-old-locale)
-      ("ghc-iwlib" ,ghc-iwlib)
-      ("ghc-parsec-numbers" ,my-ghc-parsec-numbers)
-      ("ghc-regex-compat" ,my-ghc-regex-compat)
-      ("ghc-x11" ,my-ghc-x11)
-      ("ghc-x11-xft" ,ghc-x11-xft)
-      ("libxpm" ,libxpm)))
-   (arguments
-    `(#:haskell ,ghc-8.6
-      #:configure-flags
-      (list
-       (string-append
-        "--flags="
-        (string-join
-         (list "with_inotify"
-               "with_alsa"
-               "with_iwlib"
-               "with_dbus"
-               "with_threaded"
-               "with_xft"
-               "with_xpm")
-         " ")))))
-   (home-page "http://xmobar.org")
-   (synopsis "Minimalistic text based status bar")
-   (description
-    "code{xmobar} is a lightweight, text-based, status bar written in
-Haskell.  It was originally designed to be used together with Xmonad, but it
-is also usable with any other window manager.  While xmobar is written in
-Haskell, no knowledge of the language is required to install and use it.")
-   (license license:bsd-3)))
+;; (define xmobar-plus
+;;   (package
+;;    (name "xmobar-plus")
+;;    (version "0.28.1")
+;;    (source (origin
+;;             (method url-fetch)
+;;             (uri (string-append "mirror://hackage/package/xmobar/xmobar-" version ".tar.gz"))
+;;             (sha256
+;;              (base32
+;;               "1zrpvr1nr6a55sxmjbacacflrxvnw6aibsdal19wx404r74qjgz5"))))
+;;    (build-system haskell-build-system)
+;;    (native-inputs
+;;     `(("ghc-hspec" ,my-ghc-hspec)
+;;       ("hspec-discover" ,hspec-discover)))
+;;    (inputs
+;;     `(("ghc-hinotify" ,ghc-hinotify)
+;;       ("ghc-alsa-core" ,ghc-alsa-core)
+;;       ("ghc-alsa-mixer" ,ghc-alsa-mixer)
+;;       ("ghc-dbus" ,ghc-dbus)
+;;       ("ghc-http" ,ghc-http)
+;;       ("ghc-old-locale" ,ghc-old-locale)
+;;       ("ghc-iwlib" ,ghc-iwlib)
+;;       ("ghc-parsec-numbers" ,my-ghc-parsec-numbers)
+;;       ("ghc-regex-compat" ,my-ghc-regex-compat)
+;;       ("ghc-x11" ,my-ghc-x11)
+;;       ("ghc-x11-xft" ,ghc-x11-xft)
+;;       ("libxpm" ,libxpm)))
+;;    (arguments
+;;     `(#:haskell ,ghc-8.6
+;;       #:configure-flags
+;;       (list
+;;        (string-append
+;;         "--flags="
+;;         (string-join
+;;          (list "with_inotify"
+;;                "with_alsa"
+;;                "with_iwlib"
+;;                "with_dbus"
+;;                "with_threaded"
+;;                "with_xft"
+;;                "with_xpm")
+;;          " ")))))
+;;    (home-page "http://xmobar.org")
+;;    (synopsis "Minimalistic text based status bar")
+;;    (description
+;;     "code{xmobar} is a lightweight, text-based, status bar written in
+;; Haskell.  It was originally designed to be used together with Xmonad, but it
+;; is also usable with any other window manager.  While xmobar is written in
+;; Haskell, no knowledge of the language is required to install and use it.")
+;;    (license license:bsd-3)))
 
 ;; DEPENDENCIES
 (define my-ghc-parsec-numbers
