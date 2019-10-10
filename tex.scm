@@ -27,8 +27,7 @@
          (let* ((source (assoc-ref %build-inputs "source"))
                 (out (assoc-ref %outputs "out"))
                 (moderncv
-                 (string-append
-                  out "/share/texmf-dist/tex/latex/moderncv")))
+                 (string-append out "/share/texmf-dist/")))
            (mkdir-p moderncv)
            ;; TODO: remove readme, ignore files,
            ;;       examples, take care of manuals
