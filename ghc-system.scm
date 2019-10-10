@@ -179,3 +179,39 @@ Read \"Turtle.Tutorial\" for a detailed tutorial or \"Turtle.Prelude\" for a qui
   * simplify inferred types and error messages, and:
   * provide some additional type class instances that would otherwise be orphan instances")
     (license license:bsd-3)))
+
+(define-public ghc-time-compat
+  (package
+   (name "ghc-time-compat")
+   (version "1.9.2.2")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (string-append
+           "https://hackage.haskell.org/package/time-compat/time-compat-"
+           version
+           ".tar.gz"))
+     (sha256
+      (base32
+       "05va0rqs759vbridbcl6hksp967j9anjvys8vx72fnfkhlrn2s52"))))
+   (build-system haskell-build-system)
+   (inputs
+    `(("ghc-base-orphans" ,ghc-base-orphans)))
+   (native-inputs
+    `(("ghc-hunit" ,ghc-hunit)
+      ("ghc-base-compat" ,ghc-base-compat)
+      ("ghc-quickcheck" ,ghc-quickcheck)
+      ("ghc-tagged" ,ghc-tagged)
+      ("ghc-tasty" ,ghc-tasty)
+      ("ghc-tasty-hunit" ,ghc-tasty-hunit)
+      ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)))
+   (arguments
+    `(#:cabal-revision
+      ("1"
+       "0k8ph4sydaiqp8dav4if6hpiaq8h1xsr93khmdr7a1mmfwdxr64r")))
+   (home-page
+    "https://github.com/phadej/time-compat")
+   (synopsis "Compatibility package for time")
+   (description
+    "This packages tries to compat as much of @time@ features as possible. . /TODO:/ . * Difference type @ParseTime@ and @FormatTime@ instances are missing. . * Formatting varies depending on underlying @time@ version . * @dayFractionToTimeOfDay@ on extreme values")
+   (license license:bsd-3)))

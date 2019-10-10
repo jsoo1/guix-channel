@@ -3,6 +3,9 @@
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix build-system haskell)
+  #:use-module (ghc-keys)
+  #:use-module (ghc-pointed)
+  #:use-module (ghc-instances)
   #:use-module (gnu packages glib)
   #:use-module (gnu packages gtk)
   #:use-module (gnu packages haskell)
@@ -470,58 +473,6 @@
    (description "Please see the README and documentation at <https://www.stackage.org/package/say>")
    (license license:expat)))
 
-(define ghc-pointed
-  (package
-   (name "ghc-pointed")
-   (version "5.0.1")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "mirror://hackage/package/pointed/pointed-" version ".tar.gz"))
-     (sha256 (base32 "1p91a762xglckscnhpflxzav8byf49a02mli3983i4kpr2jkaimr"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-data-default-class" ,ghc-data-default-class)
-      ("ghc-comonad" ,ghc-comonad)
-      ("ghc-kan-extensions" ,ghc-kan-extensions)
-      ("ghc-semigroupoids" ,ghc-semigroupoids)
-      ("ghc-semigroups" ,ghc-semigroups)
-      ("ghc-tagged" ,ghc-tagged)
-      ("ghc-transformers-compat" ,ghc-transformers-compat)
-      ("ghc-hashable" ,ghc-hashable)
-      ("ghc-unordered-containers" ,ghc-unordered-containers)))
-   (arguments `(#:tests? #f))
-   (home-page "http://github.com/ekmett/pointed/")
-   (synopsis "Pointed and copointed data")
-   (description "Pointed and copointed data.")
-   (license license:bsd-3)))
-
-(define ghc-keys
-  (package
-   (name "ghc-keys")
-   (version "3.12.1")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "mirror://hackage/package/keys/keys-" version ".tar.gz"))
-     (sha256 (base32 "1yqm4gpshsgswx6w78z64c83gpydh6jhgslx2lnc10nzhy0s9kkz"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-comonad" ,ghc-comonad)
-      ("ghc-free" ,ghc-free)
-      ("ghc-hashable" ,ghc-hashable)
-      ("ghc-semigroupoids" ,ghc-semigroupoids)
-      ("ghc-semigroups" ,ghc-semigroups)
-      ("ghc-tagged" ,ghc-tagged)
-      ("ghc-transformers-compat" ,ghc-transformers-compat)
-      ("ghc-unordered-containers" ,ghc-unordered-containers)))
-   (arguments `(#:tests? #f))
-   (home-page "http://github.com/ekmett/keys/")
-   (synopsis "Keyed functors and containers")
-   (description
-    "This package provides a bunch of ad hoc classes for accessing parts of a container. . In practice this package is largely subsumed by the <mirror://hackage/package/lens lens package>, but it is maintained for now as it has much simpler dependencies.")
-   (license license:bsd-3)))
-
 (define ghc-gi-vte
   (package
    (name "ghc-gi-vte")
@@ -653,31 +604,6 @@
    (description
     "This package uses tagstream-conduit for its parser. It automatically balances mismatched tags, so that there shouldn't be any parse failures. It does not handle a full HTML document rendering, such as adding missing html and head tags. Note that, since version 1.3.1, it uses an inlined copy of tagstream-conduit with entity decoding bugfixes applied.")
    (license license:expat)))
-
-(define ghc-vector-instances
-  (package
-   (name "ghc-vector-instances")
-   (version "3.4")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append
-           "mirror://hackage/package/vector-instances/vector-instances-" version ".tar.gz"))
-     (sha256 (base32 "10akvpa5w9bp0d8hflab63r9laa9gy2hv167smhjsdzq1kplc0hv"))))
-   (build-system haskell-build-system)
-   (inputs
-    `(("ghc-vector" ,ghc-vector)
-      ("ghc-semigroupoids" ,ghc-semigroupoids)
-      ("ghc-semigroups" ,ghc-semigroups)
-      ("ghc-comonad" ,ghc-comonad)
-      ("ghc-pointed" ,ghc-pointed)
-      ("ghc-keys" ,ghc-keys)
-      ("ghc-hashable" ,ghc-hashable)))
-   (arguments `(#:tests? #f))
-   (home-page "http://github.com/ekmett/vector-instances")
-   (synopsis "Orphan Instances for 'Data.Vector'")
-   (description "")
-   (license license:bsd-3)))
 
 (define ghc-xml-html-qq
   (package

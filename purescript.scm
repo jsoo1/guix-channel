@@ -1,11 +1,6 @@
 (define-module (purescript)
-  #:use-module (dhall)
-  #:use-module ((ghc-cborg) #:select (ghc-serialise))
   #:use-module (ghc-microlens)
-  #:use-module ((ghc-mtl) #:select (ghc-mtl-compat))
-  #:use-module (ghc-parsing)
-  #:use-module (ghc-repline)
-  #:use-module (ghc-system)
+  #:use-module (ghc-mtl)
   #:use-module (gnu packages haskell-xyz)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-crypto)
@@ -16,8 +11,7 @@
   #:use-module (guix packages)
   #:use-module (guix build-system haskell)
   #:use-module ((guix licenses) #:prefix license:)
-  #:export (purescript
-            purescript-spago))
+  #:export (purescript))
 
 (define purescript
   (package
@@ -87,7 +81,7 @@
     (native-inputs
      `(("ghc-hunit" ,ghc-hunit)
        ("ghc-hspec" ,ghc-hspec)
-       ("ghc-hspec-discover" ,ghc-hspec-discover)
+       ("hspec-discover" ,hspec-discover)
        ("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-hspec" ,ghc-tasty-hspec)))
     (arguments
@@ -105,60 +99,136 @@
 expressive types, inspired by Haskell and compiling to JavaScript.")
     (license license:bsd-3)))
 
-(define purescript-spago
-  (let ((revision "1")
-        (commit "838e627461f58181bb69fd3828a161bc88b97e6d"))
-    (package
-      (name "purescript-spago")
-      (version (git-version "0.6.3" revision commit))
-      (source
-       (origin
-         (method git-fetch)
-         (uri (git-reference (url "https://github.com/spacchetti/spago")
-                             (commit commit)))
-         (file-name (git-file-name name version))
-         (sha256
-          (base32
-           "18pfdhiqn0a3iwvkxzw4lkg8g6h5c60gj917y0n6k08pdi3vv800"))))
-      (build-system haskell-build-system)
-      (native-inputs
-       `(("ghc-hpack" ,ghc-hpack)
-         ("python" ,python)))
-      (inputs
-       `(("dhall" ,dhall)
-         ("dhall-json" ,dhall-json)
-         ("ghc-aeson" ,ghc-aeson)
-         ("ghc-aeson-pretty" ,ghc-aeson-pretty)
-         ("ghc-async-pool" ,ghc-async-pool)
-         ("ghc-dotgen" ,ghc-dotgen)
-         ("ghc-megaparsec-7.0.4" ,ghc-megaparsec-7.0.4)
-         ("ghc-process" ,ghc-process)
-         ("ghc-repline" ,ghc-repline)
-         ("ghc-serialise" ,ghc-serialise)
-         ("ghc-turtle" ,ghc-turtle)
-         ("ghc-file-embed" ,ghc-file-embed)))
-      (arguments
-       `(#:phases
-         (modify-phases %standard-phases
-           (add-before 'setup-compiler 'hpack
-             (lambda _
-               (invoke "hpack")
-               (substitute* "spago.cabal"
-                 (("filepath") "filepath <= 1.4.2"))
-               (substitute* "spago.cabal"
-                 (("process") "process <= 1.6.3.0"))
-               #t)))))
-      (home-page "https://github.com/spacchetti/spago")
-      (synopsis "Package manager and build tool for PureScript")
-      (description
-       "Aims to tie together the UX of developing a PureScript project.
-it is heavily inspired by Rust's Cargo and Haskell's Stack, and builds
-on top of ideas from existing PureScript infrastructure and tooling,
-as psc-package, pulp and purp.")
-      ;; TODO figure it out
-      (license license:bsd-3))))
+(define ghc-aeson-better-errors
+  (package
+    (name "ghc-aeson-better-errors")
+    (version "0.9.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "mirror://hackage/package/aeson-better-errors/aeson-better-errors-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "09vkyrhwak3bmpfsqcd2az8hfqqkxyhg468hv5avgisy0nzh3w38"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-aeson" ,ghc-aeson)
+       ("ghc-unordered-containers" ,ghc-unordered-containers)
+       ("ghc-dlist" ,ghc-dlist)
+       ("ghc-scientific" ,ghc-scientific)
+       ("ghc-vector" ,ghc-vector)
+       ("ghc-transformers-compat" ,ghc-transformers-compat)
+       ("ghc-void" ,ghc-void)))
+    (home-page
+     "https://github.com/hdgarrood/aeson-better-errors")
+    (synopsis
+     "Better error messages when decoding JSON values in Haskell")
+    (description
+     "A small package which gives you the tools to build parsers to
+decode JSON values, and gives good error messages when parsing
+fails. See also http://harry.garrood.me/blog/aeson-better-errors/.")
+    (license license:expat)))
 
-;; DEPENDENCIES
+(define ghc-bower-json
+  (package
+    (name "ghc-bower-json")
+    (version "1.0.0.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "mirror://hackage/package/bower-json/bower-json-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0wvygg3rdbxzrmr61a9w6ddv9pfric85ih8hnxyk0ydzn7i59abs"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-aeson" ,ghc-aeson)
+       ("ghc-aeson-better-errors" ,ghc-aeson-better-errors)
+       ("ghc-scientific" ,ghc-scientific)
+       ("ghc-transformers" ,ghc-transformers)
+       ("ghc-unordered-containers" ,ghc-unordered-containers)))
+    (native-inputs
+     `(("ghc-tasty" ,ghc-tasty)
+       ("ghc-tasty-hunit" ,ghc-tasty-hunit)))
+    (home-page "https://github.com/hdgarrood/bower-json")
+    (synopsis "Read bower.json from Haskell")
+    (description
+     "Bower is a package manager for the web (see
+http://bower.io). This package provides a data type and
+ToJSON/FromJSON instances for Bower's package manifest file,
+bower.json.")
+    (license license:expat)))
+
+(define ghc-language-javascript
+  (package
+    (name "ghc-language-javascript")
+    (version "0.6.0.13")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "mirror://hackage/package/language-javascript/language-javascript-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0dzvbnzkrxg9v78x2g7mhhr76viyxcgjyqpksaw7l0p1x7brjsck"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-blaze-builder" ,ghc-blaze-builder)
+       ("ghc-utf8-string" ,ghc-utf8-string)))
+    (native-inputs
+     `(("ghc-alex" ,ghc-alex)
+       ("ghc-quickcheck" ,ghc-quickcheck)
+       ("ghc-happy" ,ghc-happy)
+       ("ghc-hspec" ,ghc-hspec)
+       ("ghc-utf8-light" ,ghc-utf8-light)))
+    (home-page
+     "https://github.com/erikd/language-javascript")
+    (synopsis "Parser for JavaScript")
+    (description
+     "Parses Javascript into an Abstract Syntax Tree (AST). Initially
+intended as frontend to hjsmin.
+
+ Note: Version 0.5.0 breaks compatibility with prior versions, the AST
+has been reworked to allow round trip processing of JavaScript.")
+    (license license:bsd-3)))
+
+(define-public ghc-lifted-async-0.10.0.4
+  (package
+    (inherit ghc-lifted-async)
+    (version "0.10.0.4")
+    (source
+     (origin
+       (inherit (package-source ghc-lifted-async))
+       (uri (string-append
+             "mirror://hackage/package/lifted-async/lifted-async-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "0cwl1d0wjpdk0v1l1qxiqiksmak950c8gx169c1q77cg0z18ijf9"))))))
+
+(define-public ghc-network-3.0.1.1
+  (package
+    (inherit ghc-network)
+    (version "3.0.1.1")
+    (source
+     (origin
+       (inherit (package-source ghc-network))
+       (uri (string-append
+             "mirror://hackage/package/network/network-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1xacvl5wf47cz61igb94zf961b9ks0yhr02myxgjf53clm70dg6j"))))))
 
 (define ghc-pattern-arrows
   (package
@@ -240,62 +310,6 @@ precedence rules.")
 and Mozilla here https://wiki.mozilla.org/DevTools/Features/SourceMap
 and here
 https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit")
-    (license license:bsd-3)))
-
-(define ghc-utf8-light
-  (package
-    (name "ghc-utf8-light")
-    (version "0.4.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/utf8-light/utf8-light-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0rwyc5z331yfnm4hpx0sph6i1zvkd1z10vvglhnp0vc9wy644k0q"))))
-    (build-system haskell-build-system)
-    (home-page
-     "http://hackage.haskell.org/package/utf8-light")
-    (synopsis "Lightweight unicode support for Haskell")
-    (description "Lightweight UTF8 handling.")
-    (license license:bsd-3)))
-
-(define ghc-language-javascript
-  (package
-    (name "ghc-language-javascript")
-    (version "0.6.0.13")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/language-javascript/language-javascript-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0dzvbnzkrxg9v78x2g7mhhr76viyxcgjyqpksaw7l0p1x7brjsck"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-blaze-builder" ,ghc-blaze-builder)
-       ("ghc-utf8-string" ,ghc-utf8-string)))
-    (native-inputs
-     `(("ghc-alex" ,ghc-alex)
-       ("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-happy" ,ghc-happy)
-       ("ghc-hspec" ,ghc-hspec)
-       ("ghc-utf8-light" ,ghc-utf8-light)))
-    (home-page
-     "https://github.com/erikd/language-javascript")
-    (synopsis "Parser for JavaScript")
-    (description
-     "Parses Javascript into an Abstract Syntax Tree (AST). Initially
-intended as frontend to hjsmin.
-
- Note: Version 0.5.0 breaks compatibility with prior versions, the AST
-has been reworked to allow round trip processing of JavaScript.")
     (license license:bsd-3)))
 
 (define ghc-wai-websockets
@@ -380,33 +394,6 @@ http://www.whatwg.org/specs/web-socket-protocol/.
 http://www.w3.org/TR/websockets/")
     (license license:bsd-3)))
 
-(define ghc-hspec-discover
-  (package
-    (name "ghc-hspec-discover")
-    (version "2.7.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/hspec-discover/hspec-discover-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1n3by0dn3x3kfy7vnyfdz0dr2wwwj82m0ijlm9s1n6aa976xddhw"))))
-    (build-system haskell-build-system)
-    (native-inputs
-     `(("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-hspec-meta" ,ghc-hspec-meta)))
-    (home-page "http://hspec.github.io/")
-    (synopsis
-     "Automatically discover and run Hspec tests")
-    (description
-     "Automatically discover and run Hspec tests.
-
-http://hspec.github.io/hspec-discover.html")
-    (license license:expat)))
-
 (define ghc-tasty-hspec
   (package
     (name "ghc-tasty-hspec")
@@ -436,72 +423,6 @@ http://hspec.github.io/hspec-discover.html")
     (description
      "This package provides a Tasty provider for Hspec test suites.")
     (license license:bsd-3)))
-
-(define ghc-aeson-better-errors
-  (package
-    (name "ghc-aeson-better-errors")
-    (version "0.9.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/aeson-better-errors/aeson-better-errors-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "09vkyrhwak3bmpfsqcd2az8hfqqkxyhg468hv5avgisy0nzh3w38"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-aeson" ,ghc-aeson)
-       ("ghc-unordered-containers" ,ghc-unordered-containers)
-       ("ghc-dlist" ,ghc-dlist)
-       ("ghc-scientific" ,ghc-scientific)
-       ("ghc-vector" ,ghc-vector)
-       ("ghc-transformers-compat" ,ghc-transformers-compat)
-       ("ghc-void" ,ghc-void)))
-    (home-page
-     "https://github.com/hdgarrood/aeson-better-errors")
-    (synopsis
-     "Better error messages when decoding JSON values in Haskell")
-    (description
-     "A small package which gives you the tools to build parsers to
-decode JSON values, and gives good error messages when parsing
-fails. See also http://harry.garrood.me/blog/aeson-better-errors/.")
-    (license license:expat)))
-
-(define ghc-bower-json
-  (package
-    (name "ghc-bower-json")
-    (version "1.0.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/bower-json/bower-json-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0wvygg3rdbxzrmr61a9w6ddv9pfric85ih8hnxyk0ydzn7i59abs"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-aeson" ,ghc-aeson)
-       ("ghc-aeson-better-errors" ,ghc-aeson-better-errors)
-       ("ghc-scientific" ,ghc-scientific)
-       ("ghc-transformers" ,ghc-transformers)
-       ("ghc-unordered-containers" ,ghc-unordered-containers)))
-    (native-inputs
-     `(("ghc-tasty" ,ghc-tasty)
-       ("ghc-tasty-hunit" ,ghc-tasty-hunit)))
-    (home-page "https://github.com/hdgarrood/bower-json")
-    (synopsis "Read bower.json from Haskell")
-    (description
-     "Bower is a package manager for the web (see
-http://bower.io). This package provides a data type and
-ToJSON/FromJSON instances for Bower's package manifest file,
-bower.json.")
-    (license license:expat)))
 
 (define ghc-transformers
   (package
@@ -545,88 +466,23 @@ operations introduced by monad transformers through other
 transformers.")
     (license license:bsd-3)))
 
-(define ghc-dotgen
+(define ghc-utf8-light
   (package
-    (name "ghc-dotgen")
+    (name "ghc-utf8-light")
     (version "0.4.2")
     (source
      (origin
        (method url-fetch)
        (uri (string-append
-             "mirror://hackage/package/dotgen/dotgen-"
+             "mirror://hackage/package/utf8-light/utf8-light-"
              version
              ".tar.gz"))
        (sha256
         (base32
-         "148q93qsmqgr5pzdwvpjqfd6bdm1pwzcp2rblfwswx2x8c5f43fg"))))
+         "0rwyc5z331yfnm4hpx0sph6i1zvkd1z10vvglhnp0vc9wy644k0q"))))
     (build-system haskell-build-system)
-    (home-page "https://github.com/ku-fpg/dotgen")
-    (synopsis
-     "Simple interface for building .dot graph files")
-    (description
-     "This package provides a simple interface for building .dot graph
-files, for input into the dot and graphviz tools.  It includes a
-monadic interface for building graphs.")
+    (home-page
+     "http://hackage.haskell.org/package/utf8-light")
+    (synopsis "Lightweight unicode support for Haskell")
+    (description "Lightweight UTF8 handling.")
     (license license:bsd-3)))
-
-(define ghc-async-pool
-  (let ((revision "1")
-        (commit "edec25439593093331c89090951399ccdd400124"))
-    (package
-      (name "ghc-async-pool")
-      (version (git-version "0.9.0.2" revision commit))
-      (source
-       (origin
-         (method git-fetch)
-         (uri (git-reference (url "https://github.com/jwiegley/async-pool")
-                             (commit commit)))
-         (file-name (git-file-name name version))
-         (sha256
-          (base32
-           "1pf3dpyi86w99c38d6yi4yjx267rizxhrkrnnqzi7b5qfg7p394b"))))
-      (build-system haskell-build-system)
-      (inputs
-       `(("ghc-fgl" ,ghc-fgl)
-         ("ghc-async" ,ghc-async)
-         ("ghc-transformers-base" ,ghc-transformers-base)
-         ("ghc-monad-control" ,ghc-monad-control)))
-      (native-inputs `(("ghc-hspec" ,ghc-hspec)))
-      (home-page
-       "http://hackage.haskell.org/package/async-pool")
-      (synopsis
-       "Modified version of Async that supports worker groups and
-many-to-many task dependencies")
-      (description
-       "This library modifies the async package to allow for task
-pooling and many-to-many dependencies between tasks.")
-      (license license:expat))))
-
-(define-public ghc-lifted-async-0.10.0.4
-  (package
-    (inherit ghc-lifted-async)
-    (version "0.10.0.4")
-    (source
-     (origin
-       (inherit (package-source ghc-lifted-async))
-       (uri (string-append
-             "mirror://hackage/package/lifted-async/lifted-async-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0cwl1d0wjpdk0v1l1qxiqiksmak950c8gx169c1q77cg0z18ijf9"))))))
-
-(define-public ghc-network-3.0.1.1
-  (package
-    (inherit ghc-network)
-    (version "3.0.1.1")
-    (source
-     (origin
-       (inherit (package-source ghc-network))
-       (uri (string-append
-             "mirror://hackage/package/network/network-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1xacvl5wf47cz61igb94zf961b9ks0yhr02myxgjf53clm70dg6j"))))))
