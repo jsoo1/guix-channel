@@ -39,5 +39,5 @@
 curriculums vitae, both in a classic and in a casual style.  It is
 fairly customizable, allowing you to define your own style by changing
 the colours, the fonts, etc.")
-    (license license:lppl)))
+    (license license:lppl1.3+)))
 
