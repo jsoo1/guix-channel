@@ -1072,7 +1072,7 @@ are updated when the crate version changes.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-atty" ,rust-atty)
+       (("rust-atty" ,rust-atty-0.2)
         ("rust-bstr" ,rust-bstr)
         ("rust-globset" ,rust-globset)
         ("rust-lazy-static" ,rust-lazy-static)
@@ -1898,7 +1898,7 @@ deserializing and serializing Rust structures.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-atty" ,rust-atty)
+       (("rust-atty" ,rust-atty-0.2)
         ("rust-humantime" ,rust-humantime)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex)
@@ -3581,7 +3581,7 @@ implemented using Heap's algorithm.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-atty" ,rust-atty)
+       (("rust-atty" ,rust-atty-0.2)
         ("rust-cast" ,rust-cast)
         ("rust-clap" ,rust-clap)
         ("rust-criterion-plot" ,rust-criterion-plot)
@@ -9540,7 +9540,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-atty" ,rust-atty)
+       (("rust-atty" ,rust-atty-0.2)
         ("rust-clicolors-control"
          ,rust-clicolors-control)
         ("rust-encode-unicode" ,rust-encode-unicode)
@@ -9715,7 +9715,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-atty" ,rust-atty)
+       (("rust-atty" ,rust-atty-0.2)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-winapi" ,rust-winapi-0.3))))
@@ -12169,7 +12169,7 @@ creation from raw pointers and start, end pointer accessors.
     (arguments
      `(#:cargo-inputs
        (("rust-ansi-term" ,rust-ansi-term)
-        ("rust-atty" ,rust-atty)
+        ("rust-atty" ,rust-atty-0.2)
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-clippy" ,rust-clippy)
         ("rust-strsim" ,rust-strsim-0.8)
@@ -13824,7 +13824,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-ascii-canvas" ,rust-ascii-canvas)
-        ("rust-atty" ,rust-atty)
+        ("rust-atty" ,rust-atty-0.2)
         ("rust-bit-set" ,rust-bit-set)
         ("rust-diff" ,rust-diff)
         ("rust-docopt" ,rust-docopt)
@@ -19092,7 +19092,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-atty" ,rust-atty)
+       (("rust-atty" ,rust-atty-0.2)
         ("rust-chrono" ,rust-chrono)
         ("rust-slog" ,rust-slog)
         ("rust-term" ,rust-term-0.5)
@@ -20684,7 +20684,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-annotate-snippets" ,rust-annotate-snippets)
-        ("rust-atty" ,rust-atty)
+        ("rust-atty" ,rust-atty-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-rustc-ap-rustc-data-structures"
          ,rust-rustc-ap-rustc-data-structures)
@@ -20718,7 +20718,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-annotate-snippets" ,rust-annotate-snippets)
-        ("rust-atty" ,rust-atty)
+        ("rust-atty" ,rust-atty-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-rustc-ap-rustc-data-structures"
          ,rust-rustc-ap-rustc-data-structures-583)

@@ -33,7 +33,7 @@
        ("pkg-config" ,pkg-config)))
     (arguments
      `(#:cargo-inputs
-       (("rust-atty" ,rust-atty)
+       (("rust-atty" ,rust-atty-0.2)
         ("rust-base64" ,rust-base64)
         ("rust-bincode" ,rust-bincode)
         ("rust-bs58" ,rust-bs58)
