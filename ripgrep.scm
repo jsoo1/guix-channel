@@ -31,7 +31,7 @@
         ("rust-num-cpus" ,rust-num-cpus)
         ("rust-regex" ,rust-regex)
         ("rust-serde-json" ,rust-serde-json)
-        ("rust-termcolor" ,rust-termcolor))
+        ("rust-termcolor" ,rust-termcolor-1.0))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
