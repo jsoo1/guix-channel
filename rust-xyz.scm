@@ -15227,7 +15227,7 @@ accessor functions on enums.")
        (("rust-env-logger" ,rust-env-logger)
         ("rust-failure" ,rust-failure)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-sourcefile" ,rust-sourcefile)
+        ("rust-sourcefile" ,rust-sourcefile-0.1)
         ("rust-wasm-bindgen-futures"
          ,rust-wasm-bindgen-futures)
         ("rust-wasm-bindgen-test"
