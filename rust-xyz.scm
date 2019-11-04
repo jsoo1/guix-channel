@@ -5822,7 +5822,7 @@ the current thread.")
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
         ("rust-futures-cpupool" ,rust-futures-cpupool)
-        ("rust-threadpool" ,rust-threadpool))))
+        ("rust-threadpool" ,rust-threadpool-1.7))))
     (home-page "https://github.com/tokio-rs/tokio")
     (synopsis
      "A task scheduler backed by a work-stealing thread pool")
