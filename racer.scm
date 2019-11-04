@@ -39,7 +39,7 @@
         ("rust-derive-more" ,rust-derive-more-0.13)
         ("rust-env-logger" ,rust-env-logger-0.5)
         ("rust-humantime" ,rust-humantime)
-        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-lazycell" ,rust-lazycell)
         ("rust-log" ,rust-log-0.4)
         ("rust-racer-cargo-metadata" ,rust-racer-cargo-metadata)

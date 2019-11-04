@@ -26,7 +26,7 @@
         ("rust-clap" ,rust-clap)
         ("rust-grep" ,rust-grep)
         ("rust-ignore" ,rust-ignore)
-        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-num-cpus" ,rust-num-cpus)
         ("rust-regex" ,rust-regex)
@@ -34,7 +34,7 @@
         ("rust-termcolor" ,rust-termcolor))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap)
-        ("rust-lazy-static" ,rust-lazy-static)
+        ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page
