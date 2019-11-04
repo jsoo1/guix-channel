@@ -14125,7 +14125,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-socket2" ,rust-socket2)
-        ("rust-widestring" ,rust-widestring)
+        ("rust-widestring" ,rust-widestring-0.4)
         ("rust-winapi" ,rust-winapi-0.3)
         ("rust-winreg" ,rust-winreg))))
     (home-page

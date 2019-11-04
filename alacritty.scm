@@ -100,7 +100,7 @@
         ("rust-time" ,rust-time-0.1.42)
         ("rust-url" ,rust-url)
         ("rust-vte" ,rust-vte)
-        ("rust-widestring" ,rust-widestring)
+        ("rust-widestring" ,rust-widestring-0.4)
         ("rust-winpty-sys" ,rust-winpty-sys)
         ("rust-x11-clipboard" ,rust-x11-clipboard)
         ("rust-zip" ,rust-zip))
