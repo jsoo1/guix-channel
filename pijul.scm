@@ -46,7 +46,7 @@
         ("rust-flate2" ,rust-flate2)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-getch" ,rust-getch)
-        ("rust-hex" ,rust-hex)
+        ("rust-hex" ,rust-hex-0.3)
         ("rust-ignore" ,rust-ignore)
         ("rust-libpijul" ,rust-libpijul)
         ("rust-line" ,rust-line)
