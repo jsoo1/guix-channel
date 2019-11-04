@@ -24,7 +24,7 @@
      `(#:cargo-inputs
        (("rust-diff" ,rust-diff)
         ("rust-env-logger" ,rust-env-logger-0.4)
-        ("rust-getopts" ,rust-getopts)
+        ("rust-getopts" ,rust-getopts-0.2)
         ("rust-kernel32-sys" ,rust-kernel32-sys)
         ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log)

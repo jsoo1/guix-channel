@@ -2257,7 +2257,7 @@ pairs in insertion order")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-getopts" ,rust-getopts)
+        ("rust-getopts" ,rust-getopts-0.2)
         ("rust-memchr" ,rust-memchr)
         ("rust-unicase" ,rust-unicase))
        #:cargo-development-inputs
@@ -3528,14 +3528,14 @@ implemented using Heap's algorithm.")
 
 (define-public rust-getopts-0.2.19
   (package
-    (inherit rust-getopts)
+    (inherit rust-getopts-0.2)
     (version "0.2.19")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "getopts" version))
        (file-name
-        (string-append (package-name rust-getopts) "-" version ".tar.gz"))
+        (string-append (package-name rust-getopts-0.2) "-" version ".tar.gz"))
        (sha256
         (base32
          "0l74ldicw6gpkly3jdiq8vq8g597x7akvych2cgy7gr8q8apnckj"))))))
@@ -3704,7 +3704,7 @@ implemented using Heap's algorithm.")
         ("rust-encoding-index-tradchinese"
          ,rust-encoding-index-tradchinese))
        #:cargo-development-inputs
-       (("rust-getopts" ,rust-getopts))))
+       (("rust-getopts" ,rust-getopts-0.2))))
     (home-page
      "https://github.com/lifthrasiir/rust-encoding")
     (synopsis "Character encoding support for Rust")
@@ -3873,7 +3873,7 @@ the same way and no more (caveat: black_box is still missing!).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-getopts" ,rust-getopts)
+       (("rust-getopts" ,rust-getopts-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-rustc-serialize" ,rust-rustc-serialize)
         ("rust-term" ,rust-term-0.5)
@@ -8763,7 +8763,7 @@ reading and writing git repositories.")
         ("rust-stable-deref-trait" ,rust-stable-deref-trait))
        #:cargo-development-inputs
        (("rust-crossbeam" ,rust-crossbeam)
-        ("rust-getopts" ,rust-getopts)
+        ("rust-getopts" ,rust-getopts-0.2)
         ("rust-memmap" ,rust-memmap)
         ("rust-num-cpus" ,rust-num-cpus)
         ("rust-object" ,rust-object)
@@ -9616,7 +9616,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-getopts" ,rust-getopts))
+       (("rust-getopts" ,rust-getopts-0.2))
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck)
         ("rust-term" ,rust-term-0.5))))
@@ -15439,7 +15439,7 @@ accessor functions on enums.")
      `(#:cargo-inputs
        (("rust-diff" ,rust-diff)
         ("rust-filetime" ,rust-filetime)
-        ("rust-getopts" ,rust-getopts)
+        ("rust-getopts" ,rust-getopts-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log)
         ("rust-miow" ,rust-miow)
@@ -18456,7 +18456,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-deflate" ,rust-deflate)
         ("rust-inflate" ,rust-inflate))
        #:cargo-development-inputs
-       (("rust-getopts" ,rust-getopts)
+       (("rust-getopts" ,rust-getopts-0.2)
         ("rust-glium" ,rust-glium)
         ("rust-glob" ,rust-glob)
         ("rust-rand" ,rust-rand-0.4)
@@ -18489,7 +18489,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-deflate" ,rust-deflate-0.7)
         ("rust-inflate" ,rust-inflate))
        #:cargo-development-inputs
-       (("rust-getopts" ,rust-getopts)
+       (("rust-getopts" ,rust-getopts-0.2)
         ("rust-glium" ,rust-glium)
         ("rust-glob" ,rust-glob)
         ("rust-rand" ,rust-rand-0.4)
@@ -21462,7 +21462,7 @@ pitfalls in Rust")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-getopts" ,rust-getopts)
+        ("rust-getopts" ,rust-getopts-0.2)
         ("rust-memchr" ,rust-memchr)
         ("rust-unicase" ,rust-unicase))
        #:cargo-development-inputs
@@ -22230,7 +22230,7 @@ arbitrary structs.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-getopts" ,rust-getopts)
+       (("rust-getopts" ,rust-getopts-0.2)
         ("rust-libc" ,rust-libc-0.2)
         ("rust-term" ,rust-term-0.4))))
     (home-page
