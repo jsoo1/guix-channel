@@ -96,7 +96,7 @@
         ("rust-smithay-clipboard" ,rust-smithay-clipboard)
         ("rust-static-assertions" ,rust-static-assertions-0.3)
         ("rust-terminfo" ,rust-terminfo)
-        ("rust-tempfile" ,rust-tempfile-3.0.8)
+        ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-time" ,rust-time-0.1.42)
         ("rust-url" ,rust-url)
         ("rust-vte" ,rust-vte)
