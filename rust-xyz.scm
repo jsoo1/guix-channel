@@ -4285,7 +4285,7 @@ ArrayVec and ArrayString.")
         ("rust-wasm-bindgen-futures"
          ,rust-wasm-bindgen-futures)
         ("rust-wasm-bindgen-test-macro"
-         ,rust-wasm-bindgen-test-macro))))
+         ,rust-wasm-bindgen-test-macro-0.2))))
     (home-page
      "https://github.com/rustwasm/wasm-bindgen")
     (synopsis
