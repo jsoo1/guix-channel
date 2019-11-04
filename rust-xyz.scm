@@ -928,7 +928,7 @@ Jaro-Winkler.")
      `(#:cargo-inputs
        (("rust-hyphenation" ,rust-hyphenation)
         ("rust-term-size" ,rust-term-size)
-        ("rust-unicode-width" ,rust-unicode-width))
+        ("rust-unicode-width" ,rust-unicode-width-0.1))
        #:cargo-development-inputs
        (("rust-lipsum" ,rust-lipsum)
         ("rust-rand" ,rust-rand-0.4)
@@ -9549,7 +9549,7 @@ according to XDG Base Directory specification")
         ("rust-parking-lot" ,rust-parking-lot-0.8)
         ("rust-regex" ,rust-regex)
         ("rust-termios" ,rust-termios)
-        ("rust-unicode-width" ,rust-unicode-width)
+        ("rust-unicode-width" ,rust-unicode-width-0.1)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/mitsuhiko/console")
@@ -12175,7 +12175,7 @@ creation from raw pointers and start, end pointer accessors.
         ("rust-strsim" ,rust-strsim-0.8)
         ("rust-term-size" ,rust-term-size-0.3)
         ("rust-textwrap" ,rust-textwrap)
-        ("rust-unicode-width" ,rust-unicode-width)
+        ("rust-unicode-width" ,rust-unicode-width-0.1)
         ("rust-vec-map" ,rust-vec-map)
         ("rust-yaml-rust" ,rust-yaml-rust-0.3))
        #:cargo-development-inputs
@@ -20692,7 +20692,7 @@ for computer graphics.")
         ("rust-rustc-ap-syntax-pos" ,rust-rustc-ap-syntax-pos)
         ("rust-term-size" ,rust-term-size)
         ("rust-termcolor" ,rust-termcolor)
-        ("rust-unicode-width" ,rust-unicode-width))))
+        ("rust-unicode-width" ,rust-unicode-width-0.1))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
      "Automatically published version of rust-rustc-errors")
@@ -20726,7 +20726,7 @@ for computer graphics.")
         ("rust-rustc-ap-syntax-pos" ,rust-rustc-ap-syntax-pos-583)
         ("rust-term-size" ,rust-term-size)
         ("rust-termcolor" ,rust-termcolor)
-        ("rust-unicode-width" ,rust-unicode-width))))))
+        ("rust-unicode-width" ,rust-unicode-width-0.1))))))
 
 (define-public rust-rustc-ap-rustc-lexer
   (package
@@ -20928,7 +20928,7 @@ for computer graphics.")
         ("rust-rustc-ap-rustc-macros" ,rust-rustc-ap-rustc-macros)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize)
         ("rust-scoped-tls" ,rust-scoped-tls)
-        ("rust-unicode-width" ,rust-unicode-width))))
+        ("rust-unicode-width" ,rust-unicode-width-0.1))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
      "Automatically published version of the package rust-syntax-pos")
@@ -20960,7 +20960,7 @@ for computer graphics.")
         ("rust-rustc-ap-rustc-macros" ,rust-rustc-ap-rustc-macros-583)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize-583)
         ("rust-scoped-tls" ,rust-scoped-tls)
-        ("rust-unicode-width" ,rust-unicode-width))))))
+        ("rust-unicode-width" ,rust-unicode-width-0.1))))))
 
 (define-public rust-rustc-ap-arena
   (package
