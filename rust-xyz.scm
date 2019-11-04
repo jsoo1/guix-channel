@@ -885,7 +885,7 @@ Jaro-Winkler.")
     (arguments
      `(#:cargo-inputs
        (("rust-clippy" ,rust-clippy)
-        ("rust-kernel32-sys" ,rust-kernel32-sys)
+        ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
@@ -3909,7 +3909,7 @@ require unstable language features.")
         ("rust-fuchsia-zircon-sys"
          ,rust-fuchsia-zircon-sys)
         ("rust-iovec" ,rust-iovec)
-        ("rust-kernel32-sys" ,rust-kernel32-sys)
+        ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
         ("rust-miow" ,rust-miow-0.2)
@@ -12328,7 +12328,7 @@ size 2, 4, 8, 16, 32, and 64.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-kernel32-sys" ,rust-kernel32-sys)
+       (("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://pijul.org/cryptovec")
@@ -18014,7 +18014,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-fsevent" ,rust-fsevent-0.4)
         ("rust-fsevent-sys" ,rust-fsevent-sys)
         ("rust-inotify" ,rust-inotify-0.6)
-        ("rust-kernel32-sys" ,rust-kernel32-sys)
+        ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio)
         ("rust-mio-extras" ,rust-mio-extras)
