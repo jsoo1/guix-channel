@@ -14426,7 +14426,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
      `(#:cargo-inputs
        (("rust-core-foundation" ,rust-core-foundation)
         ("rust-core-foundation-sys"
-         ,rust-core-foundation-sys)
+         ,rust-core-foundation-sys-0.6)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-security-framework-sys"
          ,rust-security-framework-sys))
@@ -15260,7 +15260,7 @@ accessor functions on enums.")
      `(#:cargo-inputs
        (("rust-chrono" ,rust-chrono)
         ("rust-core-foundation-sys"
-         ,rust-core-foundation-sys)
+         ,rust-core-foundation-sys-0.6)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-uuid" ,rust-uuid))))
     (home-page
@@ -16255,7 +16255,7 @@ functions.")
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-core-foundation-sys"
-         ,rust-core-foundation-sys)
+         ,rust-core-foundation-sys-0.6)
         ("rust-core-graphics" ,rust-core-graphics)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-metal" ,rust-metal)
