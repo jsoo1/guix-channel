@@ -1598,38 +1598,6 @@ matching branch is the item that gets emitted.")
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))))
 
-(define-public rust-rand-0.6.5
-  (package
-    (inherit rust-rand)
-    (version "0.6.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand" version))
-       (file-name
-        (string-append (package-name rust-rand) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1jl4449jcl4wgmzld6ffwqj5gwxrp8zvx8w573g1z368qg6xlwbd"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-autocfg" ,rust-autocfg)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-rand-chacha" ,rust-rand-chacha-0.1.1)
-        ("rust-rand-core" ,rust-rand-core-0.4.0)
-        ("rust-rand-hc" ,rust-rand-hc-0.1.0)
-        ("rust-rand-isaac" ,rust-rand-isaac-0.1.1)
-        ("rust-rand-jitter" ,rust-rand-jitter-0.1.4)
-        ("rust-rand-pcg" ,rust-rand-pcg-0.1.2)
-        ("rust-rand-xorshift" ,rust-rand-xorshift-0.1.1)
-        ("rust-winapi" ,rust-winapi)
-        ("rust-log" ,rust-log)
-        ("rust-packed-simd" ,rust-packed-simd)
-        ("rust-rand-os" ,rust-rand-os-0.1.3))
-       #:rust-cargo-rust-development-rust-inputs
-       (("rust-average" ,rust-average)
-        ("rust-rand-xoshiro" ,rust-rand-xoshiro))))))
-
 (define-public rust-indexmap
   (package
     (name "rust-indexmap")
@@ -9260,7 +9228,7 @@ streams.")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder)
         ("rust-md5" ,rust-md5)
-        ("rust-rand" ,rust-rand-0.6.5)
+        ("rust-rand" ,rust-rand-0.6)
         ("rust-serde" ,rust-serde)
         ("rust-sha1" ,rust-sha1)
         ("rust-slog" ,rust-slog)
@@ -20540,7 +20508,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-num-traits" ,rust-num-traits)
-        ("rust-rand" ,rust-rand-0.6.5)
+        ("rust-rand" ,rust-rand-0.6)
         ("rust-rustc-version" ,rust-rustc-version)
         ("rust-serde" ,rust-serde))
        #:cargo-development-inputs
