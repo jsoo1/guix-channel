@@ -10499,7 +10499,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-jemalloc-sys" ,rust-jemalloc-sys)
+       (("rust-jemalloc-sys" ,rust-jemalloc-sys-0.3)
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-paste" ,rust-paste))))
