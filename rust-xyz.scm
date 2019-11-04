@@ -5366,11 +5366,9 @@ proposed in RFC 1158.")
          ,rust-tokio-current-thread))))
     (home-page "https://tokio.rs")
     (synopsis
-     "Core I/O primitives for asynchronous I/O in Rust.
-")
+     "Core I/O primitives for asynchronous I/O in Rust")
     (description
-     "Core I/O primitives for asynchronous I/O in Rust.
-")
+     "Core I/O primitives for asynchronous I/O in Rust.")
     (license #f)))
 
 (define-public rust-tokio-sync
@@ -5397,10 +5395,8 @@ proposed in RFC 1158.")
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-mock-task" ,rust-tokio-mock-task))))
     (home-page "https://tokio.rs")
-    (synopsis "Synchronization utilities.
-")
-    (description "Synchronization utilities.
-")
+    (synopsis "Synchronization utilities")
+    (description "Synchronization utilities.")
     (license #f)))
 
 (define-public rust-tokio-io-pool
@@ -5477,11 +5473,9 @@ proposed in RFC 1158.")
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "Channels for asynchronous communication using futures-rs.
-")
+     "Channels for asynchronous communication using futures-rs")
     (description
-     "Channels for asynchronous communication using futures-rs.
-")
+     "Channels for asynchronous communication using futures-rs.")
     (license #f)))
 
 (define-public rust-futures-executor-preview
@@ -5511,11 +5505,9 @@ proposed in RFC 1158.")
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "Executors for asynchronous tasks based on the futures-rs library.
-")
+     "Executors for asynchronous tasks based on the futures-rs library")
     (description
-     "Executors for asynchronous tasks based on the futures-rs library.
-")
+     "Executors for asynchronous tasks based on the futures-rs library.")
     (license #f)))
 
 (define-public rust-futures-util-preview
@@ -5557,11 +5549,9 @@ proposed in RFC 1158.")
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "Common utilities and extension traits for the futures-rs library.
-")
+     "Common utilities and extension traits for the futures-rs library")
     (description
-     "Common utilities and extension traits for the futures-rs library.
-")
+     "Common utilities and extension traits for the futures-rs library.")
     (license #f)))
 
 (define-public rust-stdweb-derive
@@ -5712,11 +5702,9 @@ proposed in RFC 1158.")
         ("rust-tokio-io" ,rust-tokio-io))))
     (home-page "https://tokio.rs")
     (synopsis
-     "Utilities for encoding and decoding frames.
-")
+     "Utilities for encoding and decoding frames")
     (description
-     "Utilities for encoding and decoding frames.
-")
+     "Utilities for encoding and decoding frames.")
     (license #f)))
 
 (define-public rust-tokio-current-thread
@@ -5739,11 +5727,10 @@ proposed in RFC 1158.")
         ("rust-tokio-executor" ,rust-tokio-executor))))
     (home-page "https://github.com/tokio-rs/tokio")
     (synopsis
-     "Single threaded executor which manage many tasks concurrently on the current thread.
-")
+     "Manage many tasks concurrently on the current thread")
     (description
-     "Single threaded executor which manage many tasks concurrently on the current thread.
-")
+     "Single threaded executor which manage many tasks concurrently on
+the current thread.")
     (license #f)))
 
 (define-public rust-tokio-fs
@@ -5773,10 +5760,8 @@ proposed in RFC 1158.")
         ("rust-tokio-codec" ,rust-tokio-codec)
         ("rust-tokio-io" ,rust-tokio-io))))
     (home-page "https://tokio.rs")
-    (synopsis "Filesystem API for Tokio.
-")
-    (description "Filesystem API for Tokio.
-")
+    (synopsis "Filesystem API for Tokio")
+    (description "Filesystem API for Tokio.")
     (license #f)))
 
 (define-public rust-tokio-tcp
@@ -5805,10 +5790,8 @@ proposed in RFC 1158.")
        (("rust-env-logger" ,rust-env-logger)
         ("rust-tokio" ,rust-tokio))))
     (home-page "https://tokio.rs")
-    (synopsis "TCP bindings for tokio.
-")
-    (description "TCP bindings for tokio.
-")
+    (synopsis "TCP bindings for tokio")
+    (description "TCP bindings for tokio.")
     (license #f)))
 
 (define-public rust-tokio-threadpool
@@ -5842,11 +5825,10 @@ proposed in RFC 1158.")
         ("rust-threadpool" ,rust-threadpool))))
     (home-page "https://github.com/tokio-rs/tokio")
     (synopsis
-     "A task scheduler backed by a work-stealing thread pool.
-")
+     "A task scheduler backed by a work-stealing thread pool")
     (description
-     "This package provides a task scheduler backed by a work-stealing thread pool.
-")
+     "This package provides a task scheduler backed by a work-stealing
+thread pool.")
     (license #f)))
 
 (define-public rust-tokio-timer
@@ -5874,10 +5856,8 @@ proposed in RFC 1158.")
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-mock-task" ,rust-tokio-mock-task))))
     (home-page "https://github.com/tokio-rs/tokio")
-    (synopsis "Timer facilities for Tokio
-")
-    (description "Timer facilities for Tokio
-")
+    (synopsis "Timer facilities for Tokio")
+    (description "Timer facilities for Tokio")
     (license #f)))
 
 (define-public rust-tokio-trace-core
@@ -5898,11 +5878,9 @@ proposed in RFC 1158.")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static))))
     (home-page "https://tokio.rs")
-    (synopsis "Core primitives for tokio-trace.
-")
+    (synopsis "Core primitives for tokio-trace")
     (description
-     "Core primitives for tokio-trace.
-")
+     "Core primitives for tokio-trace.")
     (license #f)))
 
 (define-public rust-tokio-udp
@@ -5931,10 +5909,8 @@ proposed in RFC 1158.")
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger))))
     (home-page "https://tokio.rs")
-    (synopsis "UDP bindings for tokio.
-")
-    (description "UDP bindings for tokio.
-")
+    (synopsis "UDP bindings for tokio")
+    (description "UDP bindings for tokio.")
     (license #f)))
 
 (define-public rust-tokio-uds
@@ -5967,10 +5943,8 @@ proposed in RFC 1158.")
        (("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-tokio" ,rust-tokio))))
     (home-page "https://github.com/tokio-rs/tokio")
-    (synopsis "Unix Domain sockets for Tokio
-")
-    (description "Unix Domain sockets for Tokio
-")
+    (synopsis "Unix Domain sockets for Tokio")
+    (description "Unix Domain sockets for Tokio")
     (license #f)))
 
 (define-public rust-flate2
@@ -6009,15 +5983,11 @@ proposed in RFC 1158.")
     (home-page
      "https://github.com/alexcrichton/flate2-rs")
     (synopsis
-     "Bindings to miniz.c for DEFLATE compression and decompression exposed as
-Reader/Writer streams. Contains bindings for zlib, deflate, and gzip-based
-streams.
-")
+     "Bindings to miniz.c for DEFLATE compression and decompression")
     (description
-     "Bindings to miniz.c for DEFLATE compression and decompression exposed as
-Reader/Writer streams.  Contains bindings for zlib, deflate, and gzip-based
-streams.
-")
+     "Bindings to miniz.c for DEFLATE compression and decompression
+exposed as Reader/Writer streams.  Contains bindings for zlib,
+deflate, and gzip-based streams.")
     (license #f)))
 
 (define-public rust-futures-cpupool
@@ -6041,13 +6011,10 @@ streams.
     (home-page
      "https://github.com/alexcrichton/futures-rs")
     (synopsis
-     "An implementation of thread pools which hand out futures to the results of the
-computation on the threads themselves.
-")
+     "Hand out futures to the threads themselves")
     (description
-     "An implementation of thread pools which hand out futures to the results of the
-computation on the threads themselves.
-")
+     "An implementation of thread pools which hand out futures to the
+results of the computation on the threads themselves.")
     (license #f)))
 
 (define-public rust-http
@@ -6078,11 +6045,10 @@ computation on the threads themselves.
         ("rust-serde-json" ,rust-serde-json))))
     (home-page "https://github.com/hyperium/http")
     (synopsis
-     "A set of types for representing HTTP requests and responses.
-")
+     "A set of types for representing HTTP requests and responses")
     (description
-     "This package provides a set of types for representing HTTP requests and responses.
-")
+     "This package provides a set of types for representing HTTP
+requests and responses.")
     (license #f)))
 
 (define-public rust-httparse
@@ -6105,9 +6071,10 @@ computation on the threads themselves.
     (home-page
      "https://github.com/seanmonstar/httparse")
     (synopsis
-     "A tiny, safe, speedy, zero-copy HTTP/1.x parser.")
+     "A tiny, safe, speedy, zero-copy HTTP/1.x parser")
     (description
-     "This package provides a tiny, safe, speedy, zero-copy HTTP/1.x parser.")
+     "This package provides a tiny, safe, speedy, zero-copy HTTP/1.x
+parser.")
     (license #f)))
 
 (define-public rust-nodrop
@@ -6129,9 +6096,10 @@ computation on the threads themselves.
        (("rust-nodrop-union" ,rust-nodrop-union))))
     (home-page "https://github.com/bluss/arrayvec")
     (synopsis
-     "A wrapper type to inhibit drop (destructor). Use std::mem::ManuallyDrop instead!")
+     "A wrapper type to inhibit drop (destructor)")
     (description
-     "This package provides a wrapper type to inhibit drop (destructor).  Use std::mem::ManuallyDrop instead!")
+     "This package provides a wrapper type to inhibit
+drop (destructor).  Use std::mem::ManuallyDrop instead!")
     (license #f)))
 
 (define-public rust-paste-impl
@@ -6212,9 +6180,10 @@ computation on the threads themselves.
     (home-page
      "https://github.com/rustwasm/console_error_panic_hook")
     (synopsis
-     "A panic hook for `wasm32-unknown-unknown` that logs panics to `console.error`")
+     "Logs panics to console.error")
     (description
-     "This package provides a panic hook for `wasm32-unknown-unknown` that logs panics to `console.error`")
+     "This package provides a panic hook for `wasm32-unknown-unknown`
+that logs panics to `console.error`")
     (license #f)))
 
 (define-public rust-js-sys
@@ -6243,13 +6212,11 @@ computation on the threads themselves.
     (home-page
      "https://rustwasm.github.io/wasm-bindgen/")
     (synopsis
-     "Bindings for all JS global objects and functions in all JS environments like
-Node.js and browsers, built on `#[wasm_bindgen]` using the `wasm-bindgen` crate.
-")
+     "Bindings for all JS global objects and functions in WASM")
     (description
-     "Bindings for all JS global objects and functions in all JS environments like
-Node.js and browsers, built on `#[wasm_bindgen]` using the `wasm-bindgen` crate.
-")
+     "Bindings for all JS global objects and functions in all JS
+environments like Node.js and browsers, built on `#[wasm_bindgen]`
+using the `wasm-bindgen` crate.")
     (license #f)))
 
 (define-public rust-scoped-tls
@@ -6269,15 +6236,11 @@ Node.js and browsers, built on `#[wasm_bindgen]` using the `wasm-bindgen` crate.
     (home-page
      "https://github.com/alexcrichton/scoped-tls")
     (synopsis
-     "Library implementation of the standard library's old `scoped_thread_local!`
-macro for providing scoped access to thread local storage (TLS) so any type can
-be stored into TLS.
-")
+     "Implementation of scoped_thread_local")
     (description
-     "Library implementation of the standard library's old `scoped_thread_local!`
-macro for providing scoped access to thread local storage (TLS) so any type can
-be stored into TLS.
-")
+     "Library implementation of the standard library's old
+`scoped_thread_local!` macro for providing scoped access to thread
+local storage (TLS) so any type can be stored into TLS.")
     (license #f)))
 
 (define-public rust-wasm-bindgen-futures
@@ -6388,11 +6351,10 @@ be stored into TLS.
         ("rust-utf8-ranges" ,rust-utf8-ranges))))
     (home-page "https://github.com/BurntSushi/fst")
     (synopsis
-     "Search finite state transducers with fuzzy queries using Levenshtein automata.
-")
+     "Finite state transducers with fuzzy queries")
     (description
-     "Search finite state transducers with fuzzy queries using Levenshtein automata.
-")
+     "Search finite state transducers with fuzzy queries using
+Levenshtein automata.")
     (license #f)))
 
 (define-public rust-fst-regex
@@ -6416,11 +6378,9 @@ be stored into TLS.
         ("rust-utf8-ranges" ,rust-utf8-ranges))))
     (home-page "https://github.com/BurntSushi/fst")
     (synopsis
-     "Search finite state transducers with regular expression.
-")
+     "Search finite state transducers with regular expression")
     (description
-     "Search finite state transducers with regular expression.
-")
+     "Search finite state transducers with regular expression.")
     (license #f)))
 
 (define-public rust-itertools-num
@@ -6446,11 +6406,10 @@ be stored into TLS.
     (home-page
      "https://github.com/bluss/itertools-num")
     (synopsis
-     "Numerical iterator tools. Extra iterators and iterator methods and functions.
-")
+     "Numerical iterator tools")
     (description
-     "Numerical iterator tools.  Extra iterators and iterator methods and functions.
-")
+     "Numerical iterator tools.  Extra iterators and iterator methods
+and functions.")
     (license #f)))
 
 (define-public rust-num-complex
@@ -6533,7 +6492,7 @@ be stored into TLS.
     (home-page
      "https://github.com/BurntSushi/rust-csv")
     (synopsis
-     "Bare bones CSV parsing with no_std support.")
+     "Bare bones CSV parsing with no_std support")
     (description
      "Bare bones CSV parsing with no_std support.")
     (license #f)))
@@ -6678,9 +6637,10 @@ be stored into TLS.
     (home-page
      "https://github.com/servo/string-cache")
     (synopsis
-     "A string interning library for Rust, developed as part of the Servo project.")
+     "A string interning library for Rust")
     (description
-     "This package provides a string interning library for Rust, developed as part of the Servo project.")
+     "This package provides a string interning library for Rust,
+developed as part of the Servo project.")
     (license #f)))
 
 (define-public rust-encoding-index-tests
@@ -6700,9 +6660,10 @@ be stored into TLS.
     (home-page
      "https://github.com/lifthrasiir/rust-encoding")
     (synopsis
-     "Helper macros used to test index tables for character encodings")
+     "Macros used to test index tables for character encodings")
     (description
-     "Helper macros used to test index tables for character encodings")
+     "Helper macros used to test index tables for character
+encodings")
     (license #f)))
 
 (define-public rust-flame
@@ -6780,7 +6741,7 @@ be stored into TLS.
        (("rust-cargon" ,rust-cargon))))
     (home-page "https://github.com/bryant/argon2rs")
     (synopsis
-     "The pure Rust password hashing library that runs on Argon2.")
+     "The pure Rust password hashing library that runs on Argon2")
     (description
      "The pure Rust password hashing library that runs on Argon2.")
     (license #f)))
@@ -6806,7 +6767,7 @@ be stored into TLS.
     (home-page
      "https://rust-lang-nursery.github.io/failure/")
     (synopsis
-     "Experimental error handling abstraction.")
+     "Experimental error handling abstraction")
     (description
      "Experimental error handling abstraction.")
     (license #f)))
@@ -6836,13 +6797,10 @@ be stored into TLS.
     (home-page
      "https://github.com/alexcrichton/socket2-rs")
     (synopsis
-     "Utilities for handling networking sockets with a maximal amount of configuration
-possible intended.
-")
+     "Handle networking sockets a lot of configuration")
     (description
-     "Utilities for handling networking sockets with a maximal amount of configuration
-possible intended.
-")
+     "Utilities for handling networking sockets with a maximal amount
+of configuration possible intended.")
     (license #f)))
 
 (define-public rust-model
@@ -6865,9 +6823,10 @@ possible intended.
         ("rust-proptest" ,rust-proptest))))
     (home-page "https://github.com/spacejam/model")
     (synopsis
-     "model-based testing for data structures, with linearizability checking")
+     "model-based testing for data structures")
     (description
-     "model-based testing for data structures, with linearizability checking")
+     "model-based testing for data structures, with linearizability
+checking")
     (license #f)))
 
 (define-public rust-proptest
