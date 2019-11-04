@@ -13451,7 +13451,7 @@ and private (encrypted + signed) jars.")
        (("rust-byteorder" ,rust-byteorder)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-winapi" ,rust-winapi-0.3)
-        ("rust-ws2-32-sys" ,rust-ws2-32-sys))))
+        ("rust-ws2-32-sys" ,rust-ws2-32-sys-0.2))))
     (home-page
      "https://github.com/sfackler/rust-socks")
     (synopsis "SOCKS proxy clients")
