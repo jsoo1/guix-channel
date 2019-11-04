@@ -750,7 +750,7 @@ boundaries according to Unicode Standard Annex #29 rules.")
          "16wpvrghvd0353584i1idnsgm0r3vchg8fyrm0x8ayv1rgvbljgf"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi))))
+     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/ogham/rust-ansi-term")
     (synopsis
@@ -887,7 +887,7 @@ Jaro-Winkler.")
        (("rust-clippy" ,rust-clippy)
         ("rust-kernel32-sys" ,rust-kernel32-sys)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/kbknapp/term_size-rs.git")
     (synopsis
@@ -1370,7 +1370,7 @@ file paths point to the same file.")
          "1j839dc6y8vszvrsb7yk0qvs0w6asnahxzbyans37vnsw6vbls3i"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi))))
+     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/BurntSushi/winapi-util")
     (synopsis
@@ -1785,7 +1785,7 @@ indexmap.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-winapi" ,rust-winapi)
+       (("rust-winapi" ,rust-winapi-0.3)
         ("rust-winapi-util" ,rust-winapi-util))))
     (home-page
      "https://github.com/BurntSushi/termcolor/tree/master/wincolor")
@@ -2006,14 +2006,14 @@ variable.")
 
 (define-public rust-winapi-0.2.8
   (package
-    (inherit rust-winapi)
+    (inherit rust-winapi-0.3)
     (version "0.2.8")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "winapi" version))
        (file-name
-        (string-append (package-name rust-winapi) "-" version ".tar.gz"))
+        (string-append (package-name rust-winapi-0.3) "-" version ".tar.gz"))
        (sha256
         (base32
          "0yh816lh6lf56dpsgxy189c2ai1z3j8mw9si6izqb6wsjkbcjz8n"))))))
@@ -2784,7 +2784,7 @@ patterns.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-winapi" ,rust-winapi))
+       (("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment))))
     (home-page
@@ -3483,7 +3483,7 @@ Recomposition, as described in Unicode Standard Annex #15.")
          "0q94q9ppqjgrw71swiyia4hgby2cz6dldp7ij57nkvhd6zmfcy8n"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi))))
+     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/servo/heapsize")
     (synopsis
      "Infrastructure for measuring the total runtime size of an object")
@@ -3929,7 +3929,7 @@ require unstable language features.")
         ("rust-miow" ,rust-miow-0.2)
         ("rust-net2" ,rust-net2)
         ("rust-slab" ,rust-slab)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-env-logger" ,rust-env-logger)
@@ -4424,10 +4424,10 @@ ArrayVec and ArrayString.")
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-rustc-serialize" ,rust-rustc-serialize)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-log" ,rust-log)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/rust-lang/time")
     (synopsis
      "Utilities for working with time-related functions in Rust")
@@ -4454,7 +4454,7 @@ ArrayVec and ArrayString.")
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-redox-users" ,rust-redox-users)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/soc/dirs-sys-rs")
     (synopsis
      "System-level helper functions for the dirs and directories crates.")
@@ -4648,7 +4648,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-rand-core" ,rust-rand-core)
         ("rust-rdrand" ,rust-rdrand-0.4)
-        ("rust-winapi" ,rust-winapi)
+        ("rust-winapi" ,rust-winapi-0.3)
         ("rust-log" ,rust-log)
         ("rust-stdweb" ,rust-stdweb)
         ("rust-wasm" ,rust-wasm))))))
@@ -5149,7 +5149,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/carllerche/iovec")
     (synopsis
      "Portable buffer type for scatter/gather I/O operations")
@@ -5175,7 +5175,7 @@ maps of many strings (> 1 billion is possible).")
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/rust-lang-nursery/net2-rs")
     (synopsis
@@ -6844,7 +6844,7 @@ be stored into TLS.
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-redox-syscall" ,rust-redox-syscall)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-tempdir" ,rust-tempdir))))
     (home-page
@@ -7015,7 +7015,7 @@ possible intended.
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-smallvec" ,rust-smallvec)
         ("rust-thread-id" ,rust-thread-id)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version))))
     (home-page
@@ -7065,7 +7065,7 @@ possible intended.
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-smallvec" ,rust-smallvec)
         ("rust-thread-id" ,rust-thread-id)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version))))
     (home-page
@@ -7967,7 +7967,7 @@ dependency to expose a precomputed hash.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-redox-syscall" ,rust-redox-syscall)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/ruuda/thread-id")
     (synopsis "Get a unique thread ID")
     (description "Get a unique thread ID")
@@ -8085,7 +8085,7 @@ bench suite.")
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core)
         ("rust-serde" ,rust-serde)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/rust-lang/backtrace-rs")
     (synopsis
@@ -9232,7 +9232,7 @@ streams.")
         ("rust-serde" ,rust-serde)
         ("rust-sha1" ,rust-sha1)
         ("rust-slog" ,rust-slog)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode)
         ("rust-serde-derive" ,rust-serde-derive)
@@ -9472,7 +9472,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-tempdir" ,rust-tempdir))))
     (home-page
@@ -9605,7 +9605,7 @@ according to XDG Base Directory specification")
         ("rust-regex" ,rust-regex)
         ("rust-termios" ,rust-termios)
         ("rust-unicode-width" ,rust-unicode-width)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/mitsuhiko/console")
     (synopsis
@@ -9773,7 +9773,7 @@ according to XDG Base Directory specification")
        (("rust-atty" ,rust-atty)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/mitsuhiko/clicolors-control")
     (synopsis
@@ -10527,7 +10527,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-winapi" ,rust-winapi))
+       (("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc))))
     (home-page
@@ -11919,7 +11919,7 @@ creation from raw pointers and start, end pointer accessors.
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log)
         ("rust-rand-core" ,rust-rand-core)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/rust-random/rand")
     (synopsis
      "Random number generator based on timing jitter")
@@ -11996,7 +11996,7 @@ creation from raw pointers and start, end pointer accessors.
        (("rust-custom-derive" ,rust-custom-derive))
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/DanielKeep/rust-conv")
     (synopsis
@@ -12400,7 +12400,7 @@ size 2, 4, 8, 16, 32, and 64.")
      `(#:cargo-inputs
        (("rust-kernel32-sys" ,rust-kernel32-sys)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://pijul.org/cryptovec")
     (synopsis
      "A vector which zeroes its memory on clears and reallocations")
@@ -12544,7 +12544,7 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/conradkdotcom/rpassword")
     (synopsis
@@ -12570,7 +12570,7 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/conradkdotcom/rpassword")
     (synopsis
@@ -12682,7 +12682,7 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/conradkdotcom/rpassword")
     (synopsis
@@ -12921,7 +12921,7 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-advapi32-sys" ,rust-advapi32-sys)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://pijul.org/darcs/user")
     (synopsis
      "Portably retrieve the user name (and possibly other information in future versions) of the user running the current thread.")
@@ -13520,7 +13520,7 @@ and private (encrypted + signed) jars.")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi)
+        ("rust-winapi" ,rust-winapi-0.3)
         ("rust-ws2-32-sys" ,rust-ws2-32-sys))))
     (home-page
      "https://github.com/sfackler/rust-socks")
@@ -13659,7 +13659,7 @@ types.  The Client can be used for other queries.")
      `(#:cargo-inputs
        (("rust-chrono" ,rust-chrono)
         ("rust-serde" ,rust-serde)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
         ("rust-serde-derive" ,rust-serde-derive))))
@@ -13813,7 +13813,7 @@ exposed as Reader/Writer streams.")
        (("rust-getrandom" ,rust-getrandom)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mach-o-sys" ,rust-mach-o-sys)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/quininer/memsec")
     (synopsis
      "Rust implementation `libsodium/utils`.")
@@ -14086,7 +14086,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-winapi" ,rust-winapi))
+       (("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-winapi-build" ,rust-winapi-build))))
     (home-page
@@ -14139,7 +14139,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-tempdir" ,rust-tempdir))))
     (home-page
@@ -14196,7 +14196,7 @@ exposed as Reader/Writer streams.")
      `(#:cargo-inputs
        (("rust-socket2" ,rust-socket2)
         ("rust-widestring" ,rust-widestring)
-        ("rust-winapi" ,rust-winapi)
+        ("rust-winapi" ,rust-winapi-0.3)
         ("rust-winreg" ,rust-winreg))))
     (home-page
      "https://github.com/liranringel/ipconfig")
@@ -14441,7 +14441,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
         ("rust-spin" ,rust-spin)
         ("rust-untrusted" ,rust-untrusted)
         ("rust-web-sys" ,rust-web-sys)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -14539,7 +14539,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
          ,rust-security-framework)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-net" ,rust-tokio-net)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://tokio.rs")
     (synopsis
      "An implementation of TLS/SSL streams for Tokio")
@@ -14755,7 +14755,7 @@ response body.")
         ("rust-tokio-sync" ,rust-tokio-sync)
         ("rust-tracing" ,rust-tracing)
         ("rust-tracing" ,rust-tracing)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://tokio.rs")
     (synopsis
      "Event loop that drives Tokio I/O resources")
@@ -15360,7 +15360,7 @@ accessor functions on enums.")
        (("rust-log" ,rust-log)
         ("rust-mio" ,rust-mio)
         ("rust-miow" ,rust-miow)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
         ("rust-rand" ,rust-rand-0.4))))
@@ -15464,7 +15464,7 @@ accessor functions on enums.")
         ("rust-serde-json" ,rust-serde-json)
         ("rust-tempfile" ,rust-tempfile)
         ("rust-tester" ,rust-tester)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/laumann/compiletest-rs")
     (synopsis
@@ -15749,7 +15749,7 @@ functions.")
      `(#:cargo-inputs
        (("rust-errno-dragonfly" ,rust-errno-dragonfly)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/lfairy/rust-errno")
     (synopsis
@@ -15776,7 +15776,7 @@ functions.")
      `(#:cargo-inputs
        (("rust-errno-dragonfly" ,rust-errno-dragonfly)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/lfairy/rust-errno")
     (synopsis
@@ -15846,7 +15846,7 @@ functions.")
         ("rust-parking-lot" ,rust-parking-lot)
         ("rust-wayland-client" ,rust-wayland-client-0.21.13)
         ("rust-smithay-client-toolkit" ,rust-smithay-client-toolkit-0.4)
-        ("rust-winapi" ,rust-winapi)
+        ("rust-winapi" ,rust-winapi-0.3)
         ("rust-winit" ,rust-winit))))
     (home-page "https://github.com/tomaka/glutin")
     (synopsis
@@ -16030,7 +16030,7 @@ functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-winapi" ,rust-winapi))
+       (("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-gl-generator" ,rust-gl-generator))))
     (home-page "https://github.com/tomaka/glutin")
@@ -16280,7 +16280,7 @@ functions.")
         ("rust-smithay-client-toolkit"
          ,rust-smithay-client-toolkit)
         ("rust-wayland-client" ,rust-wayland-client)
-        ("rust-winapi" ,rust-winapi)
+        ("rust-winapi" ,rust-winapi-0.3)
         ("rust-x11-dl" ,rust-x11-dl))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
@@ -18103,7 +18103,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-mio-extras" ,rust-mio-extras)
         ("rust-serde" ,rust-serde)
         ("rust-walkdir" ,rust-walkdir)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json)
         ("rust-tempdir" ,rust-tempdir))))
@@ -18807,7 +18807,7 @@ UNC where possible")
        (("rust-mio" ,rust-mio)
         ("rust-miow" ,rust-miow)
         ("rust-spsc-buffer" ,rust-spsc-buffer)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/davidhewitt/mio-anonymous-pipes")
     (synopsis
@@ -18860,7 +18860,7 @@ UNC where possible")
        (("rust-log" ,rust-log)
         ("rust-mio" ,rust-mio)
         ("rust-miow" ,rust-miow)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
         ("rust-rand" ,rust-rand-0.4))))
@@ -19766,7 +19766,7 @@ for computer graphics.")
          "0431sg4jhabrqf2dliiwhbx9hinb9z4qfcm6914lm5mb17ya5798"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi))))
+     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/DoumanAsh/clipboard-win")
     (synopsis
@@ -20042,7 +20042,7 @@ for computer graphics.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/servo/dwrote-rs")
     (synopsis "Lightweight binding to DirectWrite.")
     (description
@@ -20263,7 +20263,7 @@ for computer graphics.")
          "0vgsdvg9zhg4s6fjfwz5h75fnbalblfjrcajapbybxzmqid0mlcf"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi))))
+     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/blackbeam/named_pipe")
     (synopsis
@@ -21297,7 +21297,7 @@ for computer graphics.")
         ("rust-tokio-net" ,rust-tokio-net)
         ("rust-tokio-net" ,rust-tokio-net)
         ("rust-tokio-sync" ,rust-tokio-sync)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-tokio" ,rust-tokio))))
     (home-page "https://github.com/tokio-rs/tokio")
@@ -21797,7 +21797,7 @@ using a fork-like interface.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc)
         ("rust-rustc-version" ,rust-rustc-version))))
@@ -22152,7 +22152,7 @@ function's body.")
     (arguments
      `(#:cargo-inputs
        (("rust-nix" ,rust-nix)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/oconnor663/os_pipe.rs")
     (synopsis
@@ -22219,7 +22219,7 @@ arbitrary structs.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/oconnor663/shared_child.rs")
     (synopsis
@@ -22276,7 +22276,7 @@ require unstable language features.")
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-rgb" ,rust-rgb)
         ("rust-serde" ,rust-serde)
-        ("rust-winapi" ,rust-winapi))
+        ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-serde-cbor" ,rust-serde-cbor)
         ("rust-serde-json" ,rust-serde-json))))
@@ -22515,7 +22515,7 @@ subscribers.")
          "1ygqplpxz4gg3i8f3rkan2q69pqll7gv65l2mmd8r9dphnvwbkak"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi))))
+     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/Phundrak/output-vt100-rs")
     (synopsis

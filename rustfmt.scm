@@ -38,7 +38,7 @@
         ("rust-term" ,rust-term)
         ("rust-toml" ,rust-toml-0.4)
         ("rust-unicode-segmentation" ,rust-unicode-segmentation)
-        ("rust-winapi" ,rust-winapi))))
+        ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/rust-lang-nursery/rustfmt")
     (synopsis
