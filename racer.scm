@@ -48,7 +48,7 @@
         ("rust-syntex-errors" ,rust-syntex-errors-0.52)
         ("rust-syntex-pos" ,rust-syntex-pos-0.52)
         ("rust-syntex-syntax" ,rust-syntex-syntax-0.52)
-        ("rust-term" ,rust-term)
+        ("rust-term" ,rust-term-0.4)
         ("rust-toml" ,rust-toml-0.4)
         ("rust-unicode-xid" ,rust-unicode-xid-0.0.3))
        #:tests? #f ; FIXME: Tests fail

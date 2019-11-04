@@ -35,7 +35,7 @@
         ("rust-strings" ,rust-strings)
         ("rust-syntex-errors" ,rust-syntex-errors)
         ("rust-syntex-syntax" ,rust-syntex-syntax)
-        ("rust-term" ,rust-term)
+        ("rust-term" ,rust-term-0.4)
         ("rust-toml" ,rust-toml-0.4)
         ("rust-unicode-segmentation" ,rust-unicode-segmentation)
         ("rust-winapi" ,rust-winapi-0.3))))

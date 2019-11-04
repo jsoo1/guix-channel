@@ -2034,28 +2034,28 @@ variable.")
 
 (define-public rust-term-0.5
   (package
-    (inherit rust-term)
+    (inherit rust-term-0.4)
     (version "0.5.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "term" version))
        (file-name
-        (string-append (package-name rust-term) "-" version ".tar.gz"))
+        (string-append (package-name rust-term-0.4) "-" version ".tar.gz"))
        (sha256
         (base32
          "0hkgjrfisj6zjwz525639pmsvzhlc48a0h65nw87qrdp6jihdlgd"))))))
 
 (define-public rust-term-0.5.1
   (package
-    (inherit rust-term)
+    (inherit rust-term-0.4)
     (version "0.5.1")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "term" version))
        (file-name
-        (string-append (package-name rust-term) "-" version ".tar.gz"))
+        (string-append (package-name rust-term-0.4) "-" version ".tar.gz"))
        (sha256
         (base32
          "0qbmqd8jbjlqr4608qdmvp6yin5ypifzi5s2xyhlw8g8s5ynfssy"))))))
@@ -22232,7 +22232,7 @@ arbitrary structs.")
      `(#:cargo-inputs
        (("rust-getopts" ,rust-getopts)
         ("rust-libc" ,rust-libc-0.2)
-        ("rust-term" ,rust-term))))
+        ("rust-term" ,rust-term-0.4))))
     (home-page
      "https://github.com/messense/rustc-test")
     (synopsis
