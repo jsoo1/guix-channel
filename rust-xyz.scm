@@ -13132,7 +13132,7 @@ and private (encrypted + signed) jars.")
         ("rust-serde" ,rust-serde)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-time" ,rust-time-0.1)
-        ("rust-try-from" ,rust-try-from)
+        ("rust-try-from" ,rust-try-from-0.3)
         ("rust-url" ,rust-url))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
