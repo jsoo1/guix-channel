@@ -38,7 +38,7 @@
     (description "Parser for Rust source code")
     (license #f)))
 
-(define-public rust-syn-1
+(define-public rust-syn-1.0
   (package
     (inherit rust-syn-0.15)
     (version "1.0.5")
@@ -21540,7 +21540,7 @@ pitfalls in Rust")
         ("rust-proc-macro-error" ,rust-proc-macro-error)
         ("rust-proc-macro2" ,rust-proc-macro2-1.0)
         ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-1))))
+        ("rust-syn" ,rust-syn-1.0))))
     (home-page
      "https://github.com/TeXitoi/structopt")
     (synopsis
