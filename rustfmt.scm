@@ -26,7 +26,7 @@
         ("rust-env-logger" ,rust-env-logger-0.4)
         ("rust-getopts" ,rust-getopts)
         ("rust-kernel32-sys" ,rust-kernel32-sys)
-        ("rust-libc" ,rust-libc)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log)
         ("rust-regex" ,rust-regex-0.2)
         ("rust-serde" ,rust-serde)

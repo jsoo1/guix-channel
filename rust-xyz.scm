@@ -1406,14 +1406,14 @@ matching branch is the item that gets emitted.")
 
 (define-public rust-libc-0.2.58
   (package
-    (inherit rust-libc)
+    (inherit rust-libc-0.2)
     (version "0.2.58")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "libc" version))
        (file-name
-        (string-append (package-name rust-libc) "-" version ".tar.gz"))
+        (string-append (package-name rust-libc-0.2) "-" version ".tar.gz"))
        (sha256
         (base32
          "06d32dv5inxajhibwgz6z6nq0mgkighykrhb01k46pmsjrkvi0b2"))))))
@@ -20414,7 +20414,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-syntex-pos" ,rust-syntex-pos)
@@ -21184,7 +21184,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-getrandom" ,rust-getrandom-0.1.12)
-        ("rust-libc" ,rust-libc)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log))
        #:cargo-development-inputs
        (("rust-futures" ,rust-futures)
@@ -21288,7 +21288,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-crossbeam-deque" ,rust-crossbeam-deque)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-libc" ,rust-libc)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-num-cpus" ,rust-num-cpus))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand))))
@@ -21320,7 +21320,7 @@ for computer graphics.")
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-libc" ,rust-libc)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log)
         ("rust-log" ,rust-log)
         ("rust-mio" ,rust-mio)
@@ -21827,7 +21827,7 @@ using a fork-like interface.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log)
         ("rust-winapi" ,rust-winapi))
        #:cargo-development-inputs
@@ -21883,7 +21883,7 @@ your own implementation.")
          "1xpkk0j5l9pfmjfh1pi0i89invlavfrd9av5xp0zhxgb29dhy84z"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc))))
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/alexcrichton/wait-timeout")
     (synopsis
@@ -22064,7 +22064,7 @@ function's body.")
          "1sh4l815w7zxg8w17fvwj63y421sjqxxrdamzwyvg90n6mr70phv"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc))))
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/mmastrac/rust-libc-print")
     (synopsis
@@ -22124,7 +22124,7 @@ function's body.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-once-cell" ,rust-once-cell)
         ("rust-os-pipe" ,rust-os-pipe)
         ("rust-shared-child" ,rust-shared-child))
@@ -22250,7 +22250,7 @@ arbitrary structs.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-winapi" ,rust-winapi))))
     (home-page
      "https://github.com/oconnor663/shared_child.rs")
@@ -22277,7 +22277,7 @@ arbitrary structs.")
     (arguments
      `(#:cargo-inputs
        (("rust-getopts" ,rust-getopts)
-        ("rust-libc" ,rust-libc)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-term" ,rust-term))))
     (home-page
      "https://github.com/messense/rustc-test")
