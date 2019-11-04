@@ -27,7 +27,7 @@
         ("rust-getopts" ,rust-getopts-0.2)
         ("rust-kernel32-sys" ,rust-kernel32-sys)
         ("rust-libc" ,rust-libc-0.2)
-        ("rust-log" ,rust-log)
+        ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex-0.2)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
