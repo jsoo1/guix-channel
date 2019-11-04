@@ -24,7 +24,7 @@
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-unicode-xid" ,rust-unicode-xid))
        #:cargo-development-inputs
        (("rust-insta" ,rust-insta)
@@ -97,7 +97,7 @@ framework.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-serde" ,rust-serde))))
@@ -1704,7 +1704,7 @@ indexmap.
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page "https://github.com/dtolnay/automod")
     (synopsis
@@ -1730,7 +1730,7 @@ indexmap.
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/dtolnay/select-rustc")
@@ -3110,7 +3110,7 @@ retrieving random data from system source")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-tempfile" ,rust-tempfile-3.0))))
@@ -3635,7 +3635,7 @@ implemented using Heap's algorithm.")
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-rustc-serialize" ,rust-rustc-serialize)
         ("rust-rustc-test" ,rust-rustc-test)
         ("rust-syn" ,rust-syn)
@@ -5581,7 +5581,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-syn" ,rust-syn))))
@@ -5609,7 +5609,7 @@ proposed in RFC 1158.")
      `(#:cargo-inputs
        (("rust-base-x" ,rust-base-x)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
@@ -5684,7 +5684,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote))))
+        ("rust-quote" ,rust-quote-1.0))))
     (home-page "https://github.com/koute/stdweb")
     (synopsis "Internal crate of the `stdweb` crate")
     (description
@@ -6152,7 +6152,7 @@ computation on the threads themselves.
      `(#:cargo-inputs
        (("rust-proc-macro-hack" ,rust-proc-macro-hack)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page "https://github.com/dtolnay/paste")
     (synopsis
@@ -6178,7 +6178,7 @@ computation on the threads themselves.
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-demo-hack" ,rust-demo-hack)
@@ -6748,7 +6748,7 @@ be stored into TLS.
     (arguments
      `(#:cargo-inputs
        (("rust-flame" ,rust-flame)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page "https://github.com/llogiq/flamer")
     (synopsis
@@ -7282,7 +7282,7 @@ possible intended.
      `(#:cargo-inputs
        (("rust-proc-macro-hack" ,rust-proc-macro-hack)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
@@ -7745,7 +7745,7 @@ with proven statistical guarantees.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro-hack" ,rust-proc-macro-hack)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/dtolnay/proc-macro-hack")
@@ -7853,7 +7853,7 @@ with proven statistical guarantees.")
        (("rust-phf-generator" ,rust-phf-generator)
         ("rust-phf-shared" ,rust-phf-shared)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-compiletest-rs" ,rust-compiletest-rs))))
@@ -8098,7 +8098,7 @@ trace (backtrace) at runtime in a Rust program.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn)
         ("rust-synstructure" ,rust-synstructure))
        #:cargo-development-inputs
@@ -8614,7 +8614,7 @@ and loading crate.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn)
         ("rust-unicode-xid" ,rust-unicode-xid))
        #:cargo-development-inputs
@@ -9271,7 +9271,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn)
         ("rust-unicode-xid" ,rust-unicode-xid))))
     (home-page
@@ -9299,7 +9299,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-scroll" ,rust-scroll))))
@@ -9864,7 +9864,7 @@ according to XDG Base Directory specification")
        (("rust-pest" ,rust-pest)
         ("rust-pest-meta" ,rust-pest-meta)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page "https://pest-parser.github.io/")
     (synopsis "pest code generator")
@@ -9987,7 +9987,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page "https://github.com/dtolnay/ref-cast")
     (synopsis
@@ -10071,7 +10071,7 @@ according to XDG Base Directory specification")
         ("rust-peeking-take-while"
          ,rust-peeking-take-while)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex)
         ("rust-shlex" ,rust-shlex)
         ("rust-which" ,rust-which))
@@ -10116,7 +10116,7 @@ according to XDG Base Directory specification")
         ("rust-peeking-take-while"
          ,rust-peeking-take-while)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex)
         ("rust-shlex" ,rust-shlex)
         ("rust-which" ,rust-which))
@@ -10940,7 +10940,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-quote" ,rust-quote)
+       (("rust-quote" ,rust-quote-1.0)
         ("rust-wasm-bindgen-macro-support"
          ,rust-wasm-bindgen-macro-support))
        #:cargo-development-inputs
@@ -11001,7 +11001,7 @@ dependency")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn)
         ("rust-wasm-bindgen-backend"
          ,rust-wasm-bindgen-backend)
@@ -11036,7 +11036,7 @@ attribute that is not in the shared backend crate.")
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn)
         ("rust-wasm-bindgen-shared"
          ,rust-wasm-bindgen-shared))))
@@ -11169,7 +11169,7 @@ dependency.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/sfackler/foreign-types")
@@ -15148,7 +15148,7 @@ Foundation for the rest of the tokio crates.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck))))
@@ -15177,7 +15177,7 @@ Foundation for the rest of the tokio crates.")
      `(#:cargo-inputs
        (("rust-heck" ,rust-heck)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/bluejekyll/enum-as-inner")
@@ -15395,7 +15395,7 @@ accessor functions on enums.")
        (("rust-lazy-static" ,rust-lazy-static)
         ("rust-proc-macro-crate" ,rust-proc-macro-crate)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-serde" ,rust-serde)
         ("rust-syn" ,rust-syn))))
     (home-page
@@ -15568,7 +15568,7 @@ testing harness")
         ("rust-heck" ,rust-heck)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn)
         ("rust-wasm-bindgen-backend"
          ,rust-wasm-bindgen-backend)
@@ -15597,7 +15597,7 @@ testing harness")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-quote" ,rust-quote)
+       (("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-tracing" ,rust-tracing)
@@ -15630,7 +15630,7 @@ functions.")
        (("rust-toml" ,rust-toml))
        #:cargo-development-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/bkchr/proc-macro-crate")
@@ -15961,7 +15961,7 @@ functions.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn)
         ("rust-trybuild" ,rust-trybuild))))
     (home-page
@@ -16710,7 +16710,7 @@ supports type parameters, associated types, and type constraints.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-xml-rs" ,rust-xml-rs))))
     (home-page
      "https://github.com/smithay/wayland-rs")
@@ -17671,7 +17671,7 @@ implementation of Bresenham's line algorithm.")
        (("rust-phf-generator" ,rust-phf-generator)
         ("rust-phf-shared" ,rust-phf-shared)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-string-cache-shared"
          ,rust-string-cache-shared))))
     (home-page
@@ -18548,7 +18548,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-num" ,rust-num)
@@ -19527,7 +19527,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
@@ -20234,7 +20234,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page "")
     (synopsis "Euclid implementation detail")
@@ -20243,14 +20243,14 @@ for computer graphics.")
 
 (define-public rust-quote-0.3
   (package
-    (inherit rust-quote)
+    (inherit rust-quote-0.6)
     (version "0.3.15")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "quote" version))
        (file-name
-        (string-append (package-name rust-quote) "-" version ".tar.gz"))
+        (string-append (package-name rust-quote-1.0) "-" version ".tar.gz"))
        (sha256
         (base32
          "0yhnnix4dzsv8y4wwz4csbnqjfh73al33j35msr10py6cl5r4vks"))))))
@@ -20277,7 +20277,7 @@ for computer graphics.")
         ("rust-clap" ,rust-clap)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-serde" ,rust-serde)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-syn" ,rust-syn)
@@ -20827,7 +20827,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-itertools" ,rust-itertools)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn)
         ("rust-synstructure" ,rust-synstructure))))
     (home-page "https://github.com/rust-lang/rust")
@@ -21539,7 +21539,7 @@ pitfalls in Rust")
        (("rust-heck" ,rust-heck)
         ("rust-proc-macro-error" ,rust-proc-macro-error)
         ("rust-proc-macro2" ,rust-proc-macro2-1)
-        ("rust-quote" ,rust-quote-1)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-1))))
     (home-page
      "https://github.com/TeXitoi/structopt")
@@ -21566,7 +21566,7 @@ pitfalls in Rust")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/CreepySkeleton/proc-macro-error")
@@ -21594,11 +21594,11 @@ pitfalls in Rust")
      `(#:cargo-inputs
        (("rust-unicode-xid" ,rust-unicode-xid-0.2))
        #:cargo-development-inputs
-       (("rust-quote" ,rust-quote))))))
+       (("rust-quote" ,rust-quote-1.0))))))
 
 (define-public rust-quote-1
   (package
-    (inherit rust-quote)
+    (inherit rust-quote-1.0)
     (version "1.0.2")
     (source
      (origin
@@ -21606,7 +21606,7 @@ pitfalls in Rust")
        (uri (crate-uri "quote" version))
        (file-name
         (string-append
-         (package-name rust-quote) "-" version ".tar.gz"))
+         (package-name rust-quote-1.0) "-" version ".tar.gz"))
        (sha256
         (base32
          "1zkc46ryacf2jdkc6krsy2z615xbk1x8kp1830rcxz3irj5qqfh5"))))))
@@ -21628,7 +21628,7 @@ pitfalls in Rust")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/dtolnay/rustversion")
@@ -21685,7 +21685,7 @@ on CPUs, as well as raw interfaces to platform-specific instructions.
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page "https://www.jpernst.com")
     (synopsis
@@ -21873,7 +21873,7 @@ timeout specified across Unix and Windows platforms.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page "https://github.com/nrc/derive-new")
     (synopsis
@@ -21918,7 +21918,7 @@ structs and enums.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-quote" ,rust-quote)
+       (("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-libc-print" ,rust-libc-print))))
@@ -21947,7 +21947,7 @@ structs and enums.")
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-pretty-assertions"
@@ -22129,7 +22129,7 @@ function's body.")
         ("rust-env-logger" ,rust-env-logger)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-skeptic" ,rust-skeptic)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
@@ -22254,7 +22254,7 @@ the Windows API.")
         ("rust-darling-macro" ,rust-darling-macro))
        #:cargo-development-inputs
        (("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/TedDriggs/darling")
@@ -22284,7 +22284,7 @@ attributes into structs when implementing custom derives.")
        (("rust-darling" ,rust-darling)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
        (("rust-pretty-assertions"
@@ -22488,7 +22488,7 @@ subscribers.")
        (("rust-fnv" ,rust-fnv)
         ("rust-ident-case" ,rust-ident-case)
         ("rust-proc-macro2" ,rust-proc-macro2)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-strsim" ,rust-strsim)
         ("rust-syn" ,rust-syn))))
     (home-page
@@ -22631,7 +22631,7 @@ log crates.")
     (arguments
      `(#:cargo-inputs
        (("rust-darling-core" ,rust-darling-core)
-        ("rust-quote" ,rust-quote)
+        ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn))))
     (home-page
      "https://github.com/TedDriggs/darling")
