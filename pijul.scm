@@ -44,7 +44,7 @@
         ("rust-env-logger" ,rust-env-logger)
         ("rust-failure" ,rust-failure)
         ("rust-flate2" ,rust-flate2)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-getch" ,rust-getch)
         ("rust-hex" ,rust-hex)
         ("rust-ignore" ,rust-ignore)

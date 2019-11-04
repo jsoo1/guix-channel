@@ -2646,7 +2646,7 @@ on the stack")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio)
         ("rust-mio-uds" ,rust-mio-uds)
@@ -3998,7 +3998,7 @@ require unstable language features.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-utils" ,rust-crossbeam-utils)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio)
@@ -4111,7 +4111,7 @@ require unstable language features.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-mio" ,rust-mio)
         ("rust-miow" ,rust-miow-0.3)
         ("rust-num-cpus" ,rust-num-cpus)
@@ -4278,7 +4278,7 @@ ArrayVec and ArrayString.")
      `(#:cargo-inputs
        (("rust-console-error-panic-hook"
          ,rust-console-error-panic-hook)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-js-sys" ,rust-js-sys)
         ("rust-scoped-tls" ,rust-scoped-tls)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen)
@@ -5332,7 +5332,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-utils" ,rust-crossbeam-utils)
-        ("rust-futures" ,rust-futures))
+        ("rust-futures" ,rust-futures-0.1))
        #:cargo-development-inputs
        (("rust-tokio" ,rust-tokio))))
     (home-page "https://github.com/tokio-rs/tokio")
@@ -5359,7 +5359,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4))
        #:cargo-development-inputs
        (("rust-tokio-current-thread"
@@ -5388,7 +5388,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-inputs
        (("rust-fnv" ,rust-fnv)
-        ("rust-futures" ,rust-futures))
+        ("rust-futures" ,rust-futures-0.1))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
         ("rust-loom" ,rust-loom)
@@ -5415,7 +5415,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-num-cpus" ,rust-num-cpus)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-executor" ,rust-tokio-executor))
@@ -5526,7 +5526,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
@@ -5698,7 +5698,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-tokio-io" ,rust-tokio-io))))
     (home-page "https://tokio.rs")
     (synopsis
@@ -5723,7 +5723,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-tokio-executor" ,rust-tokio-executor))))
     (home-page "https://github.com/tokio-rs/tokio")
     (synopsis
@@ -5749,7 +5749,7 @@ the current thread.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-threadpool" ,rust-tokio-threadpool))
        #:cargo-development-inputs
@@ -5781,7 +5781,7 @@ the current thread.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-iovec" ,rust-iovec)
         ("rust-mio" ,rust-mio)
         ("rust-tokio-io" ,rust-tokio-io)
@@ -5813,7 +5813,7 @@ the current thread.")
        (("rust-crossbeam-deque" ,rust-crossbeam-deque)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-num-cpus" ,rust-num-cpus)
         ("rust-rand" ,rust-rand-0.4)
@@ -5848,7 +5848,7 @@ thread pool.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-utils" ,rust-crossbeam-utils)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-slab" ,rust-slab)
         ("rust-tokio-executor" ,rust-tokio-executor))
        #:cargo-development-inputs
@@ -5900,7 +5900,7 @@ thread pool.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio)
         ("rust-tokio-codec" ,rust-tokio-codec)
@@ -5930,7 +5930,7 @@ thread pool.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-iovec" ,rust-iovec)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
@@ -5964,7 +5964,7 @@ thread pool.")
     (arguments
      `(#:cargo-inputs
        (("rust-crc32fast" ,rust-crc32fast)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libz-sys" ,rust-libz-sys)
         ("rust-miniz-sys" ,rust-miniz-sys)
@@ -5974,7 +5974,7 @@ thread pool.")
          ,rust-miniz-oxide-c-api)
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-tokio-io" ,rust-tokio-io)
@@ -6006,7 +6006,7 @@ deflate, and gzip-based streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-num-cpus" ,rust-num-cpus))))
     (home-page
      "https://github.com/alexcrichton/futures-rs")
@@ -6204,7 +6204,7 @@ that logs panics to `console.error`")
      `(#:cargo-inputs
        (("rust-wasm-bindgen" ,rust-wasm-bindgen))
        #:cargo-development-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-wasm-bindgen-futures"
          ,rust-wasm-bindgen-futures)
         ("rust-wasm-bindgen-test"
@@ -6259,7 +6259,7 @@ local storage (TLS) so any type can be stored into TLS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-util-preview"
@@ -7038,7 +7038,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-generator" ,rust-generator)
         ("rust-scoped-tls" ,rust-scoped-tls)
         ("rust-serde" ,rust-serde)
@@ -7064,7 +7064,7 @@ checking")
          "1y7q83qfk9ljjfvs82b453pmz9x1v3d6kr4x55j8mal01s6790dw"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-futures" ,rust-futures))))
+     `(#:cargo-inputs (("rust-futures" ,rust-futures-0.1))))
     (home-page
      "https://github.com/carllerche/tokio-mock-task")
     (synopsis "Mock a Tokio task
@@ -7141,7 +7141,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
@@ -7602,7 +7602,7 @@ drop-in replacement for miniz")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-iovec" ,rust-iovec)
         ("rust-mio" ,rust-mio)
         ("rust-tokio-io" ,rust-tokio-io)
@@ -12553,7 +12553,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-cookie-store" ,rust-cookie-store-0.7)
         ("rust-encoding-rs" ,rust-encoding-rs)
         ("rust-flate2" ,rust-flate2)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-http" ,rust-http)
         ("rust-hyper" ,rust-hyper)
         ("rust-hyper-old-types" ,rust-hyper-old-types)
@@ -12743,7 +12743,7 @@ _getch on Windows, and termios on Unix.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-byteorder" ,rust-byteorder)
         ("rust-cryptovec" ,rust-cryptovec)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-openssl" ,rust-openssl)
         ("rust-thrussh-keys" ,rust-thrussh-keys)
@@ -12776,7 +12776,7 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-dirs" ,rust-dirs)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex)
@@ -12811,7 +12811,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-byteorder" ,rust-byteorder)
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-dirs" ,rust-dirs)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-hex" ,rust-hex)
         ("rust-log" ,rust-log-0.4)
         ("rust-num-bigint" ,rust-num-bigint)
@@ -13512,7 +13512,7 @@ and private (encrypted + signed) jars.")
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-failure" ,rust-failure)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-ipconfig" ,rust-ipconfig)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
@@ -13686,7 +13686,7 @@ types.  The Client can be used for other queries.")
     (arguments
      `(#:cargo-inputs
        (("rust-bzip2-sys" ,rust-bzip2-sys)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
@@ -14181,7 +14181,7 @@ exposed as Reader/Writer streams.")
        (("rust-bytes" ,rust-bytes)
         ("rust-data-encoding" ,rust-data-encoding)
         ("rust-failure" ,rust-failure)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-h2" ,rust-h2)
         ("rust-http" ,rust-http)
         ("rust-log" ,rust-log-0.4)
@@ -14222,7 +14222,7 @@ extension for the Trust-DNS client to use DNS over HTTPS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-native-tls" ,rust-native-tls)
         ("rust-tokio-tcp" ,rust-tokio-tcp)
         ("rust-tokio-tls" ,rust-tokio-tls)
@@ -14253,7 +14253,7 @@ extension for the Trust-DNS client to use native-tls for TLS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-openssl" ,rust-openssl)
         ("rust-tokio-openssl" ,rust-tokio-openssl)
         ("rust-tokio-tcp" ,rust-tokio-tcp)
@@ -14288,7 +14288,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
       (("rust-data-encoding" ,rust-data-encoding)
        ("rust-enum-as-inner" ,rust-enum-as-inner)
        ("rust-failure" ,rust-failure)
-       ("rust-futures" ,rust-futures)
+       ("rust-futures" ,rust-futures-0.1)
        ("rust-idna" ,rust-idna)
        ("rust-lazy-static" ,rust-lazy-static-1.3)
        ("rust-log" ,rust-log-0.4)
@@ -14332,7 +14332,7 @@ foundational DNS protocol library for all Trust-DNS projects.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-rustls" ,rust-rustls)
         ("rust-tokio-rustls" ,rust-tokio-rustls)
@@ -15028,7 +15028,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
@@ -15060,7 +15060,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-iovec" ,rust-iovec)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio)
@@ -15226,7 +15226,7 @@ accessor functions on enums.")
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
         ("rust-failure" ,rust-failure)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-sourcefile" ,rust-sourcefile)
         ("rust-wasm-bindgen-futures"
          ,rust-wasm-bindgen-futures)
@@ -15326,7 +15326,7 @@ accessor functions on enums.")
         ("rust-tracing-core" ,rust-tracing-core))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4))))
     (home-page "https://tokio.rs")
     (synopsis
@@ -18163,7 +18163,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-futures" ,rust-futures)
+        ("rust-futures" ,rust-futures-0.1)
         ("rust-inotify-sys" ,rust-inotify-sys)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio)
@@ -21059,7 +21059,7 @@ for computer graphics.")
         ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log-0.4))
        #:cargo-development-inputs
-       (("rust-futures" ,rust-futures)
+       (("rust-futures" ,rust-futures-0.1)
         ("rust-num-cpus" ,rust-num-cpus)
         ("rust-tempdir" ,rust-tempdir)
         ("rust-tokio-core" ,rust-tokio-core)
