@@ -83,7 +83,7 @@
         ("rust-log" ,rust-log-0.4)
         ("rust-mio-anonymous-pipes" ,rust-mio-anonymous-pipes)
         ("rust-mio-named-pipes" ,rust-mio-named-pipes)
-        ("rust-miow" ,rust-miow)
+        ("rust-miow" ,rust-miow-0.3)
         ("rust-named-pipe" ,rust-named-pipe)
         ("rust-nix" ,rust-nix-0.14)
         ("rust-notify" ,rust-notify)
