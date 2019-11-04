@@ -14097,7 +14097,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-ring" ,rust-ring)
-        ("rust-untrusted" ,rust-untrusted))
+        ("rust-untrusted" ,rust-untrusted-0.7))
        #:cargo-development-inputs
        (("rust-base64" ,rust-base64))))
     (home-page
@@ -14369,7 +14369,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-spin" ,rust-spin)
-        ("rust-untrusted" ,rust-untrusted)
+        ("rust-untrusted" ,rust-untrusted-0.7)
         ("rust-web-sys" ,rust-web-sys)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
@@ -14400,7 +14400,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
     (arguments
      `(#:cargo-inputs
        (("rust-ring" ,rust-ring)
-        ("rust-untrusted" ,rust-untrusted))))
+        ("rust-untrusted" ,rust-untrusted-0.7))))
     (home-page "https://github.com/ctz/sct.rs")
     (synopsis
      "Certificate transparency SCT verification library")
