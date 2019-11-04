@@ -10572,8 +10572,7 @@ according to XDG Base Directory specification")
         ("rust-dtoa" ,rust-dtoa)
         ("rust-ryu" ,rust-ryu)
         ("rust-stackvector" ,rust-stackvector)
-        ("rust-static-assertions"
-         ,rust-static-assertions))
+        ("rust-static-assertions" ,rust-static-assertions-0.3))
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx)
         ("rust-proptest" ,rust-proptest)
@@ -10607,20 +10606,6 @@ according to XDG Base Directory specification")
     (description
      "Fast functions for printing floating-point primitives to an io::Write")
     (license #f)))
-
-(define-public rust-static-assertions-0.3.3
-  (package
-    (inherit rust-static-assertions)
-    (version "0.3.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "static_assertions" version))
-       (file-name
-        (string-append (package-name rust-static-assertions) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0hdj6cxknz53vxnf7szpifs16rk4l3x0n0i4bzmm6li1v8vdxy5l"))))))
 
 (define-public rust-stackvector
   (package
