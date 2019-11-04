@@ -15667,19 +15667,6 @@ functions.")
      "This package provides a `tracing` subscriber that formats and logs trace data.  Moved to the `tracing-subscriber` crate.")
     (license license:expat)))
 
-(define-public rust-log-0.4
-  (package
-    (inherit rust-log-0.4)
-    (version "0.4.8")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "log" version))
-        (file-name (string-append (package-name rust-log-0.4) "-" version ".tar.gz"))
-        (sha256
-         (base32
-          "1xz18ixccl5c6np4linv3ypc7hpmmgpc5zzd2ymp2ssfx0mhbdhl"))))))
-
 (define-public rust-rustc-tools-util
   (package
     (name "rust-rustc-tools-util")
