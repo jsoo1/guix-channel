@@ -53,7 +53,7 @@
         ("rust-log" ,rust-log-0.4)
         ("rust-pathdiff" ,rust-pathdiff)
         ("rust-progrs" ,rust-progrs)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-regex" ,rust-regex)
         ("rust-reqwest" ,rust-reqwest)
         ("rust-rpassword" ,rust-rpassword-2.1.0)

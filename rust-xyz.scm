@@ -468,7 +468,7 @@ ignore files such as `.gitignore` against file paths.")
        (("rust-doc-comment" ,rust-doc-comment)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/rust-lang/regex")
     (synopsis
      "Regular expressions for Rust")
@@ -502,7 +502,7 @@ matching on all inputs.")
        (("rust-doc-comment" ,rust-doc-comment)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))))
+        ("rust-rand" ,rust-rand-0.4))))))
 
 (define-public rust-spin
   (package
@@ -672,7 +672,7 @@ properties according to Unicode Standard Annex #31.")
      `(#:cargo-inputs
        (("rust-env-logger" ,rust-env-logger)
         ("rust-log" ,rust-log)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-core" ,rust-rand-core))))
     (home-page
      "https://github.com/BurntSushi/quickcheck")
@@ -931,7 +931,7 @@ Jaro-Winkler.")
         ("rust-unicode-width" ,rust-unicode-width))
        #:cargo-development-inputs
        (("rust-lipsum" ,rust-lipsum)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-xorshift" ,rust-rand-xorshift)
         ("rust-version-sync" ,rust-version-sync))))
     (home-page
@@ -1260,7 +1260,7 @@ standard printing of search results, similar to grep itself.")
        (("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-smallvec" ,rust-smallvec))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand)
+       (("rust-rand" ,rust-rand-0.4)
         ("rust-signal-hook" ,rust-signal-hook))))
     (home-page
      "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-channel")
@@ -1322,7 +1322,7 @@ that matched.")
      `(#:cargo-inputs
        (("rust-winapi-util" ,rust-winapi-util))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/BurntSushi/same-file")
     (synopsis
@@ -1620,7 +1620,7 @@ matching branch is the item that gets emitted.")
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde-test" ,rust-serde-test))))
     (home-page "https://github.com/bluss/indexmap")
     (synopsis
@@ -1679,7 +1679,7 @@ indexmap.
        (("rust-no-panic" ,rust-no-panic))
        #:cargo-development-inputs
        (("rust-num-cpus" ,rust-num-cpus)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/dtolnay/ryu")
     (synopsis
      "Fast floating point to string conversion")
@@ -1813,7 +1813,7 @@ indexmap.
      `(#:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/BurntSushi/byteorder")
     (synopsis
@@ -2132,7 +2132,7 @@ variable.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rand" ,rust-rand))
+       (("rust-rand" ,rust-rand-0.4))
        #:cargo-development-inputs
        (("rust-rand-xorshift" ,rust-rand-xorshift)
         ("rust-version-sync" ,rust-version-sync))))
@@ -2245,7 +2245,7 @@ pairs in insertion order")
        #:cargo-development-inputs
        (("rust-permutohedron" ,rust-permutohedron)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/bluss/rust-itertools")
     (synopsis
@@ -2416,7 +2416,7 @@ pairs in insertion order")
        (("rust-byteorder" ,rust-byteorder))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/alicemaz/rust-base64")
     (synopsis
@@ -2459,7 +2459,7 @@ pairs in insertion order")
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/llogiq/bytecount")
     (synopsis
      "Count occurrences of a given byte")
@@ -2593,7 +2593,7 @@ points, in a byte slice, fast")
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-lazy-static" ,rust-lazy-static))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-utils")
     (synopsis "Utilities for concurrent programming")
@@ -3186,7 +3186,7 @@ versa!")
        (("rust-quick-error" ,rust-quick-error))
        #:cargo-development-inputs
        (("rust-chrono" ,rust-chrono)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-time" ,rust-time))))
     (home-page
      "https://github.com/tailhook/humantime")
@@ -3386,7 +3386,7 @@ guidelines on macOS.")
        (("rust-fst" ,rust-fst)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/tapeinosyne/atlatl")
     (synopsis "Double-array tries.")
@@ -3617,7 +3617,7 @@ implemented using Heap's algorithm.")
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-tempdir" ,rust-tempdir))))
     (home-page
      "https://bheisler.github.io/criterion.rs/book/index.html")
@@ -3683,7 +3683,7 @@ implemented using Heap's algorithm.")
         ("rust-mac" ,rust-mac)
         ("rust-utf-8" ,rust-utf-8))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/servo/tendril")
     (synopsis
      "Compact buffer/string type for zero-copy parsing")
@@ -4511,7 +4511,7 @@ ArrayVec and ArrayString.")
         ("rust-fst-regex" ,rust-fst-regex)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/BurntSushi/fst")
     (synopsis
      "Finite state transducers representing strings")
@@ -4566,7 +4566,7 @@ maps of many strings (> 1 billion is possible).")
        #:cargo-development-inputs
        (("rust-itertools-num" ,rust-itertools-num)
         ("rust-num-complex" ,rust-num-complex)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/bheisler/criterion.rs")
     (synopsis "Criterion's plotting library")
@@ -4676,7 +4676,7 @@ maps of many strings (> 1 billion is possible).")
        (("rust-doc-comment" ,rust-doc-comment)
         ("rust-docopt" ,rust-docopt)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-xorshift" ,rust-rand-xorshift)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive))))
@@ -4710,7 +4710,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-num-cpus" ,rust-num-cpus))
        #:cargo-development-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-xorshift" ,rust-rand-xorshift)
         ("rust-scoped-tls" ,rust-scoped-tls))))
     (home-page "https://github.com/rayon-rs/rayon")
@@ -5257,7 +5257,7 @@ proposed in RFC 1158.")
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rustc-version" ,rust-rustc-version))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
@@ -5288,7 +5288,7 @@ proposed in RFC 1158.")
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rustc-version" ,rust-rustc-version))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
@@ -5319,7 +5319,7 @@ proposed in RFC 1158.")
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rustc-version" ,rust-rustc-version))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
@@ -5564,7 +5564,7 @@ proposed in RFC 1158.")
         ("rust-proc-macro-hack" ,rust-proc-macro-hack)
         ("rust-proc-macro-nested"
          ,rust-proc-macro-nested)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-core" ,rust-rand-core)
         ("rust-slab" ,rust-slab)
         ("rust-tokio-io" ,rust-tokio-io))))
@@ -5780,7 +5780,7 @@ proposed in RFC 1158.")
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-threadpool" ,rust-tokio-threadpool))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand)
+       (("rust-rand" ,rust-rand-0.4)
         ("rust-tempdir" ,rust-tempdir)
         ("rust-tempfile" ,rust-tempfile)
         ("rust-tokio" ,rust-tokio)
@@ -5847,7 +5847,7 @@ proposed in RFC 1158.")
         ("rust-futures" ,rust-futures)
         ("rust-log" ,rust-log)
         ("rust-num-cpus" ,rust-num-cpus)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-slab" ,rust-slab)
         ("rust-tokio-executor" ,rust-tokio-executor))
        #:cargo-development-inputs
@@ -5884,7 +5884,7 @@ proposed in RFC 1158.")
         ("rust-slab" ,rust-slab)
         ("rust-tokio-executor" ,rust-tokio-executor))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand)
+       (("rust-rand" ,rust-rand-0.4)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-mock-task" ,rust-tokio-mock-task))))
     (home-page "https://github.com/tokio-rs/tokio")
@@ -6016,7 +6016,7 @@ proposed in RFC 1158.")
        #:cargo-development-inputs
        (("rust-futures" ,rust-futures)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-tcp" ,rust-tokio-tcp)
         ("rust-tokio-threadpool" ,rust-tokio-threadpool))))
@@ -6086,7 +6086,7 @@ computation on the threads themselves.
        #:cargo-development-inputs
        (("rust-indexmap" ,rust-indexmap)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-seahash" ,rust-seahash)
         ("rust-serde" ,rust-serde)
         ("rust-serde-json" ,rust-serde-json))))
@@ -6484,7 +6484,7 @@ be stored into TLS.
     (arguments
      `(#:cargo-inputs
        (("rust-num-traits" ,rust-num-traits)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
@@ -6513,7 +6513,7 @@ be stored into TLS.
     (arguments
      `(#:cargo-inputs
        (("rust-num-traits" ,rust-num-traits)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
@@ -6571,7 +6571,7 @@ be stored into TLS.
        (("rust-crossbeam-epoch" ,rust-crossbeam-epoch)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-deque")
     (synopsis "Concurrent work-stealing deque")
@@ -6610,7 +6610,7 @@ be stored into TLS.
        (("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.3)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))))
+       (("rust-rand" ,rust-rand-0.4))))))
 
 (define-public rust-crossbeam-queue
   (package
@@ -6630,7 +6630,7 @@ be stored into TLS.
      `(#:cargo-inputs
        (("rust-crossbeam-utils" ,rust-crossbeam-utils))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-utils")
     (synopsis "Concurrent queues")
@@ -6688,7 +6688,7 @@ be stored into TLS.
         ("rust-string-cache-codegen" ,rust-string-cache-codegen)
         ("rust-string-cache-shared" ,rust-string-cache-shared))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/servo/string-cache")
     (synopsis
@@ -6906,7 +6906,7 @@ possible intended.
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-num-traits" ,rust-num-traits)
         ("rust-quick-error" ,rust-quick-error)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-chacha" ,rust-rand-chacha)
         ("rust-rand-xorshift" ,rust-rand-xorshift)
         ("rust-regex-syntax" ,rust-regex-syntax)
@@ -7011,7 +7011,7 @@ possible intended.
         ("rust-cloudabi" ,rust-cloudabi)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-petgraph" ,rust-petgraph)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-smallvec" ,rust-smallvec)
         ("rust-thread-id" ,rust-thread-id)
@@ -7061,7 +7061,7 @@ possible intended.
         ("rust-cloudabi" ,rust-cloudabi)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-petgraph" ,rust-petgraph)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-smallvec" ,rust-smallvec)
         ("rust-thread-id" ,rust-thread-id)
@@ -7212,7 +7212,7 @@ possible intended.
         ("rust-proc-macro-hack" ,rust-proc-macro-hack)
         ("rust-proc-macro-nested"
          ,rust-proc-macro-nested)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-core" ,rust-rand-core)
         ("rust-slab" ,rust-slab)
         ("rust-tokio-io" ,rust-tokio-io))))
@@ -7378,7 +7378,7 @@ possible intended.
      `(#:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
         ("rust-json" ,rust-json)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/OrKoN/base-x-rs")
     (synopsis "Encode/decode any base")
     (description "Encode/decode any base")
@@ -7434,7 +7434,7 @@ possible intended.
        (("rust-serde" ,rust-serde))
        #:cargo-development-inputs
        (("rust-openssl" ,rust-openssl)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde-json" ,rust-serde-json))))
     (home-page
      "https://github.com/mitsuhiko/rust-sha1")
@@ -7515,7 +7515,7 @@ possible intended.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rand" ,rust-rand)
+       (("rust-rand" ,rust-rand-0.4)
         ("rust-remove-dir-all" ,rust-remove-dir-all))))
     (home-page
      "https://github.com/rust-lang/tempdir")
@@ -7546,7 +7546,7 @@ directory and deleting all contents when it's dropped.")
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/srijs/rust-crc32fast")
     (synopsis
@@ -7816,7 +7816,7 @@ with proven statistical guarantees.")
         ("rust-memoffset" ,rust-memoffset)
         ("rust-scopeguard" ,rust-scopeguard-0.3))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-epoch")
     (synopsis "Epoch-based garbage collection")
@@ -7846,7 +7846,7 @@ with proven statistical guarantees.")
         ("rust-memoffset" ,rust-memoffset)
         ("rust-scopeguard" ,rust-scopeguard-0.3))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))))
+       (("rust-rand" ,rust-rand-0.4))))))
 
 (define-public rust-phf-macros
   (package
@@ -8306,7 +8306,7 @@ to be linked into Rust code.")
     (arguments
      `(#:cargo-inputs
        (("rust-phf-shared" ,rust-phf-shared)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/sfackler/rust-phf")
     (synopsis "PHF generation logic")
@@ -8725,7 +8725,7 @@ reading and writing git repositories.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/remram44/adler32-rs")
     (synopsis
@@ -11596,7 +11596,7 @@ shorthands for guards with one of the implemented strategies.")
        (("rust-defmac" ,rust-defmac)
         ("rust-itertools" ,rust-itertools)
         ("rust-odds" ,rust-odds)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/bluss/petgraph")
     (synopsis
      "Graph data structure library")
@@ -11648,7 +11648,7 @@ shorthands for guards with one of the implemented strategies.")
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde-test" ,rust-serde-test))))
     (home-page "https://github.com/bluss/ordermap")
     (synopsis
@@ -11679,7 +11679,7 @@ shorthands for guards with one of the implemented strategies.")
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde-test" ,rust-serde-test))))
     (home-page "https://github.com/bluss/ordermap")
     (synopsis
@@ -11872,7 +11872,7 @@ creation from raw pointers and start, end pointer accessors.
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/crossbeam-rs/crossbeam")
     (synopsis "Tools for concurrent programming")
@@ -11967,7 +11967,7 @@ creation from raw pointers and start, end pointer accessors.
        (("rust-bencher" ,rust-bencher)
         ("rust-proptest" ,rust-proptest)
         ("rust-quantiles" ,rust-quantiles)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-distr" ,rust-rand-distr)
         ("rust-rand-xoshiro" ,rust-rand-xoshiro)
         ("rust-serde-json" ,rust-serde-json)
@@ -12021,7 +12021,7 @@ creation from raw pointers and start, end pointer accessors.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/notriddle/rust-float-ord")
     (synopsis
@@ -12074,7 +12074,7 @@ creation from raw pointers and start, end pointer accessors.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rand" ,rust-rand))
+       (("rust-rand" ,rust-rand-0.4))
        #:cargo-development-inputs
        (("rust-average" ,rust-average)
         ("rust-rand-pcg" ,rust-rand-pcg))))
@@ -12465,7 +12465,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-ignore" ,rust-ignore)
         ("rust-log" ,rust-log)
         ("rust-openssl" ,rust-openssl)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-sanakirja" ,rust-sanakirja-0.10)
         ("rust-sequoia-openpgp" ,rust-sequoia-openpgp)
         ("rust-serde" ,rust-serde)
@@ -12718,7 +12718,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-memsec" ,rust-memsec)
         ("rust-nettle" ,rust-nettle)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-safemem" ,rust-safemem)
         ("rust-sequoia-rfc2822" ,rust-sequoia-rfc2822)
         ("rust-time" ,rust-time))
@@ -12760,7 +12760,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-memsec" ,rust-memsec)
         ("rust-nettle" ,rust-nettle)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-sequoia-rfc2822" ,rust-sequoia-rfc2822)
         ("rust-time" ,rust-time))
        #:cargo-development-inputs
@@ -13018,7 +13018,7 @@ _getch on Windows, and termios on Unix.")
      `(#:cargo-inputs
        (("rust-num" ,rust-num))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/nham/rust-base58")
     (synopsis
      "Simple library for converting to and from base-58 strings")
@@ -13067,7 +13067,7 @@ _getch on Windows, and termios on Unix.")
        (("rust-fs2" ,rust-fs2)
         ("rust-log" ,rust-log)
         ("rust-memmap" ,rust-memmap)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-uuid" ,rust-uuid))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
@@ -13661,7 +13661,7 @@ types.  The Client can be used for other queries.")
         ("rust-serde" ,rust-serde)
         ("rust-winapi" ,rust-winapi))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand)
+       (("rust-rand" ,rust-rand-0.4)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page
      "https://github.com/gentoo90/winreg-rs")
@@ -13762,7 +13762,7 @@ types.  The Client can be used for other queries.")
        #:cargo-development-inputs
        (("rust-partial-io" ,rust-partial-io)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-tokio-core" ,rust-tokio-core))))
     (home-page
      "https://github.com/alexcrichton/bzip2-rs")
@@ -13871,7 +13871,7 @@ exposed as Reader/Writer streams.")
        (("rust-lalrpop" ,rust-lalrpop)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://sequoia-pgp.org/")
     (synopsis "An RFC 2822 name-addr parser")
     (description "An RFC 2822 name-addr parser")
@@ -13911,7 +13911,7 @@ exposed as Reader/Writer streams.")
         ("rust-term" ,rust-term-0.5)
         ("rust-unicode-xid" ,rust-unicode-xid))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/lalrpop/lalrpop")
     (synopsis "convenient LR(1) parser generator")
     (description "convenient LR(1) parser generator")
@@ -14031,7 +14031,7 @@ exposed as Reader/Writer streams.")
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-quickcheck-macros"
          ,rust-quickcheck-macros)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg)
@@ -14363,7 +14363,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-lazy-static" ,rust-lazy-static)
        ("rust-log" ,rust-log)
        ("rust-openssl" ,rust-openssl)
-       ("rust-rand" ,rust-rand)
+       ("rust-rand" ,rust-rand-0.4)
        ("rust-ring" ,rust-ring)
        ("rust-serde" ,rust-serde)
        ("rust-smallvec" ,rust-smallvec)
@@ -14644,7 +14644,7 @@ composability, and iterator-like interfaces.")
        (("rust-env-logger" ,rust-env-logger)
         ("rust-hex" ,rust-hex)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rustls" ,rust-rustls)
         ("rust-serde" ,rust-serde)
         ("rust-serde-json" ,rust-serde-json)
@@ -15363,7 +15363,7 @@ accessor functions on enums.")
         ("rust-winapi" ,rust-winapi))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/alexcrichton/mio-named-pipes")
     (synopsis
@@ -16611,7 +16611,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-caps" ,rust-caps)
         ("rust-cc" ,rust-cc)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-sysctl" ,rust-sysctl)
         ("rust-tempfile" ,rust-tempfile))))
     (home-page "https://github.com/nix-rust/nix")
@@ -16645,7 +16645,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-caps" ,rust-caps)
         ("rust-cc" ,rust-cc)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-sysctl" ,rust-sysctl)
         ("rust-tempfile" ,rust-tempfile))))
     (home-page "https://github.com/nix-rust/nix")
@@ -17320,7 +17320,7 @@ supports type parameters, associated types, and type constraints.")
        #:cargo-development-inputs
        (("rust-bresenham" ,rust-bresenham)
         ("rust-image" ,rust-image)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/expenses/line_drawing")
     (synopsis
@@ -17434,7 +17434,7 @@ hardware font rendering.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-time" ,rust-time))
        #:cargo-development-inputs
        (("rust-lazy-static" ,rust-lazy-static)
@@ -17461,7 +17461,7 @@ hardware font rendering.")
     (arguments
      `(#:cargo-development-inputs
        (("rust-no-panic" ,rust-no-panic)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/rust-lang-nursery/libm")
     (synopsis "libm in pure Rust")
@@ -17613,7 +17613,7 @@ implementation of Bresenham's line algorithm.")
      `(#:cargo-inputs
        (("rust-bit-vec" ,rust-bit-vec-0.5))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/contain-rs/bit-set")
     (synopsis "A set of bits")
@@ -17740,7 +17740,7 @@ implementation of Bresenham's line algorithm.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/nikomatsakis/dogged")
     (synopsis
@@ -17957,7 +17957,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-autocfg" ,rust-autocfg)
         ("rust-doc-comment" ,rust-doc-comment)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rayon" ,rust-rayon)
         ("rust-rustc-hash" ,rust-rustc-hash)
         ("rust-serde-test" ,rust-serde-test))))
@@ -17992,7 +17992,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-fxhash" ,rust-fxhash)
         ("rust-hex" ,rust-hex)
         ("rust-no-panic" ,rust-no-panic)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-seahash" ,rust-seahash))))
     (home-page "https://github.com/tkaitchuck/ahash")
     (synopsis
@@ -18064,7 +18064,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-proc-macro-hack" ,rust-proc-macro-hack)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/tkaitchuck/constrandom")
     (synopsis
@@ -18473,7 +18473,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-getopts" ,rust-getopts)
         ("rust-glium" ,rust-glium)
         ("rust-glob" ,rust-glob)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-term" ,rust-term-0.5))))
     (home-page
      "https://github.com/image-rs/image-png.git")
@@ -18506,7 +18506,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-getopts" ,rust-getopts)
         ("rust-glium" ,rust-glium)
         ("rust-glob" ,rust-glob)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-term" ,rust-term-0.5))))))
 
 (define-public rust-tiff
@@ -18694,7 +18694,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-gl-generator" ,rust-gl-generator)
         ("rust-image" ,rust-image)
         ("rust-obj" ,rust-obj)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-rental" ,rust-rental))))
     (home-page "https://github.com/glium/glium")
     (synopsis
@@ -18863,7 +18863,7 @@ UNC where possible")
         ("rust-winapi" ,rust-winapi))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger)
-        ("rust-rand" ,rust-rand))))
+        ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/alexcrichton/mio-named-pipes")
     (synopsis
@@ -19436,7 +19436,7 @@ The intersection of `std::ffi::CStr` and `str`")
        (("rust-approx" ,rust-approx)
         ("rust-mint" ,rust-mint)
         ("rust-num-traits" ,rust-num-traits)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde)
         ("rust-simd" ,rust-simd))
        #:cargo-development-inputs
@@ -20217,7 +20217,7 @@ for computer graphics.")
         ("rust-time" ,rust-time))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-walkdir" ,rust-walkdir))))
     (home-page
      "https://github.com/mvdnes/zip-rs.git")
@@ -21227,7 +21227,7 @@ for computer graphics.")
        #:cargo-development-inputs
        (("rust-docopt" ,rust-docopt)
         ("rust-lazy-static" ,rust-lazy-static)
-        ("rust-rand" ,rust-rand)
+        ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page
@@ -21259,7 +21259,7 @@ for computer graphics.")
         ("rust-libc" ,rust-libc-0.2)
         ("rust-num-cpus" ,rust-num-cpus))
        #:cargo-development-inputs
-       (("rust-rand" ,rust-rand))))
+       (("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/rust-lang/rustc-rayon")
     (synopsis "Core APIs for Rayon - fork for rustc")
