@@ -761,28 +761,28 @@ boundaries according to Unicode Standard Annex #29 rules.")
 
 (define-public rust-bitflags-0.9
   (package
-    (inherit rust-bitflags)
+    (inherit rust-bitflags-1)
     (version "0.9.1")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "bitflags" version))
        (file-name
-        (string-append (package-name rust-bitflags) "-" version ".tar.gz"))
+        (string-append (package-name rust-bitflags-1) "-" version ".tar.gz"))
        (sha256
         (base32
          "19dk39gfwmhi3iy1x0wgml1fv1bkb525ywy25zwihbm063i05zaf"))))))
 
 (define-public rust-bitflags-0.7
   (package
-    (inherit rust-bitflags)
+    (inherit rust-bitflags-1)
     (version "0.7.0")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "bitflags" version))
        (file-name
-        (string-append (package-name rust-bitflags) "-" version ".tar.gz"))
+        (string-append (package-name rust-bitflags-1) "-" version ".tar.gz"))
        (sha256
         (base32
          "0v8hh6wdkpk9my8z8442g4hqrqf05h0qj53dsay6mv18lqvqklda"))))))
@@ -2302,7 +2302,7 @@ pairs in insertion order")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-getopts" ,rust-getopts)
         ("rust-memchr" ,rust-memchr)
         ("rust-unicase" ,rust-unicase))
@@ -5132,7 +5132,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-fuchsia-zircon-sys"
          ,rust-fuchsia-zircon-sys))))
     (home-page
@@ -6933,7 +6933,7 @@ possible intended.
     (arguments
      `(#:cargo-inputs
        (("rust-bit-set" ,rust-bit-set)
-        ("rust-bitflags" ,rust-bitflags)
+        ("rust-bitflags" ,rust-bitflags-1)
         ("rust-byteorder" ,rust-byteorder)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-num-traits" ,rust-num-traits)
@@ -7432,7 +7432,7 @@ possible intended.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-foreign-types" ,rust-foreign-types-0.3)
         ("rust-lazy-static" ,rust-lazy-static)
@@ -8717,7 +8717,7 @@ and loading crate.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libgit2-sys" ,rust-libgit2-sys)
         ("rust-log" ,rust-log)
@@ -9738,7 +9738,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
-        ("rust-bitflags" ,rust-bitflags)
+        ("rust-bitflags" ,rust-bitflags-1)
         ("rust-serde" ,rust-serde))
        #:cargo-development-inputs
        (("rust-serde-bytes" ,rust-serde-bytes)
@@ -10105,7 +10105,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cexpr" ,rust-cexpr)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-clang-sys" ,rust-clang-sys)
@@ -10149,7 +10149,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cexpr" ,rust-cexpr)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-clang-sys" ,rust-clang-sys-0.26.4)
@@ -10193,7 +10193,7 @@ according to XDG Base Directory specification")
          "0vnw5fb74gl9pgnimgbrkac1xgwrjz86pqilx20rbkia77cdhgk0"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cexpr" ,rust-cexpr-0.2)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-clang-sys" ,rust-clang-sys-0.22)
@@ -11595,7 +11595,7 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags))))
+       (("rust-bitflags" ,rust-bitflags-1))))
     (home-page "https://nuxi.nl/cloudabi/")
     (synopsis
      "Low level interface to CloudABI")
@@ -12272,7 +12272,7 @@ creation from raw pointers and start, end pointer accessors.
      `(#:cargo-inputs
        (("rust-ansi-term" ,rust-ansi-term)
         ("rust-atty" ,rust-atty)
-        ("rust-bitflags" ,rust-bitflags)
+        ("rust-bitflags" ,rust-bitflags-1)
         ("rust-clippy" ,rust-clippy)
         ("rust-strsim" ,rust-strsim-0.8)
         ("rust-term-size" ,rust-term-size-0.3)
@@ -12486,7 +12486,7 @@ _getch on Windows, and termios on Unix.")
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
         ("rust-bincode" ,rust-bincode)
-        ("rust-bitflags" ,rust-bitflags)
+        ("rust-bitflags" ,rust-bitflags-1)
         ("rust-bs58" ,rust-bs58)
         ("rust-byteorder" ,rust-byteorder)
         ("rust-chrono" ,rust-chrono)
@@ -12842,7 +12842,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-byteorder" ,rust-byteorder)
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-futures" ,rust-futures)
@@ -15964,7 +15964,7 @@ functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-block" ,rust-block)
         ("rust-core-foundation" ,rust-core-foundation)
         ("rust-core-graphics" ,rust-core-graphics)
@@ -16007,7 +16007,7 @@ functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-core-foundation" ,rust-core-foundation)
         ("rust-foreign-types" ,rust-foreign-types)
         ("rust-libc" ,rust-libc-0.2.58))))
@@ -16225,7 +16225,7 @@ functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-calloop" ,rust-calloop)
         ("rust-downcast-rs" ,rust-downcast-rs)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -16261,7 +16261,7 @@ functions.")
          "04r7dy074hhdalsi1day482wvmczr40hg7qvrnzkgxpakrgkx5j9"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-calloop" ,rust-calloop)
         ("rust-downcast-rs" ,rust-downcast-rs)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -16291,7 +16291,7 @@ functions.")
     (arguments
      `(#:cargo-inputs
        (("rust-android-glue" ,rust-android-glue)
-        ("rust-bitflags" ,rust-bitflags)
+        ("rust-bitflags" ,rust-bitflags-1)
         ("rust-calloop" ,rust-calloop)
         ("rust-cocoa" ,rust-cocoa)
         ("rust-core-foundation" ,rust-core-foundation)
@@ -16446,7 +16446,7 @@ functions.")
     (arguments
      `(#:cargo-inputs
        (("rust-andrew" ,rust-andrew)
-        ("rust-bitflags" ,rust-bitflags)
+        ("rust-bitflags" ,rust-bitflags-1)
         ("rust-dlib" ,rust-dlib)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-memmap" ,rust-memmap)
@@ -16482,7 +16482,7 @@ functions.")
     (arguments
      `(#:cargo-inputs
        (("rust-andrew" ,rust-andrew)
-        ("rust-bitflags" ,rust-bitflags)
+        ("rust-bitflags" ,rust-bitflags-1)
         ("rust-dlib" ,rust-dlib)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-memmap" ,rust-memmap)
@@ -16634,7 +16634,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-void" ,rust-void))
@@ -16668,7 +16668,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-void" ,rust-void))
@@ -17077,7 +17077,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-line-drawing" ,rust-line-drawing-0.7)
         ("rust-rusttype" ,rust-rusttype-0.7)
         ("rust-rusttype" ,rust-rusttype)
@@ -17134,7 +17134,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-wayland-client" ,rust-wayland-client)
         ("rust-wayland-commons" ,rust-wayland-commons)
         ("rust-wayland-server" ,rust-wayland-server))
@@ -17178,7 +17178,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-block" ,rust-block)
         ("rust-cocoa" ,rust-cocoa)
         ("rust-core-graphics" ,rust-core-graphics)
@@ -17261,7 +17261,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-byteorder" ,rust-byteorder)
         ("rust-failure" ,rust-failure)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -17314,7 +17314,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-calloop" ,rust-calloop)
         ("rust-downcast-rs" ,rust-downcast-rs)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -18122,7 +18122,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-anymap" ,rust-anymap)
-        ("rust-bitflags" ,rust-bitflags)
+        ("rust-bitflags" ,rust-bitflags-1)
         ("rust-chashmap" ,rust-chashmap)
         ("rust-crossbeam-channel" ,rust-crossbeam-channel)
         ("rust-filetime" ,rust-filetime)
@@ -18210,7 +18210,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-fsevent-sys" ,rust-fsevent-sys))
        #:cargo-development-inputs
        (("rust-tempdir" ,rust-tempdir)
@@ -18277,7 +18277,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-futures" ,rust-futures)
         ("rust-inotify-sys" ,rust-inotify-sys)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -18497,7 +18497,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-crc32fast" ,rust-crc32fast)
         ("rust-deflate" ,rust-deflate)
         ("rust-inflate" ,rust-inflate))
@@ -18530,7 +18530,7 @@ complex, rational, range iterators, generic integers, and more!
          "0nf3a8r9p9zrj4x30b48f7yv18dz9xkmrq9b3lnzmpnhzn0z9nk3"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-crc32fast" ,rust-crc32fast)
         ("rust-deflate" ,rust-deflate-0.7)
         ("rust-inflate" ,rust-inflate))
@@ -19046,7 +19046,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-drm" ,rust-drm)
         ("rust-gbm-sys" ,rust-gbm-sys)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -19074,7 +19074,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-input-sys" ,rust-input-sys)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-udev" ,rust-udev))))
@@ -19870,7 +19870,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-freetype-sys" ,rust-freetype-sys-0.7)
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
@@ -20649,7 +20649,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-log" ,rust-log)
         ("rust-rustc-ap-rustc-data-structures"
@@ -20684,7 +20684,7 @@ for computer graphics.")
          "1j9jjq4vvfs79m5gx2ngx3lhq9dl24fy64ynhbggnkl11317z0mk"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-log" ,rust-log)
         ("rust-rustc-ap-rustc-data-structures"
@@ -20956,7 +20956,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-log" ,rust-log)
         ("rust-rustc-ap-rustc-data-structures"
          ,rust-rustc-ap-rustc-data-structures)
@@ -20985,7 +20985,7 @@ for computer graphics.")
          "1hnpzpkfrnm7j6sbim3cfzvcyzj66xzlz22pbf6ryfzwdpwwbgx7"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-log" ,rust-log)
         ("rust-rustc-ap-rustc-data-structures"
          ,rust-rustc-ap-rustc-data-structures-583)
@@ -21507,7 +21507,7 @@ pitfalls in Rust")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags)
+       (("rust-bitflags" ,rust-bitflags-1)
         ("rust-getopts" ,rust-getopts)
         ("rust-memchr" ,rust-memchr)
         ("rust-unicase" ,rust-unicase))
