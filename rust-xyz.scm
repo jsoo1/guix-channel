@@ -13357,7 +13357,7 @@ and private (encrypted + signed) jars.")
         ("rust-security-framework"
          ,rust-security-framework)
         ("rust-security-framework-sys"
-         ,rust-security-framework-sys)
+         ,rust-security-framework-sys-0.3)
         ("rust-tempfile" ,rust-tempfile-3.0))
        #:cargo-development-inputs
        (("rust-hex" ,rust-hex))))
@@ -14429,7 +14429,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
          ,rust-core-foundation-sys-0.6)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-security-framework-sys"
-         ,rust-security-framework-sys))
+         ,rust-security-framework-sys-0.3))
        #:cargo-development-inputs
        (("rust-hex" ,rust-hex)
         ("rust-tempdir" ,rust-tempdir))))
