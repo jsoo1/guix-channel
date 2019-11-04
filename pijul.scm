@@ -72,7 +72,7 @@
         ("rust-toml" ,rust-toml-0.4)
         ("rust-username" ,rust-username))
        #:cargo-development-inputs
-       (("rust-walkdir" ,rust-walkdir))
+       (("rust-walkdir" ,rust-walkdir-2.2))
        #:phases
        (modify-phases %standard-phases
          (add-before 'build 'set-clang-env
