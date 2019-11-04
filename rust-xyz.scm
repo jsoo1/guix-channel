@@ -10965,7 +10965,7 @@ dependency")
         ("rust-wasm-bindgen-backend"
          ,rust-wasm-bindgen-backend)
         ("rust-wasm-bindgen-shared"
-         ,rust-wasm-bindgen-shared))))
+         ,rust-wasm-bindgen-shared-0.2))))
     (home-page
      "https://rustwasm.github.io/wasm-bindgen/")
     (synopsis
@@ -10998,7 +10998,7 @@ attribute that is not in the shared backend crate.")
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-wasm-bindgen-shared"
-         ,rust-wasm-bindgen-shared))))
+         ,rust-wasm-bindgen-shared-0.2))))
     (home-page
      "https://rustwasm.github.io/wasm-bindgen/")
     (synopsis
