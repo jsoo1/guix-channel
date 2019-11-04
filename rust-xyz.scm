@@ -13353,7 +13353,7 @@ and private (encrypted + signed) jars.")
         ("rust-openssl" ,rust-openssl)
         ("rust-openssl-probe" ,rust-openssl-probe)
         ("rust-openssl-sys" ,rust-openssl-sys)
-        ("rust-schannel" ,rust-schannel)
+        ("rust-schannel" ,rust-schannel-0.1)
         ("rust-security-framework"
          ,rust-security-framework)
         ("rust-security-framework-sys"
@@ -14464,7 +14464,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
         ("rust-env-logger" ,rust-env-logger)
         ("rust-futures-preview" ,rust-futures-preview)
         ("rust-openssl" ,rust-openssl)
-        ("rust-schannel" ,rust-schannel)
+        ("rust-schannel" ,rust-schannel-0.1)
         ("rust-security-framework"
          ,rust-security-framework)
         ("rust-tokio" ,rust-tokio)
