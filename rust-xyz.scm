@@ -2004,20 +2004,6 @@ variable.")
        (("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive))))))
 
-(define-public rust-winapi-0.2.8
-  (package
-    (inherit rust-winapi-0.3)
-    (version "0.2.8")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "winapi" version))
-       (file-name
-        (string-append (package-name rust-winapi-0.3) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0yh816lh6lf56dpsgxy189c2ai1z3j8mw9si6izqb6wsjkbcjz8n"))))))
-
 (define-public rust-termion
   (package
     (name "rust-termion")
