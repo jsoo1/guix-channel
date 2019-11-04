@@ -15382,7 +15382,7 @@ accessor functions on enums.")
     (arguments
      `(#:cargo-inputs
        (("rust-diff" ,rust-diff)
-        ("rust-filetime" ,rust-filetime)
+        ("rust-filetime" ,rust-filetime-0.2)
         ("rust-getopts" ,rust-getopts-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
@@ -18010,7 +18010,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-chashmap" ,rust-chashmap)
         ("rust-crossbeam-channel" ,rust-crossbeam-channel)
-        ("rust-filetime" ,rust-filetime)
+        ("rust-filetime" ,rust-filetime-0.2)
         ("rust-fsevent" ,rust-fsevent-0.4)
         ("rust-fsevent-sys" ,rust-fsevent-sys)
         ("rust-inotify" ,rust-inotify-0.6)
