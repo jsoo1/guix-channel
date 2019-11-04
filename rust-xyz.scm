@@ -14757,7 +14757,7 @@ client or server.")
     (arguments
      `(#:cargo-inputs
        (("rust-log" ,rust-log-0.4)
-        ("rust-try-lock" ,rust-try-lock))
+        ("rust-try-lock" ,rust-try-lock-0.2))
        #:cargo-development-inputs
        (("rust-tokio-executor" ,rust-tokio-executor)
         ("rust-tokio-sync" ,rust-tokio-sync))))
@@ -14785,7 +14785,7 @@ client or server.")
     (arguments
      `(#:cargo-inputs
        (("rust-log" ,rust-log-0.4)
-        ("rust-try-lock" ,rust-try-lock))
+        ("rust-try-lock" ,rust-try-lock-0.2))
        #:cargo-development-inputs
        (("rust-tokio-executor" ,rust-tokio-executor)
         ("rust-tokio-sync" ,rust-tokio-sync))))
