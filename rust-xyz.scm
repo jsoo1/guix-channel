@@ -2334,11 +2334,11 @@ pairs in insertion order")
         ("rust-idna" ,rust-idna)
         ("rust-matches" ,rust-matches)
         ("rust-percent-encoding" ,rust-percent-encoding)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test)
         ("rust-serde-json" ,rust-serde-json))))
     (home-page "https://github.com/servo/rust-url")
@@ -2369,11 +2369,11 @@ pairs in insertion order")
         ("rust-idna" ,rust-idna)
         ("rust-matches" ,rust-matches)
         ("rust-percent-encoding" ,rust-percent-encoding-2.1.0)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test)
         ("rust-serde-json" ,rust-serde-json))))
     (home-page "https://github.com/servo/rust-url")
@@ -3636,7 +3636,7 @@ implemented using Heap's algorithm.")
        (("rust-criterion" ,rust-criterion)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-typed-arena" ,rust-typed-arena))))
@@ -3733,7 +3733,7 @@ implemented using Heap's algorithm.")
         ("rust-unicode-normalization"
          ,rust-unicode-normalization))
        #:cargo-development-inputs
-       (("rust-rustc-serialize" ,rust-rustc-serialize)
+       (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test))))
     (home-page "https://github.com/servo/rust-url/")
     (synopsis
@@ -3763,7 +3763,7 @@ implemented using Heap's algorithm.")
         ("rust-unicode-normalization"
          ,rust-unicode-normalization))
        #:cargo-development-inputs
-       (("rust-rustc-serialize" ,rust-rustc-serialize)
+       (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test))))
     (home-page "https://github.com/servo/rust-url/")
     (synopsis
@@ -3875,7 +3875,7 @@ the same way and no more (caveat: black_box is still missing!).")
      `(#:cargo-inputs
        (("rust-getopts" ,rust-getopts-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-term" ,rust-term-0.5)
         ("rust-time" ,rust-time))
        #:cargo-development-inputs
@@ -4376,7 +4376,7 @@ ArrayVec and ArrayString.")
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-integer" ,rust-num-integer)
         ("rust-num-traits" ,rust-num-traits)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde)
         ("rust-time" ,rust-time))
        #:cargo-development-inputs
@@ -4409,7 +4409,7 @@ ArrayVec and ArrayString.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-redox-syscall" ,rust-redox-syscall)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-log" ,rust-log-0.4)
@@ -8026,7 +8026,7 @@ bench suite.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-memmap" ,rust-memmap)
         ("rust-rustc-demangle" ,rust-rustc-demangle)
-        ("rust-rustc-serialize" ,rust-rustc-serialize)
+        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core)
         ("rust-serde" ,rust-serde)
@@ -12056,7 +12056,7 @@ creation from raw pointers and start, end pointer accessors.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-rustc-serialize" ,rust-rustc-serialize))))
+       (("rust-rustc-serialize" ,rust-rustc-serialize-0.3))))
     (home-page
      "https://github.com/DanielKeep/rust-custom-derive/tree/custom_derive-master")
     (synopsis
@@ -20495,7 +20495,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rustc-serialize" ,rust-rustc-serialize)
+       (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://github.com/rust-lang/rls")
