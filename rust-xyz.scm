@@ -214,7 +214,7 @@ framework.")
     (arguments
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde)
-        ("rust-stacker" ,rust-stacker))
+        ("rust-stacker" ,rust-stacker-0.1))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json))))
     (home-page
