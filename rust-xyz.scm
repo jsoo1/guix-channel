@@ -433,7 +433,7 @@ valid UTF-8.")
         ("rust-walkdir" ,rust-walkdir)
         ("rust-winapi-util" ,rust-winapi-util))
        #:cargo-development-inputs
-       (("rust-tempfile" ,rust-tempfile))))
+       (("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page
      "https://github.com/BurntSushi/ripgrep/tree/master/ignore")
     (synopsis
@@ -3113,7 +3113,7 @@ retrieving random data from system source")
         ("rust-quote" ,rust-quote)
         ("rust-syn" ,rust-syn))
        #:cargo-development-inputs
-       (("rust-tempfile" ,rust-tempfile))))
+       (("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page "https://github.com/dtolnay/no-panic")
     (synopsis
      "Prove a function can't ever panic")
@@ -5768,7 +5768,7 @@ proposed in RFC 1158.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
         ("rust-tempdir" ,rust-tempdir)
-        ("rust-tempfile" ,rust-tempfile)
+        ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-codec" ,rust-tokio-codec)
         ("rust-tokio-io" ,rust-tokio-io))))
@@ -5964,7 +5964,7 @@ proposed in RFC 1158.")
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
        #:cargo-development-inputs
-       (("rust-tempfile" ,rust-tempfile)
+       (("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-tokio" ,rust-tokio))))
     (home-page "https://github.com/tokio-rs/tokio")
     (synopsis "Unix Domain sockets for Tokio
@@ -6897,7 +6897,7 @@ possible intended.
         ("rust-rand-xorshift" ,rust-rand-xorshift)
         ("rust-regex-syntax" ,rust-regex-syntax)
         ("rust-rusty-fork" ,rust-rusty-fork)
-        ("rust-tempfile" ,rust-tempfile))
+        ("rust-tempfile" ,rust-tempfile-3.0))
        #:cargo-development-inputs
        (("rust-regex" ,rust-regex))))
     (home-page
@@ -13399,7 +13399,7 @@ and private (encrypted + signed) jars.")
          ,rust-security-framework)
         ("rust-security-framework-sys"
          ,rust-security-framework-sys)
-        ("rust-tempfile" ,rust-tempfile))
+        ("rust-tempfile" ,rust-tempfile-3.0))
        #:cargo-development-inputs
        (("rust-hex" ,rust-hex))))
     (home-page
@@ -13435,7 +13435,7 @@ and private (encrypted + signed) jars.")
        (("rust-criterion" ,rust-criterion)
         ("rust-env-logger" ,rust-env-logger)
         ("rust-log" ,rust-log-0.4)
-        ("rust-tempfile" ,rust-tempfile)
+        ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-webpki-roots" ,rust-webpki-roots))))
     (home-page "https://github.com/ctz/rustls")
     (synopsis
@@ -15433,7 +15433,7 @@ accessor functions on enums.")
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
-        ("rust-tempfile" ,rust-tempfile)
+        ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-tester" ,rust-tester)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
@@ -16162,7 +16162,7 @@ functions.")
         ("rust-wayland-sys" ,rust-wayland-sys))
        #:cargo-development-inputs
        (("rust-byteorder" ,rust-byteorder)
-        ("rust-tempfile" ,rust-tempfile))))
+        ("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page
      "https://github.com/smithay/wayland-rs")
     (synopsis
@@ -16198,7 +16198,7 @@ functions.")
         ("rust-wayland-sys" ,rust-wayland-sys-0.21))
        #:cargo-development-inputs
        (("rust-byteorder" ,rust-byteorder)
-        ("rust-tempfile" ,rust-tempfile))))))
+        ("rust-tempfile" ,rust-tempfile-3.0))))))
 
 (define-public rust-winit
   (package
@@ -16571,7 +16571,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-sysctl" ,rust-sysctl)
-        ("rust-tempfile" ,rust-tempfile))))
+        ("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page "https://github.com/nix-rust/nix")
     (synopsis "Rust friendly bindings to *nix APIs")
     (description
@@ -16605,7 +16605,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-lazy-static" ,rust-lazy-static)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-sysctl" ,rust-sysctl)
-        ("rust-tempfile" ,rust-tempfile))))
+        ("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page "https://github.com/nix-rust/nix")
     (synopsis "Rust friendly bindings to *nix APIs")
     (description
@@ -18488,7 +18488,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-num-derive" ,rust-num-derive)
         ("rust-num-traits" ,rust-num-traits))
        #:cargo-development-inputs
-       (("rust-tempfile" ,rust-tempfile))))
+       (("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page
      "https://github.com/image-rs/image-tiff")
     (synopsis
@@ -18859,7 +18859,7 @@ UNC where possible")
         ("rust-slog" ,rust-slog)
         ("rust-slog-stdlog" ,rust-slog-stdlog)
         ("rust-systemd" ,rust-systemd)
-        ("rust-tempfile" ,rust-tempfile)
+        ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-udev" ,rust-udev)
         ("rust-wayland-client" ,rust-wayland-client)
         ("rust-wayland-commons" ,rust-wayland-commons)
@@ -18898,7 +18898,7 @@ UNC where possible")
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-libdbus-sys" ,rust-libdbus-sys))
        #:cargo-development-inputs
-       (("rust-tempfile" ,rust-tempfile))))
+       (("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page "https://github.com/diwic/dbus-rs")
     (synopsis
      "Rust bindings to D-Bus")
@@ -20139,19 +20139,6 @@ for computer graphics.")
      "simple and lightweight HTTP client with built-in HTTPS support")
     (license license:expat)))
 
-(define-public rust-tempfile-3.0.8
-  (package
-    (inherit rust-tempfile)
-    (version "3.0.8")
-    (source
-     (origin
-        (method url-fetch)
-        (uri (crate-uri "tempfile" version))
-        (file-name (string-append (package-name rust-tempfile) "-" version ".tar.gz"))
-        (sha256
-         (base32
-          "1vqk7aq2l04my2r3jiyyxirnf8f90nzcvjasvrajivb85s7p7i3x"))))))
-
 (define-public rust-zip
   (package
     (name "rust-zip")
@@ -20294,7 +20281,7 @@ for computer graphics.")
         ("rust-serde" ,rust-serde)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-syn" ,rust-syn)
-        ("rust-tempfile" ,rust-tempfile)
+        ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-toml" ,rust-toml))))
     (home-page "https://github.com/rayon-rs/rayon")
     (synopsis "Core APIs for Rayon")
@@ -21726,7 +21713,7 @@ directly.")
      `(#:cargo-inputs
        (("rust-fnv" ,rust-fnv)
         ("rust-quick-error" ,rust-quick-error)
-        ("rust-tempfile" ,rust-tempfile)
+        ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-wait-timeout" ,rust-wait-timeout))))
     (home-page
      "https://github.com/altsysrq/rusty-fork")

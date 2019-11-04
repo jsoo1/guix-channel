@@ -62,7 +62,7 @@
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-shell-escape" ,rust-shell-escape)
         ("rust-tar" ,rust-tar)
-        ("rust-tempfile" ,rust-tempfile)
+        ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-term" ,rust-term-0.5)
         ("rust-thrussh" ,rust-thrussh)
         ("rust-thrussh-config" ,rust-thrussh-config)
