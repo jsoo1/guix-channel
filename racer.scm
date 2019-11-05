@@ -41,7 +41,8 @@
         ("rust-humantime" ,rust-humantime)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-lazycell" ,rust-lazycell)
-        ("rust-log" ,rust-log-0.4)
+        ("rust-fuchsia-zircon" ,rust-fuchsia-zircon)
+        ("rust-log" ,rust-log-0.3)
         ("rust-racer-cargo-metadata" ,rust-racer-cargo-metadata)
         ("rust-rls-span" ,rust-rls-span)
         ("rust-rustc-ap-syntax" ,rust-rustc-ap-syntax-583)
@@ -50,7 +51,10 @@
         ("rust-syntex-syntax" ,rust-syntex-syntax-0.52)
         ("rust-term" ,rust-term-0.4)
         ("rust-toml" ,rust-toml-0.4)
-        ("rust-unicode-xid" ,rust-unicode-xid-0.0.3))
+        ("rust-unicode-xid" ,rust-unicode-xid-0.0.3)
+        ("rust-winapi" ,rust-winapi-0.2)
+        ("rust-winapi-build" ,rust-winapi-build)
+        ("rust-wincolor" ,rust-wincolor))
        #:tests? #f ; FIXME: Tests fail
        #:phases
        (modify-phases %standard-phases
