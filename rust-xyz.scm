@@ -22611,3 +22611,28 @@ high-level interoperability.  Also adds common convenience methods and
 implements standard Rust traits to make RGB/RGBA pixels and slices
 first-class Rust objects.")
     (license license:expat)))
+
+(define-public rust-xattr-0.2
+  (package
+    (name "rust-xattr")
+    (version "0.2.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "xattr" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0k556fb6f5jc907975j9c8iynl2fqz3rf0w6fiig83i4yi0kfk14"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libc" ,rust-libc-0.2))
+       #:cargo-development-inputs
+       (("rust-tempfile" ,rust-tempfile-3.0))))
+    (home-page "https://github.com/Stebalien/xattr")
+    (synopsis "unix extended filesystem attributes")
+    (description
+     "unix extended filesystem attributes")
+    (license #f)))
