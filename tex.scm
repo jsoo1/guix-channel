@@ -2,6 +2,7 @@
   #:use-module (guix packages)
   #:use-module (guix git-download)
   #:use-module (guix build-system trivial)
+  #:use-module (guix build-system texlive)
   #:use-module ((guix licenses) #:prefix license:))
 
 (define-public texlive-moderncv
@@ -24,14 +25,11 @@
        #:builder
        (begin
          (use-modules (guix build utils))
-         (let* ((source (assoc-ref %build-inputs "source"))
-                (out (assoc-ref %outputs "out"))
-                (moderncv
-                 (string-append out "/share/texmf-dist/")))
-           (mkdir-p moderncv)
-           ;; TODO: remove readme, ignore files,
-           ;;       examples, take care of manuals
-           (copy-recursively source moderncv)))))
+         (let ((target (string-append (assoc-ref %outputs "out")
+                                     "/share/texmf-dist/tex/latex/moderncv")))
+           (mkdir-p target)
+           (copy-recursively (assoc-ref %build-inputs "source") target)
+           #t))))
     (home-page "https://ctan.org/pkg/moderncv")
     (synopsis "A modern curriculum vitae class")
     (description
