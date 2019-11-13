@@ -118,5 +118,5 @@ support for all other extensions.")
      "The package offers access to the large number of web-related
 icons provided by the included
 http://fortawesome.github.io/Font-Awesome/font.  The package requires
-the package, fontspecfontspec, if run with XeTeX or LuaTeX.")
+the package, fontspec, if run with XeTeX or LuaTeX.")
     (license license:lppl1.3+)))
