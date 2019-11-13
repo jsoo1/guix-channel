@@ -118,14 +118,37 @@ support for all other extensions.")
              (invoke "python" "generate_tex_bindings.py" ,version)
              #t))
          (replace 'install
-           (lambda _
-             (let ((target
-                    (string-append
-                     (assoc-ref %outputs "out")
-                     "/share/texmf-dist/tex/latex/fontawesome")))
-               (mkdir-p target)
-               (copy-recursively "." target)
-               #t))))))
+           (lambda* (#:key outputs #:allow-other-keys)
+             ;; install fonts
+             (let* ((font-dir
+                     (lambda (dir)
+                       (string-append
+                        (assoc-ref %outputs "out")
+                        "/share/texmf-dist/fonts/" dir "/fontawesome")))
+                    (tfm  `("tfm"      ,(font-dir "tfm/public")))
+                    (enc  `("(enc|fd)" ,(font-dir "enc/pdftex/public")))
+                    (otf  `("otf"      ,(font-dir "opentype/public")))
+                    (mmap `("map"      ,(font-dir "map/dvips")))
+                    (t1   `("pfb"      ,(font-dir "type1/public"))))
+               (for-each
+                (lambda (p)
+                  (let ((re (car p))
+                        (dir (cadr p)))
+                    (mkdir-p dir)
+                    (for-each (lambda (f) (install-file f dir))
+                     (find-files "." (string-append ".*\\." re "$")))))
+                (list tfm enc otf mmap)))
+
+             ;; install tex
+             (for-each
+              (lambda (f)
+                (install-file
+                 f
+                 (string-append
+                  (assoc-ref outputs "out")
+                  "/share/texmf-dist/tex/latex/fontawesome")))
+              (find-files "." ".*\\.(tex|sty)$"))
+             #t)))))
     (home-page "http://www.ctan.org/pkg/fontawesome")
     (synopsis
      "Font containing web-related icons")
