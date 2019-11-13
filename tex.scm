@@ -85,4 +85,38 @@ TeX, provides the user commands for letterspacing only, omitting
 support for all other extensions.")
     (license license:lppl1.3c)))
 
-
+(define-public texlive-latex-fontawesome
+  (package
+    (name "texlive-latex-fontawesome")
+    (version "4.6.3.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/xdanaux/fontawesome-latex")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32
+         "14956i81nsi2pl1cy38hkw5gygnwcks8hxld2vcnnlhs71i3pchn"))))
+    (build-system trivial-build-system)
+    (arguments
+     `(#:modules ((guix build utils))
+       #:builder
+       (begin
+         (use-modules (guix build utils))
+         (let ((target (string-append
+                        (assoc-ref %outputs "out")
+                        "/share/texmf-dist/tex/latex/fontawesome")))
+           (mkdir-p target)
+           (copy-recursively (assoc-ref %build-inputs "source") target)
+           #t))))
+    (home-page "http://www.ctan.org/pkg/fontawesome")
+    (synopsis
+     "Font containing web-related icons")
+    (description
+     "The package offers access to the large number of web-related
+icons provided by the included
+http://fortawesome.github.io/Font-Awesome/font.  The package requires
+the package, fontspecfontspec, if run with XeTeX or LuaTeX.")
+    (license license:lppl1.3+)))
