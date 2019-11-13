@@ -34,10 +34,10 @@
     (home-page "https://ctan.org/pkg/moderncv")
     (synopsis "A modern curriculum vitae class")
     (description
-     "The class provides facilities for typesetting modern
-curriculums vitae, both in a classic and in a casual style.  It is
-fairly customizable, allowing you to define your own style by changing
-the colours, the fonts, etc.")
+     "The class provides facilities for typesetting modern curriculums
+vitae, both in a classic and in a casual style.  It is fairly
+customizable, allowing you to define your own style by changing the
+colours, the fonts, etc.")
     (license license:lppl1.3+)))
 
 (define-public texlive-latex-microtype
