@@ -6,9 +6,9 @@
   #:use-module (guix svn-download)
   #:use-module ((guix licenses) #:prefix license:))
 
-(define-public texlive-moderncv
+(define-public texlive-latex-moderncv
   (package
-    (name "texlive-moderncv")
+    (name "texlive-latex-moderncv")
     (version "2.0.0")
     (source
      (origin
