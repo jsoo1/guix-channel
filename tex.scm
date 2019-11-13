@@ -1,9 +1,14 @@
 (define-module (tex)
+  #:use-module ((fonts) #:select (lcdf-typetools font-font-awesome))
+  #:use-module ((gnu packages tex) #:select (texlive-bin))
+  #:use-module ((guix build-system python) #:select (python-build-system))
   #:use-module (guix build-system trivial)
   #:use-module (guix build-system texlive)
   #:use-module (guix git-download)
   #:use-module (guix packages)
   #:use-module (guix svn-download)
+  #:use-module ((gnu packages python) #:select (python-wrapper))
+  #:use-module ((gnu packages fontutils) #:select (fontforge))
   #:use-module ((guix licenses) #:prefix license:))
 
 (define-public texlive-latex-moderncv
@@ -88,7 +93,7 @@ support for all other extensions.")
 (define-public texlive-latex-fontawesome
   (package
     (name "texlive-latex-fontawesome")
-    (version "4.6.3.2")
+    (version "4.6.3")
     (source
      (origin
        (method git-fetch)
@@ -98,19 +103,30 @@ support for all other extensions.")
        (file-name (git-file-name name version))
        (sha256
         (base32
-         "14956i81nsi2pl1cy38hkw5gygnwcks8hxld2vcnnlhs71i3pchn"))))
-    (build-system trivial-build-system)
+         "0m5fm1hj747braq7g7j8zbld7fq71ikdw5glva3w54yzqkgwcx6k"))))
+    (inputs
+     `(("fontforge" ,fontforge)
+       ("font-font-awesome" ,font-font-awesome)
+       ("lcdf-typetools" ,lcdf-typetools)
+       ("texlive-bin" ,texlive-bin)))
+    (build-system python-build-system)
     (arguments
-     `(#:modules ((guix build utils))
-       #:builder
-       (begin
-         (use-modules (guix build utils))
-         (let ((target (string-append
-                        (assoc-ref %outputs "out")
-                        "/share/texmf-dist/tex/latex/fontawesome")))
-           (mkdir-p target)
-           (copy-recursively (assoc-ref %build-inputs "source") target)
-           #t))))
+     `(#:tests? #f
+       #:phases
+       (modify-phases %standard-phases
+         (replace 'build
+           (lambda _
+             (invoke "python" "generate_tex_bindings.py" ,version)
+             #t))
+         (replace 'install
+           (lambda _
+             (let ((target
+                    (string-append
+                     (assoc-ref %outputs "out")
+                     "/share/texmf-dist/tex/latex/fontawesome")))
+               (mkdir-p target)
+               (copy-recursively "." target)
+               #t))))))
     (home-page "http://www.ctan.org/pkg/fontawesome")
     (synopsis
      "Font containing web-related icons")
