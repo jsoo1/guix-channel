@@ -1,8 +1,11 @@
 (define-module (fonts)
+  #:use-module ((gnu packages autotools) #:select (autoconf automake))
+  #:use-module ((gnu packages tex) #:select (texlive-bin))
   #:use-module (guix packages)
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (guix build-system font))
+  #:use-module (guix build-system font)
+  #:use-module ((guix build-system gnu) #:select (gnu-build-system)))
 
 (define-public font-nerd-fonts
   (package
@@ -69,3 +72,37 @@ built from scratch. On top of this, features like icon font ligatures,
 an SVG framework, official NPM packages for popular frontend libraries
 like React, and access to a new CDN.")
     (license #f)))
+
+(define-public lcdf-typetools
+  (package
+    (name "lcdf-typetools")
+    (version "2.108")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/kohler/lcdf-typetools")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32
+         "0a6jqaqwq43ldjjjlnsh6mczs2la9363qav7v9fyrfzkfj8kw9ad"))))
+    (inputs
+     `(("texlive-bin" ,texlive-bin)
+       ("autoconf" ,autoconf)
+       ("automake" ,automake)))
+    (build-system gnu-build-system)
+    (arguments
+     `(#:configure-flags
+       (list
+        (string-append
+         "--with-kpathsea="
+         (assoc-ref %build-inputs "texlive-bin")))))
+    (home-page "http://www.lcdf.org/type/")
+    (synopsis
+     "Utilities for manipulating various fonts")
+    (description
+     "LCDF Typetools comprises several programs for manipulating
+PostScript Type 1, Type 1 Multiple Master, OpenType, and TrueType
+fonts.")
+    (license license:gpl2+)))
