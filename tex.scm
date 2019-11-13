@@ -32,7 +32,7 @@
        (begin
          (use-modules (guix build utils))
          (let ((target (string-append (assoc-ref %outputs "out")
-                                     "/share/texmf-dist/tex/latex/moderncv")))
+                                      "/share/texmf-dist/tex/latex/moderncv")))
            (mkdir-p target)
            (copy-recursively (assoc-ref %build-inputs "source") target)
            #t))))
@@ -63,7 +63,7 @@ colours, the fonts, etc.")
        (begin
          (use-modules (guix build utils))
          (let ((target (string-append (assoc-ref %outputs "out")
-                                     "/share/texmf-dist/tex/latex/microtype")))
+                                      "/share/texmf-dist/tex/latex/microtype")))
            (mkdir-p target)
            (copy-recursively (assoc-ref %build-inputs "source") target)
            #t))))
