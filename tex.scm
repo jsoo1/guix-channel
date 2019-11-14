@@ -1,6 +1,6 @@
 (define-module (tex)
   #:use-module ((fonts) #:select (lcdf-typetools))
-  #:use-module ((gnu packages tex) #:select (texlive-bin))
+  #:use-module (gnu packages tex)
   #:use-module ((guix build-system python) #:select (python-build-system))
   #:use-module (guix build-system trivial)
   #:use-module (guix build-system texlive)
@@ -56,17 +56,36 @@ colours, the fonts, etc.")
        (sha256
         (base32
          "08r7g0cfgjpdsz44nmgwimf2kg40n5v31yzky1f9cizg0p9pj25d"))))
-    (build-system trivial-build-system)
+    (build-system texlive-build-system)
+    (inputs
+     `(("texlive-bin" ,texlive-bin)
+       ("texlive-docstrip" ,(@@ (gnu packages tex) texlive-docstrip))
+       ("texlive-tex-plain" ,texlive-tex-plain)))
     (arguments
-     `(#:modules ((guix build utils))
-       #:builder
-       (begin
-         (use-modules (guix build utils))
-         (let ((target (string-append (assoc-ref %outputs "out")
-                                      "/share/texmf-dist/tex/latex/microtype")))
-           (mkdir-p target)
-           (copy-recursively (assoc-ref %build-inputs "source") target)
-           #t))))
+     `(#:phases
+       (modify-phases %standard-phases
+         (replace 'build
+           (lambda* (#:key outputs inputs #:allow-other-keys)
+             (setenv "TEXINPUTS"
+                     (string-append
+                      (getcwd) "//:"
+                      (assoc-ref inputs "texlive-docstrip") "//:"
+                      (assoc-ref inputs "texlive-tex-plain") "//"))
+             (substitute* "microtype.ins"
+               (("\\\\obeyspaces") ""))
+             (invoke "tex"
+                     "-ini" "-interaction=scrollmode"
+                     "-output-directory=build" "microtype.ins")
+             #t))
+         (replace 'install
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let ((target
+                    (string-append
+                     (assoc-ref outputs "out")
+                     "/share/texmf-dist/tex/latex/microtype")))
+               (mkdir-p target)
+               (copy-recursively "build" target))
+             #t)))))
     (home-page "http://www.ctan.org/pkg/microtype")
     (synopsis "Subliminal refinements towards typographical perfection")
     (description
@@ -136,7 +155,7 @@ support for all other extensions.")
                         (dir (cadr p)))
                     (mkdir-p dir)
                     (for-each (lambda (f) (install-file f dir))
-                     (find-files "." (string-append ".*\\." re "$")))))
+                              (find-files "." (string-append ".*\\." re "$")))))
                 (list tfm enc otf mmap)))
 
              ;; install tex
