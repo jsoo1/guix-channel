@@ -129,8 +129,7 @@ support for all other extensions.")
        ("texlive-bin" ,texlive-bin)))
     (build-system python-build-system)
     (arguments
-     `(#:tests? #f
-       #:phases
+     `(#:phases
        (modify-phases %standard-phases
          (replace 'build
            (lambda _
@@ -144,30 +143,29 @@ support for all other extensions.")
                        (string-append
                         (assoc-ref %outputs "out")
                         "/share/texmf-dist/fonts/" dir "/fontawesome")))
-                    (tfm  `("tfm"      ,(font-dir "tfm/public")))
+                    (tfm  `("tfm" ,(font-dir "tfm/public")))
                     (enc  `("enc" ,(font-dir "enc/pdftex/public")))
-                    (otf  `("otf"      ,(font-dir "opentype/public")))
-                    (mmap `("map"      ,(font-dir "map/dvips")))
-                    (t1   `("pfb"      ,(font-dir "type1/public"))))
+                    (otf  `("otf" ,(font-dir "opentype/public")))
+                    (mmap `("map" ,(font-dir "map/dvips")))
+                    (t1   `("pfb" ,(font-dir "type1/public"))))
                (for-each
                 (lambda (p)
                   (let ((re (car p))
                         (dir (cadr p)))
-                    (mkdir-p dir)
                     (for-each (lambda (f) (install-file f dir))
                               (find-files "." (string-append ".*\\." re "$")))))
-                (list tfm enc otf mmap)))
+                (list tfm enc otf mmap t1)))
 
              ;; install tex and fd
-             (for-each
-              (lambda (f)
-                (install-file
-                 f
-                 (string-append
-                  (assoc-ref outputs "out")
-                  "/share/texmf-dist/tex/latex/fontawesome")))
-              (find-files "." ".*\\.(tex|sty|fd)$"))
-             #t)))))
+             (let ((dest
+                    (string-append
+                     (assoc-ref outputs "out")
+                     "/share/texmf-dist/tex/latex/fontawesome")))
+               (for-each (lambda (f) (install-file f dest))
+                         (find-files "." ".*\\.(tex|sty|fd)$")))
+             #t))
+         (delete 'check)
+         (delete 'wrap))))
     (home-page "http://www.ctan.org/pkg/fontawesome")
     (synopsis
      "Font containing web-related icons")
