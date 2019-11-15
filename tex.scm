@@ -145,7 +145,7 @@ support for all other extensions.")
                         (assoc-ref %outputs "out")
                         "/share/texmf-dist/fonts/" dir "/fontawesome")))
                     (tfm  `("tfm"      ,(font-dir "tfm/public")))
-                    (enc  `("(enc|fd)" ,(font-dir "enc/pdftex/public")))
+                    (enc  `("enc" ,(font-dir "enc/pdftex/public")))
                     (otf  `("otf"      ,(font-dir "opentype/public")))
                     (mmap `("map"      ,(font-dir "map/dvips")))
                     (t1   `("pfb"      ,(font-dir "type1/public"))))
@@ -158,7 +158,7 @@ support for all other extensions.")
                               (find-files "." (string-append ".*\\." re "$")))))
                 (list tfm enc otf mmap)))
 
-             ;; install tex
+             ;; install tex and fd
              (for-each
               (lambda (f)
                 (install-file
@@ -166,7 +166,7 @@ support for all other extensions.")
                  (string-append
                   (assoc-ref outputs "out")
                   "/share/texmf-dist/tex/latex/fontawesome")))
-              (find-files "." ".*\\.(tex|sty)$"))
+              (find-files "." ".*\\.(tex|sty|fd)$"))
              #t)))))
     (home-page "http://www.ctan.org/pkg/fontawesome")
     (synopsis
