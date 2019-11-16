@@ -126,7 +126,8 @@ support for all other extensions.")
     (inputs
      `(("fontforge" ,fontforge)
        ("lcdf-typetools" ,lcdf-typetools)
-       ("texlive-bin" ,texlive-bin)))
+       ("texlive-bin" ,texlive-bin)
+       ("texlive-latex-type1cm" ,texlive-latex-type1cm)))
     (build-system python-build-system)
     (arguments
      `(#:phases
