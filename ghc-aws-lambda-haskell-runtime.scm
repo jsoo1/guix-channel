@@ -30,15 +30,15 @@
        ("ghc-http-types" ,ghc-http-types)
        ("ghc-path" ,ghc-path)
        ("ghc-path-io" ,ghc-path-io-1.5)
-       ("ghc-safe-exceptions-checked"
-        ,ghc-safe-exceptions-checked)))
-    (native-inputs `(("ghc-hspec" ,ghc-hspec)))
+       ("ghc-safe-exceptions-checked" ,ghc-safe-exceptions-checked)))
+    (native-inputs
+     `(("ghc-hspec" ,ghc-hspec)))
     (home-page
      "https://github.com/theam/aws-lambda-haskell-runtime#readme")
     (synopsis "Haskell runtime for AWS Lambda")
     (description
      "Please see the README on GitHub at
-<https://github.com/theam/aws-lambda-haskell-runtime#readme>")
+https://github.com/theam/aws-lambda-haskell-runtime#readme")
     (license license:asl2.0)))
 
 (define-public ghc-safe-exceptions-checked
