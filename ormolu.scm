@@ -33,6 +33,13 @@
         ("ghc-path" ,ghc-path)
         ("ghc-path-io" ,ghc-path-io)
         ("hspec-discover" ,hspec-discover)))
+    (arguments
+     `(#:phases
+       (modify-phases %standard-phases
+         (add-after 'install 'remove-lib
+           (lambda* (#:key outputs #:allow-other-keys)
+             (delete-file-recursively
+              (string-append (assoc-ref outputs "out") "/lib")))))))
     (home-page "https://github.com/tweag/ormolu")
     (synopsis "A formatter for Haskell source code")
     (description
