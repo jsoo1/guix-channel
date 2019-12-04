@@ -9,8 +9,8 @@
   #:use-module ((gnu packages maths) #:select (hdf5
                                                opencascade-oce))
   #:use-module ((gnu packages python) #:select (python-wrapper))
-  #:use-module ((gnu packages python-xyz) #:select (python-numpy
-                                                    python-scipy))
+  #:use-module ((gnu packages python-xyz) #:select (python-numpy))
+  #:use-module ((gnu packages python-science) #:select (python-scipy))
   #:use-module ((gnu packages qt) #:select (python-pyqt
                                             python-sip
                                             qtbase
