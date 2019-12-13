@@ -343,10 +343,10 @@ https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/
 http://www.stackage.org/package/wai-websockets.")
     (license license:expat)))
 
-(define ghc-websockets
+(define-public ghc-websockets
   (package
     (name "ghc-websockets")
-    (version "0.12.5.2")
+    (version "0.12.6.1")
     (source
      (origin
        (method url-fetch)
@@ -356,7 +356,7 @@ http://www.stackage.org/package/wai-websockets.")
              ".tar.gz"))
        (sha256
         (base32
-         "0wacifjbskkfv6xq1sbmc8p60wn767xcjhz8hn8hyijxrrmjabci"))))
+         "1vp3790w3hmr6v96314vdx74f7sg2c7hvnc93gafq0xhbxnr7nvx"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-attoparsec" ,ghc-attoparsec)
