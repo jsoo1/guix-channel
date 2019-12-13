@@ -165,10 +165,10 @@ ToJSON/FromJSON instances for Bower's package manifest file,
 bower.json.")
     (license license:expat)))
 
-(define ghc-language-javascript
+(define-public ghc-language-javascript
   (package
     (name "ghc-language-javascript")
-    (version "0.6.0.13")
+    (version "0.7.0.0")
     (source
      (origin
        (method url-fetch)
@@ -178,7 +178,7 @@ bower.json.")
              ".tar.gz"))
        (sha256
         (base32
-         "0dzvbnzkrxg9v78x2g7mhhr76viyxcgjyqpksaw7l0p1x7brjsck"))))
+         "15bpqpkjf2y3fk8wff9zlnkpsjc63bnbvhlkxrs9alj0bikq17nk"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-blaze-builder" ,ghc-blaze-builder)
@@ -194,10 +194,7 @@ bower.json.")
     (synopsis "Parser for JavaScript")
     (description
      "Parses Javascript into an Abstract Syntax Tree (AST). Initially
-intended as frontend to hjsmin.
-
- Note: Version 0.5.0 breaks compatibility with prior versions, the AST
-has been reworked to allow round trip processing of JavaScript.")
+intended as frontend to hjsmin.")
     (license license:bsd-3)))
 
 (define-public ghc-lifted-async-0.10.0.4
