@@ -16,7 +16,7 @@
 (define purescript
   (package
     (name "purescript")
-    (version "0.13.3")
+    (version "0.13.5")
     (source
      (origin
        (method url-fetch)
@@ -26,20 +26,21 @@
              ".tar.gz"))
        (sha256
         (base32
-         "05cz0ilxawrcn4hm6mbd0qpkbfp0g8mcqvcscl4ghagjljgimaqv"))))
+         "0plqzlcfaw2ik2im7aq8yy1b1y88cnc8qd7wwaayndbdz060s9j4"))))
     (build-system haskell-build-system)
     (inputs
-     `(("ghc-glob" ,ghc-glob)
+     `(("ghc-glob" ,ghc-glob-0.9.3)
        ("ghc-aeson" ,ghc-aeson)
        ("ghc-aeson-better-errors" ,ghc-aeson-better-errors)
        ("ghc-aeson-pretty" ,ghc-aeson-pretty)
-       ("ghc-ansi-terminal" ,ghc-ansi-terminal)
+       ("ghc-ansi-terminal" ,ghc-ansi-terminal-0.8.2)
        ("ghc-base-compat" ,ghc-base-compat)
        ("ghc-blaze-html" ,ghc-blaze-html)
        ("ghc-bower-json" ,ghc-bower-json)
        ("ghc-boxes" ,ghc-boxes)
        ("ghc-cheapskate" ,ghc-cheapskate)
-       ("ghc-clock" ,ghc-clock)
+       ("ghc-clock" ,ghc-clock-0.7.2)
+       ("ghc-cryptonite" ,ghc-cryptonite)
        ("ghc-data-ordlist" ,ghc-data-ordlist)
        ("ghc-dlist" ,ghc-dlist)
        ("ghc-edit-distance" ,ghc-edit-distance)
@@ -49,6 +50,7 @@
        ("ghc-language-javascript" ,ghc-language-javascript)
        ("ghc-lifted-async" ,ghc-lifted-async-0.10.0.4)
        ("ghc-lifted-base" ,ghc-lifted-base)
+       ("ghc-memory" ,ghc-memory)
        ("ghc-microlens-platform" ,ghc-microlens-platform-3.11)
        ("ghc-monad-control" ,ghc-monad-control)
        ("ghc-monad-logger" ,ghc-monad-logger)
@@ -59,11 +61,13 @@
        ("ghc-regex-tdfa" ,ghc-regex-tdfa)
        ("ghc-safe" ,ghc-safe)
        ("ghc-scientific" ,ghc-scientific)
+       ("ghc-semialign" ,ghc-semialign)
        ("ghc-semigroups" ,ghc-semigroups)
        ("ghc-sourcemap" ,ghc-sourcemap)
        ("ghc-split" ,ghc-split)
        ("ghc-stringsearch" ,ghc-stringsearch)
        ("ghc-syb" ,ghc-syb)
+       ("ghc-these" ,ghc-these)
        ("ghc-transformers-base" ,ghc-transformers-base)
        ("ghc-transformers-compat" ,ghc-transformers-compat)
        ("ghc-unordered-containers" ,ghc-unordered-containers)
@@ -79,7 +83,8 @@
        ("ghc-websockets" ,ghc-websockets)
        ("ghc-gitrev" ,ghc-gitrev)))
     (native-inputs
-     `(("ghc-hunit" ,ghc-hunit)
+     `(("ghc-happy" ,ghc-happy-1.19.9)
+       ("ghc-hunit" ,ghc-hunit)
        ("ghc-hspec" ,ghc-hspec)
        ("hspec-discover" ,hspec-discover)
        ("ghc-tasty" ,ghc-tasty)
@@ -98,6 +103,65 @@
      "A small strongly, statically typed programming language with
 expressive types, inspired by Haskell and compiling to JavaScript.")
     (license license:bsd-3)))
+
+(define ghc-happy-1.19.9
+  (package
+    (inherit ghc-happy)
+    (version "1.19.9")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/happy/happy-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "138xpxdb7x62lpmgmb6b3v3vgdqqvqn4273jaap3mjmc2gla709y"))))))
+
+(define ghc-clock-0.7.2
+  (package
+    (inherit ghc-clock)
+    (version "0.7.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/"
+             "clock/"
+             "clock-" version ".tar.gz"))
+       (sha256
+        (base32
+         "07v91s20halsqjmziqb1sqjp2sjpckl9by7y28aaklwqi2bh2rl8"))))))
+
+(define ghc-glob-0.9.3
+  (package
+    (inherit ghc-glob)
+    (version "0.9.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://hackage.haskell.org/package/"
+                           "Glob-" version "/"
+                           "Glob-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1s69lk3ic6zlkikhvb78ly9wl3g70a1h1m6ndhsca01pp8z8axrs"))))))
+
+(define ghc-ansi-terminal-0.8.2
+  (package
+    (inherit ghc-ansi-terminal)
+    (version "0.8.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/ansi-terminal/ansi-terminal-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "147ss9wz03ww6ypbv6yh5vi1wfrfcaqm8r6nxh50vnp7254359wh"))))))
 
 (define ghc-aeson-better-errors
   (package
@@ -485,4 +549,129 @@ transformers.")
      "http://hackage.haskell.org/package/utf8-light")
     (synopsis "Lightweight unicode support for Haskell")
     (description "Lightweight UTF8 handling.")
+    (license license:bsd-3)))
+
+(define-public ghc-these
+  (package
+    (name "ghc-these")
+    (version "1.0.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/these/these-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1k0pi65g7cm9hzdw6my6bzz2zvddkmj1qs45ymqmi316bpiixk3r"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-base-compat" ,ghc-base-compat)
+       ("ghc-hashable" ,ghc-hashable)
+       ("ghc-aeson" ,ghc-aeson)
+       ("ghc-unordered-containers" ,ghc-unordered-containers)
+       ("ghc-assoc" ,ghc-assoc)
+       ("ghc-semigroupoids" ,ghc-semigroupoids)
+       ("ghc-quickcheck" ,ghc-quickcheck)))
+    (arguments
+     `(#:cabal-revision
+       ("1"
+        "0923r86fnmgpx0msm68aszirh2n19nn5bccgjxfh2146jw4z7w3z")))
+    (home-page
+     "https://github.com/isomorphism/these")
+    (synopsis "An either-or-both data type.")
+    (description
+     "This package provides a data type @code{These a b} which can
+hold a value of either type or values of each type. This is usually
+thought of as an \"inclusive or\" type (contrasting @code{Either a b} as
+\"exclusive or\") or as an \"outer join\" type (contrasting @code{(a, b)}
+as \"inner join\").
+
+@code{data These a b = This a | That b | These a b}
+
+Since version 1, this package was split into parts:
+
+@itemize
+@item
+https://hackage.haskell.org/package/semialign For @code{Align} and
+@code{Zip} type-classes.
+@item
+https://hackage.haskell.org/package/semialign-indexed For
+@code{SemialignWithIndex} class, providing @code{ialignWith} and
+@code{izipWith}
+@item
+https://hackage.haskell.org/package/these-lens For lens combinators.
+@item
+http://hackage.haskell.org/package/monad-chronicle For transformers
+variant of @code{These}.
+@end itemize")
+    (license license:bsd-3)))
+
+(define-public ghc-assoc
+  (package
+    (name "ghc-assoc")
+    (version "1.0.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/assoc/assoc-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1m9n4vp190bvn2wcrd4ggfwa9pi93jp0zgx02mdgywn2zfidw020"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-bifunctors" ,ghc-bifunctors)
+       ("ghc-tagged" ,ghc-tagged)))
+    (home-page
+     "http://hackage.haskell.org/package/assoc")
+    (synopsis
+     "swap and assoc: Symmetric and Semigroupy Bifunctors")
+    (description
+     "Provides generalisations of @code{swap :: (a,b) -> (b,a)} and
+@code{assoc :: ((a,b),c) -> (a,(b,c))} to @code{Bifunctor}s supporting
+similar operations (e.g. @code{Either}, @code{These}).")
+    (license license:bsd-3)))
+
+(define-public ghc-semialign
+  (package
+    (name "ghc-semialign")
+    (version "1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/semialign/semialign-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "004x0a80sqqdgvsyk4z0nasxpi6z3g1d8kgwj804bj9ka8dlc75m"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-these" ,ghc-these)
+       ("ghc-base-compat" ,ghc-base-compat)
+       ("ghc-hashable" ,ghc-hashable)
+       ("ghc-tagged" ,ghc-tagged)
+       ("ghc-unordered-containers" ,ghc-unordered-containers)
+       ("ghc-vector" ,ghc-vector)
+       ("ghc-semigroupoids" ,ghc-semigroupoids)))
+    (arguments
+     `(#:cabal-revision
+       ("1"
+        "0qnqnyfng4kwy2h2anrcy5id2ijnawava3zcc5h5b8ri1y6ks6zi")))
+    (home-page
+     "https://github.com/isomorphism/these")
+    (synopsis
+     "Align and Zip type-classes from the common Semialign ancestor.")
+    (description
+     "The major use of @code{These} of this is provided by the
+@code{align}@ member of @code{Semialign}@ class, representing a
+generalized notion of \"zipping with padding\" that combines
+structures without truncating to the size of the smaller input. . It
+turns out that @code{zip}@ operation fits well the @code{Semialign}@
+class, forming lattice-like structure.")
     (license license:bsd-3)))
