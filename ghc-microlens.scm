@@ -6,8 +6,7 @@
   #:use-module (guix packages)
   #:export (ghc-microlens-0.4.10
             ghc-microlens-ghc
-            ghc-microlens-mtl
-            ghc-microlens-platform-3.11))
+            ghc-microlens-mtl))
 
 (define ghc-microlens-0.4.10
   (package
@@ -92,38 +91,3 @@ This package is a part of the microlens family; see the readme on Github at http
      "This package contains functions (like 'view' or '+=') which work on 'MonadReader', 'MonadWriter', and 'MonadState' from the mtl package. . This package is a part of the microlens family; see the readme on Github at https://github.com/aelve/microlens#readme.")
     (license license:bsd-3)))
 
-
-(define ghc-microlens-platform-3.11
-  (package
-    (name "ghc-microlens-platform")
-    (version "0.3.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/microlens-platform/microlens-platform-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "18950lxgmsg5ksvyyi3zs1smjmb1qf1q73a3p3g44bh21miz0xwb"))))
-    (build-system haskell-build-system)
-    (inputs
-     `(("ghc-hashable" ,ghc-hashable)
-       ("ghc-microlens" ,ghc-microlens)
-       ("ghc-microlens-ghc" ,ghc-microlens-ghc)
-       ("ghc-microlens-mtl" ,ghc-microlens-mtl)
-       ("ghc-microlens-th" ,ghc-microlens-th)
-       ("ghc-unordered-containers"
-        ,ghc-unordered-containers)
-       ("ghc-vector" ,ghc-vector)))
-    (home-page
-     "http://github.com/monadfix/microlens")
-    (synopsis "Feature-complete microlens")
-    (description
-     "This package exports a module which is the recommended starting point for using microlens at http://hackage.haskell.org/package/microlens if you aren't trying to keep your dependencies minimal. By importing Lens.Micro.Platform you get all functions and instances from microlens, microlens-th at http://hackage.haskell.org/package/microlens-th, microlens-mtl at http://hackage.haskell.org/package/microlens-mtl, microlens-ghc at http://hackage.haskell.org/package/microlens-ghc, as well as instances for Vector, Text, and HashMap.
-
- The minor and major versions of microlens-platform are incremented whenever the minor and major versions of any other microlens package are incremented, so you can depend on the exact version of microlens-platform without specifying the version of microlens (microlens-mtl, etc) you need.
-
-This package is a part of the microlens family; see the readme on Github at https://github.com/monadfix/microlens#readme.")
-    (license license:bsd-3)))
