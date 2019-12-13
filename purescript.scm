@@ -92,11 +92,8 @@
     (arguments
      `(;; Tests require npm
        #:tests? #f
-       #:configure-flags '("--flags=release")
-       #:phases
-       (modify-phases %standard-phases
-         ;; Haddock fails
-         (delete 'haddock))))
+       #:haddock? #f
+       #:configure-flags '("--flags=release")))
     (home-page "http://www.purescript.org/")
     (synopsis "PureScript Programming Language Compiler")
     (description
