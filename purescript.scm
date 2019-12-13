@@ -92,6 +92,7 @@
     (arguments
      `(;; Tests require npm
        #:tests? #f
+       ;; Haddock fails
        #:haddock? #f
        #:configure-flags '("--flags=release")))
     (home-page "http://www.purescript.org/")
