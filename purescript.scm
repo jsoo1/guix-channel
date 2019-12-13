@@ -394,7 +394,7 @@ http://www.whatwg.org/specs/web-socket-protocol/.
 http://www.w3.org/TR/websockets/")
     (license license:bsd-3)))
 
-(define ghc-tasty-hspec
+(define-public ghc-tasty-hspec
   (package
     (name "ghc-tasty-hspec")
     (version "1.1.5.1")
@@ -416,6 +416,9 @@ http://www.w3.org/TR/websockets/")
        ("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-smallcheck" ,ghc-tasty-smallcheck)
        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)))
+    (arguments
+     `(#:cabal-revision
+       ("4" "1yppwhs2r2rlwrzli9ccv5ldgl95h5p7pqhsr898r3das6daf6sk")))
     (home-page
      "https://github.com/mitchellwrosen/tasty-hspec")
     (synopsis
