@@ -2645,7 +2645,7 @@ on the heap")
         ("rust-term" ,rust-term-0.5)
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version))))
+       (("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/SimonSapin/rustc-test")
     (synopsis
@@ -2777,7 +2777,7 @@ require unstable language features.")
         ("rust-stdweb-internal-runtime" ,rust-stdweb-internal-runtime)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))
        #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version)
+       (("rust-rustc-version" ,rust-rustc-version-0.2)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-stdweb-internal-test-macro"
@@ -3690,7 +3690,7 @@ proposed in RFC 1158.")
        (("rust-bincode" ,rust-bincode-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rustc-version" ,rust-rustc-version))))
+        ("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
     (synopsis
@@ -3721,7 +3721,7 @@ proposed in RFC 1158.")
        (("rust-bincode" ,rust-bincode-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rustc-version" ,rust-rustc-version))))
+        ("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
     (synopsis
@@ -3752,7 +3752,7 @@ proposed in RFC 1158.")
        (("rust-bincode" ,rust-bincode-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rustc-version" ,rust-rustc-version))))
+        ("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
     (synopsis
@@ -3897,30 +3897,6 @@ proposed in RFC 1158.")
      "Internal runtime for the `stdweb` crate")
     (description
      "Internal runtime for the `stdweb` crate")
-    (license #f)))
-
-(define-public rust-rustc-version
-  (package
-    (name "rust-rustc-version")
-    (version "0.2.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rustc_version" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "02h3x57lcr8l2pm0a645s9whdh33pn5cnrwvn5cb57vcrc53x3hk"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-semver" ,rust-semver-0.9))))
-    (home-page
-     "https://github.com/Kimundi/rustc-version-rs")
-    (synopsis
-     "A library for querying the version of a installed rustc compiler")
-    (description
-     "This package provides a library for querying the version of a installed rustc compiler")
     (license #f)))
 
 (define-public rust-stdweb-internal-test-macro
@@ -4956,7 +4932,7 @@ checking")
         ("rust-thread-id" ,rust-thread-id)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version))))
+       (("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
     (synopsis
@@ -5006,7 +4982,7 @@ checking")
         ("rust-thread-id" ,rust-thread-id)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version))))
+       (("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
     (synopsis
@@ -6387,10 +6363,10 @@ file formats.")
      `(#:cargo-inputs
        (("rust-cc" ,rust-cc-1.0)
         ("rust-clap" ,rust-clap-2)
-        ("rust-rustc-version" ,rust-rustc-version)
+        ("rust-rustc-version" ,rust-rustc-version-0.2)
         ("rust-xdg" ,rust-xdg-2.2))
        #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version)
+       (("rust-rustc-version" ,rust-rustc-version-0.2)
         ("rust-xdg" ,rust-xdg-2.2))))
     (home-page "https://github.com/rust-fuzz/afl.rs")
     (synopsis
@@ -6467,7 +6443,7 @@ reinterpret data of certain types safely.")
        #:cargo-development-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-rayon" ,rust-rayon)
-        ("rust-rustc-version" ,rust-rustc-version))))
+        ("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page "https://github.com/m4b/scroll")
     (synopsis
      "Read/Write traits for byte buffers")
@@ -7792,7 +7768,7 @@ streams.")
        (("rust-approx" ,rust-approx)
         ("rust-proptest" ,rust-proptest)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rustc-version" ,rust-rustc-version))))
+        ("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/Alexhuszagh/rust-lexical/tree/master/lexical-core")
     (synopsis
@@ -7841,7 +7817,7 @@ streams.")
      `(#:cargo-inputs
        (("rust-unreachable" ,rust-unreachable-1.0))
        #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version))))
+       (("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/Alexhuszagh/rust-stackvector")
     (synopsis
@@ -16601,7 +16577,7 @@ for computer graphics.")
         ("rust-regex" ,rust-regex-1.1)
         ("rust-syn" ,rust-syn-0.15))
        #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version))))
+       (("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/JelteF/derive_more")
     (synopsis
@@ -17524,7 +17500,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand" ,rust-rand-0.6)
-        ("rust-rustc-version" ,rust-rustc-version)
+        ("rust-rustc-version" ,rust-rustc-version-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-extprim-literals" ,rust-extprim-literals)
@@ -18795,7 +18771,7 @@ using a fork-like interface.")
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0)
-        ("rust-rustc-version" ,rust-rustc-version))))
+        ("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
      "https://github.com/Xudong-Huang/generator-rs.git")
     (synopsis "Stackfull Generator Library in Rust")
