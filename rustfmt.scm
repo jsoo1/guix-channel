@@ -39,7 +39,7 @@
         ("rust-rand-pcg" ,rust-rand-pcg-0.1.2)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.1.1)
         ("rust-regex" ,rust-regex-0.2)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-strings" ,rust-strings)
