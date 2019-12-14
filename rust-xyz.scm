@@ -5589,7 +5589,7 @@ checking")
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-pin-utils" ,rust-pin-utils-0.1)
         ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5)
-        ("rust-proc-macro-nested" ,rust-proc-macro-nested)
+        ("rust-proc-macro-nested" ,rust-proc-macro-nested-0.1)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-slab" ,rust-slab)
@@ -5601,28 +5601,6 @@ checking")
     (description
      "Common utilities and extension traits for the futures-rs
 library.")
-    (license #f)))
-
-(define-public rust-proc-macro-nested
-  (package
-    (name "rust-proc-macro-nested")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "proc-macro-nested" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0bmlksm8vl44wkwihmwr7jsjznhbg0n7aibcw1cs2jgjcp86x6in"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/dtolnay/proc-macro-hack")
-    (synopsis
-     "Support for nested proc-macro-hack invocations")
-    (description
-     "Support for nested proc-macro-hack invocations")
     (license #f)))
 
 (define-public rust-base-x
