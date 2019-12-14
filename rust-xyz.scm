@@ -3715,7 +3715,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-lock-api" ,rust-lock-api)
+       (("rust-lock-api" ,rust-lock-api-0.2)
         ("rust-parking-lot-core" ,rust-parking-lot-core))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1)
@@ -4888,43 +4888,16 @@ checking")
      "Hypothesis-like property-based testing and shrinking.")
     (license #f)))
 
-(define-public rust-lock-api
-  (package
-    (name "rust-lock-api")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "lock_api" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1zx7pksmgyggpczgw4qrr4vj2nkdk5lipgiysvr20slm552nv57d"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-owning-ref" ,rust-owning-ref)
-        ("rust-scopeguard" ,rust-scopeguard)
-        ("rust-serde" ,rust-serde-1.0))))
-    (home-page
-     "https://github.com/Amanieu/parking_lot")
-    (synopsis
-     "Wrappers to create fully-featured Mutex and RwLock types. Compatible with no_std.")
-    (description
-     "Wrappers to create fully-featured Mutex and RwLock types.  Compatible with no_std.")
-    (license #f)))
-
 (define-public rust-lock-api-0.3
   (package
-    (inherit rust-lock-api)
+    (inherit rust-lock-api-0.2)
     (version "0.3.1")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "lock_api" version))
        (file-name
-        (string-append (package-name rust-lock-api) "-" version ".tar.gz"))
+        (string-append (package-name rust-lock-api-0.2) "-" version ".tar.gz"))
        (sha256
         (base32
          "1p04271jikw69ja0ap0plrfwm9incf1iny48g0b3ma9k4mw2x4gq"))))))
@@ -4946,7 +4919,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-owning-ref" ,rust-owning-ref-0.4)
-        ("rust-scopeguard" ,rust-scopeguard)
+        ("rust-scopeguard" ,rust-scopeguard-1.0)
         ("rust-serde" ,rust-serde-1.0))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
@@ -8512,31 +8485,6 @@ dependency.")
      "https://github.com/maciejhirsz/json-rust")
     (synopsis "JSON implementation in Rust")
     (description "JSON implementation in Rust")
-    (license #f)))
-
-(define-public rust-scopeguard
-  (package
-    (name "rust-scopeguard")
-    (version "1.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "scopeguard" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "03aay84r1f6w87ckbpj6cc4rnsxkxcfs13n5ynxjia0qkgjiabml"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/bluss/scopeguard")
-    (synopsis
-     "A RAII scope guard that will run a given closure when it goes out of scope")
-    (description
-     "This package provides a RAII scope guard that will run a given closure when it goes out of scope,
-even if the code between panics (assuming unwinding panic).
-
-Defines the macros `defer!`, `defer_on_unwind!`, `defer_on_success!` as
-shorthands for guards with one of the implemented strategies.")
     (license #f)))
 
 (define-public rust-scopeguard-0.3
