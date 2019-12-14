@@ -3035,7 +3035,7 @@ require unstable language features.")
        (("rust-discard" ,rust-discard-1.0)
         ("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
-        ("rust-futures-executor-preview" ,rust-futures-executor-preview)
+        ("rust-futures-executor-preview" ,rust-futures-executor-preview-0.3)
         ("rust-futures-util-preview" ,rust-futures-util-preview)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
@@ -4237,7 +4237,7 @@ proposed in RFC 1158.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (license #f)))
 
-(define-public rust-futures-executor-preview
+(define-public rust-futures-executor-preview-0.3
   (package
     (name "rust-futures-executor-preview")
     (version "0.3.0-alpha.17")
@@ -12720,16 +12720,12 @@ implementation of TLS for nonblocking I/O streams.")
      `(#:cargo-inputs
        (("rust-futures-channel-preview"
          ,rust-futures-channel-preview-0.3)
-        ("rust-futures-core-preview"
-         ,rust-futures-core-preview-0.3)
+        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
         ("rust-futures-executor-preview"
-         ,rust-futures-executor-preview)
-        ("rust-futures-io-preview"
-         ,rust-futures-io-preview)
-        ("rust-futures-sink-preview"
-         ,rust-futures-sink-preview)
-        ("rust-futures-util-preview"
-         ,rust-futures-util-preview))))
+         ,rust-futures-executor-preview-0.3)
+        ("rust-futures-io-preview" ,rust-futures-io-preview)
+        ("rust-futures-sink-preview" ,rust-futures-sink-preview)
+        ("rust-futures-util-preview" ,rust-futures-util-preview))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
