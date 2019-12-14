@@ -1574,35 +1574,6 @@ instantiate to generate your own pieces of pseudo-random text.")
 pairs in insertion order")
     (license #f)))
 
-(define-public rust-itertools-0.8
-  (package
-    (name "rust-itertools")
-    (version "0.8.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "itertools" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0n2k13b6w4x2x6np2lykh9bj3b3z4hwh2r4cn3z2dgnfq7cng12v"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-either" ,rust-either-1.5))
-       #:cargo-development-inputs
-       (("rust-permutohedron" ,rust-permutohedron-0.2)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/bluss/rust-itertools")
-    (synopsis
-     "Extra iterator adaptors, iterator methods, free functions, and macros.")
-    (description
-     "Extra iterator adaptors, iterator methods, free functions, and macros.")
-    (license #f)))
-
 (define-public rust-pulldown-cmark-0.4
   (package
     (name "rust-pulldown-cmark")
