@@ -7056,7 +7056,7 @@ according to XDG Base Directory specification")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-parking-lot" ,rust-parking-lot-0.8)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-termios" ,rust-termios)
+        ("rust-termios" ,rust-termios-0.3)
         ("rust-unicode-width" ,rust-unicode-width-0.1)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
@@ -7169,40 +7169,16 @@ according to XDG Base Directory specification")
     (description "Rusty Object Notation")
     (license #f)))
 
-(define-public rust-termios
-  (package
-    (name "rust-termios")
-    (version "0.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "termios" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09any1p4jp4bphvb5ikagnvwjc3xn2djchy96nkpa782xb2j1dkj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2.58))))
-    (home-page
-     "https://github.com/dcuddeback/termios-rs")
-    (synopsis
-     "Safe bindings for the termios library.")
-    (description
-     "Safe bindings for the termios library.")
-    (license #f)))
-
 (define-public rust-termios-0.2
   (package
-    (inherit rust-termios)
+    (inherit rust-termios-0.3)
     (version "0.2.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "termios" version))
        (file-name
-        (string-append (package-name rust-termios) "-" version ".tar.gz"))
+        (string-append (package-name rust-termios-0.3) "-" version ".tar.gz"))
        (sha256
         (base32
          "0fk8nl0rmk43jrh6hjz6c6d83ri7l6fikag6lh0ffz3di9cwznfm"))))))
