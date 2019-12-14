@@ -1085,27 +1085,6 @@ indexmap.
 ")
     (license #f)))
 
-(define-public rust-itoa
-  (package
-    (name "rust-itoa")
-    (version "0.4.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "itoa" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0zvg2d9qv3avhf3d8ggglh6fdyw8kkwqg3r4622ly5yhxnvnc4jh"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/dtolnay/itoa")
-    (synopsis
-     "Fast functions for printing integer primitives to an io::Write")
-    (description
-     "Fast functions for printing integer primitives to an io::Write")
-    (license #f)))
-
 (define-public rust-ryu
   (package
     (name "rust-ryu")
@@ -3648,7 +3627,7 @@ maps of many strings (> 1 billion is possible).")
      `(#:cargo-inputs
        (("rust-bstr" ,rust-bstr-0.2
         ("rust-csv-core" ,rust-csv-core)
-        ("rust-itoa" ,rust-itoa)
+        ("rust-itoa" ,rust-itoa-0.4)
         ("rust-ryu" ,rust-ryu)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -5106,7 +5085,7 @@ results of the computation on the threads themselves.")
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-fnv" ,rust-fnv)
-        ("rust-itoa" ,rust-itoa))
+        ("rust-itoa" ,rust-itoa-0.4))
        #:cargo-development-inputs
        (("rust-indexmap" ,rust-indexmap)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
@@ -11961,7 +11940,7 @@ and private (encrypted + signed) jars.")
         ("rust-http-body" ,rust-http-body)
         ("rust-httparse" ,rust-httparse)
         ("rust-iovec" ,rust-iovec)
-        ("rust-itoa" ,rust-itoa)
+        ("rust-itoa" ,rust-itoa-0.4)
         ("rust-log" ,rust-log-0.4)
         ("rust-net2" ,rust-net2)
         ("rust-pin-project" ,rust-pin-project)
@@ -12206,7 +12185,7 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-dtoa" ,rust-dtoa)
-        ("rust-itoa" ,rust-itoa)
+        ("rust-itoa" ,rust-itoa-0.4)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-url" ,rust-url))
        #:cargo-development-inputs
