@@ -64,7 +64,7 @@
         ("rust-rand-os" ,rust-rand-os-0.1.3)
         ("rust-rand-pcg" ,rust-rand-pcg-0.1.2)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.1.1)
-        ("rust-regex" ,rust-regex)
+        ("rust-regex" ,rust-regex-1.1)
         ("rust-reqwest" ,rust-reqwest)
         ("rust-rpassword" ,rust-rpassword-2.1.0)
         ("rust-sequoia-openpgp" ,rust-sequoia-openpgp-0.9.0)
