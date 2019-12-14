@@ -3584,9 +3584,10 @@ proposed in RFC 1158.")
         ("rust-futures" ,rust-futures-0.1))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-loom" ,rust-loom)
+        ;; Does not exist anymore
+        ;; ("rust-loom" ,rust-loom)
         ("rust-tokio" ,rust-tokio)
-        ("rust-tokio-mock-task" ,rust-tokio-mock-task))))
+        ("rust-tokio-mock-task" ,rust-tokio-mock-task-0.1))))
     (home-page "https://tokio.rs")
     (synopsis "Synchronization utilities")
     (description "Synchronization utilities.")
@@ -3847,7 +3848,7 @@ thread pool.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
         ("rust-tokio" ,rust-tokio)
-        ("rust-tokio-mock-task" ,rust-tokio-mock-task))))
+        ("rust-tokio-mock-task" ,rust-tokio-mock-task-0.1))))
     (home-page "https://github.com/tokio-rs/tokio")
     (synopsis "Timer facilities for Tokio")
     (description "Timer facilities for Tokio")
@@ -3961,10 +3962,7 @@ thread pool.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libz-sys" ,rust-libz-sys-1.0)
         ("rust-miniz-sys" ,rust-miniz-sys-0.1)
-        ("rust-miniz-oxide-c-api"
-         ,rust-miniz-oxide-c-api)
-        ("rust-miniz-oxide-c-api"
-         ,rust-miniz-oxide-c-api)
+        ("rust-miniz-oxide-c-api" ,rust-miniz-oxide-c-api-0.2)
         ("rust-tokio-io" ,rust-tokio-io-0.1))
        #:cargo-development-inputs
        (("rust-futures" ,rust-futures-0.1)
@@ -4771,30 +4769,6 @@ checking")
     (description "Model checker for concurrent code")
     (license #f)))
 
-(define-public rust-tokio-mock-task
-  (package
-    (name "rust-tokio-mock-task")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-mock-task" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1y7q83qfk9ljjfvs82b453pmz9x1v3d6kr4x55j8mal01s6790dw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-futures" ,rust-futures-0.1))))
-    (home-page
-     "https://github.com/carllerche/tokio-mock-task")
-    (synopsis
-     "Mock a task for testing")
-    (description
-     "Mock a task for testing.")
-    (license #f)))
-
 (define-public rust-base-x
   (package
     (name "rust-base-x")
@@ -4903,36 +4877,6 @@ checking")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))))
-
-(define-public rust-miniz-oxide-c-api
-  (package
-    (name "rust-miniz-oxide-c-api")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "miniz_oxide_c_api" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1514mvlj8vl723xqxnww5cfqr2mhnqqqf18fn3df17yx8racly2v"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crc32fast" ,rust-crc32fast-1.2)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-miniz-oxide" ,rust-miniz-oxide-0.2))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/Frommi/miniz_oxide/")
-    (synopsis
-     "DEFLATE compression and decompression API")
-    (description
-     "DEFLATE compression and decompression API designed to be Rust
-drop-in replacement for miniz")
-    (license #f)))
 
 (define-public rust-tokio-tcp
   (package
