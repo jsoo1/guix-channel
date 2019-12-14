@@ -4945,7 +4945,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-owning-ref" ,rust-owning-ref)
+       (("rust-owning-ref" ,rust-owning-ref-0.4)
         ("rust-scopeguard" ,rust-scopeguard)
         ("rust-serde" ,rust-serde-1.0))))
     (home-page
@@ -9033,32 +9033,6 @@ creation from raw pointers and start, end pointer accessors.
      "Unchecked indexing wrapper using regular index syntax")
     (description
      "Unchecked indexing wrapper using regular index syntax.")
-    (license #f)))
-
-(define-public rust-owning-ref
-  (package
-    (name "rust-owning-ref")
-    (version "0.4.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "owning_ref" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "04zgwy77lin8qz398s6g44467pd6kjhbrlqifkia5rkr47mbi929"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-stable-deref-trait"
-         ,rust-stable-deref-trait))))
-    (home-page
-     "https://github.com/Kimundi/owning-ref-rs")
-    (synopsis
-     "A library for creating references that carry their owner with them")
-    (description
-     "This package provides a library for creating references that carry their owner with them.")
     (license #f)))
 
 (define-public rust-crossbeam
@@ -15310,7 +15284,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-owning-ref" ,rust-owning-ref)
+       (("rust-owning-ref" ,rust-owning-ref-0.4)
         ("rust-parking-lot" ,rust-parking-lot-0.8))))
     (home-page
      "https://gitlab.redox-os.org/redox-os/chashmap")
@@ -19606,7 +19580,7 @@ testing.")
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-matchers" ,rust-matchers)
-        ("rust-owning-ref" ,rust-owning-ref)
+        ("rust-owning-ref" ,rust-owning-ref-0.4)
         ("rust-parking-lot" ,rust-parking-lot)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-smallvec" ,rust-smallvec)
@@ -19776,7 +19750,7 @@ log crates.")
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-matchers" ,rust-matchers)
-        ("rust-owning-ref" ,rust-owning-ref)
+        ("rust-owning-ref" ,rust-owning-ref-0.4)
         ("rust-parking-lot" ,rust-parking-lot)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-smallvec" ,rust-smallvec)
