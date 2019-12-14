@@ -1675,7 +1675,7 @@ points, in a byte slice, fast")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/rbranson/rust-mmap")
     (synopsis
@@ -1821,7 +1821,7 @@ on the stack")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page "https://github.com/rust-lang/glob")
     (synopsis
      "Support for matching file paths against Unix shell style patterns")
@@ -1845,7 +1845,7 @@ on the stack")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page "https://github.com/rust-lang/glob")
     (synopsis
      "Support for matching file paths against Unix shell style patterns")
@@ -2597,7 +2597,7 @@ on the heap")
        (("rust-approx" ,rust-approx)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://bheisler.github.io/criterion.rs/book/index.html")
     (synopsis
@@ -2864,7 +2864,7 @@ require unstable language features.")
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes-0.4)
         ("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page "https://github.com/carllerche/mio")
     (synopsis "Lightweight non-blocking IO")
     (description "Lightweight non-blocking IO")
@@ -2890,7 +2890,7 @@ require unstable language features.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/alexcrichton/mio-uds")
     (synopsis
@@ -4288,7 +4288,7 @@ the current thread.")
         ("rust-tokio-threadpool" ,rust-tokio-threadpool))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
-        ("rust-tempdir" ,rust-tempdir)
+        ("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-codec" ,rust-tokio-codec)
@@ -5134,7 +5134,7 @@ encodings")
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/alexcrichton/socket2-rs")
     (synopsis
@@ -5502,7 +5502,7 @@ library.")
         ("rust-openssl-sys" ,rust-openssl-sys-0.9.49))
        #:cargo-development-inputs
        (("rust-hex" ,rust-hex-0.3)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/sfackler/rust-openssl")
     (synopsis "OpenSSL bindings")
@@ -5560,7 +5560,7 @@ library.")
        (("rust-crates-index" ,rust-crates-index)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page "https://docs.rs/crate/semver/")
     (synopsis
      "Semantic version parsing and comparison")
@@ -5591,34 +5591,7 @@ library.")
        (("rust-crates-index" ,rust-crates-index)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tempdir" ,rust-tempdir))))))
-
-(define-public rust-tempdir
-  (package
-    (name "rust-tempdir")
-    (version "0.3.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tempdir" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1n5n86zxpgd85y0mswrp5cfdisizq2rv3la906g6ipyc03xvbwhm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rand" ,rust-rand-0.4)
-        ("rust-remove-dir-all" ,rust-remove-dir-all))))
-    (home-page
-     "https://github.com/rust-lang/tempdir")
-    (synopsis
-     "Manage a temporary directory and deleting all contents")
-    (description
-     "This package provides a library for managing a temporary
-directory and deleting all contents when it's dropped.")
-    (license #f)))
+        ("rust-tempdir" ,rust-tempdir-0.3))))))
 
 (define-public rust-crc32fast
   (package
@@ -6191,7 +6164,7 @@ trace (backtrace) at runtime in a Rust program.")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/frewsxcv/rust-crates-index")
     (synopsis
@@ -6218,7 +6191,7 @@ index")
     (arguments
      `(#:cargo-development-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page "https://github.com/mcgoo/vcpkg-rs")
     (synopsis
      "Find native dependencies in a vcpkg from Cargo")
@@ -6245,7 +6218,7 @@ vcpkg tree at build time in order to be used in Cargo build scripts.")
      `(#:cargo-inputs
        (("rust-rayon" ,rust-rayon))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/alexcrichton/gcc-rs")
     (synopsis
@@ -6686,7 +6659,7 @@ and loading crate.")
        (("rust-docopt" ,rust-docopt)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-tempdir" ,rust-tempdir)
+        ("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-thread-id" ,rust-thread-id)
         ("rust-time" ,rust-time-0.1))))
     (home-page
@@ -10192,7 +10165,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tempdir" ,rust-tempdir)
+        ("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-toml" ,rust-toml-0.5))))
     (home-page "https://pijul.org/")
     (synopsis
@@ -10616,7 +10589,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-yasna" ,rust-yasna))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-tempdir" ,rust-tempdir)
+        ("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-tokio-uds" ,rust-tokio-uds))))
     (home-page "https://pijul.org/thrussh")
     (synopsis
@@ -10793,7 +10766,7 @@ _getch on Windows, and termios on Unix.")
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-hex" ,rust-hex-0.3)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://nest.pijul.com/pijul_org/sanakirja")
     (synopsis
@@ -11862,7 +11835,7 @@ exposed as Reader/Writer streams.")
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/danburkert/fs2-rs")
     (synopsis
@@ -12223,7 +12196,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
          ,rust-security-framework-sys-0.3))
        #:cargo-development-inputs
        (("rust-hex" ,rust-hex-0.3)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://lib.rs/crates/security_framework")
     (synopsis
@@ -15609,7 +15582,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-failure" ,rust-failure)
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/harryfei/which-rs.git")
     (synopsis
@@ -15810,7 +15783,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page "https://github.com/passcod/notify")
     (synopsis
      "Cross-platform filesystem notification library")
@@ -15885,7 +15858,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-fsevent-sys" ,rust-fsevent-sys))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir)
+       (("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-time" ,rust-time-0.1))))
     (home-page
      "https://github.com/octplane/fsevent-rust")
@@ -15958,7 +15931,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/inotify-rs/inotify")
     (synopsis "Idiomatic wrapper for inotify")
@@ -18848,7 +18821,7 @@ for computer graphics.")
        #:cargo-development-inputs
        (("rust-futures" ,rust-futures-0.1)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-tempdir" ,rust-tempdir)
+        ("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-tokio-core" ,rust-tokio-core)
         ("rust-tokio-process" ,rust-tokio-process))))
     (home-page
@@ -19738,7 +19711,7 @@ function's body.")
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
         ("rust-proptest" ,rust-proptest)
-        ("rust-tempdir" ,rust-tempdir))))
+        ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/rust-lang-nursery/rustfix")
     (synopsis
@@ -19768,7 +19741,7 @@ function's body.")
         ("rust-os-pipe" ,rust-os-pipe)
         ("rust-shared-child" ,rust-shared-child))
        #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
+       (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/oconnor663/duct.rs")
     (synopsis
@@ -20045,7 +20018,7 @@ attributes into structs when implementing custom derives.")
         ("rust-glob" ,rust-glob)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tempdir" ,rust-tempdir)
+        ("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-walkdir" ,rust-walkdir-2.2))
        #:cargo-development-inputs
        (("rust-unindent" ,rust-unindent))))
