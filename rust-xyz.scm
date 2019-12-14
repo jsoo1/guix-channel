@@ -931,7 +931,7 @@ indexmap.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-glob" ,rust-glob)
+       (("rust-glob" ,rust-glob-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
@@ -1598,30 +1598,6 @@ on the stack")
      "Fowler's hash function")
     (description
      "Fowler's hash function")
-    (license #f)))
-
-(define-public rust-glob
-  (package
-    (name "rust-glob")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "glob" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0x25wfr7vg3mzxc9x05dcphvd3nwlcmbnxrvwcvrrdwplcrrk4cv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page "https://github.com/rust-lang/glob")
-    (synopsis
-     "Support for matching file paths against Unix shell style patterns")
-    (description
-     "Support for matching file paths against Unix shell style patterns.")
     (license #f)))
 
 (define-public rust-glob-0.2
@@ -5635,7 +5611,7 @@ trace (backtrace) at runtime in a Rust program.")
      `(#:cargo-inputs
        (("rust-error-chain" ,rust-error-chain)
         ("rust-git2" ,rust-git2)
-        ("rust-glob" ,rust-glob)
+        ("rust-glob" ,rust-glob-0.3)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))
@@ -5940,7 +5916,7 @@ for other targets if necessary!")
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff-0.1)
-        ("rust-glob" ,rust-glob))))
+        ("rust-glob" ,rust-glob-0.3))))
     (home-page
      "https://github.com/gimli-rs/cpp_demangle")
     (synopsis "Demangle C++ symbols")
@@ -7307,11 +7283,11 @@ streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-glob" ,rust-glob)
+       (("rust-glob" ,rust-glob-0.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libloading" ,rust-libloading))
        #:cargo-development-inputs
-       (("rust-glob" ,rust-glob))))
+       (("rust-glob" ,rust-glob-0.3))))
     (home-page
      "https://github.com/KyleMayes/clang-sys")
     (synopsis "Rust bindings for libclang.")
@@ -7338,7 +7314,7 @@ streams.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libloading" ,rust-libloading))
        #:cargo-development-inputs
-       (("rust-glob" ,rust-glob))))
+       (("rust-glob" ,rust-glob-0.3))))
     (home-page
      "https://github.com/KyleMayes/clang-sys")
     (synopsis "Rust bindings for libclang.")
@@ -7364,7 +7340,7 @@ streams.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libloading" ,rust-libloading))
        #:cargo-development-inputs
-       (("rust-glob" ,rust-glob))))))
+       (("rust-glob" ,rust-glob-0.3))))))
 
 (define-public rust-fxhash
   (package
@@ -8001,7 +7977,7 @@ dependency")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-glob" ,rust-glob)
+       (("rust-glob" ,rust-glob-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
@@ -13347,7 +13323,7 @@ functions.")
         ("rust-tiff" ,rust-tiff))
        #:cargo-development-inputs
        (("rust-crc32fast" ,rust-crc32fast)
-        ("rust-glob" ,rust-glob)
+        ("rust-glob" ,rust-glob-0.3)
         ("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/image-rs/image")
@@ -13384,7 +13360,7 @@ functions.")
         ("rust-tiff" ,rust-tiff-0.2))
        #:cargo-development-inputs
        (("rust-crc32fast" ,rust-crc32fast)
-        ("rust-glob" ,rust-glob)
+        ("rust-glob" ,rust-glob-0.3)
         ("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/image-rs/image")
@@ -15246,7 +15222,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-lzw" ,rust-lzw))
        #:cargo-development-inputs
-       (("rust-glob" ,rust-glob))))
+       (("rust-glob" ,rust-glob-0.3))))
     (home-page
      "https://github.com/image-rs/image-gif")
     (synopsis "GIF de- and encoder")
@@ -15303,7 +15279,7 @@ complex, rational, range iterators, generic integers, and more!
        #:cargo-development-inputs
        (("rust-getopts" ,rust-getopts-0.2)
         ("rust-glium" ,rust-glium)
-        ("rust-glob" ,rust-glob)
+        ("rust-glob" ,rust-glob-0.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-term" ,rust-term-0.5))))
     (home-page
@@ -15336,7 +15312,7 @@ complex, rational, range iterators, generic integers, and more!
        #:cargo-development-inputs
        (("rust-getopts" ,rust-getopts-0.2)
         ("rust-glium" ,rust-glium)
-        ("rust-glob" ,rust-glob)
+        ("rust-glob" ,rust-glob-0.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-term" ,rust-term-0.5))))))
 
@@ -17942,7 +17918,7 @@ for computer graphics.")
        #:cargo-development-inputs
        (("rust-ansi-term" ,rust-ansi-term)
         ("rust-difference" ,rust-difference)
-        ("rust-glob" ,rust-glob)
+        ("rust-glob" ,rust-glob-0.3)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-yaml" ,rust-serde-yaml))))
     (home-page
@@ -19169,7 +19145,7 @@ attributes into structs when implementing custom derives.")
        (("rust-bytecount" ,rust-bytecount)
         ("rust-cargo-metadata" ,rust-cargo-metadata)
         ("rust-error-chain" ,rust-error-chain)
-        ("rust-glob" ,rust-glob)
+        ("rust-glob" ,rust-glob-0.3)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3)
