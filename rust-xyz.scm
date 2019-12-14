@@ -3171,7 +3171,7 @@ require unstable language features.")
      `(#:cargo-inputs
        (("rust-discard" ,rust-discard-0.1)
         ("rust-futures-channel-preview" ,rust-futures-channel-preview)
-        ("rust-futures-core-preview" ,rust-futures-core-preview)
+        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
         ("rust-futures-executor-preview" ,rust-futures-executor-preview)
         ("rust-futures-util-preview" ,rust-futures-util-preview)
         ("rust-serde" ,rust-serde-1.0)
@@ -4389,8 +4389,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures-core-preview"
-         ,rust-futures-core-preview))))
+       (("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
@@ -4418,7 +4417,7 @@ proposed in RFC 1158.")
        (("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
@@ -4451,7 +4450,7 @@ proposed in RFC 1158.")
         ("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-futures-io-preview"
          ,rust-futures-io-preview)
         ("rust-futures-select-macro-preview"
@@ -5825,34 +5824,12 @@ checking")
      `(#:cargo-inputs (("rust-futures" ,rust-futures-0.1))))
     (home-page
      "https://github.com/carllerche/tokio-mock-task")
-(define-public rust-futures-core-preview
-  (package
-    (name "rust-futures-core-preview")
-    (version "0.3.0-alpha.16")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-core-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0dlclp85bbay5q900c5vsn6m7fbxc1dbnmlqhixnaav453rp15vi"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "The core traits and types in for the `futures` library.
-")
-    (description
-     "The core traits and types in for the `futures` library.
-")
     (license #f)))
 
 (define-public rust-futures-channel-preview
   (package
     (name "rust-futures-channel-preview")
-    (version "0.3.0-alpha.16")
+    (version "0.3.0-alpha.17")
     (source
      (origin
        (method url-fetch)
@@ -5865,22 +5842,19 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures-core-preview"
-         ,rust-futures-core-preview))))
+       (("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "Channels for asynchronous communication using futures-rs.
-")
+     "Channels for asynchronous communication using futures-rs")
     (description
-     "Channels for asynchronous communication using futures-rs.
-")
+     "Channels for asynchronous communication using futures-rs.")
     (license #f)))
 
 (define-public rust-futures-util-preview
   (package
     (name "rust-futures-util-preview")
-    (version "0.3.0-alpha.16")
+    (version "0.3.0-alpha.17")
     (source
      (origin
        (method url-fetch)
@@ -5897,7 +5871,7 @@ checking")
         ("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-futures-io-preview"
          ,rust-futures-io-preview)
         ("rust-futures-select-macro-preview"
@@ -5962,7 +5936,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-futures-core-preview"
-         ,rust-futures-core-preview))))
+         ,rust-futures-core-preview-0.3))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
@@ -6024,7 +5998,7 @@ checking")
        (("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview))))
+         ,rust-futures-core-preview-0.3))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
@@ -11638,7 +11612,7 @@ and private (encrypted + signed) jars.")
         ("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-futures-cpupool" ,rust-futures-cpupool)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
@@ -11947,7 +11921,7 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-rustls" ,rust-rustls)
         ("rust-smallvec" ,rust-smallvec)
         ("rust-tokio-io" ,rust-tokio-io)
@@ -12992,7 +12966,7 @@ implementation of TLS for nonblocking I/O streams.")
        (("rust-futures-channel-preview"
          ,rust-futures-channel-preview)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-futures-executor-preview"
          ,rust-futures-executor-preview)
         ("rust-futures-io-preview"
@@ -13029,7 +13003,7 @@ composability, and iterator-like interfaces.")
        (("rust-bytes" ,rust-bytes)
         ("rust-fnv" ,rust-fnv)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-futures-sink-preview"
          ,rust-futures-sink-preview)
         ("rust-futures-util-preview"
@@ -13135,7 +13109,7 @@ response body.")
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-futures-sink-preview"
          ,rust-futures-sink-preview)
         ("rust-futures-util-preview"
@@ -13332,7 +13306,7 @@ client or server.")
     (arguments
      `(#:cargo-inputs
        (("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-pin-convert" ,rust-pin-convert)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-executor" ,rust-tokio-executor)
@@ -19660,7 +19634,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
+         ,rust-futures-core-preview-0.3)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
