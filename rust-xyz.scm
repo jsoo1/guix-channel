@@ -698,7 +698,7 @@ standard printing of search results, similar to grep itself.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
-        ("rust-smallvec" ,rust-smallvec))
+        ("rust-smallvec" ,rust-smallvec-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
         ("rust-signal-hook" ,rust-signal-hook))))
@@ -1478,34 +1478,6 @@ points, in a byte slice, fast")
         (base32
          "1n8qr52sw9y6yxzyfxi1phh55rsxms7ry4iipdd8vmd16ag8jq17"))))))
 
-(define-public rust-smallvec
-  (package
-    (name "rust-smallvec")
-    (version "0.6.10")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "smallvec" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1dyl43rgzny79jjpgzi07y0ly2ggx1xwsn64csxj0j91bsf6lq5b"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1))))
-    (home-page
-     "https://github.com/servo/rust-smallvec")
-    (synopsis
-     "Small vector optimization")
-    (description
-     "'Small vector' optimization: store up to a small number of items
-on the stack")
-    (license #f)))
-
 (define-public rust-signal-hook
   (package
     (name "rust-signal-hook")
@@ -2163,7 +2135,7 @@ guidelines on macOS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-smallvec" ,rust-smallvec))))
+       (("rust-smallvec" ,rust-smallvec-0.6))))
     (home-page
      "https://github.com/unicode-rs/unicode-normalization")
     (synopsis
@@ -4737,7 +4709,7 @@ checking")
         ("rust-petgraph" ,rust-petgraph)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-redox-syscall" ,rust-redox-syscall)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-thread-id" ,rust-thread-id)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
@@ -4787,7 +4759,7 @@ checking")
         ("rust-petgraph" ,rust-petgraph)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-redox-syscall" ,rust-redox-syscall)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-thread-id" ,rust-thread-id)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
@@ -5706,7 +5678,7 @@ based on miniz.")
         ("rust-lazycell" ,rust-lazycell)
         ("rust-object" ,rust-object)
         ("rust-rustc-demangle" ,rust-rustc-demangle)
-        ("rust-smallvec" ,rust-smallvec))
+        ("rust-smallvec" ,rust-smallvec-0.6))
        #:cargo-development-inputs
        (("rust-backtrace" ,rust-backtrace)
         ("rust-clap" ,rust-clap-2)
@@ -6041,7 +6013,7 @@ DWARF debugging format.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-smallvec" ,rust-smallvec))))
+       (("rust-smallvec" ,rust-smallvec-0.6))))
     (home-page
      "https://github.com/main--/rust-intervaltree")
     (synopsis
@@ -8576,8 +8548,7 @@ creation from raw pointers and start, end pointer accessors.
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-crossbeam-channel"
-         ,rust-crossbeam-channel)
+        ("rust-crossbeam-channel" ,rust-crossbeam-channel)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.7)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
@@ -10185,7 +10156,7 @@ and private (encrypted + signed) jars.")
        (("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-rustls" ,rust-rustls)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-webpki" ,rust-webpki))
        #:cargo-development-inputs
@@ -10228,7 +10199,7 @@ and private (encrypted + signed) jars.")
         ("rust-resolv-conf" ,rust-resolv-conf-0.6)
         ("rust-rustls" ,rust-rustls)
         ("rust-serde" ,rust-serde-1.0)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-tcp" ,rust-tokio-tcp)
@@ -11004,7 +10975,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-rand" ,rust-rand-0.4)
        ("rust-ring" ,rust-ring)
        ("rust-serde" ,rust-serde-1.0)
-       ("rust-smallvec" ,rust-smallvec)
+       ("rust-smallvec" ,rust-smallvec-0.6)
        ("rust-socket2" ,rust-socket2)
        ("rust-tokio-executor" ,rust-tokio-executor-0.1)
        ("rust-tokio-io" ,rust-tokio-io-0.1)
@@ -15307,7 +15278,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-fnv" ,rust-fnv-1.0)
         ("rust-glutin" ,rust-glutin)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-takeable-option" ,rust-takeable-option))
        #:cargo-development-inputs
        (("rust-cgmath" ,rust-cgmath)
@@ -17237,7 +17208,7 @@ for computer graphics.")
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize)
         ("rust-rustc-ap-syntax-pos" ,rust-rustc-ap-syntax-pos)
         ("rust-scoped-tls" ,rust-scoped-tls)
-        ("rust-smallvec" ,rust-smallvec))))
+        ("rust-smallvec" ,rust-smallvec-0.6))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
      "Automatically published version of the package rust-syntax")
@@ -17272,7 +17243,7 @@ for computer graphics.")
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize-583)
         ("rust-rustc-ap-syntax-pos" ,rust-rustc-ap-syntax-pos-583)
         ("rust-scoped-tls" ,rust-scoped-tls)
-        ("rust-smallvec" ,rust-smallvec))))))
+        ("rust-smallvec" ,rust-smallvec-0.6))))))
 
 (define-public rust-racer-interner
   (package
@@ -17328,7 +17299,7 @@ for computer graphics.")
         ("rust-rustc-hash" ,rust-rustc-hash)
         ("rust-rustc-rayon" ,rust-rustc-rayon)
         ("rust-rustc-rayon-core" ,rust-rustc-rayon-core)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-stable-deref-trait" ,rust-stable-deref-trait-1.1))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
@@ -17368,7 +17339,7 @@ for computer graphics.")
         ("rust-rustc-hash" ,rust-rustc-hash)
         ("rust-rustc-rayon" ,rust-rustc-rayon)
         ("rust-rustc-rayon-core" ,rust-rustc-rayon-core)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-stable-deref-trait" ,rust-stable-deref-trait-1.1))))))
 
 (define-public rust-rustc-ap-rustc-errors
@@ -17585,7 +17556,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-indexmap" ,rust-indexmap-1.0)
-        ("rust-smallvec" ,rust-smallvec))))
+        ("rust-smallvec" ,rust-smallvec-0.6))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
      "Automatically published version of the package rust-rustc-serialize")
@@ -17684,7 +17655,7 @@ for computer graphics.")
     `(#:cargo-inputs
       (("rust-rustc-ap-rustc-data-structures"
         ,rust-rustc-ap-rustc-data-structures)
-       ("rust-smallvec" ,rust-smallvec))))
+       ("rust-smallvec" ,rust-smallvec-0.6))))
   (home-page "https://github.com/rust-lang/rust")
   (synopsis
     "Automatically published version of the package rust-arena")
@@ -17710,7 +17681,7 @@ for computer graphics.")
     `(#:cargo-inputs
       (("rust-rustc-ap-rustc-data-structures"
         ,rust-rustc-ap-rustc-data-structures-583)
-       ("rust-smallvec" ,rust-smallvec))))))
+       ("rust-smallvec" ,rust-smallvec-0.6))))))
 
 (define-public rust-annotate-snippets
   (package
@@ -19072,7 +19043,7 @@ testing.")
         ("rust-owning-ref" ,rust-owning-ref-0.4)
         ("rust-parking-lot" ,rust-parking-lot)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-tracing-core" ,rust-tracing-core-0.1)
         ("rust-tracing-log" ,rust-tracing-log))
        #:cargo-development-inputs
@@ -19242,7 +19213,7 @@ log crates.")
         ("rust-owning-ref" ,rust-owning-ref-0.4)
         ("rust-parking-lot" ,rust-parking-lot)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-smallvec" ,rust-smallvec)
+        ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-tracing-core" ,rust-tracing-core-0.1)
         ("rust-tracing-log" ,rust-tracing-log))
        #:cargo-development-inputs
