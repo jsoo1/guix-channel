@@ -1650,7 +1650,7 @@ pairs in insertion order")
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher)
+       (("rust-bencher" ,rust-bencher-0.1)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test)
         ("rust-serde-json" ,rust-serde-json-1.0))))
@@ -1685,7 +1685,7 @@ pairs in insertion order")
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher)
+       (("rust-bencher" ,rust-bencher-0.1)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test)
         ("rust-serde-json" ,rust-serde-json-1.0))))
@@ -3038,30 +3038,6 @@ an expression matches a pattern.")
     (description "Percent encoding and decoding")
     (license #f)))
 
-(define-public rust-bencher
-  (package
-    (name "rust-bencher")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bencher" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1x8p2xblgqssay8cdykp5pkfc0np0jk5bs5cx4f5av097aav9zbx"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/bluss/bencher/")
-    (synopsis
-     "A port of the libtest")
-    (description
-     "This package provides a port of the libtest (unstable Rust)
-benchmark runner to Rust stable releases.  Supports running benchmarks
-and filtering based on the name.  Benchmark execution works exactly
-the same way and no more (caveat: black_box is still missing!).")
-    (license #f)))
-
 (define-public rust-rustc-test
   (package
     (name "rust-rustc-test")
@@ -3428,7 +3404,7 @@ asynchronous I/O backed applications.")
        (("rust-nodrop" ,rust-nodrop-0.1)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher)
+       (("rust-bencher" ,rust-bencher-0.1)
         ("rust-matches" ,rust-matches)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/arrayvec")
@@ -6236,7 +6212,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher)
+       (("rust-bencher" ,rust-bencher-0.1)
         ("rust-json" ,rust-json)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/OrKoN/base-x-rs")
@@ -6404,7 +6380,7 @@ directory and deleting all contents when it's dropped.")
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if))
        #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher)
+       (("rust-bencher" ,rust-bencher-0.1)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
@@ -10673,7 +10649,7 @@ creation from raw pointers and start, end pointer accessors.
         ("rust-serde-big-array" ,rust-serde-big-array)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher)
+       (("rust-bencher" ,rust-bencher-0.1)
         ("rust-proptest" ,rust-proptest)
         ("rust-quantiles" ,rust-quantiles)
         ("rust-rand" ,rust-rand-0.4)
@@ -18861,7 +18837,7 @@ for computer graphics.")
         ("rust-podio" ,rust-podio)
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher)
+       (("rust-bencher" ,rust-bencher-0.1)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-walkdir" ,rust-walkdir-2.2))))
     (home-page
