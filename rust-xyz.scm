@@ -3212,7 +3212,7 @@ asynchronous I/O backed applications.")
     (arguments
      `(#:cargo-inputs
        (("rust-paste-impl" ,rust-paste-impl)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack))))
+        ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
     (home-page "https://github.com/dtolnay/paste")
     (synopsis
      "Macros for all your token pasting needs")
@@ -4776,7 +4776,7 @@ parser.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-proc-macro-hack" ,rust-proc-macro-hack)
+       (("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15))))
@@ -4785,36 +4785,6 @@ parser.")
      "Implementation detail of the `paste` crate")
     (description
      "Implementation detail of the `paste` crate")
-    (license #f)))
-
-(define-public rust-proc-macro-hack
-  (package
-    (name "rust-proc-macro-hack")
-    (version "0.5.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "proc-macro-hack" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1www5lrvsk7pq04clgfmjlnnrshikgs1h51l17vrc7qy58bx878c"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))
-       #:cargo-development-inputs
-       (("rust-demo-hack" ,rust-demo-hack)
-        ("rust-demo-hack-impl" ,rust-demo-hack-impl))))
-    (home-page
-     "https://github.com/dtolnay/proc-macro-hack")
-    (synopsis
-     "Procedural macros in expression position")
-    (description
-     "Procedural macros in expression position")
     (license #f)))
 
 (define-public rust-console-error-panic-hook
@@ -5618,7 +5588,7 @@ checking")
         ("rust-futures-sink-preview" ,rust-futures-sink-preview)
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-pin-utils" ,rust-pin-utils-0.1)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack)
+        ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5)
         ("rust-proc-macro-nested" ,rust-proc-macro-nested)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-core" ,rust-rand-core-0.5)
@@ -6092,55 +6062,6 @@ with proven statistical guarantees.")
      "https://github.com/reem/rust-pico-sys.git")
     (synopsis "Bindings to the PicoHTTPParser")
     (description "Bindings to the PicoHTTPParser.")
-    (license #f)))
-
-(define-public rust-demo-hack
-  (package
-    (name "rust-demo-hack")
-    (version "0.0.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "demo-hack" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0m0114p1g0zzrdph5bg03i8m8p70vrwn3whs191jrbjcrmh5lmnp"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-demo-hack-impl" ,rust-demo-hack-impl)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack))))
-    (home-page
-     "https://github.com/dtolnay/proc-macro-hack")
-    (synopsis "Demo of proc-macro-hack")
-    (description "Demo of proc-macro-hack")
-    (license #f)))
-
-(define-public rust-demo-hack-impl
-  (package
-    (name "rust-demo-hack-impl")
-    (version "0.0.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "demo-hack-impl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1f1fdl60xjas9wlmcl9v6f56vgm3mzwr019kcifav5464rx3w3ld"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro-hack" ,rust-proc-macro-hack)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page
-     "https://github.com/dtolnay/proc-macro-hack")
-    (synopsis "Demo of proc-macro-hack")
-    (description "Demo of proc-macro-hack")
     (license #f)))
 
 (define-public rust-utf8-ranges
@@ -8874,7 +8795,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-hex-literal-impl" ,rust-hex-literal-impl)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack))))
+        ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis
      "Procedural macro for converting hexadecimal string to byte array at compile time.")
@@ -8898,7 +8819,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-proc-macro-hack" ,rust-proc-macro-hack))))
+       (("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis
      "Internal implementation of the hex-literal crate")
@@ -16102,7 +16023,7 @@ complex, rational, range iterators, generic integers, and more!
      `(#:cargo-inputs
        (("rust-const-random-macro"
          ,rust-const-random-macro)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack))))
+        ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
     (home-page
      "https://github.com/tkaitchuck/constrandom")
     (synopsis
@@ -16127,7 +16048,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-proc-macro-hack" ,rust-proc-macro-hack)
+       (("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/tkaitchuck/constrandom")
