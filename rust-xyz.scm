@@ -3457,7 +3457,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-crossbeam" ,rust-crossbeam)
+       (("rust-crossbeam" ,rust-crossbeam-0.7)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -5951,7 +5951,7 @@ reading and writing git repositories.")
         ("rust-indexmap" ,rust-indexmap-1.0)
         ("rust-stable-deref-trait" ,rust-stable-deref-trait-1.1))
        #:cargo-development-inputs
-       (("rust-crossbeam" ,rust-crossbeam)
+       (("rust-crossbeam" ,rust-crossbeam-0.7)
         ("rust-getopts" ,rust-getopts-0.2)
         ("rust-memmap" ,rust-memmap-0.7)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
@@ -8500,36 +8500,6 @@ creation from raw pointers and start, end pointer accessors.
      "Unchecked indexing wrapper using regular index syntax")
     (description
      "Unchecked indexing wrapper using regular index syntax.")
-    (license #f)))
-
-(define-public rust-crossbeam
-  (package
-    (name "rust-crossbeam")
-    (version "0.7.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crossbeam" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0g5jysq5x4gndc1v5sq9n3f1m97k7qihwdpigw6ar6knj14qm09d"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-crossbeam-channel" ,rust-crossbeam-channel-0.3)
-        ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
-        ("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.7)
-        ("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/crossbeam-rs/crossbeam")
-    (synopsis "Tools for concurrent programming")
-    (description "Tools for concurrent programming")
     (license #f)))
 
 (define-public rust-nodrop-union
@@ -15631,7 +15601,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam" ,rust-crossbeam)
+       (("rust-crossbeam" ,rust-crossbeam-0.7)
         ("rust-log" ,rust-log-0.4)
         ("rust-slog" ,rust-slog)
         ("rust-slog-scope" ,rust-slog-scope))
