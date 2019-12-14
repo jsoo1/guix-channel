@@ -2949,7 +2949,7 @@ require unstable language features.")
         ("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
         ("rust-futures-executor-preview" ,rust-futures-executor-preview-0.3)
-        ("rust-futures-util-preview" ,rust-futures-util-preview)
+        ("rust-futures-util-preview" ,rust-futures-util-preview-0.3)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-stdweb-derive" ,rust-stdweb-derive)
@@ -4602,7 +4602,7 @@ local storage (TLS) so any type can be stored into TLS.")
         ("rust-futures-channel-preview"
          ,rust-futures-channel-preview-0.3)
         ("rust-futures-util-preview"
-         ,rust-futures-util-preview)
+         ,rust-futures-util-preview-0.3)
         ("rust-js-sys" ,rust-js-sys)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))
@@ -5272,46 +5272,6 @@ checking")
      "Mock a task for testing")
     (description
      "Mock a task for testing.")
-    (license #f)))
-
-(define-public rust-futures-util-preview
-  (package
-    (name "rust-futures-util-preview")
-    (version "0.3.0-alpha.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-util-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kizm86wgr5qldyavskfi0r1msg6m4x2pkj0d4r04br2ig29i0dg"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
-        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
-        ("rust-futures-io-preview" ,rust-futures-io-preview-0.3)
-        ("rust-futures-select-macro-preview"
-         ,rust-futures-select-macro-preview-0.3)
-        ("rust-futures-sink-preview" ,rust-futures-sink-preview-0.3)
-        ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-pin-utils" ,rust-pin-utils-0.1)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5)
-        ("rust-proc-macro-nested" ,rust-proc-macro-nested-0.1)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-slab" ,rust-slab-0.4)
-        ("rust-tokio-io" ,rust-tokio-io-0.1))))
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "Utilities and extension traits for futures-rs library")
-    (description
-     "Common utilities and extension traits for the futures-rs
-library.")
     (license #f)))
 
 (define-public rust-base-x
@@ -10793,7 +10753,7 @@ and private (encrypted + signed) jars.")
          ,rust-futures-core-preview-0.3)
         ("rust-futures-cpupool" ,rust-futures-cpupool)
         ("rust-futures-util-preview"
-         ,rust-futures-util-preview)
+         ,rust-futures-util-preview-0.3)
         ("rust-h2" ,rust-h2)
         ("rust-http" ,rust-http)
         ("rust-http-body" ,rust-http-body)
@@ -11106,7 +11066,7 @@ and private (encrypted + signed) jars.")
         ("rust-webpki" ,rust-webpki))
        #:cargo-development-inputs
        (("rust-futures-util-preview"
-         ,rust-futures-util-preview)
+         ,rust-futures-util-preview-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-tokio" ,rust-tokio)
         ("rust-webpki-roots" ,rust-webpki-roots))))
@@ -12148,7 +12108,7 @@ implementation of TLS for nonblocking I/O streams.")
          ,rust-futures-executor-preview-0.3)
         ("rust-futures-io-preview" ,rust-futures-io-preview-0.3)
         ("rust-futures-sink-preview" ,rust-futures-sink-preview-0.3)
-        ("rust-futures-util-preview" ,rust-futures-util-preview))))
+        ("rust-futures-util-preview" ,rust-futures-util-preview-0.3))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
@@ -12181,7 +12141,7 @@ composability, and iterator-like interfaces.")
         ("rust-futures-sink-preview"
          ,rust-futures-sink-preview-0.3)
         ("rust-futures-util-preview"
-         ,rust-futures-util-preview)
+         ,rust-futures-util-preview-0.3)
         ("rust-http" ,rust-http)
         ("rust-indexmap" ,rust-indexmap)
         ("rust-log" ,rust-log-0.4)
@@ -12287,7 +12247,7 @@ response body.")
         ("rust-futures-sink-preview"
          ,rust-futures-sink-preview-0.3)
         ("rust-futures-util-preview"
-         ,rust-futures-util-preview)
+         ,rust-futures-util-preview-0.3)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -18810,7 +18770,7 @@ for computer graphics.")
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-futures-util-preview"
-         ,rust-futures-util-preview)
+         ,rust-futures-util-preview-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log-0.4)
