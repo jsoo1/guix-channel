@@ -3960,7 +3960,7 @@ thread pool.")
         ("rust-futures" ,rust-futures-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libz-sys" ,rust-libz-sys-1.0)
-        ("rust-miniz-sys" ,rust-miniz-sys)
+        ("rust-miniz-sys" ,rust-miniz-sys-0.1)
         ("rust-miniz-oxide-c-api"
          ,rust-miniz-oxide-c-api)
         ("rust-miniz-oxide-c-api"
@@ -4903,32 +4903,6 @@ checking")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))))
-
-(define-public rust-miniz-sys
-  (package
-    (name "rust-miniz-sys")
-    (version "0.1.12")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "miniz-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "00l2r4anm8g35x0js2zfdnwfbrih9m43vphdpb77c5ga3kjkm7hy"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/alexcrichton/flate2-rs")
-    (synopsis "Bindings to the miniz.c library")
-    (description
-     "Bindings to the miniz.c library.")
-    (license #f)))
 
 (define-public rust-miniz-oxide-c-api
   (package
