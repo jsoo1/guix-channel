@@ -38,21 +38,6 @@
     (description "Parser for Rust source code")
     (license #f)))
 
-(define-public rust-syn-1.0
-  (package
-    (inherit rust-syn-0.15)
-    (version "1.0.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "syn" version))
-       (file-name
-        (string-append
-         (package-name rust-syn-0.15) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1gw03w7lzrlqmp2vislcybikgl5wkhrqi6sy70w93xss2abhx1b6"))))))
-
 (define-public rust-serde
   (package
     (name "rust-serde")
@@ -1403,20 +1388,6 @@ over winapi.")
 a large number of #[cfg] parameters.  Structured like an if-else chain, the first
 matching branch is the item that gets emitted.")
     (license #f)))
-
-(define-public rust-libc-0.2.58
-  (package
-    (inherit rust-libc-0.2)
-    (version "0.2.58")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "libc" version))
-       (file-name
-        (string-append (package-name rust-libc-0.2) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "06d32dv5inxajhibwgz6z6nq0mgkighykrhb01k46pmsjrkvi0b2"))))))
 
 (define-public rust-doc-comment
   (package
