@@ -4922,7 +4922,7 @@ checking")
      `(#:cargo-inputs
        (("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-miniz-oxide" ,rust-miniz-oxide))
+        ("rust-miniz-oxide" ,rust-miniz-oxide-0.2))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0))))
     (home-page
@@ -5451,31 +5451,6 @@ to be linked into Rust code.")
      "https://github.com/sfackler/rust-phf")
     (synopsis "PHF generation logic")
     (description "PHF generation logic")
-    (license #f)))
-
-(define-public rust-miniz-oxide
-  (package
-    (name "rust-miniz-oxide")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "miniz_oxide" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17f92krv9hhsyc38prpfyn99m2hqhr4fgszpsla66a6gcrnpbhxn"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-adler32" ,rust-adler32))))
-    (home-page
-     "https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide")
-    (synopsis
-     "DEFLATE compression and decompression library written in Rust")
-    (description
-     "DEFLATE compression and decompression library rewritten in Rust
-based on miniz.")
     (license #f)))
 
 (define-public rust-siphasher
@@ -15070,7 +15045,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-gzip-header" ,rust-gzip-header))
        #:cargo-development-inputs
-       (("rust-miniz-oxide" ,rust-miniz-oxide))))
+       (("rust-miniz-oxide" ,rust-miniz-oxide-0.2))))
     (home-page
      "https://github.com/image-rs/deflate-rs")
     (synopsis
