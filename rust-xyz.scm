@@ -5910,8 +5910,8 @@ library.")
     (synopsis
      "AsyncRead and AsyncWrite traits for the futures-rs library")
     (description
-     "The `AsyncRead` and `AsyncWrite` traits for the futures-rs
-library.")
+     "The @code{AsyncRead} and @code{AsyncWrite} traits for the
+futures-rs library.")
     (license #f)))
 
 (define-public rust-futures-select-macro-preview
@@ -5966,7 +5966,7 @@ library.")
     (synopsis
      "Asynchronous Sink trait for the futures-rs library")
     (description
-     "The asynchronous `Sink` trait for the futures-rs library.")
+     "The asynchronous @code{Sink} trait for the futures-rs library.")
     (license #f)))
 
 (define-public rust-proc-macro-nested
