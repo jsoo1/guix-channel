@@ -99,7 +99,7 @@
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.1.1)
         ("rust-remove-dir-all" ,rust-remove-dir-all)
         ("rust-rustc-tools-util" ,rust-rustc-tools-util)
-        ("rust-same-file" ,rust-same-file)
+        ("rust-same-file" ,rust-same-file-1.0)
         ("rust-serde-yaml" ,rust-serde-yaml)
         ("rust-servo-fontconfig" ,rust-servo-fontconfig)
         ("rust-signal-hook" ,rust-signal-hook)

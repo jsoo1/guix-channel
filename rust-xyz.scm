@@ -233,7 +233,7 @@ the stack.")
         ("rust-log" ,rust-log-0.4)
         ("rust-memchr" ,rust-memchr)
         ("rust-regex" ,rust-regex)
-        ("rust-same-file" ,rust-same-file)
+        ("rust-same-file" ,rust-same-file-1.0)
         ("rust-thread-local" ,rust-thread-local)
         ("rust-walkdir" ,rust-walkdir-2.2)
         ("rust-winapi-util" ,rust-winapi-util))
@@ -883,7 +883,7 @@ are updated when the crate version changes.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex)
-        ("rust-same-file" ,rust-same-file)
+        ("rust-same-file" ,rust-same-file-1.0)
         ("rust-termcolor" ,rust-termcolor-1.0)
         ("rust-winapi-util" ,rust-winapi-util))))
     (home-page
@@ -1073,34 +1073,6 @@ standard printing of search results, similar to grep itself.")
      "Multi-producer multi-consumer channels for message passing")
     (description
      "Multi-producer multi-consumer channels for message passing")
-    (license #f)))
-
-(define-public rust-same-file
-  (package
-    (name "rust-same-file")
-    (version "1.0.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "same-file" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0rsjk8zjppgc083jyx89hxi39xnjf12x2aqv3x6gz8d8afzc884g"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-winapi-util" ,rust-winapi-util))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/BurntSushi/same-file")
-    (synopsis
-     "Determine whether two file paths point to the same file")
-    (description
-     "This package provides a simple crate for determining whether two
-file paths point to the same file.")
     (license #f)))
 
 (define-public rust-thread-local
