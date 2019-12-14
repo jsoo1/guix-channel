@@ -323,40 +323,6 @@ properties according to Unicode Standard Annex #31.")
         (base32
          "1sqvl06884cy3hh14shik5afcv6bhsvb0gh2y267rv5lmyfg1prn"))))))
 
-(define-public rust-regex-automata
-  (package
-    (name "rust-regex-automata")
-    (version "0.1.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "regex-automata" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "11hzn3rz02vdgvx3ykhrbzkvs5c5sm59fyi3xwljn9qc48br5l1y"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
-        ("rust-utf8-ranges" ,rust-utf8-ranges-1.0))
-       #:cargo-development-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-bytes" ,rust-serde-bytes-0.11)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-toml" ,rust-toml-0.5))))
-    (home-page
-     "https://github.com/BurntSushi/regex-automata")
-    (synopsis
-     "Automata construction and matching using regular expressions")
-    (description
-     "Automata construction and matching using regular expressions.")
-    (license #f)))
-
 (define-public rust-ucd-parse
   (package
     (name "rust-ucd-parse")
@@ -20715,7 +20681,7 @@ code.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-regex-automata" ,rust-regex-automata))))
+       (("rust-regex-automata" ,rust-regex-automata-0.1))))
     (home-page "https://github.com/hawkw/matchers")
     (synopsis
      "Regex matching on character and byte streams")
