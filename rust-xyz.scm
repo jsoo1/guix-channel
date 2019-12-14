@@ -749,7 +749,7 @@ are updated when the crate version changes.")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
-        ("rust-bstr" ,rust-bstr-0.2
+        ("rust-bstr" ,rust-bstr-0.2)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-grep-searcher" ,rust-grep-searcher)
         ("rust-serde" ,rust-serde-1.0)
