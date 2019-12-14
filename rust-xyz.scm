@@ -7049,8 +7049,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
-        ("rust-clicolors-control"
-         ,rust-clicolors-control-1.0)
+        ("rust-clicolors-control" ,rust-clicolors-control-1.0)
         ("rust-encode-unicode" ,rust-encode-unicode)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
