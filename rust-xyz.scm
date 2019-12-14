@@ -5813,7 +5813,7 @@ based on miniz.")
     (arguments
      `(#:cargo-inputs
        (("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
-        ("rust-fallible-iterator" ,rust-fallible-iterator)
+        ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
         ("rust-gimli" ,rust-gimli)
         ("rust-intervaltree" ,rust-intervaltree)
         ("rust-lazycell" ,rust-lazycell)
@@ -6099,26 +6099,6 @@ reading and writing git repositories.")
      "Minimal Adler32 implementation for Rust.")
     (license #f)))
 
-(define-public rust-fallible-iterator
-  (package
-    (name "rust-fallible-iterator")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "fallible-iterator" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xq759lsr8gqss7hva42azn3whgrbrs2sd9xpn92c5ickxm1fhs4"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/sfackler/rust-fallible-iterator")
-    (synopsis "Fallible iterator traits")
-    (description "Fallible iterator traits")
-    (license #f)))
-
 (define-public rust-gimli
   (package
     (name "rust-gimli")
@@ -6137,7 +6117,7 @@ reading and writing git repositories.")
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-fallible-iterator" ,rust-fallible-iterator)
+        ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
         ("rust-indexmap" ,rust-indexmap)
         ("rust-stable-deref-trait" ,rust-stable-deref-trait))
        #:cargo-development-inputs
