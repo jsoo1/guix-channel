@@ -2790,7 +2790,7 @@ on the heap")
         ("rust-cast" ,rust-cast-0.2)
         ("rust-clap" ,rust-clap-2)
         ("rust-criterion-plot" ,rust-criterion-plot-0.3)
-        ("rust-csv" ,rust-csv)
+        ("rust-csv" ,rust-csv-1.1)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -3609,7 +3609,8 @@ ArrayVec and ArrayString.")
 maps of many strings (> 1 billion is possible).")
     (license #f)))
 
-(define-public rust-csv
+;; DO THESE DEPS
+(define-public rust-csv-1.1
   (package
     (name "rust-csv")
     (version "1.1.0")
