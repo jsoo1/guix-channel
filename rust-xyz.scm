@@ -195,7 +195,7 @@ the stack.")
      `(#:cargo-inputs
        (("rust-grep-cli" ,rust-grep-cli-0.1)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
-        ("rust-grep-pcre2" ,rust-grep-pcre2)
+        ("rust-grep-pcre2" ,rust-grep-pcre2-0.1)
         ("rust-grep-printer" ,rust-grep-printer)
         ("rust-grep-regex" ,rust-grep-regex)
         ("rust-grep-searcher" ,rust-grep-searcher))
@@ -234,7 +234,7 @@ the stack.")
         ("rust-memchr" ,rust-memchr)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-same-file" ,rust-same-file-1.0)
-        ("rust-thread-local" ,rust-thread-local)
+        ("rust-thread-local" ,rust-thread-local-0.3)
         ("rust-walkdir" ,rust-walkdir-2.2)
         ("rust-winapi-util" ,rust-winapi-util-0.1))
        #:cargo-development-inputs
@@ -266,7 +266,7 @@ ignore files such as `.gitignore` against file paths.")
        (("rust-aho-corasick" ,rust-aho-corasick-0.6)
         ("rust-memchr" ,rust-memchr)
         ("rust-regex-syntax" ,rust-regex-syntax-0.5)
-        ("rust-thread-local" ,rust-thread-local)
+        ("rust-thread-local" ,rust-thread-local-0.3)
         ("rust-utf8-ranges" ,rust-utf8-ranges))
        #:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment)
@@ -854,7 +854,7 @@ are updated when the crate version changes.")
 focus on line oriented search.")
     (license #f)))
 
-(define-public rust-grep-pcre2
+(define-public rust-grep-pcre2-0.1
   (package
     (name "rust-grep-pcre2")
     (version "0.1.3")
@@ -934,7 +934,7 @@ standard printing of search results, similar to grep itself.")
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-regex-syntax" ,rust-regex-syntax)
-        ("rust-thread-local" ,rust-thread-local)
+        ("rust-thread-local" ,rust-thread-local-0.3)
         ("rust-utf8-ranges" ,rust-utf8-ranges))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
@@ -1005,29 +1005,6 @@ standard printing of search results, similar to grep itself.")
      "Multi-producer multi-consumer channels for message passing")
     (description
      "Multi-producer multi-consumer channels for message passing")
-    (license #f)))
-
-(define-public rust-thread-local
-  (package
-    (name "rust-thread-local")
-    (version "0.3.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "thread_local" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "06rzik99p8c5js8238yhc8rk6np543ylb1dy9nrw5v80j0r3xdf6"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3))))
-    (home-page
-     "https://github.com/Amanieu/thread_local-rs")
-    (synopsis "Per-object thread-local storage")
-    (description "Per-object thread-local storage")
     (license #f)))
 
 (define-public rust-cfg-if
@@ -9028,7 +9005,7 @@ according to XDG Base Directory specification")
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
         ("rust-pcre2-sys" ,rust-pcre2-sys-0.2)
-        ("rust-thread-local" ,rust-thread-local))))
+        ("rust-thread-local" ,rust-thread-local-0.3))))
     (home-page
      "https://github.com/BurntSushi/rust-pcre2")
     (synopsis
@@ -18639,7 +18616,7 @@ inter-process communication.")
         ("rust-chrono" ,rust-chrono)
         ("rust-slog" ,rust-slog)
         ("rust-term" ,rust-term-0.5)
-        ("rust-thread-local" ,rust-thread-local))
+        ("rust-thread-local" ,rust-thread-local-0.3))
        #:cargo-development-inputs
        (("rust-slog-async" ,rust-slog-async))))
     (home-page "https://github.com/slog-rs/slog")
@@ -18824,7 +18801,7 @@ The intersection of `std::ffi::CStr` and `str`")
      `(#:cargo-inputs
        (("rust-slog" ,rust-slog)
         ("rust-take-mut" ,rust-take-mut)
-        ("rust-thread-local" ,rust-thread-local))))
+        ("rust-thread-local" ,rust-thread-local-0.3))))
     (home-page "https://github.com/slog-rs/slog")
     (synopsis "Asynchronous drain for slog-rs")
     (description "Asynchronous drain for slog-rs")
