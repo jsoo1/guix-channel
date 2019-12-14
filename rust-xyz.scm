@@ -3090,7 +3090,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
-        ("rust-crossbeam-queue" ,rust-crossbeam-queue)
+        ("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-num-cpus" ,rust-num-cpus-1.10))
@@ -3861,7 +3861,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
-        ("rust-crossbeam-queue" ,rust-crossbeam-queue)
+        ("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
@@ -4387,31 +4387,6 @@ Levenshtein automata.")
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
-
-(define-public rust-crossbeam-queue
-  (package
-    (name "rust-crossbeam-queue")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crossbeam-queue" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jsa9dbxnwqcxfws09vaschf92d4imlbbikmcn4ka8z7rzb9r5vw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-utils")
-    (synopsis "Concurrent queues")
-    (description "Concurrent queues")
-    (license #f)))
 
 (define-public rust-phf
   (package
@@ -8605,7 +8580,7 @@ creation from raw pointers and start, end pointer accessors.
          ,rust-crossbeam-channel)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.7)
-        ("rust-crossbeam-queue" ,rust-crossbeam-queue)
+        ("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
@@ -11389,7 +11364,7 @@ response body.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-crossbeam-queue" ,rust-crossbeam-queue)
+        ("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
@@ -17915,7 +17890,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-queue" ,rust-crossbeam-queue)
+       (("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-futures-util-preview"
