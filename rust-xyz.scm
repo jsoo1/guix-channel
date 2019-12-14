@@ -3425,7 +3425,7 @@ asynchronous I/O backed applications.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-nodrop" ,rust-nodrop)
+       (("rust-nodrop" ,rust-nodrop-0.1)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
@@ -5126,31 +5126,6 @@ requests and responses.")
     (description
      "This package provides a tiny, safe, speedy, zero-copy HTTP/1.x
 parser.")
-    (license #f)))
-
-(define-public rust-nodrop
-  (package
-    (name "rust-nodrop")
-    (version "0.1.13")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "nodrop" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0if9ifn6rvar5jirx4b3qh4sl5kjkmcifycvzhxa9j3crkfng5ig"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-nodrop-union" ,rust-nodrop-union))))
-    (home-page "https://github.com/bluss/arrayvec")
-    (synopsis
-     "A wrapper type to inhibit drop (destructor)")
-    (description
-     "This package provides a wrapper type to inhibit
-drop (destructor).  Use std::mem::ManuallyDrop instead!")
     (license #f)))
 
 (define-public rust-paste-impl
