@@ -5307,34 +5307,6 @@ Levenshtein automata.")
      "Complex numbers implementation for Rust")
     (license #f)))
 
-;; DO THESE DEPS
-(define-public rust-csv-core-0.1
-  (package
-    (name "rust-csv-core")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "csv-core" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0k5zs0x0qmmn27pa5kcg86lg84s29491fw5sh3zswxswnavasp4v"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-memchr" ,rust-memchr-2.2))
-       #:cargo-development-inputs
-       (("rust-arrayvec" ,rust-arrayvec-0.4))))
-    (home-page
-     "https://github.com/BurntSushi/rust-csv")
-    (synopsis
-     "Bare bones CSV parsing with no_std support")
-    (description
-     "Bare bones CSV parsing with no_std support.")
-    (license #f)))
-
 (define-public rust-crossbeam-deque
   (package
     (name "rust-crossbeam-deque")
