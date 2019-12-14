@@ -3956,7 +3956,7 @@ thread pool.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crc32fast" ,rust-crc32fast)
+       (("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libz-sys" ,rust-libz-sys)
@@ -4904,35 +4904,6 @@ checking")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))))
 
-(define-public rust-crc32fast
-  (package
-    (name "rust-crc32fast")
-    (version "1.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crc32fast" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1c9dhkvf3brrzzplcijaywxi2w8wv5578i0ryhcm7x8dmzi5s4ms"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1))
-       #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher-0.1)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/srijs/rust-crc32fast")
-    (synopsis
-     "Fast, SIMD-accelerated CRC32 (IEEE) checksum computation")
-    (description
-     "Fast, SIMD-accelerated CRC32 (IEEE) checksum computation")
-    (license #f)))
-
 (define-public rust-libz-sys
   (package
     (name "rust-libz-sys")
@@ -5004,7 +4975,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crc32fast" ,rust-crc32fast)
+       (("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-miniz-oxide" ,rust-miniz-oxide))
        #:cargo-development-inputs
@@ -10252,7 +10223,7 @@ types.  The Client can be used for other queries.")
     (arguments
      `(#:cargo-inputs
        (("rust-adler32" ,rust-adler32)
-        ("rust-crc32fast" ,rust-crc32fast)
+        ("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-rle-decode-fast" ,rust-rle-decode-fast)
         ("rust-take-mut" ,rust-take-mut))
        #:cargo-development-inputs
@@ -13048,7 +13019,7 @@ functions.")
          ,rust-scoped-threadpool)
         ("rust-tiff" ,rust-tiff))
        #:cargo-development-inputs
-       (("rust-crc32fast" ,rust-crc32fast)
+       (("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8))))
@@ -13085,7 +13056,7 @@ functions.")
         ("rust-scoped-threadpool" ,rust-scoped-threadpool)
         ("rust-tiff" ,rust-tiff-0.2))
        #:cargo-development-inputs
-       (("rust-crc32fast" ,rust-crc32fast)
+       (("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8))))
@@ -14999,7 +14970,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-crc32fast" ,rust-crc32fast)
+        ("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-deflate" ,rust-deflate)
         ("rust-inflate" ,rust-inflate))
        #:cargo-development-inputs
@@ -15032,7 +15003,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-crc32fast" ,rust-crc32fast)
+        ("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-deflate" ,rust-deflate-0.7)
         ("rust-inflate" ,rust-inflate))
        #:cargo-development-inputs
@@ -15288,7 +15259,7 @@ easily use modern OpenGL techniques.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crc32fast" ,rust-crc32fast))))
+       (("rust-crc32fast" ,rust-crc32fast-1.2))))
     (home-page
      "https://github.com/oyvindln/gzip-header")
     (synopsis
@@ -16731,7 +16702,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-bzip2" ,rust-bzip2)
-        ("rust-crc32fast" ,rust-crc32fast)
+        ("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-flate2" ,rust-flate2)
         ("rust-podio" ,rust-podio)
         ("rust-time" ,rust-time-0.1))
