@@ -1598,31 +1598,6 @@ points, in a byte slice, fast")
      "This package provides a library for dealing with memory-mapped I/O")
     (license #f)))
 
-(define-public rust-docopt
-  (package
-    (name "rust-docopt")
-    (version "1.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "docopt" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0s9rcpmnnivs502q69lc1h1wrwapkq09ikgbfbgqf31idmc5llkz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-strsim" ,rust-strsim-0.9))))
-    (home-page "https://github.com/docopt/docopt.rs")
-    (synopsis "Command line argument parsing.")
-    (description "Command line argument parsing.")
-    (license #f)))
-
 (define-public rust-crossbeam-utils-0.2
   (package
     (inherit rust-crossbeam-utils-0.6)
@@ -3265,7 +3240,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-rayon-core" ,rust-rayon-core))
        #:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-docopt" ,rust-docopt)
+        ("rust-docopt" ,rust-docopt-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
@@ -6361,7 +6336,7 @@ and loading crate.")
         ("rust-openssl-sys" ,rust-openssl-sys-0.9)
         ("rust-url" ,rust-url-1.7))
        #:cargo-development-inputs
-       (("rust-docopt" ,rust-docopt)
+       (("rust-docopt" ,rust-docopt-1.1)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3)
@@ -11296,7 +11271,7 @@ exposed as Reader/Writer streams.")
         ("rust-atty" ,rust-atty-0.2)
         ("rust-bit-set" ,rust-bit-set)
         ("rust-diff" ,rust-diff)
-        ("rust-docopt" ,rust-docopt)
+        ("rust-docopt" ,rust-docopt-1.1)
         ("rust-ena" ,rust-ena)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lalrpop-util" ,rust-lalrpop-util)
@@ -18594,7 +18569,7 @@ for computer graphics.")
         ("rust-either" ,rust-either-1.5)
         ("rust-rustc-rayon-core" ,rust-rustc-rayon-core))
        #:cargo-development-inputs
-       (("rust-docopt" ,rust-docopt)
+       (("rust-docopt" ,rust-docopt-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde-1.0)
@@ -18797,7 +18772,7 @@ pitfalls in Rust")
         ("rust-serde-json" ,rust-serde-json-1.0))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
-        ("rust-docopt" ,rust-docopt)
+        ("rust-docopt" ,rust-docopt-1.1)
         ("rust-structopt" ,rust-structopt))))
     (home-page
      "https://github.com/oli-obk/cargo_metadata")
