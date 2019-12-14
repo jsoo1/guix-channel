@@ -24,7 +24,7 @@
      `(#:cargo-inputs
        (("rust-bstr" ,rust-bstr-0.1)
         ("rust-clap" ,rust-clap-2)
-        ("rust-grep" ,rust-grep)
+        ("rust-grep" ,rust-grep-0.2)
         ("rust-ignore" ,rust-ignore)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)

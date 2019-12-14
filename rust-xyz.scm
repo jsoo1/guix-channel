@@ -177,7 +177,7 @@ the stack.")
     (description "Big array helper for serde.")
     (license #f)))
 
-(define-public rust-grep
+(define-public rust-grep-0.2
   (package
     (name "rust-grep")
     (version "0.2.4")
