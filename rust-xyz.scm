@@ -243,7 +243,7 @@ ignore files such as `.gitignore` against file paths.")
        #:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))))
 
 (define-public rust-spin
@@ -357,34 +357,6 @@ properties according to Unicode Standard Annex #31.")
      "Automata construction and matching using regular expressions.")
     (license #f)))
 
-(define-public rust-quickcheck
-  (package
-    (name "rust-quickcheck")
-    (version "0.8.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "quickcheck" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0mkl4wnvvjk4m32aq3an4ayfyvnmbxnzcybfm7n3fbsndb1xjdcw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-core" ,rust-rand-core))))
-    (home-page
-     "https://github.com/BurntSushi/quickcheck")
-    (synopsis
-     "Automatic property based testing with shrinking")
-    (description
-     "Automatic property based testing with shrinking.")
-    (license #f)))
-
 (define-public rust-ucd-parse
   (package
     (name "rust-ucd-parse")
@@ -428,7 +400,7 @@ Unicode character database.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck))))
+       (("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
      "https://github.com/unicode-rs/unicode-segmentation")
     (synopsis
@@ -693,7 +665,7 @@ integer keys.")
      `(#:cargo-inputs
        (("rust-linked-hash-map" ,rust-linked-hash-map))
        #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck))))
+       (("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
      "http://chyh1990.github.io/yaml-rust/")
     (synopsis "The missing YAML 1.2 parser for rust")
@@ -1069,7 +1041,7 @@ matching branch is the item that gets emitted.")
     (arguments
      `(#:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-quickcheck" ,rust-quickcheck))))
+        ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
      "https://github.com/BurntSushi/utf8-ranges")
     (synopsis
@@ -1095,7 +1067,7 @@ matching branch is the item that gets emitted.")
     (arguments
      `(#:cargo-inputs
        (("rust-c2-chacha" ,rust-c2-chacha)
-        ("rust-rand-core" ,rust-rand-core))
+        ("rust-rand-core" ,rust-rand-core-0.5))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg-0.1))))
     (home-page
@@ -1145,7 +1117,7 @@ matching branch is the item that gets emitted.")
        (("rust-fnv" ,rust-fnv)
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/indexmap")
@@ -1321,34 +1293,6 @@ indexmap.
      "This package provides a simple Windows specific API for controlling text color in a Windows console.")
     (license #f)))
 
-;; DO THESE DEPS
-(define-public rust-byteorder-1.3
-  (package
-    (name "rust-byteorder")
-    (version "1.3.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "byteorder" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xbwjlmq2ziqjmjvkqxdx1yh136xxhilxd40bky1w4d7hn4xvhx7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/BurntSushi/byteorder")
-    (synopsis
-     "Reading/writing numbers in big-endian and little-endian")
-    (description
-     "Library for reading/writing numbers in big-endian and little-endian.")
-    (license #f)))
-
 (define-public rust-toml
   (package
     (name "rust-toml")
@@ -1409,36 +1353,6 @@ deserializing and serializing Rust structures.")
         (base32
          "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
-(define-public rust-env-logger-0.6
-  (package
-    (name "rust-env-logger")
-    (version "0.6.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "env_logger" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1lx2s5nk96xx4i3m4zc4ghqgi8kb07dsnyiv8jk2clhax42dxz5a"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-atty" ,rust-atty-0.2)
-        ("rust-humantime" ,rust-humantime-1.2)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-termcolor" ,rust-termcolor-1.0))))
-    (home-page
-     "https://github.com/sebasmagri/env_logger/")
-    (synopsis
-     "logging implementation for `log`")
-    (description
-     "This package provides a logging implementation for `log` which is configured via an environment
-variable.")
-    (license #f)))
-
 (define-public rust-env-logger-0.5
   (package
     (inherit rust-env-logger-0.6)
@@ -1467,42 +1381,16 @@ variable.")
         (base32
          "0nydz2lidsvx9gs0v2zcz68rzqx8in7fzmiprgsrhqh17vkj3prx"))))))
 
-(define-public rust-rand-core
-  (package
-    (name "rust-rand-core")
-    (version "0.5.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_core" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1jis94x9ri8xlxki2w2w5k29sjpfwgzkjylg7paganp74hrnhpk1"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-getrandom" ,rust-getrandom)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))))
-    (home-page "https://crates.io/crates/rand_core")
-    (synopsis
-     "Core random number generator traits and tools for implementation")
-    (description
-     "Core random number generator traits and tools for implementation.")
-    (license #f)))
-
 (define-public rust-rand-core-0.4.0
   (package
-    (inherit rust-rand-core)
+    (inherit rust-rand-core-0.5)
     (version "0.4.0")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "rand_core" version))
        (file-name
-        (string-append (package-name rust-rand-core) "-" version ".tar.gz"))
+        (string-append (package-name rust-rand-core-0.5) "-" version ".tar.gz"))
        (sha256
         (base32
          "1h3dbrhi5qgflqnzzd86s48v1dn1l17bmdssi5q170whsm4sbryh"))))
@@ -1514,14 +1402,14 @@ variable.")
 
 (define-public rust-rand-core-0.3
   (package
-    (inherit rust-rand-core)
+    (inherit rust-rand-core-0.5)
     (version "0.3.1")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "rand_core" version))
        (file-name
-        (string-append (package-name rust-rand-core) "-" version ".tar.gz"))
+        (string-append (package-name rust-rand-core-0.5) "-" version ".tar.gz"))
        (sha256
         (base32
          "0jzdgszfa4bliigiy4hi66k7fs3gfwi2qxn8vik84ph77fwdwvvs"))))
@@ -1615,7 +1503,7 @@ variable.")
          ,rust-hyphenation-commons)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-pocket-resources" ,rust-pocket-resources)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-unicode-normalization"
          ,rust-unicode-normalization)
@@ -1676,7 +1564,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core)
+       (("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1))))
@@ -1702,7 +1590,7 @@ instantiate to generate your own pieces of pseudo-random text.")
          "0p2x8nr00hricpi2m6ca5vysiha7ybnghz79yqhhx6sl4gkfkxyb"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core)
+       (("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
@@ -1757,7 +1645,7 @@ pairs in insertion order")
        (("rust-either" ,rust-either))
        #:cargo-development-inputs
        (("rust-permutohedron" ,rust-permutohedron)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/bluss/rust-itertools")
@@ -1971,7 +1859,7 @@ pairs in insertion order")
        (("rust-packed-simd" ,rust-packed-simd))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/llogiq/bytecount")
     (synopsis
@@ -2476,7 +2364,7 @@ retrieving random data from system source")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core))))
+       (("rust-rand-core" ,rust-rand-core-0.5))))
     (home-page "https://crates.io/crates/rand_hc")
     (synopsis "HC128 random number generator")
     (description "HC128 random number generator")
@@ -2512,7 +2400,7 @@ retrieving random data from system source")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core)
+       (("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg-0.1)
@@ -2540,7 +2428,7 @@ retrieving random data from system source")
     (arguments
      `(#:cargo-inputs
        (("rust-autocfg" ,rust-autocfg-0.1)
-        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
@@ -2562,7 +2450,7 @@ retrieving random data from system source")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core)
+       (("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1))))
@@ -2586,7 +2474,7 @@ retrieving random data from system source")
          "027flpjr4znx2csxk7gxb7vrf9c7y5mydmvg5az2afgisp4rgnfy"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core)
+       (("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1))))))
@@ -2608,7 +2496,7 @@ retrieving random data from system source")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1))))
@@ -2838,7 +2726,7 @@ guidelines on macOS.")
        #:cargo-development-inputs
        (("rust-fst" ,rust-fst)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/tapeinosyne/atlatl")
@@ -3057,7 +2945,7 @@ implemented using Heap's algorithm.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-rand-os" ,rust-rand-os)
         ("rust-rand-xoshiro" ,rust-rand-xoshiro)
         ("rust-rayon" ,rust-rayon)
@@ -3069,7 +2957,7 @@ implemented using Heap's algorithm.")
         ("rust-walkdir" ,rust-walkdir-2.2))
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-tempdir" ,rust-tempdir))))
     (home-page
@@ -3861,7 +3749,7 @@ ArrayVec and ArrayString.")
         ("rust-fst-levenshtein" ,rust-fst-levenshtein)
         ("rust-fst-regex" ,rust-fst-regex)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/BurntSushi/fst")
     (synopsis
@@ -3887,7 +3775,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck))))
+       (("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/japaric/cast.rs")
     (synopsis
      "Ergonomic, checked cast functions for primitive types")
@@ -3972,7 +3860,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-getrandom" ,rust-getrandom)
-        ("rust-rand-core" ,rust-rand-core))))
+        ("rust-rand-core" ,rust-rand-core-0.5))))
     (home-page "https://crates.io/crates/rand_os")
     (synopsis "OS backed Random Number Generator")
     (description "OS backed Random Number Generator")
@@ -3997,7 +3885,7 @@ maps of many strings (> 1 billion is possible).")
        (("rust-cloudabi" ,rust-cloudabi)
         ("rust-fuchsia-cprng" ,rust-fuchsia-cprng)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-rdrand" ,rust-rdrand-0.4)
         ("rust-winapi" ,rust-winapi-0.3)
         ("rust-log" ,rust-log-0.4)
@@ -4908,7 +4796,7 @@ proposed in RFC 1158.")
         ("rust-proc-macro-nested"
          ,rust-proc-macro-nested)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-slab" ,rust-slab)
         ("rust-tokio-io" ,rust-tokio-io))))
     (home-page
@@ -5340,7 +5228,7 @@ thread pool.")
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
        (("rust-futures" ,rust-futures-0.1)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-tcp" ,rust-tokio-tcp)
@@ -5403,7 +5291,7 @@ results of the computation on the threads themselves.")
         ("rust-itoa" ,rust-itoa))
        #:cargo-development-inputs
        (("rust-indexmap" ,rust-indexmap)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-seahash" ,rust-seahash)
         ("rust-serde" ,rust-serde-1.0)
@@ -5714,7 +5602,7 @@ Levenshtein automata.")
        (("rust-num-traits" ,rust-num-traits-0.2))
        #:cargo-development-inputs
        (("rust-itertools" ,rust-itertools)
-        ("rust-quickcheck" ,rust-quickcheck))))
+        ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
      "https://github.com/bluss/itertools-num")
     (synopsis
@@ -6470,7 +6358,7 @@ checking")
         ("rust-proc-macro-nested"
          ,rust-proc-macro-nested)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-slab" ,rust-slab)
         ("rust-tokio-io" ,rust-tokio-io))))
     (home-page
@@ -6802,7 +6690,7 @@ directory and deleting all contents when it's dropped.")
        (("rust-cfg-if" ,rust-cfg-if))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/srijs/rust-crc32fast")
@@ -7041,7 +6929,7 @@ with proven statistical guarantees.")
     (arguments
      `(#:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-quickcheck" ,rust-quickcheck))))
+        ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
      "https://github.com/BurntSushi/utf8-ranges")
     (synopsis
@@ -8121,7 +8009,7 @@ file formats.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck)
+       (("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-speculate" ,rust-speculate))))
     (home-page
      "https://github.com/utkarshkukreti/diff.rs")
@@ -8806,7 +8694,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-getopts" ,rust-getopts-0.2))
        #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck)
+       (("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-term" ,rust-term-0.5))))
     (home-page
      "https://github.com/johannhof/difference.rs")
@@ -9075,7 +8963,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-quickcheck" ,rust-quickcheck)
+       (("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
@@ -9739,7 +9627,7 @@ according to XDG Base Directory specification")
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx)
         ("rust-proptest" ,rust-proptest)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rustc-version" ,rust-rustc-version))))
     (home-page
      "https://github.com/Alexhuszagh/rust-lexical/tree/master/lexical-core")
@@ -10251,7 +10139,7 @@ dependency.")
     (arguments
      `(#:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-quickcheck" ,rust-quickcheck))))
+        ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/fitzgen/bumpalo")
     (synopsis
      "A fast bump allocation arena for Rust.")
@@ -10723,7 +10611,7 @@ shorthands for guards with one of the implemented strategies.")
      `(#:cargo-inputs
        (("rust-fixedbitset" ,rust-fixedbitset)
         ("rust-ordermap" ,rust-ordermap-0.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
@@ -10781,7 +10669,7 @@ shorthands for guards with one of the implemented strategies.")
        (("rust-fnv" ,rust-fnv)
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/ordermap")
@@ -10812,7 +10700,7 @@ shorthands for guards with one of the implemented strategies.")
        (("rust-fnv" ,rust-fnv)
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/ordermap")
@@ -10866,7 +10754,7 @@ shorthands for guards with one of the implemented strategies.")
        (("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-quickcheck" ,rust-quickcheck))))
+        ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/bluss/odds")
     (synopsis
      "Odds and ends â\x80\x94 collection miscellania. Extra functionality for slices (`.find()`, `RevSlice`), strings and other things. Things in odds may move to more appropriate crates if we find them.
@@ -10924,7 +10812,7 @@ For example `.post_inc()` and `.pre_dec()` (c.f. `ptr++` and `--ptr`) and
      `(#:cargo-inputs
        (("rust-rawpointer" ,rust-rawpointer))
        #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck))))
+       (("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/bluss/rawslice/")
     (synopsis
      "Reimplementation of the slice iterators, with extra features")
@@ -11052,7 +10940,7 @@ creation from raw pointers and start, end pointer accessors.
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
-        ("rust-rand-core" ,rust-rand-core)
+        ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/rust-random/rand")
     (synopsis
@@ -11129,7 +11017,7 @@ creation from raw pointers and start, end pointer accessors.
      `(#:cargo-inputs
        (("rust-custom-derive" ,rust-custom-derive))
        #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck)
+       (("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/DanielKeep/rust-conv")
@@ -11183,7 +11071,7 @@ creation from raw pointers and start, end pointer accessors.
        (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck))))
+       (("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
      "https://github.com/postmates/quantiles")
     (synopsis
@@ -11307,7 +11195,7 @@ creation from raw pointers and start, end pointer accessors.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core))))
+       (("rust-rand-core" ,rust-rand-core-0.5))))
     (home-page
      "https://github.com/nagisa/rust_rdrand/")
     (synopsis
@@ -11813,7 +11701,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memsec" ,rust-memsec)
         ("rust-nettle" ,rust-nettle)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-safemem" ,rust-safemem)
         ("rust-sequoia-rfc2822" ,rust-sequoia-rfc2822)
@@ -11855,7 +11743,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memsec" ,rust-memsec)
         ("rust-nettle" ,rust-nettle)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-sequoia-rfc2822" ,rust-sequoia-rfc2822)
         ("rust-time" ,rust-time-0.1))
@@ -12857,7 +12745,7 @@ types.  The Client can be used for other queries.")
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
        (("rust-partial-io" ,rust-partial-io)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-tokio-core" ,rust-tokio-core))))
     (home-page
@@ -12966,7 +12854,7 @@ exposed as Reader/Writer streams.")
        #:cargo-development-inputs
        (("rust-lalrpop" ,rust-lalrpop)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://sequoia-pgp.org/")
     (synopsis "An RFC 2822 name-addr parser")
@@ -13124,7 +13012,7 @@ exposed as Reader/Writer streams.")
      `(#:cargo-inputs
        (("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-quickcheck-macros"
          ,rust-quickcheck-macros)
         ("rust-rand" ,rust-rand-0.4)
@@ -13739,7 +13627,7 @@ composability, and iterator-like interfaces.")
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-hex" ,rust-hex-0.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rustls" ,rust-rustls)
         ("rust-serde" ,rust-serde-1.0)
@@ -14195,11 +14083,11 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-futures" ,rust-futures-0.1)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck)
+        ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-tokio-core" ,rust-tokio-core))))
     (home-page
      "https://github.com/facebookincubator/rust-partial-io")
@@ -14276,7 +14164,7 @@ Foundation for the rest of the tokio crates.")
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15))
        #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck))))
+       (("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
      "https://github.com/BurntSushi/quickcheck")
     (synopsis "A macro attribute for quickcheck.")
@@ -15601,7 +15489,7 @@ functions.")
        (("rust-crc32fast" ,rust-crc32fast)
         ("rust-glob" ,rust-glob)
         ("rust-num-complex" ,rust-num-complex)
-        ("rust-quickcheck" ,rust-quickcheck))))
+        ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/image-rs/image")
     (synopsis
      "Imaging library written in Rust. Provides basic filters and decoders for the most common image formats.")
@@ -15638,7 +15526,7 @@ functions.")
        (("rust-crc32fast" ,rust-crc32fast)
         ("rust-glob" ,rust-glob)
         ("rust-num-complex" ,rust-num-complex)
-        ("rust-quickcheck" ,rust-quickcheck))))
+        ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/image-rs/image")
     (synopsis
      "Imaging library written in Rust. Provides basic filters and decoders for the most common image formats.")
@@ -20578,7 +20466,7 @@ pitfalls in Rust")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-quickcheck" ,rust-quickcheck))))
+       (("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
      "https://github.com/oli-obk/quine-mc_cluskey")
     (synopsis
