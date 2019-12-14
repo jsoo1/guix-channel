@@ -3169,7 +3169,7 @@ require unstable language features.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-discard" ,rust-discard-0.1)
+       (("rust-discard" ,rust-discard-1.0)
         ("rust-futures-channel-preview" ,rust-futures-channel-preview)
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
         ("rust-futures-executor-preview" ,rust-futures-executor-preview)
