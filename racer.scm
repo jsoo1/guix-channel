@@ -38,7 +38,7 @@
         ("rust-clippy-lints" ,rust-clippy-lints-0.0.103)
         ("rust-derive-more" ,rust-derive-more-0.13)
         ("rust-env-logger" ,rust-env-logger-0.5)
-        ("rust-humantime" ,rust-humantime)
+        ("rust-humantime" ,rust-humantime-1.2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-lazycell" ,rust-lazycell)
         ("rust-fuchsia-zircon" ,rust-fuchsia-zircon)

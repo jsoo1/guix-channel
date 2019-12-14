@@ -37,7 +37,7 @@
         ("rust-base64" ,rust-base64)
         ("rust-bincode" ,rust-bincode)
         ("rust-bs58" ,rust-bs58)
-        ("rust-chrono" ,rust-chrono)
+        ("rust-chrono" ,rust-chrono-0.4)
         ("rust-clap" ,rust-clap-2)
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-dirs" ,rust-dirs-1)

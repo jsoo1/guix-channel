@@ -1473,7 +1473,7 @@ deserializing and serializing Rust structures.")
     (arguments
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
-        ("rust-humantime" ,rust-humantime)
+        ("rust-humantime" ,rust-humantime-1.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-termcolor" ,rust-termcolor-1.0))))
@@ -2727,7 +2727,7 @@ strategy that uses Serde for transforming structs into bytes and vice
 versa!")
     (license #f)))
 
-(define-public rust-humantime
+(define-public rust-humantime-1.2
   (package
     (name "rust-humantime")
     (version "1.2.0")
@@ -2745,7 +2745,7 @@ versa!")
      `(#:cargo-inputs
        (("rust-quick-error" ,rust-quick-error-1.2))
        #:cargo-development-inputs
-       (("rust-chrono" ,rust-chrono)
+       (("rust-chrono" ,rust-chrono-0.4)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-time" ,rust-time-0.1))))
     (home-page
@@ -3909,7 +3909,7 @@ ArrayVec and ArrayString.")
      "Automatic cfg for Rust compiler features")
     (license #f)))
 
-(define-public rust-chrono
+(define-public rust-chrono-0.4
   (package
     (name "rust-chrono")
     (version "0.4.7")
@@ -11612,7 +11612,7 @@ creation from raw pointers and start, end pointer accessors.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-chrono" ,rust-chrono)
+       (("rust-chrono" ,rust-chrono-0.4)
         ("rust-ci-info" ,rust-ci-info-0.3.1)
         ("rust-console" ,rust-console)
         ("rust-difference" ,rust-difference)
@@ -11793,7 +11793,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-bs58" ,rust-bs58)
         ("rust-byteorder" ,rust-byteorder)
-        ("rust-chrono" ,rust-chrono)
+        ("rust-chrono" ,rust-chrono-0.4)
         ("rust-diffs" ,rust-diffs)
         ("rust-failure" ,rust-failure)
         ("rust-flate2" ,rust-flate2)
@@ -12993,7 +12993,7 @@ types.  The Client can be used for other queries.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-chrono" ,rust-chrono)
+       (("rust-chrono" ,rust-chrono-0.4)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
@@ -13396,7 +13396,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-bit-vec" ,rust-bit-vec)
-        ("rust-chrono" ,rust-chrono)
+        ("rust-chrono" ,rust-chrono-0.4)
         ("rust-num" ,rust-num)
         ("rust-num-bigint" ,rust-num-bigint))
        #:cargo-development-inputs
@@ -14218,7 +14218,7 @@ client or server.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-chrono" ,rust-chrono)
+       (("rust-chrono" ,rust-chrono-0.4)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4))))
     (home-page
@@ -14600,7 +14600,7 @@ accessor functions on enums.")
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
         ("rust-bytes" ,rust-bytes)
-        ("rust-chrono" ,rust-chrono)
+        ("rust-chrono" ,rust-chrono-0.4)
         ("rust-http" ,rust-http)
         ("rust-mime" ,rust-mime-0.3))))
     (home-page
@@ -14664,7 +14664,7 @@ accessor functions on enums.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-chrono" ,rust-chrono)
+       (("rust-chrono" ,rust-chrono-0.4)
         ("rust-core-foundation-sys"
          ,rust-core-foundation-sys-0.6)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -18499,7 +18499,7 @@ inter-process communication.")
     (arguments
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
-        ("rust-chrono" ,rust-chrono)
+        ("rust-chrono" ,rust-chrono-0.4)
         ("rust-slog" ,rust-slog)
         ("rust-term" ,rust-term-0.5)
         ("rust-thread-local" ,rust-thread-local-0.3))
@@ -21768,7 +21768,7 @@ testing.")
     (arguments
      `(#:cargo-inputs
        (("rust-ansi-term" ,rust-ansi-term)
-        ("rust-chrono" ,rust-chrono)
+        ("rust-chrono" ,rust-chrono-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-matchers" ,rust-matchers)
         ("rust-owning-ref" ,rust-owning-ref)
@@ -21938,7 +21938,7 @@ log crates.")
     (arguments
      `(#:cargo-inputs
        (("rust-ansi-term" ,rust-ansi-term)
-        ("rust-chrono" ,rust-chrono)
+        ("rust-chrono" ,rust-chrono-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-matchers" ,rust-matchers)
         ("rust-owning-ref" ,rust-owning-ref)
