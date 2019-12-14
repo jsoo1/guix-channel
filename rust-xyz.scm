@@ -7050,7 +7050,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
         ("rust-clicolors-control"
-         ,rust-clicolors-control)
+         ,rust-clicolors-control-1.0)
         ("rust-encode-unicode" ,rust-encode-unicode)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -7182,34 +7182,6 @@ according to XDG Base Directory specification")
        (sha256
         (base32
          "0fk8nl0rmk43jrh6hjz6c6d83ri7l6fikag6lh0ffz3di9cwznfm"))))))
-
-(define-public rust-clicolors-control
-  (package
-    (name "rust-clicolors-control")
-    (version "1.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "clicolors-control" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1y80cgarxhrd1bz5yjm81r444v6flvy36aaxrrsac0yhfd6gvavk"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-atty" ,rust-atty-0.2)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/mitsuhiko/clicolors-control")
-    (synopsis
-     "A common utility library to control CLI colorization")
-    (description
-     "This package provides a common utility library to control CLI colorization")
-    (license #f)))
 
 (define-public rust-envmnt
   (package
