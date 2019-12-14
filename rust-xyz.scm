@@ -7365,7 +7365,7 @@ and loading crate.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-libgit2-sys" ,rust-libgit2-sys-0.8)
         ("rust-log" ,rust-log-0.4)
-        ("rust-openssl-probe" ,rust-openssl-probe)
+        ("rust-openssl-probe" ,rust-openssl-probe-0.1)
         ("rust-openssl-sys" ,rust-openssl-sys)
         ("rust-url" ,rust-url))
        #:cargo-development-inputs
@@ -7675,29 +7675,6 @@ endian-aware Read/Write traits for byte buffers.")
      "Helper test traits for synstructure doctests")
     (description
      "Helper test traits for synstructure doctests")
-    (license #f)))
-
-(define-public rust-openssl-probe
-  (package
-    (name "rust-openssl-probe")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "openssl-probe" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1pijrdifgsdwd45b08c2g0dsmnhz7c3kmagb70839ngrd7d29bvp"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/alexcrichton/openssl-probe")
-    (synopsis
-     "Find SSL certificate locations on the system for OpenSSL")
-    (description
-     "Tool for helping to find SSL certificate locations on the system
-for OpenSSL")
     (license #f)))
 
 (define-public rust-openssl-sys
@@ -11909,7 +11886,7 @@ and private (encrypted + signed) jars.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
         ("rust-openssl" ,rust-openssl)
-        ("rust-openssl-probe" ,rust-openssl-probe)
+        ("rust-openssl-probe" ,rust-openssl-probe-0.1)
         ("rust-openssl-sys" ,rust-openssl-sys)
         ("rust-schannel" ,rust-schannel-0.1)
         ("rust-security-framework"
