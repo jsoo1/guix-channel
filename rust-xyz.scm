@@ -5511,7 +5511,7 @@ with proven statistical guarantees.")
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memoffset" ,rust-memoffset)
+        ("rust-memoffset" ,rust-memoffset-0.2)
         ("rust-scopeguard" ,rust-scopeguard-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
@@ -5541,7 +5541,7 @@ with proven statistical guarantees.")
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memoffset" ,rust-memoffset)
+        ("rust-memoffset" ,rust-memoffset-0.2)
         ("rust-scopeguard" ,rust-scopeguard-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
@@ -5909,27 +5909,6 @@ vcpkg tree at build time in order to be used in Cargo build scripts.")
 A build-time dependency for Cargo build scripts to assist in invoking
 the native C compiler to compile native C code into a static archive
 to be linked into Rust code.")
-    (license #f)))
-
-(define-public rust-memoffset
-  (package
-    (name "rust-memoffset")
-    (version "0.2.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "memoffset" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1cvm2z7dy138s302ii7wlzcxbka5a8yfl5pl5di7lbdnw9hw578g"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/Gilnaa/memoffset")
-    (synopsis
-     "offset_of functionality for Rust structs")
-    (description
-     "@code{offset_of} functionality for Rust structs.")
     (license #f)))
 
 (define-public rust-phf-generator
