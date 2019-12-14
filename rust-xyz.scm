@@ -2649,35 +2649,6 @@ retrieving random data from system source")
 can't ever panic.")
     (license #f)))
 
-(define-public rust-humantime-1.2
-  (package
-    (name "rust-humantime")
-    (version "1.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "humantime" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "057ilhy6vc9iqhhby5ymh45m051pgxwq2z437gwkbnqhw7rfb9rw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-quick-error" ,rust-quick-error-1.2))
-       #:cargo-development-inputs
-       (("rust-chrono" ,rust-chrono-0.4)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-time" ,rust-time-0.1))))
-    (home-page
-     "https://github.com/tailhook/humantime")
-    (synopsis
-     "Parser and formatter for Duration and SystemTime")
-    (description
-     "A parser and formatter for @code{std::time::{Duration, SystemTime}}")
-    (license #f)))
-
 (define-public rust-winapi-i686-pc-windows-gnu
   (package
     (name "rust-winapi-i686-pc-windows-gnu")
