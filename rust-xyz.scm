@@ -3019,9 +3019,9 @@ Web.")
         ("rust-mio" ,rust-mio-0.6)
         ("rust-miow" ,rust-miow-0.3)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-tokio-codec" ,rust-tokio-codec)
+        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-current-thread"
-         ,rust-tokio-current-thread)
+         ,rust-tokio-current-thread-0.1)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-fs" ,rust-tokio-fs)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
@@ -3991,7 +3991,7 @@ proposed in RFC 1158.")
         ("rust-tokio-executor" ,rust-tokio-executor-0.1))
        #:cargo-development-inputs
        (("rust-tokio-current-thread"
-         ,rust-tokio-current-thread))))
+         ,rust-tokio-current-thread-0.1))))
     (home-page
      "https://github.com/jonhoo/tokio-io-pool")
     (synopsis
@@ -4127,58 +4127,6 @@ proposed in RFC 1158.")
      "Internal crate of the `stdweb` crate")
     (license #f)))
 
-(define-public rust-tokio-codec
-  (package
-    (name "rust-tokio-codec")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-codec" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17y3hi3dd0bdfkrzshx9qhwcf49xv9iynszj7iwy3w4nmz71wl2w"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-futures" ,rust-futures-0.1)
-        ("rust-tokio-io" ,rust-tokio-io-0.1))))
-    (home-page "https://tokio.rs")
-    (synopsis
-     "Utilities for encoding and decoding frames")
-    (description
-     "Utilities for encoding and decoding frames.")
-    (license #f)))
-
-(define-public rust-tokio-current-thread
-  (package
-    (name "rust-tokio-current-thread")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-current-thread" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0hx4c8v88kk0ih8x5s564gsgwwf8n11kryvxm72l1f7isz51fqni"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-tokio-executor" ,rust-tokio-executor-0.1))))
-    (home-page "https://github.com/tokio-rs/tokio")
-    (synopsis
-     "Manage many tasks concurrently on the current thread")
-    (description
-     "Single threaded executor which manage many tasks concurrently on
-the current thread.")
-    (license #f)))
-
 (define-public rust-tokio-fs
   (package
     (name "rust-tokio-fs")
@@ -4203,7 +4151,7 @@ the current thread.")
         ("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-tokio" ,rust-tokio)
-        ("rust-tokio-codec" ,rust-tokio-codec)
+        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1))))
     (home-page "https://tokio.rs")
     (synopsis "Filesystem API for Tokio")
@@ -4349,7 +4297,7 @@ thread pool.")
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-tokio-codec" ,rust-tokio-codec)
+        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
        #:cargo-development-inputs
@@ -4382,7 +4330,7 @@ thread pool.")
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-mio-uds" ,rust-mio-uds)
-        ("rust-tokio-codec" ,rust-tokio-codec)
+        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
        #:cargo-development-inputs
@@ -12239,7 +12187,7 @@ composability, and iterator-like interfaces.")
         ("rust-log" ,rust-log-0.4)
         ("rust-slab" ,rust-slab-0.4)
         ("rust-string" ,rust-string)
-        ("rust-tokio-codec" ,rust-tokio-codec)
+        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-sync" ,rust-tokio-sync))
        #:cargo-development-inputs
@@ -12351,7 +12299,7 @@ response body.")
         ("rust-signal-hook-registry"
          ,rust-signal-hook-registry)
         ("rust-slab" ,rust-slab-0.4)
-        ("rust-tokio-codec" ,rust-tokio-codec)
+        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-sync" ,rust-tokio-sync)
