@@ -2914,7 +2914,7 @@ require unstable language features.")
         ("rust-slab" ,rust-slab-0.4)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-tempdir" ,rust-tempdir))))
     (home-page "https://github.com/carllerche/mio")
@@ -3101,7 +3101,7 @@ Web.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-mio" ,rust-mio)
         ("rust-miow" ,rust-miow-0.3)
@@ -4117,7 +4117,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4))
        #:cargo-development-inputs
@@ -4332,7 +4332,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-tokio-io" ,rust-tokio-io))))
     (home-page "https://tokio.rs")
@@ -4415,7 +4415,7 @@ the current thread.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-mio" ,rust-mio)
@@ -4534,7 +4534,7 @@ thread pool.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio)
@@ -4564,7 +4564,7 @@ thread pool.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -4668,7 +4668,7 @@ results of the computation on the threads themselves.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-fnv" ,rust-fnv)
         ("rust-itoa" ,rust-itoa-0.4))
        #:cargo-development-inputs
@@ -5851,7 +5851,7 @@ drop-in replacement for miniz")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-mio" ,rust-mio)
@@ -9161,35 +9161,6 @@ dependency.")
     (description "JSON implementation in Rust")
     (license #f)))
 
-(define-public rust-bytes
-  (package
-    (name "rust-bytes")
-    (version "0.4.12")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bytes" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0768a55q2fsqdjsvcv98ndg9dq7w2g44dvq1avhwpxrdzbydyvr0"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-either" ,rust-either-1.5)
-        ("rust-iovec" ,rust-iovec-0.1)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-serde-test" ,rust-serde-test-1.0))))
-    (home-page "https://github.com/carllerche/bytes")
-    (synopsis
-     "Types and traits for working with bytes")
-    (description
-     "Types and traits for working with bytes")
-    (license #f)))
-
 (define-public rust-scopeguard
   (package
     (name "rust-scopeguard")
@@ -10469,7 +10440,7 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64-0.9)
-        ("rust-bytes" ,rust-bytes)
+        ("rust-bytes" ,rust-bytes-0.4)
         ("rust-cookie" ,rust-cookie)
         ("rust-cookie-store" ,rust-cookie-store-0.7)
         ("rust-encoding-rs" ,rust-encoding-rs)
@@ -10503,7 +10474,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-webpki-roots" ,rust-webpki-roots)
         ("rust-winreg" ,rust-winreg))
        #:cargo-development-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-libflate" ,rust-libflate)
@@ -11083,7 +11054,7 @@ and private (encrypted + signed) jars.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures-channel-preview"
          ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview"
@@ -11146,7 +11117,7 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
-        ("rust-bytes" ,rust-bytes)
+        ("rust-bytes" ,rust-bytes-0.4)
         ("rust-http" ,rust-http)
         ("rust-httparse" ,rust-httparse)
         ("rust-language-tags" ,rust-language-tags-0.2)
@@ -11176,7 +11147,7 @@ and private (encrypted + signed) jars.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-ct-logs" ,rust-ct-logs)
         ("rust-futures-preview" ,rust-futures-preview)
         ("rust-hyper" ,rust-hyper)
@@ -12099,7 +12070,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-data-encoding" ,rust-data-encoding)
         ("rust-failure" ,rust-failure)
         ("rust-futures" ,rust-futures-0.1)
@@ -12471,7 +12442,7 @@ composability, and iterator-like interfaces.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-fnv" ,rust-fnv)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
@@ -12521,7 +12492,7 @@ composability, and iterator-like interfaces.")
   (build-system cargo-build-system)
   (arguments
     `(#:cargo-inputs
-      (("rust-bytes" ,rust-bytes)
+      (("rust-bytes" ,rust-bytes-0.4)
        ("rust-http" ,rust-http))))
   (home-page
     "https://github.com/hyperium/http-body")
@@ -12576,7 +12547,7 @@ response body.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-futures-core-preview"
@@ -12976,7 +12947,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-log" ,rust-log-0.4)
@@ -13110,7 +13081,7 @@ accessor functions on enums.")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
-        ("rust-bytes" ,rust-bytes)
+        ("rust-bytes" ,rust-bytes-0.4)
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-http" ,rust-http)
         ("rust-mime" ,rust-mime-0.3))))
@@ -13336,7 +13307,7 @@ testing harness")
          "0vaxz85ja52fn66akgvggb29wqa5bpj3y38syykpr1pbrjzi8hfj"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-bytes" ,rust-bytes))))
+     `(#:cargo-inputs (("rust-bytes" ,rust-bytes-0.4))))
     (home-page
      "https://github.com/carllerche/string")
     (synopsis
@@ -14441,7 +14412,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-void" ,rust-void))
        #:cargo-development-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-caps" ,rust-caps)
         ("rust-cc" ,rust-cc-1.0)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -14475,7 +14446,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-void" ,rust-void))
        #:cargo-development-inputs
-       (("rust-bytes" ,rust-bytes)
+       (("rust-bytes" ,rust-bytes-0.4)
         ("rust-caps" ,rust-caps)
         ("rust-cc" ,rust-cc-1.0)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
