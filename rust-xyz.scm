@@ -269,7 +269,7 @@ ignore files such as `.gitignore` against file paths.")
         ("rust-thread-local" ,rust-thread-local-0.3)
         ("rust-utf8-ranges" ,rust-utf8-ranges))
        #:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment)
+       (("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4))))))
@@ -992,26 +992,6 @@ a large number of #[cfg] parameters.  Structured like an if-else chain, the firs
 matching branch is the item that gets emitted.")
     (license #f)))
 
-(define-public rust-doc-comment
-  (package
-    (name "rust-doc-comment")
-    (version "0.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "doc-comment" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "15rsqxgarfpb1yim9sbp9yfgj7p2dq6v51c6bq1a62paii9ylgcj"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/GuillaumeGomez/doc-comment")
-    (synopsis "Macro to generate doc comments")
-    (description "Macro to generate doc comments")
-    (license #f)))
-
 (define-public rust-aho-corasick
   (package
     (name "rust-aho-corasick")
@@ -1116,7 +1096,7 @@ matching branch is the item that gets emitted.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment)
+       (("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-quickcheck" ,rust-quickcheck))))
     (home-page
      "https://github.com/BurntSushi/utf8-ranges")
@@ -1385,7 +1365,7 @@ indexmap.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment)
+       (("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
@@ -2346,7 +2326,7 @@ patterns.")
      `(#:cargo-inputs
        (("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment))))
+       (("rust-doc-comment" ,rust-doc-comment-0.3))))
     (home-page
      "https://github.com/XAMPPRocky/remove_dir_all.git")
     (synopsis
@@ -3913,7 +3893,7 @@ ArrayVec and ArrayString.")
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1)
-        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-num-iter" ,rust-num-iter)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json))))
@@ -4166,7 +4146,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-either" ,rust-either)
         ("rust-rayon-core" ,rust-rayon-core))
        #:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment)
+       (("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-docopt" ,rust-docopt)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
@@ -7210,7 +7190,7 @@ with proven statistical guarantees.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment)
+       (("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-quickcheck" ,rust-quickcheck))))
     (home-page
      "https://github.com/BurntSushi/utf8-ranges")
@@ -9738,7 +9718,7 @@ according to XDG Base Directory specification")
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator)
         ("rust-version-check" ,rust-version-check))))
     (home-page "https://github.com/Geal/nom")
@@ -9770,7 +9750,7 @@ according to XDG Base Directory specification")
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator)
         ("rust-version-check" ,rust-version-check))))
     (home-page "https://github.com/Geal/nom")
@@ -9801,7 +9781,7 @@ according to XDG Base Directory specification")
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator)
         ("rust-version-check" ,rust-version-check))))))
 
@@ -9826,7 +9806,7 @@ according to XDG Base Directory specification")
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator)
         ("rust-version-check" ,rust-version-check))))))
 
@@ -11919,7 +11899,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-winreg" ,rust-winreg))
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-libflate" ,rust-libflate)
         ("rust-serde" ,rust-serde-1.0)
@@ -17208,7 +17188,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg-0.1)
-        ("rust-doc-comment" ,rust-doc-comment)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rayon" ,rust-rayon)
