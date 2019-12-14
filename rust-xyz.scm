@@ -2091,29 +2091,7 @@ remove_dir_all for Windows")
      "Explicitly empty crate for rust-lang/rust integration")
     (license #f)))
 
-(define-public rust-ucd-util-0.1
-  (package
-    (name "rust-ucd-util")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ucd-util" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "11lgx380zgqsm265cg78w2mcjpmldbwbi01lb5w48hyqwi720p2k"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/BurntSushi/ucd-generate")
-    (synopsis
-     "Work with the Unicode character database.")
-    (description
-     "This package provides a small utility library for working with
-the Unicode character database.")
-    (license #f)))
-
+;; DO THESE DEPS
 (define-public rust-getrandom
   (package
     (name "rust-getrandom")
