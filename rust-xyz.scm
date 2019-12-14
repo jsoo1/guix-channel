@@ -3169,22 +3169,16 @@ require unstable language features.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-discard" ,rust-discard)
-        ("rust-futures-channel-preview"
-         ,rust-futures-channel-preview)
-        ("rust-futures-core-preview"
-         ,rust-futures-core-preview)
-        ("rust-futures-executor-preview"
-         ,rust-futures-executor-preview)
-        ("rust-futures-util-preview"
-         ,rust-futures-util-preview)
+       (("rust-discard" ,rust-discard-0.1)
+        ("rust-futures-channel-preview" ,rust-futures-channel-preview)
+        ("rust-futures-core-preview" ,rust-futures-core-preview)
+        ("rust-futures-executor-preview" ,rust-futures-executor-preview)
+        ("rust-futures-util-preview" ,rust-futures-util-preview)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-stdweb-derive" ,rust-stdweb-derive)
-        ("rust-stdweb-internal-macros"
-         ,rust-stdweb-internal-macros)
-        ("rust-stdweb-internal-runtime"
-         ,rust-stdweb-internal-runtime)
+        ("rust-stdweb-internal-macros" ,rust-stdweb-internal-macros)
+        ("rust-stdweb-internal-runtime" ,rust-stdweb-internal-runtime)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version)
@@ -3192,13 +3186,13 @@ require unstable language features.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-stdweb-internal-test-macro"
          ,rust-stdweb-internal-test-macro)
-        ("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test))))
+        ("rust-wasm-bindgen-test" ,rust-wasm-bindgen-test))))
     (home-page "https://github.com/koute/stdweb")
     (synopsis
-     "A standard library for the client-side Web")
+     "Standard library for the client-side Web")
     (description
-     "This package provides a standard library for the client-side Web")
+     "This package provides a standard library for the client-side
+Web.")
     (license #f)))
 
 (define-public rust-wasm-bindgen
@@ -4377,28 +4371,6 @@ proposed in RFC 1158.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (description
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
-    (license #f)))
-
-(define-public rust-discard
-  (package
-    (name "rust-discard")
-    (version "1.0.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "discard" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1h67ni5bxvg95s91wgicily4ix7lcw7cq0a5gy9njrybaibhyb91"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/Pauan/rust-discard")
-    (synopsis
-     "Discard trait which allows for intentionally leaking memory")
-    (description
-     "Discard trait which allows for intentionally leaking memory")
     (license #f)))
 
 (define-public rust-futures-channel-preview
