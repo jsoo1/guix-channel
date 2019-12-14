@@ -5921,18 +5921,16 @@ library.")
 (define-public rust-futures-select-macro-preview
   (package
     (name "rust-futures-select-macro-preview")
-    (version "0.3.0-alpha.16")
+    (version "0.3.0-alpha.17")
     (source
      (origin
        (method url-fetch)
-       (uri (crate-uri
-             "futures-select-macro-preview"
-             version))
+       (uri (crate-uri "futures-select-macro-preview" version))
        (file-name
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "1c7h57y5id6i2i31276zqkgvgr5c8kh21frhjm9adj67md22dvmg"))))
+         "1a90ivjzkgz7msiz5si05xzi8xwsk5gar1gkrbmrgqpgkliqd7a6"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -5943,11 +5941,10 @@ library.")
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "The `select!` macro for waiting on multiple different `Future`s at once and handling the first one to complete.
-")
+     "Handle the first Future to complete")
     (description
-     "The `select!` macro for waiting on multiple different `Future`s at once and handling the first one to complete.
-")
+     "The @code{select!} macro for waiting on multiple different
+@code{Future}s at once and handling the first one to complete.")
     (license #f)))
 
 (define-public rust-futures-sink-preview
