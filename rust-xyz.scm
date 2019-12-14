@@ -5959,10 +5959,8 @@ library.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures-channel-preview"
-         ,rust-futures-channel-preview)
-        ("rust-futures-core-preview"
-         ,rust-futures-core-preview-0.3))))
+       (("rust-futures-channel-preview" ,rust-futures-channel-preview)
+        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
