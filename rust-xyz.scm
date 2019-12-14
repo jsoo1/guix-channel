@@ -5989,7 +5989,7 @@ for other targets if necessary!")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-afl" ,rust-afl)
+       (("rust-afl" ,rust-afl-0.4)
         ("rust-cfg-if" ,rust-cfg-if-0.1))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
@@ -6343,36 +6343,6 @@ immutable interval tree.")
     (description
      "This package provides a unified interface for parsing object
 file formats.")
-    (license #f)))
-
-(define-public rust-afl
-  (package
-    (name "rust-afl")
-    (version "0.4.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "afl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0g2chc18ji7qxi0d03n2ai140qdcww958v5si6rcjnnhmri1vyfb"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cc" ,rust-cc-1.0)
-        ("rust-clap" ,rust-clap-2)
-        ("rust-rustc-version" ,rust-rustc-version-0.2)
-        ("rust-xdg" ,rust-xdg-2.2))
-       #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version-0.2)
-        ("rust-xdg" ,rust-xdg-2.2))))
-    (home-page "https://github.com/rust-fuzz/afl.rs")
-    (synopsis
-     "Fuzzing Rust code with american-fuzzy-lop")
-    (description
-     "Fuzz Rust code with american-fuzzy-lop.")
     (license #f)))
 
 (define-public rust-diff
