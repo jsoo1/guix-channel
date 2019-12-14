@@ -7010,7 +7010,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
         ("rust-clicolors-control" ,rust-clicolors-control-1.0)
-        ("rust-encode-unicode" ,rust-encode-unicode)
+        ("rust-encode-unicode" ,rust-encode-unicode-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-parking-lot" ,rust-parking-lot-0.8)
@@ -7167,34 +7167,6 @@ according to XDG Base Directory specification")
      "Environment variables utility functions.")
     (license #f)))
 
-(define-public rust-encode-unicode
-  (package
-    (name "rust-encode-unicode")
-    (version "0.3.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encode_unicode" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1g8a8pixkxz6r927f4sc4r15qyc0szxdxb1732v8q7h0di4wkclh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-ascii" ,rust-ascii-0.9)
-        ("rust-clippy" ,rust-clippy-0.0))
-       #:cargo-development-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3))))
-    (home-page
-     "https://github.com/tormol/encode_unicode")
-    (synopsis
-     "UTF-8 and UTF-16 character types, iterators and related methods for char, u8 and u16.")
-    (description
-     "UTF-8 and UTF-16 character types, iterators and related methods for char, u8 and u16.")
-    (license #f)))
-
 (define-public rust-ucd-trie
   (package
     (name "rust-ucd-trie")
@@ -7243,33 +7215,6 @@ according to XDG Base Directory specification")
     (home-page "https://pest-parser.github.io/")
     (synopsis "pest code generator")
     (description "pest code generator")
-    (license #f)))
-
-(define-public rust-ascii
-  (package
-    (name "rust-ascii")
-    (version "0.9.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ascii" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0dck6rsjnxlczyjnncn8hf16bxj42m1vi6s2n32c1jg2ijd9dz55"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-test" ,rust-serde-test-1.0))))
-    (home-page
-     "https://github.com/tomprogrammer/rust-ascii")
-    (synopsis
-     "ASCII-only equivalents to `char`, `str` and `String`.")
-    (description
-     "ASCII-only equivalents to `char`, `str` and `String`.")
     (license #f)))
 
 (define-public rust-pest-meta
