@@ -5544,7 +5544,7 @@ bench suite.")
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-compiler-builtins"
          ,rust-compiler-builtins)
-        ("rust-cpp-demangle" ,rust-cpp-demangle)
+        ("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
         ("rust-findshlibs" ,rust-findshlibs)
         ("rust-goblin" ,rust-goblin)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -5812,7 +5812,7 @@ based on miniz.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cpp-demangle" ,rust-cpp-demangle)
+       (("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
         ("rust-fallible-iterator" ,rust-fallible-iterator)
         ("rust-gimli" ,rust-gimli)
         ("rust-intervaltree" ,rust-intervaltree)
@@ -5893,35 +5893,6 @@ written in Rust, using gimli.")
     (description
      "Compiler intrinsics used by the Rust compiler.  Also available
 for other targets if necessary!")
-    (license #f)))
-
-(define-public rust-cpp-demangle
-  (package
-    (name "rust-cpp-demangle")
-    (version "0.2.12")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cpp_demangle" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0a4hqsfc0sfdwy7pcr0rc1fjp2j47fxbkqfc2lfrbi4zlm5hq36k"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-afl" ,rust-afl-0.4)
-        ("rust-cfg-if" ,rust-cfg-if-0.1))
-       #:cargo-development-inputs
-       (("rust-clap" ,rust-clap-2)
-        ("rust-diff" ,rust-diff-0.1)
-        ("rust-glob" ,rust-glob-0.3))))
-    (home-page
-     "https://github.com/gimli-rs/cpp_demangle")
-    (synopsis "Demangle C++ symbols")
-    (description
-     "This package provides a crate for demangling C++ symbols")
     (license #f)))
 
 (define-public rust-findshlibs
