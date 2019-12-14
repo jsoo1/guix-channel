@@ -168,7 +168,7 @@ the stack.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-channel"
-         ,rust-crossbeam-channel)
+         ,rust-crossbeam-channel-0.3)
         ("rust-globset" ,rust-globset-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
@@ -679,35 +679,6 @@ standard printing of search results, similar to grep itself.")
      "Line oriented regex searching as a library")
     (description
      "Fast line oriented regex searching as a library.")
-    (license #f)))
-
-(define-public rust-crossbeam-channel
-  (package
-    (name "rust-crossbeam-channel")
-    (version "0.3.8")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crossbeam-channel" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0azpymyk0ld4akrjfy69ck5pzfgz1f2gb3smm2ywld92vsjd23hg"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
-        ("rust-smallvec" ,rust-smallvec-0.6))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4)
-        ("rust-signal-hook" ,rust-signal-hook))))
-    (home-page
-     "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-channel")
-    (synopsis
-     "Multi-producer multi-consumer channels for message passing")
-    (description
-     "Multi-producer multi-consumer channels for message passing")
     (license #f)))
 
 (define-public rust-aho-corasick
@@ -8548,7 +8519,7 @@ creation from raw pointers and start, end pointer accessors.
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-crossbeam-channel" ,rust-crossbeam-channel)
+        ("rust-crossbeam-channel" ,rust-crossbeam-channel-0.3)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.7)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
@@ -14684,7 +14655,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-anymap" ,rust-anymap)
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-chashmap" ,rust-chashmap)
-        ("rust-crossbeam-channel" ,rust-crossbeam-channel)
+        ("rust-crossbeam-channel" ,rust-crossbeam-channel-0.3)
         ("rust-filetime" ,rust-filetime-0.2)
         ("rust-fsevent" ,rust-fsevent-0.4)
         ("rust-fsevent-sys" ,rust-fsevent-sys)

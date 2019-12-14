@@ -66,7 +66,7 @@
         ("rust-clap" ,rust-clap-2)
         ("rust-clipboard-win" ,rust-clipboard-win)
         ("rust-core-text" ,rust-core-text)
-        ("rust-crossbeam-channel" ,rust-crossbeam-channel)
+        ("rust-crossbeam-channel" ,rust-crossbeam-channel-0.3)
         ("rust-dbus" ,rust-dbus)
         ("rust-dirs" ,rust-dirs-1)
         ("rust-dunce" ,rust-dunce)
