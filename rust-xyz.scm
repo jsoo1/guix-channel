@@ -755,9 +755,9 @@ are updated when the crate version changes.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-termcolor" ,rust-termcolor-1.0))
+        ("rust-termcolor" ,rust-termcolor-1.0)))
        #:cargo-development-inputs
-       (("rust-grep-regex" ,rust-grep-regex)))))
+       (("rust-grep-regex" ,rust-grep-regex))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
