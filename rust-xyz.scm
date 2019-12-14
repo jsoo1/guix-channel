@@ -193,8 +193,8 @@ the stack.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-grep-cli" ,rust-grep-cli)
-        ("rust-grep-matcher" ,rust-grep-matcher)
+       (("rust-grep-cli" ,rust-grep-cli-0.1)
+        ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-grep-pcre2" ,rust-grep-pcre2)
         ("rust-grep-printer" ,rust-grep-printer)
         ("rust-grep-regex" ,rust-grep-regex)
@@ -826,40 +826,7 @@ integer keys.")
 are updated when the crate version changes.")
     (license #f)))
 
-(define-public rust-grep-cli
-  (package
-    (name "rust-grep-cli")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "grep-cli" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "05a502x5m4fijwx7zj9icxna2dx86scm76ap80zr89pnvpbfk1hp"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-atty" ,rust-atty-0.2)
-        ("rust-bstr" ,rust-bstr-0.2
-        ("rust-globset" ,rust-globset-0.4)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-same-file" ,rust-same-file-1.0)
-        ("rust-termcolor" ,rust-termcolor-1.0)
-        ("rust-winapi-util" ,rust-winapi-util-0.1))))
-    (home-page
-     "https://github.com/BurntSushi/ripgrep")
-    (synopsis
-     "Utilities for search oriented command line applications")
-    (description
-     "Utilities for search oriented command line applications.")
-    (license #f)))
-
-(define-public rust-grep-matcher
+(define-public rust-grep-matcher-0.1
   (package
     (name "rust-grep-matcher")
     (version "0.1.2")
@@ -903,8 +870,8 @@ focus on line oriented search.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-grep-matcher" ,rust-grep-matcher)
-        ("rust-pcre2" ,rust-pcre2))))
+       (("rust-grep-matcher" ,rust-grep-matcher-0.1)
+        ("rust-pcre2" ,rust-pcre2-0.2))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis "Use PCRE2 with the grep crate")
@@ -929,7 +896,7 @@ focus on line oriented search.")
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
         ("rust-bstr" ,rust-bstr-0.2
-        ("rust-grep-matcher" ,rust-grep-matcher)
+        ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-grep-searcher" ,rust-grep-searcher)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
@@ -963,7 +930,7 @@ standard printing of search results, similar to grep itself.")
     (arguments
      `(#:cargo-inputs
        (("rust-aho-corasick" ,rust-aho-corasick)
-        ("rust-grep-matcher" ,rust-grep-matcher)
+        ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-regex-syntax" ,rust-regex-syntax)
@@ -997,7 +964,7 @@ standard printing of search results, similar to grep itself.")
         ("rust-bytecount" ,rust-bytecount)
         ("rust-encoding-rs" ,rust-encoding-rs)
         ("rust-encoding-rs-io" ,rust-encoding-rs-io)
-        ("rust-grep-matcher" ,rust-grep-matcher)
+        ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-memmap" ,rust-memmap))
        #:cargo-development-inputs
@@ -7188,7 +7155,7 @@ directory and deleting all contents when it's dropped.")
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc)
-        ("rust-pkg-config" ,rust-pkg-config)
+        ("rust-pkg-config" ,rust-pkg-config-0.3)
         ("rust-vcpkg" ,rust-vcpkg))))
     (home-page
      "https://github.com/alexcrichton/libz-sys")
@@ -7797,32 +7764,6 @@ index")
      "This package provides a build-time dependency for Cargo build
 scripts to assist in invoking the native C compiler to compile native
 C code into a static archive to be linked into Rust code.")
-    (license #f)))
-
-(define-public rust-pkg-config
-  (package
-    (name "rust-pkg-config")
-    (version "0.3.14")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pkg-config" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "135ia995lqzr0gxpk85h0bjxf82kj6hbxdx924sh9jdln6r8wvk7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3))))
-    (home-page
-     "https://github.com/alexcrichton/pkg-config-rs")
-    (synopsis
-     "Run the pkg-config system tool in Cargo build scripts")
-    (description
-     "This package provides a library to run the pkg-config system
-tool at build time in order to be used in Cargo build scripts.")
     (license #f)))
 
 (define-public rust-vcpkg
@@ -8637,7 +8578,7 @@ endian-aware Read/Write traits for byte buffers.")
         ("rust-openssl-sys" ,rust-openssl-sys))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc)
-        ("rust-pkg-config" ,rust-pkg-config))))
+        ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/rust-lang/git2-rs")
     (synopsis
@@ -8690,7 +8631,7 @@ for OpenSSL")
        (("rust-autocfg" ,rust-autocfg)
         ("rust-cc" ,rust-cc)
         ("rust-openssl-src" ,rust-openssl-src)
-        ("rust-pkg-config" ,rust-pkg-config)
+        ("rust-pkg-config" ,rust-pkg-config-0.3)
         ("rust-vcpkg" ,rust-vcpkg))))
     (home-page
      "https://github.com/sfackler/rust-openssl")
@@ -8720,7 +8661,7 @@ for OpenSSL")
        (("rust-autocfg" ,rust-autocfg)
         ("rust-cc" ,rust-cc)
         ("rust-openssl-src" ,rust-openssl-src)
-        ("rust-pkg-config" ,rust-pkg-config))))
+        ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/sfackler/rust-openssl")
     (synopsis "FFI bindings to OpenSSL")
@@ -8960,7 +8901,7 @@ according to XDG Base Directory specification")
         ("rust-openssl-sys" ,rust-openssl-sys))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc)
-        ("rust-pkg-config" ,rust-pkg-config)
+        ("rust-pkg-config" ,rust-pkg-config-0.3)
         ("rust-vcpkg" ,rust-vcpkg))))
     (home-page
      "https://github.com/alexcrichton/ssh2-rs")
@@ -9097,7 +9038,7 @@ according to XDG Base Directory specification")
      "Cross-platform Rust API for memory-mapped file IO")
     (license #f)))
 
-(define-public rust-pcre2
+(define-public rust-pcre2-0.2
   (package
     (name "rust-pcre2")
     (version "0.2.1")
@@ -9115,7 +9056,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
-        ("rust-pcre2-sys" ,rust-pcre2-sys)
+        ("rust-pcre2-sys" ,rust-pcre2-sys-0.2)
         ("rust-thread-local" ,rust-thread-local))))
     (home-page
      "https://github.com/BurntSushi/rust-pcre2")
@@ -9646,7 +9587,7 @@ according to XDG Base Directory specification")
      "Common code for build.rs in WinAPI -sys crates.")
     (license #f)))
 
-(define-public rust-pcre2-sys
+(define-public rust-pcre2-sys-0.2
   (package
     (name "rust-pcre2-sys")
     (version "0.2.2")
@@ -9663,7 +9604,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-pkg-config" ,rust-pkg-config)
+        ("rust-pkg-config" ,rust-pkg-config-0.3)
         ("rust-cc" ,rust-cc))))
     (home-page
      "https://github.com/BurntSushi/rust-pcre2")
@@ -13495,7 +13436,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-pkg-config" ,rust-pkg-config))
+        ("rust-pkg-config" ,rust-pkg-config-0.3))
        #:cargo-development-inputs ()))
     (home-page
      "https://nest.pijul.com/pijul_org/thrussh")
@@ -14584,7 +14525,7 @@ client or server.")
        (("rust-bindgen" ,rust-bindgen-0.47))
        #:cargo-development-inputs
        (("rust-nettle-src" ,rust-nettle-src)
-        ("rust-pkg-config" ,rust-pkg-config))))
+        ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://gitlab.com/sequoia-pgp/nettle-sys")
     (synopsis
@@ -16029,7 +15970,7 @@ functions.")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-maybe-uninit" ,rust-maybe-uninit)
-        ("rust-pkg-config" ,rust-pkg-config))))
+        ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/erlepereira/x11-rs.git")
     (synopsis "X11 library bindings for Rust")
@@ -18513,7 +18454,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-pkg-config" ,rust-pkg-config))))
+       (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page "https://github.com/diwic/dbus-rs")
     (synopsis "FFI bindings to libdbus.")
     (description "FFI bindings to libdbus.")
@@ -18782,7 +18723,7 @@ inter-process communication.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-pkg-config" ,rust-pkg-config))))
+       (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/dcuddeback/libudev-sys")
     (synopsis "FFI bindings to libudev")
@@ -18834,7 +18775,7 @@ to null terminated strings")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-pkg-config" ,rust-pkg-config))))
+       (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/jmesmon/rust-systemd")
     (synopsis "FFI bindings to libsystemd")
@@ -19163,7 +19104,7 @@ for computer graphics.")
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-bindgen" ,rust-bindgen)
-        ("rust-pkg-config" ,rust-pkg-config))))
+        ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/Slabity/modesetting-rs")
     (synopsis
@@ -19190,7 +19131,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-pkg-config" ,rust-pkg-config))))
+       (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/erlepereira/x11-rs.git")
     (synopsis "X11 library bindings for Rust")
@@ -19418,7 +19359,7 @@ for computer graphics.")
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-libz-sys" ,rust-libz-sys))
        #:cargo-development-inputs
-       (("rust-pkg-config" ,rust-pkg-config))))
+       (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/PistonDevelopers/freetype-sys")
     (synopsis
@@ -19486,7 +19427,7 @@ for computer graphics.")
         ("rust-servo-freetype-sys"
          ,rust-servo-freetype-sys))
        #:cargo-development-inputs
-       (("rust-pkg-config" ,rust-pkg-config))))
+       (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page "http://fontconfig.org")
     (synopsis
      "Font configuration and customization library")
@@ -19512,7 +19453,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-cmake" ,rust-cmake))
        #:cargo-development-inputs
-       (("rust-pkg-config" ,rust-pkg-config))))
+       (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page "http://www.libexpat.org/")
     (synopsis "XML parser library written in C")
     (description "XML parser library written in C")
@@ -19535,7 +19476,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-development-inputs
        (("rust-cmake" ,rust-cmake)
-        ("rust-pkg-config" ,rust-pkg-config))))
+        ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page "http://www.freetype.org/")
     (synopsis
      "FreeType is a freely available software library to render fonts.")
