@@ -9177,7 +9177,7 @@ according to XDG Base Directory specification")
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-dtoa" ,rust-dtoa)
         ("rust-ryu" ,rust-ryu-1.0)
-        ("rust-stackvector" ,rust-stackvector)
+        ("rust-stackvector" ,rust-stackvector-1.0)
         ("rust-static-assertions" ,rust-static-assertions-0.3))
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx)
@@ -9213,7 +9213,8 @@ according to XDG Base Directory specification")
      "Fast functions for printing floating-point primitives to an io::Write")
     (license #f)))
 
-(define-public rust-stackvector
+;; DO THESE DEPS
+(define-public rust-stackvector-1.0
   (package
     (name "rust-stackvector")
     (version "1.0.6")
