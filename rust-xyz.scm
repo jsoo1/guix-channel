@@ -714,7 +714,7 @@ integer keys.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-itertools" ,rust-itertools)
+       (("rust-itertools" ,rust-itertools-0.8)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark-0.4)
         ("rust-regex" ,rust-regex-1.1)
@@ -1063,7 +1063,7 @@ matching branch is the item that gets emitted.")
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv)
-        ("rust-itertools" ,rust-itertools)
+        ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
@@ -1574,7 +1574,7 @@ instantiate to generate your own pieces of pseudo-random text.")
 pairs in insertion order")
     (license #f)))
 
-(define-public rust-itertools
+(define-public rust-itertools-0.8
   (package
     (name "rust-itertools")
     (version "0.8.0")
@@ -2889,7 +2889,7 @@ implemented using Heap's algorithm.")
         ("rust-clap" ,rust-clap-2)
         ("rust-criterion-plot" ,rust-criterion-plot)
         ("rust-csv" ,rust-csv)
-        ("rust-itertools" ,rust-itertools)
+        ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-traits" ,rust-num-traits-0.2)
