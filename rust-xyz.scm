@@ -7,37 +7,6 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
-(define-public rust-syn-0.15
-  (package
-    (name "rust-syn")
-    (version "0.15.39")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "syn" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0z7vqbx065q28p9y3gp0gcy00b308gdiv1ky2vdmcpm556w61ndl"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-unicode-xid" ,rust-unicode-xid))
-       #:cargo-development-inputs
-       (("rust-insta" ,rust-insta)
-        ("rust-rayon" ,rust-rayon)
-        ("rust-ref-cast" ,rust-ref-cast)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-termcolor" ,rust-termcolor-1.0)
-        ("rust-walkdir" ,rust-walkdir-2.2))))
-    (home-page "https://github.com/dtolnay/syn")
-    (synopsis "Parser for Rust source code")
-    (description "Parser for Rust source code")
-    (license #f)))
-
 (define-public rust-serde-stacker
   (package
     (name "rust-serde-stacker")
@@ -9226,41 +9195,6 @@ creation from raw pointers and start, end pointer accessors.
      "Macro for opaque Debug trait implementation")
     (description
      "Macro for opaque Debug trait implementation")
-    (license #f)))
-
-(define-public rust-insta
-  (package
-    (name "rust-insta")
-    (version "0.8.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "insta" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17rvqw9xm61prncbqi3cplphr3l2dl85sljdpyr3fz2mqjgbdfwb"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-chrono" ,rust-chrono-0.4)
-        ("rust-ci-info" ,rust-ci-info-0.3.1)
-        ("rust-console" ,rust-console)
-        ("rust-difference" ,rust-difference)
-        ("rust-failure" ,rust-failure)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-pest" ,rust-pest)
-        ("rust-pest-derive" ,rust-pest-derive)
-        ("rust-ron" ,rust-ron)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-serde-yaml" ,rust-serde-yaml)
-        ("rust-uuid" ,rust-uuid))))
-    (home-page "https://github.com/mitsuhiko/insta")
-    (synopsis "A snapshot testing library for Rust")
-    (description
-     "This package provides a snapshot testing library for Rust")
     (license #f)))
 
 (define-public rust-version-check
