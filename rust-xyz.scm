@@ -4373,31 +4373,6 @@ proposed in RFC 1158.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (license #f)))
 
-(define-public rust-futures-channel-preview
-  (package
-    (name "rust-futures-channel-preview")
-    (version "0.3.0-alpha.16")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-channel-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0yph1k6xbh67rpy9nh3ybddfxsrdhfi6b4b62jvyjwn25xqj7mac"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "Channels for asynchronous communication using futures-rs")
-    (description
-     "Channels for asynchronous communication using futures-rs.")
-    (license #f)))
-
 (define-public rust-futures-executor-preview
   (package
     (name "rust-futures-executor-preview")
