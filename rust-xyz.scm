@@ -340,7 +340,7 @@ properties according to Unicode Standard Annex #31.")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-regex-syntax" ,rust-regex-syntax)
+        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-utf8-ranges" ,rust-utf8-ranges))
        #:cargo-development-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -787,7 +787,7 @@ standard printing of search results, similar to grep itself.")
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-regex-syntax" ,rust-regex-syntax)
+        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-thread-local" ,rust-thread-local-0.3)
         ("rust-utf8-ranges" ,rust-utf8-ranges))))
     (home-page
@@ -922,7 +922,7 @@ matching branch is the item that gets emitted.")
         (base32
          "19f8v503ibvlyr824g5ynicrh1lsmp2i0zmpszr8lqay0qw3vkl1"))))))
 
-(define-public rust-regex-syntax
+(define-public rust-regex-syntax-0.6
   (package
     (name "rust-regex-syntax")
     (version "0.6.7")
@@ -947,28 +947,28 @@ matching branch is the item that gets emitted.")
 
 (define-public rust-regex-syntax-0.5
   (package
-    (inherit rust-regex-syntax)
+    (inherit rust-regex-syntax-0.6)
     (version "0.5.6")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "regex-syntax" version))
        (file-name
-        (string-append (package-name rust-regex-syntax) "-" version ".tar.gz"))
+        (string-append (package-name rust-regex-syntax-0.6) "-" version ".tar.gz"))
        (sha256
         (base32
          "19zp25jr3dhmclg3qqjk3bh1yrn7bqi05zgr5v52szv3l97plw3x"))))))
 
 (define-public rust-regex-syntax-0.3
   (package
-    (inherit rust-regex-syntax)
+    (inherit rust-regex-syntax-0.6)
     (version "0.3.9")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "regex-syntax" version))
        (file-name
-        (string-append (package-name rust-regex-syntax) "-" version ".tar.gz"))
+        (string-append (package-name rust-regex-syntax-0.6) "-" version ".tar.gz"))
        (sha256
         (base32
          "0ms9hgdhhsxw9w920i7gipydvagf100bb56jbs192rz86ln01v7r"))))))
@@ -5145,7 +5145,7 @@ Levenshtein automata.")
     (arguments
      `(#:cargo-inputs
        (("rust-fst" ,rust-fst)
-        ("rust-regex-syntax" ,rust-regex-syntax)
+        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-utf8-ranges" ,rust-utf8-ranges))))
     (home-page "https://github.com/BurntSushi/fst")
     (synopsis
@@ -5540,7 +5540,7 @@ checking")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-chacha" ,rust-rand-chacha)
         ("rust-rand-xorshift" ,rust-rand-xorshift)
-        ("rust-regex-syntax" ,rust-regex-syntax)
+        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-rusty-fork" ,rust-rusty-fork)
         ("rust-tempfile" ,rust-tempfile-3.0))
        #:cargo-development-inputs
@@ -12195,7 +12195,7 @@ exposed as Reader/Writer streams.")
         ("rust-lalrpop-util" ,rust-lalrpop-util)
         ("rust-petgraph" ,rust-petgraph)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-regex-syntax" ,rust-regex-syntax)
+        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-sha2" ,rust-sha2)
@@ -19625,7 +19625,7 @@ for computer graphics.")
         ("rust-matches" ,rust-matches-0.1)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark)
         ("rust-quine-mc-cluskey" ,rust-quine-mc-cluskey)
-        ("rust-regex-syntax" ,rust-regex-syntax)
+        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-semver" ,rust-semver)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
