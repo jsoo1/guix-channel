@@ -41,7 +41,7 @@
         ("rust-regex" ,rust-regex-0.2)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json)
+        ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-strings" ,rust-strings)
         ("rust-syntex-errors" ,rust-syntex-errors)
         ("rust-syntex-syntax" ,rust-syntex-syntax)

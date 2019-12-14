@@ -30,7 +30,7 @@
         ("rust-log" ,rust-log-0.4)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-serde-json" ,rust-serde-json)
+        ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-termcolor" ,rust-termcolor-1.0)
         ("rust-wincolor" ,rust-wincolor)
         ("rust-quote" ,rust-quote-0.6))
