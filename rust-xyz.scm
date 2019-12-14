@@ -228,7 +228,7 @@ the stack.")
      `(#:cargo-inputs
        (("rust-crossbeam-channel"
          ,rust-crossbeam-channel)
-        ("rust-globset" ,rust-globset)
+        ("rust-globset" ,rust-globset-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-memchr" ,rust-memchr)
@@ -879,7 +879,7 @@ are updated when the crate version changes.")
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
         ("rust-bstr" ,rust-bstr-0.2
-        ("rust-globset" ,rust-globset)
+        ("rust-globset" ,rust-globset-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex)
@@ -1073,40 +1073,6 @@ standard printing of search results, similar to grep itself.")
      "Multi-producer multi-consumer channels for message passing")
     (description
      "Multi-producer multi-consumer channels for message passing")
-    (license #f)))
-
-(define-public rust-globset
-  (package
-    (name "rust-globset")
-    (version "0.4.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "globset" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1wnqxq91liknmr2w93wjq2spyxbrd1pmnhd4nbi3921dr35a4nlj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-aho-corasick" ,rust-aho-corasick)
-        ("rust-bstr" ,rust-bstr-0.2
-        ("rust-fnv" ,rust-fnv)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-regex" ,rust-regex))
-       #:cargo-development-inputs
-       (("rust-glob" ,rust-glob))))
-    (home-page
-     "https://github.com/BurntSushi/ripgrep/tree/master/globset")
-    (synopsis
-     "Cross platform single glob and glob set matching")
-    (description
-     "Cross platform single glob and glob set matching.  Glob set
-matching is the process of matching one or more glob patterns against
-a single candidate path simultaneously, and returning all of the globs
-that matched.")
     (license #f)))
 
 (define-public rust-same-file
