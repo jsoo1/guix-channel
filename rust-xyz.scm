@@ -5824,6 +5824,10 @@ checking")
      `(#:cargo-inputs (("rust-futures" ,rust-futures-0.1))))
     (home-page
      "https://github.com/carllerche/tokio-mock-task")
+    (synopsis
+     "Mock a task for testing")
+    (description
+     "Mock a task for testing.")
     (license #f)))
 
 (define-public rust-futures-channel-preview
