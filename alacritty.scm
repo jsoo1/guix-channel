@@ -72,7 +72,7 @@
         ("rust-dunce" ,rust-dunce)
         ("rust-dwrote" ,rust-dwrote)
         ("rust-embed-resource" ,rust-embed-resource)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-errno" ,rust-errno)
         ("rust-euclid" ,rust-euclid)
         ("rust-freetype-rs" ,rust-freetype-rs)

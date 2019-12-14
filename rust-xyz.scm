@@ -401,7 +401,7 @@ properties according to Unicode Standard Annex #31.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-core" ,rust-rand-core))))
@@ -1456,7 +1456,7 @@ deserializing and serializing Rust structures.")
         (base32
          "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
-(define-public rust-env-logger
+(define-public rust-env-logger-0.6
   (package
     (name "rust-env-logger")
     (version "0.6.2")
@@ -1488,28 +1488,28 @@ variable.")
 
 (define-public rust-env-logger-0.5
   (package
-    (inherit rust-env-logger)
+    (inherit rust-env-logger-0.6)
     (version "0.5.13")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "env_logger" version))
        (file-name
-        (string-append (package-name rust-env-logger) "-" version ".tar.gz"))
+        (string-append (package-name rust-env-logger-0.6) "-" version ".tar.gz"))
        (sha256
         (base32
          "0f0c4i4c65jh8lci0afl5yg74ac0lbnpxcp81chj114zwg9a9c0m"))))))
 
 (define-public rust-env-logger-0.4
   (package
-    (inherit rust-env-logger)
+    (inherit rust-env-logger-0.6)
     (version "0.4.3")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "env_logger" version))
        (file-name
-        (string-append (package-name rust-env-logger) "-" version ".tar.gz"))
+        (string-append (package-name rust-env-logger-0.6) "-" version ".tar.gz"))
        (sha256
         (base32
          "0nydz2lidsvx9gs0v2zcz68rzqx8in7fzmiprgsrhqh17vkj3prx"))))))
@@ -3492,7 +3492,7 @@ require unstable language features.")
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-tempdir" ,rust-tempdir))))
     (home-page "https://github.com/carllerche/mio")
     (synopsis "Lightweight non-blocking IO")
@@ -3704,7 +3704,7 @@ require unstable language features.")
         ("rust-tokio-udp" ,rust-tokio-udp)
         ("rust-tokio-uds" ,rust-tokio-uds))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-flate2" ,rust-flate2)
         ("rust-futures-cpupool" ,rust-futures-cpupool)
         ("rust-http" ,rust-http)
@@ -3770,7 +3770,7 @@ asynchronous I/O backed applications.")
        #:cargo-development-inputs
        (("rust-bindgen" ,rust-bindgen)
         ("rust-cmake" ,rust-cmake)
-        ("rust-env-logger" ,rust-env-logger))))
+        ("rust-env-logger" ,rust-env-logger-0.6))))
     (home-page "https://github.com/gnzlbg/sleef-sys")
     (synopsis
      "Rust FFI bindings to the SLEEF Vectorized Math Library")
@@ -4942,7 +4942,7 @@ proposed in RFC 1158.")
        (("rust-fnv" ,rust-fnv)
         ("rust-futures" ,rust-futures-0.1))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-loom" ,rust-loom)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-mock-task" ,rust-tokio-mock-task))))
@@ -5339,7 +5339,7 @@ the current thread.")
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-tokio" ,rust-tokio))))
     (home-page "https://tokio.rs")
     (synopsis "TCP bindings for tokio")
@@ -5372,7 +5372,7 @@ the current thread.")
         ("rust-slab" ,rust-slab)
         ("rust-tokio-executor" ,rust-tokio-executor))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-futures-cpupool" ,rust-futures-cpupool)
         ("rust-threadpool" ,rust-threadpool-1.7))))
     (home-page "https://github.com/tokio-rs/tokio")
@@ -5459,7 +5459,7 @@ thread pool.")
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger))))
+       (("rust-env-logger" ,rust-env-logger-0.6))))
     (home-page "https://tokio.rs")
     (synopsis "UDP bindings for tokio")
     (description "UDP bindings for tokio.")
@@ -7160,7 +7160,7 @@ drop-in replacement for miniz")
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-tokio" ,rust-tokio))))
     (home-page "https://tokio.rs")
     (synopsis "TCP bindings for tokio")
@@ -9467,7 +9467,7 @@ according to XDG Base Directory specification")
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-clang-sys" ,rust-clang-sys)
         ("rust-clap" ,rust-clap-2)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-fxhash" ,rust-fxhash)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
@@ -9511,7 +9511,7 @@ according to XDG Base Directory specification")
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-clang-sys" ,rust-clang-sys-0.26.4)
         ("rust-clap" ,rust-clap-2)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-fxhash" ,rust-fxhash)
         ("rust-hashbrown" ,rust-hashbrown-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -11990,7 +11990,7 @@ _getch on Windows, and termios on Unix.")
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-doc-comment" ,rust-doc-comment)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-libflate" ,rust-libflate)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-tokio" ,rust-tokio)
@@ -12158,7 +12158,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger))))
+       (("rust-env-logger" ,rust-env-logger-0.6))))
     (home-page "https://pijul.org/thrussh")
     (synopsis "A client and server SSH library.")
     (description
@@ -12230,7 +12230,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-tokio" ,rust-tokio)
         ("rust-yasna" ,rust-yasna))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-tempdir" ,rust-tempdir)
         ("rust-tokio-uds" ,rust-tokio-uds))))
     (home-page "https://pijul.org/thrussh")
@@ -12406,7 +12406,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-uuid" ,rust-uuid))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-hex" ,rust-hex-0.3)
         ("rust-tempdir" ,rust-tempdir))))
     (home-page
@@ -12504,7 +12504,7 @@ and private (encrypted + signed) jars.")
         ("rust-time" ,rust-time-0.1)
         ("rust-url" ,rust-url))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-pretty-assertions"
          ,rust-pretty-assertions))))
     (home-page
@@ -12541,7 +12541,7 @@ and private (encrypted + signed) jars.")
         ("rust-try-from" ,rust-try-from-0.3)
         ("rust-url" ,rust-url))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-pretty-assertions"
          ,rust-pretty-assertions))))
     (home-page
@@ -12798,7 +12798,7 @@ and private (encrypted + signed) jars.")
         ("rust-webpki" ,rust-webpki))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
         ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-webpki-roots" ,rust-webpki-roots))))
@@ -12940,7 +12940,7 @@ and private (encrypted + signed) jars.")
         ("rust-trust-dns-rustls" ,rust-trust-dns-rustls)
         ("rust-webpki-roots" ,rust-webpki-roots))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-io" ,rust-tokio-io))))
     (home-page "http://www.trust-dns.org/index.html")
@@ -13602,7 +13602,7 @@ exposed as Reader/Writer streams.")
         ("rust-webpki" ,rust-webpki)
         ("rust-webpki-roots" ,rust-webpki-roots))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-tokio" ,rust-tokio))))
     (home-page "http://www.trust-dns.org/index.html")
     (synopsis
@@ -13712,7 +13712,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-tokio-udp" ,rust-tokio-udp)
        ("rust-url" ,rust-url))
       #:cargo-development-inputs
-      (("rust-env-logger" ,rust-env-logger)
+      (("rust-env-logger" ,rust-env-logger-0.6)
        ("rust-tokio" ,rust-tokio))))
   (home-page "http://www.trust-dns.org/index.html")
   (synopsis
@@ -13867,7 +13867,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
        (("rust-cfg-if" ,rust-cfg-if)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-futures-preview" ,rust-futures-preview)
         ("rust-openssl" ,rust-openssl)
         ("rust-schannel" ,rust-schannel-0.1)
@@ -13977,7 +13977,7 @@ composability, and iterator-like interfaces.")
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-sync" ,rust-tokio-sync))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-hex" ,rust-hex-0.3)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4)
@@ -14219,7 +14219,7 @@ client or server.")
     (arguments
      `(#:cargo-inputs
        (("rust-chrono" ,rust-chrono)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4))))
     (home-page
      "https://github.com/seanmonstar/pretty-env-logger")
@@ -14477,7 +14477,7 @@ exposed as Reader/Writer streams.")
         ("rust-tokio-reactor" ,rust-tokio-reactor)
         ("rust-tokio-timer" ,rust-tokio-timer))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-flate2" ,rust-flate2)
         ("rust-futures-cpupool" ,rust-futures-cpupool)
         ("rust-http" ,rust-http)
@@ -14630,7 +14630,7 @@ accessor functions on enums.")
        (("rust-js-sys" ,rust-js-sys)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-failure" ,rust-failure)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-sourcefile" ,rust-sourcefile-0.1)
@@ -14698,7 +14698,7 @@ accessor functions on enums.")
         ("rust-miow" ,rust-miow-0.3)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/alexcrichton/mio-named-pipes")
@@ -15606,7 +15606,7 @@ functions.")
         ("rust-winapi" ,rust-winapi-0.3)
         ("rust-x11-dl" ,rust-x11-dl))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-image" ,rust-image))))
     (home-page
      "https://github.com/rust-windowing/winit")
@@ -18185,7 +18185,7 @@ UNC where possible")
         ("rust-miow" ,rust-miow-0.3)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/alexcrichton/mio-named-pipes")
@@ -21354,7 +21354,7 @@ function's body.")
        #:cargo-development-inputs
        (("rust-difference" ,rust-difference)
         ("rust-duct" ,rust-duct)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
         ("rust-proptest" ,rust-proptest)
         ("rust-tempdir" ,rust-tempdir))))
@@ -21471,14 +21471,14 @@ function's body.")
         ("rust-darling" ,rust-darling)
         ("rust-derive-builder-core"
          ,rust-derive-builder-core)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-skeptic" ,rust-skeptic)
         ("rust-syn" ,rust-syn-0.15))
        #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger)
+       (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
         ("rust-pretty-assertions"
          ,rust-pretty-assertions)

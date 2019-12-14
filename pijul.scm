@@ -41,7 +41,7 @@
         ("rust-clap" ,rust-clap-2)
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-dirs" ,rust-dirs-1)
-        ("rust-env-logger" ,rust-env-logger)
+        ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-failure" ,rust-failure)
         ("rust-filetime" ,rust-filetime-0.2)
         ("rust-flate2" ,rust-flate2)
