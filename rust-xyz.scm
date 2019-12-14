@@ -4122,10 +4122,8 @@ proposed in RFC 1158.")
        #:cargo-development-inputs
        (("rust-tokio" ,rust-tokio))))
     (home-page "https://github.com/tokio-rs/tokio")
-    (synopsis "Future execution primitives
-")
-    (description "Future execution primitives
-")
+    (synopsis "Future execution primitives")
+    (description "Future execution primitives")
     (license #f)))
 
 (define-public rust-tokio-io
