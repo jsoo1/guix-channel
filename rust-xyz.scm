@@ -7366,7 +7366,7 @@ and loading crate.")
         ("rust-libgit2-sys" ,rust-libgit2-sys-0.8)
         ("rust-log" ,rust-log-0.4)
         ("rust-openssl-probe" ,rust-openssl-probe-0.1)
-        ("rust-openssl-sys" ,rust-openssl-sys)
+        ("rust-openssl-sys" ,rust-openssl-sys-0.9)
         ("rust-url" ,rust-url))
        #:cargo-development-inputs
        (("rust-docopt" ,rust-docopt)
@@ -7677,35 +7677,6 @@ endian-aware Read/Write traits for byte buffers.")
      "Helper test traits for synstructure doctests")
     (license #f)))
 
-(define-public rust-openssl-sys
-  (package
-    (name "rust-openssl-sys")
-    (version "0.9.47")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "openssl-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1k2shs8l6l5ffdsd7iax43fb87md8y439lm18y7d6n29pgdxdgbm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg-0.1)
-        ("rust-cc" ,rust-cc-1.0)
-        ("rust-openssl-src" ,rust-openssl-src)
-        ("rust-pkg-config" ,rust-pkg-config-0.3)
-        ("rust-vcpkg" ,rust-vcpkg))))
-    (home-page
-     "https://github.com/sfackler/rust-openssl")
-    (synopsis "FFI bindings to OpenSSL")
-    (description "FFI bindings to OpenSSL")
-    (license #f)))
-
 (define-public rust-openssl-sys-0.9.49
   (package
     (name "rust-openssl-sys")
@@ -7965,7 +7936,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-libz-sys" ,rust-libz-sys)
-        ("rust-openssl-sys" ,rust-openssl-sys))
+        ("rust-openssl-sys" ,rust-openssl-sys-0.9))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0)
         ("rust-pkg-config" ,rust-pkg-config-0.3)
@@ -11887,7 +11858,7 @@ and private (encrypted + signed) jars.")
         ("rust-log" ,rust-log-0.4)
         ("rust-openssl" ,rust-openssl)
         ("rust-openssl-probe" ,rust-openssl-probe-0.1)
-        ("rust-openssl-sys" ,rust-openssl-sys)
+        ("rust-openssl-sys" ,rust-openssl-sys-0.9)
         ("rust-schannel" ,rust-schannel-0.1)
         ("rust-security-framework"
          ,rust-security-framework)
