@@ -1145,7 +1145,7 @@ matching branch is the item that gets emitted.")
        (("rust-c2-chacha" ,rust-c2-chacha)
         ("rust-rand-core" ,rust-rand-core))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
+       (("rust-autocfg" ,rust-autocfg-0.1))))
     (home-page
      "https://crates.io/crates/rand_chacha")
     (synopsis "ChaCha random number generator")
@@ -1167,10 +1167,10 @@ matching branch is the item that gets emitted.")
          "1vxwyzs4fy1ffjc8l00fsyygpiss135irjf7nyxgq2v0lqf3lvam"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-autocfg" ,rust-c2-chacha)
+       (("rust-c2-chacha" ,rust-c2-chacha)
         ("rust-rand-core" ,rust-rand-core-0.3))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))))
+       (("rust-autocfg" ,rust-autocfg-0.1))))))
 
 (define-public rust-indexmap
   (package
@@ -2562,7 +2562,7 @@ retrieving random data from system source")
        (("rust-rand-core" ,rust-rand-core)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg)
+       (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-bincode" ,rust-bincode-1.1))))
     (home-page "https://crates.io/crates/rand_pcg")
     (synopsis
@@ -2586,7 +2586,7 @@ retrieving random data from system source")
          "0i0bdla18a8x4jn1w0fxsbs3jg7ajllz6azmch1zw33r06dv1ydb"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-autocfg" ,rust-autocfg)
+       (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-rand-core" ,rust-rand-core)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
@@ -2696,6 +2696,7 @@ retrieving random data from system source")
 can't ever panic.")
     (license #f)))
 
+;; DO THESE DEPS
 (define-public rust-bincode-1.1
   (package
     (name "rust-bincode")
@@ -2712,7 +2713,7 @@ can't ever panic.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-autocfg" ,rust-autocfg)
+       (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-byteorder" ,rust-byteorder)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -3886,27 +3887,6 @@ ArrayVec and ArrayString.")
      "https://github.com/PeterReid/keystream")
     (synopsis "Cryptographic keystream traits")
     (description "Cryptographic keystream traits")
-    (license #f)))
-
-(define-public rust-autocfg
-  (package
-    (name "rust-autocfg")
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "autocfg" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1gvpf03pdl08k29j9hjv7r7cs5zn39ib97f7wwvzv9992fjyyj8f"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/cuviper/autocfg")
-    (synopsis
-     "Automatic cfg for Rust compiler features")
-    (description
-     "Automatic cfg for Rust compiler features")
     (license #f)))
 
 (define-public rust-chrono-0.4
@@ -5824,7 +5804,7 @@ local storage (TLS) so any type can be stored into TLS.")
        (("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-traits" ,rust-num-traits-0.2))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
+       (("rust-autocfg" ,rust-autocfg-0.1))))
     (home-page
      "https://github.com/rust-num/num-iter")
     (synopsis
@@ -5934,7 +5914,7 @@ and functions.")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
+       (("rust-autocfg" ,rust-autocfg-0.1))))
     (home-page
      "https://github.com/rust-num/num-complex")
     (synopsis
@@ -5963,7 +5943,7 @@ and functions.")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
+       (("rust-autocfg" ,rust-autocfg-0.1))))
     (home-page
      "https://github.com/rust-num/num-complex")
     (synopsis
@@ -8465,7 +8445,7 @@ for OpenSSL")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg)
+       (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-cc" ,rust-cc-1.0)
         ("rust-openssl-src" ,rust-openssl-src)
         ("rust-pkg-config" ,rust-pkg-config-0.3)
@@ -8495,7 +8475,7 @@ for OpenSSL")
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-vcpkg" ,rust-vcpkg))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg)
+       (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-cc" ,rust-cc-1.0)
         ("rust-openssl-src" ,rust-openssl-src)
         ("rust-pkg-config" ,rust-pkg-config-0.3))))
@@ -13320,7 +13300,7 @@ exposed as Reader/Writer streams.")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg)
+       (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
      "https://github.com/rust-num/num-bigint")
@@ -17120,7 +17100,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
+       (("rust-autocfg" ,rust-autocfg-0.1))))
     (home-page
      "https://github.com/rust-num/num-rational")
     (synopsis
@@ -17150,7 +17130,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
+       (("rust-autocfg" ,rust-autocfg-0.1))))
     (home-page
      "https://github.com/rust-num/num-rational")
     (synopsis
@@ -17227,7 +17207,7 @@ complex, rational, range iterators, generic integers, and more!
          ,rust-rustc-std-workspace-core)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg)
+       (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-doc-comment" ,rust-doc-comment)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)

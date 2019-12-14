@@ -22,7 +22,7 @@
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-autocfg" ,rust-autocfg)
+       (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-diff" ,rust-diff)
         ("rust-env-logger" ,rust-env-logger-0.4)
         ("rust-getopts" ,rust-getopts-0.2)
