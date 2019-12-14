@@ -96,7 +96,7 @@
         ("rust-rand-jitter" ,rust-rand-jitter-0.1.4)
         ("rust-rand-os" ,rust-rand-os-0.1.3)
         ("rust-rand-pcg" ,rust-rand-pcg-0.1.2)
-        ("rust-rand-xorshift" ,rust-rand-xorshift-0.1.1)
+        ("rust-rand-xorshift" ,rust-rand-xorshift-0.1)
         ("rust-remove-dir-all" ,rust-remove-dir-all)
         ("rust-rustc-tools-util" ,rust-rustc-tools-util)
         ("rust-same-file" ,rust-same-file-1.0)

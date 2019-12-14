@@ -573,7 +573,7 @@ Jaro-Winkler.")
        #:cargo-development-inputs
        (("rust-lipsum" ,rust-lipsum)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-xorshift" ,rust-rand-xorshift)
+        ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
         ("rust-version-sync" ,rust-version-sync))))
     (home-page
      "https://github.com/mgeisler/textwrap")
@@ -1297,7 +1297,7 @@ indexmap.
      `(#:cargo-inputs
        (("rust-rand" ,rust-rand-0.4))
        #:cargo-development-inputs
-       (("rust-rand-xorshift" ,rust-rand-xorshift)
+       (("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
         ("rust-version-sync" ,rust-version-sync))))
     (home-page "https://github.com/mgeisler/lipsum/")
     (synopsis
@@ -1309,55 +1309,6 @@ you need some filler text for your application.
 The text is generated using a simple Markov chain, which you can also
 instantiate to generate your own pieces of pseudo-random text.")
     (license #f)))
-
-(define-public rust-rand-xorshift
-  (package
-    (name "rust-rand-xorshift")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_xorshift" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1a6wy76lc5fimm1n9n8fzhp4cfjwfwxh4hx63bg3vlh1d2w1dm3p"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1))))
-    (home-page
-     "https://crates.io/crates/rand_xorshift")
-    (synopsis "Xorshift random number generator")
-    (description
-     "Xorshift random number generator")
-    (license #f)))
-
-(define-public rust-rand-xorshift-0.1.1
-  (package
-    (inherit rust-rand-xorshift)
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_xorshift" version))
-       (file-name
-        (string-append (package-name rust-rand-xorshift) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0p2x8nr00hricpi2m6ca5vysiha7ybnghz79yqhhx6sl4gkfkxyb"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1))))))
-
 
 (define-public rust-linked-hash-map
   (package
@@ -3354,7 +3305,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-docopt" ,rust-docopt)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-xorshift" ,rust-rand-xorshift)
+        ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))))
     (home-page "https://github.com/rayon-rs/rayon")
@@ -3388,7 +3339,7 @@ maps of many strings (> 1 billion is possible).")
        #:cargo-development-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-xorshift" ,rust-rand-xorshift)
+        ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
         ("rust-scoped-tls" ,rust-scoped-tls))))
     (home-page "https://github.com/rayon-rs/rayon")
     (synopsis "Core APIs for Rayon")
@@ -5025,7 +4976,7 @@ checking")
         ("rust-quick-error" ,rust-quick-error-1.2)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-chacha" ,rust-rand-chacha)
-        ("rust-rand-xorshift" ,rust-rand-xorshift)
+        ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-rusty-fork" ,rust-rusty-fork)
         ("rust-tempfile" ,rust-tempfile-3.0))
