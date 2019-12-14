@@ -9233,7 +9233,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-unreachable" ,rust-unreachable))
+       (("rust-unreachable" ,rust-unreachable-1.0))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version))))
     (home-page
@@ -9242,30 +9242,6 @@ according to XDG Base Directory specification")
      "StackVec: vector-like facade for stack-allocated arrays.")
     (description
      "StackVec: vector-like facade for stack-allocated arrays.")
-    (license #f)))
-
-(define-public rust-unreachable
-  (package
-    (name "rust-unreachable")
-    (version "1.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unreachable" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0mps2il4xy2mjqc3appas27hhn2xmvixc3bzzhfrjj74gy3i0a1q"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-void" ,rust-void))))
-    (home-page
-     "https://github.com/reem/rust-unreachable.git")
-    (synopsis
-     "An unreachable code optimization hint in stable rust.")
-    (description
-     "An unreachable code optimization hint in stable rust.")
     (license #f)))
 
 (define-public rust-void
