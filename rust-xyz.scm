@@ -5170,7 +5170,7 @@ checking")
        (("rust-semver-parser" ,rust-semver-parser-0.7)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-crates-index" ,rust-crates-index)
+       (("rust-crates-index" ,rust-crates-index-0.13)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))
@@ -5201,7 +5201,7 @@ checking")
         ("rust-semver-parser" ,rust-semver-parser-0.7)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-crates-index" ,rust-crates-index)
+       (("rust-crates-index" ,rust-crates-index-0.13)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))))
@@ -5724,7 +5724,8 @@ trace (backtrace) at runtime in a Rust program.")
     (description "Derives for the failure crate")
     (license #f)))
 
-(define-public rust-crates-index
+;; DO THESE DEPS
+(define-public rust-crates-index-0.13
   (package
     (name "rust-crates-index")
     (version "0.13.1")
