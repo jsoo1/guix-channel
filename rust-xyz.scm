@@ -348,7 +348,7 @@ properties according to Unicode Standard Annex #31.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-bytes" ,rust-serde-bytes-0.11)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-toml" ,rust-toml))))
+        ("rust-toml" ,rust-toml-0.5))))
     (home-page
      "https://github.com/BurntSushi/regex-automata")
     (synopsis
@@ -720,7 +720,7 @@ integer keys.")
         ("rust-regex" ,rust-regex-1.1)
         ("rust-semver-parser" ,rust-semver-parser)
         ("rust-syn" ,rust-syn-0.15)
-        ("rust-toml" ,rust-toml)
+        ("rust-toml" ,rust-toml-0.5)
         ("rust-url" ,rust-url-1.7))))
     (home-page
      "https://github.com/mgeisler/version-sync")
@@ -1111,7 +1111,7 @@ indexmap.
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-termcolor" ,rust-termcolor-1.0)
-        ("rust-toml" ,rust-toml))))
+        ("rust-toml" ,rust-toml-0.5))))
     (home-page "https://github.com/dtolnay/trybuild")
     (synopsis
      "Test harness for ui tests of compiler diagnostics")
@@ -1145,62 +1145,30 @@ indexmap.
      "This package provides a simple Windows specific API for controlling text color in a Windows console.")
     (license #f)))
 
-(define-public rust-toml
-  (package
-    (name "rust-toml")
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "toml" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0fdhfyv20qn29cxq1f9j9wav92c3qhxdm71sxfyzhzpsfdw6vjdq"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-linked-hash-map" ,rust-linked-hash-map)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-     "https://github.com/alexcrichton/toml-rs")
-    (synopsis
-     "Native Rust encoder and decoder of TOML-formatted files and streams")
-    (description
-     "This package provides a native Rust encoder and decoder of
-TOML-formatted files and streams.  Provides implementations of the
-standard Serialize/Deserialize traits for TOML data to facilitate
-deserializing and serializing Rust structures.")
-    (license #f)))
-
 (define-public rust-toml-0.4
   (package
-    (inherit rust-toml)
+    (inherit rust-toml-0.5)
     (version "0.4.10")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "toml" version))
        (file-name
-        (string-append (package-name rust-toml) "-" version ".tar.gz"))
+        (string-append (package-name rust-toml-0.5) "-" version ".tar.gz"))
        (sha256
         (base32
          "07qilkzinn8z13vq2sss65n2lza7wrmqpvkbclw919m3f7y691km"))))))
 
 (define-public rust-toml-0.1
   (package
-    (inherit rust-toml)
+    (inherit rust-toml-0.5)
     (version "0.1.30")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "toml" version))
        (file-name
-        (string-append (package-name rust-toml) "-" version ".tar.gz"))
+        (string-append (package-name rust-toml-0.5) "-" version ".tar.gz"))
        (sha256
         (base32
          "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
@@ -9264,7 +9232,7 @@ dependency")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-termcolor" ,rust-termcolor-1.0)
-        ("rust-toml" ,rust-toml))))
+        ("rust-toml" ,rust-toml-0.5))))
     (home-page "https://github.com/dtolnay/trybuild")
     (synopsis
      "Test harness for ui tests of compiler diagnostics")
@@ -10693,7 +10661,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir)
-        ("rust-toml" ,rust-toml))))
+        ("rust-toml" ,rust-toml-0.5))))
     (home-page "https://pijul.org/")
     (synopsis
      "A patch-based distributed version control system, easy to use and fast.")
@@ -13877,7 +13845,7 @@ functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-toml" ,rust-toml))
+       (("rust-toml" ,rust-toml-0.5))
        #:cargo-development-inputs
        (("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
@@ -18532,7 +18500,7 @@ for computer graphics.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-tempfile" ,rust-tempfile-3.0)
-        ("rust-toml" ,rust-toml))))
+        ("rust-toml" ,rust-toml-0.5))))
     (home-page "https://github.com/rayon-rs/rayon")
     (synopsis "Core APIs for Rayon")
     (description "Core APIs for Rayon")
