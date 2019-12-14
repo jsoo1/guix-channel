@@ -7363,7 +7363,7 @@ and loading crate.")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libgit2-sys" ,rust-libgit2-sys)
+        ("rust-libgit2-sys" ,rust-libgit2-sys-0.8)
         ("rust-log" ,rust-log-0.4)
         ("rust-openssl-probe" ,rust-openssl-probe)
         ("rust-openssl-sys" ,rust-openssl-sys)
@@ -7675,37 +7675,6 @@ endian-aware Read/Write traits for byte buffers.")
      "Helper test traits for synstructure doctests")
     (description
      "Helper test traits for synstructure doctests")
-    (license #f)))
-
-(define-public rust-libgit2-sys
-  (package
-    (name "rust-libgit2-sys")
-    (version "0.8.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "libgit2-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xwzkl2asfvxfns1i307fv0xyfgfr6p1iq9fkn63nckp7zi426ll"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libssh2-sys" ,rust-libssh2-sys)
-        ("rust-libz-sys" ,rust-libz-sys)
-        ("rust-openssl-sys" ,rust-openssl-sys))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0)
-        ("rust-pkg-config" ,rust-pkg-config-0.3))))
-    (home-page
-     "https://github.com/rust-lang/git2-rs")
-    (synopsis
-     "Native bindings to the libgit2 library")
-    (description
-     "Native bindings to the libgit2 library")
     (license #f)))
 
 (define-public rust-openssl-probe
