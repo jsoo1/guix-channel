@@ -731,58 +731,6 @@ integer keys.")
 are updated when the crate version changes.")
     (license #f)))
 
-(define-public rust-grep-matcher-0.1
-  (package
-    (name "rust-grep-matcher")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "grep-matcher" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "03j26zygfgwyam66bl5g922gimrvp4yyzl8qvaykyklnf247bl3r"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-memchr" ,rust-memchr-2.2))
-       #:cargo-development-inputs
-       (("rust-regex" ,rust-regex-1.1))))
-    (home-page
-     "https://github.com/BurntSushi/ripgrep")
-    (synopsis
-     "Trait for regular expressions")
-    (description
-     "This package provides a trait for regular expressions, with a
-focus on line oriented search.")
-    (license `(,license:expat ,license:unlicense))))
-
-(define-public rust-grep-pcre2-0.1
-  (package
-    (name "rust-grep-pcre2")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "grep-pcre2" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1wjc3gsan20gapga8nji6jcrmwn9n85q5zf2yfq6g50c7abkc2ql"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-grep-matcher" ,rust-grep-matcher-0.1)
-        ("rust-pcre2" ,rust-pcre2-0.2))))
-    (home-page
-     "https://github.com/BurntSushi/ripgrep")
-    (synopsis "Use PCRE2 with the grep crate")
-    (description "Use PCRE2 with the grep crate.")
-    (license `(,license:expat ,license:unlicense))))
-
 (define-public rust-grep-printer
   (package
     (name "rust-grep-printer")
