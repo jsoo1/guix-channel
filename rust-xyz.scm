@@ -3914,7 +3914,7 @@ proposed in RFC 1158.")
          "02h3x57lcr8l2pm0a645s9whdh33pn5cnrwvn5cb57vcrc53x3hk"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-semver" ,rust-semver))))
+     `(#:cargo-inputs (("rust-semver" ,rust-semver-0.9))))
     (home-page
      "https://github.com/Kimundi/rustc-version-rs")
     (synopsis
@@ -5151,39 +5151,9 @@ checking")
      "Minimal implementation of SHA1 for Rust.")
     (license #f)))
 
-(define-public rust-semver
-  (package
-    (name "rust-semver")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "semver" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "00q4lkcj0rrgbhviv9sd4p6qmdsipkwkbra7rh11jrhq5kpvjzhx"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-semver-parser" ,rust-semver-parser-0.7)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-crates-index" ,rust-crates-index-0.13)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page "https://docs.rs/crate/semver/")
-    (synopsis
-     "Semantic version parsing and comparison")
-    (description
-     "Semantic version parsing and comparison.")
-    (license #f)))
-
 (define-public rust-semver-0.2
   (package
-    (inherit rust-semver)
+    (inherit rust-semver-0.9)
     (version "0.2.3")
     (source
      (origin
@@ -5191,7 +5161,7 @@ checking")
        (uri (crate-uri "semver" version))
        (file-name
         (string-append
-         (package-name rust-semver) "-" version ".tar.gz"))
+         (package-name rust-semver-0.9) "-" version ".tar.gz"))
        (sha256
         (base32
          "0gv28l5ggain32flkvw3sss0szz810y3pjw89vciaf7hl4w7cnrd"))))
@@ -17558,7 +17528,7 @@ for computer graphics.")
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-extprim-literals" ,rust-extprim-literals)
-        ("rust-semver" ,rust-semver))))
+        ("rust-semver" ,rust-semver-0.9))))
     (home-page "https://github.com/kennytm/extprim")
     (synopsis "Extra primitive types")
     (description
@@ -18405,7 +18375,7 @@ for computer graphics.")
         ("rust-pulldown-cmark" ,rust-pulldown-cmark)
         ("rust-quine-mc-cluskey" ,rust-quine-mc-cluskey)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
-        ("rust-semver" ,rust-semver)
+        ("rust-semver" ,rust-semver-0.9)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-toml" ,rust-toml-0.1)
@@ -18467,7 +18437,7 @@ pitfalls in Rust")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-semver" ,rust-semver)
+       (("rust-semver" ,rust-semver-0.9)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))
