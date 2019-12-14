@@ -110,7 +110,7 @@
         ("rust-terminfo" ,rust-terminfo)
         ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-time" ,rust-time-0.1.42)
-        ("rust-url" ,rust-url)
+        ("rust-url" ,rust-url-1.7)
         ("rust-vte" ,rust-vte)
         ("rust-widestring" ,rust-widestring-0.4)
         ("rust-winapi" ,rust-winapi-0.2)

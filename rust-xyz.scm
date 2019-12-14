@@ -721,7 +721,7 @@ integer keys.")
         ("rust-semver-parser" ,rust-semver-parser)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-toml" ,rust-toml)
-        ("rust-url" ,rust-url))))
+        ("rust-url" ,rust-url-1.7))))
     (home-page
      "https://github.com/mgeisler/version-sync")
     (synopsis
@@ -1600,7 +1600,7 @@ pairs in insertion order")
     (description "Parsing of the semver spec.")
     (license #f)))
 
-(define-public rust-url
+(define-public rust-url-1.7
   (package
     (name "rust-url")
     (version "1.7.2")
@@ -7367,7 +7367,7 @@ and loading crate.")
         ("rust-log" ,rust-log-0.4)
         ("rust-openssl-probe" ,rust-openssl-probe-0.1)
         ("rust-openssl-sys" ,rust-openssl-sys-0.9)
-        ("rust-url" ,rust-url))
+        ("rust-url" ,rust-url-1.7))
        #:cargo-development-inputs
        (("rust-docopt" ,rust-docopt)
         ("rust-serde" ,rust-serde-1.0)
@@ -11083,7 +11083,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-tokio-timer" ,rust-tokio-timer)
         ("rust-trust-dns-resolver"
          ,rust-trust-dns-resolver)
-        ("rust-url" ,rust-url)
+        ("rust-url" ,rust-url-1.7)
         ("rust-uuid" ,rust-uuid)
         ("rust-webpki-roots" ,rust-webpki-roots)
         ("rust-winreg" ,rust-winreg))
@@ -11569,7 +11569,7 @@ _getch on Windows, and termios on Unix.")
        (("rust-base64" ,rust-base64)
         ("rust-ring" ,rust-ring)
         ("rust-time" ,rust-time-0.1)
-        ("rust-url" ,rust-url))))
+        ("rust-url" ,rust-url-1.7))))
     (home-page
      "https://github.com/alexcrichton/cookie-rs")
     (synopsis
@@ -11602,7 +11602,7 @@ and private (encrypted + signed) jars.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-time" ,rust-time-0.1)
-        ("rust-url" ,rust-url))
+        ("rust-url" ,rust-url-1.7))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-pretty-assertions"
@@ -11639,7 +11639,7 @@ and private (encrypted + signed) jars.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-time" ,rust-time-0.1)
         ("rust-try-from" ,rust-try-from-0.3)
-        ("rust-url" ,rust-url))
+        ("rust-url" ,rust-url-1.7))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-pretty-assertions"
@@ -11707,7 +11707,7 @@ and private (encrypted + signed) jars.")
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-fs" ,rust-tokio-fs)
         ("rust-tokio-test" ,rust-tokio-test)
-        ("rust-url" ,rust-url))))
+        ("rust-url" ,rust-url-1.7))))
     (home-page "https://hyper.rs")
     (synopsis "A fast and correct HTTP library.")
     (description
@@ -11928,7 +11928,7 @@ and private (encrypted + signed) jars.")
        (("rust-dtoa" ,rust-dtoa)
         ("rust-itoa" ,rust-itoa-0.4)
         ("rust-serde" ,rust-serde-1.0)
-        ("rust-url" ,rust-url))
+        ("rust-url" ,rust-url-1.7))
        #:cargo-development-inputs
        (("rust-serde-derive" ,rust-serde-derive-1.0))))
     (home-page
@@ -12810,7 +12810,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-tokio-tcp" ,rust-tokio-tcp)
        ("rust-tokio-timer" ,rust-tokio-timer)
        ("rust-tokio-udp" ,rust-tokio-udp)
-       ("rust-url" ,rust-url))
+       ("rust-url" ,rust-url-1.7))
       #:cargo-development-inputs
       (("rust-env-logger" ,rust-env-logger-0.6)
        ("rust-tokio" ,rust-tokio))))
@@ -19775,7 +19775,7 @@ for computer graphics.")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-toml" ,rust-toml-0.1)
         ("rust-unicode-normalization" ,rust-unicode-normalization)
-        ("rust-url" ,rust-url))))
+        ("rust-url" ,rust-url-1.7))))
     (home-page
      "https://github.com/rust-lang-nursery/rust-clippy")
     (synopsis
@@ -19814,7 +19814,7 @@ pitfalls in Rust")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-toml" ,rust-toml-0.1)
         ("rust-unicode-normalization" ,rust-unicode-normalization)
-        ("rust-url" ,rust-url))))))
+        ("rust-url" ,rust-url-1.7))))))
 
 (define-public rust-cargo-metadata
   (package
