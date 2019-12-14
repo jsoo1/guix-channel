@@ -3033,7 +3033,7 @@ require unstable language features.")
     (arguments
      `(#:cargo-inputs
        (("rust-discard" ,rust-discard-1.0)
-        ("rust-futures-channel-preview" ,rust-futures-channel-preview)
+        ("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
         ("rust-futures-executor-preview" ,rust-futures-executor-preview)
         ("rust-futures-util-preview" ,rust-futures-util-preview)
@@ -4252,7 +4252,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures-channel-preview" ,rust-futures-channel-preview)
+       (("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
         ("rust-futures-util-preview" ,rust-futures-util-preview)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
@@ -4948,7 +4948,7 @@ local storage (TLS) so any type can be stored into TLS.")
      `(#:cargo-inputs
        (("rust-futures" ,rust-futures-0.1)
         ("rust-futures-channel-preview"
-         ,rust-futures-channel-preview)
+         ,rust-futures-channel-preview-0.3)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
         ("rust-js-sys" ,rust-js-sys)
@@ -5622,31 +5622,6 @@ checking")
      "Mock a task for testing.")
     (license #f)))
 
-(define-public rust-futures-channel-preview
-  (package
-    (name "rust-futures-channel-preview")
-    (version "0.3.0-alpha.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-channel-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1blgpikhw391lzrfqcgg4xsn5xc0dlybni77ka7f0vb08zaixir1"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "Channels for asynchronous communication using futures-rs")
-    (description
-     "Channels for asynchronous communication using futures-rs.")
-    (license #f)))
-
 (define-public rust-futures-util-preview
   (package
     (name "rust-futures-util-preview")
@@ -5664,7 +5639,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-futures" ,rust-futures-0.1)
-        ("rust-futures-channel-preview" ,rust-futures-channel-preview)
+        ("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
         ("rust-futures-io-preview" ,rust-futures-io-preview)
         ("rust-futures-select-macro-preview"
@@ -5778,7 +5753,7 @@ futures-rs library.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures-channel-preview" ,rust-futures-channel-preview)
+       (("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
@@ -11389,7 +11364,7 @@ and private (encrypted + signed) jars.")
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-futures-channel-preview"
-         ,rust-futures-channel-preview)
+         ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-futures-cpupool" ,rust-futures-cpupool)
@@ -12743,7 +12718,7 @@ implementation of TLS for nonblocking I/O streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-futures-channel-preview"
-         ,rust-futures-channel-preview)
+         ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-futures-executor-preview"
