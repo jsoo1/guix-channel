@@ -4403,50 +4403,6 @@ proposed in RFC 1158.")
 library.")
     (license #f)))
 
-(define-public rust-futures-util-preview
-  (package
-    (name "rust-futures-util-preview")
-    (version "0.3.0-alpha.16")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-util-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1cildqfd9ys5rmvvj11wx48ma5lk0zymyhlkmfww4ishkhdlb87p"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-futures-channel-preview"
-         ,rust-futures-channel-preview)
-        ("rust-futures-core-preview"
-         ,rust-futures-core-preview-0.3)
-        ("rust-futures-io-preview"
-         ,rust-futures-io-preview)
-        ("rust-futures-select-macro-preview"
-         ,rust-futures-select-macro-preview)
-        ("rust-futures-sink-preview"
-         ,rust-futures-sink-preview)
-        ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-pin-utils" ,rust-pin-utils)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack)
-        ("rust-proc-macro-nested"
-         ,rust-proc-macro-nested)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-slab" ,rust-slab)
-        ("rust-tokio-io" ,rust-tokio-io))))
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "Common utilities and extension traits for the futures-rs library")
-    (description
-     "Common utilities and extension traits for the futures-rs library.")
-    (license #f)))
-
 (define-public rust-stdweb-derive
   (package
     (name "rust-stdweb-derive")
