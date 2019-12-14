@@ -9535,31 +9535,6 @@ according to XDG Base Directory specification")
      "Common code for build.rs in WinAPI -sys crates.")
     (license #f)))
 
-(define-public rust-pcre2-sys-0.2
-  (package
-    (name "rust-pcre2-sys")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pcre2-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0nwdvc43dkb89qmm5q8gw1zyll0wsfqw7kczpn23mljra3874v47"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-pkg-config" ,rust-pkg-config-0.3)
-        ("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/BurntSushi/rust-pcre2")
-    (synopsis "Low level bindings to PCRE2")
-    (description "Low level bindings to PCRE2.")
-    (license #f)))
-
 (define-public rust-bindgen
   (package
     (name "rust-bindgen")
