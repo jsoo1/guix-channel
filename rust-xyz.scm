@@ -3959,7 +3959,7 @@ thread pool.")
        (("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libz-sys" ,rust-libz-sys)
+        ("rust-libz-sys" ,rust-libz-sys-1.0)
         ("rust-miniz-sys" ,rust-miniz-sys)
         ("rust-miniz-oxide-c-api"
          ,rust-miniz-oxide-c-api)
@@ -4903,35 +4903,6 @@ checking")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))))
-
-(define-public rust-libz-sys
-  (package
-    (name "rust-libz-sys")
-    (version "1.0.25")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "libz-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1gjycyl2283525abks98bhxa4r259m617xfm5z52p3p3c8ry9d9f"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0)
-        ("rust-pkg-config" ,rust-pkg-config-0.3)
-        ("rust-vcpkg" ,rust-vcpkg))))
-    (home-page
-     "https://github.com/alexcrichton/libz-sys")
-    (synopsis
-     "Bindings to the system libz library")
-    (description
-     "Bindings to the system libz library (also known as zlib).")
-    (license #f)))
 
 (define-public rust-miniz-sys
   (package
@@ -6274,7 +6245,7 @@ streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libz-sys" ,rust-libz-sys)
+        ("rust-libz-sys" ,rust-libz-sys-1.0)
         ("rust-openssl-sys" ,rust-openssl-sys-0.9))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0)
@@ -16372,7 +16343,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libz-sys" ,rust-libz-sys))
+        ("rust-libz-sys" ,rust-libz-sys-1.0))
        #:cargo-development-inputs
        (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
