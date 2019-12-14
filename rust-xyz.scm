@@ -5891,7 +5891,7 @@ library.")
 (define-public rust-futures-io-preview
   (package
     (name "rust-futures-io-preview")
-    (version "0.3.0-alpha.16")
+    (version "0.3.0-alpha.17")
     (source
      (origin
        (method url-fetch)
@@ -5900,20 +5900,18 @@ library.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "18sry5ynzb4vaimsssi3jqbsfalksn9yy3bvg4mx7j9r3xxbz86c"))))
+         "0fhvwhdb8ywjjbfng0ra1r8yyc9yzpyxg9sv3spb3f7w0lk40bh8"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures-core-preview"
-         ,rust-futures-core-preview-0.3))))
+       (("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "The `AsyncRead` and `AsyncWrite` traits for the futures-rs library.
-")
+     "AsyncRead and AsyncWrite traits for the futures-rs library")
     (description
-     "The `AsyncRead` and `AsyncWrite` traits for the futures-rs library.
-")
+     "The `AsyncRead` and `AsyncWrite` traits for the futures-rs
+library.")
     (license #f)))
 
 (define-public rust-futures-select-macro-preview
@@ -5948,7 +5946,7 @@ library.")
 (define-public rust-futures-sink-preview
   (package
     (name "rust-futures-sink-preview")
-    (version "0.3.0-alpha.16")
+    (version "0.3.0-alpha.17")
     (source
      (origin
        (method url-fetch)
@@ -5957,7 +5955,7 @@ library.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "1r44nzspkql2vz1kb5qp0q1dlw8hzn7w72xpp6h4r5xmssngvp29"))))
+         "1r4d0gy73hdxkh5g1lrhl1kjnwp6mywjgcj70v0z78b921da42a3"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -5968,11 +5966,9 @@ library.")
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "The asynchronous `Sink` trait for the futures-rs library.
-")
+     "Asynchronous Sink trait for the futures-rs library")
     (description
-     "The asynchronous `Sink` trait for the futures-rs library.
-")
+     "The asynchronous `Sink` trait for the futures-rs library.")
     (license #f)))
 
 (define-public rust-proc-macro-nested
