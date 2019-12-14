@@ -839,7 +839,7 @@ standard printing of search results, similar to grep itself.")
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
@@ -1579,27 +1579,6 @@ on the stack")
     (description "Unix signal handling")
     (license #f)))
 
-(define-public rust-fnv
-  (package
-    (name "rust-fnv")
-    (version "1.0.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "fnv" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ww56bi1r5b8id3ns9j3qxbi7w5h005rzhiryy0zi9h97raqbb9g"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/servo/rust-fnv")
-    (synopsis
-     "Fowler's hash function")
-    (description
-     "Fowler's hash function")
-    (license #f)))
-
 (define-public rust-glob-0.2
   (package
     (name "rust-glob")
@@ -2147,7 +2126,7 @@ guidelines on macOS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -3005,7 +2984,7 @@ asynchronous I/O backed applications.")
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-memmap" ,rust-memmap-0.7))
        #:cargo-development-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-fst-levenshtein" ,rust-fst-levenshtein)
         ("rust-fst-regex" ,rust-fst-regex)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -3699,7 +3678,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-futures" ,rust-futures-0.1))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
@@ -4146,7 +4125,7 @@ results of the computation on the threads themselves.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-fnv" ,rust-fnv)
+        ("rust-fnv" ,rust-fnv-1.0)
         ("rust-itoa" ,rust-itoa-0.4))
        #:cargo-development-inputs
        (("rust-indexmap" ,rust-indexmap)
@@ -7311,7 +7290,7 @@ streams.")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3))
        #:cargo-development-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-seahash" ,rust-seahash))))
     (home-page "https://github.com/cbreeden/fxhash")
     (synopsis
@@ -8518,7 +8497,7 @@ shorthands for guards with one of the implemented strategies.")
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
@@ -8549,7 +8528,7 @@ shorthands for guards with one of the implemented strategies.")
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
@@ -11396,7 +11375,7 @@ composability, and iterator-like interfaces.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-fnv" ,rust-fnv)
+        ("rust-fnv" ,rust-fnv-1.0)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-futures-sink-preview"
@@ -14746,7 +14725,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-const-random" ,rust-const-random))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
-        ("rust-fnv" ,rust-fnv)
+        ("rust-fnv" ,rust-fnv-1.0)
         ("rust-fxhash" ,rust-fxhash)
         ("rust-hex" ,rust-hex-0.3)
         ("rust-no-panic" ,rust-no-panic)
@@ -15073,7 +15052,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-nom" ,rust-nom-4)
         ("rust-phf" ,rust-phf)
         ("rust-phf-codegen" ,rust-phf-codegen))))
@@ -15441,7 +15420,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-backtrace" ,rust-backtrace)
-        ("rust-fnv" ,rust-fnv)
+        ("rust-fnv" ,rust-fnv-1.0)
         ("rust-glutin" ,rust-glutin)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-smallvec" ,rust-smallvec)
@@ -18491,7 +18470,7 @@ directly.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-quick-error" ,rust-quick-error-1.2)
         ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-wait-timeout" ,rust-wait-timeout))))
@@ -19265,7 +19244,7 @@ subscribers.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-fnv" ,rust-fnv)
+       (("rust-fnv" ,rust-fnv-1.0)
         ("rust-ident-case" ,rust-ident-case)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
