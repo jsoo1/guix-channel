@@ -5815,7 +5815,7 @@ checking")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "0yph1k6xbh67rpy9nh3ybddfxsrdhfi6b4b62jvyjwn25xqj7mac"))))
+         "1blgpikhw391lzrfqcgg4xsn5xc0dlybni77ka7f0vb08zaixir1"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -5840,26 +5840,21 @@ checking")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "1cildqfd9ys5rmvvj11wx48ma5lk0zymyhlkmfww4ishkhdlb87p"))))
+         "0kizm86wgr5qldyavskfi0r1msg6m4x2pkj0d4r04br2ig29i0dg"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
        (("rust-futures" ,rust-futures-0.1)
-        ("rust-futures-channel-preview"
-         ,rust-futures-channel-preview)
-        ("rust-futures-core-preview"
-         ,rust-futures-core-preview-0.3)
-        ("rust-futures-io-preview"
-         ,rust-futures-io-preview)
+        ("rust-futures-channel-preview" ,rust-futures-channel-preview)
+        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
+        ("rust-futures-io-preview" ,rust-futures-io-preview)
         ("rust-futures-select-macro-preview"
          ,rust-futures-select-macro-preview)
-        ("rust-futures-sink-preview"
-         ,rust-futures-sink-preview)
+        ("rust-futures-sink-preview" ,rust-futures-sink-preview)
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-pin-utils" ,rust-pin-utils)
         ("rust-proc-macro-hack" ,rust-proc-macro-hack)
-        ("rust-proc-macro-nested"
-         ,rust-proc-macro-nested)
+        ("rust-proc-macro-nested" ,rust-proc-macro-nested)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-slab" ,rust-slab)
@@ -5867,11 +5862,10 @@ checking")
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "Common utilities and extension traits for the futures-rs library.
-")
+     "Utilities and extension traits for futures-rs library")
     (description
-     "Common utilities and extension traits for the futures-rs library.
-")
+     "Common utilities and extension traits for the futures-rs
+library.")
     (license #f)))
 
 (define-public rust-pin-utils
