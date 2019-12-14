@@ -757,7 +757,7 @@ are updated when the crate version changes.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-termcolor" ,rust-termcolor-1.0)))
        #:cargo-development-inputs
-       (("rust-grep-regex" ,rust-grep-regex))))
+       (("rust-grep-regex" ,rust-grep-regex)))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
@@ -3524,7 +3524,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-ryu" ,rust-ryu-1.0)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde" ,rust-serde-1.0)))))
+       (("rust-serde" ,rust-serde-1.0))))
     (home-page
      "https://github.com/BurntSushi/rust-csv")
     (synopsis
