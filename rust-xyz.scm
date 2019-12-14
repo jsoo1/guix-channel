@@ -6418,10 +6418,10 @@ file formats.")
        (("rust-cc" ,rust-cc-1.0)
         ("rust-clap" ,rust-clap-2)
         ("rust-rustc-version" ,rust-rustc-version)
-        ("rust-xdg" ,rust-xdg))
+        ("rust-xdg" ,rust-xdg-2.2))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version)
-        ("rust-xdg" ,rust-xdg))))
+        ("rust-xdg" ,rust-xdg-2.2))))
     (home-page "https://github.com/rust-fuzz/afl.rs")
     (synopsis
      "Fuzzing Rust code with american-fuzzy-lop")
@@ -6686,29 +6686,6 @@ streams.")
      "Generate and parse UUIDs")
     (description
      "This package provides a library to generate and parse UUIDs.")
-    (license #f)))
-
-(define-public rust-xdg
-  (package
-    (name "rust-xdg")
-    (version "2.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "xdg" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0mws8a0fr3cqk5nh7aq9lmkmhzghvasqy4mhw6nnza06l4d6i2fh"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/whitequark/rust-xdg")
-    (synopsis
-     "Store and retreive files according to XDG")
-    (description
-     "This package provides a library for storing and retrieving files
-according to XDG Base Directory specification")
     (license #f)))
 
 (define-public rust-speculate
@@ -14131,7 +14108,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-rusttype" ,rust-rusttype-0.7)
         ("rust-rusttype" ,rust-rusttype)
         ("rust-walkdir" ,rust-walkdir-2.2)
-        ("rust-xdg" ,rust-xdg)
+        ("rust-xdg" ,rust-xdg-2.2)
         ("rust-xml-rs" ,rust-xml-rs))
        #:cargo-development-inputs
        (("rust-smithay-client-toolkit"
