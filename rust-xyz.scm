@@ -1645,7 +1645,7 @@ pairs in insertion order")
        (("rust-encoding" ,rust-encoding)
         ("rust-heapsize" ,rust-heapsize)
         ("rust-idna" ,rust-idna)
-        ("rust-matches" ,rust-matches)
+        ("rust-matches" ,rust-matches-0.1)
         ("rust-percent-encoding" ,rust-percent-encoding)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde-1.0))
@@ -1680,7 +1680,7 @@ pairs in insertion order")
        (("rust-encoding" ,rust-encoding)
         ("rust-heapsize" ,rust-heapsize)
         ("rust-idna" ,rust-idna)
-        ("rust-matches" ,rust-matches)
+        ("rust-matches" ,rust-matches-0.1)
         ("rust-percent-encoding" ,rust-percent-encoding-2.1.0)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde-1.0))
@@ -2933,7 +2933,7 @@ on the heap")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-matches" ,rust-matches)
+       (("rust-matches" ,rust-matches-0.1)
         ("rust-unicode-bidi" ,rust-unicode-bidi)
         ("rust-unicode-normalization"
          ,rust-unicode-normalization))
@@ -2963,7 +2963,7 @@ on the heap")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-matches" ,rust-matches)
+       (("rust-matches" ,rust-matches-0.1)
         ("rust-unicode-bidi" ,rust-unicode-bidi)
         ("rust-unicode-normalization"
          ,rust-unicode-normalization))
@@ -2975,29 +2975,6 @@ on the heap")
      "IDNA (Internationalizing Domain Names in Applications) and Punycode")
     (description
      "IDNA (Internationalizing Domain Names in Applications) and Punycode.")
-    (license #f)))
-
-(define-public rust-matches
-  (package
-    (name "rust-matches")
-    (version "0.1.8")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "matches" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "020axl4q7rk9vz90phs7f8jas4imxal9y9kxl4z4v7a6719mrz3z"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/SimonSapin/rust-std-candidates")
-    (synopsis
-     "Macro to evaluate whether an expression matches a pattern")
-    (description
-     "This package provides a macro to evaluate, as a boolean, whether
-an expression matches a pattern.")
     (license #f)))
 
 (define-public rust-percent-encoding
@@ -3405,7 +3382,7 @@ asynchronous I/O backed applications.")
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher-0.1)
-        ("rust-matches" ,rust-matches)
+        ("rust-matches" ,rust-matches-0.1)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/arrayvec")
     (synopsis
@@ -3603,7 +3580,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-bstr" ,rust-bstr-0.2
-        ("rust-csv-core" ,rust-csv-core)
+        ("rust-csv-core" ,rust-csv-core-0.1)
         ("rust-itoa" ,rust-itoa-0.4)
         ("rust-ryu" ,rust-ryu)
         ("rust-serde" ,rust-serde-1.0))
@@ -4057,7 +4034,7 @@ maps of many strings (> 1 billion is possible).")
      `(#:cargo-inputs
        (("rust-flame" ,rust-flame)
         ("rust-flamer" ,rust-flamer)
-        ("rust-matches" ,rust-matches)
+        ("rust-matches" ,rust-matches-0.1)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-test" ,rust-serde-test-1.0))))
@@ -5361,7 +5338,8 @@ Levenshtein automata.")
      "Complex numbers implementation for Rust")
     (license #f)))
 
-(define-public rust-csv-core
+;; DO THESE DEPS
+(define-public rust-csv-core-0.1
   (package
     (name "rust-csv-core")
     (version "0.1.6")
@@ -11907,7 +11885,7 @@ and private (encrypted + signed) jars.")
         ("rust-tower-service" ,rust-tower-service)
         ("rust-want" ,rust-want-0.0.6))
        #:cargo-development-inputs
-       (("rust-matches" ,rust-matches)
+       (("rust-matches" ,rust-matches-0.1)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-pretty-env-logger"
          ,rust-pretty-env-logger)
@@ -19977,7 +19955,7 @@ for computer graphics.")
         ("rust-if-chain" ,rust-if-chain)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-matches" ,rust-matches)
+        ("rust-matches" ,rust-matches-0.1)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark)
         ("rust-quine-mc-cluskey" ,rust-quine-mc-cluskey)
         ("rust-regex-syntax" ,rust-regex-syntax)
@@ -20016,7 +19994,7 @@ pitfalls in Rust")
         ("rust-if-chain" ,rust-if-chain)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-matches" ,rust-matches)
+        ("rust-matches" ,rust-matches-0.1)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark)
         ("rust-quine-mc-cluskey" ,rust-quine-mc-cluskey)
         ("rust-regex-syntax" ,rust-regex-syntax-0.3)
