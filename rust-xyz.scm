@@ -1085,33 +1085,6 @@ indexmap.
 ")
     (license #f)))
 
-(define-public rust-ryu
-  (package
-    (name "rust-ryu")
-    (version "1.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ryu" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "15r9z2wzgbj04pks4jz7y6wif5xqhf1wqkl2nd7qrvn08ys68969"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-no-panic" ,rust-no-panic))
-       #:cargo-development-inputs
-       (("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page "https://github.com/dtolnay/ryu")
-    (synopsis
-     "Fast floating point to string conversion")
-    (description
-     "Fast floating point to string conversion")
-    (license #f)))
-
 (define-public rust-automod
   (package
     (name "rust-automod")
@@ -3551,7 +3524,7 @@ maps of many strings (> 1 billion is possible).")
        (("rust-bstr" ,rust-bstr-0.2
         ("rust-csv-core" ,rust-csv-core-0.1)
         ("rust-itoa" ,rust-itoa-0.4)
-        ("rust-ryu" ,rust-ryu)
+        ("rust-ryu" ,rust-ryu-1.0)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde" ,rust-serde-1.0))))
@@ -9203,7 +9176,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-dtoa" ,rust-dtoa)
-        ("rust-ryu" ,rust-ryu)
+        ("rust-ryu" ,rust-ryu-1.0)
         ("rust-stackvector" ,rust-stackvector)
         ("rust-static-assertions" ,rust-static-assertions-0.3))
        #:cargo-development-inputs
