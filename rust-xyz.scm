@@ -2940,7 +2940,7 @@ guidelines on macOS.")
     (arguments
      `(#:cargo-inputs
        (("rust-fnv" ,rust-fnv)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-fst" ,rust-fst)
@@ -3163,7 +3163,7 @@ implemented using Heap's algorithm.")
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand-core" ,rust-rand-core)
         ("rust-rand-os" ,rust-rand-os)
         ("rust-rand-xoshiro" ,rust-rand-xoshiro)
@@ -3927,7 +3927,7 @@ ArrayVec and ArrayString.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-time" ,rust-time-0.1))
@@ -3998,31 +3998,6 @@ ArrayVec and ArrayString.")
      "System-level helper functions for the dirs and directories crates.")
     (description
      "System-level helper functions for the dirs and directories crates.")
-    (license #f)))
-
-(define-public rust-num-traits
-  (package
-    (name "rust-num-traits")
-    (version "0.2.8")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "num-traits" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0clvrm34rrqc8p6gq5ps5fcgws3kgq5knh7nlqxf2ayarwks9abb"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
-    (home-page
-     "https://github.com/rust-num/num-traits")
-    (synopsis
-     "Numeric traits for generic mathematics")
-    (description
-     "Numeric traits for generic mathematics")
     (license #f)))
 
 (define-public rust-fst
@@ -4301,7 +4276,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-num-complex" ,rust-num-complex)
-        ("rust-num-traits" ,rust-num-traits))))
+        ("rust-num-traits" ,rust-num-traits-0.2))))
     (home-page
      "https://github.com/brendanzab/approx")
     (synopsis
@@ -5847,7 +5822,7 @@ local storage (TLS) so any type can be stored into TLS.")
     (arguments
      `(#:cargo-inputs
        (("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-num-traits" ,rust-num-traits))
+        ("rust-num-traits" ,rust-num-traits-0.2))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
     (home-page
@@ -5926,7 +5901,7 @@ Levenshtein automata.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits))
+       (("rust-num-traits" ,rust-num-traits-0.2))
        #:cargo-development-inputs
        (("rust-itertools" ,rust-itertools)
         ("rust-quickcheck" ,rust-quickcheck))))
@@ -5955,7 +5930,7 @@ and functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits)
+       (("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -5984,7 +5959,7 @@ and functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits)
+       (("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -6376,7 +6351,7 @@ checking")
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-byteorder" ,rust-byteorder)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-quick-error" ,rust-quick-error-1.2)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-chacha" ,rust-rand-chacha)
@@ -11308,7 +11283,7 @@ creation from raw pointers and start, end pointer accessors.
      `(#:cargo-inputs
        (("rust-conv" ,rust-conv)
         ("rust-float-ord" ,rust-float-ord)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-big-array" ,rust-serde-big-array)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
@@ -11450,7 +11425,7 @@ creation from raw pointers and start, end pointer accessors.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits))))
+       (("rust-num-traits" ,rust-num-traits-0.2))))
     (home-page
      "https://github.com/BurntSushi/rust-stats")
     (synopsis
@@ -13338,7 +13313,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-quickcheck-macros"
          ,rust-quickcheck-macros)
@@ -13375,7 +13350,7 @@ exposed as Reader/Writer streams.")
         ("rust-num" ,rust-num)
         ("rust-num-bigint" ,rust-num-bigint))
        #:cargo-development-inputs
-       (("rust-num-traits" ,rust-num-traits))))
+       (("rust-num-traits" ,rust-num-traits-0.2))))
     (home-page "https://github.com/qnighy/yasna.rs")
     (synopsis "ASN.1 library for Rust")
     (description "ASN.1 library for Rust")
@@ -15807,7 +15782,7 @@ functions.")
         ("rust-jpeg-decoder" ,rust-jpeg-decoder)
         ("rust-num-iter" ,rust-num-iter)
         ("rust-num-rational" ,rust-num-rational)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-png" ,rust-png)
         ("rust-scoped-threadpool"
          ,rust-scoped-threadpool)
@@ -15845,7 +15820,7 @@ functions.")
         ("rust-jpeg-decoder" ,rust-jpeg-decoder)
         ("rust-num-iter" ,rust-num-iter)
         ("rust-num-rational" ,rust-num-rational)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-png" ,rust-png-0.14)
         ("rust-scoped-threadpool" ,rust-scoped-threadpool)
         ("rust-tiff" ,rust-tiff-0.2))
@@ -16614,7 +16589,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits))
+       (("rust-num-traits" ,rust-num-traits-0.2))
        #:cargo-development-inputs
        (("rust-bresenham" ,rust-bresenham)
         ("rust-image" ,rust-image)
@@ -16782,7 +16757,7 @@ hardware font rendering.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits)
+       (("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-test" ,rust-serde-test-1.0))))
@@ -17112,7 +17087,7 @@ implementation of Bresenham's line algorithm.")
         ("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-iter" ,rust-num-iter)
         ("rust-num-rational" ,rust-num-rational-0.1)
-        ("rust-num-traits" ,rust-num-traits))))
+        ("rust-num-traits" ,rust-num-traits-0.2))))
     (home-page "https://github.com/rust-num/num")
     (synopsis
      "A collection of numeric types and traits for Rust, including bigint,
@@ -17142,7 +17117,7 @@ complex, rational, range iterators, generic integers, and more!
      `(#:cargo-inputs
        (("rust-num-bigint" ,rust-num-bigint)
         ("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
@@ -17172,7 +17147,7 @@ complex, rational, range iterators, generic integers, and more!
      `(#:cargo-inputs
        (("rust-num-bigint" ,rust-num-bigint)
         ("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
@@ -17826,7 +17801,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-byteorder" ,rust-byteorder)
         ("rust-lzw" ,rust-lzw)
         ("rust-num-derive" ,rust-num-derive)
-        ("rust-num-traits" ,rust-num-traits))
+        ("rust-num-traits" ,rust-num-traits-0.2))
        #:cargo-development-inputs
        (("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page
@@ -17892,7 +17867,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-syn" ,rust-syn-0.15))
        #:cargo-development-inputs
        (("rust-num" ,rust-num)
-        ("rust-num-traits" ,rust-num-traits))))
+        ("rust-num-traits" ,rust-num-traits-0.2))))
     (home-page
      "https://github.com/rust-num/num-derive")
     (synopsis "Numeric syntax extensions")
@@ -18733,7 +18708,7 @@ The intersection of `std::ffi::CStr` and `str`")
      `(#:cargo-inputs
        (("rust-approx" ,rust-approx)
         ("rust-mint" ,rust-mint)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-simd" ,rust-simd))
@@ -19091,7 +19066,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-euclid-macros" ,rust-euclid-macros)
         ("rust-mint" ,rust-mint)
-        ("rust-num-traits" ,rust-num-traits)
+        ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-test" ,rust-serde-test-1.0))))
@@ -19792,7 +19767,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits)
+       (("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand" ,rust-rand-0.6)
         ("rust-rustc-version" ,rust-rustc-version)
         ("rust-serde" ,rust-serde-1.0))
@@ -21716,7 +21691,7 @@ don't need this crate directly.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits))))
+       (("rust-num-traits" ,rust-num-traits-0.2))))
     (home-page
      "https://github.com/zummenix/expectest")
     (synopsis
