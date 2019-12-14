@@ -231,7 +231,7 @@ the stack.")
         ("rust-globset" ,rust-globset-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-same-file" ,rust-same-file-1.0)
         ("rust-thread-local" ,rust-thread-local-0.3)
@@ -264,7 +264,7 @@ ignore files such as `.gitignore` against file paths.")
     (arguments
      `(#:cargo-inputs
        (("rust-aho-corasick" ,rust-aho-corasick-0.6)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex-syntax" ,rust-regex-syntax-0.5)
         ("rust-thread-local" ,rust-thread-local-0.3)
         ("rust-utf8-ranges" ,rust-utf8-ranges))
@@ -350,45 +350,6 @@ properties according to Unicode Standard Annex #31.")
        (sha256
         (base32
          "1sqvl06884cy3hh14shik5afcv6bhsvb0gh2y267rv5lmyfg1prn"))))))
-
-(define-public rust-memchr
-  (package
-    (name "rust-memchr")
-    (version "2.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "memchr" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0f8wdra7yaggsr4jzlrvpd8yknnqhd990iijdr6llgc8gk2ppz1f"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck))))
-    (home-page
-     "https://github.com/BurntSushi/rust-memchr")
-    (synopsis "Safe interface to memchr")
-    (description "Safe interface to memchr.")
-    (license #f)))
-
-(define-public rust-memchr-1
-  (package
-    (inherit rust-memchr)
-    (version "1.0.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "memchr" version))
-       (file-name
-        (string-append (package-name rust-memchr) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0yjyja34pzhipdl855q3m21w1lyih4lw79x2dp3czwdla4pap3ql"))))))
 
 (define-public rust-regex-automata
   (package
@@ -842,7 +803,7 @@ are updated when the crate version changes.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-memchr" ,rust-memchr))
+       (("rust-memchr" ,rust-memchr-2.2))
        #:cargo-development-inputs
        (("rust-regex" ,rust-regex-1.1))))
     (home-page
@@ -1066,7 +1027,7 @@ matching branch is the item that gets emitted.")
          "0k1nqabiz37mnfnlrn084qi9yf8pj6a38qgbb3lc5zlr1jp89x76"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-memchr" ,rust-memchr))))
+     `(#:cargo-inputs (("rust-memchr" ,rust-memchr-2.2))))
     (home-page
      "https://github.com/BurntSushi/aho-corasick")
     (synopsis "Fast multiple substring searching")
@@ -1871,7 +1832,7 @@ pairs in insertion order")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-getopts" ,rust-getopts-0.2)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-unicase" ,rust-unicase))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
@@ -5150,7 +5111,7 @@ proposed in RFC 1158.")
          ,rust-futures-select-macro-preview)
         ("rust-futures-sink-preview"
          ,rust-futures-sink-preview)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-pin-utils" ,rust-pin-utils)
         ("rust-proc-macro-hack" ,rust-proc-macro-hack)
         ("rust-proc-macro-nested"
@@ -6099,7 +6060,7 @@ and functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-memchr" ,rust-memchr))
+       (("rust-memchr" ,rust-memchr-2.2))
        #:cargo-development-inputs
        (("rust-arrayvec" ,rust-arrayvec))))
     (home-page
@@ -6765,7 +6726,7 @@ checking")
          ,rust-futures-select-macro-preview)
         ("rust-futures-sink-preview"
          ,rust-futures-sink-preview)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-pin-utils" ,rust-pin-utils)
         ("rust-proc-macro-hack" ,rust-proc-macro-hack)
         ("rust-proc-macro-nested"
@@ -9865,7 +9826,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-lexical-core" ,rust-lexical-core)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
@@ -9897,7 +9858,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-lexical-core" ,rust-lexical-core)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
@@ -9928,7 +9889,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-lexical-core" ,rust-lexical-core)
-        ("rust-memchr" ,rust-memchr-1)
+        ("rust-memchr" ,rust-memchr-1.0)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
@@ -9953,7 +9914,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-lexical-core" ,rust-lexical-core)
-        ("rust-memchr" ,rust-memchr-1)
+        ("rust-memchr" ,rust-memchr-1.0)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
@@ -11166,7 +11127,7 @@ shorthands for guards with one of the implemented strategies.")
        #:cargo-development-inputs
        (("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-quickcheck" ,rust-quickcheck))))
     (home-page "https://github.com/bluss/odds")
     (synopsis
@@ -18642,7 +18603,7 @@ inter-process communication.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if)
-        ("rust-memchr" ,rust-memchr))))
+        ("rust-memchr" ,rust-memchr-2.2))))
     (home-page
      "https://github.com/johnschug/cstr-argument")
     (synopsis
@@ -20848,7 +20809,7 @@ pitfalls in Rust")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-getopts" ,rust-getopts-0.2)
-        ("rust-memchr" ,rust-memchr)
+        ("rust-memchr" ,rust-memchr-2.2)
         ("rust-unicase" ,rust-unicase))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
