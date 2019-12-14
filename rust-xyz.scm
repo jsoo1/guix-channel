@@ -4389,20 +4389,18 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-futures-channel-preview"
-         ,rust-futures-channel-preview)
-        ("rust-futures-core-preview"
-         ,rust-futures-core-preview-0.3)
-        ("rust-futures-util-preview"
-         ,rust-futures-util-preview)
+       (("rust-futures-channel-preview" ,rust-futures-channel-preview)
+        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
+        ("rust-futures-util-preview" ,rust-futures-util-preview)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-pin-utils" ,rust-pin-utils))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
     (synopsis
-     "Executors for asynchronous tasks based on the futures-rs library")
+     "Executors for asynchronous tasks based on futures-rs")
     (description
-     "Executors for asynchronous tasks based on the futures-rs library.")
+     "Executors for asynchronous tasks based on the futures-rs
+library.")
     (license #f)))
 
 (define-public rust-futures-util-preview
