@@ -2635,7 +2635,7 @@ on the heap")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-rand-os" ,rust-rand-os)
+        ("rust-rand-os" ,rust-rand-os-0.2)
         ("rust-rand-xoshiro" ,rust-rand-xoshiro)
         ("rust-rayon" ,rust-rayon)
         ("rust-rayon-core" ,rust-rayon-core)
@@ -3396,7 +3396,8 @@ maps of many strings (> 1 billion is possible).")
      "Fast CSV parsing with support for serde.")
     (license #f)))
 
-(define-public rust-rand-os
+;; DO THESE DEPS
+(define-public rust-rand-os-0.2
   (package
     (name "rust-rand-os")
     (version "0.2.0")
@@ -3421,14 +3422,14 @@ maps of many strings (> 1 billion is possible).")
 
 (define-public rust-rand-os-0.1.3
   (package
-    (inherit rust-rand-os)
+    (inherit rust-rand-os-0.2)
     (version "0.1.3")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "rand_os" version))
        (file-name
-        (string-append (package-name rust-rand-os) "-" version ".tar.gz"))
+        (string-append (package-name rust-rand-os-0.2) "-" version ".tar.gz"))
        (sha256
         (base32
          "0wahppm0s64gkr2vmhcgwc0lij37in1lgfxg5rbgqlz0l5vgcxbv"))))
@@ -3866,7 +3867,7 @@ maps of many strings (> 1 billion is possible).")
      `(#:cargo-inputs
        (("rust-argon2rs" ,rust-argon2rs)
         ("rust-failure" ,rust-failure)
-        ("rust-rand-os" ,rust-rand-os)
+        ("rust-rand-os" ,rust-rand-os-0.2)
         ("rust-redox-syscall" ,rust-redox-syscall))))
     (home-page
      "https://gitlab.redox-os.org/redox-os/users")
