@@ -428,35 +428,9 @@ boundaries according to Unicode Standard Annex #29 rules.")
         (base32
          "0v8hh6wdkpk9my8z8442g4hqrqf05h0qj53dsay6mv18lqvqklda"))))))
 
-(define-public rust-clippy
-  (package
-    (name "rust-clippy")
-    (version "0.0.302")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "clippy" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1562x3sq9mgmc8j39gd34wqm7ybrdvpmj7cc1n450gwsawayw4fr"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-term" ,rust-term-0.5.1))))
-    (home-page
-     "https://github.com/rust-lang-nursery/rust-clippy")
-    (synopsis
-     "Lints to avoid common pitfalls in Rust")
-    (description
-     "This package provides a bunch of helpful lints to avoid common
-pitfalls in Rust.")
-    (license #f)))
-
 (define-public rust-clippy-0.0.103 ; Old - for racer
   (package
-    (inherit rust-clippy)
+    (inherit rust-clippy-0.0)
     (version "0.0.103")
     (source
      (origin
@@ -464,7 +438,7 @@ pitfalls in Rust.")
        (uri (crate-uri "clippy" version))
        (file-name
         (string-append
-         (package-name rust-clippy) "-" version ".tar.gz"))
+         (package-name rust-clippy-0.0) "-" version ".tar.gz"))
        (sha256
         (base32
          "0cpznss2fbb2im0yhmlw0k9cz5av9bd0l71w66d43xnxg7wsnksv"))))
@@ -488,7 +462,7 @@ pitfalls in Rust.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-clippy" ,rust-clippy)
+       (("rust-clippy" ,rust-clippy-0.0)
         ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-winapi" ,rust-winapi-0.3))))
@@ -618,7 +592,7 @@ integer keys.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-clippy" ,rust-clippy)
+       (("rust-clippy" ,rust-clippy-0.0)
         ("rust-linked-hash-map" ,rust-linked-hash-map))))
     (home-page
      "http://chyh1990.github.io/yaml-rust/")
@@ -1186,20 +1160,6 @@ indexmap.
         (base32
          "0hkgjrfisj6zjwz525639pmsvzhlc48a0h65nw87qrdp6jihdlgd"))))))
 
-(define-public rust-term-0.5.1
-  (package
-    (inherit rust-term-0.4)
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "term" version))
-       (file-name
-        (string-append (package-name rust-term-0.4) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0qbmqd8jbjlqr4608qdmvp6yin5ypifzi5s2xyhlw8g8s5ynfssy"))))))
-
 (define-public rust-hyphenation
   (package
     (name "rust-hyphenation")
@@ -1289,7 +1249,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-clippy" ,rust-clippy)
+       (("rust-clippy" ,rust-clippy-0.0)
         ("rust-heapsize" ,rust-heapsize)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-test" ,rust-serde-test-1.0))))
@@ -5658,7 +5618,7 @@ dependency to expose a precomputed hash.")
     (arguments
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-clippy" ,rust-clippy)
+        ("rust-clippy" ,rust-clippy-0.0)
         ("rust-constant-time-eq" ,rust-constant-time-eq))
        #:cargo-development-inputs
        (("rust-data-encoding" ,rust-data-encoding))))
@@ -6426,7 +6386,7 @@ immutable interval tree.")
          "0gvqycmpv7parc98i6y64ai7rvxrn1947z2a6maa02g4kvxdd55j"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-clippy" ,rust-clippy))))
+     `(#:cargo-inputs (("rust-clippy" ,rust-clippy-0.0))))
     (home-page "https://github.com/indiv0/lazycell")
     (synopsis
      "Lazily filled Cell struct")
@@ -7223,8 +7183,8 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-ascii" ,rust-ascii)
-        ("rust-clippy" ,rust-clippy))
+       (("rust-ascii" ,rust-ascii-0.9)
+        ("rust-clippy" ,rust-clippy-0.0))
        #:cargo-development-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3))))
     (home-page
@@ -12786,7 +12746,7 @@ testing harness")
         ("rust-expectest" ,rust-expectest)
         ("rust-rayon" ,rust-rayon))
        #:cargo-development-inputs
-       (("rust-clippy" ,rust-clippy))))
+       (("rust-clippy" ,rust-clippy-0.0))))
     (home-page "https://mackwic.github.io/rspec")
     (synopsis
      "Write Rspec-like tests with stable rust")
