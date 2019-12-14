@@ -6057,7 +6057,7 @@ reading and writing git repositories.")
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
         ("rust-indexmap" ,rust-indexmap-1.0)
-        ("rust-stable-deref-trait" ,rust-stable-deref-trait))
+        ("rust-stable-deref-trait" ,rust-stable-deref-trait-1.1))
        #:cargo-development-inputs
        (("rust-crossbeam" ,rust-crossbeam)
         ("rust-getopts" ,rust-getopts-0.2)
@@ -6255,30 +6255,6 @@ endian-aware Read/Write traits for byte buffers.")
      "https://github.com/sfackler/rust-openssl")
     (synopsis "FFI bindings to OpenSSL")
     (description "FFI bindings to OpenSSL")
-    (license #f)))
-
-(define-public rust-stable-deref-trait
-  (package
-    (name "rust-stable-deref-trait")
-    (version "1.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "stable_deref_trait" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1j2lkgakksmz4vc5hfawcch2ipiskrhjs1sih0f3br7s7rys58fv"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/storyyeller/stable_deref_trait")
-    (synopsis
-     "Unsafe marker trait")
-    (description
-     "An unsafe marker trait for types like Box and Rc that
-dereference to a stable address even when moved, and hence can be used
-with libraries such as owning_ref and rental.")
     (license #f)))
 
 (define-public rust-test-assembler
@@ -16212,7 +16188,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-rental-impl" ,rust-rental-impl)
         ("rust-stable-deref-trait"
-         ,rust-stable-deref-trait))))
+         ,rust-stable-deref-trait-1.1))))
     (home-page "https://github.com/jpernst/rental")
     (synopsis
      "A macro to generate safe self-referential structs, plus premade types for common use cases.")
@@ -17404,7 +17380,7 @@ for computer graphics.")
         ("rust-rustc-rayon" ,rust-rustc-rayon)
         ("rust-rustc-rayon-core" ,rust-rustc-rayon-core)
         ("rust-smallvec" ,rust-smallvec)
-        ("rust-stable-deref-trait" ,rust-stable-deref-trait))))
+        ("rust-stable-deref-trait" ,rust-stable-deref-trait-1.1))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
      "Automatically published version of rust-rustc-data-structures")
@@ -17444,7 +17420,7 @@ for computer graphics.")
         ("rust-rustc-rayon" ,rust-rustc-rayon)
         ("rust-rustc-rayon-core" ,rust-rustc-rayon-core)
         ("rust-smallvec" ,rust-smallvec)
-        ("rust-stable-deref-trait" ,rust-stable-deref-trait))))))
+        ("rust-stable-deref-trait" ,rust-stable-deref-trait-1.1))))))
 
 (define-public rust-rustc-ap-rustc-errors
   (package
