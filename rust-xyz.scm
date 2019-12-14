@@ -2743,7 +2743,7 @@ versa!")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-quick-error" ,rust-quick-error))
+       (("rust-quick-error" ,rust-quick-error-1.2))
        #:cargo-development-inputs
        (("rust-chrono" ,rust-chrono)
         ("rust-rand" ,rust-rand-0.4)
@@ -3907,28 +3907,6 @@ ArrayVec and ArrayString.")
      "Automatic cfg for Rust compiler features")
     (description
      "Automatic cfg for Rust compiler features")
-    (license #f)))
-
-(define-public rust-quick-error
-  (package
-    (name "rust-quick-error")
-    (version "1.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "quick-error" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1w6kgwwv7p7zr0yyg5rb315lkk24bimywklwx7fsvsbwi10bjx4j"))))
-    (build-system cargo-build-system)
-    (home-page
-     "http://github.com/tailhook/quick-error")
-    (synopsis
-     "A macro which makes error types pleasant to write")
-    (description
-     "A macro which makes error types pleasant to write.")
     (license #f)))
 
 (define-public rust-chrono
@@ -6424,7 +6402,7 @@ checking")
         ("rust-byteorder" ,rust-byteorder)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-num-traits" ,rust-num-traits)
-        ("rust-quick-error" ,rust-quick-error)
+        ("rust-quick-error" ,rust-quick-error-1.2)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-chacha" ,rust-rand-chacha)
         ("rust-rand-xorshift" ,rust-rand-xorshift)
@@ -21079,7 +21057,7 @@ directly.")
     (arguments
      `(#:cargo-inputs
        (("rust-fnv" ,rust-fnv)
-        ("rust-quick-error" ,rust-quick-error)
+        ("rust-quick-error" ,rust-quick-error-1.2)
         ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-wait-timeout" ,rust-wait-timeout))))
     (home-page
