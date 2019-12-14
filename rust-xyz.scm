@@ -7154,7 +7154,7 @@ directory and deleting all contents when it's dropped.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc)
+       (("rust-cc" ,rust-cc-1.0)
         ("rust-pkg-config" ,rust-pkg-config-0.3)
         ("rust-vcpkg" ,rust-vcpkg))))
     (home-page
@@ -7183,7 +7183,7 @@ directory and deleting all contents when it's dropped.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/alexcrichton/flate2-rs")
     (synopsis "Bindings to the miniz.c library")
@@ -7211,7 +7211,7 @@ directory and deleting all contents when it's dropped.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-miniz-oxide" ,rust-miniz-oxide))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/Frommi/miniz_oxide/")
     (synopsis
@@ -7737,35 +7737,6 @@ trace (backtrace) at runtime in a Rust program.")
 index")
     (license #f)))
 
-(define-public rust-cc
-  (package
-    (name "rust-cc")
-    (version "1.0.37")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cc" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0zby3adq7zdxpn4dnx1q2mv9rzs9ss7z4s111mb5gbxvsx25bxrr"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rayon" ,rust-rayon))
-       #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
-    (home-page
-     "https://github.com/alexcrichton/cc-rs")
-    (synopsis
-     "Invoke the native C compiler from Cargo")
-    (description
-     "This package provides a build-time dependency for Cargo build
-scripts to assist in invoking the native C compiler to compile native
-C code into a static archive to be linked into Rust code.")
-    (license #f)))
-
 (define-public rust-vcpkg
   (package
     (name "rust-vcpkg")
@@ -8018,7 +7989,7 @@ written in Rust, using gimli.")
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/alexcrichton/backtrace-rs")
     (synopsis
@@ -8046,7 +8017,7 @@ written in Rust, using gimli.")
        (("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/rust-lang-nursery/compiler-builtins")
     (synopsis
@@ -8444,7 +8415,7 @@ file formats.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cc" ,rust-cc)
+       (("rust-cc" ,rust-cc-1.0)
         ("rust-clap" ,rust-clap-2)
         ("rust-rustc-version" ,rust-rustc-version)
         ("rust-xdg" ,rust-xdg))
@@ -8577,7 +8548,7 @@ endian-aware Read/Write traits for byte buffers.")
         ("rust-libz-sys" ,rust-libz-sys)
         ("rust-openssl-sys" ,rust-openssl-sys))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc)
+       (("rust-cc" ,rust-cc-1.0)
         ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/rust-lang/git2-rs")
@@ -8629,7 +8600,7 @@ for OpenSSL")
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg)
-        ("rust-cc" ,rust-cc)
+        ("rust-cc" ,rust-cc-1.0)
         ("rust-openssl-src" ,rust-openssl-src)
         ("rust-pkg-config" ,rust-pkg-config-0.3)
         ("rust-vcpkg" ,rust-vcpkg))))
@@ -8659,7 +8630,7 @@ for OpenSSL")
         ("rust-vcpkg" ,rust-vcpkg))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg)
-        ("rust-cc" ,rust-cc)
+        ("rust-cc" ,rust-cc-1.0)
         ("rust-openssl-src" ,rust-openssl-src)
         ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
@@ -8900,7 +8871,7 @@ according to XDG Base Directory specification")
         ("rust-libz-sys" ,rust-libz-sys)
         ("rust-openssl-sys" ,rust-openssl-sys))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc)
+       (("rust-cc" ,rust-cc-1.0)
         ("rust-pkg-config" ,rust-pkg-config-0.3)
         ("rust-vcpkg" ,rust-vcpkg))))
     (home-page
@@ -8926,7 +8897,7 @@ according to XDG Base Directory specification")
          "15y7fdw33idbdc3y7dv3k87gdc2l4xn202mslkvzbgcls8qmzvak"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-cc" ,rust-cc))))
+     `(#:cargo-inputs (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/alexcrichton/openssl-src-rs")
     (synopsis
@@ -9605,7 +9576,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-pkg-config" ,rust-pkg-config-0.3)
-        ("rust-cc" ,rust-cc))))
+        ("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/BurntSushi/rust-pcre2")
     (synopsis "Low level bindings to PCRE2")
@@ -9753,7 +9724,7 @@ according to XDG Base Directory specification")
          "1w0zgqdbbhl9w6px7avc6d5p43clglrmjfdn2n26mdsli5n3i91c"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-cc" ,rust-cc))))
+     `(#:cargo-inputs (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/alexcrichton/cmake-rs")
     (synopsis
@@ -10084,7 +10055,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/nagisa/rust_libloading/")
     (synopsis
@@ -11035,7 +11006,7 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/RustCrypto/asm-hashes")
     (synopsis
@@ -13615,7 +13586,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/RustCrypto/asm-hashes")
     (synopsis
@@ -13945,7 +13916,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
         ("rust-web-sys" ,rust-web-sys)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc)
+       (("rust-cc" ,rust-cc-1.0)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-wasm-bindgen-test"
          ,rust-wasm-bindgen-test))))
@@ -14574,7 +14545,7 @@ client or server.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/alexcrichton/bzip2-rs")
     (synopsis
@@ -15045,7 +15016,7 @@ testing harness")
          "1j20nv9qyww9bjrxhgaj5a2dvc6ly44z040c2y90x213pvac1lzs"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-cc" ,rust-cc))))
+     `(#:cargo-inputs (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://gitlab.com/sequoia-pgp/nettle-sys")
     (synopsis
@@ -16098,7 +16069,7 @@ supports type parameters, associated types, and type constraints.")
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-caps" ,rust-caps)
-        ("rust-cc" ,rust-cc)
+        ("rust-cc" ,rust-cc-1.0)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-sysctl" ,rust-sysctl)
@@ -16132,7 +16103,7 @@ supports type parameters, associated types, and type constraints.")
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-caps" ,rust-caps)
-        ("rust-cc" ,rust-cc)
+        ("rust-cc" ,rust-cc-1.0)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-sysctl" ,rust-sysctl)
@@ -19556,7 +19527,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-bindgen" ,rust-bindgen-0.33))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page "https://github.com/rprichard/winpty")
     (synopsis "Rust winpty bindings")
     (description "Rust winpty bindings")
@@ -19632,7 +19603,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc))))
+       (("rust-cc" ,rust-cc-1.0))))
     (home-page
      "https://github.com/nabijaczleweli/vswhom-sys.rs")
     (synopsis
@@ -21255,7 +21226,7 @@ using a fork-like interface.")
         ("rust-log" ,rust-log-0.4)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-cc" ,rust-cc)
+       (("rust-cc" ,rust-cc-1.0)
         ("rust-rustc-version" ,rust-rustc-version))))
     (home-page
      "https://github.com/Xudong-Huang/generator-rs.git")
