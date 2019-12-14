@@ -5884,10 +5884,8 @@ library.")
     (build-system cargo-build-system)
     (home-page
      "https://github.com/rust-lang-nursery/pin-utils")
-    (synopsis "Utilities for pinning
-")
-    (description "Utilities for pinning
-")
+    (synopsis "Utilities for pinning")
+    (description "Utilities for pinning")
     (license #f)))
 
 (define-public rust-futures-io-preview
