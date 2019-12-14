@@ -4237,36 +4237,6 @@ proposed in RFC 1158.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (license #f)))
 
-(define-public rust-futures-executor-preview-0.3
-  (package
-    (name "rust-futures-executor-preview")
-    (version "0.3.0-alpha.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-executor-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "053g5kf2qa1xhdkwp3d1grrizzy4683mpbb3y0vvm00hwl7jdfl7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
-        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
-        ("rust-futures-util-preview" ,rust-futures-util-preview)
-        ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-pin-utils" ,rust-pin-utils))))
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "Executors for asynchronous tasks based on futures-rs")
-    (description
-     "Executors for asynchronous tasks based on the futures-rs
-library.")
-    (license #f)))
-
 (define-public rust-stdweb-derive
   (package
     (name "rust-stdweb-derive")
@@ -5647,7 +5617,7 @@ checking")
          ,rust-futures-select-macro-preview)
         ("rust-futures-sink-preview" ,rust-futures-sink-preview)
         ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-pin-utils" ,rust-pin-utils)
+        ("rust-pin-utils" ,rust-pin-utils-0.1)
         ("rust-proc-macro-hack" ,rust-proc-macro-hack)
         ("rust-proc-macro-nested" ,rust-proc-macro-nested)
         ("rust-rand" ,rust-rand-0.4)
@@ -5661,26 +5631,6 @@ checking")
     (description
      "Common utilities and extension traits for the futures-rs
 library.")
-    (license #f)))
-
-(define-public rust-pin-utils
-  (package
-    (name "rust-pin-utils")
-    (version "0.1.0-alpha.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pin-utils" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "11xmyx00n4m37d546by2rxb8ryxs12v55cc172i3yak1rqccd52q"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/rust-lang-nursery/pin-utils")
-    (synopsis "Utilities for pinning")
-    (description "Utilities for pinning")
     (license #f)))
 
 (define-public rust-futures-io-preview
