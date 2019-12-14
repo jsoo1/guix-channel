@@ -731,6 +731,7 @@ integer keys.")
 are updated when the crate version changes.")
     (license #f)))
 
+;; DO THESE DEPS
 (define-public rust-grep-printer-0.1
   (package
     (name "rust-grep-printer")
@@ -1669,6 +1670,7 @@ pairs in insertion order")
      "URL library for Rust, based on the WHATWG URL Standard")
     (license #f)))
 
+;; DO THESE DEPS
 (define-public rust-base64
   (package
     (name "rust-base64")
@@ -2743,6 +2745,7 @@ on the heap")
      "This package provides a case-insensitive wrapper around strings.")
     (license #f)))
 
+;; DO THESE DEPS
 (define-public rust-criterion
   (package
     (name "rust-criterion")
