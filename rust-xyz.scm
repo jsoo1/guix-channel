@@ -5939,7 +5939,7 @@ for other targets if necessary!")
         ("rust-cfg-if" ,rust-cfg-if-0.1))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
-        ("rust-diff" ,rust-diff)
+        ("rust-diff" ,rust-diff-0.1)
         ("rust-glob" ,rust-glob))))
     (home-page
      "https://github.com/gimli-rs/cpp_demangle")
@@ -6289,32 +6289,6 @@ immutable interval tree.")
     (description
      "This package provides a unified interface for parsing object
 file formats.")
-    (license #f)))
-
-(define-public rust-diff
-  (package
-    (name "rust-diff")
-    (version "0.1.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "diff" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0fhavni46a2rib93ig5fgbqmm48ysms5sxzb3h9bp7vp2bwnjarw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-speculate" ,rust-speculate-0.1))))
-    (home-page
-     "https://github.com/utkarshkukreti/diff.rs")
-    (synopsis
-     "LCS based slice and string diffing implementation")
-    (description
-     "An LCS based slice and string diffing implementation.")
     (license #f)))
 
 (define-public rust-plain
@@ -7156,7 +7130,7 @@ streams.")
         ("rust-which" ,rust-which))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
-        ("rust-diff" ,rust-diff)
+        ("rust-diff" ,rust-diff-0.1)
         ("rust-shlex" ,rust-shlex))))
     (home-page
      "https://rust-lang.github.io/rust-bindgen/")
@@ -7201,7 +7175,7 @@ streams.")
         ("rust-which" ,rust-which))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
-        ("rust-diff" ,rust-diff)
+        ("rust-diff" ,rust-diff-0.1)
         ("rust-shlex" ,rust-shlex))))
     (home-page
      "https://rust-lang.github.io/rust-bindgen/")
@@ -7245,7 +7219,7 @@ streams.")
         ("rust-which" ,rust-which-1))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
-        ("rust-diff" ,rust-diff)
+        ("rust-diff" ,rust-diff-0.1)
         ("rust-shlex" ,rust-shlex))))))
 
 (define-public rust-cmake
@@ -10770,7 +10744,7 @@ exposed as Reader/Writer streams.")
        (("rust-ascii-canvas" ,rust-ascii-canvas)
         ("rust-atty" ,rust-atty-0.2)
         ("rust-bit-set" ,rust-bit-set)
-        ("rust-diff" ,rust-diff)
+        ("rust-diff" ,rust-diff-0.1)
         ("rust-docopt" ,rust-docopt-1.1)
         ("rust-ena" ,rust-ena)
         ("rust-itertools" ,rust-itertools-0.8)
@@ -12321,7 +12295,7 @@ accessor functions on enums.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-diff" ,rust-diff)
+       (("rust-diff" ,rust-diff-0.1)
         ("rust-filetime" ,rust-filetime-0.2)
         ("rust-getopts" ,rust-getopts-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
