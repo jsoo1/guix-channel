@@ -56,7 +56,7 @@
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode)
+       (("rust-bincode" ,rust-bincode-1.1)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/serde-rs/bytes")
@@ -1651,13 +1651,13 @@ variable.")
     (arguments
      `(#:cargo-inputs
        (("rust-atlatl" ,rust-atlatl)
-        ("rust-bincode" ,rust-bincode)
+        ("rust-bincode" ,rust-bincode-1.1)
         ("rust-hyphenation-commons"
          ,rust-hyphenation-commons)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-atlatl" ,rust-atlatl)
-        ("rust-bincode" ,rust-bincode)
+        ("rust-bincode" ,rust-bincode-1.1)
         ("rust-hyphenation-commons"
          ,rust-hyphenation-commons)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -1726,7 +1726,7 @@ instantiate to generate your own pieces of pseudo-random text.")
        (("rust-rand-core" ,rust-rand-core)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode))))
+       (("rust-bincode" ,rust-bincode-1.1))))
     (home-page
      "https://crates.io/crates/rand_xorshift")
     (synopsis "Xorshift random number generator")
@@ -1753,7 +1753,7 @@ instantiate to generate your own pieces of pseudo-random text.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode))))))
+       (("rust-bincode" ,rust-bincode-1.1))))))
 
 
 (define-public rust-linked-hash-map
@@ -2048,7 +2048,7 @@ points, in a byte slice, fast")
         ("rust-packed-simd" ,rust-packed-simd)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode)
+       (("rust-bincode" ,rust-bincode-1.1)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json))))
     (home-page "https://docs.rs/encoding_rs/")
@@ -2194,7 +2194,7 @@ points, in a byte slice, fast")
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode))))
+       (("rust-bincode" ,rust-bincode-1.1))))
     (home-page
      "https://github.com/servo/rust-smallvec")
     (synopsis
@@ -2563,7 +2563,7 @@ retrieving random data from system source")
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg)
-        ("rust-bincode" ,rust-bincode))))
+        ("rust-bincode" ,rust-bincode-1.1))))
     (home-page "https://crates.io/crates/rand_pcg")
     (synopsis
      "Selected PCG random number generators")
@@ -2591,7 +2591,7 @@ retrieving random data from system source")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode))))))
+       (("rust-bincode" ,rust-bincode-1.1))))))
 
 (define-public rust-rand-isaac
   (package
@@ -2612,7 +2612,7 @@ retrieving random data from system source")
        (("rust-rand-core" ,rust-rand-core)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode))))
+       (("rust-bincode" ,rust-bincode-1.1))))
     (home-page "https://crates.io/crates/rand_isaac")
     (synopsis "ISAAC random number generator")
     (description "ISAAC random number generator")
@@ -2636,7 +2636,7 @@ retrieving random data from system source")
        (("rust-rand-core" ,rust-rand-core)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode))))))
+       (("rust-bincode" ,rust-bincode-1.1))))))
 
 (define-public rust-rand-xoshiro
   (package
@@ -2658,7 +2658,7 @@ retrieving random data from system source")
         ("rust-rand-core" ,rust-rand-core)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode))))
+       (("rust-bincode" ,rust-bincode-1.1))))
     (home-page
      "https://crates.io/crates/rand_xoshiro")
     (synopsis
@@ -2696,7 +2696,7 @@ retrieving random data from system source")
 can't ever panic.")
     (license #f)))
 
-(define-public rust-bincode
+(define-public rust-bincode-1.1
   (package
     (name "rust-bincode")
     (version "1.1.4")
@@ -3932,7 +3932,7 @@ ArrayVec and ArrayString.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode)
+       (("rust-bincode" ,rust-bincode-1.1)
         ("rust-doc-comment" ,rust-doc-comment)
         ("rust-num-iter" ,rust-num-iter)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
@@ -4768,7 +4768,7 @@ proposed in RFC 1158.")
        (("rust-lock-api" ,rust-lock-api-0.3)
         ("rust-parking-lot-core" ,rust-parking-lot-core-0.6))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode)
+       (("rust-bincode" ,rust-bincode-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rustc-version" ,rust-rustc-version))))
@@ -4799,7 +4799,7 @@ proposed in RFC 1158.")
        (("rust-lock-api" ,rust-lock-api)
         ("rust-parking-lot-core" ,rust-parking-lot-core))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode)
+       (("rust-bincode" ,rust-bincode-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rustc-version" ,rust-rustc-version))))
@@ -4830,7 +4830,7 @@ proposed in RFC 1158.")
        (("rust-lock-api" ,rust-lock-api-0.1)
         ("rust-parking-lot-core" ,rust-parking-lot-core-0.4))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode)
+       (("rust-bincode" ,rust-bincode-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rustc-version" ,rust-rustc-version))))
@@ -8626,7 +8626,7 @@ streams.")
         ("rust-slog" ,rust-slog)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode)
+       (("rust-bincode" ,rust-bincode-1.1)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-serde-test" ,rust-serde-test-1.0))))
@@ -10232,7 +10232,7 @@ according to XDG Base Directory specification")
        (("rust-serde" ,rust-serde-1.0)
         ("rust-typenum" ,rust-typenum))
        #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode)
+       (("rust-bincode" ,rust-bincode-1.1)
         ("rust-serde-json" ,rust-serde-json))))
     (home-page
      "https://github.com/fizyk20/generic-array.git")
@@ -11739,7 +11739,7 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
-        ("rust-bincode" ,rust-bincode)
+        ("rust-bincode" ,rust-bincode-1.1)
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-bs58" ,rust-bs58)
         ("rust-byteorder" ,rust-byteorder)
