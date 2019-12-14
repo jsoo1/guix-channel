@@ -65,7 +65,7 @@
     (description
      "Serde adapter that avoids stack overflow by dynamically growing
 the stack.")
-    (license #f)) )
+    (license #f)))
 
 (define-public rust-serde-yaml
   (package
@@ -757,7 +757,7 @@ are updated when the crate version changes.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-termcolor" ,rust-termcolor-1.0))
        #:cargo-development-inputs
-       (("rust-grep-regex" ,rust-grep-regex))))
+       (("rust-grep-regex" ,rust-grep-regex)))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
@@ -823,7 +823,7 @@ standard printing of search results, similar to grep itself.")
         ("rust-memmap" ,rust-memmap-0.7))
        #:cargo-development-inputs
        (("rust-grep-regex" ,rust-grep-regex)
-        ("rust-regex" ,rust-regex-1.1))))
+        ("rust-regex" ,rust-regex-1.1)))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
@@ -3524,7 +3524,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-ryu" ,rust-ryu-1.0)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde" ,rust-serde-1.0))))
+       (("rust-serde" ,rust-serde-1.0)))))
     (home-page
      "https://github.com/BurntSushi/rust-csv")
     (synopsis
@@ -5825,12 +5825,6 @@ checking")
      `(#:cargo-inputs (("rust-futures" ,rust-futures-0.1))))
     (home-page
      "https://github.com/carllerche/tokio-mock-task")
-    (synopsis "Mock a Tokio task
-")
-    (description "Mock a Tokio task
-")
-    (license #f)))
-
 (define-public rust-futures-core-preview
   (package
     (name "rust-futures-core-preview")
