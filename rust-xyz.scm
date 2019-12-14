@@ -922,29 +922,6 @@ matching branch is the item that gets emitted.")
         (base32
          "19f8v503ibvlyr824g5ynicrh1lsmp2i0zmpszr8lqay0qw3vkl1"))))))
 
-(define-public rust-regex-syntax-0.6
-  (package
-    (name "rust-regex-syntax")
-    (version "0.6.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "regex-syntax" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0j0x5vdz3xvs1j138349pdq5hxf5xkh6528j0rzs3qzrhq342xlx"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-ucd-util" ,rust-ucd-util-0.1))))
-    (home-page "https://github.com/rust-lang/regex")
-    (synopsis "regular expression parser")
-    (description
-     "This package provides a regular expression parser.")
-    (license #f)))
-
 (define-public rust-regex-syntax-0.5
   (package
     (inherit rust-regex-syntax-0.6)
