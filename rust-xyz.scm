@@ -5582,10 +5582,10 @@ checking")
        (("rust-futures" ,rust-futures-0.1)
         ("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
-        ("rust-futures-io-preview" ,rust-futures-io-preview)
+        ("rust-futures-io-preview" ,rust-futures-io-preview-0.3)
         ("rust-futures-select-macro-preview"
-         ,rust-futures-select-macro-preview)
-        ("rust-futures-sink-preview" ,rust-futures-sink-preview)
+         ,rust-futures-select-macro-preview-0.3)
+        ("rust-futures-sink-preview" ,rust-futures-sink-preview-0.3)
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-pin-utils" ,rust-pin-utils-0.1)
         ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5)
@@ -5601,87 +5601,6 @@ checking")
     (description
      "Common utilities and extension traits for the futures-rs
 library.")
-    (license #f)))
-
-(define-public rust-futures-io-preview
-  (package
-    (name "rust-futures-io-preview")
-    (version "0.3.0-alpha.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-io-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0fhvwhdb8ywjjbfng0ra1r8yyc9yzpyxg9sv3spb3f7w0lk40bh8"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "AsyncRead and AsyncWrite traits for the futures-rs library")
-    (description
-     "The @code{AsyncRead} and @code{AsyncWrite} traits for the
-futures-rs library.")
-    (license #f)))
-
-(define-public rust-futures-select-macro-preview
-  (package
-    (name "rust-futures-select-macro-preview")
-    (version "0.3.0-alpha.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-select-macro-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1a90ivjzkgz7msiz5si05xzi8xwsk5gar1gkrbmrgqpgkliqd7a6"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro-hack" ,rust-proc-macro-hack)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "Handle the first Future to complete")
-    (description
-     "The @code{select!} macro for waiting on multiple different
-@code{Future}s at once and handling the first one to complete.")
-    (license #f)))
-
-(define-public rust-futures-sink-preview
-  (package
-    (name "rust-futures-sink-preview")
-    (version "0.3.0-alpha.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-sink-preview" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1r4d0gy73hdxkh5g1lrhl1kjnwp6mywjgcj70v0z78b921da42a3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
-        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3))))
-    (home-page
-     "https://rust-lang-nursery.github.io/futures-rs")
-    (synopsis
-     "Asynchronous Sink trait for the futures-rs library")
-    (description
-     "The asynchronous @code{Sink} trait for the futures-rs library.")
     (license #f)))
 
 (define-public rust-proc-macro-nested
@@ -12594,8 +12513,8 @@ implementation of TLS for nonblocking I/O streams.")
         ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
         ("rust-futures-executor-preview"
          ,rust-futures-executor-preview-0.3)
-        ("rust-futures-io-preview" ,rust-futures-io-preview)
-        ("rust-futures-sink-preview" ,rust-futures-sink-preview)
+        ("rust-futures-io-preview" ,rust-futures-io-preview-0.3)
+        ("rust-futures-sink-preview" ,rust-futures-sink-preview-0.3)
         ("rust-futures-util-preview" ,rust-futures-util-preview))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
@@ -12627,7 +12546,7 @@ composability, and iterator-like interfaces.")
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-futures-sink-preview"
-         ,rust-futures-sink-preview)
+         ,rust-futures-sink-preview-0.3)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
         ("rust-http" ,rust-http)
@@ -12733,7 +12652,7 @@ response body.")
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-futures-sink-preview"
-         ,rust-futures-sink-preview)
+         ,rust-futures-sink-preview-0.3)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
         ("rust-iovec" ,rust-iovec)
