@@ -38,7 +38,7 @@
         ("rust-bincode" ,rust-bincode)
         ("rust-bs58" ,rust-bs58)
         ("rust-chrono" ,rust-chrono)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-dirs" ,rust-dirs-1)
         ("rust-env-logger" ,rust-env-logger)

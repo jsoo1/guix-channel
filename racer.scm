@@ -33,7 +33,7 @@
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-0.7)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-clippy" ,rust-clippy-0.0.103)
         ("rust-clippy-lints" ,rust-clippy-lints-0.0.103)
         ("rust-derive-more" ,rust-derive-more-0.13)

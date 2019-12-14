@@ -3406,7 +3406,7 @@ implemented using Heap's algorithm.")
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
         ("rust-cast" ,rust-cast)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-criterion-plot" ,rust-criterion-plot)
         ("rust-csv" ,rust-csv)
         ("rust-itertools" ,rust-itertools)
@@ -8196,7 +8196,7 @@ based on miniz.")
         ("rust-smallvec" ,rust-smallvec))
        #:cargo-development-inputs
        (("rust-backtrace" ,rust-backtrace)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-findshlibs" ,rust-findshlibs)
         ("rust-memmap" ,rust-memmap)
         ("rust-rustc-test" ,rust-rustc-test))))
@@ -8288,7 +8288,7 @@ for other targets if necessary!")
        (("rust-afl" ,rust-afl)
         ("rust-cfg-if" ,rust-cfg-if))
        #:cargo-development-inputs
-       (("rust-clap" ,rust-clap)
+       (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff)
         ("rust-glob" ,rust-glob))))
     (home-page
@@ -8658,7 +8658,7 @@ file formats.")
     (arguments
      `(#:cargo-inputs
        (("rust-cc" ,rust-cc)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-rustc-version" ,rust-rustc-version)
         ("rust-xdg" ,rust-xdg))
        #:cargo-development-inputs
@@ -9845,7 +9845,7 @@ according to XDG Base Directory specification")
         ("rust-cexpr" ,rust-cexpr)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-clang-sys" ,rust-clang-sys)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger)
         ("rust-fxhash" ,rust-fxhash)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -9858,7 +9858,7 @@ according to XDG Base Directory specification")
         ("rust-shlex" ,rust-shlex)
         ("rust-which" ,rust-which))
        #:cargo-development-inputs
-       (("rust-clap" ,rust-clap)
+       (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff)
         ("rust-shlex" ,rust-shlex))))
     (home-page
@@ -9889,7 +9889,7 @@ according to XDG Base Directory specification")
         ("rust-cexpr" ,rust-cexpr)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-clang-sys" ,rust-clang-sys-0.26.4)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger)
         ("rust-fxhash" ,rust-fxhash)
         ("rust-hashbrown" ,rust-hashbrown-0.1)
@@ -9903,7 +9903,7 @@ according to XDG Base Directory specification")
         ("rust-shlex" ,rust-shlex)
         ("rust-which" ,rust-which))
        #:cargo-development-inputs
-       (("rust-clap" ,rust-clap)
+       (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff)
         ("rust-shlex" ,rust-shlex))))
     (home-page
@@ -9933,7 +9933,7 @@ according to XDG Base Directory specification")
         ("rust-cexpr" ,rust-cexpr-0.2)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-clang-sys" ,rust-clang-sys-0.22)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.5)
         ("rust-fxhash" ,rust-fxhash)
         ("rust-hashbrown" ,rust-hashbrown-0.1)
@@ -9947,7 +9947,7 @@ according to XDG Base Directory specification")
         ("rust-shlex" ,rust-shlex)
         ("rust-which" ,rust-which-1))
        #:cargo-development-inputs
-       (("rust-clap" ,rust-clap)
+       (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff)
         ("rust-shlex" ,rust-shlex))))))
 
@@ -11975,44 +11975,6 @@ creation from raw pointers and start, end pointer accessors.
      "Macro for opaque Debug trait implementation")
     (license #f)))
 
-(define-public rust-clap
-  (package
-    (name "rust-clap")
-    (version "2.33.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "clap" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1nf6ld3bims1n5vfzhkvcb55pdzh04bbhzf8nil5vvw05nxzarsh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-ansi-term" ,rust-ansi-term)
-        ("rust-atty" ,rust-atty-0.2)
-        ("rust-bitflags" ,rust-bitflags-1)
-        ("rust-clippy" ,rust-clippy)
-        ("rust-strsim" ,rust-strsim-0.8)
-        ("rust-term-size" ,rust-term-size-0.3)
-        ("rust-textwrap" ,rust-textwrap)
-        ("rust-unicode-width" ,rust-unicode-width-0.1)
-        ("rust-vec-map" ,rust-vec-map)
-        ("rust-yaml-rust" ,rust-yaml-rust-0.3))
-       #:cargo-development-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-regex" ,rust-regex)
-        ("rust-version-sync" ,rust-version-sync))))
-    (home-page "https://clap.rs/")
-    (synopsis
-     "simple to use, efficient, and full-featured Command Line Argument Parser")
-    (description
-     "This package provides a simple to use, efficient, and full-featured
-Command Line Argument Parser.")
-    (license #f)))
-
 (define-public rust-insta
   (package
     (name "rust-insta")
@@ -13459,7 +13421,7 @@ types.  The Client can be used for other queries.")
         ("rust-rle-decode-fast" ,rust-rle-decode-fast)
         ("rust-take-mut" ,rust-take-mut))
        #:cargo-development-inputs
-       (("rust-clap" ,rust-clap))))
+       (("rust-clap" ,rust-clap-2))))
     (home-page "https://github.com/sile/libflate")
     (synopsis
      "A Rust implementation of DEFLATE algorithm and related formats (ZLIB, GZIP)")
@@ -20056,7 +20018,7 @@ for computer graphics.")
      `(#:tests? #f
        #:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
@@ -21154,7 +21116,7 @@ pitfalls in Rust")
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json))
        #:cargo-development-inputs
-       (("rust-clap" ,rust-clap)
+       (("rust-clap" ,rust-clap-2)
         ("rust-docopt" ,rust-docopt)
         ("rust-structopt" ,rust-structopt))))
     (home-page
@@ -21261,7 +21223,7 @@ pitfalls in Rust")
     (arguments
      `(#:tests? #f ; FIXME Tests fail
        #:cargo-inputs
-       (("rust-clap" ,rust-clap)
+       (("rust-clap" ,rust-clap-2)
         ("rust-structopt-derive" ,rust-structopt-derive))
        #:cargo-development-inputs
        (("rust-trybuild" ,rust-trybuild)

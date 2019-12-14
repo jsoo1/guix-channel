@@ -63,7 +63,7 @@
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
         ("rust-cgl" ,rust-cgl-0.2)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-clipboard-win" ,rust-clipboard-win)
         ("rust-core-text" ,rust-core-text)
         ("rust-crossbeam-channel" ,rust-crossbeam-channel)

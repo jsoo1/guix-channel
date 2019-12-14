@@ -23,7 +23,7 @@
     (arguments
      `(#:cargo-inputs
        (("rust-bstr" ,rust-bstr-0.1)
-        ("rust-clap" ,rust-clap)
+        ("rust-clap" ,rust-clap-2)
         ("rust-grep" ,rust-grep)
         ("rust-ignore" ,rust-ignore)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -35,7 +35,7 @@
         ("rust-wincolor" ,rust-wincolor)
         ("rust-quote" ,rust-quote-0.6))
        #:cargo-development-inputs
-       (("rust-clap" ,rust-clap)
+       (("rust-clap" ,rust-clap-2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-serde" ,rust-serde)
         ("rust-serde-derive" ,rust-serde-derive))))
