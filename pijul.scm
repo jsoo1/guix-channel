@@ -69,7 +69,7 @@
         ("rust-rpassword" ,rust-rpassword-2.1.0)
         ("rust-sequoia-openpgp" ,rust-sequoia-openpgp-0.9.0)
         ("rust-serde" ,rust-serde)
-        ("rust-serde-derive" ,rust-serde-derive)
+        ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-shell-escape" ,rust-shell-escape)
         ("rust-tar" ,rust-tar-0.4)
         ("rust-tempfile" ,rust-tempfile-3.0)

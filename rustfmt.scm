@@ -40,7 +40,7 @@
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.1.1)
         ("rust-regex" ,rust-regex-0.2)
         ("rust-serde" ,rust-serde)
-        ("rust-serde-derive" ,rust-serde-derive)
+        ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-strings" ,rust-strings)
         ("rust-syntex-errors" ,rust-syntex-errors)

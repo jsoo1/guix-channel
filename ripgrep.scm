@@ -38,7 +38,7 @@
        (("rust-clap" ,rust-clap-2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-serde" ,rust-serde)
-        ("rust-serde-derive" ,rust-serde-derive))))
+        ("rust-serde-derive" ,rust-serde-derive-1.0))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
