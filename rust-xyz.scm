@@ -141,7 +141,7 @@ the stack.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-half" ,rust-half)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -367,7 +367,7 @@ properties according to Unicode Standard Annex #31.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-regex-syntax" ,rust-regex-syntax)
         ("rust-utf8-ranges" ,rust-utf8-ranges))
        #:cargo-development-inputs
@@ -1369,7 +1369,7 @@ indexmap.
      "This package provides a simple Windows specific API for controlling text color in a Windows console.")
     (license #f)))
 
-(define-public rust-byteorder
+(define-public rust-byteorder-1.3
   (package
     (name "rust-byteorder")
     (version "1.3.2")
@@ -1973,7 +1973,7 @@ pairs in insertion order")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder))
+       (("rust-byteorder" ,rust-byteorder-1.3))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
         ("rust-rand" ,rust-rand-0.4))))
@@ -2500,7 +2500,7 @@ retrieving random data from system source")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-keystream" ,rust-keystream))))
     (home-page "https://github.com/PeterReid/chacha")
     (synopsis "ChaCha stream ciphers")
@@ -2654,7 +2654,7 @@ retrieving random data from system source")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-rand-core" ,rust-rand-core)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -2714,7 +2714,7 @@ can't ever panic.")
     (arguments
      `(#:cargo-inputs
        (("rust-autocfg" ,rust-autocfg-0.1)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-bytes" ,rust-serde-bytes)
@@ -3996,7 +3996,7 @@ ArrayVec and ArrayString.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-memmap" ,rust-memmap))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv)
@@ -4053,7 +4053,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-cast" ,rust-cast)
         ("rust-itertools" ,rust-itertools))
        #:cargo-development-inputs
@@ -6329,7 +6329,7 @@ checking")
      `(#:cargo-inputs
        (("rust-bit-set" ,rust-bit-set)
         ("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-quick-error" ,rust-quick-error-1.2)
@@ -8143,7 +8143,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-fallible-iterator" ,rust-fallible-iterator)
         ("rust-indexmap" ,rust-indexmap)
         ("rust-stable-deref-trait" ,rust-stable-deref-trait))
@@ -8341,7 +8341,7 @@ reinterpret data of certain types safely.")
      `(#:cargo-inputs
        (("rust-scroll-derive" ,rust-scroll-derive))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-rayon" ,rust-rayon)
         ("rust-rustc-version" ,rust-rustc-version))))
     (home-page "https://github.com/m4b/scroll")
@@ -8525,7 +8525,7 @@ with libraries such as owning_ref and rental.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder))))
+       (("rust-byteorder" ,rust-byteorder-1.3))))
     (home-page
      "https://github.com/luser/rust-test-assembler")
     (synopsis
@@ -8598,7 +8598,7 @@ streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-md5" ,rust-md5)
         ("rust-rand" ,rust-rand-0.6)
         ("rust-serde" ,rust-serde-1.0)
@@ -9662,7 +9662,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder))
+       (("rust-byteorder" ,rust-byteorder-1.3))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv)
         ("rust-seahash" ,rust-seahash))))
@@ -10029,7 +10029,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-ppv-lite86" ,rust-ppv-lite86)
         ("rust-stream-cipher" ,rust-stream-cipher))
@@ -10129,7 +10129,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-ppv-lite86" ,rust-ppv-lite86)
         ("rust-stream-cipher" ,rust-stream-cipher))
@@ -10182,9 +10182,9 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder))
+       (("rust-byteorder" ,rust-byteorder-1.3))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-hex" ,rust-hex-0.3))))
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis
@@ -10592,7 +10592,7 @@ dependency.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-either" ,rust-either)
         ("rust-iovec" ,rust-iovec)
         ("rust-serde" ,rust-serde-1.0))
@@ -10727,7 +10727,7 @@ shorthands for guards with one of the implemented strategies.")
      `(#:cargo-inputs
        (("rust-block-padding" ,rust-block-padding)
         ("rust-byte-tools" ,rust-byte-tools)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-generic-array" ,rust-generic-array-0.12.3))))
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis
@@ -11722,7 +11722,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-bincode" ,rust-bincode-1.1)
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-bs58" ,rust-bs58)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-diffs" ,rust-diffs)
         ("rust-failure" ,rust-failure)
@@ -12077,7 +12077,7 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
@@ -12144,7 +12144,7 @@ _getch on Windows, and termios on Unix.")
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
         ("rust-bit-vec" ,rust-bit-vec-0.4)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-dirs" ,rust-dirs)
         ("rust-futures" ,rust-futures-0.1)
@@ -12784,7 +12784,7 @@ and private (encrypted + signed) jars.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-winapi" ,rust-winapi-0.3)
         ("rust-ws2-32-sys" ,rust-ws2-32-sys-0.2))))
@@ -15456,7 +15456,7 @@ functions.")
         ("rust-wayland-scanner" ,rust-wayland-scanner)
         ("rust-wayland-sys" ,rust-wayland-sys))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page
      "https://github.com/smithay/wayland-rs")
@@ -15492,7 +15492,7 @@ functions.")
         ("rust-wayland-scanner" ,rust-wayland-scanner-0.21)
         ("rust-wayland-sys" ,rust-wayland-sys-0.21))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-tempfile" ,rust-tempfile-3.0))))))
 
 (define-public rust-winit
@@ -15676,7 +15676,7 @@ functions.")
         ("rust-wayland-protocols"
          ,rust-wayland-protocols))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-image" ,rust-image)
         ("rust-wayland-client" ,rust-wayland-client))))
     (home-page
@@ -15711,7 +15711,7 @@ functions.")
         ("rust-wayland-client" ,rust-wayland-client)
         ("rust-wayland-protocols" ,rust-wayland-protocols-0.21))
        #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-image" ,rust-image)
         ("rust-wayland-client" ,rust-wayland-client))))))
 
@@ -15757,7 +15757,7 @@ functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-gif" ,rust-gif)
         ("rust-jpeg-decoder" ,rust-jpeg-decoder)
         ("rust-num-iter" ,rust-num-iter)
@@ -15795,7 +15795,7 @@ functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-gif" ,rust-gif)
         ("rust-jpeg-decoder" ,rust-jpeg-decoder)
         ("rust-num-iter" ,rust-num-iter)
@@ -16483,7 +16483,7 @@ supports type parameters, associated types, and type constraints.")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-failure" ,rust-failure)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-walkdir" ,rust-walkdir-2.2))))
@@ -16765,7 +16765,7 @@ hardware font rendering.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder))))
+       (("rust-byteorder" ,rust-byteorder-1.3))))
     (home-page
      "https://github.com/rust-lang-nursery/rustc-hash")
     (synopsis
@@ -16790,7 +16790,7 @@ hardware font rendering.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-libm" ,rust-libm))
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx))))
@@ -17691,7 +17691,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-rayon" ,rust-rayon))
        #:cargo-development-inputs
        (("rust-png" ,rust-png)
@@ -17778,7 +17778,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder)
+       (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-lzw" ,rust-lzw)
         ("rust-num-derive" ,rust-num-derive)
         ("rust-num-traits" ,rust-num-traits-0.2))
@@ -17871,7 +17871,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-adler32" ,rust-adler32)
-        ("rust-byteorder" ,rust-byteorder)
+        ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-gzip-header" ,rust-gzip-header))
        #:cargo-development-inputs
        (("rust-miniz-oxide" ,rust-miniz-oxide))))
