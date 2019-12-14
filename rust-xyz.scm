@@ -177,38 +177,6 @@ the stack.")
     (description "Big array helper for serde.")
     (license #f)))
 
-(define-public rust-bstr
-  (package
-    (name "rust-bstr")
-    (version "0.2.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bstr" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0prq6yk3da0k5bg2czcgg1i4ynsq1l59xc89ycsv6v7p08p5gh3c"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memchr" ,rust-memchr)
-        ("rust-regex-automata" ,rust-regex-automata)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck)
-        ("rust-ucd-parse" ,rust-ucd-parse)
-        ("rust-unicode-segmentation" ,rust-unicode-segmentation))))
-    (home-page "https://github.com/BurntSushi/bstr")
-    (synopsis
-     "String type that is not required to be valid UTF-8")
-    (description
-     "This package provides a string type that is not required to be
-valid UTF-8.")
-    (license #f)))
-
 (define-public rust-grep
   (package
     (name "rust-grep")
@@ -910,7 +878,7 @@ are updated when the crate version changes.")
     (arguments
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
-        ("rust-bstr" ,rust-bstr)
+        ("rust-bstr" ,rust-bstr-0.2
         ("rust-globset" ,rust-globset)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
@@ -995,7 +963,7 @@ focus on line oriented search.")
     (arguments
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
-        ("rust-bstr" ,rust-bstr)
+        ("rust-bstr" ,rust-bstr-0.2
         ("rust-grep-matcher" ,rust-grep-matcher)
         ("rust-grep-searcher" ,rust-grep-searcher)
         ("rust-serde" ,rust-serde-1.0)
@@ -1060,7 +1028,7 @@ standard printing of search results, similar to grep itself.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bstr" ,rust-bstr)
+       (("rust-bstr" ,rust-bstr-0.2
         ("rust-bytecount" ,rust-bytecount)
         ("rust-encoding-rs" ,rust-encoding-rs)
         ("rust-encoding-rs-io" ,rust-encoding-rs-io)
@@ -1124,7 +1092,7 @@ standard printing of search results, similar to grep itself.")
     (arguments
      `(#:cargo-inputs
        (("rust-aho-corasick" ,rust-aho-corasick)
-        ("rust-bstr" ,rust-bstr)
+        ("rust-bstr" ,rust-bstr-0.2
         ("rust-fnv" ,rust-fnv)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex))
@@ -4398,7 +4366,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bstr" ,rust-bstr)
+       (("rust-bstr" ,rust-bstr-0.2
         ("rust-csv-core" ,rust-csv-core)
         ("rust-itoa" ,rust-itoa)
         ("rust-ryu" ,rust-ryu)
