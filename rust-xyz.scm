@@ -814,7 +814,7 @@ standard printing of search results, similar to grep itself.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils)
+       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-smallvec" ,rust-smallvec))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
@@ -1709,36 +1709,9 @@ points, in a byte slice, fast")
     (description "Command line argument parsing.")
     (license #f)))
 
-(define-public rust-crossbeam-utils
-  (package
-    (name "rust-crossbeam-utils")
-    (version "0.6.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crossbeam-utils" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0p5aa8k3wpsn17md4rx038ac2azm9354knbxdfvn7dd7yk76yc7q"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-lazy-static" ,rust-lazy-static-1.3))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-utils")
-    (synopsis "Utilities for concurrent programming")
-    (description
-     "Utilities for concurrent programming")
-    (license #f)))
-
 (define-public rust-crossbeam-utils-0.2
   (package
-    (inherit rust-crossbeam-utils)
+    (inherit rust-crossbeam-utils-0.6)
     (version "0.2.2")
     (source
      (origin
@@ -1746,7 +1719,7 @@ points, in a byte slice, fast")
        (uri (crate-uri "crossbeam-utils" version))
        (file-name
         (string-append
-         (package-name rust-crossbeam-utils) "-" version ".tar.gz"))
+         (package-name rust-crossbeam-utils-0.6) "-" version ".tar.gz"))
        (sha256
         (base32
          "1n8qr52sw9y6yxzyfxi1phh55rsxms7ry4iipdd8vmd16ag8jq17"))))))
@@ -2970,7 +2943,7 @@ require unstable language features.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils)
+       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
@@ -3474,7 +3447,7 @@ maps of many strings (> 1 billion is possible).")
      `(#:cargo-inputs
        (("rust-crossbeam-deque" ,rust-crossbeam-deque)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-num-cpus" ,rust-num-cpus-1.10))
        #:cargo-development-inputs
@@ -3946,7 +3919,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-development-inputs
        (("rust-crossbeam" ,rust-crossbeam)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-model" ,rust-model)
@@ -4068,7 +4041,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils)
+       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-futures" ,rust-futures-0.1))
        #:cargo-development-inputs
        (("rust-tokio" ,rust-tokio))))
@@ -4422,7 +4395,7 @@ the current thread.")
      `(#:cargo-inputs
        (("rust-crossbeam-deque" ,rust-crossbeam-deque)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
@@ -4457,7 +4430,7 @@ thread pool.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils)
+       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-slab" ,rust-slab-0.4)
         ("rust-tokio-executor" ,rust-tokio-executor))
@@ -4931,7 +4904,7 @@ Levenshtein automata.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-epoch" ,rust-crossbeam-epoch)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils))
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
     (home-page
@@ -4970,7 +4943,7 @@ Levenshtein automata.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.3)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils))
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
 
@@ -4990,7 +4963,7 @@ Levenshtein automata.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils))
+       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
     (home-page
@@ -5932,7 +5905,7 @@ with proven statistical guarantees.")
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memoffset" ,rust-memoffset)
         ("rust-scopeguard" ,rust-scopeguard-0.3))
@@ -9705,7 +9678,7 @@ creation from raw pointers and start, end pointer accessors.
         ("rust-crossbeam-deque" ,rust-crossbeam-deque)
         ("rust-crossbeam-epoch" ,rust-crossbeam-epoch)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils))
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
     (home-page
@@ -12524,7 +12497,7 @@ response body.")
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes-0.4)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
         ("rust-futures-sink-preview"
@@ -15142,7 +15115,7 @@ supports type parameters, associated types, and type constraints.")
        (("rust-approx" ,rust-approx)
         ("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-libm" ,rust-libm)
         ("rust-linked-hash-map" ,rust-linked-hash-map)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
@@ -18475,7 +18448,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-ena" ,rust-ena)
         ("rust-indexmap" ,rust-indexmap)
         ("rust-jobserver" ,rust-jobserver)
@@ -18515,7 +18488,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils)
+        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-ena" ,rust-ena)
         ("rust-indexmap" ,rust-indexmap)
         ("rust-jobserver" ,rust-jobserver)
@@ -19871,7 +19844,7 @@ function's body.")
      `(#:cargo-inputs
        (("rust-parking-lot" ,rust-parking-lot))
        #:cargo-development-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils)
+       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1))))
     (home-page
