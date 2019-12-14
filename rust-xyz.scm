@@ -209,38 +209,6 @@ the stack.")
 valid UTF-8.")
     (license #f)))
 
-(define-public rust-bstr-0.1
-  (package
-    (name "rust-bstr")
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bstr" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0nzi9vqhl56ws8gq39f3aj4qjrr4l3g5lbkkcj8xq1x4cb74wq2r"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memchr" ,rust-memchr)
-        ("rust-regex-automata" ,rust-regex-automata)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck)
-        ("rust-ucd-parse" ,rust-ucd-parse)
-        ("rust-unicode-segmentation" ,rust-unicode-segmentation))))
-    (home-page "https://github.com/BurntSushi/bstr")
-    (synopsis
-     "string type that is not required to be valid UTF-8")
-    (description
-     "This package provides a string type that is not required to be
-valid UTF-8.")
-    (license #f)))
-
 (define-public rust-grep
   (package
     (name "rust-grep")
