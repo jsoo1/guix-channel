@@ -239,7 +239,7 @@ ignore files such as `.gitignore` against file paths.")
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex-syntax" ,rust-regex-syntax-0.5)
         ("rust-thread-local" ,rust-thread-local-0.3)
-        ("rust-utf8-ranges" ,rust-utf8-ranges))
+        ("rust-utf8-ranges" ,rust-utf8-ranges-1.0))
        #:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -341,7 +341,7 @@ properties according to Unicode Standard Annex #31.")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
-        ("rust-utf8-ranges" ,rust-utf8-ranges))
+        ("rust-utf8-ranges" ,rust-utf8-ranges-1.0))
        #:cargo-development-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1)
@@ -789,7 +789,7 @@ standard printing of search results, similar to grep itself.")
         ("rust-regex" ,rust-regex-1.1)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-thread-local" ,rust-thread-local-0.3)
-        ("rust-utf8-ranges" ,rust-utf8-ranges))))
+        ("rust-utf8-ranges" ,rust-utf8-ranges-1.0))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
@@ -949,32 +949,6 @@ matching branch is the item that gets emitted.")
        (sha256
         (base32
          "0ms9hgdhhsxw9w920i7gipydvagf100bb56jbs192rz86ln01v7r"))))))
-
-(define-public rust-utf8-ranges
-  (package
-    (name "rust-utf8-ranges")
-    (version "1.0.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "utf8-ranges" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ppzjsxmv1p1xfid8wwn07ciikk84k30frl28bwsny6za1vall4x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page
-     "https://github.com/BurntSushi/utf8-ranges")
-    (synopsis
-     "Convert ranges of Unicode codepoints to UTF-8 byte ranges")
-    (description
-     "Convert ranges of Unicode codepoints to UTF-8 byte ranges.")
-    (license #f)))
 
 (define-public rust-rand-chacha
   (package
@@ -5074,7 +5048,7 @@ local storage (TLS) so any type can be stored into TLS.")
     (arguments
      `(#:cargo-inputs
        (("rust-fst" ,rust-fst)
-        ("rust-utf8-ranges" ,rust-utf8-ranges))))
+        ("rust-utf8-ranges" ,rust-utf8-ranges-1.0))))
     (home-page "https://github.com/BurntSushi/fst")
     (synopsis
      "Finite state transducers with fuzzy queries")
@@ -5101,7 +5075,7 @@ Levenshtein automata.")
      `(#:cargo-inputs
        (("rust-fst" ,rust-fst)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
-        ("rust-utf8-ranges" ,rust-utf8-ranges))))
+        ("rust-utf8-ranges" ,rust-utf8-ranges-1.0))))
     (home-page "https://github.com/BurntSushi/fst")
     (synopsis
      "Search finite state transducers with regular expression")
