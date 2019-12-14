@@ -1592,7 +1592,7 @@ pairs in insertion order")
      `(#:cargo-inputs
        (("rust-either" ,rust-either-1.5))
        #:cargo-development-inputs
-       (("rust-permutohedron" ,rust-permutohedron)
+       (("rust-permutohedron" ,rust-permutohedron-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
@@ -2779,30 +2779,6 @@ Recomposition, as described in Unicode Standard Annex #15.")
     (description
      "Infrastructure for measuring the total runtime size of an object
 on the heap")
-    (license #f)))
-
-(define-public rust-permutohedron
-  (package
-    (name "rust-permutohedron")
-    (version "0.2.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "permutohedron" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0b1pzh48j86v46wxngch6k1kx9cdw3jr3lwa86gd6jd4bmxzz1xn"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/bluss/permutohedron")
-    (synopsis
-     "Generate permutations of sequences")
-    (description
-     "Generate permutations of sequences.  Either lexicographical
-order permutations, or a minimal swaps permutation sequence
-implemented using Heap's algorithm.")
     (license #f)))
 
 (define-public rust-getopts-0.2.19
@@ -5919,7 +5895,7 @@ of configuration possible intended.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-permutohedron" ,rust-permutohedron)
+       (("rust-permutohedron" ,rust-permutohedron-0.2)
         ("rust-proptest" ,rust-proptest))))
     (home-page "https://github.com/spacejam/model")
     (synopsis
