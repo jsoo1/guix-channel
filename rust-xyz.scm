@@ -168,7 +168,7 @@ the stack.")
        (("rust-grep-cli" ,rust-grep-cli-0.1)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-grep-pcre2" ,rust-grep-pcre2-0.1)
-        ("rust-grep-printer" ,rust-grep-printer)
+        ("rust-grep-printer" ,rust-grep-printer-0.1)
         ("rust-grep-regex" ,rust-grep-regex)
         ("rust-grep-searcher" ,rust-grep-searcher))
        #:cargo-development-inputs
@@ -731,7 +731,7 @@ integer keys.")
 are updated when the crate version changes.")
     (license #f)))
 
-(define-public rust-grep-printer
+(define-public rust-grep-printer-0.1
   (package
     (name "rust-grep-printer")
     (version "0.1.3")
@@ -819,7 +819,7 @@ standard printing of search results, similar to grep itself.")
         ("rust-encoding-rs-io" ,rust-encoding-rs-io)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-log" ,rust-log-0.4)
-        ("rust-memmap" ,rust-memmap))
+        ("rust-memmap" ,rust-memmap-0.7))
        #:cargo-development-inputs
        (("rust-grep-regex" ,rust-grep-regex)
         ("rust-regex" ,rust-regex-1.1))))
@@ -3691,7 +3691,7 @@ ArrayVec and ArrayString.")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-memmap" ,rust-memmap))
+        ("rust-memmap" ,rust-memmap-0.7))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv)
         ("rust-fst-levenshtein" ,rust-fst-levenshtein)
@@ -7172,7 +7172,7 @@ bench suite.")
         ("rust-findshlibs" ,rust-findshlibs)
         ("rust-goblin" ,rust-goblin)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-memmap" ,rust-memmap)
+        ("rust-memmap" ,rust-memmap-0.7)
         ("rust-rustc-demangle" ,rust-rustc-demangle)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-std-workspace-core"
@@ -7468,7 +7468,7 @@ based on miniz.")
        (("rust-backtrace" ,rust-backtrace)
         ("rust-clap" ,rust-clap-2)
         ("rust-findshlibs" ,rust-findshlibs)
-        ("rust-memmap" ,rust-memmap)
+        ("rust-memmap" ,rust-memmap-0.7)
         ("rust-rustc-test" ,rust-rustc-test))))
     (home-page
      "https://github.com/gimli-rs/addr2line")
@@ -7816,7 +7816,7 @@ reading and writing git repositories.")
        #:cargo-development-inputs
        (("rust-crossbeam" ,rust-crossbeam)
         ("rust-getopts" ,rust-getopts-0.2)
-        ("rust-memmap" ,rust-memmap)
+        ("rust-memmap" ,rust-memmap-0.7)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-object" ,rust-object)
         ("rust-rayon" ,rust-rayon)
@@ -7902,7 +7902,7 @@ immutable interval tree.")
         ("rust-scroll" ,rust-scroll)
         ("rust-uuid" ,rust-uuid))
        #:cargo-development-inputs
-       (("rust-memmap" ,rust-memmap))))
+       (("rust-memmap" ,rust-memmap-0.7))))
     (home-page "https://github.com/gimli-rs/object")
     (synopsis
      "Parse object file formats")
@@ -8491,34 +8491,6 @@ according to XDG Base Directory specification")
      "Type-erased Serialize and Serializer traits")
     (description
      "Type-erased Serialize and Serializer traits")
-    (license #f)))
-
-(define-public rust-memmap
-  (package
-    (name "rust-memmap")
-    (version "0.7.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "memmap" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ns7kkd1h4pijdkwfvw4qlbbmqmlmzwlq3g2676dcl5vwyazv1b5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir))))
-    (home-page
-     "https://github.com/danburkert/memmap-rs")
-    (synopsis
-     "Cross-platform Rust API for memory-mapped file IO")
-    (description
-     "Cross-platform Rust API for memory-mapped file IO")
     (license #f)))
 
 (define-public rust-unindent
@@ -11998,7 +11970,7 @@ _getch on Windows, and termios on Unix.")
      `(#:cargo-inputs
        (("rust-fs2" ,rust-fs2)
         ("rust-log" ,rust-log-0.4)
-        ("rust-memmap" ,rust-memmap)
+        ("rust-memmap" ,rust-memmap-0.7)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-uuid" ,rust-uuid))
        #:cargo-development-inputs
@@ -15336,7 +15308,7 @@ functions.")
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-dlib" ,rust-dlib)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memmap" ,rust-memmap)
+        ("rust-memmap" ,rust-memmap-0.7)
         ("rust-nix" ,rust-nix)
         ("rust-wayland-client" ,rust-wayland-client)
         ("rust-wayland-protocols"
@@ -15372,7 +15344,7 @@ functions.")
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-dlib" ,rust-dlib)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memmap" ,rust-memmap)
+        ("rust-memmap" ,rust-memmap-0.7)
         ("rust-nix" ,rust-nix)
         ("rust-wayland-client" ,rust-wayland-client)
         ("rust-wayland-protocols" ,rust-wayland-protocols-0.21))
@@ -18068,7 +18040,7 @@ inter-process communication.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-memmap" ,rust-memmap)
+        ("rust-memmap" ,rust-memmap-0.7)
         ("rust-xcb" ,rust-xcb))))
     (home-page
      "https://github.com/rtbo/xkbcommon-rs")
