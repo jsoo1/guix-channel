@@ -236,7 +236,7 @@ the stack.")
         ("rust-same-file" ,rust-same-file-1.0)
         ("rust-thread-local" ,rust-thread-local)
         ("rust-walkdir" ,rust-walkdir-2.2)
-        ("rust-winapi-util" ,rust-winapi-util))
+        ("rust-winapi-util" ,rust-winapi-util-0.1))
        #:cargo-development-inputs
        (("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page
@@ -885,7 +885,7 @@ are updated when the crate version changes.")
         ("rust-regex" ,rust-regex)
         ("rust-same-file" ,rust-same-file-1.0)
         ("rust-termcolor" ,rust-termcolor-1.0)
-        ("rust-winapi-util" ,rust-winapi-util))))
+        ("rust-winapi-util" ,rust-winapi-util-0.1))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
@@ -1096,31 +1096,6 @@ standard printing of search results, similar to grep itself.")
      "https://github.com/Amanieu/thread_local-rs")
     (synopsis "Per-object thread-local storage")
     (description "Per-object thread-local storage")
-    (license #f)))
-
-(define-public rust-winapi-util
-  (package
-    (name "rust-winapi-util")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "winapi-util" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1j839dc6y8vszvrsb7yk0qvs0w6asnahxzbyans37vnsw6vbls3i"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/BurntSushi/winapi-util")
-    (synopsis
-     "dumping ground for high level safe wrappers over winapi")
-    (description
-     "This package provides a dumping ground for high level safe wrappers
-over winapi.")
     (license #f)))
 
 (define-public rust-cfg-if
@@ -1515,7 +1490,7 @@ indexmap.
     (arguments
      `(#:cargo-inputs
        (("rust-winapi" ,rust-winapi-0.3)
-        ("rust-winapi-util" ,rust-winapi-util))))
+        ("rust-winapi-util" ,rust-winapi-util-0.1))))
     (home-page
      "https://github.com/BurntSushi/termcolor/tree/master/wincolor")
     (synopsis
