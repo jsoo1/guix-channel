@@ -827,30 +827,6 @@ standard printing of search results, similar to grep itself.")
      "Multi-producer multi-consumer channels for message passing")
     (license #f)))
 
-(define-public rust-cfg-if
-  (package
-    (name "rust-cfg-if")
-    (version "0.1.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cfg-if" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0csygklgz3ybpr0670rkip49zh76m43ar3k7xgypkzbzrwycx1ml"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/alexcrichton/cfg-if")
-    (synopsis
-     "ergonomically define an item depending on a large number of parameters")
-    (description
-     "This package provides a macro to ergonomically define an item depending on
-a large number of #[cfg] parameters.  Structured like an if-else chain, the first
-matching branch is the item that gets emitted.")
-    (license #f)))
-
 (define-public rust-aho-corasick
   (package
     (name "rust-aho-corasick")
@@ -1643,7 +1619,7 @@ points, in a byte slice, fast")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-packed-simd" ,rust-packed-simd)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -1749,7 +1725,7 @@ points, in a byte slice, fast")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
@@ -2046,7 +2022,7 @@ retrieving random data from system source")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-core-arch" ,rust-core-arch)
         ("rust-sleef-sys" ,rust-sleef-sys))
        #:cargo-development-inputs
@@ -2396,7 +2372,7 @@ don't use this crate directly, depend on winapi instead.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-dirs-sys" ,rust-dirs-sys))))
     (home-page "https://github.com/soc/dirs-rs")
     (synopsis
@@ -2426,7 +2402,7 @@ guidelines on macOS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-dirs-sys" ,rust-dirs-sys))))
     (home-page "https://github.com/soc/dirs-rs")
     (synopsis
@@ -3182,7 +3158,7 @@ asynchronous I/O backed applications.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-bindgen" ,rust-bindgen)
@@ -3320,7 +3296,7 @@ asynchronous I/O backed applications.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-redox-users" ,rust-redox-users)
         ("rust-winapi" ,rust-winapi-0.3))))
@@ -3941,7 +3917,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
@@ -4755,7 +4731,7 @@ parser.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))))
     (home-page
      "https://github.com/rustwasm/console_error_panic_hook")
@@ -5230,7 +5206,7 @@ encodings")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-winapi" ,rust-winapi-0.3))
@@ -5394,7 +5370,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-backtrace" ,rust-backtrace)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-cloudabi" ,rust-cloudabi)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-petgraph" ,rust-petgraph)
@@ -5444,7 +5420,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-backtrace" ,rust-backtrace)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-cloudabi" ,rust-cloudabi)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-petgraph" ,rust-petgraph)
@@ -5479,7 +5455,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-generator" ,rust-generator)
         ("rust-scoped-tls" ,rust-scoped-tls)
@@ -5596,7 +5572,7 @@ library.")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-foreign-types" ,rust-foreign-types-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -5737,7 +5713,7 @@ directory and deleting all contents when it's dropped.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if))
+       (("rust-cfg-if" ,rust-cfg-if-0.1))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher-0.1)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
@@ -5956,7 +5932,7 @@ with proven statistical guarantees.")
     (arguments
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memoffset" ,rust-memoffset)
@@ -5986,7 +5962,7 @@ with proven statistical guarantees.")
     (arguments
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memoffset" ,rust-memoffset)
@@ -6218,7 +6194,7 @@ bench suite.")
      `(#:cargo-inputs
        (("rust-addr2line" ,rust-addr2line)
         ("rust-backtrace-sys" ,rust-backtrace-sys)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-compiler-builtins"
          ,rust-compiler-builtins)
         ("rust-cpp-demangle" ,rust-cpp-demangle)
@@ -6609,7 +6585,7 @@ for other targets if necessary!")
     (arguments
      `(#:cargo-inputs
        (("rust-afl" ,rust-afl)
-        ("rust-cfg-if" ,rust-cfg-if))
+        ("rust-cfg-if" ,rust-cfg-if-0.1))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff)
@@ -8002,7 +7978,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cexpr" ,rust-cexpr)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-clang-sys" ,rust-clang-sys)
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.6)
@@ -8046,7 +8022,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cexpr" ,rust-cexpr)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-clang-sys" ,rust-clang-sys-0.26.4)
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.6)
@@ -8090,7 +8066,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cexpr" ,rust-cexpr-0.2)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-clang-sys" ,rust-clang-sys-0.22)
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.5)
@@ -8509,7 +8485,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-dtoa" ,rust-dtoa)
         ("rust-ryu" ,rust-ryu-1.0)
         ("rust-stackvector" ,rust-stackvector-1.0)
@@ -9724,7 +9700,7 @@ creation from raw pointers and start, end pointer accessors.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-crossbeam-channel"
          ,rust-crossbeam-channel)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque)
@@ -11402,7 +11378,7 @@ and private (encrypted + signed) jars.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-failure" ,rust-failure)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-ipconfig" ,rust-ipconfig)
@@ -12352,7 +12328,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
        (("rust-native-tls" ,rust-native-tls)
         ("rust-tokio-io" ,rust-tokio-io))
        #:cargo-development-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-futures-preview" ,rust-futures-preview)
         ("rust-openssl" ,rust-openssl)
@@ -13206,7 +13182,7 @@ accessor functions on enums.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-spin" ,rust-spin)
         ("rust-tracing-attributes"
@@ -14141,7 +14117,7 @@ functions.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-core-foundation-sys"
          ,rust-core-foundation-sys-0.6)
         ("rust-core-graphics" ,rust-core-graphics)
@@ -14408,7 +14384,7 @@ supports type parameters, associated types, and type constraints.")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-void" ,rust-void))
        #:cargo-development-inputs
@@ -14442,7 +14418,7 @@ supports type parameters, associated types, and type constraints.")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cfg-if" ,rust-cfg-if)
+        ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-void" ,rust-void))
        #:cargo-development-inputs
@@ -17062,7 +17038,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-memchr" ,rust-memchr-2.2))))
     (home-page
      "https://github.com/johnschug/cstr-argument")
@@ -18120,7 +18096,7 @@ for computer graphics.")
      ;; Something is failing compiling a c++ program here
      `(#:tests? #f
        #:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-clap" ,rust-clap-2)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
@@ -18499,7 +18475,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-ena" ,rust-ena)
         ("rust-indexmap" ,rust-indexmap)
@@ -18539,7 +18515,7 @@ for computer graphics.")
          "0dhsrfdmy19dc5izmgnfl5cpl019iggz6snm7j7l31c1wrxjr7p8"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-ena" ,rust-ena)
         ("rust-indexmap" ,rust-indexmap)
@@ -18809,7 +18785,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-rustc-ap-arena" ,rust-rustc-ap-arena)
         ("rust-rustc-ap-rustc-data-structures"
          ,rust-rustc-ap-rustc-data-structures)
@@ -18841,7 +18817,7 @@ for computer graphics.")
          "04sjn0i0ajh5ajxl6p4xhxrs717sfvb08p1irh9fa9gk6hfdh3lk"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if)
+       (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-rustc-ap-arena" ,rust-rustc-ap-arena-583)
         ("rust-rustc-ap-rustc-data-structures"
          ,rust-rustc-ap-rustc-data-structures-583)
@@ -19485,7 +19461,7 @@ pitfalls in Rust")
        (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
-       (("rust-cfg-if" ,rust-cfg-if))))
+       (("rust-cfg-if" ,rust-cfg-if-0.1))))
     (home-page "https://github.com/hsivonen/simd")
     (synopsis
      "Offers limited cross-platform access to SIMD instructions on")
