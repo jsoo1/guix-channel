@@ -814,7 +814,7 @@ standard printing of search results, similar to grep itself.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bstr" ,rust-bstr-0.2
+       (("rust-bstr" ,rust-bstr-0.2)
         ("rust-bytecount" ,rust-bytecount)
         ("rust-encoding-rs" ,rust-encoding-rs)
         ("rust-encoding-rs-io" ,rust-encoding-rs-io)
@@ -823,7 +823,7 @@ standard printing of search results, similar to grep itself.")
         ("rust-memmap" ,rust-memmap-0.7))
        #:cargo-development-inputs
        (("rust-grep-regex" ,rust-grep-regex)
-        ("rust-regex" ,rust-regex-1.1)))))
+        ("rust-regex" ,rust-regex-1.1))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
