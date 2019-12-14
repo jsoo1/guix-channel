@@ -2911,7 +2911,7 @@ require unstable language features.")
         ("rust-log" ,rust-log-0.4)
         ("rust-miow" ,rust-miow-0.2)
         ("rust-net2" ,rust-net2)
-        ("rust-slab" ,rust-slab)
+        ("rust-slab" ,rust-slab-0.4)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes)
@@ -3001,7 +3001,7 @@ require unstable language features.")
         ("rust-mio" ,rust-mio)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-parking-lot" ,rust-parking-lot-0.7)
-        ("rust-slab" ,rust-slab)
+        ("rust-slab" ,rust-slab-0.4)
         ("rust-tokio-executor" ,rust-tokio-executor)
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-sync" ,rust-tokio-sync))
@@ -3978,27 +3978,6 @@ maps of many strings (> 1 billion is possible).")
 proposed in RFC 1158.")
     (license #f)))
 
-(define-public rust-slab
-  (package
-    (name "rust-slab")
-    (version "0.4.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "slab" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1y59xsa27jk84sxzswjk60xcjf8b4fm5960jwpznrrcmasyva4f1"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/carllerche/slab")
-    (synopsis
-     "Pre-allocated storage for a uniform data type")
-    (description
-     "Pre-allocated storage for a uniform data type")
-    (license #f)))
-
 (define-public rust-arc-swap
   (package
     (name "rust-arc-swap")
@@ -4500,7 +4479,7 @@ the current thread.")
         ("rust-log" ,rust-log-0.4)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-slab" ,rust-slab)
+        ("rust-slab" ,rust-slab-0.4)
         ("rust-tokio-executor" ,rust-tokio-executor))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
@@ -4532,7 +4511,7 @@ thread pool.")
      `(#:cargo-inputs
        (("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-slab" ,rust-slab)
+        ("rust-slab" ,rust-slab-0.4)
         ("rust-tokio-executor" ,rust-tokio-executor))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
@@ -5592,7 +5571,7 @@ checking")
         ("rust-proc-macro-nested" ,rust-proc-macro-nested-0.1)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-slab" ,rust-slab)
+        ("rust-slab" ,rust-slab-0.4)
         ("rust-tokio-io" ,rust-tokio-io))))
     (home-page
      "https://rust-lang-nursery.github.io/futures-rs")
@@ -12530,7 +12509,7 @@ composability, and iterator-like interfaces.")
         ("rust-http" ,rust-http)
         ("rust-indexmap" ,rust-indexmap)
         ("rust-log" ,rust-log-0.4)
-        ("rust-slab" ,rust-slab)
+        ("rust-slab" ,rust-slab-0.4)
         ("rust-string" ,rust-string)
         ("rust-tokio-codec" ,rust-tokio-codec)
         ("rust-tokio-io" ,rust-tokio-io)
@@ -12643,7 +12622,7 @@ response body.")
         ("rust-parking-lot" ,rust-parking-lot-0.8)
         ("rust-signal-hook-registry"
          ,rust-signal-hook-registry)
-        ("rust-slab" ,rust-slab)
+        ("rust-slab" ,rust-slab-0.4)
         ("rust-tokio-codec" ,rust-tokio-codec)
         ("rust-tokio-executor" ,rust-tokio-executor)
         ("rust-tokio-io" ,rust-tokio-io)
@@ -15062,7 +15041,7 @@ supports type parameters, associated types, and type constraints.")
        (("rust-lazycell" ,rust-lazycell)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio)
-        ("rust-slab" ,rust-slab))))
+        ("rust-slab" ,rust-slab-0.4))))
     (home-page
      "https://github.com/dimbleby/mio-extras")
     (synopsis "Extra components for use with Mio")
