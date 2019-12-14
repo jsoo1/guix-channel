@@ -38,34 +38,6 @@
     (description "Parser for Rust source code")
     (license #f)))
 
-(define-public rust-serde-bytes
-  (package
-    (name "rust-serde-bytes")
-    (version "0.11.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde_bytes" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0sc5n336i7q4fiij4l8f892zcirgybrbxzl8bp51qxzqdvdlgzxa"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-test" ,rust-serde-test-1.0))))
-    (home-page "https://github.com/serde-rs/bytes")
-    (synopsis
-     "Hanlde of integer arrays and vectors for Serde")
-    (description
-     "Optimized handling of @code{&[u8]} and @code{Vec<u8>} for Serde")
-    (license #f)))
-
 (define-public rust-serde-stacker
   (package
     (name "rust-serde-stacker")
@@ -374,7 +346,7 @@ properties according to Unicode Standard Annex #31.")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-bytes" ,rust-serde-bytes)
+        ("rust-serde-bytes" ,rust-serde-bytes-0.11)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-toml" ,rust-toml))))
     (home-page
@@ -2698,7 +2670,7 @@ can't ever panic.")
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde-bytes" ,rust-serde-bytes)
+       (("rust-serde-bytes" ,rust-serde-bytes-0.11)
         ("rust-serde-derive" ,rust-serde-derive-1.0))))
     (home-page "https://github.com/TyOverby/bincode")
     (synopsis
@@ -9006,7 +8978,7 @@ according to XDG Base Directory specification")
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde-bytes" ,rust-serde-bytes)
+       (("rust-serde-bytes" ,rust-serde-bytes-0.11)
         ("rust-serde-json" ,rust-serde-json-1.0))))
     (home-page "https://github.com/ron-rs/ron")
     (synopsis "Rusty Object Notation")
