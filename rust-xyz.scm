@@ -3089,7 +3089,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-deque" ,rust-crossbeam-deque)
+       (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -3860,7 +3860,7 @@ proposed in RFC 1158.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-deque" ,rust-crossbeam-deque)
+       (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-futures" ,rust-futures-0.1)
@@ -4354,56 +4354,30 @@ Levenshtein automata.")
      "Complex numbers implementation for Rust")
     (license #f)))
 
-(define-public rust-crossbeam-deque
-  (package
-    (name "rust-crossbeam-deque")
-    (version "0.7.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crossbeam-deque" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0was9x71cz5g1y3670cyy6jdmsdfg6k9mbf0ddz2k1mdd7hx535i"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.7)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-deque")
-    (synopsis "Concurrent work-stealing deque")
-    (description "Concurrent work-stealing deque")
-    (license #f)))
-
 (define-public rust-crossbeam-deque-0.6
   (package
-    (inherit rust-crossbeam-deque)
+    (inherit rust-crossbeam-deque-0.7)
     (version "0.6.3")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "crossbeam-deque" version))
        (file-name
-        (string-append (package-name rust-crossbeam-deque) "-" version ".tar.gz"))
+        (string-append (package-name rust-crossbeam-deque-0.7) "-" version ".tar.gz"))
        (sha256
         (base32
          "04rcpgjs6ns57vag8a3dzx26190dhbvy2l0p9n22b9p1yf64pr05"))))))
 
 (define-public rust-crossbeam-deque-0.2
   (package
-    (inherit rust-crossbeam-deque)
+    (inherit rust-crossbeam-deque-0.7)
     (version "0.2.0")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "crossbeam-deque" version))
        (file-name
-        (string-append (package-name rust-crossbeam-deque) "-" version ".tar.gz"))
+        (string-append (package-name rust-crossbeam-deque-0.7) "-" version ".tar.gz"))
        (sha256
         (base32
          "1wwwbnvxh0rza38xiws8qc46klzhv19zgvarn37pijis6v2zhfgp"))))
@@ -8629,7 +8603,7 @@ creation from raw pointers and start, end pointer accessors.
        (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-crossbeam-channel"
          ,rust-crossbeam-channel)
-        ("rust-crossbeam-deque" ,rust-crossbeam-deque)
+        ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.7)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
@@ -14033,7 +14007,7 @@ supports type parameters, associated types, and type constraints.")
      `(#:cargo-inputs
        (("rust-approx" ,rust-approx)
         ("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-crossbeam-deque" ,rust-crossbeam-deque)
+        ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-libm" ,rust-libm)
         ("rust-linked-hash-map" ,rust-linked-hash-map)
@@ -17913,7 +17887,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-deque" ,rust-crossbeam-deque)
+       (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2)
         ("rust-num-cpus" ,rust-num-cpus-1.10))
