@@ -41,7 +41,7 @@
         ("rust-humantime" ,rust-humantime-1.2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-lazycell" ,rust-lazycell)
-        ("rust-fuchsia-zircon" ,rust-fuchsia-zircon)
+        ("rust-fuchsia-zircon" ,rust-fuchsia-zircon-0.3)
         ("rust-log" ,rust-log-0.3)
         ("rust-racer-cargo-metadata" ,rust-racer-cargo-metadata)
         ("rust-rls-span" ,rust-rls-span)

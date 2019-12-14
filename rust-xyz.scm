@@ -2851,9 +2851,8 @@ require unstable language features.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-fuchsia-zircon" ,rust-fuchsia-zircon)
-        ("rust-fuchsia-zircon-sys"
-         ,rust-fuchsia-zircon-sys)
+       (("rust-fuchsia-zircon" ,rust-fuchsia-zircon-0.3)
+        ("rust-fuchsia-zircon-sys" ,rust-fuchsia-zircon-sys-0.3)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -3824,54 +3823,6 @@ maps of many strings (> 1 billion is possible).")
      "A Rust library to access Redox users and groups functionality")
     (description
      "This package provides a Rust library to access Redox users and groups functionality")
-    (license #f)))
-
-(define-public rust-fuchsia-zircon
-  (package
-    (name "rust-fuchsia-zircon")
-    (version "0.3.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "fuchsia-zircon" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "10jxc5ks1x06gpd0xg51kcjrxr35nj6qhx2zlc5n7bmskv3675rf"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-fuchsia-zircon-sys"
-         ,rust-fuchsia-zircon-sys))))
-    (home-page
-     "https://fuchsia.googlesource.com/garnet/")
-    (synopsis "Rust bindings for the Zircon kernel")
-    (description
-     "Rust bindings for the Zircon kernel")
-    (license #f)))
-
-(define-public rust-fuchsia-zircon-sys
-  (package
-    (name "rust-fuchsia-zircon-sys")
-    (version "0.3.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "fuchsia-zircon-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "19zp2085qsyq2bh1gvcxq1lb8w6v6jj9kbdkhpdjrl95fypakjix"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://fuchsia.googlesource.com/garnet/")
-    (synopsis
-     "Low-level Rust bindings for the Zircon kernel")
-    (description
-     "Low-level Rust bindings for the Zircon kernel")
     (license #f)))
 
 (define-public rust-net2
