@@ -3926,7 +3926,7 @@ ArrayVec and ArrayString.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-num-integer" ,rust-num-integer)
+        ("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-traits" ,rust-num-traits)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde-1.0)
@@ -5830,31 +5830,6 @@ local storage (TLS) so any type can be stored into TLS.")
      "Bridging the gap between Rust Futures and JavaScript Promises")
     (license #f)))
 
-(define-public rust-num-integer
-  (package
-    (name "rust-num-integer")
-    (version "0.1.41")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "num-integer" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "02dwjjpfbi16c71fq689s4sw3ih52cvfzr5z5gs6qpr5z0g58pmq"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg))))
-    (home-page
-     "https://github.com/rust-num/num-integer")
-    (synopsis "Integer traits and functions")
-    (description "Integer traits and functions")
-    (license #f)))
-
 (define-public rust-num-iter
   (package
     (name "rust-num-iter")
@@ -5871,7 +5846,7 @@ local storage (TLS) so any type can be stored into TLS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-integer" ,rust-num-integer)
+       (("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-traits" ,rust-num-traits))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
@@ -12221,7 +12196,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-hex" ,rust-hex-0.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-num-bigint" ,rust-num-bigint)
-        ("rust-num-integer" ,rust-num-integer)
+        ("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-openssl" ,rust-openssl)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
@@ -13362,7 +13337,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-integer" ,rust-num-integer)
+       (("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-traits" ,rust-num-traits)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-quickcheck-macros"
@@ -17134,7 +17109,7 @@ implementation of Bresenham's line algorithm.")
      `(#:cargo-inputs
        (("rust-num-bigint" ,rust-num-bigint)
         ("rust-num-complex" ,rust-num-complex-0.1)
-        ("rust-num-integer" ,rust-num-integer)
+        ("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-iter" ,rust-num-iter)
         ("rust-num-rational" ,rust-num-rational-0.1)
         ("rust-num-traits" ,rust-num-traits))))
@@ -17166,7 +17141,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-num-bigint" ,rust-num-bigint)
-        ("rust-num-integer" ,rust-num-integer)
+        ("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-traits" ,rust-num-traits)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -17196,7 +17171,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-num-bigint" ,rust-num-bigint)
-        ("rust-num-integer" ,rust-num-integer)
+        ("rust-num-integer" ,rust-num-integer-0.1)
         ("rust-num-traits" ,rust-num-traits)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
