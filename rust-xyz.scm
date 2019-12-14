@@ -2164,35 +2164,6 @@ retrieving random data from system source")
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1))))))
 
-(define-public rust-rand-xoshiro
-  (package
-    (name "rust-rand-xoshiro")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_xoshiro" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "07w3qgrac8r356lz5vqff42rly6yd9vs3g5lx5pbn13rcmb05rqb"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1))))
-    (home-page
-     "https://crates.io/crates/rand_xoshiro")
-    (synopsis
-     "Xoshiro, xoroshiro and splitmix64 random number generators")
-    (description
-     "Xoshiro, xoroshiro and splitmix64 random number generators")
-    (license #f)))
-
 (define-public rust-no-panic
   (package
     (name "rust-no-panic")
@@ -2585,7 +2556,7 @@ on the heap")
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-rand-os" ,rust-rand-os-0.2)
-        ("rust-rand-xoshiro" ,rust-rand-xoshiro)
+        ("rust-rand-xoshiro" ,rust-rand-xoshiro-0.3)
         ("rust-rayon" ,rust-rayon)
         ("rust-rayon-core" ,rust-rayon-core)
         ("rust-serde" ,rust-serde-1.0)
@@ -9521,7 +9492,7 @@ creation from raw pointers and start, end pointer accessors.
         ("rust-quantiles" ,rust-quantiles)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-distr" ,rust-rand-distr)
-        ("rust-rand-xoshiro" ,rust-rand-xoshiro)
+        ("rust-rand-xoshiro" ,rust-rand-xoshiro-0.3)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-streaming-stats" ,rust-streaming-stats))))
     (home-page "https://github.com/vks/average")
