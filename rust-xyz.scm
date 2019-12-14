@@ -765,7 +765,7 @@ are updated when the crate version changes.")
     (description
      "An implementation of the grep crate's Sink trait that provides
 standard printing of search results, similar to grep itself.")
-    (license #f)))
+    (license #f))))
 
 (define-public rust-grep-regex
   (package
