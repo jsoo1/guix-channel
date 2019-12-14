@@ -4574,7 +4574,7 @@ Levenshtein automata.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-crossbeam-epoch" ,rust-crossbeam-epoch)
+       (("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.7)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
@@ -5491,39 +5491,9 @@ with proven statistical guarantees.")
      "Convert ranges of Unicode codepoints to UTF-8 byte ranges.")
     (license #f)))
 
-(define-public rust-crossbeam-epoch
-  (package
-    (name "rust-crossbeam-epoch")
-    (version "0.7.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crossbeam-epoch" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1d408b9x82mdbnb405gw58v5mmdbj2rl28a1h7b9rmn25h8f7j84"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memoffset" ,rust-memoffset-0.2)
-        ("rust-scopeguard" ,rust-scopeguard-0.3))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-epoch")
-    (synopsis "Epoch-based garbage collection")
-    (description "Epoch-based garbage collection")
-    (license #f)))
-
 (define-public rust-crossbeam-epoch-0.3
   (package
-    (inherit rust-crossbeam-epoch)
+    (inherit rust-crossbeam-epoch-0.7)
     (version "0.3.1")
     (source
      (origin
@@ -5531,7 +5501,7 @@ with proven statistical guarantees.")
        (uri (crate-uri "crossbeam-epoch" version))
        (file-name
         (string-append
-         (package-name rust-crossbeam-epoch) "-" version ".tar.gz"))
+         (package-name rust-crossbeam-epoch-0.7) "-" version ".tar.gz"))
        (sha256
         (base32
          "0l4igvp2i7b6dgaiq040j8kj8hygwdpr6ppzh1hrbsbx83sj2wcj"))))
@@ -9259,7 +9229,7 @@ creation from raw pointers and start, end pointer accessors.
         ("rust-crossbeam-channel"
          ,rust-crossbeam-channel)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque)
-        ("rust-crossbeam-epoch" ,rust-crossbeam-epoch)
+        ("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.7)
         ("rust-crossbeam-queue" ,rust-crossbeam-queue)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
