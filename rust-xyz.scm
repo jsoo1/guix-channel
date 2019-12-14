@@ -852,7 +852,7 @@ are updated when the crate version changes.")
     (description
      "This package provides a trait for regular expressions, with a
 focus on line oriented search.")
-    (license #f)))
+    (license `(,license:expat ,license:unlicense))))
 
 (define-public rust-grep-pcre2-0.1
   (package
