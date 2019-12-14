@@ -3651,7 +3651,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-itertools" ,rust-itertools-0.8))
        #:cargo-development-inputs
        (("rust-itertools-num" ,rust-itertools-num-0.1)
-        ("rust-num-complex" ,rust-num-complex)
+        ("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/bheisler/criterion.rs")
@@ -3848,7 +3848,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-num-complex" ,rust-num-complex)
+       (("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-num-traits" ,rust-num-traits-0.2))))
     (home-page
      "https://github.com/brendanzab/approx")
@@ -5428,35 +5428,6 @@ Levenshtein automata.")
      "Search finite state transducers with regular expression")
     (description
      "Search finite state transducers with regular expression.")
-    (license #f)))
-
-(define-public rust-num-complex
-  (package
-    (name "rust-num-complex")
-    (version "0.2.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "num-complex" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1z6zjdzx1g1hj4y132ddy83d3p3zvw06igbf59npxxrzzcqwzc7w"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg-0.1))))
-    (home-page
-     "https://github.com/rust-num/num-complex")
-    (synopsis
-     "Complex numbers implementation for Rust")
-    (description
-     "Complex numbers implementation for Rust")
     (license #f)))
 
 (define-public rust-num-complex-0.1
@@ -15278,7 +15249,7 @@ functions.")
        #:cargo-development-inputs
        (("rust-crc32fast" ,rust-crc32fast)
         ("rust-glob" ,rust-glob)
-        ("rust-num-complex" ,rust-num-complex)
+        ("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/image-rs/image")
     (synopsis
@@ -15315,7 +15286,7 @@ functions.")
        #:cargo-development-inputs
        (("rust-crc32fast" ,rust-crc32fast)
         ("rust-glob" ,rust-glob)
-        ("rust-num-complex" ,rust-num-complex)
+        ("rust-num-complex" ,rust-num-complex-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/image-rs/image")
     (synopsis
