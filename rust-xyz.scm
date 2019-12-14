@@ -3895,7 +3895,7 @@ ArrayVec and ArrayString.")
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-num-iter" ,rust-num-iter)
+        ("rust-num-iter" ,rust-num-iter-0.1)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))))
     (home-page
@@ -5764,34 +5764,6 @@ local storage (TLS) so any type can be stored into TLS.")
      "Bridging the gap between Rust Futures and JavaScript Promises")
     (description
      "Bridging the gap between Rust Futures and JavaScript Promises")
-    (license #f)))
-
-(define-public rust-num-iter
-  (package
-    (name "rust-num-iter")
-    (version "0.1.39")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "num-iter" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0bhk2qbr3261r6zvfc58lz4spfqjhvdripxgz5mks5rd85r55gbn"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-num-traits" ,rust-num-traits-0.2))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg-0.1))))
-    (home-page
-     "https://github.com/rust-num/num-iter")
-    (synopsis
-     "External iterators for generic mathematics")
-    (description
-     "External iterators for generic mathematics")
     (license #f)))
 
 (define-public rust-fst-levenshtein
@@ -15741,7 +15713,7 @@ functions.")
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-gif" ,rust-gif)
         ("rust-jpeg-decoder" ,rust-jpeg-decoder)
-        ("rust-num-iter" ,rust-num-iter)
+        ("rust-num-iter" ,rust-num-iter-0.1)
         ("rust-num-rational" ,rust-num-rational)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-png" ,rust-png)
@@ -15779,7 +15751,7 @@ functions.")
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-gif" ,rust-gif)
         ("rust-jpeg-decoder" ,rust-jpeg-decoder)
-        ("rust-num-iter" ,rust-num-iter)
+        ("rust-num-iter" ,rust-num-iter-0.1)
         ("rust-num-rational" ,rust-num-rational)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-png" ,rust-png-0.14)
@@ -17046,7 +17018,7 @@ implementation of Bresenham's line algorithm.")
        (("rust-num-bigint" ,rust-num-bigint)
         ("rust-num-complex" ,rust-num-complex-0.1)
         ("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-num-iter" ,rust-num-iter)
+        ("rust-num-iter" ,rust-num-iter-0.1)
         ("rust-num-rational" ,rust-num-rational-0.1)
         ("rust-num-traits" ,rust-num-traits-0.2))))
     (home-page "https://github.com/rust-num/num")
