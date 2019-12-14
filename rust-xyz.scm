@@ -938,7 +938,7 @@ matching branch is the item that gets emitted.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-ucd-util" ,rust-ucd-util))))
+       (("rust-ucd-util" ,rust-ucd-util-0.1))))
     (home-page "https://github.com/rust-lang/regex")
     (synopsis "regular expression parser")
     (description
@@ -2091,7 +2091,7 @@ remove_dir_all for Windows")
      "Explicitly empty crate for rust-lang/rust integration")
     (license #f)))
 
-(define-public rust-ucd-util
+(define-public rust-ucd-util-0.1
   (package
     (name "rust-ucd-util")
     (version "0.1.3")
