@@ -472,43 +472,6 @@ pitfalls in Rust.")
      `(#:cargo-inputs
        (("rust-term" ,rust-term-0.5.1))))))
 
-(define-public rust-strsim
-  (package
-    (name "rust-strsim")
-    (version "0.9.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "strsim" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xphwhf86yxxmcpvm4mikj8ls41f6nf7gqyjm98b74mfk81h6b03"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/dguo/strsim-rs")
-    (synopsis
-     "String similarity metrics")
-    (description
-     "Implementations of string similarity metrics.
-Includes Hamming, Levenshtein, OSA, Damerau-Levenshtein, Jaro, and
-Jaro-Winkler.")
-    (license #f)))
-
-(define-public rust-strsim-0.8
-  (package
-    (inherit rust-strsim)
-    (version "0.8.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "strsim" version))
-       (file-name
-        (string-append (package-name rust-strsim) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0sjsm7hrvjdifz661pjxq5w4hf190hx53fra8dfvamacvff139cf"))))))
-
 (define-public rust-term-size
   (package
     (name "rust-term-size")
@@ -1654,7 +1617,7 @@ points, in a byte slice, fast")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-serde" ,rust-serde-1.0)
-        ("rust-strsim" ,rust-strsim))))
+        ("rust-strsim" ,rust-strsim-0.9))))
     (home-page "https://github.com/docopt/docopt.rs")
     (synopsis "Command line argument parsing.")
     (description "Command line argument parsing.")
@@ -19930,7 +19893,7 @@ subscribers.")
         ("rust-ident-case" ,rust-ident-case)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
-        ("rust-strsim" ,rust-strsim)
+        ("rust-strsim" ,rust-strsim-0.9)
         ("rust-syn" ,rust-syn-0.15))))
     (home-page
      "https://github.com/TedDriggs/darling")
