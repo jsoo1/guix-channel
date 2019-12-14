@@ -6308,7 +6308,7 @@ file formats.")
     (arguments
      `(#:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-speculate" ,rust-speculate))))
+        ("rust-speculate" ,rust-speculate-0.1))))
     (home-page
      "https://github.com/utkarshkukreti/diff.rs")
     (synopsis
@@ -6548,34 +6548,6 @@ streams.")
      "Generate and parse UUIDs")
     (description
      "This package provides a library to generate and parse UUIDs.")
-    (license #f)))
-
-(define-public rust-speculate
-  (package
-    (name "rust-speculate")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "speculate" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ph01n3fqkmnfr1wd13dqsi4znv06xy6p4h3hqqdzk81r0r5vd1w"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15)
-        ("rust-unicode-xid" ,rust-unicode-xid-0.1))))
-    (home-page
-     "https://github.com/utkarshkukreti/speculate.rs")
-    (synopsis
-     "RSpec inspired testing framework for Rust")
-    (description
-     "An RSpec inspired minimal testing framework for Rust.")
     (license #f)))
 
 (define-public rust-scroll-derive
