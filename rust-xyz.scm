@@ -2885,7 +2885,7 @@ implemented using Heap's algorithm.")
     (arguments
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
-        ("rust-cast" ,rust-cast)
+        ("rust-cast" ,rust-cast-0.2)
         ("rust-clap" ,rust-clap-2)
         ("rust-criterion-plot" ,rust-criterion-plot)
         ("rust-csv" ,rust-csv)
@@ -3707,30 +3707,6 @@ ArrayVec and ArrayString.")
 maps of many strings (> 1 billion is possible).")
     (license #f)))
 
-(define-public rust-cast
-  (package
-    (name "rust-cast")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cast" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09yl2700crxa4n860b080msij25klvs1kfzazhp2aihchvr16q4j"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page "https://github.com/japaric/cast.rs")
-    (synopsis
-     "Ergonomic, checked cast functions for primitive types")
-    (description
-     "Ergonomic, checked cast functions for primitive types")
-    (license #f)))
-
 (define-public rust-criterion-plot
   (package
     (name "rust-criterion-plot")
@@ -3748,7 +3724,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-cast" ,rust-cast)
+        ("rust-cast" ,rust-cast-0.2)
         ("rust-itertools" ,rust-itertools))
        #:cargo-development-inputs
        (("rust-itertools-num" ,rust-itertools-num)
