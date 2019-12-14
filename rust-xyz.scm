@@ -2905,7 +2905,7 @@ require unstable language features.")
        (("rust-fuchsia-zircon" ,rust-fuchsia-zircon)
         ("rust-fuchsia-zircon-sys"
          ,rust-fuchsia-zircon-sys)
-        ("rust-iovec" ,rust-iovec)
+        ("rust-iovec" ,rust-iovec-0.1)
         ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
@@ -2938,7 +2938,7 @@ require unstable language features.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-iovec" ,rust-iovec)
+       (("rust-iovec" ,rust-iovec-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio))
        #:cargo-development-inputs
@@ -3925,31 +3925,6 @@ maps of many strings (> 1 billion is possible).")
      "Low-level Rust bindings for the Zircon kernel")
     (license #f)))
 
-(define-public rust-iovec
-  (package
-    (name "rust-iovec")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "iovec" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "025vi072m22299z3fg73qid188z2iip7k41ba6v5v5yhwwby9rnv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page "https://github.com/carllerche/iovec")
-    (synopsis
-     "Portable buffer type for scatter/gather I/O operations")
-    (description
-     "Portable buffer type for scatter/gather I/O operations")
-    (license #f)))
-
 (define-public rust-net2
   (package
     (name "rust-net2")
@@ -4442,7 +4417,7 @@ the current thread.")
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-iovec" ,rust-iovec)
+        ("rust-iovec" ,rust-iovec-0.1)
         ("rust-mio" ,rust-mio)
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
@@ -4591,7 +4566,7 @@ thread pool.")
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-iovec" ,rust-iovec)
+        ("rust-iovec" ,rust-iovec-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio)
@@ -5878,7 +5853,7 @@ drop-in replacement for miniz")
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-iovec" ,rust-iovec)
+        ("rust-iovec" ,rust-iovec-0.1)
         ("rust-mio" ,rust-mio)
         ("rust-tokio-io" ,rust-tokio-io)
         ("rust-tokio-reactor" ,rust-tokio-reactor))
@@ -9204,7 +9179,7 @@ dependency.")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-either" ,rust-either-1.5)
-        ("rust-iovec" ,rust-iovec)
+        ("rust-iovec" ,rust-iovec-0.1)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-test" ,rust-serde-test-1.0))))
@@ -11120,7 +11095,7 @@ and private (encrypted + signed) jars.")
         ("rust-http" ,rust-http)
         ("rust-http-body" ,rust-http-body)
         ("rust-httparse" ,rust-httparse)
-        ("rust-iovec" ,rust-iovec)
+        ("rust-iovec" ,rust-iovec-0.1)
         ("rust-itoa" ,rust-itoa-0.4)
         ("rust-log" ,rust-log-0.4)
         ("rust-net2" ,rust-net2)
@@ -12610,7 +12585,7 @@ response body.")
          ,rust-futures-sink-preview-0.3)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
-        ("rust-iovec" ,rust-iovec)
+        ("rust-iovec" ,rust-iovec-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio)
@@ -13003,7 +12978,7 @@ exposed as Reader/Writer streams.")
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-iovec" ,rust-iovec)
+        ("rust-iovec" ,rust-iovec-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio)
         ("rust-scoped-tls" ,rust-scoped-tls)
