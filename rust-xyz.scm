@@ -4097,8 +4097,7 @@ proposed in RFC 1158.")
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4))
        #:cargo-development-inputs
-       (("rust-tokio-current-thread"
-         ,rust-tokio-current-thread))))
+       (("rust-tokio-current-thread" ,rust-tokio-current-thread))))
     (home-page "https://tokio.rs")
     (synopsis
      "Core I/O primitives for asynchronous I/O in Rust")
