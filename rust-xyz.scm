@@ -2212,7 +2212,7 @@ retrieving random data from system source")
         ("rust-core-arch" ,rust-core-arch)
         ("rust-sleef-sys" ,rust-sleef-sys))
        #:cargo-development-inputs
-       (("rust-arrayvec" ,rust-arrayvec)
+       (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-paste" ,rust-paste)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen)
         ("rust-wasm-bindgen-test"
@@ -3360,37 +3360,6 @@ asynchronous I/O backed applications.")
      "Rust FFI bindings to the SLEEF Vectorized Math Library")
     (description
      "Rust FFI bindings to the SLEEF Vectorized Math Library")
-    (license #f)))
-
-(define-public rust-arrayvec
-  (package
-    (name "rust-arrayvec")
-    (version "0.4.10")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "arrayvec" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0wcch3ca9qvkixgdbd2afrv1xa27l83vpraf7frsh9l8pivgpiwj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-nodrop" ,rust-nodrop-0.1)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher-0.1)
-        ("rust-matches" ,rust-matches-0.1)
-        ("rust-serde-test" ,rust-serde-test-1.0))))
-    (home-page "https://github.com/bluss/arrayvec")
-    (synopsis
-     "A vector with fixed capacity")
-    (description
-     "This package provides a vector with fixed capacity, backed by an
-array (it can be stored on the stack too).  Implements fixed capacity
-ArrayVec and ArrayString.")
     (license #f)))
 
 (define-public rust-paste
@@ -5357,7 +5326,7 @@ Levenshtein automata.")
      `(#:cargo-inputs
        (("rust-memchr" ,rust-memchr-2.2))
        #:cargo-development-inputs
-       (("rust-arrayvec" ,rust-arrayvec))))
+       (("rust-arrayvec" ,rust-arrayvec-0.4))))
     (home-page
      "https://github.com/BurntSushi/rust-csv")
     (synopsis
@@ -6623,7 +6592,7 @@ with proven statistical guarantees.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-arrayvec" ,rust-arrayvec)
+       (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -6653,7 +6622,7 @@ with proven statistical guarantees.")
          "0l4igvp2i7b6dgaiq040j8kj8hygwdpr6ppzh1hrbsbx83sj2wcj"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-arrayvec" ,rust-arrayvec)
+       (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-cfg-if" ,rust-cfg-if)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -6803,7 +6772,7 @@ dependency to expose a precomputed hash.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-arrayvec" ,rust-arrayvec)
+       (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-clippy" ,rust-clippy)
         ("rust-constant-time-eq" ,rust-constant-time-eq))
        #:cargo-development-inputs
@@ -7529,7 +7498,7 @@ reading and writing git repositories.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-arrayvec" ,rust-arrayvec)
+       (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-fallible-iterator" ,rust-fallible-iterator)
         ("rust-indexmap" ,rust-indexmap)
@@ -15972,7 +15941,7 @@ supports type parameters, associated types, and type constraints.")
     (arguments
      `(#:cargo-inputs
        (("rust-approx" ,rust-approx)
-        ("rust-arrayvec" ,rust-arrayvec)
+        ("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils)
         ("rust-libm" ,rust-libm)
