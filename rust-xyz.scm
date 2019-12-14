@@ -1590,7 +1590,7 @@ pairs in insertion order")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-either" ,rust-either))
+       (("rust-either" ,rust-either-1.5))
        #:cargo-development-inputs
        (("rust-permutohedron" ,rust-permutohedron)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
@@ -2781,30 +2781,6 @@ Recomposition, as described in Unicode Standard Annex #15.")
 on the heap")
     (license #f)))
 
-(define-public rust-either
-  (package
-    (name "rust-either")
-    (version "1.5.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "either" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0yyggfd5yq9hyyp0bd5jj0fgz3rwws42d19ri0znxwwqs3hcy9sm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-serde" ,rust-serde-1.0))))
-    (home-page "https://github.com/bluss/either")
-    (synopsis
-     "The enum `Either` with variants `Left` and `Right`")
-    (description
-     "The enum `Either` with variants `Left` and `Right` is a general
-purpose sum type with two cases.")
-    (license #f)))
-
 (define-public rust-permutohedron
   (package
     (name "rust-permutohedron")
@@ -3833,7 +3809,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.6)
-        ("rust-either" ,rust-either)
+        ("rust-either" ,rust-either-1.5)
         ("rust-rayon-core" ,rust-rayon-core))
        #:cargo-development-inputs
        (("rust-doc-comment" ,rust-doc-comment-0.3)
@@ -10207,7 +10183,7 @@ dependency.")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-either" ,rust-either)
+        ("rust-either" ,rust-either-1.5)
         ("rust-iovec" ,rust-iovec)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -20076,7 +20052,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.2)
-        ("rust-either" ,rust-either)
+        ("rust-either" ,rust-either-1.5)
         ("rust-rustc-rayon-core" ,rust-rustc-rayon-core))
        #:cargo-development-inputs
        (("rust-docopt" ,rust-docopt)
