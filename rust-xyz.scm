@@ -4376,7 +4376,7 @@ proposed in RFC 1158.")
 (define-public rust-futures-executor-preview
   (package
     (name "rust-futures-executor-preview")
-    (version "0.3.0-alpha.16")
+    (version "0.3.0-alpha.17")
     (source
      (origin
        (method url-fetch)
@@ -4385,7 +4385,7 @@ proposed in RFC 1158.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "00yy60rkbymj9wwwvkw26d1k6n8qrn39nckaaxcx0dc5j26cap9i"))))
+         "053g5kf2qa1xhdkwp3d1grrizzy4683mpbb3y0vvm00hwl7jdfl7"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
