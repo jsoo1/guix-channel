@@ -38,122 +38,6 @@
     (description "Parser for Rust source code")
     (license #f)))
 
-(define-public rust-serde
-  (package
-    (name "rust-serde")
-    (version "1.0.94")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ns7k7mxza1dcj9wgd8l8h367mpnp1v2aipdpb9ik758vrpnjsh7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde-derive" ,rust-serde-derive))
-       #:cargo-development-inputs
-       (("rust-serde-derive" ,rust-serde-derive))))
-    (home-page "https://serde.rs")
-    (synopsis
-     "Generic serialization/deserialization framework")
-    (description
-     "This package provides a generic serialization/deserialization
-framework.")
-    (license #f)))
-
-(define-public rust-serde-derive
-  (package
-    (name "rust-serde-derive")
-    (version "1.0.94")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde_derive" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0yzy4wki4v4l39fc42q5lrdigh5pk0vjhvg1z7sj4fs6srwynigg"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))
-       #:cargo-development-inputs
-       (("rust-serde" ,rust-serde))))
-    (home-page "https://serde.rs")
-    (synopsis
-     "Macros 1.1 implementation of derived de/serialization")
-    (description
-     "Macros 1.1 implementation of
-@code{#[derive(Serialize, Deserialize)]}")
-    (license #f)))
-
-(define-public rust-serde-test
-  (package
-    (name "rust-serde-test")
-    (version "1.0.94")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde_test" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ii81dkyd3qmh8q3wjiwlpq6xfby2b0m5wf1f7clg93a7h4qjn3f"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
-       #:cargo-development-inputs
-       (("rust-serde" ,rust-serde)
-        ("rust-serde-derive" ,rust-serde-derive))))
-    (home-page "https://serde.rs")
-    (synopsis
-     "Token De/Serializer for testing De/Serialize implementations")
-    (description
-     "Token De/Serializer for testing De/Serialize implementations")
-    (license #f)))
-
-(define-public rust-serde-json
-  (package
-    (name "rust-serde-json")
-    (version "1.0.40")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde_json" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "010pa89zx07aqx1cwgw2a603wcp3q5n2iy0k71ppqbr8kwi4j705"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-indexmap" ,rust-indexmap)
-        ("rust-itoa" ,rust-itoa)
-        ("rust-ryu" ,rust-ryu)
-        ("rust-serde" ,rust-serde))
-       #:cargo-development-inputs
-       (("rust-automod" ,rust-automod)
-        ("rust-select-rustc" ,rust-select-rustc)
-        ("rust-serde-bytes" ,rust-serde-bytes)
-        ("rust-serde-derive" ,rust-serde-derive)
-        ("rust-serde-stacker" ,rust-serde-stacker)
-        ("rust-trybuild" ,rust-trybuild))))
-    (home-page "https://github.com/serde-rs/json")
-    (synopsis "A JSON serialization file format")
-    (description
-     "This package provides a JSON serialization file format.")
-    (license #f)))
-
 (define-public rust-serde-bytes
   (package
     (name "rust-serde-bytes")
@@ -170,11 +54,11 @@ framework.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode)
         ("rust-serde-derive" ,rust-serde-derive)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/serde-rs/bytes")
     (synopsis
      "Hanlde of integer arrays and vectors for Serde")
@@ -198,7 +82,7 @@ framework.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-stacker" ,rust-stacker-0.1))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json))))
@@ -229,7 +113,7 @@ the stack.")
      `(#:cargo-inputs
        (("rust-dtoa" ,rust-dtoa)
         ("rust-linked-hash-map" ,rust-linked-hash-map)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-yaml-rust" ,rust-yaml-rust))
        #:cargo-development-inputs
        (("rust-serde-derive" ,rust-serde-derive)
@@ -259,7 +143,7 @@ the stack.")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder)
         ("rust-half" ,rust-half)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://github.com/pyfisch/cbor")
@@ -283,7 +167,7 @@ the stack.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json))))
@@ -312,7 +196,7 @@ the stack.")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memchr" ,rust-memchr)
         ("rust-regex-automata" ,rust-regex-automata)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck)
         ("rust-ucd-parse" ,rust-ucd-parse)
@@ -344,7 +228,7 @@ valid UTF-8.")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memchr" ,rust-memchr)
         ("rust-regex-automata" ,rust-regex-automata)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck)
         ("rust-ucd-parse" ,rust-ucd-parse)
@@ -627,7 +511,7 @@ properties according to Unicode Standard Annex #31.")
        #:cargo-development-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-bytes" ,rust-serde-bytes)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-toml" ,rust-toml))))
@@ -947,7 +831,7 @@ and handle Unicode charactersec-map")
          "06n8hw4hlbcz328a3gbpvmy0ma46vg1lc0r5wf55900szf3qdiq5"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-serde" ,rust-serde))))
+     `(#:cargo-inputs (("rust-serde" ,rust-serde-1.0))))
     (home-page
      "https://github.com/contain-rs/vec-map")
     (synopsis
@@ -1146,7 +1030,7 @@ focus on line oriented search.")
         ("rust-bstr" ,rust-bstr)
         ("rust-grep-matcher" ,rust-grep-matcher)
         ("rust-grep-searcher" ,rust-grep-searcher)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-termcolor" ,rust-termcolor-1.0))
@@ -1585,14 +1469,14 @@ matching branch is the item that gets emitted.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv)
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/indexmap")
     (synopsis
      "hash table with consistent order and fast iteration")
@@ -1729,7 +1613,7 @@ indexmap.
      `(#:cargo-inputs
        (("rust-glob" ,rust-glob)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-termcolor" ,rust-termcolor-1.0)
         ("rust-toml" ,rust-toml))))
@@ -1810,7 +1694,7 @@ indexmap.
     (arguments
      `(#:cargo-inputs
        (("rust-linked-hash-map" ,rust-linked-hash-map)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json))))
@@ -1928,7 +1812,7 @@ variable.")
     (arguments
      `(#:cargo-inputs
        (("rust-getrandom" ,rust-getrandom)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://crates.io/crates/rand_core")
     (synopsis
@@ -1953,7 +1837,7 @@ variable.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))))
 
 (define-public rust-rand-core-0.3
@@ -1972,7 +1856,7 @@ variable.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))))
 
 (define-public rust-termion
@@ -2051,7 +1935,7 @@ variable.")
         ("rust-bincode" ,rust-bincode)
         ("rust-hyphenation-commons"
          ,rust-hyphenation-commons)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-atlatl" ,rust-atlatl)
         ("rust-bincode" ,rust-bincode)
@@ -2060,7 +1944,7 @@ variable.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-pocket-resources" ,rust-pocket-resources)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-unicode-normalization"
          ,rust-unicode-normalization)
         ("rust-unicode-segmentation"
@@ -2121,7 +2005,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (arguments
      `(#:cargo-inputs
        (("rust-rand-core" ,rust-rand-core)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode))))
     (home-page
@@ -2147,7 +2031,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (arguments
      `(#:cargo-inputs
        (("rust-rand-core" ,rust-rand-core)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode))))))
@@ -2171,8 +2055,8 @@ instantiate to generate your own pieces of pseudo-random text.")
      `(#:cargo-inputs
        (("rust-clippy" ,rust-clippy)
         ("rust-heapsize" ,rust-heapsize)
-        ("rust-serde" ,rust-serde)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde" ,rust-serde-1.0)
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
      "https://github.com/contain-rs/linked-hash-map")
     (synopsis
@@ -2306,7 +2190,7 @@ pairs in insertion order")
         ("rust-matches" ,rust-matches)
         ("rust-percent-encoding" ,rust-percent-encoding)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
@@ -2341,7 +2225,7 @@ pairs in insertion order")
         ("rust-matches" ,rust-matches)
         ("rust-percent-encoding" ,rust-percent-encoding-2.1.0)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
@@ -2443,7 +2327,7 @@ points, in a byte slice, fast")
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if)
         ("rust-packed-simd" ,rust-packed-simd)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode)
         ("rust-serde-derive" ,rust-serde-derive)
@@ -2524,7 +2408,7 @@ points, in a byte slice, fast")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-strsim" ,rust-strsim))))
     (home-page "https://github.com/docopt/docopt.rs")
     (synopsis "Command line argument parsing.")
@@ -2589,7 +2473,7 @@ points, in a byte slice, fast")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode))))
     (home-page
@@ -2957,7 +2841,7 @@ retrieving random data from system source")
     (arguments
      `(#:cargo-inputs
        (("rust-rand-core" ,rust-rand-core)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg)
         ("rust-bincode" ,rust-bincode))))
@@ -2985,7 +2869,7 @@ retrieving random data from system source")
      `(#:cargo-inputs
        (("rust-autocfg" ,rust-autocfg)
         ("rust-rand-core" ,rust-rand-core)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode))))))
@@ -3007,7 +2891,7 @@ retrieving random data from system source")
     (arguments
      `(#:cargo-inputs
        (("rust-rand-core" ,rust-rand-core)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode))))
     (home-page "https://crates.io/crates/rand_isaac")
@@ -3031,7 +2915,7 @@ retrieving random data from system source")
     (arguments
      `(#:cargo-inputs
        (("rust-rand-core" ,rust-rand-core)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode))))))
 
@@ -3053,7 +2937,7 @@ retrieving random data from system source")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder)
         ("rust-rand-core" ,rust-rand-core)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode))))
     (home-page
@@ -3111,7 +2995,7 @@ can't ever panic.")
      `(#:cargo-inputs
        (("rust-autocfg" ,rust-autocfg)
         ("rust-byteorder" ,rust-byteorder)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-bytes" ,rust-serde-bytes)
         ("rust-serde-derive" ,rust-serde-derive))))
@@ -3338,7 +3222,7 @@ guidelines on macOS.")
      `(#:cargo-inputs
        (("rust-fnv" ,rust-fnv)
         ("rust-num-traits" ,rust-num-traits)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-fst" ,rust-fst)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -3367,7 +3251,7 @@ guidelines on macOS.")
     (arguments
      `(#:cargo-inputs
        (("rust-atlatl" ,rust-atlatl)
-        ("rust-serde" ,rust-serde))))
+        ("rust-serde" ,rust-serde-1.0))))
     (home-page
      "https://github.com/tapeinosyne/hyphenation")
     (synopsis
@@ -3464,7 +3348,7 @@ on the heap")
          "0yyggfd5yq9hyyp0bd5jj0fgz3rwws42d19ri0znxwwqs3hcy9sm"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-serde" ,rust-serde))))
+     `(#:cargo-inputs (("rust-serde" ,rust-serde-1.0))))
     (home-page "https://github.com/bluss/either")
     (synopsis
      "The enum `Either` with variants `Left` and `Right`")
@@ -3566,7 +3450,7 @@ implemented using Heap's algorithm.")
         ("rust-rand-xoshiro" ,rust-rand-xoshiro)
         ("rust-rayon" ,rust-rayon)
         ("rust-rayon-core" ,rust-rayon-core)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-tinytemplate" ,rust-tinytemplate)
@@ -4015,7 +3899,7 @@ require unstable language features.")
          ,rust-futures-executor-preview)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-stdweb-derive" ,rust-stdweb-derive)
         ("rust-stdweb-internal-macros"
@@ -4054,7 +3938,7 @@ require unstable language features.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-wasm-bindgen-macro"
          ,rust-wasm-bindgen-macro))))
@@ -4108,7 +3992,7 @@ require unstable language features.")
         ("rust-httparse" ,rust-httparse)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-time" ,rust-time-0.1))))
@@ -4192,11 +4076,11 @@ asynchronous I/O backed applications.")
     (arguments
      `(#:cargo-inputs
        (("rust-nodrop" ,rust-nodrop)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher)
         ("rust-matches" ,rust-matches)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/arrayvec")
     (synopsis
      "A vector with fixed capacity")
@@ -4348,7 +4232,7 @@ ArrayVec and ArrayString.")
         ("rust-num-integer" ,rust-num-integer)
         ("rust-num-traits" ,rust-num-traits)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode)
@@ -4550,9 +4434,9 @@ maps of many strings (> 1 billion is possible).")
         ("rust-csv-core" ,rust-csv-core)
         ("rust-itoa" ,rust-itoa)
         ("rust-ryu" ,rust-ryu)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde" ,rust-serde))))
+       (("rust-serde" ,rust-serde-1.0))))
     (home-page
      "https://github.com/BurntSushi/rust-csv")
     (synopsis
@@ -4635,7 +4519,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-xorshift" ,rust-rand-xorshift)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://github.com/rayon-rs/rayon")
     (synopsis
@@ -4691,7 +4575,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion)
@@ -4773,7 +4657,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-tendril" ,rust-tendril))
        #:cargo-development-inputs
        (("rust-phf-codegen" ,rust-phf-codegen)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-string-cache-codegen"
@@ -5002,9 +4886,9 @@ maps of many strings (> 1 billion is possible).")
        (("rust-flame" ,rust-flame)
         ("rust-flamer" ,rust-flamer)
         ("rust-matches" ,rust-matches)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde-test" ,rust-serde-test))))
+       (("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
      "https://github.com/servo/unicode-bidi")
     (synopsis
@@ -5543,7 +5427,7 @@ proposed in RFC 1158.")
      `(#:cargo-inputs
        (("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-syn" ,rust-syn-0.15))))
     (home-page "https://github.com/koute/stdweb")
@@ -5571,7 +5455,7 @@ proposed in RFC 1158.")
        (("rust-base-x" ,rust-base-x)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-sha1" ,rust-sha1)
@@ -6012,7 +5896,7 @@ results of the computation on the threads themselves.")
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-seahash" ,rust-seahash)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json))))
     (home-page "https://github.com/hyperium/http")
     (synopsis
@@ -6401,7 +6285,7 @@ and functions.")
      `(#:cargo-inputs
        (("rust-num-traits" ,rust-num-traits)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
     (home-page
@@ -6430,7 +6314,7 @@ and functions.")
      `(#:cargo-inputs
        (("rust-num-traits" ,rust-num-traits)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
     (home-page
@@ -6600,7 +6484,7 @@ and functions.")
          ,rust-new-debug-unreachable)
         ("rust-phf-shared" ,rust-phf-shared)
         ("rust-precomputed-hash" ,rust-precomputed-hash)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-string-cache-codegen" ,rust-string-cache-codegen)
         ("rust-string-cache-shared" ,rust-string-cache-shared))
        #:cargo-development-inputs
@@ -6654,7 +6538,7 @@ encodings")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-thread-id" ,rust-thread-id))))
@@ -6856,7 +6740,7 @@ checking")
      `(#:cargo-inputs
        (("rust-owning-ref" ,rust-owning-ref)
         ("rust-scopeguard" ,rust-scopeguard)
-        ("rust-serde" ,rust-serde))))
+        ("rust-serde" ,rust-serde-1.0))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
     (synopsis
@@ -6897,7 +6781,7 @@ checking")
      `(#:cargo-inputs
        (("rust-owning-ref" ,rust-owning-ref)
         ("rust-scopeguard" ,rust-scopeguard)
-        ("rust-serde" ,rust-serde))))
+        ("rust-serde" ,rust-serde-1.0))))
     (home-page
      "https://github.com/Amanieu/parking_lot")
     (synopsis
@@ -7012,7 +6896,7 @@ checking")
         ("rust-futures" ,rust-futures-0.1)
         ("rust-generator" ,rust-generator)
         ("rust-scoped-tls" ,rust-scoped-tls)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json))))
     (home-page "https://github.com/carllerche/loom")
@@ -7347,7 +7231,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-openssl" ,rust-openssl)
         ("rust-rand" ,rust-rand-0.4)
@@ -7377,7 +7261,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-semver-parser" ,rust-semver-parser-0.7)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-crates-index" ,rust-crates-index)
         ("rust-serde-derive" ,rust-serde-derive)
@@ -7408,7 +7292,7 @@ checking")
      `(#:cargo-inputs
        (("rust-nom" ,rust-nom-1)
         ("rust-semver-parser" ,rust-semver-parser-0.7)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-crates-index" ,rust-crates-index)
         ("rust-serde-derive" ,rust-serde-derive)
@@ -8000,7 +7884,7 @@ bench suite.")
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/rust-lang/backtrace-rs")
@@ -8058,7 +7942,7 @@ trace (backtrace) at runtime in a Rust program.")
        (("rust-error-chain" ,rust-error-chain)
         ("rust-git2" ,rust-git2)
         ("rust-glob" ,rust-glob)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json))
        #:cargo-development-inputs
@@ -8610,7 +8494,7 @@ and loading crate.")
         ("rust-url" ,rust-url))
        #:cargo-development-inputs
        (("rust-docopt" ,rust-docopt)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-tempdir" ,rust-tempdir)
         ("rust-thread-id" ,rust-thread-id)
@@ -9145,7 +9029,7 @@ streams.")
        (("rust-byteorder" ,rust-byteorder)
         ("rust-md5" ,rust-md5)
         ("rust-rand" ,rust-rand-0.6)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-sha1" ,rust-sha1)
         ("rust-slog" ,rust-slog)
         ("rust-winapi" ,rust-winapi-0.3))
@@ -9153,7 +9037,7 @@ streams.")
        (("rust-bincode" ,rust-bincode)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/uuid-rs/uuid")
     (synopsis
      "Generate and parse UUIDs")
@@ -9358,7 +9242,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-cbor" ,rust-serde-cbor)
         ("rust-serde-derive" ,rust-serde-derive)
@@ -9466,7 +9350,7 @@ according to XDG Base Directory specification")
      `(#:tests? #f ; Has failing tests
        #:cargo-inputs
        (("rust-envmnt" ,rust-envmnt)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page
      "http://github.com/sagiegurari/ci_info")
@@ -9492,7 +9376,7 @@ according to XDG Base Directory specification")
     (arguments
      `(#:tests? #f ; Has failing tests
        #:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))))
 
 (define-public rust-console
@@ -9574,7 +9458,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-ucd-trie" ,rust-ucd-trie))))
     (home-page "https://pest-parser.github.io/")
@@ -9623,7 +9507,7 @@ according to XDG Base Directory specification")
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64)
         ("rust-bitflags" ,rust-bitflags-1)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-bytes" ,rust-serde-bytes)
         ("rust-serde-json" ,rust-serde-json))))
@@ -9818,8 +9702,8 @@ according to XDG Base Directory specification")
     (arguments
      `(#:cargo-inputs
        (("rust-quickcheck" ,rust-quickcheck)
-        ("rust-serde" ,rust-serde)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde" ,rust-serde-1.0)
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
      "https://github.com/tomprogrammer/rust-ascii")
     (synopsis
@@ -10806,7 +10690,7 @@ according to XDG Base Directory specification")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-typenum" ,rust-typenum))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode)
@@ -10903,7 +10787,7 @@ dependency")
      `(#:cargo-inputs
        (("rust-glob" ,rust-glob)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-termcolor" ,rust-termcolor-1.0)
         ("rust-toml" ,rust-toml))))
@@ -11192,9 +11076,9 @@ dependency.")
        (("rust-byteorder" ,rust-byteorder)
         ("rust-either" ,rust-either)
         ("rust-iovec" ,rust-iovec)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde-test" ,rust-serde-test))))
+       (("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/carllerche/bytes")
     (synopsis
      "Types and traits for working with bytes")
@@ -11267,7 +11151,7 @@ shorthands for guards with one of the implemented strategies.")
          "0diqajg3mgar511hxswl4kgqqz9a026yvn3103x5h2smknlc4lwk"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-serde" ,rust-serde))))
+     `(#:cargo-inputs (("rust-serde" ,rust-serde-1.0))))
     (home-page
      "https://github.com/starkat99/half-rs")
     (synopsis
@@ -11491,7 +11375,7 @@ shorthands for guards with one of the implemented strategies.")
        (("rust-fixedbitset" ,rust-fixedbitset)
         ("rust-ordermap" ,rust-ordermap-0.3)
         ("rust-quickcheck" ,rust-quickcheck)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))
        #:cargo-development-inputs
        (("rust-defmac" ,rust-defmac)
@@ -11543,14 +11427,14 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv)
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/ordermap")
     (synopsis
      "A hash table with consistent order and fast iteration. NOTE: This crate was renamed to indexmap. Please use it under its new name.")
@@ -11574,14 +11458,14 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv)
         ("rust-itertools" ,rust-itertools)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/bluss/ordermap")
     (synopsis
      "A hash table with consistent order and fast iteration. NOTE: This crate was renamed to indexmap. Please use it under its new name.")
@@ -11861,7 +11745,7 @@ creation from raw pointers and start, end pointer accessors.
        (("rust-conv" ,rust-conv)
         ("rust-float-ord" ,rust-float-ord)
         ("rust-num-traits" ,rust-num-traits)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-big-array" ,rust-serde-big-array)
         ("rust-serde-derive" ,rust-serde-derive))
        #:cargo-development-inputs
@@ -11947,7 +11831,7 @@ creation from raw pointers and start, end pointer accessors.
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck))))
@@ -12186,7 +12070,7 @@ Command Line Argument Parser.")
         ("rust-pest" ,rust-pest)
         ("rust-pest-derive" ,rust-pest-derive)
         ("rust-ron" ,rust-ron)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-serde-yaml" ,rust-serde-yaml)
         ("rust-uuid" ,rust-uuid))))
@@ -12369,7 +12253,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-sanakirja" ,rust-sanakirja-0.10)
         ("rust-sequoia-openpgp" ,rust-sequoia-openpgp)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-tempdir" ,rust-tempdir)
@@ -12535,7 +12419,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-mime-guess" ,rust-mime-guess)
         ("rust-native-tls" ,rust-native-tls)
         ("rust-rustls" ,rust-rustls)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-serde-urlencoded" ,rust-serde-urlencoded)
         ("rust-socks" ,rust-socks)
@@ -12557,7 +12441,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-doc-comment" ,rust-doc-comment)
         ("rust-env-logger" ,rust-env-logger)
         ("rust-libflate" ,rust-libflate)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-tcp" ,rust-tokio-tcp))))
     (home-page
@@ -12788,7 +12672,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-num-bigint" ,rust-num-bigint)
         ("rust-num-integer" ,rust-num-integer)
         ("rust-openssl" ,rust-openssl)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-thrussh-libsodium"
          ,rust-thrussh-libsodium)
@@ -13064,7 +12948,7 @@ and private (encrypted + signed) jars.")
         ("rust-idna" ,rust-idna)
         ("rust-log" ,rust-log-0.4)
         ("rust-publicsuffix" ,rust-publicsuffix)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-time" ,rust-time-0.1)
         ("rust-url" ,rust-url))
@@ -13100,7 +12984,7 @@ and private (encrypted + signed) jars.")
         ("rust-idna" ,rust-idna)
         ("rust-log" ,rust-log-0.4)
         ("rust-publicsuffix" ,rust-publicsuffix)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-time" ,rust-time-0.1)
         ("rust-try-from" ,rust-try-from-0.3)
@@ -13165,7 +13049,7 @@ and private (encrypted + signed) jars.")
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-pretty-env-logger"
          ,rust-pretty-env-logger)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-spmc" ,rust-spmc)
@@ -13392,7 +13276,7 @@ and private (encrypted + signed) jars.")
      `(#:cargo-inputs
        (("rust-dtoa" ,rust-dtoa)
         ("rust-itoa" ,rust-itoa)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-url" ,rust-url))
        #:cargo-development-inputs
        (("rust-serde-derive" ,rust-serde-derive))))
@@ -13490,7 +13374,7 @@ and private (encrypted + signed) jars.")
         ("rust-lru-cache" ,rust-lru-cache)
         ("rust-resolv-conf" ,rust-resolv-conf-0.6)
         ("rust-rustls" ,rust-rustls)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-smallvec" ,rust-smallvec)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-executor" ,rust-tokio-executor)
@@ -13559,7 +13443,7 @@ types.  The Client can be used for other queries.")
     (arguments
      `(#:cargo-inputs
        (("rust-chrono" ,rust-chrono)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
@@ -13805,7 +13689,7 @@ exposed as Reader/Writer streams.")
         ("rust-petgraph" ,rust-petgraph)
         ("rust-regex" ,rust-regex)
         ("rust-regex-syntax" ,rust-regex-syntax)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-sha2" ,rust-sha2)
         ("rust-string-cache" ,rust-string-cache)
@@ -13861,7 +13745,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json))))
     (home-page
@@ -13887,7 +13771,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json))))
     (home-page
@@ -13933,10 +13817,10 @@ exposed as Reader/Writer streams.")
         ("rust-quickcheck-macros"
          ,rust-quickcheck-macros)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
      "https://github.com/rust-num/num-bigint")
     (synopsis "Big integer implementation for Rust")
@@ -14266,7 +14150,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-openssl" ,rust-openssl)
        ("rust-rand" ,rust-rand-0.4)
        ("rust-ring" ,rust-ring)
-       ("rust-serde" ,rust-serde)
+       ("rust-serde" ,rust-serde-1.0)
        ("rust-smallvec" ,rust-smallvec)
        ("rust-socket2" ,rust-socket2)
        ("rust-tokio-executor" ,rust-tokio-executor)
@@ -14547,7 +14431,7 @@ composability, and iterator-like interfaces.")
         ("rust-quickcheck" ,rust-quickcheck)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rustls" ,rust-rustls)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-rustls" ,rust-tokio-rustls)
@@ -15049,7 +14933,7 @@ exposed as Reader/Writer streams.")
         ("rust-httparse" ,rust-httparse)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-time" ,rust-time-0.1))))
@@ -15326,7 +15210,7 @@ accessor functions on enums.")
         ("rust-proc-macro-crate" ,rust-proc-macro-crate)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-syn" ,rust-syn-0.15))))
     (home-page
      "https://github.com/taiki-e/pin-project")
@@ -15360,7 +15244,7 @@ accessor functions on enums.")
         ("rust-miow" ,rust-miow-0.3)
         ("rust-regex" ,rust-regex)
         ("rust-rustfix" ,rust-rustfix)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-tempfile" ,rust-tempfile-3.0)
@@ -16164,7 +16048,7 @@ functions.")
         ("rust-percent-encoding" ,rust-percent-encoding-2.1.0)
         ("rust-raw-window-handle"
          ,rust-raw-window-handle)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-smithay-client-toolkit"
          ,rust-smithay-client-toolkit)
         ("rust-wayland-client" ,rust-wayland-client)
@@ -17373,9 +17257,9 @@ hardware font rendering.")
     (arguments
      `(#:cargo-inputs
        (("rust-num-traits" ,rust-num-traits)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde-test" ,rust-serde-test))))
+       (("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
      "https://github.com/reem/rust-ordered-float")
     (synopsis
@@ -17733,7 +17617,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-num-bigint" ,rust-num-bigint)
         ("rust-num-integer" ,rust-num-integer)
         ("rust-num-traits" ,rust-num-traits)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
     (home-page
@@ -17763,7 +17647,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-num-bigint" ,rust-num-bigint)
         ("rust-num-integer" ,rust-num-integer)
         ("rust-num-traits" ,rust-num-traits)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg))))
     (home-page
@@ -17840,7 +17724,7 @@ complex, rational, range iterators, generic integers, and more!
          ,rust-rustc-std-workspace-alloc)
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg)
         ("rust-doc-comment" ,rust-doc-comment)
@@ -17848,7 +17732,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rayon" ,rust-rayon)
         ("rust-rustc-hash" ,rust-rustc-hash)
-        ("rust-serde-test" ,rust-serde-test))))
+        ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
      "https://github.com/rust-lang/hashbrown")
     (synopsis
@@ -17989,7 +17873,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio)
         ("rust-mio-extras" ,rust-mio-extras)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-walkdir" ,rust-walkdir-2.2)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
@@ -19325,7 +19209,7 @@ The intersection of `std::ffi::CStr` and `str`")
         ("rust-mint" ,rust-mint)
         ("rust-num-traits" ,rust-num-traits)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-simd" ,rust-simd))
        #:cargo-development-inputs
        (("rust-glium" ,rust-glium)
@@ -19682,9 +19566,9 @@ for computer graphics.")
        (("rust-euclid-macros" ,rust-euclid-macros)
         ("rust-mint" ,rust-mint)
         ("rust-num-traits" ,rust-num-traits)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde-test" ,rust-serde-test))))
+       (("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page "https://github.com/servo/euclid")
     (synopsis "Geometry primitives")
     (description "Geometry primitives")
@@ -19928,7 +19812,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/servo/dwrote-rs")
@@ -20208,7 +20092,7 @@ for computer graphics.")
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-tempfile" ,rust-tempfile-3.0)
@@ -20258,7 +20142,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-syntex-pos" ,rust-syntex-pos)
         ("rust-term" ,rust-term-0.5)
@@ -20302,7 +20186,7 @@ for computer graphics.")
        (("rust-bitflags" ,rust-bitflags-0.9)
         ("rust-extprim" ,rust-extprim)
         ("rust-log" ,rust-log-0.4)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json)
         ("rust-syntex-errors" ,rust-syntex-errors)
@@ -20344,7 +20228,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://github.com/serde-rs/syntex")
     (synopsis "Backport of libsyntax_pos")
@@ -20385,7 +20269,7 @@ for computer graphics.")
        (("rust-num-traits" ,rust-num-traits)
         ("rust-rand" ,rust-rand-0.6)
         ("rust-rustc-version" ,rust-rustc-version)
-        ("rust-serde" ,rust-serde))
+        ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-extprim-literals" ,rust-extprim-literals)
         ("rust-semver" ,rust-semver))))
@@ -20441,7 +20325,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-racer-interner" ,rust-racer-interner)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json))))
     (home-page "https://github.com/racer-rust/racer")
     (synopsis
@@ -20467,7 +20351,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page "https://github.com/rust-lang/rls")
     (synopsis
@@ -20556,7 +20440,7 @@ for computer graphics.")
          "0k7ssjjcr4kr9r1jbz93rglisfsx1m6fkx3wz6yng5rizm528si0"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-serde" ,rust-serde))))
+     `(#:cargo-inputs (("rust-serde" ,rust-serde-1.0))))
     (home-page "https://github.com/racer-rust/racer")
     (synopsis
      "Thread-local string interner for racer-rust")
@@ -21000,7 +20884,7 @@ for computer graphics.")
        (("rust-ansi-term" ,rust-ansi-term)
         ("rust-difference" ,rust-difference)
         ("rust-glob" ,rust-glob)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-yaml" ,rust-serde-yaml))))
     (home-page
      "https://github.com/rust-lang/annotate-snippets-rs")
@@ -21103,7 +20987,7 @@ for computer graphics.")
        (("rust-docopt" ,rust-docopt)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))))
     (home-page
      "https://github.com/rust-lang/rustc-rayon")
@@ -21236,7 +21120,7 @@ for computer graphics.")
         ("rust-quine-mc-cluskey" ,rust-quine-mc-cluskey)
         ("rust-regex-syntax" ,rust-regex-syntax)
         ("rust-semver" ,rust-semver)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-toml" ,rust-toml-0.1)
         ("rust-unicode-normalization" ,rust-unicode-normalization)
@@ -21275,7 +21159,7 @@ pitfalls in Rust")
         ("rust-quine-mc-cluskey" ,rust-quine-mc-cluskey)
         ("rust-regex-syntax" ,rust-regex-syntax-0.3)
         ("rust-semver" ,rust-semver-0.2)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-toml" ,rust-toml-0.1)
         ("rust-unicode-normalization" ,rust-unicode-normalization)
@@ -21298,7 +21182,7 @@ pitfalls in Rust")
     (arguments
      `(#:cargo-inputs
        (("rust-semver" ,rust-semver)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive)
         ("rust-serde-json" ,rust-serde-json))
        #:cargo-development-inputs
@@ -21565,7 +21449,7 @@ pitfalls in Rust")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde)
+       (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive))
        #:cargo-development-inputs
        (("rust-cfg-if" ,rust-cfg-if))))
@@ -21914,7 +21798,7 @@ function's body.")
      `(#:cargo-inputs
        (("rust-failure" ,rust-failure)
         ("rust-log" ,rust-log-0.4)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json))
        #:cargo-development-inputs
        (("rust-difference" ,rust-difference)
@@ -22130,7 +22014,7 @@ require unstable language features.")
        (("rust-cgmath" ,rust-cgmath)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rgb" ,rust-rgb)
-        ("rust-serde" ,rust-serde)
+        ("rust-serde" ,rust-serde-1.0)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-serde-cbor" ,rust-serde-cbor)
@@ -22569,7 +22453,7 @@ your code.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-serde" ,rust-serde))
+       (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json))))
     (home-page "https://lib.rs/crates/rgb")
