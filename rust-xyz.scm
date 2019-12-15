@@ -2613,7 +2613,7 @@ Web.")
         ("rust-tokio-reactor" ,rust-tokio-reactor-0.1)
         ("rust-tokio-sync" ,rust-tokio-sync-0.1)
         ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
-        ("rust-tokio-threadpool" ,rust-tokio-threadpool)
+        ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1)
         ("rust-tokio-timer" ,rust-tokio-timer)
         ("rust-tokio-trace-core" ,rust-tokio-trace-core)
         ("rust-tokio-udp" ,rust-tokio-udp)
@@ -3679,7 +3679,7 @@ synchronization primitives.")
      `(#:cargo-inputs
        (("rust-futures" ,rust-futures-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
-        ("rust-tokio-threadpool" ,rust-tokio-threadpool))
+        ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4)
         ("rust-tempdir" ,rust-tempdir-0.3)
@@ -3690,43 +3690,6 @@ synchronization primitives.")
     (home-page "https://tokio.rs")
     (synopsis "Filesystem API for Tokio")
     (description "Filesystem API for Tokio.")
-    (license #f)))
-
-(define-public rust-tokio-threadpool
-  (package
-    (name "rust-tokio-threadpool")
-    (version "0.1.14")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-threadpool" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1wkj3wixicsqvllm8w74b24knw6mdn00zslm8l9fm1p81gr8lmbj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
-        ("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
-        ("rust-futures" ,rust-futures-0.1)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-slab" ,rust-slab-0.4)
-        ("rust-tokio-executor" ,rust-tokio-executor-0.1))
-       #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
-        ("rust-threadpool" ,rust-threadpool-1.7))))
-    (home-page "https://github.com/tokio-rs/tokio")
-    (synopsis
-     "A task scheduler backed by a work-stealing thread pool")
-    (description
-     "This package provides a task scheduler backed by a work-stealing
-thread pool.")
     (license #f)))
 
 (define-public rust-tokio-timer
@@ -3874,7 +3837,7 @@ thread pool.")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
-        ("rust-tokio-threadpool" ,rust-tokio-threadpool))))
+        ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1))))
     (home-page
      "https://github.com/alexcrichton/flate2-rs")
     (synopsis
@@ -8875,7 +8838,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-rustls" ,rust-tokio-rustls)
-        ("rust-tokio-threadpool" ,rust-tokio-threadpool)
+        ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1)
         ("rust-tokio-timer" ,rust-tokio-timer)
         ("rust-trust-dns-resolver"
          ,rust-trust-dns-resolver)
