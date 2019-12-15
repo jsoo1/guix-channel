@@ -1704,7 +1704,7 @@ guidelines on macOS.")
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
-        ("rust-http" ,rust-http)
+        ("rust-http" ,rust-http-0.1)
         ("rust-httparse" ,rust-httparse)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
@@ -2160,40 +2160,6 @@ synchronization primitives.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (description
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
-    (license #f)))
-
-(define-public rust-http
-  (package
-    (name "rust-http")
-    (version "0.1.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "http" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "06icxvrd26r6s7dzjavja7r47hgjb9851wblqh8frxnsy3q29lzf"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-fnv" ,rust-fnv-1.0)
-        ("rust-itoa" ,rust-itoa-0.4))
-       #:cargo-development-inputs
-       (("rust-indexmap" ,rust-indexmap-1.0)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-seahash" ,rust-seahash-3.0)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page "https://github.com/hyperium/http")
-    (synopsis
-     "A set of types for representing HTTP requests and responses")
-    (description
-     "This package provides a set of types for representing HTTP
-requests and responses.")
     (license #f)))
 
 (define-public rust-httparse
@@ -4446,7 +4412,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-encoding-rs" ,rust-encoding-rs-0.8)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-http" ,rust-http)
+        ("rust-http" ,rust-http-0.1)
         ("rust-hyper" ,rust-hyper)
         ("rust-hyper-old-types" ,rust-hyper-old-types)
         ("rust-hyper-rustls" ,rust-hyper-rustls)
@@ -5063,7 +5029,7 @@ and private (encrypted + signed) jars.")
         ("rust-futures-util-preview"
          ,rust-futures-util-preview-0.3)
         ("rust-h2" ,rust-h2)
-        ("rust-http" ,rust-http)
+        ("rust-http" ,rust-http-0.1)
         ("rust-http-body" ,rust-http-body)
         ("rust-httparse" ,rust-httparse)
         ("rust-iovec" ,rust-iovec-0.1)
@@ -5118,7 +5084,7 @@ and private (encrypted + signed) jars.")
      `(#:cargo-inputs
        (("rust-base64" ,rust-base64-0.10)
         ("rust-bytes" ,rust-bytes-0.4)
-        ("rust-http" ,rust-http)
+        ("rust-http" ,rust-http-0.1)
         ("rust-httparse" ,rust-httparse)
         ("rust-language-tags" ,rust-language-tags-0.2)
         ("rust-log" ,rust-log-0.4)
@@ -6049,7 +6015,7 @@ exposed as Reader/Writer streams.")
         ("rust-failure" ,rust-failure-0.1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-h2" ,rust-h2)
-        ("rust-http" ,rust-http)
+        ("rust-http" ,rust-http-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-rustls" ,rust-rustls)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
@@ -6424,7 +6390,7 @@ composability, and iterator-like interfaces.")
          ,rust-futures-sink-preview-0.3)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview-0.3)
-        ("rust-http" ,rust-http)
+        ("rust-http" ,rust-http-0.1)
         ("rust-indexmap" ,rust-indexmap-1.0)
         ("rust-log" ,rust-log-0.4)
         ("rust-slab" ,rust-slab-0.4)
@@ -6467,7 +6433,7 @@ composability, and iterator-like interfaces.")
   (arguments
     `(#:cargo-inputs
       (("rust-bytes" ,rust-bytes-0.4)
-       ("rust-http" ,rust-http))))
+       ("rust-http" ,rust-http-0.1))))
   (home-page
     "https://github.com/hyperium/http-body")
   (synopsis
@@ -6936,7 +6902,7 @@ exposed as Reader/Writer streams.")
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
-        ("rust-http" ,rust-http)
+        ("rust-http" ,rust-http-0.1)
         ("rust-httparse" ,rust-httparse)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
@@ -7057,7 +7023,7 @@ accessor functions on enums.")
        (("rust-base64" ,rust-base64-0.10)
         ("rust-bytes" ,rust-bytes-0.4)
         ("rust-chrono" ,rust-chrono-0.4)
-        ("rust-http" ,rust-http)
+        ("rust-http" ,rust-http-0.1)
         ("rust-mime" ,rust-mime-0.3))))
     (home-page
      "https://github.com/sfackler/typed-headers")
