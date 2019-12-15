@@ -3131,7 +3131,7 @@ checking")
         ("rust-rand-chacha" ,rust-rand-chacha-0.2)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
-        ("rust-rusty-fork" ,rust-rusty-fork)
+        ("rust-rusty-fork" ,rust-rusty-fork-0.2)
         ("rust-tempfile" ,rust-tempfile-3.0))
        #:cargo-development-inputs
        (("rust-regex" ,rust-regex-1.1))))
@@ -14485,35 +14485,6 @@ on CPUs, as well as raw interfaces to platform-specific instructions.
 directly.")
     (license #f)))
 
-(define-public rust-rusty-fork
-  (package
-    (name "rust-rusty-fork")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rusty-fork" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1bjg8adk0i921088j52rn0hmvsry34q19g96x41pamqcw5j35n9x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-fnv" ,rust-fnv-1.0)
-        ("rust-quick-error" ,rust-quick-error-1.2)
-        ("rust-tempfile" ,rust-tempfile-3.0)
-        ("rust-wait-timeout" ,rust-wait-timeout))))
-    (home-page
-     "https://github.com/altsysrq/rusty-fork")
-    (synopsis
-     "Library for running Rust tests in sub-processes")
-    (description
-     "Cross-platform library for running Rust tests in sub-processes
-using a fork-like interface.")
-    (license #f)))
-
 (define-public rust-generator
   (package
     (name "rust-generator")
@@ -14570,31 +14541,6 @@ Writing a fast decoder that is also safe can be quite challenging, so
 this crate is here to save you the hassle of maintaining and testing
 your own implementation.")
   (license (list license:expat license:asl2.0))))
-
-(define-public rust-wait-timeout
-  (package
-    (name "rust-wait-timeout")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wait-timeout" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xpkk0j5l9pfmjfh1pi0i89invlavfrd9av5xp0zhxgb29dhy84z"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
-    (home-page
-     "https://github.com/alexcrichton/wait-timeout")
-    (synopsis
-     "Wait on a child process with a timeout")
-    (description
-     "This package provides a crate to wait on a child process with a
-timeout specified across Unix and Windows platforms.")
-    (license #f)))
 
 (define-public rust-colored
   (package
