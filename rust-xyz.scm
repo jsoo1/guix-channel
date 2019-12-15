@@ -1472,27 +1472,6 @@ patterns.")
 remove_dir_all for Windows")
     (license #f)))
 
-(define-public rust-rustc-std-workspace-core
-  (package
-    (name "rust-rustc-std-workspace-core")
-    (version "1.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rustc-std-workspace-core" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1309xhwyai9xpz128xrfjqkmnkvgjwddznmj7brbd8i8f58zamhr"))))
-    (build-system cargo-build-system)
-    (home-page "")
-    (synopsis
-     "Explicitly empty crate for rust-lang/rust integration")
-    (description
-     "Explicitly empty crate for rust-lang/rust integration")
-    (license #f)))
-
 ;; DO THESE DEPS
 (define-public rust-getrandom
   (package
@@ -4364,7 +4343,7 @@ bench suite.")
         ("rust-rustc-demangle" ,rust-rustc-demangle)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core)
+         ,rust-rustc-std-workspace-core-1.0)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
@@ -4642,7 +4621,7 @@ written in Rust, using gimli.")
          ,rust-compiler-builtins)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core))
+         ,rust-rustc-std-workspace-core-1.0))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0))))
     (home-page
@@ -4670,7 +4649,7 @@ written in Rust, using gimli.")
     (arguments
      `(#:cargo-inputs
        (("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core))
+         ,rust-rustc-std-workspace-core-1.0))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0))))
     (home-page
@@ -4728,7 +4707,7 @@ with a cross platform API")
        (("rust-compiler-builtins"
          ,rust-compiler-builtins)
         ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core))))
+         ,rust-rustc-std-workspace-core-1.0))))
     (home-page
      "https://github.com/alexcrichton/rustc-demangle")
     (synopsis "Rust compiler symbol demangling")
@@ -12722,7 +12701,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-rustc-std-workspace-alloc"
          ,rust-rustc-std-workspace-alloc)
         ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core)
+         ,rust-rustc-std-workspace-core-1.0)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg-0.1)
@@ -16085,7 +16064,7 @@ for computer graphics.")
         ("rust-rustc-std-workspace-alloc"
          ,rust-rustc-std-workspace-alloc)
         ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core))))
+         ,rust-rustc-std-workspace-core-1.0))))
     (home-page
      "https://github.com/CraneStation/rust-wasi")
     (synopsis
