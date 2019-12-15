@@ -6235,13 +6235,13 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-fixedbitset" ,rust-fixedbitset)
+       (("rust-fixedbitset" ,rust-fixedbitset-0.1)
         ("rust-ordermap" ,rust-ordermap-0.3)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
-       (("rust-defmac" ,rust-defmac)
+       (("rust-defmac" ,rust-defmac-0.2)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-odds" ,rust-odds)
         ("rust-rand" ,rust-rand-0.4))))
@@ -6250,28 +6250,6 @@ shorthands for guards with one of the implemented strategies.")
      "Graph data structure library")
     (description
      "Graph data structure library.  Provides graph types and graph algorithms.")
-    (license #f)))
-
-(define-public rust-fixedbitset
-  (package
-    (name "rust-fixedbitset")
-    (version "0.1.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "fixedbitset" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0czam11mi80dbyhf4rd4lz0ihcf7vkfchrdcrn45wbs0h40dxm46"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/bluss/fixedbitset")
-    (synopsis
-     "FixedBitSet is a simple bitset collection")
-    (description
-     "FixedBitSet is a simple bitset collection")
     (license #f)))
 
 (define-public rust-ordermap
@@ -6336,27 +6314,6 @@ shorthands for guards with one of the implemented strategies.")
      "This package provides a hash table with consistent order and fast iteration.  NOTE: This crate was renamed to indexmap.  Please use it under its new name.")
     (license #f)))
 
-(define-public rust-defmac
-  (package
-    (name "rust-defmac")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "defmac" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "01ff3jdmcc5waffkwllndnx5hsn414r7x1rq4ib73n7awsyzxkxv"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/bluss/defmac")
-    (synopsis
-     "A macro to define lambda-like macros inline.")
-    (description
-     "This package provides a macro to define lambda-like macros inline.")
-    (license #f)))
-
 (define-public rust-odds
   (package
     (name "rust-odds")
@@ -6373,9 +6330,9 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rawpointer" ,rust-rawpointer)
-        ("rust-rawslice" ,rust-rawslice)
-        ("rust-unchecked-index" ,rust-unchecked-index))
+       (("rust-rawpointer" ,rust-rawpointer-0.1)
+        ("rust-rawslice" ,rust-rawslice-0.1)
+        ("rust-unchecked-index" ,rust-unchecked-index-0.2))
        #:cargo-development-inputs
        (("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -6383,91 +6340,11 @@ shorthands for guards with one of the implemented strategies.")
         ("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page "https://github.com/bluss/odds")
     (synopsis
-     "Odds and ends â\x80\x94 collection miscellania. Extra functionality for slices (`.find()`, `RevSlice`), strings and other things. Things in odds may move to more appropriate crates if we find them.
-")
+     "Extra functionality for slices, strings and other things")
     (description
-     "Odds and ends â\x80\x94 collection miscellania.  Extra functionality for slices (`.find()`, `RevSlice`), strings and other things.  Things in odds may move to more appropriate crates if we find them.
-")
-    (license #f)))
-
-(define-public rust-rawpointer
-  (package
-    (name "rust-rawpointer")
-    (version "0.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rawpointer" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "06ghpm9y7gacks78s3maakha07kbnwrxif5q37r2l7z1sali3b7b"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/bluss/rawpointer/")
-    (synopsis
-     "Extra methods for raw pointers.
-
-For example `.post_inc()` and `.pre_dec()` (c.f. `ptr++` and `--ptr`) and
-`ptrdistance`.
-")
-    (description
-     "Extra methods for raw pointers.
-
-For example `.post_inc()` and `.pre_dec()` (c.f. `ptr++` and `--ptr`) and
-`ptrdistance`.
-")
-    (license #f)))
-
-(define-public rust-rawslice
-  (package
-    (name "rust-rawslice")
-    (version "0.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rawslice" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09bympww1rpsd422da3w444q5w1znjbjh7mjninhq9gaaygkpci2"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rawpointer" ,rust-rawpointer))
-       #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page "https://github.com/bluss/rawslice/")
-    (synopsis
-     "Reimplementation of the slice iterators, with extra features")
-    (description
-     "Reimplementation of the slice iterators, with extra features.  For example
-creation from raw pointers and start, end pointer accessors.
-")
-    (license #f)))
-
-(define-public rust-unchecked-index
-  (package
-    (name "rust-unchecked-index")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unchecked-index" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0p6qcai1mjayx59cpgk27d0zgw9hz9r1ira5jiqil66f4ba8dfpf"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/bluss/unchecked-index")
-    (synopsis
-     "Unchecked indexing wrapper using regular index syntax")
-    (description
-     "Unchecked indexing wrapper using regular index syntax.")
+     "Odds and ends collection miscellania.  Extra functionality for
+slices (@code{.find()}, @code{RevSlice}), strings and other things.
+Things in odds may move to more appropriate crates if we find them.")
     (license #f)))
 
 (define-public rust-nodrop-union
