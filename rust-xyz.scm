@@ -5713,7 +5713,7 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-block-buffer" ,rust-block-buffer)
+       (("rust-block-buffer" ,rust-block-buffer-0.7)
         ("rust-digest" ,rust-digest)
         ("rust-fake-simd" ,rust-fake-simd)
         ("rust-opaque-debug" ,rust-opaque-debug)
@@ -5725,33 +5725,6 @@ shorthands for guards with one of the implemented strategies.")
      "https://github.com/RustCrypto/hashes")
     (synopsis "SHA-1 hash function")
     (description "SHA-1 hash function")
-    (license #f)))
-
-(define-public rust-block-buffer
-  (package
-    (name "rust-block-buffer")
-    (version "0.7.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "block-buffer" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "12v8wizynqin0hqf140kmp9s38q223mp1b0hkqk8j5pk8720v560"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-block-padding" ,rust-block-padding)
-        ("rust-byte-tools" ,rust-byte-tools-0.3)
-        ("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-generic-array" ,rust-generic-array-0.12.3))))
-    (home-page "https://github.com/RustCrypto/utils")
-    (synopsis
-     "Fixed size buffer for block processing of data")
-    (description
-     "Fixed size buffer for block processing of data")
     (license #f)))
 
 (define-public rust-digest
@@ -5824,30 +5797,6 @@ shorthands for guards with one of the implemented strategies.")
      "Assembly implementation of SHA-1 compression function")
     (description
      "Assembly implementation of SHA-1 compression function")
-    (license #f)))
-
-(define-public rust-block-padding
-  (package
-    (name "rust-block-padding")
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "block-padding" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "02fz9wx5dmgpc79ndrb9xfxqlrkk7lg5wki2blz2zqg27spw6kbd"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byte-tools" ,rust-byte-tools-0.3))))
-    (home-page "https://github.com/RustCrypto/utils")
-    (synopsis
-     "Padding and unpadding of messages divided into blocks.")
-    (description
-     "Padding and unpadding of messages divided into blocks.")
     (license #f)))
 
 (define-public rust-ordermap
@@ -6905,7 +6854,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-block-buffer" ,rust-block-buffer)
+       (("rust-block-buffer" ,rust-block-buffer-0.7)
         ("rust-digest" ,rust-digest)
         ("rust-fake-simd" ,rust-fake-simd)
         ("rust-opaque-debug" ,rust-opaque-debug)
