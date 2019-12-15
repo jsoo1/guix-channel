@@ -515,7 +515,7 @@ integer keys.")
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark-0.4)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-semver-parser" ,rust-semver-parser)
+        ("rust-semver-parser" ,rust-semver-parser-0.9)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-toml" ,rust-toml-0.5)
         ("rust-url" ,rust-url-1.7))))
@@ -1059,26 +1059,6 @@ instantiate to generate your own pieces of pseudo-random text.")
     (synopsis "A pull parser for CommonMark")
     (description
      "This package provides a pull parser for CommonMark")
-    (license #f)))
-
-(define-public rust-semver-parser
-  (package
-    (name "rust-semver-parser")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "semver-parser" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ahqhvgpzhcsd28id7xnrjv4419i9yyalhm7d7zi430qx0hi2vml"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/steveklabnik/semver-parser")
-    (synopsis "Parsing of the semver spec.")
-    (description "Parsing of the semver spec.")
     (license #f)))
 
 (define-public rust-semver-parser-0.7
