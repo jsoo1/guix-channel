@@ -582,7 +582,7 @@ standard printing of search results, similar to grep itself.")
     (arguments
      `(#:cargo-inputs
        (("rust-bstr" ,rust-bstr-0.2)
-        ("rust-bytecount" ,rust-bytecount)
+        ("rust-bytecount" ,rust-bytecount-0.5)
         ("rust-encoding-rs" ,rust-encoding-rs)
         ("rust-encoding-rs-io" ,rust-encoding-rs-io)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
@@ -1053,35 +1053,6 @@ instantiate to generate your own pieces of pseudo-random text.")
        (sha256
         (base32
          "0hs62r35bgxslawyrn1vp9rmvrkkm76fqv0vqcwd048vs876r7a8"))))))
-
-(define-public rust-bytecount
-  (package
-    (name "rust-bytecount")
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bytecount" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0z6a280kiy4kg5v3qw97pbyvwycr17fsm41804i8zpq7nmads3xy"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-packed-simd" ,rust-packed-simd-0.3))
-       #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion-0.2)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page "https://github.com/llogiq/bytecount")
-    (synopsis
-     "Count occurrences of a given byte")
-    (description
-     "Count occurrences of a given byte, or the number of UTF-8 code
-points, in a byte slice, fast")
-    (license #f)))
 
 (define-public rust-encoding-rs
   (package
@@ -14516,7 +14487,7 @@ attributes into structs when implementing custom derives.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bytecount" ,rust-bytecount)
+       (("rust-bytecount" ,rust-bytecount-0.5)
         ("rust-cargo-metadata" ,rust-cargo-metadata)
         ("rust-error-chain" ,rust-error-chain)
         ("rust-glob" ,rust-glob-0.3)
