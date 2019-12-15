@@ -2801,28 +2801,6 @@ maps of many strings (> 1 billion is possible).")
      "Common code for xml5ever and html5ever")
     (license #f)))
 
-(define-public rust-typed-arena
-  (package
-    (name "rust-typed-arena")
-    (version "1.4.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "typed-arena" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1i8yczhwcy0nnrxqck1lql3i7hvg95l0vw0dbgfb92zkms96mh66"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/SimonSapin/rust-typed-arena")
-    (synopsis
-     "The arena, a fast but limited type of allocator")
-    (description
-     "The arena, a fast but limited type of allocator")
-    (license #f)))
-
 (define-public rust-futf
   (package
     (name "rust-futf")
