@@ -34,7 +34,7 @@
     (arguments
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
-        ("rust-base64" ,rust-base64)
+        ("rust-base64" ,rust-base64-0.10)
         ("rust-bincode" ,rust-bincode-1.1)
         ("rust-bs58" ,rust-bs58)
         ("rust-chrono" ,rust-chrono-0.4)

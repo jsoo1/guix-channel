@@ -597,7 +597,7 @@ are updated when the crate version changes.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-bstr" ,rust-bstr-0.2)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-grep-searcher" ,rust-grep-searcher)
@@ -1281,45 +1281,16 @@ pairs in insertion order")
      "URL library for Rust, based on the WHATWG URL Standard")
     (license #f)))
 
-;; DO THESE DEPS
-(define-public rust-base64
-  (package
-    (name "rust-base64")
-    (version "0.10.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "base64" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "13k6bvd3n6dm7jqn9x918w65dd9xhx454bqphbnv0bkd6n9dj98b"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))
-       #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion-0.2)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/alicemaz/rust-base64")
-    (synopsis
-     "encodes and decodes base64 as bytes or utf8")
-    (description
-     "encodes and decodes base64 as bytes or utf8")
-    (license #f)))
-
 (define-public rust-base64-0.9
   (package
-    (inherit rust-base64)
+    (inherit rust-base64-0.10)
     (version "0.9.3")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "base64" version))
        (file-name
-        (string-append (package-name rust-base64) "-" version ".tar.gz"))
+        (string-append (package-name rust-base64-0.10) "-" version ".tar.gz"))
        (sha256
         (base32
          "0hs62r35bgxslawyrn1vp9rmvrkkm76fqv0vqcwd048vs876r7a8"))))))
@@ -5827,7 +5798,7 @@ streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -8063,7 +8034,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-bincode" ,rust-bincode-1.1)
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-bs58" ,rust-bs58)
@@ -8318,7 +8289,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-buffered-reader" ,rust-buffered-reader)
         ("rust-bzip2" ,rust-bzip2)
         ("rust-failure" ,rust-failure)
@@ -8359,7 +8330,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-buffered-reader" ,rust-buffered-reader)
         ("rust-bzip2" ,rust-bzip2)
         ("rust-failure" ,rust-failure)
@@ -8487,7 +8458,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-bit-vec" ,rust-bit-vec-0.4)
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-cryptovec" ,rust-cryptovec)
@@ -8741,7 +8712,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-ring" ,rust-ring)
         ("rust-time" ,rust-time-0.1)
         ("rust-url" ,rust-url-1.7))))
@@ -8905,7 +8876,7 @@ and private (encrypted + signed) jars.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-bytes" ,rust-bytes-0.4)
         ("rust-http" ,rust-http)
         ("rust-httparse" ,rust-httparse)
@@ -9066,7 +9037,7 @@ and private (encrypted + signed) jars.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-log" ,rust-log-0.4)
         ("rust-ring" ,rust-ring)
         ("rust-sct" ,rust-sct)
@@ -9780,7 +9751,7 @@ exposed as Reader/Writer streams.")
        (("rust-ring" ,rust-ring)
         ("rust-untrusted" ,rust-untrusted-0.7))
        #:cargo-development-inputs
-       (("rust-base64" ,rust-base64))))
+       (("rust-base64" ,rust-base64-0.10))))
     (home-page
      "https://github.com/briansmith/webpki")
     (synopsis
@@ -10869,7 +10840,7 @@ accessor functions on enums.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-base64" ,rust-base64)
+       (("rust-base64" ,rust-base64-0.10)
         ("rust-bytes" ,rust-bytes-0.4)
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-http" ,rust-http)
