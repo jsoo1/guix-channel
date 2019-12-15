@@ -3167,7 +3167,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-bit-set" ,rust-bit-set)
+       (("rust-bit-set" ,rust-bit-set-0.5)
         ("rust-bitflags" ,rust-bitflags-1)
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -4624,34 +4624,6 @@ reading and writing git repositories.")
      "Lexical, to- and from-string conversion routines.")
     (description
      "Lexical, to- and from-string conversion routines.")
-    (license #f)))
-
- ;; DO THESE DEPS
-(define-public rust-stackvector-1.0
-  (package
-    (name "rust-stackvector")
-    (version "1.0.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "stackvector" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1bv820fhdad16islwli1g3iksk39ivf0zaqz4j1m08vq15jjaiqw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-unreachable" ,rust-unreachable-1.0))
-       #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/Alexhuszagh/rust-stackvector")
-    (synopsis
-     "StackVec: vector-like facade for stack-allocated arrays.")
-    (description
-     "StackVec: vector-like facade for stack-allocated arrays.")
     (license #f)))
 
 (define-public rust-void
@@ -6881,7 +6853,7 @@ exposed as Reader/Writer streams.")
      `(#:cargo-inputs
        (("rust-ascii-canvas" ,rust-ascii-canvas)
         ("rust-atty" ,rust-atty-0.2)
-        ("rust-bit-set" ,rust-bit-set)
+        ("rust-bit-set" ,rust-bit-set-0.5)
         ("rust-diff" ,rust-diff-0.1)
         ("rust-docopt" ,rust-docopt-1.1)
         ("rust-ena" ,rust-ena)
@@ -6943,32 +6915,6 @@ exposed as Reader/Writer streams.")
        (sha256
         (base32
          "1xs6yba2jqlmzcm9ahzggrlb933c08ik9ah8zdsybylzhc83llm4"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-     "https://github.com/contain-rs/bit-vec")
-    (synopsis "A vector of bits")
-    (description
-     "This package provides a vector of bits")
-    (license #f)))
-
-(define-public rust-bit-vec-0.5
-  (package
-    (name "rust-bit-vec")
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bit-vec" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1fyh8221s6cxlmng01v8v2ljhavzawqqs8r1xjc66ap5sjavx6zm"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -10562,32 +10508,6 @@ implementation of Bresenham's line algorithm.")
      "simple canvas for drawing lines and styled text and emitting to the terminal")
     (description
      "simple canvas for drawing lines and styled text and emitting to the terminal")
-    (license #f)))
-
-(define-public rust-bit-set
-  (package
-    (name "rust-bit-set")
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bit-set" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "100ac8867bvbx9kv634w4xjk98b71i8nq4wdcvpf3cf4ha4j6k78"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bit-vec" ,rust-bit-vec-0.5))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/contain-rs/bit-set")
-    (synopsis "A set of bits")
-    (description
-     "This package provides a set of bits")
     (license #f)))
 
 (define-public rust-ena
