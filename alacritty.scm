@@ -100,7 +100,7 @@
         ("rust-remove-dir-all" ,rust-remove-dir-all)
         ("rust-rustc-tools-util" ,rust-rustc-tools-util)
         ("rust-same-file" ,rust-same-file-1.0)
-        ("rust-serde-yaml" ,rust-serde-yaml)
+        ("rust-serde-yaml" ,rust-serde-yaml-0.8)
         ("rust-servo-fontconfig" ,rust-servo-fontconfig)
         ("rust-signal-hook" ,rust-signal-hook)
         ("rust-smithay" ,rust-smithay)
