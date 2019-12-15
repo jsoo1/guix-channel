@@ -4628,8 +4628,8 @@ to be linked into Rust code.")
        (("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
         ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
         ("rust-gimli" ,rust-gimli-0.18)
-        ("rust-intervaltree" ,rust-intervaltree)
-        ("rust-lazycell" ,rust-lazycell)
+        ("rust-intervaltree" ,rust-intervaltree-0.2)
+        ("rust-lazycell" ,rust-lazycell-1.2)
         ("rust-object" ,rust-object)
         ("rust-rustc-demangle" ,rust-rustc-demangle)
         ("rust-smallvec" ,rust-smallvec-0.6))
@@ -4882,55 +4882,6 @@ reading and writing git repositories.")
      "Minimal Adler32 implementation for Rust")
     (description
      "Minimal Adler32 implementation for Rust.")
-    (license #f)))
-
-(define-public rust-intervaltree
-  (package
-    (name "rust-intervaltree")
-    (version "0.2.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "intervaltree" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "10k40gsv79kwnsqrzwmnmm6psa5fqws8yggavmbggvymv16hffdg"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-smallvec" ,rust-smallvec-0.6))))
-    (home-page
-     "https://github.com/main--/rust-intervaltree")
-    (synopsis
-     "Immutable interval trees")
-    (description
-     "This package provides a simple and generic implementation of an
-immutable interval tree.")
-    (license #f)))
-
-(define-public rust-lazycell
-  (package
-    (name "rust-lazycell")
-    (version "1.2.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "lazycell" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0gvqycmpv7parc98i6y64ai7rvxrn1947z2a6maa02g4kvxdd55j"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-clippy" ,rust-clippy-0.0))))
-    (home-page "https://github.com/indiv0/lazycell")
-    (synopsis
-     "Lazily filled Cell struct")
-    (description
-     "This package provides a library providing a lazily filled Cell struct.")
     (license #f)))
 
 (define-public rust-object
@@ -11349,7 +11300,7 @@ functions.")
         ("rust-mio-extras" ,rust-mio-extras)
         ("rust-nix" ,rust-nix))
        #:cargo-development-inputs
-       (("rust-lazycell" ,rust-lazycell))))
+       (("rust-lazycell" ,rust-lazycell-1.2))))
     (home-page "https://github.com/Smithay/calloop")
     (synopsis "A callback-based event loop")
     (description
@@ -12213,7 +12164,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-lazycell" ,rust-lazycell)
+       (("rust-lazycell" ,rust-lazycell-1.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-slab" ,rust-slab-0.4))))

@@ -40,7 +40,7 @@
         ("rust-env-logger" ,rust-env-logger-0.5)
         ("rust-humantime" ,rust-humantime-1.2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-lazycell" ,rust-lazycell)
+        ("rust-lazycell" ,rust-lazycell-1.2)
         ("rust-fuchsia-zircon" ,rust-fuchsia-zircon-0.3)
         ("rust-log" ,rust-log-0.3)
         ("rust-racer-cargo-metadata" ,rust-racer-cargo-metadata)
