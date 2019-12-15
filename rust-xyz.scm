@@ -1727,7 +1727,7 @@ guidelines on macOS.")
         ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1)
         ("rust-tokio-timer" ,rust-tokio-timer-0.2)
         ("rust-tokio-trace-core" ,rust-tokio-trace-core)
-        ("rust-tokio-udp" ,rust-tokio-udp)
+        ("rust-tokio-udp" ,rust-tokio-udp-0.1)
         ("rust-tokio-uds" ,rust-tokio-uds))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
@@ -2212,36 +2212,6 @@ synchronization primitives.")
     (synopsis "Core primitives for tokio-trace")
     (description
      "Core primitives for tokio-trace.")
-    (license #f)))
-
-(define-public rust-tokio-udp
-  (package
-    (name "rust-tokio-udp")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-udp" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "14kfj35s465czcspayacnzlxrazfvxzhhggq1rqlljhgp1sqa9k6"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-futures" ,rust-futures-0.1)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-mio" ,rust-mio-0.6)
-        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
-        ("rust-tokio-io" ,rust-tokio-io-0.1)
-        ("rust-tokio-reactor" ,rust-tokio-reactor-0.1))
-       #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger-0.6))))
-    (home-page "https://tokio.rs")
-    (synopsis "UDP bindings for tokio")
-    (description "UDP bindings for tokio.")
     (license #f)))
 
 (define-public rust-tokio-uds
@@ -5532,7 +5502,7 @@ and private (encrypted + signed) jars.")
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
-        ("rust-tokio-udp" ,rust-tokio-udp)
+        ("rust-tokio-udp" ,rust-tokio-udp-0.1)
         ("rust-trust-dns-https" ,rust-trust-dns-https)
         ("rust-trust-dns-native-tls"
          ,rust-trust-dns-native-tls)
@@ -6285,7 +6255,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-tokio-reactor" ,rust-tokio-reactor-0.1)
        ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
        ("rust-tokio-timer" ,rust-tokio-timer-0.2)
-       ("rust-tokio-udp" ,rust-tokio-udp)
+       ("rust-tokio-udp" ,rust-tokio-udp-0.1)
        ("rust-url" ,rust-url-1.7))
       #:cargo-development-inputs
       (("rust-env-logger" ,rust-env-logger-0.6)
