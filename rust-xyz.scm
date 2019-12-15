@@ -1697,7 +1697,7 @@ guidelines on macOS.")
         ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
         ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1)
         ("rust-tokio-timer" ,rust-tokio-timer-0.2)
-        ("rust-tokio-trace-core" ,rust-tokio-trace-core)
+        ("rust-tokio-trace-core" ,rust-tokio-trace-core-0.2)
         ("rust-tokio-udp" ,rust-tokio-udp-0.1)
         ("rust-tokio-uds" ,rust-tokio-uds-0.2))
        #:cargo-development-inputs
@@ -2160,29 +2160,6 @@ synchronization primitives.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (description
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
-    (license #f)))
-
- (define-public rust-tokio-trace-core
-  (package
-    (name "rust-tokio-trace-core")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-trace-core" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "04y6c2r4ddzk02xb3hn60s9a1w92h0g8pzmxwaspqvwmsrba5j59"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3))))
-    (home-page "https://tokio.rs")
-    (synopsis "Core primitives for tokio-trace")
-    (description
-     "Core primitives for tokio-trace.")
     (license #f)))
 
 (define-public rust-http
