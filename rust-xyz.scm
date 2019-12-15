@@ -1540,7 +1540,7 @@ remove_dir_all for Windows")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
         ("rust-stdweb" ,rust-stdweb)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen))))
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))))
     (home-page
      "https://github.com/rust-random/getrandom")
     (synopsis
@@ -1570,7 +1570,7 @@ retrieving random data from system source")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
         ("rust-stdweb" ,rust-stdweb)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen)
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasi" ,rust-wasi))))))
 
 (define-public rust-packed-simd
@@ -1595,7 +1595,7 @@ retrieving random data from system source")
        #:cargo-development-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-paste" ,rust-paste)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen)
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasm-bindgen-test"
          ,rust-wasm-bindgen-test))))
     (home-page
@@ -2434,7 +2434,7 @@ require unstable language features.")
         ("rust-stdweb-derive" ,rust-stdweb-derive-0.5)
         ("rust-stdweb-internal-macros" ,rust-stdweb-internal-macros-0.2)
         ("rust-stdweb-internal-runtime" ,rust-stdweb-internal-runtime-0.1)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen))
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version-0.2)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
@@ -2632,7 +2632,7 @@ asynchronous I/O backed applications.")
         ("rust-futures" ,rust-futures-0.1)
         ("rust-js-sys" ,rust-js-sys)
         ("rust-scoped-tls" ,rust-scoped-tls-1.0)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen)
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasm-bindgen-futures"
          ,rust-wasm-bindgen-futures)
         ("rust-wasm-bindgen-test-macro"
@@ -3575,7 +3575,7 @@ parser.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen))))
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))))
     (home-page
      "https://github.com/rustwasm/console_error_panic_hook")
     (synopsis
@@ -3601,7 +3601,7 @@ that logs panics to `console.error`")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-wasm-bindgen" ,rust-wasm-bindgen))
+       (("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
        #:cargo-development-inputs
        (("rust-futures" ,rust-futures-0.1)
         ("rust-wasm-bindgen-futures"
@@ -3641,7 +3641,7 @@ using the `wasm-bindgen` crate.")
          ,rust-futures-util-preview-0.3)
         ("rust-js-sys" ,rust-js-sys)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen))
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
        #:cargo-development-inputs
        (("rust-wasm-bindgen-test"
          ,rust-wasm-bindgen-test))))
@@ -6868,36 +6868,13 @@ streams.")
          ,rust-wasm-bindgen-macro-support-0.2))
        #:cargo-development-inputs
        (("rust-trybuild" ,rust-trybuild-1.0)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen))))
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))))
     (home-page
      "https://rustwasm.github.io/wasm-bindgen/")
     (synopsis
      "Definition of the @code{#[wasm_bindgen]} attribute")
     (description
      "Definition of the @code{#[wasm_bindgen]} attribute, an internal
-dependency")
-    (license #f)))
-
-(define-public rust-wasm-bindgen
-  (package
-    (name "rust-wasm-bindgen-shared")
-    (version "0.2.48")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasm-bindgen-shared" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "08rnfhjyk0f6liv8n4rdsvhx7r02glkhcbj2lp9lcbkbfpad9hnr"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://rustwasm.github.io/wasm-bindgen/")
-    (synopsis
-     "Shared support between wasm-bindgen and wasm-bindgen cli")
-    (description
-     "Shared support between wasm-bindgen and wasm-bindgen cli, an internal
 dependency.")
     (license #f)))
 
@@ -10780,7 +10757,7 @@ accessor functions on enums.")
     (arguments
      `(#:cargo-inputs
        (("rust-js-sys" ,rust-js-sys)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen))
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-failure" ,rust-failure)
