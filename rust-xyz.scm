@@ -957,7 +957,7 @@ standard printing of search results, similar to grep itself.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-numtoa" ,rust-numtoa-0.1.0)
-        ("rust-redox-syscall" ,rust-redox-syscall)
+        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-redox-termios" ,rust-redox-termios))))
     (home-page
      "https://gitlab.redox-os.org/redox-os/termion")
@@ -1422,28 +1422,6 @@ points, in a byte slice, fast")
 patterns.")
     (license #f)))
 
-(define-public rust-redox-syscall
-  (package
-    (name "rust-redox-syscall")
-    (version "0.1.54")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "redox_syscall" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0lp22pjvmj33a2fa7y1h9cgxmnfd8whbb8s6n0f4yp7nl0a9q8hj"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://gitlab.redox-os.org/redox-os/syscall")
-    (synopsis
-     "A Rust library to access raw Redox system calls")
-    (description
-     "This package provides a Rust library to access raw Redox system calls")
-    (license #f)))
-
 (define-public rust-remove-dir-all
   (package
     (name "rust-remove-dir-all")
@@ -1839,7 +1817,7 @@ don't use this crate directly, depend on winapi instead.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-redox-syscall" ,rust-redox-syscall))))
+       (("rust-redox-syscall" ,rust-redox-syscall-0.1))))
     (home-page "https://github.com/redox-os/termios")
     (synopsis
      "A Rust library to access Redox termios functions")
@@ -2543,7 +2521,7 @@ asynchronous I/O backed applications.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-redox-syscall" ,rust-redox-syscall)
+        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
@@ -2947,7 +2925,7 @@ maps of many strings (> 1 billion is possible).")
        (("rust-argon2rs" ,rust-argon2rs)
         ("rust-failure" ,rust-failure)
         ("rust-rand-os" ,rust-rand-os-0.2)
-        ("rust-redox-syscall" ,rust-redox-syscall))))
+        ("rust-redox-syscall" ,rust-redox-syscall-0.1))))
     (home-page
      "https://gitlab.redox-os.org/redox-os/users")
     (synopsis
@@ -3720,7 +3698,7 @@ encodings")
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-redox-syscall" ,rust-redox-syscall)
+        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-tempdir" ,rust-tempdir-0.3))))
@@ -3860,7 +3838,7 @@ checking")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-petgraph" ,rust-petgraph-0.4)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-redox-syscall" ,rust-redox-syscall)
+        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-thread-id" ,rust-thread-id)
         ("rust-winapi" ,rust-winapi-0.3))
@@ -3910,7 +3888,7 @@ checking")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-petgraph" ,rust-petgraph-0.4)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-redox-syscall" ,rust-redox-syscall)
+        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-thread-id" ,rust-thread-id)
         ("rust-winapi" ,rust-winapi-0.3))
@@ -4194,7 +4172,7 @@ dependency to expose a precomputed hash.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-redox-syscall" ,rust-redox-syscall)
+        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/ruuda/thread-id")
     (synopsis "Get a unique thread ID")
