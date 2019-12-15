@@ -52,7 +52,7 @@ the stack.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-dtoa" ,rust-dtoa)
+       (("rust-dtoa" ,rust-dtoa-0.4)
         ("rust-linked-hash-map" ,rust-linked-hash-map)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-yaml-rust" ,rust-yaml-rust))
@@ -4547,56 +4547,6 @@ reading and writing git repositories.")
      "Provides current CI environment information.")
     (license #f)))
 
-(define-public rust-pest-derive
-  (package
-    (name "rust-pest-derive")
-    (version "2.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pest_derive" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1l5jfa6ril71cw5nsiw0r45br54dd8cj2r1nc2d1wq6wb3jilgc3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-pest" ,rust-pest-2.1)
-        ("rust-pest-generator" ,rust-pest-generator-2.1))))
-    (home-page "https://pest-parser.github.io/")
-    (synopsis "pest's derive macro")
-    (description "pest's derive macro")
-    (license #f)))
-
-(define-public rust-ron
-  (package
-    (name "rust-ron")
-    (version "0.4.1") ; Current is 0.5.1, rust-insta has pinned version
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ron" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1mrqdgw3w0yypg24jyq9mphp4zr9lr0ks7yam82m4n34x6njijyr"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-base64" ,rust-base64-0.10)
-        ("rust-bitflags" ,rust-bitflags-1)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-serde-bytes" ,rust-serde-bytes-0.11)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page "https://github.com/ron-rs/ron")
-    (synopsis "Rusty Object Notation")
-    (description "Rusty Object Notation")
-    (license #f)))
-
 (define-public rust-termios-0.2
   (package
     (inherit rust-termios-0.3)
@@ -5209,7 +5159,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-dtoa" ,rust-dtoa)
+        ("rust-dtoa" ,rust-dtoa-0.4)
         ("rust-ryu" ,rust-ryu-1.0)
         ("rust-stackvector" ,rust-stackvector-1.0)
         ("rust-static-assertions" ,rust-static-assertions-0.3))
@@ -5226,28 +5176,7 @@ reading and writing git repositories.")
      "Lexical, to- and from-string conversion routines.")
     (license #f)))
 
-(define-public rust-dtoa
-  (package
-    (name "rust-dtoa")
-    (version "0.4.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "dtoa" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0phbm7i0dpn44gzi07683zxaicjap5064w62pidci4fhhciv8mza"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/dtolnay/dtoa")
-    (synopsis
-     "Fast functions for printing floating-point primitives to an io::Write")
-    (description
-     "Fast functions for printing floating-point primitives to an io::Write")
-    (license #f)))
-
-;; DO THESE DEPS
+ ;; DO THESE DEPS
 (define-public rust-stackvector-1.0
   (package
     (name "rust-stackvector")
@@ -7096,7 +7025,7 @@ and private (encrypted + signed) jars.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-dtoa" ,rust-dtoa)
+       (("rust-dtoa" ,rust-dtoa-0.4)
         ("rust-itoa" ,rust-itoa-0.4)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-url" ,rust-url-1.7))
