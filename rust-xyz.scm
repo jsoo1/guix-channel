@@ -6867,7 +6867,7 @@ streams.")
         ("rust-wasm-bindgen-macro-support"
          ,rust-wasm-bindgen-macro-support-0.2))
        #:cargo-development-inputs
-       (("rust-trybuild" ,rust-trybuild)
+       (("rust-trybuild" ,rust-trybuild-1.0)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))))
     (home-page
      "https://rustwasm.github.io/wasm-bindgen/")
@@ -6876,35 +6876,6 @@ streams.")
     (description
      "Definition of the @code{#[wasm_bindgen]} attribute, an internal
 dependency")
-    (license #f)))
-
-(define-public rust-trybuild
-  (package
-    (name "rust-trybuild")
-    (version "1.0.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "trybuild" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0df6ipayif05xn61iavdb0dcshm9y6wmcd140pp7dl91mirygs7j"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-glob" ,rust-glob-0.3)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-termcolor" ,rust-termcolor-1.0)
-        ("rust-toml" ,rust-toml-0.5))))
-    (home-page "https://github.com/dtolnay/trybuild")
-    (synopsis
-     "Test harness for ui tests of compiler diagnostics")
-    (description
-     "Test harness for ui tests of compiler diagnostics")
     (license #f)))
 
 (define-public rust-wasm-bindgen
@@ -11509,7 +11480,7 @@ functions.")
        (("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15)
-        ("rust-trybuild" ,rust-trybuild))))
+        ("rust-trybuild" ,rust-trybuild-1.0))))
     (home-page
      "https://github.com/mcarton/rust-derivative")
     (synopsis
@@ -17028,7 +16999,7 @@ pitfalls in Rust")
        (("rust-clap" ,rust-clap-2)
         ("rust-structopt-derive" ,rust-structopt-derive))
        #:cargo-development-inputs
-       (("rust-trybuild" ,rust-trybuild)
+       (("rust-trybuild" ,rust-trybuild-1.0)
         ("rust-version-check" ,rust-version-check))))
     (home-page
      "https://github.com/TeXitoi/structopt")
@@ -17478,7 +17449,7 @@ structs and enums.")
        #:cargo-development-inputs
        (("rust-pretty-assertions"
          ,rust-pretty-assertions)
-        ("rust-trybuild" ,rust-trybuild))))
+        ("rust-trybuild" ,rust-trybuild-1.0))))
     (home-page
      "https://crates.io/crates/require_unsafe_in_body")
     (synopsis
