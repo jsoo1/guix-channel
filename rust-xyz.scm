@@ -2485,7 +2485,7 @@ proposed in RFC 1158.")
         ("rust-model" ,rust-model)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-parking-lot" ,rust-parking-lot-0.8)
-        ("rust-proptest" ,rust-proptest)
+        ("rust-proptest" ,rust-proptest-0.9)
         ("rust-version-sync" ,rust-version-sync))))
     (home-page "https://github.com/vorner/arc-swap")
     (synopsis "Atomically swappable Arc")
@@ -3096,51 +3096,13 @@ of configuration possible intended.")
     (arguments
      `(#:cargo-inputs
        (("rust-permutohedron" ,rust-permutohedron-0.2)
-        ("rust-proptest" ,rust-proptest))))
+        ("rust-proptest" ,rust-proptest-0.9))))
     (home-page "https://github.com/spacejam/model")
     (synopsis
      "model-based testing for data structures")
     (description
      "model-based testing for data structures, with linearizability
 checking")
-    (license #f)))
-
-(define-public rust-proptest
-  (package
-    (name "rust-proptest")
-    (version "0.9.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "proptest" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17sjg8isas4qk85807c4panih9k0lwa4k1mbajhciw5c5q17w56g"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bit-set" ,rust-bit-set-0.5)
-        ("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-quick-error" ,rust-quick-error-1.2)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-chacha" ,rust-rand-chacha-0.2)
-        ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
-        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
-        ("rust-rusty-fork" ,rust-rusty-fork-0.2)
-        ("rust-tempfile" ,rust-tempfile-3.0))
-       #:cargo-development-inputs
-       (("rust-regex" ,rust-regex-1.1))))
-    (home-page
-     "https://altsysrq.github.io/proptest-book/proptest/index.html")
-    (synopsis
-     "Hypothesis-like property-based testing and shrinking")
-    (description
-     "Hypothesis-like property-based testing and shrinking.")
     (license #f)))
 
 (define-public rust-lock-api-0.3
@@ -4569,7 +4531,7 @@ reading and writing git repositories.")
         ("rust-static-assertions" ,rust-static-assertions-0.3))
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx-0.3)
-        ("rust-proptest" ,rust-proptest)
+        ("rust-proptest" ,rust-proptest-0.9)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page
@@ -4896,7 +4858,7 @@ shorthands for guards with one of the implemented strategies.")
         ("rust-serde-derive" ,rust-serde-derive-1.0))
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher-0.1)
-        ("rust-proptest" ,rust-proptest)
+        ("rust-proptest" ,rust-proptest-0.9)
         ("rust-quantiles" ,rust-quantiles)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-distr" ,rust-rand-distr)
@@ -14747,7 +14709,7 @@ function's body.")
         ("rust-duct" ,rust-duct)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
-        ("rust-proptest" ,rust-proptest)
+        ("rust-proptest" ,rust-proptest-0.9)
         ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/rust-lang-nursery/rustfix")
