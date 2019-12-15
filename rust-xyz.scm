@@ -4406,7 +4406,7 @@ bench suite.")
          ,rust-compiler-builtins)
         ("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
         ("rust-findshlibs" ,rust-findshlibs)
-        ("rust-goblin" ,rust-goblin)
+        ("rust-goblin" ,rust-goblin-0.0)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-memmap" ,rust-memmap-0.7)
         ("rust-rustc-demangle" ,rust-rustc-demangle)
@@ -4757,34 +4757,6 @@ for other targets if necessary!")
 with a cross platform API")
     (license #f)))
 
-(define-public rust-goblin
-  (package
-    (name "rust-goblin")
-    (version "0.0.23")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "goblin" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1g92bl76dgc3v3rins61l811pkwsl3jif1x35h2jx33b7dsv8mmc"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-log" ,rust-log-0.4)
-        ("rust-plain" ,rust-plain-0.2)
-        ("rust-scroll" ,rust-scroll-0.9))))
-    (home-page "https://github.com/m4b/goblin")
-    (synopsis
-     "impish, cross-platform, ELF, Mach-o, and PE binary parsing and
-loading")
-    (description
-     "An impish, cross-platform, ELF, Mach-o, and PE binary parsing
-and loading crate.")
-    (license #f)))
-
 (define-public rust-rustc-demangle
   (package
     (name "rust-rustc-demangle")
@@ -5039,7 +5011,7 @@ immutable interval tree.")
     (arguments
      `(#:cargo-inputs
        (("rust-flate2" ,rust-flate2-1.0)
-        ("rust-goblin" ,rust-goblin)
+        ("rust-goblin" ,rust-goblin-0.0)
         ("rust-parity-wasm" ,rust-parity-wasm)
         ("rust-scroll" ,rust-scroll-0.9)
         ("rust-uuid" ,rust-uuid))
