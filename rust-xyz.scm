@@ -66,32 +66,6 @@ the stack.")
     (description "YAML support for Serde")
     (license #f)))
 
-(define-public rust-serde-cbor
-  (package
-    (name "rust-serde-cbor")
-    (version "0.10.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde_cbor" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jcb4j637vdlqk2z38jixaqmp6f92h36r17kclv5brjay32911ii"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-half" ,rust-half-1.3)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-serde-derive" ,rust-serde-derive-1.0))))
-    (home-page "https://github.com/pyfisch/cbor")
-    (synopsis "CBOR support for serde")
-    (description "CBOR support for serde.")
-    (license #f)))
-
 (define-public rust-serde-big-array
   (package
     (name "rust-serde-big-array")
@@ -5097,7 +5071,7 @@ file formats.")
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-serde-cbor" ,rust-serde-cbor)
+       (("rust-serde-cbor" ,rust-serde-cbor-0.10)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))))
     (home-page
@@ -17161,7 +17135,7 @@ require unstable language features.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-serde-cbor" ,rust-serde-cbor)
+       (("rust-serde-cbor" ,rust-serde-cbor-0.10)
         ("rust-serde-json" ,rust-serde-json-1.0))))
     (home-page
      "https://github.com/omarkmu/winconsole")
