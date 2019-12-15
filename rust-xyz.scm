@@ -3040,7 +3040,7 @@ proposed in RFC 1158.")
     (arguments
      `(#:cargo-inputs
        (("rust-lock-api" ,rust-lock-api-0.2)
-        ("rust-parking-lot-core" ,rust-parking-lot-core))
+        ("rust-parking-lot-core" ,rust-parking-lot-core-0.5))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -3816,52 +3816,16 @@ checking")
      "Wrappers to create fully-featured Mutex and RwLock types.  Compatible with no_std.")
     (license #f)))
 
-(define-public rust-parking-lot-core
-  (package
-    (name "rust-parking-lot-core")
-    (version "0.5.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "parking_lot_core" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1317j5a1yd03baza2kqqrxb4kr1vxa7rckw4frksl2vrncfcp26b"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace-0.3)
-        ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-cloudabi" ,rust-cloudabi-0.0)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-petgraph" ,rust-petgraph-0.4)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
-        ("rust-smallvec" ,rust-smallvec-0.6)
-        ("rust-thread-id" ,rust-thread-id-3.3)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/Amanieu/parking_lot")
-    (synopsis
-     "An advanced API for creating custom synchronization primitives.")
-    (description
-     "An advanced API for creating custom synchronization primitives.")
-    (license #f)))
-
 (define-public rust-parking-lot-core-0.6
   (package
-    (inherit rust-parking-lot-core)
+    (inherit rust-parking-lot-core-0.5)
     (version "0.6.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "parking_lot_core" version))
        (file-name
-        (string-append (package-name rust-parking-lot-core) "-" version ".tar.gz"))
+        (string-append (package-name rust-parking-lot-core-0.5) "-" version ".tar.gz"))
        (sha256
         (base32
          "0ay67dpnrn68ryyvp720m9i8hzp189fd4d6slrs1lvmcwywv2xmq"))))))
