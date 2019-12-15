@@ -1590,7 +1590,7 @@ retrieving random data from system source")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-core-arch" ,rust-core-arch)
+        ("rust-core-arch" ,rust-core-arch-0.1)
         ("rust-sleef-sys" ,rust-sleef-sys))
        #:cargo-development-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
@@ -2529,32 +2529,6 @@ Web.")
     (description
      "An event-driven, non-blocking I/O platform for writing
 asynchronous I/O backed applications.")
-    (license #f)))
-
-(define-public rust-core-arch
-  (package
-    (name "rust-core-arch")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "core_arch" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "04vdvr9vj0f1cv2p54nsszmrrk9w1js4c0z4i0bdlajl1lydslim"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test-0.2))))
-    (home-page
-     "https://github.com/rust-lang-nursery/stdsimd")
-    (synopsis
-     "`core::arch` - Rust's core library architecture-specific intrinsics.")
-    (description
-     "`core::arch` - Rust's core library architecture-specific intrinsics.")
     (license #f)))
 
 (define-public rust-sleef-sys
@@ -5485,7 +5459,7 @@ streams.")
     (arguments
      `(#:tests? #f ; Has failing tests
        #:cargo-inputs
-       (("rust-envmnt" ,rust-envmnt)
+       (("rust-envmnt" ,rust-envmnt-0.6)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))))
     (home-page
@@ -5495,25 +5469,6 @@ streams.")
     (description
      "Provides current CI environment information.")
     (license #f)))
-
-(define-public rust-ci-info-0.3.1
-  (package
-    (inherit rust-ci-info)
-    (version "0.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ci_info" version))
-       (file-name
-        (string-append (package-name rust-ci-info) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "00pr17g6q6i752acrkycg0hkq3lm0p634anm41g3m6lqg8q83s75"))))
-    (arguments
-     `(#:tests? #f ; Has failing tests
-       #:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))))))
 
 (define-public rust-console
   (package
@@ -5664,31 +5619,6 @@ streams.")
        (sha256
         (base32
          "0fk8nl0rmk43jrh6hjz6c6d83ri7l6fikag6lh0ffz3di9cwznfm"))))))
-
-(define-public rust-envmnt
-  (package
-    (name "rust-envmnt")
-    (version "0.6.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "envmnt" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "12zkq3p999bypyxmjnpiqw9r3hmifb3bcikd7j3as1fdcbq01fyl"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-indexmap" ,rust-indexmap-1.0))))
-    (home-page
-     "http://github.com/sagiegurari/envmnt")
-    (synopsis
-     "Environment variables utility functions.")
-    (description
-     "Environment variables utility functions.")
-    (license #f)))
 
 (define-public rust-ucd-trie
   (package
