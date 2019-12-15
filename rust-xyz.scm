@@ -6865,7 +6865,7 @@ streams.")
      `(#:cargo-inputs
        (("rust-quote" ,rust-quote-1.0)
         ("rust-wasm-bindgen-macro-support"
-         ,rust-wasm-bindgen-macro-support))
+         ,rust-wasm-bindgen-macro-support-0.2))
        #:cargo-development-inputs
        (("rust-trybuild" ,rust-trybuild)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))))
@@ -6905,38 +6905,6 @@ dependency")
      "Test harness for ui tests of compiler diagnostics")
     (description
      "Test harness for ui tests of compiler diagnostics")
-    (license #f)))
-
-(define-public rust-wasm-bindgen-macro-support
-  (package
-    (name "rust-wasm-bindgen-macro-support")
-    (version "0.2.48")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasm-bindgen-macro-support" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1mxi6rj11k67sks88pfqiqylnijxmb1s0gcgpj8mzfj5gvkqzkwm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15)
-        ("rust-wasm-bindgen-backend"
-         ,rust-wasm-bindgen-backend-0.2)
-        ("rust-wasm-bindgen-shared"
-         ,rust-wasm-bindgen-shared-0.2))))
-    (home-page
-     "https://rustwasm.github.io/wasm-bindgen/")
-    (synopsis
-     "The part of the implementation of the @code{#[wasm_bindgen]}")
-    (description
-     "The part of the implementation of the @code{#[wasm_bindgen]}
-attribute that is not in the shared backend crate.")
     (license #f)))
 
 (define-public rust-wasm-bindgen
