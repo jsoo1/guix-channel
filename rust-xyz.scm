@@ -4113,7 +4113,7 @@ reading and writing git repositories.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-nom" ,rust-nom-4))
+       (("rust-nom" ,rust-nom-4.2))
        #:cargo-development-inputs
        (("rust-clang-sys" ,rust-clang-sys-0.28))))
     (home-page
@@ -4246,38 +4246,6 @@ reading and writing git repositories.")
        (sha256
         (base32
          "06snml9wfrvk8k71l4md6gg29jgj4pa8wzsg180q3qr0jf2isxp9"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-lexical-core" ,rust-lexical-core-0.4)
-        ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-regex" ,rust-regex-1.1))
-       #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion-0.2)
-        ("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-jemallocator" ,rust-jemallocator-0.3)
-        ("rust-version-check" ,rust-version-check-0.9))))
-    (home-page "https://github.com/Geal/nom")
-    (synopsis
-     "A byte-oriented, zero-copy, parser combinators library")
-    (description
-     "This package provides a byte-oriented, zero-copy, parser combinators library")
-    (license #f)))
-
-(define-public rust-nom-4
-  (package
-    (name "rust-nom")
-    (version "4.2.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "nom" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1mkvby8b4m61p4g1px0pwr58yfkphyp1jcfbp4qfp7l6iqdaklia"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
@@ -10859,7 +10827,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-fnv" ,rust-fnv-1.0)
-        ("rust-nom" ,rust-nom-4)
+        ("rust-nom" ,rust-nom-4.2)
         ("rust-phf" ,rust-phf)
         ("rust-phf-codegen" ,rust-phf-codegen))))
     (home-page
