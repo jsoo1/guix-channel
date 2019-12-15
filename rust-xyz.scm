@@ -1182,7 +1182,7 @@ pairs in insertion order")
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher-0.1)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test)
+        ("rust-rustc-test" ,rust-rustc-test-0.3)
         ("rust-serde-json" ,rust-serde-json-1.0))))
     (home-page "https://github.com/servo/rust-url")
     (synopsis
@@ -1217,7 +1217,7 @@ pairs in insertion order")
        #:cargo-development-inputs
        (("rust-bencher" ,rust-bencher-0.1)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test)
+        ("rust-rustc-test" ,rust-rustc-test-0.3)
         ("rust-serde-json" ,rust-serde-json-1.0))))
     (home-page "https://github.com/servo/rust-url")
     (synopsis
@@ -2099,7 +2099,7 @@ on the heap")
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test)
+        ("rust-rustc-test" ,rust-rustc-test-0.3)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-typed-arena" ,rust-typed-arena-1.4))))
     (home-page "https://github.com/servo/html5ever")
@@ -2196,7 +2196,7 @@ on the heap")
          ,rust-unicode-normalization))
        #:cargo-development-inputs
        (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test))))
+        ("rust-rustc-test" ,rust-rustc-test-0.3))))
     (home-page "https://github.com/servo/rust-url/")
     (synopsis
      "IDNA (Internationalizing Domain Names in Applications) and Punycode.")
@@ -2226,7 +2226,7 @@ on the heap")
          ,rust-unicode-normalization))
        #:cargo-development-inputs
        (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test))))
+        ("rust-rustc-test" ,rust-rustc-test-0.3))))
     (home-page "https://github.com/servo/rust-url/")
     (synopsis
      "IDNA (Internationalizing Domain Names in Applications) and Punycode")
@@ -2270,38 +2270,6 @@ on the heap")
     (home-page "https://github.com/servo/rust-url/")
     (synopsis "Percent encoding and decoding")
     (description "Percent encoding and decoding")
-    (license #f)))
-
-(define-public rust-rustc-test
-  (package
-    (name "rust-rustc-test")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rustc-test" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0a27mlcg0ck0hgsdvwk792x9z1k1qq1wj091f1l5yggbdbcsnx5w"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-getopts" ,rust-getopts-0.2)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-term" ,rust-term-0.5)
-        ("rust-time" ,rust-time-0.1))
-       #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/SimonSapin/rustc-test")
-    (synopsis
-     "A fork of Rust's `test` crate")
-    (description
-     "This package provides a fork of Rust's `test` crate that doesn't
-require unstable language features.")
     (license #f)))
 
 (define-public rust-mio-uds
@@ -4591,7 +4559,7 @@ to be linked into Rust code.")
         ("rust-clap" ,rust-clap-2)
         ("rust-findshlibs" ,rust-findshlibs)
         ("rust-memmap" ,rust-memmap-0.7)
-        ("rust-rustc-test" ,rust-rustc-test))))
+        ("rust-rustc-test" ,rust-rustc-test-0.3))))
     (home-page
      "https://github.com/gimli-rs/addr2line")
     (synopsis
