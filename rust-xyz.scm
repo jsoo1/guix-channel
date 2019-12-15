@@ -5639,7 +5639,7 @@ shorthands for guards with one of the implemented strategies.")
        (("rust-block-buffer" ,rust-block-buffer-0.7)
         ("rust-digest" ,rust-digest-0.8)
         ("rust-fake-simd" ,rust-fake-simd-0.1)
-        ("rust-opaque-debug" ,rust-opaque-debug)
+        ("rust-opaque-debug" ,rust-opaque-debug-0.2)
         ("rust-sha1-asm" ,rust-sha1-asm))
        #:cargo-development-inputs
        (("rust-digest" ,rust-digest-0.8)
@@ -6057,27 +6057,6 @@ shorthands for guards with one of the implemented strategies.")
     (home-page "")
     (synopsis "WASM tools")
     (description "WASM tools")
-    (license #f)))
-
-(define-public rust-opaque-debug
-  (package
-    (name "rust-opaque-debug")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "opaque-debug" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "02942l2gc7w5r4js7i9063x99szic5mzzk1055j83v4diqpbpxck"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/RustCrypto/utils")
-    (synopsis
-     "Macro for opaque Debug trait implementation")
-    (description
-     "Macro for opaque Debug trait implementation")
     (license #f)))
 
 (define-public rust-version-check
@@ -6733,7 +6712,7 @@ _getch on Windows, and termios on Unix.")
        (("rust-block-buffer" ,rust-block-buffer-0.7)
         ("rust-digest" ,rust-digest-0.8)
         ("rust-fake-simd" ,rust-fake-simd-0.1)
-        ("rust-opaque-debug" ,rust-opaque-debug)
+        ("rust-opaque-debug" ,rust-opaque-debug-0.2)
         ("rust-sha2-asm" ,rust-sha2-asm))
        #:cargo-development-inputs
        (("rust-digest" ,rust-digest-0.8)
