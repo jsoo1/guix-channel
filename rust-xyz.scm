@@ -3858,7 +3858,7 @@ checking")
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-cloudabi" ,rust-cloudabi-0.0)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-petgraph" ,rust-petgraph)
+        ("rust-petgraph" ,rust-petgraph-0.4)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-smallvec" ,rust-smallvec-0.6)
@@ -3908,7 +3908,7 @@ checking")
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-cloudabi" ,rust-cloudabi-0.0)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-petgraph" ,rust-petgraph)
+        ("rust-petgraph" ,rust-petgraph-0.4)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-redox-syscall" ,rust-redox-syscall)
         ("rust-smallvec" ,rust-smallvec-0.6)
@@ -6219,39 +6219,6 @@ shorthands for guards with one of the implemented strategies.")
     (description "Bytes related utility functions")
     (license #f)))
 
-(define-public rust-petgraph
-  (package
-    (name "rust-petgraph")
-    (version "0.4.13")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "petgraph" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kyfmca854s54jk26g2x1kjb04c3k7cjilaxyr0if8lhxv8mjdlw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-fixedbitset" ,rust-fixedbitset-0.1)
-        ("rust-ordermap" ,rust-ordermap-0.3)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))
-       #:cargo-development-inputs
-       (("rust-defmac" ,rust-defmac-0.2)
-        ("rust-itertools" ,rust-itertools-0.8)
-        ("rust-odds" ,rust-odds-0.3)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page "https://github.com/bluss/petgraph")
-    (synopsis
-     "Graph data structure library")
-    (description
-     "Graph data structure library.  Provides graph types and graph algorithms.")
-    (license #f)))
-
 (define-public rust-ordermap
   (package
     (name "rust-ordermap")
@@ -8263,7 +8230,7 @@ exposed as Reader/Writer streams.")
         ("rust-ena" ,rust-ena)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lalrpop-util" ,rust-lalrpop-util)
-        ("rust-petgraph" ,rust-petgraph)
+        ("rust-petgraph" ,rust-petgraph-0.4)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-serde" ,rust-serde-1.0)
@@ -11984,7 +11951,7 @@ implementation of Bresenham's line algorithm.")
      `(#:cargo-inputs
        (("rust-dogged" ,rust-dogged)
         ("rust-log" ,rust-log-0.4)
-        ("rust-petgraph" ,rust-petgraph))))
+        ("rust-petgraph" ,rust-petgraph-0.4))))
     (home-page "https://github.com/nikomatsakis/ena")
     (synopsis
      "Union-find, congruence closure, and other unification code. Based on code from rustc.")
