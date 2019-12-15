@@ -4960,7 +4960,7 @@ file formats.")
         ("rust-rand" ,rust-rand-0.6)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-sha1" ,rust-sha1-0.6)
-        ("rust-slog" ,rust-slog)
+        ("rust-slog" ,rust-slog-2.4)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1)
@@ -5027,59 +5027,6 @@ file formats.")
      "Source of OpenSSL and logic to build it.")
     (description
      "Source of OpenSSL and logic to build it.")
-    (license #f)))
-
-(define-public rust-slog
-  (package
-    (name "rust-slog")
-    (version "2.4.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "slog" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "13jh74jlckzh5cygkhs0k4r82wnmw8ha2km829xwslhr83n2w6hy"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-erased-serde" ,rust-erased-serde))))
-    (home-page "https://github.com/slog-rs/slog")
-    (synopsis
-     "Structured, extensible, composable logging for Rust")
-    (description
-     "Structured, extensible, composable logging for Rust")
-    (license #f)))
-
-(define-public rust-erased-serde
-  (package
-    (name "rust-erased-serde")
-    (version "0.3.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "erased-serde" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0q7bnxs5zskfq5iillig55g7891dllcxh2p8y8k1p2j72syf9viv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-serde-cbor" ,rust-serde-cbor-0.10)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-     "https://github.com/dtolnay/erased-serde")
-    (synopsis
-     "Type-erased Serialize and Serializer traits")
-    (description
-     "Type-erased Serialize and Serializer traits")
     (license #f)))
 
 (define-public rust-unindent
@@ -13788,7 +13735,7 @@ UNC where possible")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libloading" ,rust-libloading)
         ("rust-nix" ,rust-nix)
-        ("rust-slog" ,rust-slog)
+        ("rust-slog" ,rust-slog-2.4)
         ("rust-slog-stdlog" ,rust-slog-stdlog)
         ("rust-systemd" ,rust-systemd)
         ("rust-tempfile" ,rust-tempfile-3.0)
@@ -13960,7 +13907,7 @@ inter-process communication.")
      `(#:cargo-inputs
        (("rust-crossbeam" ,rust-crossbeam-0.7)
         ("rust-log" ,rust-log-0.4)
-        ("rust-slog" ,rust-slog)
+        ("rust-slog" ,rust-slog-2.4)
         ("rust-slog-scope" ,rust-slog-scope))
        #:cargo-development-inputs
        (("rust-slog-async" ,rust-slog-async)
@@ -14067,7 +14014,7 @@ inter-process communication.")
      `(#:cargo-inputs
        (("rust-atty" ,rust-atty-0.2)
         ("rust-chrono" ,rust-chrono-0.4)
-        ("rust-slog" ,rust-slog)
+        ("rust-slog" ,rust-slog-2.4)
         ("rust-term" ,rust-term-0.5)
         ("rust-thread-local" ,rust-thread-local-0.3))
        #:cargo-development-inputs
@@ -14227,7 +14174,7 @@ The intersection of `std::ffi::CStr` and `str`")
      `(#:cargo-inputs
        (("rust-arc-swap" ,rust-arc-swap)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-slog" ,rust-slog))
+        ("rust-slog" ,rust-slog-2.4))
        #:cargo-development-inputs
        (("rust-slog-async" ,rust-slog-async)
         ("rust-slog-term" ,rust-slog-term))))
@@ -14252,7 +14199,7 @@ The intersection of `std::ffi::CStr` and `str`")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-slog" ,rust-slog)
+       (("rust-slog" ,rust-slog-2.4)
         ("rust-take-mut" ,rust-take-mut)
         ("rust-thread-local" ,rust-thread-local-0.3))))
     (home-page "https://github.com/slog-rs/slog")
