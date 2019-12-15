@@ -2656,7 +2656,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cloudabi" ,rust-cloudabi)
+       (("rust-cloudabi" ,rust-cloudabi-0.0)
         ("rust-fuchsia-cprng" ,rust-fuchsia-cprng)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-rand-core" ,rust-rand-core-0.5)
@@ -3856,7 +3856,7 @@ checking")
      `(#:cargo-inputs
        (("rust-backtrace" ,rust-backtrace-0.3)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-cloudabi" ,rust-cloudabi)
+        ("rust-cloudabi" ,rust-cloudabi-0.0)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-petgraph" ,rust-petgraph)
         ("rust-rand" ,rust-rand-0.4)
@@ -3906,7 +3906,7 @@ checking")
      `(#:cargo-inputs
        (("rust-backtrace" ,rust-backtrace-0.3)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-cloudabi" ,rust-cloudabi)
+        ("rust-cloudabi" ,rust-cloudabi-0.0)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-petgraph" ,rust-petgraph)
         ("rust-rand" ,rust-rand-0.4)
@@ -6217,30 +6217,6 @@ shorthands for guards with one of the implemented strategies.")
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis "Bytes related utility functions")
     (description "Bytes related utility functions")
-    (license #f)))
-
-(define-public rust-cloudabi
-  (package
-    (name "rust-cloudabi")
-    (version "0.0.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cloudabi" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kxcg83jlihy0phnd2g8c2c303px3l2p3pkjz357ll6llnd5pz6x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1))))
-    (home-page "https://nuxi.nl/cloudabi/")
-    (synopsis
-     "Low level interface to CloudABI")
-    (description
-     "Low level interface to CloudABI.  Contains all syscalls and related types.")
     (license #f)))
 
 (define-public rust-petgraph
