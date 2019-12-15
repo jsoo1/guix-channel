@@ -42,7 +42,7 @@
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-dirs" ,rust-dirs-1)
         ("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-filetime" ,rust-filetime-0.2)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures" ,rust-futures-0.1)

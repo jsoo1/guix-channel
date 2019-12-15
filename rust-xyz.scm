@@ -2923,7 +2923,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-argon2rs" ,rust-argon2rs)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-rand-os" ,rust-rand-os-0.2)
         ("rust-redox-syscall" ,rust-redox-syscall-0.1))))
     (home-page
@@ -3621,32 +3621,6 @@ encodings")
      "The pure Rust password hashing library that runs on Argon2")
     (description
      "The pure Rust password hashing library that runs on Argon2.")
-    (license #f)))
-
-(define-public rust-failure
-  (package
-    (name "rust-failure")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "failure" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1qppmgv4i5jj6vrss91qackqnl0a12h7lnby4l7j5fdy78yxhnvr"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace-0.3)
-        ("rust-failure-derive" ,rust-failure-derive-0.1))))
-    (home-page
-     "https://rust-lang-nursery.github.io/failure/")
-    (synopsis
-     "Experimental error handling abstraction")
-    (description
-     "Experimental error handling abstraction.")
     (license #f)))
 
 (define-public rust-socket2
@@ -6533,7 +6507,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-diffs" ,rust-diffs)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-hex" ,rust-hex-0.3)
         ("rust-ignore" ,rust-ignore)
@@ -6784,7 +6758,7 @@ _getch on Windows, and termios on Unix.")
        (("rust-base64" ,rust-base64-0.10)
         ("rust-buffered-reader" ,rust-buffered-reader)
         ("rust-bzip2" ,rust-bzip2)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-idna" ,rust-idna)
         ("rust-lalrpop-util" ,rust-lalrpop-util)
@@ -6825,7 +6799,7 @@ _getch on Windows, and termios on Unix.")
        (("rust-base64" ,rust-base64-0.10)
         ("rust-buffered-reader" ,rust-buffered-reader)
         ("rust-bzip2" ,rust-bzip2)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-idna" ,rust-idna)
         ("rust-lalrpop" ,rust-lalrpop)
@@ -7655,7 +7629,7 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-ipconfig" ,rust-ipconfig)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -7911,7 +7885,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-failure" ,rust-failure)
+       (("rust-failure" ,rust-failure-0.1)
         ("rust-getrandom" ,rust-getrandom)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-nettle-sys" ,rust-nettle-sys))))
@@ -7939,7 +7913,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-failure" ,rust-failure)
+       (("rust-failure" ,rust-failure-0.1)
         ("rust-lalrpop-util" ,rust-lalrpop-util))
        #:cargo-development-inputs
        (("rust-lalrpop" ,rust-lalrpop)
@@ -8324,7 +8298,7 @@ exposed as Reader/Writer streams.")
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes-0.4)
         ("rust-data-encoding" ,rust-data-encoding)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-h2" ,rust-h2)
         ("rust-http" ,rust-http)
@@ -8431,7 +8405,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
     `(#:cargo-inputs
       (("rust-data-encoding" ,rust-data-encoding)
        ("rust-enum-as-inner" ,rust-enum-as-inner)
-       ("rust-failure" ,rust-failure)
+       ("rust-failure" ,rust-failure-0.1)
        ("rust-futures" ,rust-futures-0.1)
        ("rust-idna" ,rust-idna)
        ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -9365,7 +9339,7 @@ accessor functions on enums.")
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-sourcefile" ,rust-sourcefile-0.1)
         ("rust-wasm-bindgen-futures"
@@ -9663,7 +9637,7 @@ testing harness")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-failure" ,rust-failure)
+       (("rust-failure" ,rust-failure-0.1)
         ("rust-heck" ,rust-heck)
         ("rust-log" ,rust-log-0.4)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
@@ -11288,7 +11262,7 @@ supports type parameters, associated types, and type constraints.")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-failure" ,rust-failure)
+        ("rust-failure" ,rust-failure-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-walkdir" ,rust-walkdir-2.2))))
     (home-page
@@ -11959,7 +11933,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-failure" ,rust-failure)
+       (("rust-failure" ,rust-failure-0.1)
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-tempdir" ,rust-tempdir-0.3))))
@@ -16081,7 +16055,7 @@ function's body.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-failure" ,rust-failure)
+       (("rust-failure" ,rust-failure-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))
