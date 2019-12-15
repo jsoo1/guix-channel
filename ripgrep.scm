@@ -48,4 +48,4 @@
 your current directory for a regex pattern while respecting your
 gitignore rules.  ripgrep has first class support on Windows, macOS
 and Linux")
-    (license #f)))
+    (license `(,license:unlicense ,license:expat))))
