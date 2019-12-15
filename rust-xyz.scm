@@ -3692,7 +3692,7 @@ encodings")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace)
+       (("rust-backtrace" ,rust-backtrace-0.3)
         ("rust-failure-derive" ,rust-failure-derive))))
     (home-page
      "https://rust-lang-nursery.github.io/failure/")
@@ -3854,7 +3854,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace)
+       (("rust-backtrace" ,rust-backtrace-0.3)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-cloudabi" ,rust-cloudabi)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -3904,7 +3904,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace)
+       (("rust-backtrace" ,rust-backtrace-0.3)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-cloudabi" ,rust-cloudabi)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -4282,47 +4282,6 @@ threadpools.")
 bench suite.")
     (license #f)))
 
-(define-public rust-backtrace
-  (package
-    (name "rust-backtrace")
-    (version "0.3.32")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "backtrace" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1rgsaha3b6wxh564s4jqn5hl5pkmg214blyjjs1svafib190zd8q"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-addr2line" ,rust-addr2line)
-        ("rust-backtrace-sys" ,rust-backtrace-sys)
-        ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-compiler-builtins"
-         ,rust-compiler-builtins-0.1)
-        ("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
-        ("rust-findshlibs" ,rust-findshlibs-0.5)
-        ("rust-goblin" ,rust-goblin-0.0)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-memmap" ,rust-memmap-0.7)
-        ("rust-rustc-demangle" ,rust-rustc-demangle-0.1)
-        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core-1.0)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/rust-lang/backtrace-rs")
-    (synopsis
-     "Acquire a stack trace (backtrace) at runtime in a Rust program")
-    (description
-     "This package provides a library to acquire a stack
-trace (backtrace) at runtime in a Rust program.")
-    (license #f)))
-
 (define-public rust-failure-derive
   (package
     (name "rust-failure-derive")
@@ -4530,76 +4489,6 @@ to be linked into Rust code.")
      "Compares two equal-sized byte strings in constant time.")
     (license #f)))
 
-(define-public rust-addr2line
-  (package
-    (name "rust-addr2line")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "addr2line" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17rlf04nx3g3rcy661v24ksnmpk6vqn680g5b5sp8lk20iih2xnx"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
-        ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
-        ("rust-gimli" ,rust-gimli-0.18)
-        ("rust-intervaltree" ,rust-intervaltree-0.2)
-        ("rust-lazycell" ,rust-lazycell-1.2)
-        ("rust-object" ,rust-object-0.12)
-        ("rust-rustc-demangle" ,rust-rustc-demangle-0.1)
-        ("rust-smallvec" ,rust-smallvec-0.6))
-       #:cargo-development-inputs
-       (("rust-backtrace" ,rust-backtrace)
-        ("rust-clap" ,rust-clap-2)
-        ("rust-findshlibs" ,rust-findshlibs-0.5)
-        ("rust-memmap" ,rust-memmap-0.7)
-        ("rust-rustc-test" ,rust-rustc-test-0.3))))
-    (home-page
-     "https://github.com/gimli-rs/addr2line")
-    (synopsis
-     "Symbolication library written in Rust, using gimli")
-    (description
-     "This package provides a cross-platform symbolication library
-written in Rust, using gimli.")
-    (license #f)))
-
-(define-public rust-backtrace-sys
-  (package
-    (name "rust-backtrace-sys")
-    (version "0.1.30")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "backtrace-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0q9yxdhq1sgjcqw068g4m75ba11v83ycn0dwc6pm6dalkh5h0fjv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-compiler-builtins"
-         ,rust-compiler-builtins-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core-1.0))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/alexcrichton/backtrace-rs")
-    (synopsis
-     "Bindings to the libbacktrace gcc library")
-    (description
-     "Bindings to the libbacktrace gcc library")
-    (license #f)))
-
 (define-public rust-synstructure
   (package
     (name "rust-synstructure")
@@ -4647,7 +4536,7 @@ written in Rust, using gimli.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace))
+       (("rust-backtrace" ,rust-backtrace-0.3))
        #:cargo-development-inputs
        (("rust-version-check" ,rust-version-check))))
     (home-page
@@ -13318,7 +13207,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace)
+       (("rust-backtrace" ,rust-backtrace-0.3)
         ("rust-fnv" ,rust-fnv-1.0)
         ("rust-glutin" ,rust-glutin)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
