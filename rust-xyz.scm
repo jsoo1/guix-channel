@@ -6243,7 +6243,7 @@ shorthands for guards with one of the implemented strategies.")
        #:cargo-development-inputs
        (("rust-defmac" ,rust-defmac-0.2)
         ("rust-itertools" ,rust-itertools-0.8)
-        ("rust-odds" ,rust-odds)
+        ("rust-odds" ,rust-odds-0.3)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/bluss/petgraph")
     (synopsis
@@ -6312,39 +6312,6 @@ shorthands for guards with one of the implemented strategies.")
      "A hash table with consistent order and fast iteration. NOTE: This crate was renamed to indexmap. Please use it under its new name.")
     (description
      "This package provides a hash table with consistent order and fast iteration.  NOTE: This crate was renamed to indexmap.  Please use it under its new name.")
-    (license #f)))
-
-(define-public rust-odds
-  (package
-    (name "rust-odds")
-    (version "0.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "odds" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0rdnxa0na4897yb0svb3figz35g4imxjv61yfm2j21gbh5q8v8d9"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rawpointer" ,rust-rawpointer-0.1)
-        ("rust-rawslice" ,rust-rawslice-0.1)
-        ("rust-unchecked-index" ,rust-unchecked-index-0.2))
-       #:cargo-development-inputs
-       (("rust-itertools" ,rust-itertools-0.8)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page "https://github.com/bluss/odds")
-    (synopsis
-     "Extra functionality for slices, strings and other things")
-    (description
-     "Odds and ends collection miscellania.  Extra functionality for
-slices (@code{.find()}, @code{RevSlice}), strings and other things.
-Things in odds may move to more appropriate crates if we find them.")
     (license #f)))
 
 (define-public rust-nodrop-union
