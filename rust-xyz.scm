@@ -4664,27 +4664,6 @@ reading and writing git repositories.")
      "pest meta language parser and validator")
     (license #f)))
 
-(define-public rust-maplit
-  (package
-    (name "rust-maplit")
-    (version "1.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "maplit" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0hsczmvd6zkqgzqdjp5hfyg7f339n68w83n4pxvnsszrzssbdjq8"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/bluss/maplit")
-    (synopsis
-     "Collection â\x80\x9cliteralâ\x80\x9d macros for HashMap, HashSet, BTreeMap, and BTreeSet.")
-    (description
-     "Collection â\x80\x9cliteralâ\x80\x9d macros for HashMap, HashSet, BTreeMap, and BTreeSet.")
-    (license #f)))
-
 (define-public rust-ref-cast
   (package
     (name "rust-ref-cast")
@@ -5765,7 +5744,7 @@ shorthands for guards with one of the implemented strategies.")
     (arguments
      `(#:cargo-inputs
        (("rust-block-padding" ,rust-block-padding)
-        ("rust-byte-tools" ,rust-byte-tools)
+        ("rust-byte-tools" ,rust-byte-tools-0.3)
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-generic-array" ,rust-generic-array-0.12.3))))
     (home-page "https://github.com/RustCrypto/utils")
@@ -5863,31 +5842,12 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-byte-tools" ,rust-byte-tools))))
+       (("rust-byte-tools" ,rust-byte-tools-0.3))))
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis
      "Padding and unpadding of messages divided into blocks.")
     (description
      "Padding and unpadding of messages divided into blocks.")
-    (license #f)))
-
-(define-public rust-byte-tools
-  (package
-    (name "rust-byte-tools")
-    (version "0.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "byte-tools" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1mqi29wsm8njpl51pfwr31wmpzs5ahlcb40wsjyd92l90ixcmdg3"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/RustCrypto/utils")
-    (synopsis "Bytes related utility functions")
-    (description "Bytes related utility functions")
     (license #f)))
 
 (define-public rust-ordermap
