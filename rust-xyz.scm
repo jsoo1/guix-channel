@@ -664,32 +664,6 @@ standard printing of search results, similar to grep itself.")
         (base32
          "0ms9hgdhhsxw9w920i7gipydvagf100bb56jbs192rz86ln01v7r"))))))
 
-(define-public rust-rand-chacha
-  (package
-    (name "rust-rand-chacha")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_chacha" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "178d36jfkc4v95s25scc2vibj2hd2hlk64cs6id4hvzg89whd4z1"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-c2-chacha" ,rust-c2-chacha-0.2)
-        ("rust-rand-core" ,rust-rand-core-0.5))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg-0.1))))
-    (home-page
-     "https://crates.io/crates/rand_chacha")
-    (synopsis "ChaCha random number generator")
-    (description "ChaCha random number generator.")
-    (license #f)))
-
 (define-public rust-automod
   (package
     (name "rust-automod")
@@ -3154,7 +3128,7 @@ checking")
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-quick-error" ,rust-quick-error-1.2)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-chacha" ,rust-rand-chacha)
+        ("rust-rand-chacha" ,rust-rand-chacha-0.2)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-rusty-fork" ,rust-rusty-fork)
