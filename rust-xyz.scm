@@ -5616,7 +5616,7 @@ shorthands for guards with one of the implemented strategies.")
         ("rust-digest" ,rust-digest-0.8)
         ("rust-fake-simd" ,rust-fake-simd-0.1)
         ("rust-opaque-debug" ,rust-opaque-debug-0.2)
-        ("rust-sha1-asm" ,rust-sha1-asm))
+        ("rust-sha1-asm" ,rust-sha1-asm-0.4))
        #:cargo-development-inputs
        (("rust-digest" ,rust-digest-0.8)
         ("rust-hex-literal" ,rust-hex-literal))))
@@ -5624,31 +5624,6 @@ shorthands for guards with one of the implemented strategies.")
      "https://github.com/RustCrypto/hashes")
     (synopsis "SHA-1 hash function")
     (description "SHA-1 hash function")
-    (license #f)))
-
-(define-public rust-sha1-asm
-  (package
-    (name "rust-sha1-asm")
-    (version "0.4.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "sha1-asm" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1i1i8viy6y30mv9v5hwhg9w6b722qkyh9c6n8bn4d27jpv14pg0s"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/RustCrypto/asm-hashes")
-    (synopsis
-     "Assembly implementation of SHA-1 compression function")
-    (description
-     "Assembly implementation of SHA-1 compression function")
     (license #f)))
 
 (define-public rust-ordermap
