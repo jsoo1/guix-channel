@@ -3954,7 +3954,7 @@ reading and writing git repositories.")
         ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-shlex" ,rust-shlex-0.1)
-        ("rust-which" ,rust-which))
+        ("rust-which" ,rust-which-2.0))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff-0.1)
@@ -3999,7 +3999,7 @@ reading and writing git repositories.")
         ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-shlex" ,rust-shlex-0.1)
-        ("rust-which" ,rust-which))
+        ("rust-which" ,rust-which-2.0))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff-0.1)
@@ -10276,44 +10276,16 @@ complex, rational, range iterators, generic integers, and more!
      "Rational numbers implementation for Rust")
     (license #f)))
 
-(define-public rust-which
-  (package
-    (name "rust-which")
-    (version "2.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "which" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0r7i793sc0xqnd2fxnqbksj7j1kx65bwn81b8z49750v4c8cnymm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-failure" ,rust-failure-0.1)
-        ("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://github.com/harryfei/which-rs.git")
-    (synopsis
-     "A Rust equivalent of Unix command \"which\". Locate installed execuable in cross platforms.")
-    (description
-     "This package provides a Rust equivalent of Unix command \"which\".  Locate installed execuable in cross platforms.")
-    (license license:expat)))
-
 (define-public rust-which-1
   (package
-    (inherit rust-which)
+    (inherit rust-which-2.0)
     (version "1.0.5")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "which" version))
        (file-name
-        (string-append (package-name rust-which) "-" version ".tar.gz"))
+        (string-append (package-name rust-which-2.0) "-" version ".tar.gz"))
        (sha256
         (base32
          "1cjwa57kzfgzs681a27m5pjmq580pv3hkcg23smf270bgqz60jp8"))))))
