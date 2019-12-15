@@ -5520,7 +5520,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0)
-        ("rust-typenum" ,rust-typenum))
+        ("rust-typenum" ,rust-typenum-1.10))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1)
         ("rust-serde-json" ,rust-serde-json-1.0))))
@@ -5545,27 +5545,6 @@ reading and writing git repositories.")
        (sha256
         (base32
          "1v5jg7djicq34nbiv1dwaki71gkny002wyy9qfn3y0hfmrs053y6"))))))
-
-(define-public rust-typenum
-  (package
-    (name "rust-typenum")
-    (version "1.10.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "typenum" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0sc1jirllfhdi52z1xv9yqzxzpk6v7vadd13n7wvs1wnjipn6bb1"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/paholg/typenum")
-    (synopsis
-     "Typenum is a Rust library for type-level numbers evaluated at compile time. It currently supports bits, unsigned integers, and signed integers. It also provides a type-level array of type-level numbers, but its implementation is incomplete.")
-    (description
-     "Typenum is a Rust library for type-level numbers evaluated at compile time.  It currently supports bits, unsigned integers, and signed integers.  It also provides a type-level array of type-level numbers, but its implementation is incomplete.")
-    (license #f)))
 
 (define-public rust-wasm-bindgen-macro
   (package
