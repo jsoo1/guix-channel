@@ -4775,7 +4775,7 @@ with a cross platform API")
      `(#:cargo-inputs
        (("rust-log" ,rust-log-0.4)
         ("rust-plain" ,rust-plain-0.2)
-        ("rust-scroll" ,rust-scroll))))
+        ("rust-scroll" ,rust-scroll-0.9))))
     (home-page "https://github.com/m4b/goblin")
     (synopsis
      "impish, cross-platform, ELF, Mach-o, and PE binary parsing and
@@ -5041,7 +5041,7 @@ immutable interval tree.")
        (("rust-flate2" ,rust-flate2-1.0)
         ("rust-goblin" ,rust-goblin)
         ("rust-parity-wasm" ,rust-parity-wasm)
-        ("rust-scroll" ,rust-scroll)
+        ("rust-scroll" ,rust-scroll-0.9)
         ("rust-uuid" ,rust-uuid))
        #:cargo-development-inputs
        (("rust-memmap" ,rust-memmap-0.7))))
@@ -5051,35 +5051,6 @@ immutable interval tree.")
     (description
      "This package provides a unified interface for parsing object
 file formats.")
-    (license #f)))
-
-(define-public rust-scroll
-  (package
-    (name "rust-scroll")
-    (version "0.9.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "scroll" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "10q3w86bn22xrjlfg1c90dfi9c26qjkzn26nad0i9z8pxwad311g"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-scroll-derive" ,rust-scroll-derive))
-       #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-rayon" ,rust-rayon-1.1)
-        ("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page "https://github.com/m4b/scroll")
-    (synopsis
-     "Read/Write traits for byte buffers")
-    (description
-     "This package provides a suite of powerful, extensible, generic,
-endian-aware Read/Write traits for byte buffers.")
     (license #f)))
 
 (define-public rust-synstructure-test-traits
@@ -5238,35 +5209,6 @@ streams.")
      "Generate and parse UUIDs")
     (description
      "This package provides a library to generate and parse UUIDs.")
-    (license #f)))
-
-(define-public rust-scroll-derive
-  (package
-    (name "rust-scroll-derive")
-    (version "0.9.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "scroll_derive" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1jqg5mm8nvii6avl1z1rc89agzh2kwkppgpsnwfakxg78mnaj6lg"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))
-       #:cargo-development-inputs
-       (("rust-scroll" ,rust-scroll))))
-    (home-page
-     "https://github.com/m4b/scroll_derive")
-    (synopsis
-     "A macros 1.1 derive implementation for Pread and Pwrite traits from the scroll crate")
-    (description
-     "This package provides a macros 1.1 derive implementation for Pread and Pwrite traits from the scroll crate")
     (license #f)))
 
 (define-public rust-libssh2-sys
