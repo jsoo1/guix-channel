@@ -956,7 +956,7 @@ standard printing of search results, similar to grep itself.")
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-unicode-normalization"
-         ,rust-unicode-normalization)
+         ,rust-unicode-normalization-0.1)
         ("rust-unicode-segmentation"
          ,rust-unicode-segmentation))))
     (home-page
@@ -1858,33 +1858,6 @@ guidelines on macOS.")
      "Include resources in your applications.")
     (license #f)))
 
-(define-public rust-unicode-normalization
-  (package
-    (name "rust-unicode-normalization")
-    (version "0.1.8")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unicode-normalization" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09i49va90rvia1agvgni4gicnqv50y5zy1naw8mr8bcqifh3j4ql"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-smallvec" ,rust-smallvec-0.6))))
-    (home-page
-     "https://github.com/unicode-rs/unicode-normalization")
-    (synopsis
-     "This crate provides functions for normalization of Unicode strings")
-    (description
-     "This crate provides functions for normalization of Unicode
-strings, including Canonical and Compatible Decomposition and
-Recomposition, as described in Unicode Standard Annex #15.")
-    (license #f)))
-
 (define-public rust-getopts-0.2.19
   (package
     (inherit rust-getopts-0.2)
@@ -2007,7 +1980,7 @@ Recomposition, as described in Unicode Standard Annex #15.")
        (("rust-matches" ,rust-matches-0.1)
         ("rust-unicode-bidi" ,rust-unicode-bidi-0.2)
         ("rust-unicode-normalization"
-         ,rust-unicode-normalization))
+         ,rust-unicode-normalization-0.1))
        #:cargo-development-inputs
        (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test-0.3))))
@@ -2037,7 +2010,7 @@ Recomposition, as described in Unicode Standard Annex #15.")
        (("rust-matches" ,rust-matches-0.1)
         ("rust-unicode-bidi" ,rust-unicode-bidi-0.3)
         ("rust-unicode-normalization"
-         ,rust-unicode-normalization))
+         ,rust-unicode-normalization-0.1))
        #:cargo-development-inputs
        (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test-0.3))))
@@ -12942,7 +12915,7 @@ for computer graphics.")
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-unicode-normalization"
-         ,rust-unicode-normalization))))
+         ,rust-unicode-normalization-0.1))))
     (home-page
      "https://github.com/PistonDevelopers/freetype-rs")
     (synopsis "Bindings for FreeType font library")
@@ -14450,7 +14423,7 @@ for computer graphics.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-toml" ,rust-toml-0.1)
-        ("rust-unicode-normalization" ,rust-unicode-normalization)
+        ("rust-unicode-normalization" ,rust-unicode-normalization-0.1)
         ("rust-url" ,rust-url-1.7))))
     (home-page
      "https://github.com/rust-lang-nursery/rust-clippy")
@@ -14489,7 +14462,7 @@ pitfalls in Rust")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-toml" ,rust-toml-0.1)
-        ("rust-unicode-normalization" ,rust-unicode-normalization)
+        ("rust-unicode-normalization" ,rust-unicode-normalization-0.1)
         ("rust-url" ,rust-url-1.7))))))
 
 (define-public rust-cargo-metadata
