@@ -5496,52 +5496,23 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-blobby" ,rust-blobby-0.1)
-        ("rust-generic-array" ,rust-generic-array))))
+        ("rust-generic-array" ,rust-generic-array-0.13))))
     (home-page
      "https://github.com/RustCrypto/traits")
     (synopsis "Stream cipher traits")
     (description "Stream cipher traits")
     (license #f)))
 
-(define-public rust-generic-array
-  (package
-    (name "rust-generic-array")
-    (version "0.13.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "generic-array" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1kddwxpd58y807y1r3lijg7sw3gxm6nczl6wp57gamhv6mhygl8f"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-typenum" ,rust-typenum-1.10))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-     "https://github.com/fizyk20/generic-array.git")
-    (synopsis
-     "Generic types implementing functionality of arrays")
-    (description
-     "Generic types implementing functionality of arrays")
-    (license #f)))
-
 (define-public rust-generic-array-0.12.3
   (package
-    (inherit rust-generic-array)
+    (inherit rust-generic-array-0.13)
     (version "0.12.3")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "generic-array" version))
        (file-name
-        (string-append (package-name rust-generic-array) "-" version ".tar.gz"))
+        (string-append (package-name rust-generic-array-0.13) "-" version ".tar.gz"))
        (sha256
         (base32
          "1v5jg7djicq34nbiv1dwaki71gkny002wyy9qfn3y0hfmrs053y6"))))))
@@ -5696,7 +5667,7 @@ shorthands for guards with one of the implemented strategies.")
     (arguments
      `(#:cargo-inputs
        (("rust-blobby" ,rust-blobby-0.1)
-        ("rust-generic-array" ,rust-generic-array))))
+        ("rust-generic-array" ,rust-generic-array-0.13))))
     (home-page
      "https://github.com/RustCrypto/traits")
     (synopsis
