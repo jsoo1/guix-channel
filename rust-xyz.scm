@@ -3640,7 +3640,7 @@ encodings")
     (arguments
      `(#:cargo-inputs
        (("rust-backtrace" ,rust-backtrace-0.3)
-        ("rust-failure-derive" ,rust-failure-derive))))
+        ("rust-failure-derive" ,rust-failure-derive-0.1))))
     (home-page
      "https://rust-lang-nursery.github.io/failure/")
     (synopsis
@@ -4167,34 +4167,6 @@ threadpools.")
     (description
      "Thin wrapper around the Argon2 C library.  Used in argon2rs'
 bench suite.")
-    (license #f)))
-
-(define-public rust-failure-derive
-  (package
-    (name "rust-failure-derive")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "failure_derive" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1q97n7dp51j5hndzic9ng2fgn6f3z5ya1992w84l7vypby8n647a"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15)
-        ("rust-synstructure" ,rust-synstructure-0.10))
-       #:cargo-development-inputs
-       (("rust-failure" ,rust-failure))))
-    (home-page
-     "https://rust-lang-nursery.github.io/failure/")
-    (synopsis "Derives for the failure crate")
-    (description "Derives for the failure crate")
     (license #f)))
 
 ;; DO THESE DEPS
