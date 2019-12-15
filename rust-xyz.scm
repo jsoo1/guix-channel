@@ -2628,13 +2628,13 @@ asynchronous I/O backed applications.")
     (arguments
      `(#:cargo-inputs
        (("rust-console-error-panic-hook"
-         ,rust-console-error-panic-hook)
+         ,rust-console-error-panic-hook-0.1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-js-sys" ,rust-js-sys)
         ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasm-bindgen-futures"
-         ,rust-wasm-bindgen-futures)
+         ,rust-wasm-bindgen-futures-0.3)
         ("rust-wasm-bindgen-test-macro"
          ,rust-wasm-bindgen-test-macro-0.2))))
     (home-page
@@ -3556,33 +3556,6 @@ parser.")
      "Implementation detail of the `paste` crate")
     (description
      "Implementation detail of the `paste` crate")
-    (license #f)))
-
-(define-public rust-console-error-panic-hook
-  (package
-    (name "rust-console-error-panic-hook")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "console_error_panic_hook" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "04d2narcrzk9bnddz17rr2l819l82pr0h6d98s2w9q236n87dndq"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))))
-    (home-page
-     "https://github.com/rustwasm/console_error_panic_hook")
-    (synopsis
-     "Logs panics to console.error")
-    (description
-     "This package provides a panic hook for `wasm32-unknown-unknown`
-that logs panics to `console.error`")
     (license #f)))
 
 (define-public rust-js-sys
