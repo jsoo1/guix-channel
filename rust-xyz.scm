@@ -2035,7 +2035,7 @@ Recomposition, as described in Unicode Standard Annex #15.")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding-index-japanese"
-         ,rust-encoding-index-japanese)
+         ,rust-encoding-index-japanese-1.20141219)
         ("rust-encoding-index-korean"
          ,rust-encoding-index-korean)
         ("rust-encoding-index-simpchinese"
@@ -2645,32 +2645,6 @@ maps of many strings (> 1 billion is possible).")
      "Incremental, zero-copy UTF-8 decoding with error handling")
     (description
      "Incremental, zero-copy UTF-8 decoding with error handling")
-    (license #f)))
-
-(define-public rust-encoding-index-japanese
-  (package
-    (name "rust-encoding-index-japanese")
-    (version "1.20141219.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding-index-japanese" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "148c1lmd640p1d7fzk0nv7892mbyavvwddgqvcsm78798bzv5s04"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests-0.1))))
-    (home-page
-     "https://github.com/lifthrasiir/rust-encoding")
-    (synopsis
-     "Index tables for Japanese character encodings")
-    (description
-     "Index tables for Japanese character encodings")
     (license #f)))
 
 (define-public rust-encoding-index-korean
