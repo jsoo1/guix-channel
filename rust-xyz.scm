@@ -2110,7 +2110,7 @@ asynchronous I/O backed applications.")
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-bindgen" ,rust-bindgen-0.50)
-        ("rust-cmake" ,rust-cmake)
+        ("rust-cmake" ,rust-cmake-0.1)
         ("rust-env-logger" ,rust-env-logger-0.6))))
     (home-page "https://github.com/gnzlbg/sleef-sys")
     (synopsis
@@ -4004,30 +4004,6 @@ reading and writing git repositories.")
        (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff-0.1)
         ("rust-shlex" ,rust-shlex-0.1))))))
-
-(define-public rust-cmake
-  (package
-    (name "rust-cmake")
-    (version "0.1.40")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cmake" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1w0zgqdbbhl9w6px7avc6d5p43clglrmjfdn2n26mdsli5n3i91c"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/alexcrichton/cmake-rs")
-    (synopsis
-     "A build dependency for running `cmake` to build a native library")
-    (description
-     "This package provides a build dependency for running `cmake` to build a native library")
-    (license #f)))
 
 (define-public rust-cexpr-0.2
   (package
@@ -12281,7 +12257,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cmake" ,rust-cmake))
+       (("rust-cmake" ,rust-cmake-0.1))
        #:cargo-development-inputs
        (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page "http://www.libexpat.org/")
@@ -12305,7 +12281,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-cmake" ,rust-cmake)
+       (("rust-cmake" ,rust-cmake-0.1)
         ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page "http://www.freetype.org/")
     (synopsis
