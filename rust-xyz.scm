@@ -4627,7 +4627,7 @@ to be linked into Rust code.")
      `(#:cargo-inputs
        (("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
         ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
-        ("rust-gimli" ,rust-gimli)
+        ("rust-gimli" ,rust-gimli-0.18)
         ("rust-intervaltree" ,rust-intervaltree)
         ("rust-lazycell" ,rust-lazycell)
         ("rust-object" ,rust-object)
@@ -4882,45 +4882,6 @@ reading and writing git repositories.")
      "Minimal Adler32 implementation for Rust")
     (description
      "Minimal Adler32 implementation for Rust.")
-    (license #f)))
-
-(define-public rust-gimli
-  (package
-    (name "rust-gimli")
-    (version "0.18.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "gimli" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ma1zg2klqr47rasm7jn3zzd1j1pj2a8wkfbv5zsx10qh43phy4k"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
-        ("rust-indexmap" ,rust-indexmap-1.0)
-        ("rust-stable-deref-trait" ,rust-stable-deref-trait-1.1))
-       #:cargo-development-inputs
-       (("rust-crossbeam" ,rust-crossbeam-0.7)
-        ("rust-getopts" ,rust-getopts-0.2)
-        ("rust-memmap" ,rust-memmap-0.7)
-        ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-object" ,rust-object)
-        ("rust-rayon" ,rust-rayon-1.1)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-test-assembler" ,rust-test-assembler-0.1)
-        ("rust-typed-arena" ,rust-typed-arena-1.4))))
-    (home-page "https://github.com/gimli-rs/gimli")
-    (synopsis
-     "Reading and writing the DWARF debugging format")
-    (description
-     "This package provides a library for reading and writing the
-DWARF debugging format.")
     (license #f)))
 
 (define-public rust-intervaltree
