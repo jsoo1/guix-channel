@@ -3966,7 +3966,7 @@ reading and writing git repositories.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cexpr" ,rust-cexpr)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-clang-sys" ,rust-clang-sys)
+        ("rust-clang-sys" ,rust-clang-sys-0.28)
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-fxhash" ,rust-fxhash)
@@ -4115,7 +4115,7 @@ reading and writing git repositories.")
      `(#:cargo-inputs
        (("rust-nom" ,rust-nom-4))
        #:cargo-development-inputs
-       (("rust-clang-sys" ,rust-clang-sys))))
+       (("rust-clang-sys" ,rust-clang-sys-0.28))))
     (home-page
      "https://github.com/jethrogb/rust-cexpr")
     (synopsis "A C expression parser and evaluator")
@@ -4140,34 +4140,7 @@ reading and writing git repositories.")
      `(#:cargo-inputs
        (("rust-nom" ,rust-nom-3))
        #:cargo-development-inputs
-       (("rust-clang-sys" ,rust-clang-sys))))))
-
-(define-public rust-clang-sys
-  (package
-    (name "rust-clang-sys")
-    (version "0.28.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "clang-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0m8h56yjwv19pbah4lrhmb8js9mhx6hi5gk0y4zzix89xjf2c9s2"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-glob" ,rust-glob-0.3)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libloading" ,rust-libloading))
-       #:cargo-development-inputs
-       (("rust-glob" ,rust-glob-0.3))))
-    (home-page
-     "https://github.com/KyleMayes/clang-sys")
-    (synopsis "Rust bindings for libclang.")
-    (description "Rust bindings for libclang.")
-    (license #f)))
+       (("rust-clang-sys" ,rust-clang-sys-0.28))))))
 
 (define-public rust-clang-sys-0.26.4
   (package
@@ -4198,14 +4171,14 @@ reading and writing git repositories.")
 
 (define-public rust-clang-sys-0.22
   (package
-    (inherit rust-clang-sys)
+    (inherit rust-clang-sys-0.28)
     (version "0.22.0")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "clang-sys" version))
        (file-name
-        (string-append (package-name rust-clang-sys) "-" version ".tar.gz"))
+        (string-append (package-name rust-clang-sys-0.28) "-" version ".tar.gz"))
        (sha256
         (base32
          "0f65dw1ydnzq4wrv894fql78n4ikb53jjp53xck0s4hb64s1m6lk"))))
