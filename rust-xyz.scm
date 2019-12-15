@@ -4878,7 +4878,7 @@ reading and writing git repositories.")
         ("rust-goblin" ,rust-goblin-0.0)
         ("rust-parity-wasm" ,rust-parity-wasm-0.40)
         ("rust-scroll" ,rust-scroll-0.9)
-        ("rust-uuid" ,rust-uuid))
+        ("rust-uuid" ,rust-uuid-0.7))
        #:cargo-development-inputs
        (("rust-memmap" ,rust-memmap-0.7))))
     (home-page "https://github.com/gimli-rs/object")
@@ -4937,41 +4937,6 @@ file formats.")
      "https://github.com/sfackler/rust-openssl")
     (synopsis "FFI bindings to OpenSSL")
     (description "FFI bindings to OpenSSL")
-    (license #f)))
-
-(define-public rust-uuid
-  (package
-    (name "rust-uuid")
-    (version "0.7.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "uuid" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ank4xk20x3nrz926w8j9mz53bi3v8bykxmhlq2pffa8xc8wdnwh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-md5" ,rust-md5-0.6)
-        ("rust-rand" ,rust-rand-0.6)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-sha1" ,rust-sha1-0.6)
-        ("rust-slog" ,rust-slog-2.4)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-serde-test" ,rust-serde-test-1.0))))
-    (home-page "https://github.com/uuid-rs/uuid")
-    (synopsis
-     "Generate and parse UUIDs")
-    (description
-     "This package provides a library to generate and parse UUIDs.")
     (license #f)))
 
 (define-public rust-libssh2-sys
@@ -7502,7 +7467,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-trust-dns-resolver"
          ,rust-trust-dns-resolver)
         ("rust-url" ,rust-url-1.7)
-        ("rust-uuid" ,rust-uuid)
+        ("rust-uuid" ,rust-uuid-0.7)
         ("rust-webpki-roots" ,rust-webpki-roots)
         ("rust-winreg" ,rust-winreg))
        #:cargo-development-inputs
@@ -7922,7 +7887,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-log" ,rust-log-0.4)
         ("rust-memmap" ,rust-memmap-0.7)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-uuid" ,rust-uuid))
+        ("rust-uuid" ,rust-uuid-0.7))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-hex" ,rust-hex-0.3)
@@ -10182,7 +10147,7 @@ accessor functions on enums.")
         ("rust-core-foundation-sys"
          ,rust-core-foundation-sys-0.6)
         ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-uuid" ,rust-uuid))))
+        ("rust-uuid" ,rust-uuid-0.7))))
     (home-page
      "https://github.com/servo/core-foundation-rs")
     (synopsis
