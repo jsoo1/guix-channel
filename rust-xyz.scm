@@ -1051,41 +1051,6 @@ instantiate to generate your own pieces of pseudo-random text.")
     (description "Parsing of the semver spec.")
     (license #f)))
 
-(define-public rust-url-1.7
-  (package
-    (name "rust-url")
-    (version "1.7.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "url" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0nim1c90mxpi9wgdw2xh8dqd72vlklwlzam436akcrhjac6pqknx"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding" ,rust-encoding-0.2)
-        ("rust-heapsize" ,rust-heapsize-0.4)
-        ("rust-idna" ,rust-idna-0.1)
-        ("rust-matches" ,rust-matches-0.1)
-        ("rust-percent-encoding" ,rust-percent-encoding-1.0)
-        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher-0.1)
-        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test-0.3)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page "https://github.com/servo/rust-url")
-    (synopsis
-     "URL library for Rust, based on the WHATWG URL Standard")
-    (description
-     "URL library for Rust, based on the WHATWG URL Standard")
-    (license #f)))
-
 (define-public rust-url-2.0
   (package
     (name "rust-url")
