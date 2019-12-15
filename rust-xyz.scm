@@ -2109,7 +2109,7 @@ asynchronous I/O backed applications.")
        (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-bindgen" ,rust-bindgen)
+       (("rust-bindgen" ,rust-bindgen-0.50)
         ("rust-cmake" ,rust-cmake)
         ("rust-env-logger" ,rust-env-logger-0.6))))
     (home-page "https://github.com/gnzlbg/sleef-sys")
@@ -3924,49 +3924,6 @@ reading and writing git repositories.")
      "Common code for build.rs in WinAPI -sys crates.")
     (license #f)))
 
-(define-public rust-bindgen
-  (package
-    (name "rust-bindgen")
-    (version "0.50.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bindgen" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1k4n1d002vrfn1mlpww3ib7f275yn4rpxfwkqpr9bym27zg17ab5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cexpr" ,rust-cexpr-0.3)
-        ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-clang-sys" ,rust-clang-sys-0.28)
-        ("rust-clap" ,rust-clap-2)
-        ("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-fxhash" ,rust-fxhash-0.2)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-peeking-take-while" ,rust-peeking-take-while-0.1)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-shlex" ,rust-shlex-0.1)
-        ("rust-which" ,rust-which-2.0))
-       #:cargo-development-inputs
-       (("rust-clap" ,rust-clap-2)
-        ("rust-diff" ,rust-diff-0.1)
-        ("rust-shlex" ,rust-shlex-0.1))))
-    (home-page
-     "https://rust-lang.github.io/rust-bindgen/")
-    (synopsis
-     "Automatically generates Rust FFI bindings to C and C++ libraries.")
-    (description
-     "Automatically generates Rust FFI bindings to C and C++ libraries.")
-    (license #f)))
-
 (define-public rust-bindgen-0.47
   (package
     (name "rust-bindgen")
@@ -4014,14 +3971,14 @@ reading and writing git repositories.")
 
 (define-public rust-bindgen-0.33
   (package
-    (inherit rust-bindgen)
+    (inherit rust-bindgen-0.50)
     (version "0.33.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "bindgen" version))
        (file-name
-        (string-append (package-name rust-bindgen) "-" version ".tar.gz"))
+        (string-append (package-name rust-bindgen-0.50) "-" version ".tar.gz"))
        (sha256
         (base32
          "0vnw5fb74gl9pgnimgbrkac1xgwrjz86pqilx20rbkia77cdhgk0"))))
@@ -11750,7 +11707,7 @@ The intersection of `std::ffi::CStr` and `str`")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-bindgen" ,rust-bindgen))))
+       (("rust-bindgen" ,rust-bindgen-0.50))))
     (home-page
      "https://github.com/Drakulix/input.rs/tree/master/input-sys")
     (synopsis
@@ -11904,7 +11861,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-bindgen" ,rust-bindgen))))
+       (("rust-bindgen" ,rust-bindgen-0.50))))
     (home-page
      "https://github.com/Drakulix/gbm.rs/tree/master/gbm-sys")
     (synopsis
@@ -11976,7 +11933,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-bindgen" ,rust-bindgen)
+       (("rust-bindgen" ,rust-bindgen-0.50)
         ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
      "https://github.com/Slabity/modesetting-rs")
