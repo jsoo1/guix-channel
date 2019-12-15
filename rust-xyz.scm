@@ -4902,7 +4902,7 @@ reading and writing git repositories.")
      `(#:cargo-inputs
        (("rust-flate2" ,rust-flate2-1.0)
         ("rust-goblin" ,rust-goblin-0.0)
-        ("rust-parity-wasm" ,rust-parity-wasm)
+        ("rust-parity-wasm" ,rust-parity-wasm-0.40)
         ("rust-scroll" ,rust-scroll-0.9)
         ("rust-uuid" ,rust-uuid))
        #:cargo-development-inputs
@@ -4963,31 +4963,6 @@ file formats.")
      "https://github.com/sfackler/rust-openssl")
     (synopsis "FFI bindings to OpenSSL")
     (description "FFI bindings to OpenSSL")
-    (license #f)))
-
-(define-public rust-parity-wasm
-  (package
-    (name "rust-parity-wasm")
-    (version "0.38.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "parity-wasm" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0qpfwb9adyi6g98q1w0xiqdzkv4r1p7b2w19wd5cr57rlwifbmr0"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-time" ,rust-time-0.1))))
-    (home-page
-     "https://github.com/paritytech/parity-wasm")
-    (synopsis
-     "WebAssembly binary format de/serialization and interpreter")
-    (description
-     "WebAssembly binary format serialization/deserialization/interpreter")
     (license #f)))
 
 (define-public rust-uuid
