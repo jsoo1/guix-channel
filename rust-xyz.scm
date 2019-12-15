@@ -83,7 +83,7 @@ the stack.")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-half" ,rust-half)
+        ("rust-half" ,rust-half-1.3)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-derive" ,rust-serde-derive-1.0))))
@@ -4982,7 +4982,7 @@ file formats.")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-md5" ,rust-md5)
+        ("rust-md5" ,rust-md5-0.6)
         ("rust-rand" ,rust-rand-0.6)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-sha1" ,rust-sha1-0.6)
@@ -5053,28 +5053,6 @@ file formats.")
      "Source of OpenSSL and logic to build it.")
     (description
      "Source of OpenSSL and logic to build it.")
-    (license #f)))
-
-(define-public rust-md5
-  (package
-    (name "rust-md5")
-    (version "0.6.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "md5" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17b2xm4h4cvxsdjsf3kdrzqv2za60kak961xzi5kmw6g6djcssvy"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/stainless-steel/md5")
-    (synopsis
-     "The package provides the MD5 hash function.")
-    (description
-     "The package provides the MD5 hash function.")
     (license #f)))
 
 (define-public rust-slog
@@ -6458,30 +6436,6 @@ even if the code between panics (assuming unwinding panic).
 
 Defines the macros `defer!`, `defer_on_unwind!`, `defer_on_success!` as
 shorthands for guards with one of the implemented strategies.")
-    (license #f)))
-
-(define-public rust-half
-  (package
-    (name "rust-half")
-    (version "1.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "half" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0diqajg3mgar511hxswl4kgqqz9a026yvn3103x5h2smknlc4lwk"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-serde" ,rust-serde-1.0))))
-    (home-page
-     "https://github.com/starkat99/half-rs")
-    (synopsis
-     "Half-precision floating point f16 type for Rust implementing the IEEE 754-2008 binary16 type")
-    (description
-     "Half-precision floating point f16 type for Rust implementing the IEEE 754-2008 binary16 type.")
     (license #f)))
 
 (define-public rust-sha-1
