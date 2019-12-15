@@ -4565,7 +4565,7 @@ reading and writing git repositories.")
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-ucd-trie" ,rust-ucd-trie))))
+        ("rust-ucd-trie" ,rust-ucd-trie-0.1))))
     (home-page "https://pest-parser.github.io/")
     (synopsis "The Elegant Parser")
     (description "The Elegant Parser")
@@ -4634,30 +4634,6 @@ reading and writing git repositories.")
        (sha256
         (base32
          "0fk8nl0rmk43jrh6hjz6c6d83ri7l6fikag6lh0ffz3di9cwznfm"))))))
-
-(define-public rust-ucd-trie
-  (package
-    (name "rust-ucd-trie")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ucd-trie" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0xwxkg0fyclbz8fl99iidq4gaw2jjngf8c6c8kqnqhkpzsqwbabi"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3))))
-    (home-page "https://github.com/BurntSushi/rucd")
-    (synopsis
-     "A trie for storing Unicode codepoint sets and maps.")
-    (description
-     "This package provides a trie for storing Unicode codepoint sets and maps.")
-    (license #f)))
 
 (define-public rust-pest-generator
   (package
