@@ -53,7 +53,7 @@ the stack.")
     (arguments
      `(#:cargo-inputs
        (("rust-dtoa" ,rust-dtoa-0.4)
-        ("rust-linked-hash-map" ,rust-linked-hash-map)
+        ("rust-linked-hash-map" ,rust-linked-hash-map-0.5)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-yaml-rust" ,rust-yaml-rust))
        #:cargo-development-inputs
@@ -486,7 +486,7 @@ integer keys.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-linked-hash-map" ,rust-linked-hash-map))
+       (("rust-linked-hash-map" ,rust-linked-hash-map-0.5))
        #:cargo-development-inputs
        (("rust-quickcheck" ,rust-quickcheck-0.8))))
     (home-page
@@ -513,7 +513,7 @@ integer keys.")
     (arguments
      `(#:cargo-inputs
        (("rust-clippy" ,rust-clippy-0.0)
-        ("rust-linked-hash-map" ,rust-linked-hash-map))))
+        ("rust-linked-hash-map" ,rust-linked-hash-map-0.5))))
     (home-page
      "http://chyh1990.github.io/yaml-rust/")
     (synopsis "The missing YAML 1.2 parser for rust")
@@ -1052,35 +1052,6 @@ you need some filler text for your application.
 
 The text is generated using a simple Markov chain, which you can also
 instantiate to generate your own pieces of pseudo-random text.")
-    (license #f)))
-
-(define-public rust-linked-hash-map
-  (package
-    (name "rust-linked-hash-map")
-    (version "0.5.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "linked-hash-map" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "10qgbvh00q36ql0jh00rxh2jlq6qvl11n6mig0cvkpf4xf5bd4df"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-clippy" ,rust-clippy-0.0)
-        ("rust-heapsize" ,rust-heapsize-0.4)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-test" ,rust-serde-test-1.0))))
-    (home-page
-     "https://github.com/contain-rs/linked-hash-map")
-    (synopsis
-     "A HashMap wrapper that holds key-value pairs in insertion order")
-    (description
-     "This package provides a HashMap wrapper that holds key-value
-pairs in insertion order")
     (license #f)))
 
 (define-public rust-pulldown-cmark-0.4
@@ -7735,7 +7706,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-heapsize" ,rust-heapsize-0.4)
-        ("rust-linked-hash-map" ,rust-linked-hash-map))))
+        ("rust-linked-hash-map" ,rust-linked-hash-map-0.5))))
     (home-page
      "https://github.com/contain-rs/lru-cache")
     (synopsis
@@ -10859,7 +10830,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-libm" ,rust-libm)
-        ("rust-linked-hash-map" ,rust-linked-hash-map)
+        ("rust-linked-hash-map" ,rust-linked-hash-map-0.5)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-ordered-float" ,rust-ordered-float)
         ("rust-rustc-hash" ,rust-rustc-hash)
