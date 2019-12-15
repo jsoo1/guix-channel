@@ -957,7 +957,7 @@ instantiate to generate your own pieces of pseudo-random text.")
        (("rust-futures" ,rust-futures-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-mio-uds" ,rust-mio-uds)
+        ("rust-mio-uds" ,rust-mio-uds-0.6)
         ("rust-signal-hook-registry"
          ,rust-signal-hook-registry)
         ("rust-tokio-reactor" ,rust-tokio-reactor-0.1))
@@ -1638,35 +1638,6 @@ guidelines on macOS.")
      "IDNA (Internationalizing Domain Names in Applications) and Punycode.")
     (license #f)))
 
-(define-public rust-mio-uds
-  (package
-    (name "rust-mio-uds")
-    (version "0.6.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "mio-uds" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09gimdbnj7b9yca99pk8lxh9jhl79msj795c8fxi2sqr9slmfqln"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-iovec" ,rust-iovec-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-mio" ,rust-mio-0.6))
-       #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://github.com/alexcrichton/mio-uds")
-    (synopsis
-     "Unix domain socket bindings for mio")
-    (description
-     "Unix domain socket bindings for mio.")
-    (license #f)))
-
 (define-public rust-signal-hook-registry
   (package
     (name "rust-signal-hook-registry")
@@ -2236,7 +2207,7 @@ synchronization primitives.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-mio-uds" ,rust-mio-uds)
+        ("rust-mio-uds" ,rust-mio-uds-0.6)
         ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-reactor" ,rust-tokio-reactor-0.1))
@@ -6621,7 +6592,7 @@ response body.")
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-mio-named-pipes" ,rust-mio-named-pipes)
-        ("rust-mio-uds" ,rust-mio-uds)
+        ("rust-mio-uds" ,rust-mio-uds-0.6)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-parking-lot" ,rust-parking-lot-0.8)
         ("rust-signal-hook-registry"
