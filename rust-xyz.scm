@@ -4666,7 +4666,7 @@ reading and writing git repositories.")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-ppv-lite86" ,rust-ppv-lite86)
+        ("rust-ppv-lite86" ,rust-ppv-lite86-0.2)
         ("rust-stream-cipher" ,rust-stream-cipher))
        #:cargo-development-inputs
        (("rust-hex-literal" ,rust-hex-literal-0.2))))
@@ -4675,28 +4675,6 @@ reading and writing git repositories.")
     (synopsis "The ChaCha family of stream ciphers")
     (description
      "The ChaCha family of stream ciphers")
-    (license #f)))
-
-(define-public rust-ppv-lite86
-  (package
-    (name "rust-ppv-lite86")
-    (version "0.2.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ppv-lite86" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "06snnv338w341nicfqba2jgln5dsla72ndkgrw7h1dfdb3vgkjz3"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/cryptocorrosion/cryptocorrosion")
-    (synopsis
-     "Implementation of the crypto-simd API for x86")
-    (description
-     "Implementation of the crypto-simd API for x86")
     (license #f)))
 
 (define-public rust-c2-chacha
@@ -4717,7 +4695,7 @@ reading and writing git repositories.")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-ppv-lite86" ,rust-ppv-lite86)
+        ("rust-ppv-lite86" ,rust-ppv-lite86-0.2)
         ("rust-stream-cipher" ,rust-stream-cipher))
        #:cargo-development-inputs
        (("rust-hex-literal" ,rust-hex-literal-0.2))))
