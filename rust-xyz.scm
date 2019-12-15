@@ -2738,7 +2738,7 @@ asynchronous I/O backed applications.")
          ,rust-console-error-panic-hook)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-js-sys" ,rust-js-sys)
-        ("rust-scoped-tls" ,rust-scoped-tls)
+        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen)
         ("rust-wasm-bindgen-futures"
          ,rust-wasm-bindgen-futures)
@@ -3003,7 +3003,7 @@ maps of many strings (> 1 billion is possible).")
        (("rust-libc" ,rust-libc-0.2.58)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
-        ("rust-scoped-tls" ,rust-scoped-tls))))
+        ("rust-scoped-tls" ,rust-scoped-tls-1.0))))
     (home-page "https://github.com/rayon-rs/rayon")
     (synopsis "Core APIs for Rayon")
     (description "Core APIs for Rayon")
@@ -3876,30 +3876,6 @@ environments like Node.js and browsers, built on `#[wasm_bindgen]`
 using the `wasm-bindgen` crate.")
     (license #f)))
 
-(define-public rust-scoped-tls
-  (package
-    (name "rust-scoped-tls")
-    (version "1.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "scoped-tls" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1hj8lifzvivdb1z02lfnzkshpvk85nkgzxsy2hc0zky9wf894spa"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/alexcrichton/scoped-tls")
-    (synopsis
-     "Implementation of scoped_thread_local")
-    (description
-     "Library implementation of the standard library's old
-`scoped_thread_local!` macro for providing scoped access to thread
-local storage (TLS) so any type can be stored into TLS.")
-    (license #f)))
-
 (define-public rust-wasm-bindgen-futures
   (package
     (name "rust-wasm-bindgen-futures")
@@ -4481,7 +4457,7 @@ checking")
        (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-generator" ,rust-generator)
-        ("rust-scoped-tls" ,rust-scoped-tls)
+        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))))
@@ -11022,7 +10998,7 @@ exposed as Reader/Writer streams.")
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-scoped-tls" ,rust-scoped-tls)
+        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-tokio" ,rust-tokio)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
@@ -16490,7 +16466,7 @@ for computer graphics.")
         ("rust-rustc-ap-rustc-target" ,rust-rustc-ap-rustc-target)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize)
         ("rust-rustc-ap-syntax-pos" ,rust-rustc-ap-syntax-pos)
-        ("rust-scoped-tls" ,rust-scoped-tls)
+        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-smallvec" ,rust-smallvec-0.6))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
@@ -16525,7 +16501,7 @@ for computer graphics.")
         ("rust-rustc-ap-rustc-target" ,rust-rustc-ap-rustc-target-583)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize-583)
         ("rust-rustc-ap-syntax-pos" ,rust-rustc-ap-syntax-pos-583)
-        ("rust-scoped-tls" ,rust-scoped-tls)
+        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-smallvec" ,rust-smallvec-0.6))))))
 
 (define-public rust-racer-interner
@@ -16885,7 +16861,7 @@ for computer graphics.")
          ,rust-rustc-ap-rustc-data-structures)
         ("rust-rustc-ap-rustc-macros" ,rust-rustc-ap-rustc-macros)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize)
-        ("rust-scoped-tls" ,rust-scoped-tls)
+        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-unicode-width" ,rust-unicode-width-0.1))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
@@ -16917,7 +16893,7 @@ for computer graphics.")
          ,rust-rustc-ap-rustc-data-structures-583)
         ("rust-rustc-ap-rustc-macros" ,rust-rustc-ap-rustc-macros-583)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize-583)
-        ("rust-scoped-tls" ,rust-scoped-tls)
+        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-unicode-width" ,rust-unicode-width-0.1))))))
 
 (define-public rust-rustc-ap-arena
