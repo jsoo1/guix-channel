@@ -3578,7 +3578,7 @@ parser.")
        #:cargo-development-inputs
        (("rust-futures" ,rust-futures-0.1)
         ("rust-wasm-bindgen-futures"
-         ,rust-wasm-bindgen-futures)
+         ,rust-wasm-bindgen-futures-0.3)
         ("rust-wasm-bindgen-test"
          ,rust-wasm-bindgen-test))))
     (home-page
@@ -3589,41 +3589,6 @@ parser.")
      "Bindings for all JS global objects and functions in all JS
 environments like Node.js and browsers, built on `#[wasm_bindgen]`
 using the `wasm-bindgen` crate.")
-    (license #f)))
-
-(define-public rust-wasm-bindgen-futures
-  (package
-    (name "rust-wasm-bindgen-futures")
-    (version "0.3.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasm-bindgen-futures" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0bf9x6qfjczspc4zs605z1n4j15cdd8kk2z7rah0yggw8b6zl5nc"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-futures-channel-preview"
-         ,rust-futures-channel-preview-0.3)
-        ("rust-futures-util-preview"
-         ,rust-futures-util-preview-0.3)
-        ("rust-js-sys" ,rust-js-sys)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
-       #:cargo-development-inputs
-       (("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test))))
-    (home-page
-     "https://rustwasm.github.io/wasm-bindgen/")
-    (synopsis
-     "Bridging the gap between Rust Futures and JavaScript Promises")
-    (description
-     "Bridging the gap between Rust Futures and JavaScript Promises")
     (license #f)))
 
 (define-public rust-fst-levenshtein
@@ -10737,7 +10702,7 @@ accessor functions on enums.")
         ("rust-futures" ,rust-futures-0.1)
         ("rust-sourcefile" ,rust-sourcefile-0.1)
         ("rust-wasm-bindgen-futures"
-         ,rust-wasm-bindgen-futures)
+         ,rust-wasm-bindgen-futures-0.3)
         ("rust-wasm-bindgen-test"
          ,rust-wasm-bindgen-test)
         ("rust-wasm-bindgen-webidl"
