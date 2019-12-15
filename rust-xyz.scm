@@ -3954,12 +3954,12 @@ reading and writing git repositories.")
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-shlex" ,rust-shlex)
+        ("rust-shlex" ,rust-shlex-0.1)
         ("rust-which" ,rust-which))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff-0.1)
-        ("rust-shlex" ,rust-shlex))))
+        ("rust-shlex" ,rust-shlex-0.1))))
     (home-page
      "https://rust-lang.github.io/rust-bindgen/")
     (synopsis
@@ -3999,12 +3999,12 @@ reading and writing git repositories.")
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-shlex" ,rust-shlex)
+        ("rust-shlex" ,rust-shlex-0.1)
         ("rust-which" ,rust-which))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff-0.1)
-        ("rust-shlex" ,rust-shlex))))
+        ("rust-shlex" ,rust-shlex-0.1))))
     (home-page
      "https://rust-lang.github.io/rust-bindgen/")
     (synopsis
@@ -4042,12 +4042,12 @@ reading and writing git repositories.")
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-0.3)
         ("rust-regex" ,rust-regex-0.2)
-        ("rust-shlex" ,rust-shlex)
+        ("rust-shlex" ,rust-shlex-0.1)
         ("rust-which" ,rust-which-1))
        #:cargo-development-inputs
        (("rust-clap" ,rust-clap-2)
         ("rust-diff" ,rust-diff-0.1)
-        ("rust-shlex" ,rust-shlex))))))
+        ("rust-shlex" ,rust-shlex-0.1))))))
 
 (define-public rust-cmake
   (package
@@ -4112,27 +4112,6 @@ reading and writing git repositories.")
         ("rust-libloading" ,rust-libloading))
        #:cargo-development-inputs
        (("rust-glob" ,rust-glob-0.3))))))
-
-(define-public rust-shlex
-  (package
-    (name "rust-shlex")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "shlex" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1lmv6san7g8dv6jdfp14m7bdczq9ss7j7bgsfqyqjc3jnjfippvz"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/comex/rust-shlex")
-    (synopsis
-     "Split a string into shell words, like Python's shlex.")
-    (description
-     "Split a string into shell words, like Python's shlex.")
-    (license #f)))
 
 (define-public rust-nom
   (package
