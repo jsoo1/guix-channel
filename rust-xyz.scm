@@ -2539,7 +2539,7 @@ require unstable language features.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-stdweb-derive" ,rust-stdweb-derive-0.5)
-        ("rust-stdweb-internal-macros" ,rust-stdweb-internal-macros)
+        ("rust-stdweb-internal-macros" ,rust-stdweb-internal-macros-0.2)
         ("rust-stdweb-internal-runtime" ,rust-stdweb-internal-runtime-0.1)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))
        #:cargo-development-inputs
@@ -3558,37 +3558,6 @@ synchronization primitives.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (license #f)))
 
-(define-public rust-stdweb-internal-macros
-  (package
-    (name "rust-stdweb-internal-macros")
-    (version "0.2.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "stdweb-internal-macros" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1yjrmkc6sb1035avic383pa3avk2s9k3n17yjcza8yb9nw47v3z6"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-base-x" ,rust-base-x)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-sha1" ,rust-sha1)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page "https://github.com/koute/stdweb")
-    (synopsis
-     "Internal procedural macros for the `stdweb` crate")
-    (description
-     "Internal procedural macros for the `stdweb` crate")
-    (license #f)))
-
 (define-public rust-stdweb-internal-test-macro
   (package
     (name "rust-stdweb-internal-test-macro")
@@ -4519,35 +4488,6 @@ checking")
     (home-page "https://github.com/carllerche/loom")
     (synopsis "Model checker for concurrent code")
     (description "Model checker for concurrent code")
-    (license #f)))
-
-(define-public rust-sha1
-  (package
-    (name "rust-sha1")
-    (version "0.6.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "sha1" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "03gs2q4m67rn2p8xcdfxhip6mpgahdwm12bnb3vh90ahv9grhy95"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-openssl" ,rust-openssl-0.10)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-     "https://github.com/mitsuhiko/rust-sha1")
-    (synopsis
-     "Minimal implementation of SHA1 for Rust.")
-    (description
-     "Minimal implementation of SHA1 for Rust.")
     (license #f)))
 
 (define-public rust-semver-0.2
@@ -5744,7 +5684,7 @@ streams.")
         ("rust-md5" ,rust-md5)
         ("rust-rand" ,rust-rand-0.6)
         ("rust-serde" ,rust-serde-1.0)
-        ("rust-sha1" ,rust-sha1)
+        ("rust-sha1" ,rust-sha1-0.6)
         ("rust-slog" ,rust-slog)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
