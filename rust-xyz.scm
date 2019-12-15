@@ -2664,7 +2664,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests))))
+         ,rust-encoding-index-tests-0.1))))
     (home-page
      "https://github.com/lifthrasiir/rust-encoding")
     (synopsis
@@ -2690,7 +2690,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests))))
+         ,rust-encoding-index-tests-0.1))))
     (home-page
      "https://github.com/lifthrasiir/rust-encoding")
     (synopsis
@@ -2716,7 +2716,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests))))
+         ,rust-encoding-index-tests-0.1))))
     (home-page
      "https://github.com/lifthrasiir/rust-encoding")
     (synopsis
@@ -2742,7 +2742,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests))))
+         ,rust-encoding-index-tests-0.1))))
     (home-page
      "https://github.com/lifthrasiir/rust-encoding")
     (synopsis
@@ -2768,7 +2768,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests))))
+         ,rust-encoding-index-tests-0.1))))
     (home-page
      "https://github.com/lifthrasiir/rust-encoding")
     (synopsis
@@ -3419,29 +3419,6 @@ Levenshtein automata.")
     (description
      "This package provides a string interning library for Rust,
 developed as part of the Servo project.")
-    (license #f)))
-
-(define-public rust-encoding-index-tests
-  (package
-    (name "rust-encoding-index-tests")
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding_index_tests" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0s85y091gl17ixass49bzaivng7w8p82p6nyvz2r3my9w4mxhim2"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/lifthrasiir/rust-encoding")
-    (synopsis
-     "Macros used to test index tables for character encodings")
-    (description
-     "Helper macros used to test index tables for character
-encodings")
     (license #f)))
 
 (define-public rust-flame
