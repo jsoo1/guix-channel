@@ -30,7 +30,7 @@
         ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log-0.3)
         ("rust-quote" ,rust-quote-0.6)
-        ("rust-rand-chacha" ,rust-rand-chacha-0.1.1)
+        ("rust-rand-chacha" ,rust-rand-chacha-0.1)
         ("rust-rand-core" ,rust-rand-core-0.4.0)
         ("rust-rand-hc" ,rust-rand-hc-0.1.0)
         ("rust-rand-isaac" ,rust-rand-isaac-0.1.1)

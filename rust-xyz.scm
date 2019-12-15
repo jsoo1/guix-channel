@@ -690,26 +690,6 @@ standard printing of search results, similar to grep itself.")
     (description "ChaCha random number generator.")
     (license #f)))
 
-(define-public rust-rand-chacha-0.1.1
-  (package
-    (inherit rust-rand-chacha)
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_chacha" version))
-       (file-name
-        (string-append (package-name rust-rand-chacha) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1vxwyzs4fy1ffjc8l00fsyygpiss135irjf7nyxgq2v0lqf3lvam"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-c2-chacha" ,rust-c2-chacha-0.2)
-        ("rust-rand-core" ,rust-rand-core-0.3))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg-0.1))))))
-
 (define-public rust-automod
   (package
     (name "rust-automod")
