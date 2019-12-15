@@ -1159,7 +1159,7 @@ pairs in insertion order")
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-unicase" ,rust-unicase))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-html5ever" ,rust-html5ever)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1)
@@ -1300,7 +1300,7 @@ pairs in insertion order")
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/alicemaz/rust-base64")
@@ -1342,7 +1342,7 @@ pairs in insertion order")
      `(#:cargo-inputs
        (("rust-packed-simd" ,rust-packed-simd))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page "https://github.com/llogiq/bytecount")
@@ -2180,55 +2180,6 @@ on the heap")
      "This package provides a case-insensitive wrapper around strings.")
     (license #f)))
 
-;; DO THESE DEPS
-(define-public rust-criterion
-  (package
-    (name "rust-criterion")
-    (version "0.2.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "criterion" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1543wlpc4p1kz7sqqa7ylr8bkdr8l4f34hy4bxj7krpkahwhaqq3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-atty" ,rust-atty-0.2)
-        ("rust-cast" ,rust-cast-0.2)
-        ("rust-clap" ,rust-clap-2)
-        ("rust-criterion-plot" ,rust-criterion-plot-0.3)
-        ("rust-csv" ,rust-csv-1.1)
-        ("rust-itertools" ,rust-itertools-0.8)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-rand-os" ,rust-rand-os-0.2)
-        ("rust-rand-xoshiro" ,rust-rand-xoshiro-0.3)
-        ("rust-rayon" ,rust-rayon-1.1)
-        ("rust-rayon-core" ,rust-rayon-core-1.5)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tinytemplate" ,rust-tinytemplate-1.0)
-        ("rust-walkdir" ,rust-walkdir-2.2))
-       #:cargo-development-inputs
-       (("rust-approx" ,rust-approx-0.3)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://bheisler.github.io/criterion.rs/book/index.html")
-    (synopsis
-     "Statistics-driven micro-benchmarking library")
-    (description
-     "Statistics-driven micro-benchmarking library")
-    (license #f)))
-
 (define-public rust-html5ever
   (package
     (name "rust-html5ever")
@@ -2249,7 +2200,7 @@ on the heap")
         ("rust-mac" ,rust-mac)
         ("rust-markup5ever" ,rust-markup5ever))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
@@ -6457,7 +6408,7 @@ streams.")
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator)
         ("rust-version-check" ,rust-version-check))))
@@ -6489,7 +6440,7 @@ streams.")
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator)
         ("rust-version-check" ,rust-version-check))))
@@ -6520,7 +6471,7 @@ streams.")
         ("rust-memchr" ,rust-memchr-1.0)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator)
         ("rust-version-check" ,rust-version-check))))))
@@ -6545,7 +6496,7 @@ streams.")
         ("rust-memchr" ,rust-memchr-1.0)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator)
         ("rust-version-check" ,rust-version-check))))))
@@ -9108,7 +9059,7 @@ and private (encrypted + signed) jars.")
        (("rust-mime" ,rust-mime-0.3)
         ("rust-unicase" ,rust-unicase))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-unicase" ,rust-unicase))))
     (home-page
      "https://github.com/abonander/mime_guess")
@@ -9178,7 +9129,7 @@ and private (encrypted + signed) jars.")
         ("rust-sct" ,rust-sct)
         ("rust-webpki" ,rust-webpki))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
         ("rust-tempfile" ,rust-tempfile-3.0)
@@ -11108,7 +11059,7 @@ accessor functions on enums.")
          ,rust-tracing-attributes)
         ("rust-tracing-core" ,rust-tracing-core-0.1))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4))))
     (home-page "https://tokio.rs")
@@ -13687,7 +13638,7 @@ complex, rational, range iterators, generic integers, and more!
      `(#:cargo-inputs
        (("rust-const-random" ,rust-const-random))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-fnv" ,rust-fnv-1.0)
         ("rust-fxhash" ,rust-fxhash)
         ("rust-hex" ,rust-hex-0.3)
@@ -14532,7 +14483,7 @@ UNC where possible")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion))))
+       (("rust-criterion" ,rust-criterion-0.2))))
     (home-page
      "https://github.com/davidhewitt/spsc-buffer")
     (synopsis
@@ -17167,7 +17118,7 @@ pitfalls in Rust")
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-unicase" ,rust-unicase))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-html5ever" ,rust-html5ever)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1)
@@ -17490,7 +17441,7 @@ using a fork-like interface.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-criterion" ,rust-criterion))))
+       (("rust-criterion" ,rust-criterion-0.2))))
     (home-page
      "https://github.com/WanzenBug/rle-decode-helper")
     (synopsis
@@ -18155,7 +18106,7 @@ testing.")
         ("rust-tracing-core" ,rust-tracing-core-0.1)
         ("rust-tracing-log" ,rust-tracing-log))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-tracing" ,rust-tracing)
         ("rust-tracing-log" ,rust-tracing-log))))
@@ -18325,7 +18276,7 @@ log crates.")
         ("rust-tracing-core" ,rust-tracing-core-0.1)
         ("rust-tracing-log" ,rust-tracing-log))
        #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
+       (("rust-criterion" ,rust-criterion-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-tracing" ,rust-tracing)
         ("rust-tracing-log" ,rust-tracing-log))))
