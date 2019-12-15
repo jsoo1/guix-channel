@@ -4356,7 +4356,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-lexical-core" ,rust-lexical-core)
+        ("rust-lexical-core" ,rust-lexical-core-0.4)
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
@@ -4388,7 +4388,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-lexical-core" ,rust-lexical-core)
+        ("rust-lexical-core" ,rust-lexical-core-0.4)
         ("rust-memchr" ,rust-memchr-2.2)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
@@ -4419,7 +4419,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-lexical-core" ,rust-lexical-core)
+        ("rust-lexical-core" ,rust-lexical-core-0.4)
         ("rust-memchr" ,rust-memchr-1.0)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
@@ -4444,7 +4444,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-lexical-core" ,rust-lexical-core)
+        ("rust-lexical-core" ,rust-lexical-core-0.4)
         ("rust-memchr" ,rust-memchr-1.0)
         ("rust-regex" ,rust-regex-1.1))
        #:cargo-development-inputs
@@ -4506,40 +4506,6 @@ reading and writing git repositories.")
      "A Rust allocator backed by jemalloc")
     (description
      "This package provides a Rust allocator backed by jemalloc")
-    (license #f)))
-
-(define-public rust-lexical-core
-  (package
-    (name "rust-lexical-core")
-    (version "0.4.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "lexical-core" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1gr5y3ykghd3wjc00l3iizkj1dxylyhwi6fj6yn2qg06nzx771iz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-dtoa" ,rust-dtoa-0.4)
-        ("rust-ryu" ,rust-ryu-1.0)
-        ("rust-stackvector" ,rust-stackvector-1.0)
-        ("rust-static-assertions" ,rust-static-assertions-0.3))
-       #:cargo-development-inputs
-       (("rust-approx" ,rust-approx-0.3)
-        ("rust-proptest" ,rust-proptest-0.9)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/Alexhuszagh/rust-lexical/tree/master/lexical-core")
-    (synopsis
-     "Lexical, to- and from-string conversion routines.")
-    (description
-     "Lexical, to- and from-string conversion routines.")
     (license #f)))
 
 (define-public rust-void
