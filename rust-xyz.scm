@@ -4604,7 +4604,7 @@ to be linked into Rust code.")
         ("rust-gimli" ,rust-gimli-0.18)
         ("rust-intervaltree" ,rust-intervaltree-0.2)
         ("rust-lazycell" ,rust-lazycell-1.2)
-        ("rust-object" ,rust-object)
+        ("rust-object" ,rust-object-0.12)
         ("rust-rustc-demangle" ,rust-rustc-demangle)
         ("rust-smallvec" ,rust-smallvec-0.6))
        #:cargo-development-inputs
@@ -4856,37 +4856,6 @@ reading and writing git repositories.")
      "Minimal Adler32 implementation for Rust")
     (description
      "Minimal Adler32 implementation for Rust.")
-    (license #f)))
-
-(define-public rust-object
-  (package
-    (name "rust-object")
-    (version "0.12.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "object" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1dch1ajjp05d16lig1dnvisfis0hrlrvw9lcwy1hwgdcym3z6jnz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-flate2" ,rust-flate2-1.0)
-        ("rust-goblin" ,rust-goblin-0.0)
-        ("rust-parity-wasm" ,rust-parity-wasm-0.40)
-        ("rust-scroll" ,rust-scroll-0.9)
-        ("rust-uuid" ,rust-uuid-0.7))
-       #:cargo-development-inputs
-       (("rust-memmap" ,rust-memmap-0.7))))
-    (home-page "https://github.com/gimli-rs/object")
-    (synopsis
-     "Parse object file formats")
-    (description
-     "This package provides a unified interface for parsing object
-file formats.")
     (license #f)))
 
 (define-public rust-synstructure-test-traits
