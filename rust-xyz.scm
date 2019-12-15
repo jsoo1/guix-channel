@@ -2148,7 +2148,7 @@ on the heap")
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-test" ,rust-rustc-test)
         ("rust-syn" ,rust-syn-0.15)
-        ("rust-typed-arena" ,rust-typed-arena))))
+        ("rust-typed-arena" ,rust-typed-arena-1.4))))
     (home-page "https://github.com/servo/html5ever")
     (synopsis
      "High-performance browser-grade HTML5 parser")
@@ -4914,7 +4914,7 @@ reading and writing git repositories.")
         ("rust-rayon" ,rust-rayon-1.1)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-test-assembler" ,rust-test-assembler-0.1)
-        ("rust-typed-arena" ,rust-typed-arena))))
+        ("rust-typed-arena" ,rust-typed-arena-1.4))))
     (home-page "https://github.com/gimli-rs/gimli")
     (synopsis
      "Reading and writing the DWARF debugging format")
@@ -5051,28 +5051,6 @@ file formats.")
      "https://github.com/sfackler/rust-openssl")
     (synopsis "FFI bindings to OpenSSL")
     (description "FFI bindings to OpenSSL")
-    (license #f)))
-
-(define-public rust-typed-arena
-  (package
-    (name "rust-typed-arena")
-    (version "1.4.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "typed-arena" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1i8yczhwcy0nnrxqck1lql3i7hvg95l0vw0dbgfb92zkms96mh66"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/SimonSapin/rust-typed-arena")
-    (synopsis
-     "The arena allocator")
-    (description
-     "The arena, a fast but limited type of allocator")
     (license #f)))
 
 (define-public rust-parity-wasm
