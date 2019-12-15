@@ -2628,7 +2628,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-flame" ,rust-flame)
+       (("rust-flame" ,rust-flame-0.2)
         ("rust-flamer" ,rust-flamer)
         ("rust-matches" ,rust-matches-0.1)
         ("rust-serde" ,rust-serde-1.0))
@@ -3256,32 +3256,6 @@ Levenshtein automata.")
 developed as part of the Servo project.")
     (license #f)))
 
-(define-public rust-flame
-  (package
-    (name "rust-flame")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "flame" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0c5bmhyimzxch3pmh0w3z9n57saasgix4bmbbksr9vp1c5j71hhz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-thread-id" ,rust-thread-id-3.3))))
-    (home-page "https://github.com/TyOverby/flame")
-    (synopsis "a profiling / flamegraph library")
-    (description "a profiling / flamegraph library")
-    (license #f)))
-
 (define-public rust-flamer
   (package
     (name "rust-flamer")
@@ -3298,7 +3272,7 @@ developed as part of the Servo project.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-flame" ,rust-flame)
+       (("rust-flame" ,rust-flame-0.2)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15))))
     (home-page "https://github.com/llogiq/flamer")
