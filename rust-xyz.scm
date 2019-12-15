@@ -2538,7 +2538,7 @@ require unstable language features.")
         ("rust-futures-util-preview" ,rust-futures-util-preview-0.3)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-stdweb-derive" ,rust-stdweb-derive)
+        ("rust-stdweb-derive" ,rust-stdweb-derive-0.5)
         ("rust-stdweb-internal-macros" ,rust-stdweb-internal-macros)
         ("rust-stdweb-internal-runtime" ,rust-stdweb-internal-runtime)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))
@@ -3556,33 +3556,6 @@ synchronization primitives.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (description
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
-    (license #f)))
-
-(define-public rust-stdweb-derive
-  (package
-    (name "rust-stdweb-derive")
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "stdweb-derive" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0c1rxx6rqcc4iic5hx320ki3vshpi8k58m5600iqzq4x2zcyn88f"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page "https://github.com/koute/stdweb")
-    (synopsis "Derive macros for the `stdweb` crate")
-    (description
-     "Derive macros for the `stdweb` crate")
     (license #f)))
 
 (define-public rust-stdweb-internal-macros
