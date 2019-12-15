@@ -1705,7 +1705,7 @@ guidelines on macOS.")
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http-0.1)
-        ("rust-httparse" ,rust-httparse)
+        ("rust-httparse" ,rust-httparse-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-serde" ,rust-serde-1.0)
@@ -2162,32 +2162,6 @@ synchronization primitives.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (license #f)))
 
-(define-public rust-httparse
-  (package
-    (name "rust-httparse")
-    (version "1.3.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "httparse" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "10vsfx1b8drhif08fbi0ha9d3v1f3h80w42rxh0y3hrvzl64nwz8"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-pico-sys" ,rust-pico-sys))))
-    (home-page
-     "https://github.com/seanmonstar/httparse")
-    (synopsis
-     "A tiny, safe, speedy, zero-copy HTTP/1.x parser")
-    (description
-     "This package provides a tiny, safe, speedy, zero-copy HTTP/1.x
-parser.")
-    (license #f)))
-
 (define-public rust-fst-levenshtein
   (package
     (name "rust-fst-levenshtein")
@@ -2592,31 +2566,6 @@ checking")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))))
-
-(define-public rust-pico-sys
-  (package
-    (name "rust-pico-sys")
-    (version "0.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pico-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1q5pg0ms6szz6b5h26h4k40zb76zbwwjgyigac4wly9qngdj4yl5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-gcc" ,rust-gcc))))
-    (home-page
-     "https://github.com/reem/rust-pico-sys.git")
-    (synopsis "Bindings to the PicoHTTPParser")
-    (description "Bindings to the PicoHTTPParser.")
-    (license #f)))
 
 (define-public rust-utf8-ranges
   (package
@@ -5031,7 +4980,7 @@ and private (encrypted + signed) jars.")
         ("rust-h2" ,rust-h2)
         ("rust-http" ,rust-http-0.1)
         ("rust-http-body" ,rust-http-body)
-        ("rust-httparse" ,rust-httparse)
+        ("rust-httparse" ,rust-httparse-1.3)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-itoa" ,rust-itoa-0.4)
         ("rust-log" ,rust-log-0.4)
@@ -5085,7 +5034,7 @@ and private (encrypted + signed) jars.")
        (("rust-base64" ,rust-base64-0.10)
         ("rust-bytes" ,rust-bytes-0.4)
         ("rust-http" ,rust-http-0.1)
-        ("rust-httparse" ,rust-httparse)
+        ("rust-httparse" ,rust-httparse-1.3)
         ("rust-language-tags" ,rust-language-tags-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-mime" ,rust-mime-0.3)
@@ -6903,7 +6852,7 @@ exposed as Reader/Writer streams.")
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http-0.1)
-        ("rust-httparse" ,rust-httparse)
+        ("rust-httparse" ,rust-httparse-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-serde" ,rust-serde-1.0)
