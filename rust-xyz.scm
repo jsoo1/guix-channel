@@ -4564,7 +4564,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-pest" ,rust-pest-2.1)
-        ("rust-pest-generator" ,rust-pest-generator))))
+        ("rust-pest-generator" ,rust-pest-generator-2.1))))
     (home-page "https://pest-parser.github.io/")
     (synopsis "pest's derive macro")
     (description "pest's derive macro")
@@ -4610,32 +4610,6 @@ reading and writing git repositories.")
        (sha256
         (base32
          "0fk8nl0rmk43jrh6hjz6c6d83ri7l6fikag6lh0ffz3di9cwznfm"))))))
-
-(define-public rust-pest-generator
-  (package
-    (name "rust-pest-generator")
-    (version "2.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pest_generator" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ipnv77lqhj4d4fpfxi8m168lcjp482kszaknlardmpgqiv0a4k3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-pest" ,rust-pest-2.1)
-        ("rust-pest-meta" ,rust-pest-meta-2.1)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page "https://pest-parser.github.io/")
-    (synopsis "pest code generator")
-    (description "pest code generator")
-    (license #f)))
 
 (define-public rust-ref-cast
   (package
