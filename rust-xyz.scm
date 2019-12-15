@@ -1043,7 +1043,7 @@ remove_dir_all for Windows")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
-        ("rust-stdweb" ,rust-stdweb)
+        ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))))
     (home-page
      "https://github.com/rust-random/getrandom")
@@ -1073,7 +1073,7 @@ retrieving random data from system source")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
-        ("rust-stdweb" ,rust-stdweb)
+        ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasi" ,rust-wasi))))))
 
@@ -1694,49 +1694,6 @@ guidelines on macOS.")
     (description "Backend crate for signal-hook")
     (license #f)))
 
-;; DO FIRST
-(define-public rust-stdweb
-  (package
-    (name "rust-stdweb")
-    (version "0.4.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "stdweb" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "094giad1v81rxxs4izf88ijc9c6w3c7cr5a7cwwr86mc22xn4hy3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-discard" ,rust-discard-1.0)
-        ("rust-futures-channel-preview" ,rust-futures-channel-preview-0.3)
-        ("rust-futures-core-preview" ,rust-futures-core-preview-0.3)
-        ("rust-futures-executor-preview" ,rust-futures-executor-preview-0.3)
-        ("rust-futures-util-preview" ,rust-futures-util-preview-0.3)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-stdweb-derive" ,rust-stdweb-derive-0.5)
-        ("rust-stdweb-internal-macros" ,rust-stdweb-internal-macros-0.2)
-        ("rust-stdweb-internal-runtime" ,rust-stdweb-internal-runtime-0.1)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
-       #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version-0.2)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-stdweb-internal-test-macro"
-         ,rust-stdweb-internal-test-macro)
-        ("rust-wasm-bindgen-test" ,rust-wasm-bindgen-test-0.2))))
-    (home-page "https://github.com/koute/stdweb")
-    (synopsis
-     "Standard library for the client-side Web")
-    (description
-     "This package provides a standard library for the client-side
-Web.")
-    (license #f)))
-
 (define-public rust-wasm-bindgen
   (package
     (name "rust-wasm-bindgen")
@@ -1975,7 +1932,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-rdrand" ,rust-rdrand-0.4)
         ("rust-winapi" ,rust-winapi-0.3)
         ("rust-log" ,rust-log-0.4)
-        ("rust-stdweb" ,rust-stdweb)
+        ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm" ,rust-wasm))))))
 
 (define-public rust-mac
@@ -2258,30 +2215,6 @@ synchronization primitives.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (description
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
-    (license #f)))
-
-(define-public rust-stdweb-internal-test-macro
-  (package
-    (name "rust-stdweb-internal-test-macro")
-    (version "0.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "stdweb-internal-test-macro" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "12rrm7p77xnm3xacgn3rgniiyyjb4gq7902wpbljsvbx045z69l2"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0))))
-    (home-page "https://github.com/koute/stdweb")
-    (synopsis "Internal crate of the `stdweb` crate")
-    (description
-     "Internal crate of the `stdweb` crate")
     (license #f)))
 
 (define-public rust-tokio-fs
