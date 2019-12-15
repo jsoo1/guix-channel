@@ -2621,7 +2621,7 @@ Web.")
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-flate2" ,rust-flate2)
-        ("rust-futures-cpupool" ,rust-futures-cpupool)
+        ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http)
         ("rust-httparse" ,rust-httparse)
         ("rust-libc" ,rust-libc-0.2.58)
@@ -3719,7 +3719,7 @@ synchronization primitives.")
         ("rust-tokio-executor" ,rust-tokio-executor-0.1))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-futures-cpupool" ,rust-futures-cpupool)
+        ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-threadpool" ,rust-threadpool-1.7))))
     (home-page "https://github.com/tokio-rs/tokio")
     (synopsis
@@ -3883,33 +3883,6 @@ thread pool.")
      "Bindings to miniz.c for DEFLATE compression and decompression
 exposed as Reader/Writer streams.  Contains bindings for zlib,
 deflate, and gzip-based streams.")
-    (license #f)))
-
-(define-public rust-futures-cpupool
-  (package
-    (name "rust-futures-cpupool")
-    (version "0.1.8")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futures-cpupool" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1r32456gpblzfvnkf60545v8acqk7gh5zhyhi1jn669k9gicv45b"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-num-cpus" ,rust-num-cpus-1.10))))
-    (home-page
-     "https://github.com/alexcrichton/futures-rs")
-    (synopsis
-     "Hand out futures to the threads themselves")
-    (description
-     "An implementation of thread pools which hand out futures to the
-results of the computation on the threads themselves.")
     (license #f)))
 
 (define-public rust-http
@@ -9496,7 +9469,7 @@ and private (encrypted + signed) jars.")
          ,rust-futures-channel-preview-0.3)
         ("rust-futures-core-preview"
          ,rust-futures-core-preview-0.3)
-        ("rust-futures-cpupool" ,rust-futures-cpupool)
+        ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-futures-util-preview"
          ,rust-futures-util-preview-0.3)
         ("rust-h2" ,rust-h2)
@@ -11398,7 +11371,7 @@ exposed as Reader/Writer streams.")
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-flate2" ,rust-flate2)
-        ("rust-futures-cpupool" ,rust-futures-cpupool)
+        ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http)
         ("rust-httparse" ,rust-httparse)
         ("rust-libc" ,rust-libc-0.2.58)
