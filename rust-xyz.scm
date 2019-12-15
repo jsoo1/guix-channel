@@ -3950,7 +3950,7 @@ reading and writing git repositories.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-peeking-take-while"
-         ,rust-peeking-take-while)
+         ,rust-peeking-take-while-0.1)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex-1.1)
@@ -3995,7 +3995,7 @@ reading and writing git repositories.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-peeking-take-while"
-         ,rust-peeking-take-while)
+         ,rust-peeking-take-while-0.1)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-regex" ,rust-regex-1.1)
@@ -4038,8 +4038,7 @@ reading and writing git repositories.")
         ("rust-hashbrown" ,rust-hashbrown-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
-        ("rust-peeking-take-while"
-         ,rust-peeking-take-while)
+        ("rust-peeking-take-while" ,rust-peeking-take-while-0.1)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-0.3)
         ("rust-regex" ,rust-regex-0.2)
@@ -4113,28 +4112,6 @@ reading and writing git repositories.")
         ("rust-libloading" ,rust-libloading))
        #:cargo-development-inputs
        (("rust-glob" ,rust-glob-0.3))))))
-
-(define-public rust-peeking-take-while
-  (package
-    (name "rust-peeking-take-while")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "peeking_take_while" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "16bhqr6rdyrp12zv381cxaaqqd0pwysvm1q8h2ygihvypvfprc8r"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/fitzgen/peeking_take_while")
-    (synopsis
-     "Like `Iterator::take_while`, but calls the predicate on a peeked value. This allows you to use `Iterator::by_ref` and `Iterator::take_while` together, and still get the first value for which the `take_while` predicate returned false after dropping the `by_ref`.")
-    (description
-     "Like `Iterator::take_while`, but calls the predicate on a peeked value.  This allows you to use `Iterator::by_ref` and `Iterator::take_while` together, and still get the first value for which the `take_while` predicate returned false after dropping the `by_ref`.")
-    (license #f)))
 
 (define-public rust-shlex
   (package
