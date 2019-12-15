@@ -1597,7 +1597,7 @@ retrieving random data from system source")
         ("rust-paste" ,rust-paste)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test))))
+         ,rust-wasm-bindgen-test-0.2))))
     (home-page
      "https://github.com/rust-lang-nursery/packed_simd")
     (synopsis "Portable Packed SIMD vectors")
@@ -2441,7 +2441,7 @@ require unstable language features.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-stdweb-internal-test-macro"
          ,rust-stdweb-internal-test-macro)
-        ("rust-wasm-bindgen-test" ,rust-wasm-bindgen-test))))
+        ("rust-wasm-bindgen-test" ,rust-wasm-bindgen-test-0.2))))
     (home-page "https://github.com/koute/stdweb")
     (synopsis
      "Standard library for the client-side Web")
@@ -2548,7 +2548,7 @@ asynchronous I/O backed applications.")
     (arguments
      `(#:cargo-development-inputs
        (("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test))))
+         ,rust-wasm-bindgen-test-0.2))))
     (home-page
      "https://github.com/rust-lang-nursery/stdsimd")
     (synopsis
@@ -2609,40 +2609,6 @@ asynchronous I/O backed applications.")
      "Macros for all your token pasting needs")
     (description
      "Macros for all your token pasting needs")
-    (license #f)))
-
-(define-public rust-wasm-bindgen-test
-  (package
-    (name "rust-wasm-bindgen-test")
-    (version "0.2.47")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasm-bindgen-test" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1w699jyhi3njdccbqsfdz5dq68fqwsm38xlw2dm2hgd3hvvfzk3x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-console-error-panic-hook"
-         ,rust-console-error-panic-hook-0.1)
-        ("rust-futures" ,rust-futures-0.1)
-        ("rust-js-sys" ,rust-js-sys-0.3)
-        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
-        ("rust-wasm-bindgen-futures"
-         ,rust-wasm-bindgen-futures-0.3)
-        ("rust-wasm-bindgen-test-macro"
-         ,rust-wasm-bindgen-test-macro-0.2))))
-    (home-page
-     "https://github.com/rustwasm/wasm-bindgen")
-    (synopsis
-     "Internal testing crate for wasm-bindgen")
-    (description
-     "Internal testing crate for wasm-bindgen")
     (license #f)))
 
 (define-public rust-keystream
@@ -9820,7 +9786,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
        (("rust-cc" ,rust-cc-1.0)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test))))
+         ,rust-wasm-bindgen-test-0.2))))
     (home-page "https://github.com/briansmith/ring")
     (synopsis "Safe, fast, small crypto using Rust.")
     (description
@@ -10671,7 +10637,7 @@ accessor functions on enums.")
         ("rust-wasm-bindgen-futures"
          ,rust-wasm-bindgen-futures-0.3)
         ("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test)
+         ,rust-wasm-bindgen-test-0.2)
         ("rust-wasm-bindgen-webidl"
          ,rust-wasm-bindgen-webidl))))
     (home-page
