@@ -4010,7 +4010,7 @@ reading and writing git repositories.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cexpr" ,rust-cexpr)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-clang-sys" ,rust-clang-sys-0.26.4)
+        ("rust-clang-sys" ,rust-clang-sys-0.26)
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-fxhash" ,rust-fxhash)
@@ -4141,33 +4141,6 @@ reading and writing git repositories.")
        (("rust-nom" ,rust-nom-3))
        #:cargo-development-inputs
        (("rust-clang-sys" ,rust-clang-sys-0.28))))))
-
-(define-public rust-clang-sys-0.26.4
-  (package
-    (name "rust-clang-sys")
-    (version "0.26.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "clang-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1r50dwy5hj5gq07dn0qf8222d07qv0970ymx0j8n9779yayc3w3f"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-glob" ,rust-glob-0.2)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libloading" ,rust-libloading))
-       #:cargo-development-inputs
-       (("rust-glob" ,rust-glob-0.3))))
-    (home-page
-     "https://github.com/KyleMayes/clang-sys")
-    (synopsis "Rust bindings for libclang.")
-    (description "Rust bindings for libclang.")
-    (license #f)))
 
 (define-public rust-clang-sys-0.22
   (package
