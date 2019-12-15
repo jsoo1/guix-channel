@@ -583,7 +583,7 @@ standard printing of search results, similar to grep itself.")
      `(#:cargo-inputs
        (("rust-bstr" ,rust-bstr-0.2)
         ("rust-bytecount" ,rust-bytecount-0.5)
-        ("rust-encoding-rs" ,rust-encoding-rs)
+        ("rust-encoding-rs" ,rust-encoding-rs-0.8)
         ("rust-encoding-rs-io" ,rust-encoding-rs-io)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-log" ,rust-log-0.4)
@@ -1031,36 +1031,6 @@ instantiate to generate your own pieces of pseudo-random text.")
         (base32
          "0hs62r35bgxslawyrn1vp9rmvrkkm76fqv0vqcwd048vs876r7a8"))))))
 
-(define-public rust-encoding-rs
-  (package
-    (name "rust-encoding-rs")
-    (version "0.8.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding_rs" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1v902qqnbd37vdq4rjvp6k05wmghrasfdcjy30gp1xpjg5f7hma1"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-packed-simd" ,rust-packed-simd-0.3)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page "https://docs.rs/encoding_rs/")
-    (synopsis
-     "A Gecko-oriented implementation of the Encoding Standard")
-    (description
-     "This package provides a Gecko-oriented implementation of the Encoding Standard")
-    (license #f)))
-
 (define-public rust-encoding-rs-io
   (package
     (name "rust-encoding-rs-io")
@@ -1077,7 +1047,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-encoding-rs" ,rust-encoding-rs))))
+       (("rust-encoding-rs" ,rust-encoding-rs-0.8))))
     (home-page
      "https://github.com/BurntSushi/encoding_rs_io")
     (synopsis
@@ -1784,7 +1754,7 @@ guidelines on macOS.")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding" ,rust-encoding-0.2)
-        ("rust-encoding-rs" ,rust-encoding-rs)
+        ("rust-encoding-rs" ,rust-encoding-rs-0.8)
         ("rust-futf" ,rust-futf)
         ("rust-mac" ,rust-mac)
         ("rust-utf-8" ,rust-utf-8))
@@ -4901,7 +4871,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-bytes" ,rust-bytes-0.4)
         ("rust-cookie" ,rust-cookie)
         ("rust-cookie-store" ,rust-cookie-store-0.7)
-        ("rust-encoding-rs" ,rust-encoding-rs)
+        ("rust-encoding-rs" ,rust-encoding-rs-0.8)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-http" ,rust-http)
