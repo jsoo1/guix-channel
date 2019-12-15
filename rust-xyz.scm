@@ -4935,7 +4935,7 @@ reading and writing git repositories.")
         ("rust-object" ,rust-object)
         ("rust-rayon" ,rust-rayon-1.1)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-test-assembler" ,rust-test-assembler)
+        ("rust-test-assembler" ,rust-test-assembler-0.1)
         ("rust-typed-arena" ,rust-typed-arena))))
     (home-page "https://github.com/gimli-rs/gimli")
     (synopsis
@@ -5073,32 +5073,6 @@ file formats.")
      "https://github.com/sfackler/rust-openssl")
     (synopsis "FFI bindings to OpenSSL")
     (description "FFI bindings to OpenSSL")
-    (license #f)))
-
-(define-public rust-test-assembler
-  (package
-    (name "rust-test-assembler")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "test-assembler" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1sdx9hk0dk3z9crm8834ysyxsi92chls8arpd0gs796kis6lik2w"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))))
-    (home-page
-     "https://github.com/luser/rust-test-assembler")
-    (synopsis
-     "Build complex binary streams")
-    (description
-     "This package provides a set of types for building complex binary
-streams.")
     (license #f)))
 
 (define-public rust-typed-arena
