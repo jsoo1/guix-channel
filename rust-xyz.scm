@@ -5637,43 +5637,17 @@ shorthands for guards with one of the implemented strategies.")
     (arguments
      `(#:cargo-inputs
        (("rust-block-buffer" ,rust-block-buffer-0.7)
-        ("rust-digest" ,rust-digest)
+        ("rust-digest" ,rust-digest-0.8)
         ("rust-fake-simd" ,rust-fake-simd)
         ("rust-opaque-debug" ,rust-opaque-debug)
         ("rust-sha1-asm" ,rust-sha1-asm))
        #:cargo-development-inputs
-       (("rust-digest" ,rust-digest)
+       (("rust-digest" ,rust-digest-0.8)
         ("rust-hex-literal" ,rust-hex-literal))))
     (home-page
      "https://github.com/RustCrypto/hashes")
     (synopsis "SHA-1 hash function")
     (description "SHA-1 hash function")
-    (license #f)))
-
-(define-public rust-digest
-  (package
-    (name "rust-digest")
-    (version "0.8.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "digest" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1madjl27f3kj5ql7kwgvb9c8b7yb7bv7yfgx7rqzj4i3fp4cil7k"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-blobby" ,rust-blobby-0.1)
-        ("rust-generic-array" ,rust-generic-array-0.13))))
-    (home-page
-     "https://github.com/RustCrypto/traits")
-    (synopsis
-     "Traits for cryptographic hash functions")
-    (description
-     "Traits for cryptographic hash functions")
     (license #f)))
 
 (define-public rust-fake-simd
@@ -6778,12 +6752,12 @@ _getch on Windows, and termios on Unix.")
     (arguments
      `(#:cargo-inputs
        (("rust-block-buffer" ,rust-block-buffer-0.7)
-        ("rust-digest" ,rust-digest)
+        ("rust-digest" ,rust-digest-0.8)
         ("rust-fake-simd" ,rust-fake-simd)
         ("rust-opaque-debug" ,rust-opaque-debug)
         ("rust-sha2-asm" ,rust-sha2-asm))
        #:cargo-development-inputs
-       (("rust-digest" ,rust-digest)
+       (("rust-digest" ,rust-digest-0.8)
         ("rust-hex-literal" ,rust-hex-literal))))
     (home-page
      "https://github.com/RustCrypto/hashes")
