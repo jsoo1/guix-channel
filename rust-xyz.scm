@@ -6985,7 +6985,7 @@ dependency")
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-wasm-bindgen-backend"
-         ,rust-wasm-bindgen-backend)
+         ,rust-wasm-bindgen-backend-0.2)
         ("rust-wasm-bindgen-shared"
          ,rust-wasm-bindgen-shared-0.2))))
     (home-page
@@ -6995,38 +6995,6 @@ dependency")
     (description
      "The part of the implementation of the @code{#[wasm_bindgen]}
 attribute that is not in the shared backend crate.")
-    (license #f)))
-
-(define-public rust-wasm-bindgen-backend
-  (package
-    (name "rust-wasm-bindgen-backend")
-    (version "0.2.48")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasm-bindgen-backend" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1qxqkbjkjg4pphhcr91nk95c0gizx77dyq24mmijqnwzxxqc30jx"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bumpalo" ,rust-bumpalo)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15)
-        ("rust-wasm-bindgen-shared"
-         ,rust-wasm-bindgen-shared-0.2))))
-    (home-page
-     "https://rustwasm.github.io/wasm-bindgen/")
-    (synopsis
-     "Backend code generation of the wasm-bindgen tool")
-    (description
-     "Backend code generation of the wasm-bindgen tool")
     (license #f)))
 
 (define-public rust-wasm-bindgen
@@ -7050,31 +7018,6 @@ attribute that is not in the shared backend crate.")
     (description
      "Shared support between wasm-bindgen and wasm-bindgen cli, an internal
 dependency.")
-    (license #f)))
-
-(define-public rust-bumpalo
-  (package
-    (name "rust-bumpalo")
-    (version "2.5.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bumpalo" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "018b5calz3895v04shk9bn7i73r4zf8yf7p1dqg92s3xya13vm1c"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
-        ("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page "https://github.com/fitzgen/bumpalo")
-    (synopsis
-     "A fast bump allocation arena for Rust.")
-    (description
-     "This package provides a fast bump allocation arena for Rust.")
     (license #f)))
 
 (define-public rust-foreign-types
@@ -11264,7 +11207,7 @@ testing harness")
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15)
         ("rust-wasm-bindgen-backend"
-         ,rust-wasm-bindgen-backend)
+         ,rust-wasm-bindgen-backend-0.2)
         ("rust-weedle" ,rust-weedle))))
     (home-page
      "https://rustwasm.github.io/wasm-bindgen/")
