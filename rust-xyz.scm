@@ -3964,7 +3964,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cexpr" ,rust-cexpr)
+        ("rust-cexpr" ,rust-cexpr-0.3)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-clang-sys" ,rust-clang-sys-0.28)
         ("rust-clap" ,rust-clap-2)
@@ -4008,7 +4008,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cexpr" ,rust-cexpr)
+        ("rust-cexpr" ,rust-cexpr-0.3)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-clang-sys" ,rust-clang-sys-0.26)
         ("rust-clap" ,rust-clap-2)
@@ -4097,42 +4097,16 @@ reading and writing git repositories.")
      "This package provides a build dependency for running `cmake` to build a native library")
     (license #f)))
 
-(define-public rust-cexpr
-  (package
-    (name "rust-cexpr")
-    (version "0.3.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cexpr" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1by64ini3f058pwad3immx5cc12wr0m0kwgaxa8apzym03mj9ym7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-nom" ,rust-nom-4.2))
-       #:cargo-development-inputs
-       (("rust-clang-sys" ,rust-clang-sys-0.28))))
-    (home-page
-     "https://github.com/jethrogb/rust-cexpr")
-    (synopsis "A C expression parser and evaluator")
-    (description
-     "This package provides a C expression parser and evaluator")
-    (license #f)))
-
 (define-public rust-cexpr-0.2
   (package
-    (inherit rust-cexpr)
+    (inherit rust-cexpr-0.3)
     (version "0.2.3")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "cexpr" version))
        (file-name
-        (string-append (package-name rust-cexpr) "-" version ".tar.gz"))
+        (string-append (package-name rust-cexpr-0.3) "-" version ".tar.gz"))
        (sha256
         (base32
          "0v1xa3758czmj8h97gh548mr8g0v13ixxvrlm1s79nb7jmgc9aj2"))))
