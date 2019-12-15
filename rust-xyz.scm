@@ -845,35 +845,6 @@ standard printing of search results, similar to grep itself.")
      "Conditional compilation according to rustc compiler version")
     (license #f)))
 
-(define-public rust-trybuild
-  (package
-    (name "rust-trybuild")
-    (version "1.0.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "trybuild" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1f47r9cg4m2adja6vxr764lpjizkan6n2mfb40lrbnj96kyjnndp"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-glob" ,rust-glob-0.3)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-termcolor" ,rust-termcolor-1.0)
-        ("rust-toml" ,rust-toml-0.5))))
-    (home-page "https://github.com/dtolnay/trybuild")
-    (synopsis
-     "Test harness for ui tests of compiler diagnostics")
-    (description
-     "Test harness for ui tests of compiler diagnostics")
-    (license #f)))
-
 (define-public rust-wincolor
   (package
     (name "rust-wincolor")
