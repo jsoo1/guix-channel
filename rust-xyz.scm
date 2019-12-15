@@ -1719,13 +1719,13 @@ guidelines on macOS.")
         ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-current-thread" ,rust-tokio-current-thread-0.1)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
-        ("rust-tokio-fs" ,rust-tokio-fs)
+        ("rust-tokio-fs" ,rust-tokio-fs-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-reactor" ,rust-tokio-reactor-0.1)
         ("rust-tokio-sync" ,rust-tokio-sync-0.1)
         ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
         ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1)
-        ("rust-tokio-timer" ,rust-tokio-timer)
+        ("rust-tokio-timer" ,rust-tokio-timer-0.2)
         ("rust-tokio-trace-core" ,rust-tokio-trace-core)
         ("rust-tokio-udp" ,rust-tokio-udp)
         ("rust-tokio-uds" ,rust-tokio-uds))
@@ -2191,67 +2191,7 @@ synchronization primitives.")
      "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
     (license #f)))
 
-(define-public rust-tokio-fs
-  (package
-    (name "rust-tokio-fs")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-fs" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1bxp8585pi4j5g39ci2gkk99qnyilyhhila7cs8r6scdn0idrriz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-tokio-io" ,rust-tokio-io-0.1)
-        ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4)
-        ("rust-tempdir" ,rust-tempdir-0.3)
-        ("rust-tempfile" ,rust-tempfile-3.0)
-        ("rust-tokio" ,rust-tokio)
-        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
-        ("rust-tokio-io" ,rust-tokio-io-0.1))))
-    (home-page "https://tokio.rs")
-    (synopsis "Filesystem API for Tokio")
-    (description "Filesystem API for Tokio.")
-    (license #f)))
-
-(define-public rust-tokio-timer
-  (package
-    (name "rust-tokio-timer")
-    (version "0.2.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-timer" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "03m68ainkdy3b5pf20rjyknhk2ppx35bjdc2yfj2bv80sl96h47j"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
-        ("rust-futures" ,rust-futures-0.1)
-        ("rust-slab" ,rust-slab-0.4)
-        ("rust-tokio-executor" ,rust-tokio-executor-0.1))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4)
-        ("rust-tokio" ,rust-tokio)
-        ("rust-tokio-mock-task" ,rust-tokio-mock-task-0.1))))
-    (home-page "https://github.com/tokio-rs/tokio")
-    (synopsis "Timer facilities for Tokio")
-    (description "Timer facilities for Tokio")
-    (license #f)))
-
-(define-public rust-tokio-trace-core
+ (define-public rust-tokio-trace-core
   (package
     (name "rust-tokio-trace-core")
     (version "0.2.0")
@@ -4642,7 +4582,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-rustls" ,rust-tokio-rustls)
         ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1)
-        ("rust-tokio-timer" ,rust-tokio-timer)
+        ("rust-tokio-timer" ,rust-tokio-timer-0.2)
         ("rust-trust-dns-resolver"
          ,rust-trust-dns-resolver)
         ("rust-url" ,rust-url-1.7)
@@ -5253,7 +5193,7 @@ and private (encrypted + signed) jars.")
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-net" ,rust-tokio-net)
         ("rust-tokio-sync" ,rust-tokio-sync-0.1)
-        ("rust-tokio-timer" ,rust-tokio-timer)
+        ("rust-tokio-timer" ,rust-tokio-timer-0.2)
         ("rust-tower-make" ,rust-tower-make)
         ("rust-tower-service" ,rust-tower-service)
         ("rust-want" ,rust-want-0.0.6))
@@ -5267,7 +5207,7 @@ and private (encrypted + signed) jars.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-spmc" ,rust-spmc)
         ("rust-tokio" ,rust-tokio)
-        ("rust-tokio-fs" ,rust-tokio-fs)
+        ("rust-tokio-fs" ,rust-tokio-fs-0.1)
         ("rust-tokio-test" ,rust-tokio-test)
         ("rust-url" ,rust-url-1.7))))
     (home-page "https://hyper.rs")
@@ -6344,7 +6284,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-tokio-io" ,rust-tokio-io-0.1)
        ("rust-tokio-reactor" ,rust-tokio-reactor-0.1)
        ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
-       ("rust-tokio-timer" ,rust-tokio-timer)
+       ("rust-tokio-timer" ,rust-tokio-timer-0.2)
        ("rust-tokio-udp" ,rust-tokio-udp)
        ("rust-url" ,rust-url-1.7))
       #:cargo-development-inputs
@@ -6904,7 +6844,7 @@ client or server.")
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-sync" ,rust-tokio-sync-0.1)
-        ("rust-tokio-timer" ,rust-tokio-timer))))
+        ("rust-tokio-timer" ,rust-tokio-timer-0.2))))
     (home-page "https://tokio.rs")
     (synopsis
      "Testing utilities for Tokio- and futures-based code")
@@ -7107,7 +7047,7 @@ exposed as Reader/Writer streams.")
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-reactor" ,rust-tokio-reactor-0.1)
-        ("rust-tokio-timer" ,rust-tokio-timer))
+        ("rust-tokio-timer" ,rust-tokio-timer-0.2))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-flate2" ,rust-flate2-1.0)
