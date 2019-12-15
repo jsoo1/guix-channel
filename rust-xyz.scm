@@ -4340,7 +4340,7 @@ bench suite.")
         ("rust-goblin" ,rust-goblin-0.0)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-memmap" ,rust-memmap-0.7)
-        ("rust-rustc-demangle" ,rust-rustc-demangle)
+        ("rust-rustc-demangle" ,rust-rustc-demangle-0.1)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core-1.0)
@@ -4584,7 +4584,7 @@ to be linked into Rust code.")
         ("rust-intervaltree" ,rust-intervaltree-0.2)
         ("rust-lazycell" ,rust-lazycell-1.2)
         ("rust-object" ,rust-object-0.12)
-        ("rust-rustc-demangle" ,rust-rustc-demangle)
+        ("rust-rustc-demangle" ,rust-rustc-demangle-0.1)
         ("rust-smallvec" ,rust-smallvec-0.6))
        #:cargo-development-inputs
        (("rust-backtrace" ,rust-backtrace)
@@ -4657,32 +4657,6 @@ written in Rust, using gimli.")
     (description
      "Find the set of shared libraries loaded in the current process
 with a cross platform API")
-    (license #f)))
-
-(define-public rust-rustc-demangle
-  (package
-    (name "rust-rustc-demangle")
-    (version "0.1.15")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rustc-demangle" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1brqf2bknkxsdzn3kd3wfifvzfc33bmvdy9r1k6fp4a8dz7xrx57"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-compiler-builtins"
-         ,rust-compiler-builtins-0.1)
-        ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core-1.0))))
-    (home-page
-     "https://github.com/alexcrichton/rustc-demangle")
-    (synopsis "Rust compiler symbol demangling")
-    (description "Rust compiler symbol demangling.")
     (license #f)))
 
 (define-public rust-synstructure
