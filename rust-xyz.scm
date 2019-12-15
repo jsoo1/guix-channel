@@ -4334,7 +4334,7 @@ bench suite.")
         ("rust-backtrace-sys" ,rust-backtrace-sys)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-compiler-builtins"
-         ,rust-compiler-builtins)
+         ,rust-compiler-builtins-0.1)
         ("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
         ("rust-findshlibs" ,rust-findshlibs)
         ("rust-goblin" ,rust-goblin-0.0)
@@ -4618,7 +4618,7 @@ written in Rust, using gimli.")
     (arguments
      `(#:cargo-inputs
        (("rust-compiler-builtins"
-         ,rust-compiler-builtins)
+         ,rust-compiler-builtins-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core-1.0))
@@ -4630,35 +4630,6 @@ written in Rust, using gimli.")
      "Bindings to the libbacktrace gcc library")
     (description
      "Bindings to the libbacktrace gcc library")
-    (license #f)))
-
-(define-public rust-compiler-builtins
-  (package
-    (name "rust-compiler-builtins")
-    (version "0.1.16")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "compiler_builtins" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1kv1fhj28df7mywai0cb84yvn2cl871hhvnphsrp35y9jfbx37p7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core-1.0))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/rust-lang-nursery/compiler-builtins")
-    (synopsis
-     "Compiler intrinsics used by the Rust compiler")
-    (description
-     "Compiler intrinsics used by the Rust compiler.  Also available
-for other targets if necessary!")
     (license #f)))
 
 (define-public rust-findshlibs
@@ -4705,7 +4676,7 @@ with a cross platform API")
     (arguments
      `(#:cargo-inputs
        (("rust-compiler-builtins"
-         ,rust-compiler-builtins)
+         ,rust-compiler-builtins-0.1)
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core-1.0))))
     (home-page
@@ -12696,7 +12667,7 @@ complex, rational, range iterators, generic integers, and more!
      `(#:cargo-inputs
        (("rust-ahash" ,rust-ahash)
         ("rust-compiler-builtins"
-         ,rust-compiler-builtins)
+         ,rust-compiler-builtins-0.1)
         ("rust-rayon" ,rust-rayon-1.1)
         ("rust-rustc-std-workspace-alloc"
          ,rust-rustc-std-workspace-alloc)
@@ -16060,7 +16031,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-compiler-builtins" ,rust-compiler-builtins)
+       (("rust-compiler-builtins" ,rust-compiler-builtins-0.1)
         ("rust-rustc-std-workspace-alloc"
          ,rust-rustc-std-workspace-alloc)
         ("rust-rustc-std-workspace-core"
