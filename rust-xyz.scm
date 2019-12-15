@@ -3023,37 +3023,6 @@ proposed in RFC 1158.")
      "More compact and efficient implementations of the standard synchronization primitives.")
     (license #f)))
 
-(define-public rust-parking-lot-0.8
-  (package
-    (name "rust-parking-lot")
-    (version "0.8.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "parking_lot" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1rrcdalr8l5zx3bw28l376321l6dnd6rqnsqsl0ygk01fy0nfxzs"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lock-api" ,rust-lock-api-0.2)
-        ("rust-parking-lot-core" ,rust-parking-lot-core-0.5))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/Amanieu/parking_lot")
-    (synopsis
-     "More compact and efficient implementations of the standard synchronization primitives.")
-    (description
-     "More compact and efficient implementations of the standard synchronization primitives.")
-    (license #f)))
-
 (define-public rust-parking-lot-0.7
   (package
     (name "rust-parking-lot")
