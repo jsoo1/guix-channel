@@ -2209,7 +2209,7 @@ on the heap")
         ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-rand-os" ,rust-rand-os-0.2)
         ("rust-rand-xoshiro" ,rust-rand-xoshiro-0.3)
-        ("rust-rayon" ,rust-rayon)
+        ("rust-rayon" ,rust-rayon-1.1)
         ("rust-rayon-core" ,rust-rayon-core-1.5)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
@@ -2943,40 +2943,6 @@ maps of many strings (> 1 billion is possible).")
         ("rust-log" ,rust-log-0.4)
         ("rust-stdweb" ,rust-stdweb)
         ("rust-wasm" ,rust-wasm))))))
-
-(define-public rust-rayon
-  (package
-    (name "rust-rayon")
-    (version "1.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rayon" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "190hkbcdfvcphyyzkdg52zdia2y9d9yanpm072bmnzbn49p1ic54"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-deque" ,rust-crossbeam-deque-0.6)
-        ("rust-either" ,rust-either-1.5)
-        ("rust-rayon-core" ,rust-rayon-core-1.5))
-       #:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-docopt" ,rust-docopt-1.1)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))))
-    (home-page "https://github.com/rayon-rs/rayon")
-    (synopsis
-     "Simple work-stealing parallelism for Rust")
-    (description
-     "Simple work-stealing parallelism for Rust")
-    (license #f)))
 
 (define-public rust-tinytemplate
   (package
@@ -4910,7 +4876,7 @@ vcpkg tree at build time in order to be used in Cargo build scripts.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-rayon" ,rust-rayon))
+       (("rust-rayon" ,rust-rayon-1.1))
        #:cargo-development-inputs
        (("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
@@ -5343,7 +5309,7 @@ reading and writing git repositories.")
         ("rust-memmap" ,rust-memmap-0.7)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-object" ,rust-object)
-        ("rust-rayon" ,rust-rayon)
+        ("rust-rayon" ,rust-rayon-1.1)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-test-assembler" ,rust-test-assembler)
         ("rust-typed-arena" ,rust-typed-arena))))
@@ -5476,7 +5442,7 @@ reinterpret data of certain types safely.")
        (("rust-scroll-derive" ,rust-scroll-derive))
        #:cargo-development-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-rayon" ,rust-rayon)
+        ("rust-rayon" ,rust-rayon-1.1)
         ("rust-rustc-version" ,rust-rustc-version-0.2))))
     (home-page "https://github.com/m4b/scroll")
     (synopsis
@@ -11351,7 +11317,7 @@ testing harness")
         ("rust-derive-new" ,rust-derive-new)
         ("rust-derive-builder" ,rust-derive-builder)
         ("rust-expectest" ,rust-expectest)
-        ("rust-rayon" ,rust-rayon))
+        ("rust-rayon" ,rust-rayon-1.1))
        #:cargo-development-inputs
        (("rust-clippy" ,rust-clippy-0.0))))
     (home-page "https://mackwic.github.io/rspec")
@@ -13767,7 +13733,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-ahash" ,rust-ahash)
         ("rust-compiler-builtins"
          ,rust-compiler-builtins)
-        ("rust-rayon" ,rust-rayon)
+        ("rust-rayon" ,rust-rayon-1.1)
         ("rust-rustc-std-workspace-alloc"
          ,rust-rustc-std-workspace-alloc)
         ("rust-rustc-std-workspace-core"
@@ -13778,7 +13744,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-rayon" ,rust-rayon)
+        ("rust-rayon" ,rust-rayon-1.1)
         ("rust-rustc-hash" ,rust-rustc-hash)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
@@ -14259,7 +14225,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-rayon" ,rust-rayon))
+        ("rust-rayon" ,rust-rayon-1.1))
        #:cargo-development-inputs
        (("rust-png" ,rust-png)
         ("rust-walkdir" ,rust-walkdir-2.2))))
