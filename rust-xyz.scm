@@ -3675,7 +3675,7 @@ to be linked into Rust code.")
      `(#:cargo-inputs
        (("rust-backtrace" ,rust-backtrace-0.3))
        #:cargo-development-inputs
-       (("rust-version-check" ,rust-version-check))))
+       (("rust-version-check" ,rust-version-check-0.9))))
     (home-page
      "https://github.com/rust-lang-nursery/error-chain")
     (synopsis
@@ -4310,8 +4310,8 @@ reading and writing git repositories.")
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-jemallocator" ,rust-jemallocator)
-        ("rust-version-check" ,rust-version-check))))
+        ("rust-jemallocator" ,rust-jemallocator-0.3)
+        ("rust-version-check" ,rust-version-check-0.9))))
     (home-page "https://github.com/Geal/nom")
     (synopsis
      "A byte-oriented, zero-copy, parser combinators library")
@@ -4342,8 +4342,8 @@ reading and writing git repositories.")
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-jemallocator" ,rust-jemallocator)
-        ("rust-version-check" ,rust-version-check))))
+        ("rust-jemallocator" ,rust-jemallocator-0.3)
+        ("rust-version-check" ,rust-version-check-0.9))))
     (home-page "https://github.com/Geal/nom")
     (synopsis
      "A byte-oriented, zero-copy, parser combinators library")
@@ -4373,8 +4373,8 @@ reading and writing git repositories.")
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-jemallocator" ,rust-jemallocator)
-        ("rust-version-check" ,rust-version-check))))))
+        ("rust-jemallocator" ,rust-jemallocator-0.3)
+        ("rust-version-check" ,rust-version-check-0.9))))))
 
 (define-public rust-nom-1
   (package
@@ -4398,8 +4398,8 @@ reading and writing git repositories.")
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-jemallocator" ,rust-jemallocator)
-        ("rust-version-check" ,rust-version-check))))))
+        ("rust-jemallocator" ,rust-jemallocator-0.3)
+        ("rust-version-check" ,rust-version-check-0.9))))))
 
 (define-public rust-libloading
   (package
@@ -4426,34 +4426,6 @@ reading and writing git repositories.")
      "A safer binding to platformâ\x80\x99s dynamic library loading utilities")
     (description
      "This package provides a safer binding to platformâ\x80\x99s dynamic library loading utilities")
-    (license #f)))
-
-(define-public rust-jemallocator
-  (package
-    (name "rust-jemallocator")
-    (version "0.3.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "jemallocator" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0sabfa5118b7l4ars5n36s2fjyfn59w4d6mjs6rrmsa5zky67bj3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-jemalloc-sys" ,rust-jemalloc-sys-0.3)
-        ("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-paste" ,rust-paste-0.1))))
-    (home-page
-     "https://github.com/gnzlbg/jemallocator")
-    (synopsis
-     "A Rust allocator backed by jemalloc")
-    (description
-     "This package provides a Rust allocator backed by jemalloc")
     (license #f)))
 
 (define-public rust-void
@@ -5007,25 +4979,6 @@ shorthands for guards with one of the implemented strategies.")
     (synopsis "WASM tools")
     (description "WASM tools")
     (license #f)))
-
-(define-public rust-version-check
-  (package
-    (name "rust-version-check")
-    (version "0.9.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "version_check" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1kikqlnggii1rvnxrbls55sc46lxvinz5k3giscgncjj4p87b1q7"))))
-    (build-system cargo-build-system)
-    (home-page "")
-    (synopsis "")
-    (description "")
-    (license license:expat)))
 
 (define-public rust-version-check-0.1
   (package
@@ -14169,7 +14122,7 @@ pitfalls in Rust")
         ("rust-structopt-derive" ,rust-structopt-derive))
        #:cargo-development-inputs
        (("rust-trybuild" ,rust-trybuild-1.0)
-        ("rust-version-check" ,rust-version-check))))
+        ("rust-version-check" ,rust-version-check-0.9))))
     (home-page
      "https://github.com/TeXitoi/structopt")
     (synopsis
