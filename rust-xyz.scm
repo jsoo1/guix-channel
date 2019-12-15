@@ -680,7 +680,7 @@ standard printing of search results, similar to grep itself.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-c2-chacha" ,rust-c2-chacha)
+       (("rust-c2-chacha" ,rust-c2-chacha-0.2)
         ("rust-rand-core" ,rust-rand-core-0.5))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg-0.1))))
@@ -705,7 +705,7 @@ standard printing of search results, similar to grep itself.")
          "1vxwyzs4fy1ffjc8l00fsyygpiss135irjf7nyxgq2v0lqf3lvam"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-c2-chacha" ,rust-c2-chacha)
+       (("rust-c2-chacha" ,rust-c2-chacha-0.2)
         ("rust-rand-core" ,rust-rand-core-0.3))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg-0.1))))))
@@ -4667,7 +4667,7 @@ reading and writing git repositories.")
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-ppv-lite86" ,rust-ppv-lite86-0.2)
-        ("rust-stream-cipher" ,rust-stream-cipher))
+        ("rust-stream-cipher" ,rust-stream-cipher-0.3))
        #:cargo-development-inputs
        (("rust-hex-literal" ,rust-hex-literal-0.2))))
     (home-page
@@ -4675,59 +4675,6 @@ reading and writing git repositories.")
     (synopsis "The ChaCha family of stream ciphers")
     (description
      "The ChaCha family of stream ciphers")
-    (license #f)))
-
-(define-public rust-c2-chacha
-  (package
-    (name "rust-c2-chacha")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "c2-chacha" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "00a11qdc8mg3z0k613rhprkc9p6xz0y7b1681x32ixg0hr3x0r3x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-ppv-lite86" ,rust-ppv-lite86-0.2)
-        ("rust-stream-cipher" ,rust-stream-cipher))
-       #:cargo-development-inputs
-       (("rust-hex-literal" ,rust-hex-literal-0.2))))
-    (home-page
-     "https://github.com/cryptocorrosion/cryptocorrosion")
-    (synopsis "The ChaCha family of stream ciphers")
-    (description
-     "The ChaCha family of stream ciphers")
-    (license #f)))
-
-(define-public rust-stream-cipher
-  (package
-    (name "rust-stream-cipher")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "stream-cipher" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1g1nd8r6pph70rzk5yyvg7a9ji7pkap9ddiqpp4v9xa9ys0bqqc8"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-blobby" ,rust-blobby-0.1)
-        ("rust-generic-array" ,rust-generic-array-0.13))))
-    (home-page
-     "https://github.com/RustCrypto/traits")
-    (synopsis "Stream cipher traits")
-    (description "Stream cipher traits")
     (license #f)))
 
 (define-public rust-generic-array-0.12.3
