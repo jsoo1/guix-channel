@@ -5371,37 +5371,12 @@ reading and writing git repositories.")
         ("rust-ppv-lite86" ,rust-ppv-lite86)
         ("rust-stream-cipher" ,rust-stream-cipher))
        #:cargo-development-inputs
-       (("rust-hex-literal" ,rust-hex-literal))))
+       (("rust-hex-literal" ,rust-hex-literal-0.2))))
     (home-page
      "https://github.com/cryptocorrosion/cryptocorrosion")
     (synopsis "The ChaCha family of stream ciphers")
     (description
      "The ChaCha family of stream ciphers")
-    (license #f)))
-
-(define-public rust-hex-literal
-  (package
-    (name "rust-hex-literal")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "hex-literal" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ni2nv3di0jpih2xnmlnr6s96zypkdr8xrw2cvk4f8fx5wb6inn3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-hex-literal-impl" ,rust-hex-literal-imp-0.2l)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
-    (home-page "https://github.com/RustCrypto/utils")
-    (synopsis
-     "Procedural macro for converting hexadecimal string to byte array at compile time.")
-    (description
-     "Procedural macro for converting hexadecimal string to byte array at compile time.")
     (license #f)))
 
 (define-public rust-ppv-lite86
@@ -5447,7 +5422,7 @@ reading and writing git repositories.")
         ("rust-ppv-lite86" ,rust-ppv-lite86)
         ("rust-stream-cipher" ,rust-stream-cipher))
        #:cargo-development-inputs
-       (("rust-hex-literal" ,rust-hex-literal))))
+       (("rust-hex-literal" ,rust-hex-literal-0.2))))
     (home-page
      "https://github.com/cryptocorrosion/cryptocorrosion")
     (synopsis "The ChaCha family of stream ciphers")
@@ -5619,7 +5594,7 @@ shorthands for guards with one of the implemented strategies.")
         ("rust-sha1-asm" ,rust-sha1-asm-0.4))
        #:cargo-development-inputs
        (("rust-digest" ,rust-digest-0.8)
-        ("rust-hex-literal" ,rust-hex-literal))))
+        ("rust-hex-literal" ,rust-hex-literal-0.2))))
     (home-page
      "https://github.com/RustCrypto/hashes")
     (synopsis "SHA-1 hash function")
@@ -6667,7 +6642,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-sha2-asm" ,rust-sha2-asm))
        #:cargo-development-inputs
        (("rust-digest" ,rust-digest-0.8)
-        ("rust-hex-literal" ,rust-hex-literal))))
+        ("rust-hex-literal" ,rust-hex-literal-0.2))))
     (home-page
      "https://github.com/RustCrypto/hashes")
     (synopsis "SHA-2 hash functions")
