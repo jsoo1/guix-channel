@@ -1069,7 +1069,7 @@ instantiate to generate your own pieces of pseudo-random text.")
      `(#:cargo-inputs
        (("rust-encoding" ,rust-encoding-0.2)
         ("rust-heapsize" ,rust-heapsize-0.4)
-        ("rust-idna" ,rust-idna)
+        ("rust-idna" ,rust-idna-0.1)
         ("rust-matches" ,rust-matches-0.1)
         ("rust-percent-encoding" ,rust-percent-encoding)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
@@ -1104,7 +1104,7 @@ instantiate to generate your own pieces of pseudo-random text.")
      `(#:cargo-inputs
        (("rust-encoding" ,rust-encoding-0.2)
         ("rust-heapsize" ,rust-heapsize-0.4)
-        ("rust-idna" ,rust-idna)
+        ("rust-idna" ,rust-idna-0.1)
         ("rust-matches" ,rust-matches-0.1)
         ("rust-percent-encoding" ,rust-percent-encoding-2.1.0)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
@@ -1959,36 +1959,6 @@ guidelines on macOS.")
      "Compact buffer/string type for zero-copy parsing")
     (description
      "Compact buffer/string type for zero-copy parsing")
-    (license #f)))
-
-(define-public rust-idna
-  (package
-    (name "rust-idna")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "idna" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kl4gs5kaydn4v07c6ka33spm9qdh2np0x7iw7g5zd8z1c7rxw1q"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-matches" ,rust-matches-0.1)
-        ("rust-unicode-bidi" ,rust-unicode-bidi-0.2)
-        ("rust-unicode-normalization"
-         ,rust-unicode-normalization-0.1))
-       #:cargo-development-inputs
-       (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test-0.3))))
-    (home-page "https://github.com/servo/rust-url/")
-    (synopsis
-     "IDNA (Internationalizing Domain Names in Applications) and Punycode.")
-    (description
-     "IDNA (Internationalizing Domain Names in Applications) and Punycode.")
     (license #f)))
 
 (define-public rust-idna-0.2
@@ -5801,7 +5771,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-bzip2" ,rust-bzip2)
         ("rust-failure" ,rust-failure-0.1)
         ("rust-flate2" ,rust-flate2-1.0)
-        ("rust-idna" ,rust-idna)
+        ("rust-idna" ,rust-idna-0.1)
         ("rust-lalrpop-util" ,rust-lalrpop-util)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memsec" ,rust-memsec)
@@ -5842,7 +5812,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-bzip2" ,rust-bzip2)
         ("rust-failure" ,rust-failure-0.1)
         ("rust-flate2" ,rust-flate2-1.0)
-        ("rust-idna" ,rust-idna)
+        ("rust-idna" ,rust-idna-0.1)
         ("rust-lalrpop" ,rust-lalrpop)
         ("rust-lalrpop-util" ,rust-lalrpop-util)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -6249,7 +6219,7 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-cookie" ,rust-cookie)
-        ("rust-idna" ,rust-idna)
+        ("rust-idna" ,rust-idna-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-publicsuffix" ,rust-publicsuffix)
         ("rust-serde" ,rust-serde-1.0)
@@ -6285,7 +6255,7 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-cookie" ,rust-cookie)
-        ("rust-idna" ,rust-idna)
+        ("rust-idna" ,rust-idna-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-publicsuffix" ,rust-publicsuffix)
         ("rust-serde" ,rust-serde-1.0)
@@ -7448,7 +7418,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-enum-as-inner" ,rust-enum-as-inner)
        ("rust-failure" ,rust-failure-0.1)
        ("rust-futures" ,rust-futures-0.1)
-       ("rust-idna" ,rust-idna)
+       ("rust-idna" ,rust-idna-0.1)
        ("rust-lazy-static" ,rust-lazy-static-1.3)
        ("rust-log" ,rust-log-0.4)
        ("rust-openssl" ,rust-openssl-0.10)
