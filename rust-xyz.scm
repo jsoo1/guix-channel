@@ -2214,10 +2214,10 @@ on the heap")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tinytemplate" ,rust-tinytemplate)
+        ("rust-tinytemplate" ,rust-tinytemplate-1.0)
         ("rust-walkdir" ,rust-walkdir-2.2))
        #:cargo-development-inputs
-       (("rust-approx" ,rust-approx)
+       (("rust-approx" ,rust-approx-0.3)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-tempdir" ,rust-tempdir-0.3))))
@@ -2911,60 +2911,6 @@ maps of many strings (> 1 billion is possible).")
         ("rust-log" ,rust-log-0.4)
         ("rust-stdweb" ,rust-stdweb)
         ("rust-wasm" ,rust-wasm))))))
-
-(define-public rust-tinytemplate
-  (package
-    (name "rust-tinytemplate")
-    (version "1.0.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tinytemplate" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "084w41m75i95sdid1wwlnav80jsl1ggyryl4nawxvb6amigvfx25"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0))
-       #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))))
-    (home-page
-     "https://github.com/bheisler/TinyTemplate")
-    (synopsis "Simple, lightweight template engine")
-    (description
-     "Simple, lightweight template engine")
-    (license #f)))
-
-(define-public rust-approx
-  (package
-    (name "rust-approx")
-    (version "0.3.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "approx" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1hx580xjdxl3766js9b49rnbnmr8gw8c060809l43k9f0xshprph"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-num-complex" ,rust-num-complex-0.2)
-        ("rust-num-traits" ,rust-num-traits-0.2))))
-    (home-page
-     "https://github.com/brendanzab/approx")
-    (synopsis
-     "Approximate floating point equality comparisons and assertions.")
-    (description
-     "Approximate floating point equality comparisons and assertions.")
-    (license #f)))
 
 (define-public rust-mac
   (package
@@ -6681,7 +6627,7 @@ streams.")
         ("rust-stackvector" ,rust-stackvector-1.0)
         ("rust-static-assertions" ,rust-static-assertions-0.3))
        #:cargo-development-inputs
-       (("rust-approx" ,rust-approx)
+       (("rust-approx" ,rust-approx-0.3)
         ("rust-proptest" ,rust-proptest)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rustc-version" ,rust-rustc-version-0.2))))
@@ -13113,7 +13059,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-approx" ,rust-approx)
+       (("rust-approx" ,rust-approx-0.3)
         ("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
@@ -13294,7 +13240,7 @@ hardware font rendering.")
        (("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-libm" ,rust-libm))
        #:cargo-development-inputs
-       (("rust-approx" ,rust-approx))))
+       (("rust-approx" ,rust-approx-0.3))))
     (home-page
      "https://gitlab.redox-os.org/redox-os/stb_truetype-rs")
     (synopsis
@@ -15187,7 +15133,7 @@ The intersection of `std::ffi::CStr` and `str`")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-approx" ,rust-approx)
+       (("rust-approx" ,rust-approx-0.3)
         ("rust-mint" ,rust-mint)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand" ,rust-rand-0.4)
