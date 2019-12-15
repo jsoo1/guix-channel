@@ -4304,7 +4304,7 @@ bench suite.")
         ("rust-compiler-builtins"
          ,rust-compiler-builtins-0.1)
         ("rust-cpp-demangle" ,rust-cpp-demangle-0.2)
-        ("rust-findshlibs" ,rust-findshlibs)
+        ("rust-findshlibs" ,rust-findshlibs-0.5)
         ("rust-goblin" ,rust-goblin-0.0)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-memmap" ,rust-memmap-0.7)
@@ -4557,7 +4557,7 @@ to be linked into Rust code.")
        #:cargo-development-inputs
        (("rust-backtrace" ,rust-backtrace)
         ("rust-clap" ,rust-clap-2)
-        ("rust-findshlibs" ,rust-findshlibs)
+        ("rust-findshlibs" ,rust-findshlibs-0.5)
         ("rust-memmap" ,rust-memmap-0.7)
         ("rust-rustc-test" ,rust-rustc-test-0.3))))
     (home-page
@@ -4598,33 +4598,6 @@ written in Rust, using gimli.")
      "Bindings to the libbacktrace gcc library")
     (description
      "Bindings to the libbacktrace gcc library")
-    (license #f)))
-
-(define-public rust-findshlibs
-  (package
-    (name "rust-findshlibs")
-    (version "0.5.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "findshlibs" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1n2vagn0q5yim32hxkwi1cjgp3yn1dm45p7z8nw6lapywihhs9mi"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58))))
-    (home-page
-     "https://github.com/gimli-rs/findshlibs")
-    (synopsis
-     "Find the set of shared libraries loaded in the current process")
-    (description
-     "Find the set of shared libraries loaded in the current process
-with a cross platform API")
     (license #f)))
 
 (define-public rust-synstructure
