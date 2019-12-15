@@ -1694,33 +1694,7 @@ guidelines on macOS.")
     (description "Backend crate for signal-hook")
     (license #f)))
 
-(define-public rust-wasm-bindgen
-  (package
-    (name "rust-wasm-bindgen")
-    (version "0.2.47")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasm-bindgen" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0xsqz39v8nnlmiflybjpy7hvjdhmdb01j3zi0p5p6135rjc9j0i2"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-wasm-bindgen-macro"
-         ,rust-wasm-bindgen-macro))))
-    (home-page "https://rustwasm.github.io/")
-    (synopsis
-     "Easy support for interacting between JS and Rust")
-    (description
-     "Easy support for interacting between JS and Rust.")
-    (license #f)))
-
+;; FOR EXECUTOR
 (define-public rust-tokio
   (package
     (name "rust-tokio")
