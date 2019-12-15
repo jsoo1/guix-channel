@@ -1339,7 +1339,7 @@ retrieving random data from system source")
         ("rust-sleef-sys" ,rust-sleef-sys))
        #:cargo-development-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-paste" ,rust-paste)
+        ("rust-paste" ,rust-paste-0.1)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasm-bindgen-test"
          ,rust-wasm-bindgen-test-0.2))))
@@ -2119,31 +2119,6 @@ asynchronous I/O backed applications.")
      "Rust FFI bindings to the SLEEF Vectorized Math Library")
     (license #f)))
 
-(define-public rust-paste
-  (package
-    (name "rust-paste")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "paste" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ygs077hlq8qlx5y46sfgrmhlqqgkmvvhn4x3y10arawalf4ljhz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-paste-impl" ,rust-paste-impl)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
-    (home-page "https://github.com/dtolnay/paste")
-    (synopsis
-     "Macros for all your token pasting needs")
-    (description
-     "Macros for all your token pasting needs")
-    (license #f)))
-
 (define-public rust-keystream
   (package
     (name "rust-keystream")
@@ -2815,33 +2790,6 @@ requests and responses.")
     (description
      "This package provides a tiny, safe, speedy, zero-copy HTTP/1.x
 parser.")
-    (license #f)))
-
-(define-public rust-paste-impl
-  (package
-    (name "rust-paste-impl")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "paste-impl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1rkh8nixmb7r1y0mjnsz62p6r1bqah5ciri7bwhmgcmq4gk9drr6"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page "https://github.com/dtolnay/paste")
-    (synopsis
-     "Implementation detail of the `paste` crate")
-    (description
-     "Implementation detail of the `paste` crate")
     (license #f)))
 
 (define-public rust-fst-levenshtein
@@ -4499,7 +4447,7 @@ reading and writing git repositories.")
        (("rust-jemalloc-sys" ,rust-jemalloc-sys-0.3)
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
-       (("rust-paste" ,rust-paste))))
+       (("rust-paste" ,rust-paste-0.1))))
     (home-page
      "https://github.com/gnzlbg/jemallocator")
     (synopsis
