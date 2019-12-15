@@ -2540,7 +2540,7 @@ require unstable language features.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-stdweb-derive" ,rust-stdweb-derive-0.5)
         ("rust-stdweb-internal-macros" ,rust-stdweb-internal-macros)
-        ("rust-stdweb-internal-runtime" ,rust-stdweb-internal-runtime)
+        ("rust-stdweb-internal-runtime" ,rust-stdweb-internal-runtime-0.1)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version-0.2)
@@ -3587,27 +3587,6 @@ synchronization primitives.")
      "Internal procedural macros for the `stdweb` crate")
     (description
      "Internal procedural macros for the `stdweb` crate")
-    (license #f)))
-
-(define-public rust-stdweb-internal-runtime
-  (package
-    (name "rust-stdweb-internal-runtime")
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "stdweb-internal-runtime" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1nhpyra7glbwcpakhpj5a3d7h7kx1ynif473nzshmk226m91f8ym"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/koute/stdweb")
-    (synopsis
-     "Internal runtime for the `stdweb` crate")
-    (description
-     "Internal runtime for the `stdweb` crate")
     (license #f)))
 
 (define-public rust-stdweb-internal-test-macro
