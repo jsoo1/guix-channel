@@ -62,39 +62,6 @@ the stack.")
     (description "Big array helper for serde.")
     (license #f)))
 
-(define-public rust-grep-0.2
-  (package
-    (name "rust-grep")
-    (version "0.2.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "grep" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1pkhjladybzzciwg0mjk3vjz5fyi76hk0d3hgyzv2jxlyp8v4fyc"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-grep-cli" ,rust-grep-cli-0.1)
-        ("rust-grep-matcher" ,rust-grep-matcher-0.1)
-        ("rust-grep-pcre2" ,rust-grep-pcre2-0.1)
-        ("rust-grep-printer" ,rust-grep-printer-0.1)
-        ("rust-grep-regex" ,rust-grep-regex-0.1)
-        ("rust-grep-searcher" ,rust-grep-searcher-0.1))
-       #:cargo-development-inputs
-       (("rust-termcolor" ,rust-termcolor-1.0)
-        ("rust-walkdir" ,rust-walkdir-2.2))))
-    (home-page
-     "https://github.com/BurntSushi/ripgrep")
-    (synopsis
-     "Line oriented regex searching as a library")
-    (description
-     "Fast line oriented regex searching as a library.")
-    (license #f)))
-
 (define-public rust-ignore
   (package
     (name "rust-ignore")
@@ -496,42 +463,6 @@ integer keys.")
     (description
      "Simple crate for ensuring that version numbers in README files
 are updated when the crate version changes.")
-    (license #f)))
-
-;; DO THESE DEPS
-(define-public rust-grep-printer-0.1
-  (package
-    (name "rust-grep-printer")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "grep-printer" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0mxc1yx5sx89f00imlm5d3hxwdgglv9rzwdki8ba50gvq8a2nr8m"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-base64" ,rust-base64-0.10)
-        ("rust-bstr" ,rust-bstr-0.2)
-        ("rust-grep-matcher" ,rust-grep-matcher-0.1)
-        ("rust-grep-searcher" ,rust-grep-searcher-0.1)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-termcolor" ,rust-termcolor-1.0))
-       #:cargo-development-inputs
-       (("rust-grep-regex" ,rust-grep-regex-0.1))))
-    (home-page
-     "https://github.com/BurntSushi/ripgrep")
-    (synopsis
-     "Standard printing of search results")
-    (description
-     "An implementation of the grep crate's Sink trait that provides
-standard printing of search results, similar to grep itself.")
     (license #f)))
 
 (define-public rust-aho-corasick-0.6
