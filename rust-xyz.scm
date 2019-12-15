@@ -4521,30 +4521,6 @@ checking")
     (description "Model checker for concurrent code")
     (license #f)))
 
-(define-public rust-base-x
-  (package
-    (name "rust-base-x")
-    (version "0.2.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "base-x" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0hv4y5cdhv6bk0ghk2434clw8v4mmk5cc9lsh6qrpri92zlfmx3n"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-bencher" ,rust-bencher-0.1)
-        ("rust-json" ,rust-json)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page "https://github.com/OrKoN/base-x-rs")
-    (synopsis "Encode/decode any base")
-    (description "Encode/decode any base")
-    (license #f)))
-
 (define-public rust-openssl
   (package
     (name "rust-openssl")
@@ -7433,9 +7409,8 @@ dependency.")
     (arguments
      `(#:cargo-inputs
        (("rust-foreign-types-macros"
-         ,rust-foreign-types-macros)
-        ("rust-foreign-types-shared"
-         ,rust-foreign-types-shared))))
+         ,rust-foreign-types-macros-0.1)
+        ("rust-foreign-types-shared" ,rust-foreign-types-shared-0.2))))
     (home-page
      "https://github.com/sfackler/foreign-types")
     (synopsis
@@ -7460,87 +7435,15 @@ dependency.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-foreign-types-macros"
-         ,rust-foreign-types-macros)
-        ("rust-foreign-types-shared"
-         ,rust-foreign-types-shared-0.1))))
+       (("rust-foreign-types-macros" ,rust-foreign-types-macros-0.1)
+        ("rust-foreign-types-shared" ,rust-foreign-types-shared-0.1))))
     (home-page
      "https://github.com/sfackler/foreign-types")
     (synopsis
-     "A framework for Rust wrappers over C APIs")
+     "Framework for Rust wrappers over C APIs")
     (description
-     "This package provides a framework for Rust wrappers over C APIs")
-    (license #f)))
-
-(define-public rust-foreign-types-macros
-  (package
-    (name "rust-foreign-types-macros")
-    (version "0.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "foreign-types-macros" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "16yjigjcsklcwy2ad32l24k1nwm9n3bsnyhxc3z9whjbsrj60qk6"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page
-     "https://github.com/sfackler/foreign-types")
-    (synopsis
-     "An internal crate used by foreign-types")
-    (description
-     "An internal crate used by foreign-types")
-    (license #f)))
-
-(define-public rust-foreign-types-shared
-  (package
-    (name "rust-foreign-types-shared")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "foreign-types-shared" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kanxlif1vp0ffh2r9l610jqbkmb3183yqykxq1z5w1vay2rn7y6"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/sfackler/foreign-types")
-    (synopsis
-     "An internal crate used by foreign-types")
-    (description
-     "An internal crate used by foreign-types")
-    (license #f)))
-
-(define-public rust-foreign-types-shared-0.1
-  (package
-    (name "rust-foreign-types-shared")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "foreign-types-shared" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jxgzd04ra4imjv8jgkmdq59kj8fsz6w4zxsbmlai34h26225c00"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/sfackler/foreign-types")
-    (synopsis
-     "An internal crate used by foreign-types")
-    (description
-     "An internal crate used by foreign-types")
+     "This package provides a framework for Rust wrappers over C
+APIs .")
     (license #f)))
 
 (define-public rust-json
