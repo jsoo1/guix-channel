@@ -550,7 +550,7 @@ standard printing of search results, similar to grep itself.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-aho-corasick" ,rust-aho-corasick)
+       (("rust-aho-corasick" ,rust-aho-corasick-0.7)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-regex" ,rust-regex-1.1)
@@ -599,39 +599,16 @@ standard printing of search results, similar to grep itself.")
      "Fast line oriented regex searching as a library.")
     (license #f)))
 
-(define-public rust-aho-corasick
-  (package
-    (name "rust-aho-corasick")
-    (version "0.7.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "aho-corasick" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0k1nqabiz37mnfnlrn084qi9yf8pj6a38qgbb3lc5zlr1jp89x76"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-memchr" ,rust-memchr-2.2))))
-    (home-page
-     "https://github.com/BurntSushi/aho-corasick")
-    (synopsis "Fast multiple substring searching")
-    (description
-     "Fast multiple substring searching.")
-    (license #f)))
-
 (define-public rust-aho-corasick-0.6
   (package
-    (inherit rust-aho-corasick)
+    (inherit rust-aho-corasick-0.7)
     (version "0.6.10")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "aho-corasick" version))
        (file-name
-        (string-append (package-name rust-aho-corasick) "-" version ".tar.gz"))
+        (string-append (package-name rust-aho-corasick-0.7) "-" version ".tar.gz"))
        (sha256
         (base32
          "19f8v503ibvlyr824g5ynicrh1lsmp2i0zmpszr8lqay0qw3vkl1"))))))
