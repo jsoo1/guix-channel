@@ -2755,7 +2755,7 @@ synchronization primitives.")
        (("rust-indexmap" ,rust-indexmap-1.0)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-seahash" ,rust-seahash)
+        ("rust-seahash" ,rust-seahash-3.0)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))))
     (home-page "https://github.com/hyperium/http")
@@ -3196,29 +3196,6 @@ checking")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))))
-
-(define-public rust-seahash
-  (package
-    (name "rust-seahash")
-    (version "3.0.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "seahash" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1pr8ijnxnp68ki4m4740yc5mr01zijf86yx07wbsqzwiyhghdmhq"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://gitlab.redox-os.org/redox-os/seahash")
-    (synopsis
-     "Hash function with proven statistical guarantees")
-    (description
-     "This package provides a blazingly fast, portable hash function
-with proven statistical guarantees.")
-    (license #f)))
 
 (define-public rust-pico-sys
   (package
@@ -4156,7 +4133,7 @@ reading and writing git repositories.")
        (("rust-byteorder" ,rust-byteorder-1.3))
        #:cargo-development-inputs
        (("rust-fnv" ,rust-fnv-1.0)
-        ("rust-seahash" ,rust-seahash))))
+        ("rust-seahash" ,rust-seahash-3.0))))
     (home-page "https://github.com/cbreeden/fxhash")
     (synopsis
      "A fast, non-secure, hashing algorithm derived from an internal hasher used in FireFox and Rustc.")
@@ -10478,7 +10455,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-hex" ,rust-hex-0.3)
         ("rust-no-panic" ,rust-no-panic)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-seahash" ,rust-seahash))))
+        ("rust-seahash" ,rust-seahash-3.0))))
     (home-page "https://github.com/tkaitchuck/ahash")
     (synopsis
      "A non-cryprographic hash function using AES-NI for high performance")
