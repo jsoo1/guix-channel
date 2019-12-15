@@ -2630,7 +2630,7 @@ asynchronous I/O backed applications.")
        (("rust-console-error-panic-hook"
          ,rust-console-error-panic-hook-0.1)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-js-sys" ,rust-js-sys)
+        ("rust-js-sys" ,rust-js-sys-0.3)
         ("rust-scoped-tls" ,rust-scoped-tls-1.0)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasm-bindgen-futures"
@@ -3556,39 +3556,6 @@ parser.")
      "Implementation detail of the `paste` crate")
     (description
      "Implementation detail of the `paste` crate")
-    (license #f)))
-
-(define-public rust-js-sys
-  (package
-    (name "rust-js-sys")
-    (version "0.3.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "js-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "045fgafggkjdfg4f33vb87silyl9xpbifrhx1ciqi4wvm90nzhga"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
-       #:cargo-development-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-wasm-bindgen-futures"
-         ,rust-wasm-bindgen-futures-0.3)
-        ("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test))))
-    (home-page
-     "https://rustwasm.github.io/wasm-bindgen/")
-    (synopsis
-     "Bindings for all JS global objects and functions in WASM")
-    (description
-     "Bindings for all JS global objects and functions in all JS
-environments like Node.js and browsers, built on `#[wasm_bindgen]`
-using the `wasm-bindgen` crate.")
     (license #f)))
 
 (define-public rust-fst-levenshtein
@@ -10694,7 +10661,7 @@ accessor functions on enums.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-js-sys" ,rust-js-sys)
+       (("rust-js-sys" ,rust-js-sys-0.3)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
