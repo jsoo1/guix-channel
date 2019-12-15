@@ -48,7 +48,7 @@
         ("rust-futures" ,rust-futures-0.1)
         ("rust-getch" ,rust-getch)
         ("rust-hex" ,rust-hex-0.3)
-        ("rust-ignore" ,rust-ignore)
+        ("rust-ignore" ,rust-ignore-0.4)
         ("rust-libpijul" ,rust-libpijul)
         ("rust-line" ,rust-line)
         ("rust-log" ,rust-log-0.4)
@@ -83,7 +83,7 @@
         ("rust-username" ,rust-username)
         ("rust-winapi" ,rust-winapi-0.2)
         ("rust-winapi-build" ,rust-winapi-build)
-        ("rust-wincolor" ,rust-wincolor)
+        ("rust-wincolor" ,rust-wincolor-1.0)
         ("rust-xattr" ,rust-xattr-0.2))
        #:cargo-development-inputs
        (("rust-walkdir" ,rust-walkdir-2.2))

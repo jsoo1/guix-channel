@@ -62,44 +62,6 @@ the stack.")
     (description "Big array helper for serde.")
     (license #f)))
 
-(define-public rust-ignore
-  (package
-    (name "rust-ignore")
-    (version "0.4.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ignore" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "00mhksl41dnlsjqmka8c5a0m4spwm70ilm1qd9rngwq552hpzicd"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-channel"
-         ,rust-crossbeam-channel-0.3)
-        ("rust-globset" ,rust-globset-0.4)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-same-file" ,rust-same-file-1.0)
-        ("rust-thread-local" ,rust-thread-local-0.3)
-        ("rust-walkdir" ,rust-walkdir-2.2)
-        ("rust-winapi-util" ,rust-winapi-util-0.1))
-       #:cargo-development-inputs
-       (("rust-tempfile" ,rust-tempfile-3.0))))
-    (home-page
-     "https://github.com/BurntSushi/ripgrep/tree/master/ignore")
-    (synopsis
-     "Efficiently match ignore files such as .gitignore")
-    (description
-     "This package provides a fast library for efficiently matching
-ignore files such as `.gitignore` against file paths.")
-    (license #f)))
-
 (define-public rust-regex-0.2
   (package
     (inherit rust-regex-1.1)
@@ -558,32 +520,6 @@ are updated when the crate version changes.")
      "Conditional compilation according to rustc compiler version")
     (description
      "Conditional compilation according to rustc compiler version")
-    (license #f)))
-
-(define-public rust-wincolor
-  (package
-    (name "rust-wincolor")
-    (version "1.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wincolor" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1fp9sxq63kw3vjjcjrl3f7px082pplzxcr3qza2n2pa6mq0xj7jn"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-winapi" ,rust-winapi-0.3)
-        ("rust-winapi-util" ,rust-winapi-util-0.1))))
-    (home-page
-     "https://github.com/BurntSushi/termcolor/tree/master/wincolor")
-    (synopsis
-     "simple Windows specific API for controlling text color")
-    (description
-     "This package provides a simple Windows specific API for controlling text color in a Windows console.")
     (license #f)))
 
 (define-public rust-toml-0.4
@@ -4144,7 +4080,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-failure" ,rust-failure-0.1)
         ("rust-flate2" ,rust-flate2-1.0)
         ("rust-hex" ,rust-hex-0.3)
-        ("rust-ignore" ,rust-ignore)
+        ("rust-ignore" ,rust-ignore-0.4)
         ("rust-log" ,rust-log-0.4)
         ("rust-openssl" ,rust-openssl-0.10)
         ("rust-rand" ,rust-rand-0.4)

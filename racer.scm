@@ -54,7 +54,7 @@
         ("rust-unicode-xid" ,rust-unicode-xid-0.0.3)
         ("rust-winapi" ,rust-winapi-0.2)
         ("rust-winapi-build" ,rust-winapi-build)
-        ("rust-wincolor" ,rust-wincolor))
+        ("rust-wincolor" ,rust-wincolor-1.0))
        #:tests? #f ; FIXME: Tests fail
        #:phases
        (modify-phases %standard-phases

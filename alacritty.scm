@@ -116,7 +116,7 @@
         ("rust-winapi" ,rust-winapi-0.2)
         ("rust-winapi-build" ,rust-winapi-build)
         ("rust-winapi-util" ,rust-winapi-util-0.1)
-        ("rust-wincolor" ,rust-wincolor)
+        ("rust-wincolor" ,rust-wincolor-1.0)
         ("rust-winpty-sys" ,rust-winpty-sys)
         ("rust-ws2-32-sys" ,rust-ws2-32-sys-0.2)
         ("rust-x11-clipboard" ,rust-x11-clipboard)
