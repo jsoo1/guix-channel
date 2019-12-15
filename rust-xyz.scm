@@ -4653,68 +4653,6 @@ reading and writing git repositories.")
      "Provides current CI environment information.")
     (license #f)))
 
-(define-public rust-console
-  (package
-    (name "rust-console")
-    (version "0.7.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "console" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0a4n2syzik9lh02v2i4wdazvm05d99bib7dw0lqvz8mq2hn7r9cc"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-atty" ,rust-atty-0.2)
-        ("rust-clicolors-control" ,rust-clicolors-control-1.0)
-        ("rust-encode-unicode" ,rust-encode-unicode-0.3)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-parking-lot" ,rust-parking-lot-0.8)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-termios" ,rust-termios-0.3)
-        ("rust-unicode-width" ,rust-unicode-width-0.1)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/mitsuhiko/console")
-    (synopsis
-     "A terminal and console abstraction for Rust")
-    (description
-     "This package provides a terminal and console abstraction for Rust")
-    (license #f)))
-
-(define-public rust-difference
-  (package
-    (name "rust-difference")
-    (version "2.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "difference" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1621wx4k8h452p6xzmzzvm7mz87kxh4yqz0kzxfjj9xmjxlbyk2j"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-getopts" ,rust-getopts-0.2))
-       #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-term" ,rust-term-0.5))))
-    (home-page
-     "https://github.com/johannhof/difference.rs")
-    (synopsis
-     "A Rust text diffing and assertion library.")
-    (description
-     "This package provides a Rust text diffing and assertion library.")
-    (license #f)))
-
 (define-public rust-pest
   (package
     (name "rust-pest")
@@ -9206,7 +9144,7 @@ client or server.")
      `(#:cargo-inputs
        (("rust-ansi-term" ,rust-ansi-term)
         ("rust-ctor" ,rust-ctor)
-        ("rust-difference" ,rust-difference)
+        ("rust-difference" ,rust-difference-2.0)
         ("rust-output-vt100" ,rust-output-vt100))))
     (home-page
      "https://github.com/colin-kiegel/rust-pretty-assertions")
@@ -15309,7 +15247,7 @@ for computer graphics.")
        (("rust-ansi-term" ,rust-ansi-term))
        #:cargo-development-inputs
        (("rust-ansi-term" ,rust-ansi-term)
-        ("rust-difference" ,rust-difference)
+        ("rust-difference" ,rust-difference-2.0)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-yaml" ,rust-serde-yaml))))
@@ -16228,7 +16166,7 @@ function's body.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0))
        #:cargo-development-inputs
-       (("rust-difference" ,rust-difference)
+       (("rust-difference" ,rust-difference-2.0)
         ("rust-duct" ,rust-duct)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-log" ,rust-log-0.4)
