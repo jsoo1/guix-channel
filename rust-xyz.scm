@@ -4547,30 +4547,6 @@ reading and writing git repositories.")
      "Provides current CI environment information.")
     (license #f)))
 
-(define-public rust-pest
-  (package
-    (name "rust-pest")
-    (version "2.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pest" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "134686mwxm73asbiads53zfchqvvcrsrsyax2cghfcizmvg8ac4k"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-ucd-trie" ,rust-ucd-trie-0.1))))
-    (home-page "https://pest-parser.github.io/")
-    (synopsis "The Elegant Parser")
-    (description "The Elegant Parser")
-    (license #f)))
-
 (define-public rust-pest-derive
   (package
     (name "rust-pest-derive")
@@ -4587,7 +4563,7 @@ reading and writing git repositories.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-pest" ,rust-pest)
+       (("rust-pest" ,rust-pest-2.1)
         ("rust-pest-generator" ,rust-pest-generator))))
     (home-page "https://pest-parser.github.io/")
     (synopsis "pest's derive macro")
@@ -4651,7 +4627,7 @@ reading and writing git repositories.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-pest" ,rust-pest)
+       (("rust-pest" ,rust-pest-2.1)
         ("rust-pest-meta" ,rust-pest-meta)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
@@ -4678,7 +4654,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-maplit" ,rust-maplit)
-        ("rust-pest" ,rust-pest))
+        ("rust-pest" ,rust-pest-2.1))
        #:cargo-development-inputs
        (("rust-sha-1" ,rust-sha-1))))
     (home-page "https://pest-parser.github.io/")
