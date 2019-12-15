@@ -36,36 +36,6 @@
 the stack.")
     (license #f)))
 
-(define-public rust-serde-yaml
-  (package
-    (name "rust-serde-yaml")
-    (version "0.8.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde_yaml" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "10mmjpnshgrwij01a13679nxy1hnh5yfr0343kh0y9p5j2d8mc1q"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-dtoa" ,rust-dtoa-0.4)
-        ("rust-linked-hash-map" ,rust-linked-hash-map-0.5)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-yaml-rust" ,rust-yaml-rust-0.4))
-       #:cargo-development-inputs
-       (("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-unindent" ,rust-unindent-0.1)
-        ("rust-version-sync" ,rust-version-sync))))
-    (home-page
-     "https://github.com/dtolnay/serde-yaml")
-    (synopsis "YAML support for Serde")
-    (description "YAML support for Serde")
-    (license #f)))
-
 (define-public rust-serde-big-array
   (package
     (name "rust-serde-big-array")
@@ -2035,7 +2005,7 @@ Recomposition, as described in Unicode Standard Annex #15.")
     (arguments
      `(#:cargo-inputs
        (("rust-matches" ,rust-matches-0.1)
-        ("rust-unicode-bidi" ,rust-unicode-bidi)
+        ("rust-unicode-bidi" ,rust-unicode-bidi-0.2)
         ("rust-unicode-normalization"
          ,rust-unicode-normalization))
        #:cargo-development-inputs
@@ -2065,7 +2035,7 @@ Recomposition, as described in Unicode Standard Annex #15.")
     (arguments
      `(#:cargo-inputs
        (("rust-matches" ,rust-matches-0.1)
-        ("rust-unicode-bidi" ,rust-unicode-bidi)
+        ("rust-unicode-bidi" ,rust-unicode-bidi-0.3)
         ("rust-unicode-normalization"
          ,rust-unicode-normalization))
        #:cargo-development-inputs
@@ -2610,36 +2580,6 @@ maps of many strings (> 1 billion is possible).")
      "Incremental, zero-copy UTF-8 decoding with error handling")
     (description
      "Incremental, zero-copy UTF-8 decoding with error handling")
-    (license #f)))
-
-(define-public rust-unicode-bidi
-  (package
-    (name "rust-unicode-bidi")
-    (version "0.3.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unicode-bidi" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1malx8ljgm7v1gbaazkn7iicy5wj0bwcyadj3l727a38ch6bvwj9"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-flame" ,rust-flame-0.2)
-        ("rust-flamer" ,rust-flamer)
-        ("rust-matches" ,rust-matches-0.1)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-serde-test" ,rust-serde-test-1.0))))
-    (home-page
-     "https://github.com/servo/unicode-bidi")
-    (synopsis
-     "Implementation of the Unicode Bidirectional Algorithm")
-    (description
-     "Implementation of the Unicode Bidirectional Algorithm")
     (license #f)))
 
 (define-public rust-redox-users
@@ -3254,32 +3194,6 @@ Levenshtein automata.")
     (description
      "This package provides a string interning library for Rust,
 developed as part of the Servo project.")
-    (license #f)))
-
-(define-public rust-flamer
-  (package
-    (name "rust-flamer")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "flamer" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1b2d7jx80f3p7hqpgdi7wksaiq18k9w23p0cs2sxf7jbx2jx3bgj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-flame" ,rust-flame-0.2)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page "https://github.com/llogiq/flamer")
-    (synopsis
-     "a procedural macro to insert `flame::start_guard(_)` calls")
-    (description
-     "a procedural macro to insert `flame::start_guard(_)` calls")
     (license #f)))
 
 (define-public rust-argon2rs
