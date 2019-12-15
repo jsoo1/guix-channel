@@ -3946,7 +3946,7 @@ reading and writing git repositories.")
         ("rust-clang-sys" ,rust-clang-sys-0.28)
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-fxhash" ,rust-fxhash)
+        ("rust-fxhash" ,rust-fxhash-0.2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-peeking-take-while"
@@ -3990,7 +3990,7 @@ reading and writing git repositories.")
         ("rust-clang-sys" ,rust-clang-sys-0.26)
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-fxhash" ,rust-fxhash)
+        ("rust-fxhash" ,rust-fxhash-0.2)
         ("rust-hashbrown" ,rust-hashbrown-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
@@ -4034,7 +4034,7 @@ reading and writing git repositories.")
         ("rust-clang-sys" ,rust-clang-sys-0.22)
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.5)
-        ("rust-fxhash" ,rust-fxhash)
+        ("rust-fxhash" ,rust-fxhash-0.2)
         ("rust-hashbrown" ,rust-hashbrown-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
@@ -4113,33 +4113,6 @@ reading and writing git repositories.")
         ("rust-libloading" ,rust-libloading))
        #:cargo-development-inputs
        (("rust-glob" ,rust-glob-0.3))))))
-
-(define-public rust-fxhash
-  (package
-    (name "rust-fxhash")
-    (version "0.2.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "fxhash" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "037mb9ichariqi45xm6mz0b11pa92gj38ba0409z3iz239sns6y3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))
-       #:cargo-development-inputs
-       (("rust-fnv" ,rust-fnv-1.0)
-        ("rust-seahash" ,rust-seahash-3.0))))
-    (home-page "https://github.com/cbreeden/fxhash")
-    (synopsis
-     "A fast, non-secure, hashing algorithm derived from an internal hasher used in FireFox and Rustc.")
-    (description
-     "This package provides a fast, non-secure, hashing algorithm derived from an internal hasher used in FireFox and Rustc.")
-    (license #f)))
 
 (define-public rust-peeking-take-while
   (package
@@ -10451,7 +10424,7 @@ complex, rational, range iterators, generic integers, and more!
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-fnv" ,rust-fnv-1.0)
-        ("rust-fxhash" ,rust-fxhash)
+        ("rust-fxhash" ,rust-fxhash-0.2)
         ("rust-hex" ,rust-hex-0.3)
         ("rust-no-panic" ,rust-no-panic)
         ("rust-rand" ,rust-rand-0.4)
