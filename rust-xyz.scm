@@ -1071,7 +1071,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (arguments
      `(#:cargo-inputs
        (("rust-clippy" ,rust-clippy-0.0)
-        ("rust-heapsize" ,rust-heapsize)
+        ("rust-heapsize" ,rust-heapsize-0.4)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-test" ,rust-serde-test-1.0))))
     (home-page
@@ -1173,7 +1173,7 @@ pairs in insertion order")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding" ,rust-encoding)
-        ("rust-heapsize" ,rust-heapsize)
+        ("rust-heapsize" ,rust-heapsize-0.4)
         ("rust-idna" ,rust-idna)
         ("rust-matches" ,rust-matches-0.1)
         ("rust-percent-encoding" ,rust-percent-encoding)
@@ -1208,7 +1208,7 @@ pairs in insertion order")
     (arguments
      `(#:cargo-inputs
        (("rust-encoding" ,rust-encoding)
-        ("rust-heapsize" ,rust-heapsize)
+        ("rust-heapsize" ,rust-heapsize-0.4)
         ("rust-idna" ,rust-idna)
         ("rust-matches" ,rust-matches-0.1)
         ("rust-percent-encoding" ,rust-percent-encoding-2.1.0)
@@ -1988,30 +1988,6 @@ guidelines on macOS.")
      "This crate provides functions for normalization of Unicode
 strings, including Canonical and Compatible Decomposition and
 Recomposition, as described in Unicode Standard Annex #15.")
-    (license #f)))
-
-(define-public rust-heapsize
-  (package
-    (name "rust-heapsize")
-    (version "0.4.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "heapsize" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0q94q9ppqjgrw71swiyia4hgby2cz6dldp7ij57nkvhd6zmfcy8n"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
-    (home-page "https://github.com/servo/heapsize")
-    (synopsis
-     "Infrastructure for measuring the total runtime size of an object")
-    (description
-     "Infrastructure for measuring the total runtime size of an object
-on the heap")
     (license #f)))
 
 (define-public rust-getopts-0.2.19
@@ -7758,7 +7734,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-heapsize" ,rust-heapsize)
+       (("rust-heapsize" ,rust-heapsize-0.4)
         ("rust-linked-hash-map" ,rust-linked-hash-map))))
     (home-page
      "https://github.com/contain-rs/lru-cache")
