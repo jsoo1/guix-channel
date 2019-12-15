@@ -4521,37 +4521,6 @@ checking")
     (description "Model checker for concurrent code")
     (license #f)))
 
-(define-public rust-openssl
-  (package
-    (name "rust-openssl")
-    (version "0.10.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "openssl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "05dg25rmg17rl3ykfl2yf69ghfd5z6zf6di38qw1awjvkddbnll1"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-foreign-types" ,rust-foreign-types-0.3)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-openssl-sys" ,rust-openssl-sys-0.9.49))
-       #:cargo-development-inputs
-       (("rust-hex" ,rust-hex-0.3)
-        ("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://github.com/sfackler/rust-openssl")
-    (synopsis "OpenSSL bindings")
-    (description "OpenSSL bindings")
-    (license #f)))
-
 (define-public rust-sha1
   (package
     (name "rust-sha1")
@@ -4570,7 +4539,7 @@ checking")
      `(#:cargo-inputs
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
-       (("rust-openssl" ,rust-openssl)
+       (("rust-openssl" ,rust-openssl-0.10)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-serde-json" ,rust-serde-json-1.0))))
     (home-page
@@ -7419,33 +7388,6 @@ dependency.")
      "This package provides a framework for Rust wrappers over C APIs")
     (license #f)))
 
-(define-public rust-foreign-types-0.3
-  (package
-    (name "rust-foreign-types")
-    (version "0.3.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "foreign-types" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1cgk0vyd7r45cj769jym4a6s7vwshvd0z4bqrb92q1fwibmkkwzn"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-foreign-types-macros" ,rust-foreign-types-macros-0.1)
-        ("rust-foreign-types-shared" ,rust-foreign-types-shared-0.1))))
-    (home-page
-     "https://github.com/sfackler/foreign-types")
-    (synopsis
-     "Framework for Rust wrappers over C APIs")
-    (description
-     "This package provides a framework for Rust wrappers over C
-APIs .")
-    (license #f)))
-
 (define-public rust-json
   (package
     (name "rust-json")
@@ -8474,7 +8416,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-hex" ,rust-hex-0.3)
         ("rust-ignore" ,rust-ignore)
         ("rust-log" ,rust-log-0.4)
-        ("rust-openssl" ,rust-openssl)
+        ("rust-openssl" ,rust-openssl-0.10)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-sanakirja" ,rust-sanakirja-0.10)
         ("rust-sequoia-openpgp" ,rust-sequoia-openpgp)
@@ -8825,7 +8767,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-cryptovec" ,rust-cryptovec)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-log" ,rust-log-0.4)
-        ("rust-openssl" ,rust-openssl)
+        ("rust-openssl" ,rust-openssl-0.10)
         ("rust-thrussh-keys" ,rust-thrussh-keys)
         ("rust-thrussh-libsodium"
          ,rust-thrussh-libsodium)
@@ -8896,7 +8838,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-log" ,rust-log-0.4)
         ("rust-num-bigint" ,rust-num-bigint)
         ("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-openssl" ,rust-openssl)
+        ("rust-openssl" ,rust-openssl-0.10)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-thrussh-libsodium"
@@ -9430,7 +9372,7 @@ and private (encrypted + signed) jars.")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-log" ,rust-log-0.4)
-        ("rust-openssl" ,rust-openssl)
+        ("rust-openssl" ,rust-openssl-0.10)
         ("rust-openssl-probe" ,rust-openssl-probe-0.1)
         ("rust-openssl-sys" ,rust-openssl-sys-0.9)
         ("rust-schannel" ,rust-schannel-0.1)
@@ -10334,12 +10276,12 @@ extension for the Trust-DNS client to use native-tls for TLS.")
     (arguments
      `(#:cargo-inputs
        (("rust-futures" ,rust-futures-0.1)
-        ("rust-openssl" ,rust-openssl)
+        ("rust-openssl" ,rust-openssl-0.10)
         ("rust-tokio-openssl" ,rust-tokio-openssl)
         ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
         ("rust-trust-dns-proto" ,rust-trust-dns-proto))
        #:cargo-development-inputs
-       (("rust-openssl" ,rust-openssl)
+       (("rust-openssl" ,rust-openssl-0.10)
         ("rust-tokio" ,rust-tokio))))
     (home-page "http://www.trust-dns.org/index.html")
     (synopsis
@@ -10372,7 +10314,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
        ("rust-idna" ,rust-idna)
        ("rust-lazy-static" ,rust-lazy-static-1.3)
        ("rust-log" ,rust-log-0.4)
-       ("rust-openssl" ,rust-openssl)
+       ("rust-openssl" ,rust-openssl-0.10)
        ("rust-rand" ,rust-rand-0.4)
        ("rust-ring" ,rust-ring)
        ("rust-serde" ,rust-serde-1.0)
@@ -10420,7 +10362,7 @@ foundational DNS protocol library for all Trust-DNS projects.")
         ("rust-trust-dns-proto" ,rust-trust-dns-proto)
         ("rust-webpki" ,rust-webpki))
        #:cargo-development-inputs
-       (("rust-openssl" ,rust-openssl)
+       (("rust-openssl" ,rust-openssl-0.10)
         ("rust-tokio" ,rust-tokio))))
     (home-page "http://www.trust-dns.org/index.html")
     (synopsis
@@ -10543,7 +10485,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
        (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-futures-preview" ,rust-futures-preview)
-        ("rust-openssl" ,rust-openssl)
+        ("rust-openssl" ,rust-openssl-0.10)
         ("rust-schannel" ,rust-schannel-0.1)
         ("rust-security-framework"
          ,rust-security-framework)
@@ -11239,7 +11181,7 @@ accessor functions on enums.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-openssl" ,rust-openssl)
+       (("rust-openssl" ,rust-openssl-0.10)
         ("rust-tokio-io" ,rust-tokio-io-0.1))
        #:cargo-development-inputs
        (("rust-futures-preview" ,rust-futures-preview)
@@ -11929,7 +11871,7 @@ functions.")
         ("rust-block" ,rust-block)
         ("rust-core-foundation" ,rust-core-foundation)
         ("rust-core-graphics" ,rust-core-graphics)
-        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-foreign-types" ,rust-foreign-types-0.3)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-objc" ,rust-objc))))
     (home-page
@@ -11970,7 +11912,7 @@ functions.")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-core-foundation" ,rust-core-foundation)
-        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-foreign-types" ,rust-foreign-types-0.3)
         ("rust-libc" ,rust-libc-0.2.58))))
     (home-page
      "https://github.com/servo/core-graphics-rs")
@@ -13143,7 +13085,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-block" ,rust-block)
         ("rust-cocoa" ,rust-cocoa)
         ("rust-core-graphics" ,rust-core-graphics)
-        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-foreign-types" ,rust-foreign-types-0.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-objc" ,rust-objc))
        #:cargo-development-inputs
@@ -16006,7 +15948,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-core-foundation" ,rust-core-foundation)
         ("rust-core-graphics" ,rust-core-graphics)
-        ("rust-foreign-types" ,rust-foreign-types)
+        ("rust-foreign-types" ,rust-foreign-types-0.3)
         ("rust-libc" ,rust-libc-0.2.58))))
     (home-page
      "https://github.com/servo/core-foundation-rs")
