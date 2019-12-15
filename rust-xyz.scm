@@ -5495,39 +5495,12 @@ reading and writing git repositories.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-blobby" ,rust-blobby)
+       (("rust-blobby" ,rust-blobby-0.1)
         ("rust-generic-array" ,rust-generic-array))))
     (home-page
      "https://github.com/RustCrypto/traits")
     (synopsis "Stream cipher traits")
     (description "Stream cipher traits")
-    (license #f)))
-
-(define-public rust-blobby
-  (package
-    (name "rust-blobby")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "blobby" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xicpf3s2mi5xqnx8ps5mdych4ib5nh2nfsbrsg8ar8bjk1girbg"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))
-       #:cargo-development-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-hex" ,rust-hex-0.3))))
-    (home-page "https://github.com/RustCrypto/utils")
-    (synopsis
-     "Iterator over simple binary blob storage")
-    (description
-     "Iterator over simple binary blob storage")
     (license #f)))
 
 (define-public rust-generic-array
@@ -5743,7 +5716,7 @@ shorthands for guards with one of the implemented strategies.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-blobby" ,rust-blobby)
+       (("rust-blobby" ,rust-blobby-0.1)
         ("rust-generic-array" ,rust-generic-array))))
     (home-page
      "https://github.com/RustCrypto/traits")
