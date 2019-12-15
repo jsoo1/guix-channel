@@ -3594,7 +3594,7 @@ encodings")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-thread-id" ,rust-thread-id))))
+        ("rust-thread-id" ,rust-thread-id-3.3))))
     (home-page "https://github.com/TyOverby/flame")
     (synopsis "a profiling / flamegraph library")
     (description "a profiling / flamegraph library")
@@ -3840,7 +3840,7 @@ checking")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-smallvec" ,rust-smallvec-0.6)
-        ("rust-thread-id" ,rust-thread-id)
+        ("rust-thread-id" ,rust-thread-id-3.3)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version-0.2))))
@@ -3890,7 +3890,7 @@ checking")
         ("rust-rand" ,rust-rand-0.4)
         ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-smallvec" ,rust-smallvec-0.6)
-        ("rust-thread-id" ,rust-thread-id)
+        ("rust-thread-id" ,rust-thread-id-3.3)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-rustc-version" ,rust-rustc-version-0.2))))
@@ -4153,30 +4153,6 @@ debug_unreachable)")
     (description
      "This package provides a library intending to be a base
 dependency to expose a precomputed hash.")
-    (license #f)))
-
-(define-public rust-thread-id
-  (package
-    (name "rust-thread-id")
-    (version "3.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "thread-id" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1h90v19fjz3x9b25ywh68z5yf2zsmm6h5zb4rl302ckbsp4z9yy7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page "https://github.com/ruuda/thread-id")
-    (synopsis "Get a unique thread ID")
-    (description "Get a unique thread ID")
     (license #f)))
 
 (define-public rust-blake2-rfc
@@ -4553,7 +4529,7 @@ to be linked into Rust code.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3)
-        ("rust-thread-id" ,rust-thread-id)
+        ("rust-thread-id" ,rust-thread-id-3.3)
         ("rust-time" ,rust-time-0.1))))
     (home-page
      "https://github.com/rust-lang/git2-rs")
