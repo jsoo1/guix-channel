@@ -4774,7 +4774,7 @@ with a cross platform API")
     (arguments
      `(#:cargo-inputs
        (("rust-log" ,rust-log-0.4)
-        ("rust-plain" ,rust-plain)
+        ("rust-plain" ,rust-plain-0.2)
         ("rust-scroll" ,rust-scroll))))
     (home-page "https://github.com/m4b/goblin")
     (synopsis
@@ -5051,28 +5051,6 @@ immutable interval tree.")
     (description
      "This package provides a unified interface for parsing object
 file formats.")
-    (license #f)))
-
-(define-public rust-plain
-  (package
-    (name "rust-plain")
-    (version "0.2.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "plain" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "19n1xbxb4wa7w891268bzf6cbwq4qvdb86bik1z129qb0xnnnndl"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/randomites/plain")
-    (synopsis
-     "Reinterpret data of certain types safely")
-    (description
-     "This package provides a small Rust library that allows users to
-reinterpret data of certain types safely.")
     (license #f)))
 
 (define-public rust-scroll
