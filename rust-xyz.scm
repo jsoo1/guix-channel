@@ -1070,7 +1070,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-packed-simd" ,rust-packed-simd))
+       (("rust-packed-simd" ,rust-packed-simd-0.3))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-quickcheck" ,rust-quickcheck-0.8)
@@ -1100,7 +1100,7 @@ points, in a byte slice, fast")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-packed-simd" ,rust-packed-simd)
+        ("rust-packed-simd" ,rust-packed-simd-0.3)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-bincode" ,rust-bincode-1.1)
@@ -1317,37 +1317,6 @@ retrieving random data from system source")
         ("rust-stdweb" ,rust-stdweb)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
         ("rust-wasi" ,rust-wasi))))))
-
-(define-public rust-packed-simd
-  (package
-    (name "rust-packed-simd")
-    (version "0.3.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "packed_simd" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0822wqf6kzw4ig9ykndg348w2bxkhs3x64brzsvdxh2a1pyajpm8"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-core-arch" ,rust-core-arch-0.1)
-        ("rust-sleef-sys" ,rust-sleef-sys))
-       #:cargo-development-inputs
-       (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-paste" ,rust-paste-0.1)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
-        ("rust-wasm-bindgen-test"
-         ,rust-wasm-bindgen-test-0.2))))
-    (home-page
-     "https://github.com/rust-lang-nursery/packed_simd")
-    (synopsis "Portable Packed SIMD vectors")
-    (description "Portable Packed SIMD vectors")
-    (license #f)))
 
 (define-public rust-chacha
   (package
@@ -2088,35 +2057,6 @@ Web.")
     (description
      "An event-driven, non-blocking I/O platform for writing
 asynchronous I/O backed applications.")
-    (license #f)))
-
-(define-public rust-sleef-sys
-  (package
-    (name "rust-sleef-sys")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "sleef-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1881q2yc17j2m1yvh01447c93ws1mspnrj3k2nbvwbvcm8z81kkv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-bindgen" ,rust-bindgen-0.50)
-        ("rust-cmake" ,rust-cmake-0.1)
-        ("rust-env-logger" ,rust-env-logger-0.6))))
-    (home-page "https://github.com/gnzlbg/sleef-sys")
-    (synopsis
-     "Rust FFI bindings to the SLEEF Vectorized Math Library")
-    (description
-     "Rust FFI bindings to the SLEEF Vectorized Math Library")
     (license #f)))
 
 (define-public rust-keystream
