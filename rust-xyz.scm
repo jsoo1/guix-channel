@@ -4188,7 +4188,7 @@ bench suite.")
        (("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15)
-        ("rust-synstructure" ,rust-synstructure))
+        ("rust-synstructure" ,rust-synstructure-0.10))
        #:cargo-development-inputs
        (("rust-failure" ,rust-failure))))
     (home-page
@@ -4376,37 +4376,6 @@ to be linked into Rust code.")
      "Compares two equal-sized byte strings in constant time.")
     (license #f)))
 
-(define-public rust-synstructure
-  (package
-    (name "rust-synstructure")
-    (version "0.10.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "synstructure" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0grirdkgh2wl4hf9a3nbiazpgccxgq54kn52ms0xrr6njvgkwd82"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15)
-        ("rust-unicode-xid" ,rust-unicode-xid-0.1))
-       #:cargo-development-inputs
-       (("rust-synstructure-test-traits"
-         ,rust-synstructure-test-traits))))
-    (home-page
-     "https://github.com/mystor/synstructure")
-    (synopsis
-     "Helper methods and macros for custom derives")
-    (description
-     "Helper methods and macros for custom derives")
-    (license #f)))
-
 (define-public rust-error-chain
   (package
     (name "rust-error-chain")
@@ -4497,27 +4466,6 @@ reading and writing git repositories.")
      "Minimal Adler32 implementation for Rust")
     (description
      "Minimal Adler32 implementation for Rust.")
-    (license #f)))
-
-(define-public rust-synstructure-test-traits
-  (package
-    (name "rust-synstructure-test-traits")
-    (version "0.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "synstructure_test_traits" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1b3fs2b9kc1gy9dilaxqjbdl4z0mlrbbxjzkprdx953rif1c3q66"))))
-    (build-system cargo-build-system)
-    (home-page "")
-    (synopsis
-     "Helper test traits for synstructure doctests")
-    (description
-     "Helper test traits for synstructure doctests")
     (license #f)))
 
 (define-public rust-openssl-sys-0.9.49
@@ -15008,7 +14956,7 @@ for computer graphics.")
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15)
-        ("rust-synstructure" ,rust-synstructure))))
+        ("rust-synstructure" ,rust-synstructure-0.10))))
     (home-page "https://github.com/rust-lang/rust")
     (synopsis
      "Automatically published version of the package rust-rustc-macros")
