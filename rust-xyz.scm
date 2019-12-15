@@ -55,10 +55,10 @@ the stack.")
        (("rust-dtoa" ,rust-dtoa-0.4)
         ("rust-linked-hash-map" ,rust-linked-hash-map-0.5)
         ("rust-serde" ,rust-serde-1.0)
-        ("rust-yaml-rust" ,rust-yaml-rust))
+        ("rust-yaml-rust" ,rust-yaml-rust-0.4))
        #:cargo-development-inputs
        (("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-unindent" ,rust-unindent)
+        ("rust-unindent" ,rust-unindent-0.1)
         ("rust-version-sync" ,rust-version-sync))))
     (home-page
      "https://github.com/dtolnay/serde-yaml")
@@ -468,32 +468,6 @@ and handle Unicode charactersec-map")
     (description
      "This package provides a simple map based on a vector for small
 integer keys.")
-    (license #f)))
-
-(define-public rust-yaml-rust
-  (package
-    (name "rust-yaml-rust")
-    (version "0.4.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "yaml-rust" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ka3qhqc5lvk3hz14wmsj32jhmh44blcbfrx5hfxli2gg38kv4k5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-linked-hash-map" ,rust-linked-hash-map-0.5))
-       #:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page
-     "http://chyh1990.github.io/yaml-rust/")
-    (synopsis "The missing YAML 1.2 parser for rust")
-    (description
-     "The missing YAML 1.2 parser for rust")
     (license #f)))
 
 (define-public rust-yaml-rust-0.3
@@ -4443,27 +4417,6 @@ reading and writing git repositories.")
      "Source of OpenSSL and logic to build it.")
     (description
      "Source of OpenSSL and logic to build it.")
-    (license #f)))
-
-(define-public rust-unindent
-  (package
-    (name "rust-unindent")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unindent" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1x21ilf78aqcq9xzb9b7i628wm10rhk0jp0chlv06rkc690l8jw3"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/dtolnay/indoc")
-    (synopsis
-     "Remove a column of leading whitespace from a string")
-    (description
-     "Remove a column of leading whitespace from a string")
     (license #f)))
 
 (define-public rust-ci-info
@@ -15810,7 +15763,7 @@ attributes into structs when implementing custom derives.")
         ("rust-tempdir" ,rust-tempdir-0.3)
         ("rust-walkdir" ,rust-walkdir-2.2))
        #:cargo-development-inputs
-       (("rust-unindent" ,rust-unindent))))
+       (("rust-unindent" ,rust-unindent-0.1))))
     (home-page
      "https://github.com/budziq/rust-skeptic")
     (synopsis
