@@ -5395,37 +5395,13 @@ reading and writing git repositories.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-hex-literal-impl" ,rust-hex-literal-impl)
+       (("rust-hex-literal-impl" ,rust-hex-literal-imp-0.2l)
         ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
     (home-page "https://github.com/RustCrypto/utils")
     (synopsis
      "Procedural macro for converting hexadecimal string to byte array at compile time.")
     (description
      "Procedural macro for converting hexadecimal string to byte array at compile time.")
-    (license #f)))
-
-(define-public rust-hex-literal-impl
-  (package
-    (name "rust-hex-literal-impl")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "hex-literal-impl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "04m6d1k57a9h3hhdgn0vq1hkfwjv9hfkw6q73bqn0my0qw45s286"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
-    (home-page "https://github.com/RustCrypto/utils")
-    (synopsis
-     "Internal implementation of the hex-literal crate")
-    (description
-     "Internal implementation of the hex-literal crate")
     (license #f)))
 
 (define-public rust-ppv-lite86
