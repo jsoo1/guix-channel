@@ -78,7 +78,7 @@
         ("rust-thrussh-config" ,rust-thrussh-config)
         ("rust-thrussh-keys" ,rust-thrussh-keys)
         ("rust-tokio" ,rust-tokio)
-        ("rust-tokio-uds" ,rust-tokio-uds)
+        ("rust-tokio-uds" ,rust-tokio-uds-0.2)
         ("rust-toml" ,rust-toml-0.4)
         ("rust-username" ,rust-username)
         ("rust-winapi" ,rust-winapi-0.2)

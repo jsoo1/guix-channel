@@ -1699,7 +1699,7 @@ guidelines on macOS.")
         ("rust-tokio-timer" ,rust-tokio-timer-0.2)
         ("rust-tokio-trace-core" ,rust-tokio-trace-core)
         ("rust-tokio-udp" ,rust-tokio-udp-0.1)
-        ("rust-tokio-uds" ,rust-tokio-uds))
+        ("rust-tokio-uds" ,rust-tokio-uds-0.2))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-flate2" ,rust-flate2-1.0)
@@ -2183,40 +2183,6 @@ synchronization primitives.")
     (synopsis "Core primitives for tokio-trace")
     (description
      "Core primitives for tokio-trace.")
-    (license #f)))
-
-(define-public rust-tokio-uds
-  (package
-    (name "rust-tokio-uds")
-    (version "0.2.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-uds" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0i94kxma6l7iy5hd5k7nvn7v9pnyw0s54bm9mjs0lap1l0xzqzq3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-futures" ,rust-futures-0.1)
-        ("rust-iovec" ,rust-iovec-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-mio" ,rust-mio-0.6)
-        ("rust-mio-uds" ,rust-mio-uds-0.6)
-        ("rust-tokio-codec" ,rust-tokio-codec-0.1)
-        ("rust-tokio-io" ,rust-tokio-io-0.1)
-        ("rust-tokio-reactor" ,rust-tokio-reactor-0.1))
-       #:cargo-development-inputs
-       (("rust-tempfile" ,rust-tempfile-3.0)
-        ("rust-tokio" ,rust-tokio))))
-    (home-page "https://github.com/tokio-rs/tokio")
-    (synopsis "Unix Domain sockets for Tokio")
-    (description "Unix Domain sockets for Tokio")
     (license #f)))
 
 (define-public rust-http
@@ -4775,7 +4741,7 @@ _getch on Windows, and termios on Unix.")
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-tempdir" ,rust-tempdir-0.3)
-        ("rust-tokio-uds" ,rust-tokio-uds))))
+        ("rust-tokio-uds" ,rust-tokio-uds-0.2))))
     (home-page "https://pijul.org/thrussh")
     (synopsis
      "Deal with SSH keys: load them, decrypt them, call an SSH agent.")
