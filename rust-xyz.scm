@@ -2620,7 +2620,7 @@ Web.")
         ("rust-tokio-uds" ,rust-tokio-uds))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-flate2" ,rust-flate2)
+        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http)
         ("rust-httparse" ,rust-httparse)
@@ -3806,46 +3806,6 @@ synchronization primitives.")
     (home-page "https://github.com/tokio-rs/tokio")
     (synopsis "Unix Domain sockets for Tokio")
     (description "Unix Domain sockets for Tokio")
-    (license #f)))
-
-(define-public rust-flate2
-  (package
-    (name "rust-flate2")
-    (version "1.0.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "flate2" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1n639gc7sbmrkir6pif608xqpwcv60kigmp5cn9x7m8892nk82am"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crc32fast" ,rust-crc32fast-1.2)
-        ("rust-futures" ,rust-futures-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libz-sys" ,rust-libz-sys-1.0)
-        ("rust-miniz-sys" ,rust-miniz-sys-0.1)
-        ("rust-miniz-oxide-c-api" ,rust-miniz-oxide-c-api-0.2)
-        ("rust-tokio-io" ,rust-tokio-io-0.1))
-       #:cargo-development-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-tokio-io" ,rust-tokio-io-0.1)
-        ("rust-tokio-tcp" ,rust-tokio-tcp-0.1)
-        ("rust-tokio-threadpool" ,rust-tokio-threadpool-0.1))))
-    (home-page
-     "https://github.com/alexcrichton/flate2-rs")
-    (synopsis
-     "Bindings to miniz.c for DEFLATE compression and decompression")
-    (description
-     "Bindings to miniz.c for DEFLATE compression and decompression
-exposed as Reader/Writer streams.  Contains bindings for zlib,
-deflate, and gzip-based streams.")
     (license #f)))
 
 (define-public rust-http
@@ -5678,7 +5638,7 @@ immutable interval tree.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-flate2" ,rust-flate2)
+       (("rust-flate2" ,rust-flate2-1.0)
         ("rust-goblin" ,rust-goblin)
         ("rust-parity-wasm" ,rust-parity-wasm)
         ("rust-scroll" ,rust-scroll)
@@ -8655,7 +8615,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-diffs" ,rust-diffs)
         ("rust-failure" ,rust-failure)
-        ("rust-flate2" ,rust-flate2)
+        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-hex" ,rust-hex-0.3)
         ("rust-ignore" ,rust-ignore)
         ("rust-log" ,rust-log-0.4)
@@ -8817,7 +8777,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-cookie" ,rust-cookie)
         ("rust-cookie-store" ,rust-cookie-store-0.7)
         ("rust-encoding-rs" ,rust-encoding-rs)
-        ("rust-flate2" ,rust-flate2)
+        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-http" ,rust-http)
         ("rust-hyper" ,rust-hyper)
@@ -8906,7 +8866,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-buffered-reader" ,rust-buffered-reader)
         ("rust-bzip2" ,rust-bzip2)
         ("rust-failure" ,rust-failure)
-        ("rust-flate2" ,rust-flate2)
+        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-idna" ,rust-idna)
         ("rust-lalrpop-util" ,rust-lalrpop-util)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -8947,7 +8907,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-buffered-reader" ,rust-buffered-reader)
         ("rust-bzip2" ,rust-bzip2)
         ("rust-failure" ,rust-failure)
-        ("rust-flate2" ,rust-flate2)
+        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-idna" ,rust-idna)
         ("rust-lalrpop" ,rust-lalrpop)
         ("rust-lalrpop-util" ,rust-lalrpop-util)
@@ -9926,7 +9886,7 @@ types.  The Client can be used for other queries.")
     (arguments
      `(#:cargo-inputs
        (("rust-bzip2" ,rust-bzip2)
-        ("rust-flate2" ,rust-flate2)
+        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-libc" ,rust-libc-0.2.58))))
     (home-page "https://sequoia-pgp.org/")
     (synopsis "A super-powered Reader")
@@ -11333,7 +11293,7 @@ exposed as Reader/Writer streams.")
         ("rust-tokio-timer" ,rust-tokio-timer))
        #:cargo-development-inputs
        (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-flate2" ,rust-flate2)
+        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http)
         ("rust-httparse" ,rust-httparse)
@@ -16377,7 +16337,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-bzip2" ,rust-bzip2)
         ("rust-crc32fast" ,rust-crc32fast-1.2)
-        ("rust-flate2" ,rust-flate2)
+        ("rust-flate2" ,rust-flate2-1.0)
         ("rust-podio" ,rust-podio)
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
