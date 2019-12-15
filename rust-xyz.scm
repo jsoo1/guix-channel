@@ -82,7 +82,7 @@ the stack.")
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-grep-pcre2" ,rust-grep-pcre2-0.1)
         ("rust-grep-printer" ,rust-grep-printer-0.1)
-        ("rust-grep-regex" ,rust-grep-regex)
+        ("rust-grep-regex" ,rust-grep-regex-0.1)
         ("rust-grep-searcher" ,rust-grep-searcher))
        #:cargo-development-inputs
        (("rust-termcolor" ,rust-termcolor-1.0)
@@ -524,7 +524,7 @@ are updated when the crate version changes.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-termcolor" ,rust-termcolor-1.0))
        #:cargo-development-inputs
-       (("rust-grep-regex" ,rust-grep-regex))))
+       (("rust-grep-regex" ,rust-grep-regex-0.1))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
     (synopsis
@@ -532,37 +532,6 @@ are updated when the crate version changes.")
     (description
      "An implementation of the grep crate's Sink trait that provides
 standard printing of search results, similar to grep itself.")
-    (license #f)))
-
-(define-public rust-grep-regex
-  (package
-    (name "rust-grep-regex")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "grep-regex" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1lbb8837gzy25n706mnidaps4jl63ym679zraj8nfy5g02zbz549"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-aho-corasick" ,rust-aho-corasick-0.7)
-        ("rust-grep-matcher" ,rust-grep-matcher-0.1)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
-        ("rust-thread-local" ,rust-thread-local-0.3)
-        ("rust-utf8-ranges" ,rust-utf8-ranges-1.0))))
-    (home-page
-     "https://github.com/BurntSushi/ripgrep")
-    (synopsis
-     "Use Rust's regex library with the grep crate")
-    (description
-     "Use Rust's regex library with the grep crate.")
     (license #f)))
 
 (define-public rust-grep-searcher
@@ -584,12 +553,12 @@ standard printing of search results, similar to grep itself.")
        (("rust-bstr" ,rust-bstr-0.2)
         ("rust-bytecount" ,rust-bytecount-0.5)
         ("rust-encoding-rs" ,rust-encoding-rs-0.8)
-        ("rust-encoding-rs-io" ,rust-encoding-rs-io)
+        ("rust-encoding-rs-io" ,rust-encoding-rs-io-0.1)
         ("rust-grep-matcher" ,rust-grep-matcher-0.1)
         ("rust-log" ,rust-log-0.4)
         ("rust-memmap" ,rust-memmap-0.7))
        #:cargo-development-inputs
-       (("rust-grep-regex" ,rust-grep-regex)
+       (("rust-grep-regex" ,rust-grep-regex-0.1)
         ("rust-regex" ,rust-regex-1.1))))
     (home-page
      "https://github.com/BurntSushi/ripgrep")
@@ -1030,31 +999,6 @@ instantiate to generate your own pieces of pseudo-random text.")
        (sha256
         (base32
          "0hs62r35bgxslawyrn1vp9rmvrkkm76fqv0vqcwd048vs876r7a8"))))))
-
-(define-public rust-encoding-rs-io
-  (package
-    (name "rust-encoding-rs-io")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding_rs_io" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0b7k9p7inkrcanh7h6q4m278y05gmcwi8p5r43h7grzl5dxfw6cn"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding-rs" ,rust-encoding-rs-0.8))))
-    (home-page
-     "https://github.com/BurntSushi/encoding_rs_io")
-    (synopsis
-     "Streaming transcoding for encoding_rs")
-    (description
-     "Streaming transcoding for encoding_rs")
-    (license #f)))
 
 (define-public rust-mmap
   (package
