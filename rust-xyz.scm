@@ -4628,40 +4628,13 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-pest" ,rust-pest-2.1)
-        ("rust-pest-meta" ,rust-pest-meta)
+        ("rust-pest-meta" ,rust-pest-meta-2.1)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15))))
     (home-page "https://pest-parser.github.io/")
     (synopsis "pest code generator")
     (description "pest code generator")
-    (license #f)))
-
-(define-public rust-pest-meta
-  (package
-    (name "rust-pest-meta")
-    (version "2.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pest_meta" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kaprdz3jis9bjfwhri1zncbsvack5m3gx2g5flspdy7wxnyljgj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-maplit" ,rust-maplit)
-        ("rust-pest" ,rust-pest-2.1))
-       #:cargo-development-inputs
-       (("rust-sha-1" ,rust-sha-1))))
-    (home-page "https://pest-parser.github.io/")
-    (synopsis
-     "pest meta language parser and validator")
-    (description
-     "pest meta language parser and validator")
     (license #f)))
 
 (define-public rust-ref-cast
@@ -5569,36 +5542,6 @@ even if the code between panics (assuming unwinding panic).
 
 Defines the macros `defer!`, `defer_on_unwind!`, `defer_on_success!` as
 shorthands for guards with one of the implemented strategies.")
-    (license #f)))
-
-(define-public rust-sha-1
-  (package
-    (name "rust-sha-1")
-    (version "0.8.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "sha-1" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0s6fdy5wp3x4h2z4fcl2d9vjvrpzr87v4h49r51xcq8nm4qj35i3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-block-buffer" ,rust-block-buffer-0.7)
-        ("rust-digest" ,rust-digest-0.8)
-        ("rust-fake-simd" ,rust-fake-simd-0.1)
-        ("rust-opaque-debug" ,rust-opaque-debug-0.2)
-        ("rust-sha1-asm" ,rust-sha1-asm-0.4))
-       #:cargo-development-inputs
-       (("rust-digest" ,rust-digest-0.8)
-        ("rust-hex-literal" ,rust-hex-literal-0.2))))
-    (home-page
-     "https://github.com/RustCrypto/hashes")
-    (synopsis "SHA-1 hash function")
-    (description "SHA-1 hash function")
     (license #f)))
 
 (define-public rust-ordermap
