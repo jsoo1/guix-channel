@@ -1097,7 +1097,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-encoding" ,rust-encoding)
+       (("rust-encoding" ,rust-encoding-0.2)
         ("rust-heapsize" ,rust-heapsize-0.4)
         ("rust-idna" ,rust-idna)
         ("rust-matches" ,rust-matches-0.1)
@@ -1132,7 +1132,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-encoding" ,rust-encoding)
+       (("rust-encoding" ,rust-encoding-0.2)
         ("rust-heapsize" ,rust-heapsize-0.4)
         ("rust-idna" ,rust-idna)
         ("rust-matches" ,rust-matches-0.1)
@@ -2004,7 +2004,7 @@ Recomposition, as described in Unicode Standard Annex #15.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-encoding" ,rust-encoding)
+       (("rust-encoding" ,rust-encoding-0.2)
         ("rust-encoding-rs" ,rust-encoding-rs)
         ("rust-futf" ,rust-futf)
         ("rust-mac" ,rust-mac)
@@ -2016,41 +2016,6 @@ Recomposition, as described in Unicode Standard Annex #15.")
      "Compact buffer/string type for zero-copy parsing")
     (description
      "Compact buffer/string type for zero-copy parsing")
-    (license #f)))
-
-(define-public rust-encoding
-  (package
-    (name "rust-encoding")
-    (version "0.2.33")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1v1ndmkarh9z3n5hk53da4z56hgk9wa5kcsm7cnx345raqw983bb"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding-index-japanese"
-         ,rust-encoding-index-japanese-1.20141219)
-        ("rust-encoding-index-korean"
-         ,rust-encoding-index-korean)
-        ("rust-encoding-index-simpchinese"
-         ,rust-encoding-index-simpchinese)
-        ("rust-encoding-index-singlebyte"
-         ,rust-encoding-index-singlebyte)
-        ("rust-encoding-index-tradchinese"
-         ,rust-encoding-index-tradchinese))
-       #:cargo-development-inputs
-       (("rust-getopts" ,rust-getopts-0.2))))
-    (home-page
-     "https://github.com/lifthrasiir/rust-encoding")
-    (synopsis "Character encoding support for Rust")
-    (description
-     "Character encoding support for Rust")
     (license #f)))
 
 (define-public rust-idna
@@ -2645,110 +2610,6 @@ maps of many strings (> 1 billion is possible).")
      "Incremental, zero-copy UTF-8 decoding with error handling")
     (description
      "Incremental, zero-copy UTF-8 decoding with error handling")
-    (license #f)))
-
-(define-public rust-encoding-index-korean
-  (package
-    (name "rust-encoding-index-korean")
-    (version "1.20141219.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding-index-korean" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "10cxabp5ppygbq4y6y680856zl9zjvq7ahpiw8zj3fmwwsw3zhsd"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests-0.1))))
-    (home-page
-     "https://github.com/lifthrasiir/rust-encoding")
-    (synopsis
-     "Index tables for Korean character encodings")
-    (description
-     "Index tables for Korean character encodings")
-    (license #f)))
-
-(define-public rust-encoding-index-simpchinese
-  (package
-    (name "rust-encoding-index-simpchinese")
-    (version "1.20141219.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding-index-simpchinese" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xria2i7mc5dqdrpqxasdbxv1qx46jjbm53if3y1i4cvj2a72ynq"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests-0.1))))
-    (home-page
-     "https://github.com/lifthrasiir/rust-encoding")
-    (synopsis
-     "Index tables for simplified Chinese character encodings")
-    (description
-     "Index tables for simplified Chinese character encodings")
-    (license #f)))
-
-(define-public rust-encoding-index-singlebyte
-  (package
-    (name "rust-encoding-index-singlebyte")
-    (version "1.20141219.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding-index-singlebyte" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jp85bz2pprzvg9m95w4q0vibh67b6w3bx35lafay95jzyndal9k"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests-0.1))))
-    (home-page
-     "https://github.com/lifthrasiir/rust-encoding")
-    (synopsis
-     "Index tables for various single-byte character encodings")
-    (description
-     "Index tables for various single-byte character encodings")
-    (license #f)))
-
-(define-public rust-encoding-index-tradchinese
-  (package
-    (name "rust-encoding-index-tradchinese")
-    (version "1.20141219.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "encoding-index-tradchinese" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "060ci4iz6xfvzk38syfbjvs7pix5hch3mvxkksswmqwcd3aj03px"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding-index-tests"
-         ,rust-encoding-index-tests-0.1))))
-    (home-page
-     "https://github.com/lifthrasiir/rust-encoding")
-    (synopsis
-     "Index tables for traditional Chinese character encodings")
-    (description
-     "Index tables for traditional Chinese character encodings")
     (license #f)))
 
 (define-public rust-unicode-bidi
