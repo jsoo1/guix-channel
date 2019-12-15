@@ -5638,7 +5638,7 @@ shorthands for guards with one of the implemented strategies.")
      `(#:cargo-inputs
        (("rust-block-buffer" ,rust-block-buffer-0.7)
         ("rust-digest" ,rust-digest-0.8)
-        ("rust-fake-simd" ,rust-fake-simd)
+        ("rust-fake-simd" ,rust-fake-simd-0.1)
         ("rust-opaque-debug" ,rust-opaque-debug)
         ("rust-sha1-asm" ,rust-sha1-asm))
        #:cargo-development-inputs
@@ -5648,27 +5648,6 @@ shorthands for guards with one of the implemented strategies.")
      "https://github.com/RustCrypto/hashes")
     (synopsis "SHA-1 hash function")
     (description "SHA-1 hash function")
-    (license #f)))
-
-(define-public rust-fake-simd
-  (package
-    (name "rust-fake-simd")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "fake-simd" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1vfylvk4va2ivqx85603lyqqp0zk52cgbs4n5nfbbbqx577qm2p8"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/RustCrypto/utils")
-    (synopsis
-     "Crate for mimicking simd crate on stable Rust")
-    (description
-     "Crate for mimicking simd crate on stable Rust")
     (license #f)))
 
 (define-public rust-sha1-asm
@@ -6753,7 +6732,7 @@ _getch on Windows, and termios on Unix.")
      `(#:cargo-inputs
        (("rust-block-buffer" ,rust-block-buffer-0.7)
         ("rust-digest" ,rust-digest-0.8)
-        ("rust-fake-simd" ,rust-fake-simd)
+        ("rust-fake-simd" ,rust-fake-simd-0.1)
         ("rust-opaque-debug" ,rust-opaque-debug)
         ("rust-sha2-asm" ,rust-sha2-asm))
        #:cargo-development-inputs
