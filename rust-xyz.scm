@@ -1071,7 +1071,7 @@ instantiate to generate your own pieces of pseudo-random text.")
         ("rust-heapsize" ,rust-heapsize-0.4)
         ("rust-idna" ,rust-idna-0.1)
         ("rust-matches" ,rust-matches-0.1)
-        ("rust-percent-encoding" ,rust-percent-encoding)
+        ("rust-percent-encoding" ,rust-percent-encoding-1.0)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
@@ -1989,25 +1989,6 @@ guidelines on macOS.")
      "IDNA (Internationalizing Domain Names in Applications) and Punycode")
     (description
      "IDNA (Internationalizing Domain Names in Applications) and Punycode.")
-    (license #f)))
-
-(define-public rust-percent-encoding
-  (package
-    (name "rust-percent-encoding")
-    (version "1.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "percent-encoding" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0cgq08v1fvr6bs5fvy390cz830lq4fak8havdasdacxcw790s09i"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/servo/rust-url/")
-    (synopsis "Percent encoding and decoding")
-    (description "Percent encoding and decoding")
     (license #f)))
 
 (define-public rust-percent-encoding-2.1.0
@@ -6360,7 +6341,7 @@ and private (encrypted + signed) jars.")
         ("rust-language-tags" ,rust-language-tags-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-mime" ,rust-mime-0.3)
-        ("rust-percent-encoding" ,rust-percent-encoding)
+        ("rust-percent-encoding" ,rust-percent-encoding-1.0)
         ("rust-time" ,rust-time-0.1)
         ("rust-unicase" ,rust-unicase))))
     (home-page "https://hyper.rs")
