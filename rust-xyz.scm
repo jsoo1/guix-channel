@@ -2448,32 +2448,6 @@ checking")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-tempdir" ,rust-tempdir-0.3))))))
 
-(define-public rust-utf8-ranges
-  (package
-    (name "rust-utf8-ranges")
-    (version "1.0.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "utf8-ranges" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ppzjsxmv1p1xfid8wwn07ciikk84k30frl28bwsny6za1vall4x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page
-     "https://github.com/BurntSushi/utf8-ranges")
-    (synopsis
-     "Convert ranges of Unicode codepoints to UTF-8 byte ranges")
-    (description
-     "Convert ranges of Unicode codepoints to UTF-8 byte ranges.")
-    (license #f)))
-
 (define-public rust-crossbeam-epoch-0.3
   (package
     (inherit rust-crossbeam-epoch-0.7)
