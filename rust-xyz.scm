@@ -3376,35 +3376,6 @@ reading and writing git repositories.")
      "The uninhabited void type for use in statically impossible cases.")
     (license #f)))
 
-(define-public rust-c2-chach
-  (package
-    (name "rust-c2-chacha")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "c2-chacha" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "00a11qdc8mg3z0k613rhprkc9p6xz0y7b1681x32ixg0hr3x0r3x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-ppv-lite86" ,rust-ppv-lite86-0.2)
-        ("rust-stream-cipher" ,rust-stream-cipher-0.3))
-       #:cargo-development-inputs
-       (("rust-hex-literal" ,rust-hex-literal-0.2))))
-    (home-page
-     "https://github.com/cryptocorrosion/cryptocorrosion")
-    (synopsis "The ChaCha family of stream ciphers")
-    (description
-     "The ChaCha family of stream ciphers")
-    (license #f)))
-
 (define-public rust-generic-array-0.12.3
   (package
     (inherit rust-generic-array-0.13)
