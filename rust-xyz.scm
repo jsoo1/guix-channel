@@ -3419,37 +3419,6 @@ reading and writing git repositories.")
         (base32
          "1v5jg7djicq34nbiv1dwaki71gkny002wyy9qfn3y0hfmrs053y6"))))))
 
-(define-public rust-wasm-bindgen-macro
-  (package
-    (name "rust-wasm-bindgen-macro")
-    (version "0.2.48")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasm-bindgen-macro" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "07fqzzlbncccmnxbbkg9v4n53qc1lps5g0bb9wq3i9zp9gvm0zgh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-quote" ,rust-quote-1.0)
-        ("rust-wasm-bindgen-macro-support"
-         ,rust-wasm-bindgen-macro-support-0.2))
-       #:cargo-development-inputs
-       (("rust-trybuild" ,rust-trybuild-1.0)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))))
-    (home-page
-     "https://rustwasm.github.io/wasm-bindgen/")
-    (synopsis
-     "Definition of the @code{#[wasm_bindgen]} attribute")
-    (description
-     "Definition of the @code{#[wasm_bindgen]} attribute, an internal
-dependency.")
-    (license #f)))
-
 (define-public rust-foreign-types
   (package
     (name "rust-foreign-types")
