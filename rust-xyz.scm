@@ -730,26 +730,6 @@ instantiate to generate your own pieces of pseudo-random text.")
      "This package provides a pull parser for CommonMark")
     (license #f)))
 
-(define-public rust-semver-parser-0.7
-  (package
-    (name "rust-semver-parser")
-    (version "0.7.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "semver-parser" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "18vhypw6zgccnrlm5ps1pwa0khz7ry927iznpr88b87cagr1v2iq"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/steveklabnik/semver-parser")
-    (synopsis "Parsing of the semver spec")
-    (description "Parsing of the semver spec.")
-    (license #f)))
-
 (define-public rust-url-2.0
   (package
     (name "rust-url")
