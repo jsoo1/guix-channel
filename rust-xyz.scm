@@ -2646,32 +2646,6 @@ bench suite.")
 index")
     (license #f)))
 
-(define-public rust-vcpkg
-  (package
-    (name "rust-vcpkg")
-    (version "0.2.7")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "vcpkg" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "15dzk1b96q946v9aisbd1bbhi33n93wvgziwh1shmscn1xflbp9k"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page "https://github.com/mcgoo/vcpkg-rs")
-    (synopsis
-     "Find native dependencies in a vcpkg from Cargo")
-    (description
-     "This package provides a library to find native dependencies in a
-vcpkg tree at build time in order to be used in Cargo build scripts.")
-    (license #f)))
-
 (define-public rust-gcc
   (package
     (name "rust-gcc")
@@ -2900,7 +2874,7 @@ reading and writing git repositories.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-vcpkg" ,rust-vcpkg))
+        ("rust-vcpkg" ,rust-vcpkg-0.2))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg-0.1)
         ("rust-cc" ,rust-cc-1.0)
@@ -2934,7 +2908,7 @@ reading and writing git repositories.")
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0)
         ("rust-pkg-config" ,rust-pkg-config-0.3)
-        ("rust-vcpkg" ,rust-vcpkg))))
+        ("rust-vcpkg" ,rust-vcpkg-0.2))))
     (home-page
      "https://github.com/alexcrichton/ssh2-rs")
     (synopsis
