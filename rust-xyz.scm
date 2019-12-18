@@ -11732,39 +11732,6 @@ for computer graphics.")
         (base32
          "0yhnnix4dzsv8y4wwz4csbnqjfh73al33j35msr10py6cl5r4vks"))))))
 
-(define-public rust-cbindgen
-  (package
-    (name "rust-cbindgen")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cbindgen" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0xzjh4g3mca8qhvffq0viy98l1lnh4hwvgfbfj6ci4iqkbdijzhf"))))
-    (build-system cargo-build-system)
-    (arguments
-     ;; Something is failing compiling a c++ program here
-     `(#:tests? #f
-       #:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-clap" ,rust-clap-2)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-syn" ,rust-syn-0.15)
-        ("rust-tempfile" ,rust-tempfile-3.0)
-        ("rust-toml" ,rust-toml-0.5))))
-    (home-page "https://github.com/rayon-rs/rayon")
-    (synopsis "Core APIs for Rayon")
-    (description "Core APIs for Rayon")
-    (license #f)))
-
 (define-public rust-strings
   (package
     (name "rust-strings")

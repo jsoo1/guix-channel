@@ -17,7 +17,7 @@
    - +ripgrep+ (upstreamed)
    - +xmobar with dbus and alsa support+ (upstreamed)
    - rustfmt
-   - cbindgen
+   - +cbindgen+ (upstreamed)
 ** In progress
    - alacritty
    - emacs@27
