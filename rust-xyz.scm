@@ -3409,31 +3409,6 @@ reading and writing git repositories.")
     (description "JSON implementation in Rust")
     (license #f)))
 
-(define-public rust-scopeguard-0.3
-  (package
-    (name "rust-scopeguard")
-    (version "0.3.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "scopeguard" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09sy9wbqp409pkwmqni40qmwa99ldqpl48pp95m1xw8sc19qy9cl"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/bluss/scopeguard")
-    (synopsis
-     "A RAII scope guard that will run a given closure when it goes out of scope")
-    (description
-     "This package provides a RAII scope guard that will run a given closure when it goes out of scope,
-even if the code between panics (assuming unwinding panic).
-
-Defines the macros `defer!`, `defer_on_unwind!`, `defer_on_success!` as
-shorthands for guards with one of the implemented strategies.")
-    (license #f)))
-
 (define-public rust-ordermap
   (package
     (name "rust-ordermap")
