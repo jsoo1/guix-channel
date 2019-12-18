@@ -1,4 +1,5 @@
 (define-module (racer)
+  #:use-module (gnu packages)
   #:use-module (gnu packages crates-io)
   #:use-module (gnu packages perl)
   #:use-module (gnu packages python)
@@ -22,7 +23,7 @@
        (sha256
         (base32
          "1hhii43zipg048v1srpv6f8w0xkgfq39blw2w72zabgi8ngp44z7"))
-       (patches '("./racer-ignore-tests.patch"))))
+       (patches (list (search-patch "racer-ignore-tests.patch")))))
     (build-system cargo-build-system)
     (inputs
      `(("perl" ,perl)
