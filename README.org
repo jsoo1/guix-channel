@@ -7,17 +7,16 @@
    - libsixel
    - sdump
    - idump
-   - purescript
+   - +purescript+ (upstreamed)
    - dhall
    - purescript-spago
    - ghc-servant
    - ghcid (needs tweaks)
    - ghc-servant
-   - all in ghc-* (except ghc-hspec)
    - bower (needs tweaks)
    - pijul
-   - ripgrep
-   - xmobar with dbus and alsa support
+   - +ripgrep+ (upstreamed)
+   - +xmobar with dbus and alsa support+ (upstreamed)
    - rustfmt
    - cbindgen
 ** In progress
@@ -25,6 +24,4 @@
    - emacs@27
    - firefox
    - termonad
-   - ghc-hspec with ghc@8.6
-   - mlton
-   - urweb
+   - urweb (waiting for upstream MLton)
