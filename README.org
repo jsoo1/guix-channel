@@ -12,7 +12,6 @@
    - purescript-spago
    - ghc-servant
    - ghcid (needs tweaks)
-   - ghc-servant
    - bower (needs tweaks)
    - pijul
    - +ripgrep+ (upstreamed)
