@@ -112,21 +112,6 @@ They may contain data, are usable without `std`,
 and static initializers are available.")
     (license #f)))
 
-(define-public rust-unicode-xid-0.2
-  (package
-    (inherit rust-unicode-xid-0.1)
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unicode-xid" version))
-       (file-name
-        (string-append
-         (package-name rust-unicode-xid-0.1) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0z09fn515xm7zyr0mmdyxa9mx2f7azcpv74pqmg611iralwpcvl2"))))))
-
 (define-public rust-unicode-xid-0.0.3
   (package
     (inherit rust-unicode-xid-0.1)
