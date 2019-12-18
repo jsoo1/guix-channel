@@ -1891,34 +1891,6 @@ maps of many strings (> 1 billion is possible).")
      "This package provides a Rust library to access Redox users and groups functionality")
     (license #f)))
 
-(define-public rust-net2
-  (package
-    (name "rust-net2")
-    (version "0.2.33")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "net2" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "126g3fgfxp06zimc1l9iyxnn9cif1hjsg7sd81nlls5nnyghsma2"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/rust-lang-nursery/net2-rs")
-    (synopsis
-     "Extensions to the standard library's networking types")
-    (description
-     "Extensions to the standard library's networking types as
-proposed in RFC 1158.")
-    (license #f)))
-
 (define-public rust-arc-swap
   (package
     (name "rust-arc-swap")
@@ -4779,7 +4751,7 @@ and private (encrypted + signed) jars.")
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-itoa" ,rust-itoa-0.4)
         ("rust-log" ,rust-log-0.4)
-        ("rust-net2" ,rust-net2)
+        ("rust-net2" ,rust-net2-0.2)
         ("rust-pin-project" ,rust-pin-project)
         ("rust-time" ,rust-time-0.1)
         ("rust-tokio" ,rust-tokio-0.1)

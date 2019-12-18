@@ -85,6 +85,7 @@
         ("rust-mio-named-pipes" ,rust-mio-named-pipes)
         ("rust-miow" ,rust-miow-0.3)
         ("rust-named-pipe" ,rust-named-pipe)
+        ("rust-net2" ,rust-net2-0.2)
         ("rust-nix" ,rust-nix-0.14)
         ("rust-notify" ,rust-notify)
         ("rust-objc-foundation" ,rust-objc-foundation)
