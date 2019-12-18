@@ -582,25 +582,6 @@ are updated when the crate version changes.")
        (("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0))))))
 
-(define-public rust-rand-core-0.3
-  (package
-    (inherit rust-rand-core-0.5)
-    (version "0.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_core" version))
-       (file-name
-        (string-append (package-name rust-rand-core-0.5) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jzdgszfa4bliigiy4hi66k7fs3gfwi2qxn8vik84ph77fwdwvvs"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))))))
-
 (define-public rust-termion
   (package
     (name "rust-termion")
