@@ -1598,7 +1598,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-string-cache-codegen"
-         ,rust-string-cache-codegen))))
+         ,rust-string-cache-codegen-0.4))))
     (home-page "https://github.com/servo/html5ever")
     (synopsis
      "Common code for xml5ever and html5ever")
@@ -1910,7 +1910,7 @@ Levenshtein automata.")
         ("rust-phf-shared" ,rust-phf-shared-0.7)
         ("rust-precomputed-hash" ,rust-precomputed-hash-0.1)
         ("rust-serde" ,rust-serde-1.0)
-        ("rust-string-cache-codegen" ,rust-string-cache-codegen)
+        ("rust-string-cache-codegen" ,rust-string-cache-codegen-0.4)
         ("rust-string-cache-shared" ,rust-string-cache-shared-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
@@ -8314,36 +8314,6 @@ implementation of Bresenham's line algorithm.")
      "Union-find, congruence closure, and other unification code. Based on code from rustc.")
     (description
      "Union-find, congruence closure, and other unification code.  Based on code from rustc.")
-    (license #f)))
-
-(define-public rust-string-cache-codegen
-  (package
-    (name "rust-string-cache-codegen")
-    (version "0.4.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "string-cache-codegen" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1npl9zq9cd16d7irksblgk7l7g6qknnzsmr12hrhky2fcpp1xshy"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-phf-generator" ,rust-phf-generator-0.7)
-        ("rust-phf-shared" ,rust-phf-shared-0.7)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-string-cache-shared"
-         ,rust-string-cache-shared-0.3))))
-    (home-page
-     "https://github.com/servo/string-cache")
-    (synopsis
-     "A codegen library for string-cache, developed as part of the Servo project.")
-    (description
-     "This package provides a codegen library for string-cache, developed as part of the Servo project.")
     (license #f)))
 
 (define-public rust-dogged
