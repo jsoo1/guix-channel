@@ -7537,7 +7537,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-cc" ,rust-cc-1.0)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-sysctl" ,rust-sysctl)
+        ("rust-sysctl" ,rust-sysctl-0.4)
         ("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page "https://github.com/nix-rust/nix")
     (synopsis "Rust friendly bindings to *nix APIs")
@@ -7571,7 +7571,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-cc" ,rust-cc-1.0)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
-        ("rust-sysctl" ,rust-sysctl)
+        ("rust-sysctl" ,rust-sysctl-0.4)
         ("rust-tempfile" ,rust-tempfile-3.0))))
     (home-page "https://github.com/nix-rust/nix")
     (synopsis "Rust friendly bindings to *nix APIs")
@@ -8110,34 +8110,6 @@ supports type parameters, associated types, and type constraints.")
      "https://github.com/dimbleby/mio-extras")
     (synopsis "Extra components for use with Mio")
     (description "Extra components for use with Mio")
-    (license license:expat)))
-
-(define-public rust-sysctl
-  (package
-    (name "rust-sysctl")
-    (version "0.4.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "sysctl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0p6bfjsw3v12nb2qsgm6r9klwb5qyh4w55zzmccv8r5aqb8g0085"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-failure" ,rust-failure-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-walkdir" ,rust-walkdir-2.2))))
-    (home-page
-     "https://github.com/johalun/sysctl-rs")
-    (synopsis "Simplified interface to libc::sysctl")
-    (description
-     "Simplified interface to libc::sysctl")
     (license license:expat)))
 
 (define-public rust-objc-test-utils
