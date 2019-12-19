@@ -636,7 +636,7 @@ instantiate to generate your own pieces of pseudo-random text.")
         ("rust-html5ever" ,rust-html5ever)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-tendril" ,rust-tendril))))
+        ("rust-tendril" ,rust-tendril-0.4))))
     (home-page
      "https://github.com/raphlinus/pulldown-cmark")
     (synopsis "A pull parser for CommonMark")
@@ -1349,36 +1349,6 @@ guidelines on macOS.")
      "High-performance browser-grade HTML5 parser")
     (license #f)))
 
-(define-public rust-tendril
-  (package
-    (name "rust-tendril")
-    (version "0.4.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tendril" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0fsx7blrrzgca8aa2yqy8zxyi8s7amskhgkk1ml5sbaqyalyszvh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-encoding" ,rust-encoding-0.2)
-        ("rust-encoding-rs" ,rust-encoding-rs-0.8)
-        ("rust-futf" ,rust-futf)
-        ("rust-mac" ,rust-mac-0.1)
-        ("rust-utf-8" ,rust-utf-8))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page "https://github.com/servo/tendril")
-    (synopsis
-     "Compact buffer/string type for zero-copy parsing")
-    (description
-     "Compact buffer/string type for zero-copy parsing")
-    (license #f)))
-
 (define-public rust-idna-0.2
   (package
     (name "rust-idna")
@@ -1591,7 +1561,7 @@ maps of many strings (> 1 billion is possible).")
        (("rust-log" ,rust-log-0.4)
         ("rust-phf" ,rust-phf-0.7)
         ("rust-string-cache" ,rust-string-cache-0.7)
-        ("rust-tendril" ,rust-tendril))
+        ("rust-tendril" ,rust-tendril-0.4))
        #:cargo-development-inputs
        (("rust-phf-codegen" ,rust-phf-codegen)
         ("rust-serde" ,rust-serde-1.0)
@@ -11967,7 +11937,7 @@ pitfalls in Rust")
         ("rust-html5ever" ,rust-html5ever)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-tendril" ,rust-tendril))))
+        ("rust-tendril" ,rust-tendril-0.4))))
     (home-page
      "https://github.com/raphlinus/pulldown-cmark")
     (synopsis "A pull parser for CommonMark")
