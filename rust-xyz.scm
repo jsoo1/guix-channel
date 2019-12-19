@@ -7123,7 +7123,7 @@ functions.")
         ("rust-downcast-rs" ,rust-downcast-rs)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-nix" ,rust-nix)
+        ("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-commons" ,rust-wayland-commons)
         ("rust-wayland-scanner" ,rust-wayland-scanner)
         ("rust-wayland-sys" ,rust-wayland-sys))
@@ -7159,7 +7159,7 @@ functions.")
         ("rust-downcast-rs" ,rust-downcast-rs)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-nix" ,rust-nix)
+        ("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-commons" ,rust-wayland-commons-0.21)
         ("rust-wayland-scanner" ,rust-wayland-scanner-0.21)
         ("rust-wayland-sys" ,rust-wayland-sys-0.21))
@@ -7236,7 +7236,7 @@ functions.")
      `(#:cargo-inputs
        (("rust-mio" ,rust-mio-0.6)
         ("rust-mio-extras" ,rust-mio-extras)
-        ("rust-nix" ,rust-nix))
+        ("rust-nix" ,rust-nix-0.15))
        #:cargo-development-inputs
        (("rust-lazycell" ,rust-lazycell-1.2))))
     (home-page "https://github.com/Smithay/calloop")
@@ -7343,7 +7343,7 @@ functions.")
         ("rust-dlib" ,rust-dlib)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memmap" ,rust-memmap-0.7)
-        ("rust-nix" ,rust-nix)
+        ("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-client" ,rust-wayland-client)
         ("rust-wayland-protocols"
          ,rust-wayland-protocols))
@@ -7379,7 +7379,7 @@ functions.")
         ("rust-dlib" ,rust-dlib)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-memmap" ,rust-memmap-0.7)
-        ("rust-nix" ,rust-nix)
+        ("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-client" ,rust-wayland-client)
         ("rust-wayland-protocols" ,rust-wayland-protocols-0.21))
        #:cargo-development-inputs
@@ -7511,40 +7511,6 @@ functions.")
 supports type parameters, associated types, and type constraints.")
     (license #f)))
 
-(define-public rust-nix
-  (package
-    (name "rust-nix")
-    (version "0.15.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "nix" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0aa2l7wg9pzx24ks4p97gdy09a4hhs1sr9drxnm75v906d7hnbiv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-void" ,rust-void-1.0))
-       #:cargo-development-inputs
-       (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-caps" ,rust-caps-0.3)
-        ("rust-cc" ,rust-cc-1.0)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-sysctl" ,rust-sysctl-0.4)
-        ("rust-tempfile" ,rust-tempfile-3.0))))
-    (home-page "https://github.com/nix-rust/nix")
-    (synopsis "Rust friendly bindings to *nix APIs")
-    (description
-     "Rust friendly bindings to *nix APIs")
-    (license license:expat)))
-
 (define-public rust-nix-0.14
   (package
     (name "rust-nix")
@@ -7595,7 +7561,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-nix" ,rust-nix)
+       (("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-sys" ,rust-wayland-sys))))
     (home-page
      "https://github.com/smithay/wayland-rs")
@@ -8158,7 +8124,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-downcast-rs" ,rust-downcast-rs)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-nix" ,rust-nix)
+        ("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-commons" ,rust-wayland-commons)
         ("rust-wayland-sys" ,rust-wayland-sys))
        #:cargo-development-inputs
@@ -8309,7 +8275,7 @@ hardware font rendering.")
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-nix" ,rust-nix))))
+        ("rust-nix" ,rust-nix-0.15))))
     (home-page "https://github.com/cpjreynolds/sema")
     (synopsis "Rust semaphore library")
     (description "Rust semaphore library")
@@ -9689,7 +9655,7 @@ UNC where possible")
         ("rust-input" ,rust-input)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libloading" ,rust-libloading)
-        ("rust-nix" ,rust-nix)
+        ("rust-nix" ,rust-nix-0.15)
         ("rust-slog" ,rust-slog-2.4)
         ("rust-slog-stdlog" ,rust-slog-stdlog)
         ("rust-systemd" ,rust-systemd)
@@ -9782,7 +9748,7 @@ inter-process communication.")
        (("rust-derive-more" ,rust-derive-more)
         ("rust-drm-sys" ,rust-drm-sys)
         ("rust-error-chain" ,rust-error-chain-0.12)
-        ("rust-nix" ,rust-nix))))
+        ("rust-nix" ,rust-nix-0.15))))
     (home-page "https://github.com/Smithay/drm-rs")
     (synopsis
      "Safe, low-level bindings to the Direct Rendering Manager API")
@@ -10457,7 +10423,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-nix" ,rust-nix)
+       (("rust-nix" ,rust-nix-0.15)
         ("rust-smithay-client-toolkit"
          ,rust-smithay-client-toolkit))
        #:cargo-development-inputs
@@ -12794,7 +12760,7 @@ function's body.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-nix" ,rust-nix)
+       (("rust-nix" ,rust-nix-0.15)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/oconnor663/os_pipe.rs")
