@@ -2263,31 +2263,7 @@ checking")
      "Macros to generate types in the phf crate")
     (description
      "Macros to generate types in the phf crate")
-    (license #f)))
-
-(define-public rust-phf-macros
-  (package
-    (name "rust-phf-shared")
-    (version "0.7.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "phf_shared" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "18371fla0vsj7d6d5rlfb747xbr2in11ar9vgv5qna72bnhp2kr3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-siphasher" ,rust-siphasher)
-        ("rust-unicase" ,rust-unicase-2.4))))
-    (home-page
-     "https://github.com/sfackler/rust-phf")
-    (synopsis "Support code shared by PHF libraries")
-    (description "Support code shared by PHF libraries")
-    (license #f)))
+    (license license:expat)))
 
 (define-public rust-new-debug-unreachable
   (package
@@ -2503,27 +2479,6 @@ to be linked into Rust code.")
      "https://github.com/sfackler/rust-phf")
     (synopsis "PHF generation logic")
     (description "PHF generation logic")
-    (license #f)))
-
-(define-public rust-siphasher
-  (package
-    (name "rust-siphasher")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "siphasher" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1a03vzazh0wpds6nmclpnkq3z1mj1dmh3738z81lmn2pyrfwf4wr"))))
-    (build-system cargo-build-system)
-    (home-page "https://docs.rs/siphasher")
-    (synopsis
-     "SipHash functions from rust-core < 1.13")
-    (description
-     "SipHash functions from rust-core < 1.13")
     (license #f)))
 
 (define-public rust-siphasher-0.2
