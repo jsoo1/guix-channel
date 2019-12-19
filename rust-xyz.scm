@@ -1624,7 +1624,7 @@ maps of many strings (> 1 billion is possible).")
      `(#:cargo-inputs
        (("rust-mac" ,rust-mac-0.1)
         ("rust-new-debug-unreachable"
-         ,rust-new-debug-unreachable))))
+         ,rust-new-debug-unreachable-1.0))))
     (home-page "https://github.com/servo/futf")
     (synopsis "Handling fragments of UTF-8")
     (description "Handling fragments of UTF-8")
@@ -1906,7 +1906,7 @@ Levenshtein automata.")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-new-debug-unreachable"
-         ,rust-new-debug-unreachable)
+         ,rust-new-debug-unreachable-1.0)
         ("rust-phf-shared" ,rust-phf-shared-0.7)
         ("rust-precomputed-hash" ,rust-precomputed-hash)
         ("rust-serde" ,rust-serde-1.0)
@@ -2176,29 +2176,6 @@ checking")
         ("rust-scopeguard" ,rust-scopeguard-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
-
-(define-public rust-new-debug-unreachable
-  (package
-    (name "rust-new-debug-unreachable")
-    (version "1.0.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "new_debug_unreachable" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0c1br326qa0rrzxrn2rd5ah7xaprig2i9r4rwsx06vnvc1f003zl"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/mbrubeck/rust-debug-unreachable")
-    (synopsis
-     "Panic in debug, @code{intrinsics::unreachable()} in release")
-    (description
-     "Panic in debug, @code{intrinsics::unreachable() }in release (fork of
-debug_unreachable)")
-    (license #f)))
 
 (define-public rust-precomputed-hash
   (package
