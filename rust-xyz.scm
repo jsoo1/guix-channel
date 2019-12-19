@@ -1589,7 +1589,7 @@ maps of many strings (> 1 billion is possible).")
     (arguments
      `(#:cargo-inputs
        (("rust-log" ,rust-log-0.4)
-        ("rust-phf" ,rust-phf)
+        ("rust-phf" ,rust-phf-0.7)
         ("rust-string-cache" ,rust-string-cache)
         ("rust-tendril" ,rust-tendril))
        #:cargo-development-inputs
@@ -1888,32 +1888,6 @@ Levenshtein automata.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
 
-(define-public rust-phf
-  (package
-    (name "rust-phf")
-    (version "0.7.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "phf" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "066xwv4dr6056a9adlkarwp4n94kbpwngbmd47ngm3cfbyw49nmk"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-phf-macros" ,rust-phf-macros)
-        ("rust-phf-shared" ,rust-phf-shared-0.7))))
-    (home-page
-     "https://github.com/sfackler/rust-phf")
-    (synopsis
-     "Runtime support for perfect hash function data structures")
-    (description
-     "Runtime support for perfect hash function data structures")
-    (license #f)))
-
 (define-public rust-string-cache
   (package
     (name "rust-string-cache")
@@ -2202,37 +2176,6 @@ checking")
         ("rust-scopeguard" ,rust-scopeguard-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
-
-(define-public rust-phf-macros
-  (package
-    (name "rust-phf-macros")
-    (version "0.7.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "phf_macros" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0dzylcy14ksy60h265l433j9ra8xhg8xlq3pd5qk658m6f1mxd5x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-phf-generator" ,rust-phf-generator-0.7)
-        ("rust-phf-shared" ,rust-phf-shared-0.7)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))
-       #:cargo-development-inputs
-       (("rust-compiletest-rs" ,rust-compiletest-rs-0.3))))
-    (home-page
-     "https://github.com/sfackler/rust-phf")
-    (synopsis
-     "Macros to generate types in the phf crate")
-    (description
-     "Macros to generate types in the phf crate")
-    (license license:expat)))
 
 (define-public rust-new-debug-unreachable
   (package
@@ -9036,7 +8979,7 @@ complex, rational, range iterators, generic integers, and more!
      `(#:cargo-inputs
        (("rust-fnv" ,rust-fnv-1.0)
         ("rust-nom" ,rust-nom-4.2)
-        ("rust-phf" ,rust-phf)
+        ("rust-phf" ,rust-phf-0.7)
         ("rust-phf-codegen" ,rust-phf-codegen))))
     (home-page
      "https://github.com/meh/rust-terminfo")
