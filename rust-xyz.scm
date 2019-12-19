@@ -2378,7 +2378,7 @@ bench suite.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-error-chain" ,rust-error-chain)
+       (("rust-error-chain" ,rust-error-chain-0.12)
         ("rust-git2" ,rust-git2)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-serde" ,rust-serde-1.0)
@@ -2436,33 +2436,6 @@ index")
      "Compares two equal-sized byte strings in constant time")
     (description
      "Compares two equal-sized byte strings in constant time.")
-    (license #f)))
-
-(define-public rust-error-chain
-  (package
-    (name "rust-error-chain")
-    (version "0.12.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "error-chain" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ndpw1ny2kxqpw6k1shq8k56z4vfpk4xz9zr8ay988k0rffrxd1s"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace-0.3))
-       #:cargo-development-inputs
-       (("rust-version-check" ,rust-version-check-0.9))))
-    (home-page
-     "https://github.com/rust-lang-nursery/error-chain")
-    (synopsis
-     "Yet another error boilerplate library")
-    (description
-     "Yet another error boilerplate library.")
     (license #f)))
 
 (define-public rust-git2
@@ -6005,7 +5978,7 @@ client or server.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-error-chain" ,rust-error-chain)
+       (("rust-error-chain" ,rust-error-chain-0.12)
         ("rust-idna" ,rust-idna-0.2)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-native-tls" ,rust-native-tls)
@@ -6762,59 +6735,6 @@ functions.")
     (description
      "small helper to generate version information for git packages")
     (license #f)))
-
-(define-public rust-errno
-  (package
-    (name "rust-errno")
-    (version "0.2.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "errno" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kn8mlygxxr02cm97401nppd2dbkwsalpcbai67rh6yh3rh73862"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-errno-dragonfly" ,rust-errno-dragonfly)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/lfairy/rust-errno")
-    (synopsis
-     "Cross-platform interface to the `errno` variable.")
-    (description
-     "Cross-platform interface to the `errno` variable.")
-    (license #f)))
-
-(define-public rust-errno-dragonfly
-  (package
-    (name "rust-errno-dragonfly")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "errno-dragonfly" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0rshlc00nv45f14v2l1w0ma2nf1jg5j7q9pvw7hh018r6r73bjhl"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-gcc" ,rust-gcc-0.3))))
-    (home-page
-     "https://github.com/mneumann/errno-dragonfly-rs")
-    (synopsis
-     "Exposes errno functionality to stable Rust on DragonFlyBSD")
-    (description
-     "Exposes errno functionality to stable Rust on DragonFlyBSD")
-    (license license:expat)))
 
 (define-public rust-glutin
   (package
@@ -8208,8 +8128,8 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-errno" ,rust-errno)
-        ("rust-error-chain" ,rust-error-chain)
+       (("rust-errno" ,rust-errno-2.4)
+        ("rust-error-chain" ,rust-error-chain-0.12)
         ("rust-libc" ,rust-libc-0.2.58))))
     (home-page "https://github.com/lucab/caps-rs")
     (synopsis
@@ -9816,7 +9736,7 @@ UNC where possible")
      `(#:cargo-inputs
        (("rust-dbus" ,rust-dbus)
         ("rust-drm" ,rust-drm)
-        ("rust-error-chain" ,rust-error-chain)
+        ("rust-error-chain" ,rust-error-chain-0.12)
         ("rust-gbm" ,rust-gbm)
         ("rust-glium" ,rust-glium)
         ("rust-image" ,rust-image)
@@ -9915,7 +9835,7 @@ inter-process communication.")
      `(#:cargo-inputs
        (("rust-derive-more" ,rust-derive-more)
         ("rust-drm-sys" ,rust-drm-sys)
-        ("rust-error-chain" ,rust-error-chain)
+        ("rust-error-chain" ,rust-error-chain-0.12)
         ("rust-nix" ,rust-nix))))
     (home-page "https://github.com/Smithay/drm-rs")
     (synopsis
@@ -13147,7 +13067,7 @@ attributes into structs when implementing custom derives.")
      `(#:cargo-inputs
        (("rust-bytecount" ,rust-bytecount-0.5)
         ("rust-cargo-metadata" ,rust-cargo-metadata)
-        ("rust-error-chain" ,rust-error-chain)
+        ("rust-error-chain" ,rust-error-chain-0.12)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark)
         ("rust-serde-json" ,rust-serde-json-1.0)
