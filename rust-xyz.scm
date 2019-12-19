@@ -7533,7 +7533,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-void" ,rust-void-1.0))
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-caps" ,rust-caps)
+        ("rust-caps" ,rust-caps-0.3)
         ("rust-cc" ,rust-cc-1.0)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
@@ -7567,7 +7567,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-void" ,rust-void-1.0))
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-caps" ,rust-caps)
+        ("rust-caps" ,rust-caps-0.3)
         ("rust-cc" ,rust-cc-1.0)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rand" ,rust-rand-0.4)
@@ -8111,32 +8111,6 @@ supports type parameters, associated types, and type constraints.")
     (synopsis "Extra components for use with Mio")
     (description "Extra components for use with Mio")
     (license license:expat)))
-
-(define-public rust-caps
-  (package
-    (name "rust-caps")
-    (version "0.3.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "caps" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1vplgzx8nifzr3f0l8ca77jqnz3fdymdg0ickacgdvawc44a3n90"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-errno" ,rust-errno-2.4)
-        ("rust-error-chain" ,rust-error-chain-0.12)
-        ("rust-libc" ,rust-libc-0.2.58))))
-    (home-page "https://github.com/lucab/caps-rs")
-    (synopsis
-     "A pure-Rust library to work with Linux capabilities")
-    (description
-     "This package provides a pure-Rust library to work with Linux capabilities")
-    (license #f)))
 
 (define-public rust-sysctl
   (package
