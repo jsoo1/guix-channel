@@ -2250,7 +2250,7 @@ checking")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-phf-generator" ,rust-phf-generator)
+       (("rust-phf-generator" ,rust-phf-generator-0.7)
         ("rust-phf-shared" ,rust-phf-shared-0.7)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
@@ -2455,30 +2455,6 @@ index")
 A build-time dependency for Cargo build scripts to assist in invoking
 the native C compiler to compile native C code into a static archive
 to be linked into Rust code.")
-    (license #f)))
-
-(define-public rust-phf-generator
-  (package
-    (name "rust-phf-generator")
-    (version "0.7.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "phf_generator" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0qi62gxk3x3whrmw5c4i71406icqk11qmpgln438p6qm7k4lqdh9"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-phf-shared" ,rust-phf-shared-0.7)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/sfackler/rust-phf")
-    (synopsis "PHF generation logic")
-    (description "PHF generation logic")
     (license #f)))
 
 (define-public rust-siphasher-0.2
@@ -8799,7 +8775,7 @@ implementation of Bresenham's line algorithm.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-phf-generator" ,rust-phf-generator)
+       (("rust-phf-generator" ,rust-phf-generator-0.7)
         ("rust-phf-shared" ,rust-phf-shared-0.7)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
@@ -9402,7 +9378,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-phf-generator" ,rust-phf-generator)
+       (("rust-phf-generator" ,rust-phf-generator-0.7)
         ("rust-phf-shared" ,rust-phf-shared-0.7))))
     (home-page
      "https://github.com/sfackler/rust-phf")
