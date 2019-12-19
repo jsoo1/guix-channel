@@ -262,7 +262,7 @@ and static initializers are available.")
        (("rust-lipsum" ,rust-lipsum)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
-        ("rust-version-sync" ,rust-version-sync))))
+        ("rust-version-sync" ,rust-version-sync-0.8))))
     (home-page
      "https://github.com/mgeisler/textwrap")
     (synopsis
@@ -324,39 +324,6 @@ integer keys.")
     (synopsis "The missing YAML 1.2 parser for rust")
     (description
      "The missing YAML 1.2 parser for rust")
-    (license #f)))
-
-(define-public rust-version-sync
-  (package
-    (name "rust-version-sync")
-    (version "0.8.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "version-sync" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "01pq0ia7ak7d69c3chjgdmaaq271yrspgbzmk6wmrwb74hx3skw4"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-itertools" ,rust-itertools-0.8)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-pulldown-cmark" ,rust-pulldown-cmark-0.4)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-semver-parser" ,rust-semver-parser-0.9)
-        ("rust-syn" ,rust-syn-0.15)
-        ("rust-toml" ,rust-toml-0.5)
-        ("rust-url" ,rust-url-1.7))))
-    (home-page
-     "https://github.com/mgeisler/version-sync")
-    (synopsis
-     "Ensure that version numbers in READMEs are updated")
-    (description
-     "Simple crate for ensuring that version numbers in README files
-are updated when the crate version changes.")
     (license #f)))
 
 (define-public rust-aho-corasick-0.6
@@ -632,7 +599,7 @@ are updated when the crate version changes.")
        (("rust-rand" ,rust-rand-0.4))
        #:cargo-development-inputs
        (("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
-        ("rust-version-sync" ,rust-version-sync))))
+        ("rust-version-sync" ,rust-version-sync-0.8))))
     (home-page "https://github.com/mgeisler/lipsum/")
     (synopsis
      "Lorem ipsum text generation library")
@@ -792,7 +759,7 @@ instantiate to generate your own pieces of pseudo-random text.")
         ("rust-tokio-reactor" ,rust-tokio-reactor-0.1))
        #:cargo-development-inputs
        (("rust-tokio" ,rust-tokio-0.1)
-        ("rust-version-sync" ,rust-version-sync))))
+        ("rust-version-sync" ,rust-version-sync-0.8))))
     (home-page
      "https://github.com/vorner/signal-hook")
     (synopsis "Unix signal handling")
@@ -1487,7 +1454,7 @@ guidelines on macOS.")
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-signal-hook" ,rust-signal-hook)
-        ("rust-version-sync" ,rust-version-sync))))
+        ("rust-version-sync" ,rust-version-sync-0.8))))
     (home-page
      "https://github.com/vorner/signal-hook")
     (synopsis "Backend crate for signal-hook")
@@ -1602,30 +1569,6 @@ guidelines on macOS.")
     (description
      "Use finite state transducers to compactly represents sets or
 maps of many strings (> 1 billion is possible).")
-    (license #f)))
-
-;; DO THESE DEPS
-(define-public rust-rand-os-0.2
-  (package
-    (name "rust-rand-os")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_os" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "06is69f8rfzs620g5b54k6cgy5yaycrsyqg55flyfrsf8g88733f"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-getrandom" ,rust-getrandom)
-        ("rust-rand-core" ,rust-rand-core-0.5))))
-    (home-page "https://crates.io/crates/rand_os")
-    (synopsis "OS backed Random Number Generator")
-    (description "OS backed Random Number Generator")
     (license #f)))
 
 (define-public rust-rand-os-0.1.3
@@ -1808,7 +1751,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-parking-lot" ,rust-parking-lot-0.8)
         ("rust-proptest" ,rust-proptest-0.9)
-        ("rust-version-sync" ,rust-version-sync))))
+        ("rust-version-sync" ,rust-version-sync-0.8))))
     (home-page "https://github.com/vorner/arc-swap")
     (synopsis "Atomically swappable Arc")
     (description "Atomically swappable Arc")
