@@ -2225,7 +2225,7 @@ checking")
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15))
        #:cargo-development-inputs
-       (("rust-compiletest-rs" ,rust-compiletest-rs))))
+       (("rust-compiletest-rs" ,rust-compiletest-rs-0.3))))
     (home-page
      "https://github.com/sfackler/rust-phf")
     (synopsis
@@ -5722,7 +5722,7 @@ response body.")
        (("rust-pin-project-internal"
          ,rust-pin-project-internal))
        #:cargo-development-inputs
-       (("rust-compiletest-rs" ,rust-compiletest-rs))))
+       (("rust-compiletest-rs" ,rust-compiletest-rs-0.3))))
     (home-page
      "https://github.com/taiki-e/pin-project")
     (synopsis
@@ -6451,45 +6451,6 @@ accessor functions on enums.")
      "An interal crate to support pin_project - do not use directly")
     (description
      "An interal crate to support pin_project - do not use directly")
-    (license #f)))
-
-(define-public rust-compiletest-rs
-  (package
-    (name "rust-compiletest-rs")
-    (version "0.3.22")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "compiletest-rs" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1di7kl2zv7jcwqq343aafqhn31gfa600zh4mi6cp10mn6a9wq3pl"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-diff" ,rust-diff-0.1)
-        ("rust-filetime" ,rust-filetime-0.2)
-        ("rust-getopts" ,rust-getopts-0.2)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-miow" ,rust-miow-0.3)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-rustfix" ,rust-rustfix)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tempfile" ,rust-tempfile-3.0)
-        ("rust-tester" ,rust-tester)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/laumann/compiletest-rs")
-    (synopsis
-     "The compiletest utility from the Rust compiler")
-    (description
-     "The compiletest utility from the Rust compiler as a standalone
-testing harness")
     (license #f)))
 
 (define-public rust-string
@@ -12695,7 +12656,7 @@ function's body.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-compiletest-rs" ,rust-compiletest-rs)
+       (("rust-compiletest-rs" ,rust-compiletest-rs-0.3)
         ("rust-darling" ,rust-darling)
         ("rust-derive-builder-core"
          ,rust-derive-builder-core)
@@ -12719,34 +12680,6 @@ function's body.")
      "Rust macro to automatically implement the builder pattern for
 arbitrary structs.")
     (license #f)))
-
-(define-public rust-tester
-  (package
-    (name "rust-tester")
-    (version "0.5.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tester" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xkgapz2i4j977f6kh1zp6sa5llbhy5vbnr6kfj8czsrdjr2r0ay"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-getopts" ,rust-getopts-0.2)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-term" ,rust-term-0.4))))
-    (home-page
-     "https://github.com/messense/rustc-test")
-    (synopsis
-     "Fork of Rust's test crate")
-    (description
-     "This package provides a fork of Rust's test crate that doesn't
-require unstable language features.")
-    (license (list license:expat license:asl2.0))))
 
 (define-public rust-winconsole
   (package
