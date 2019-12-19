@@ -611,39 +611,6 @@ The text is generated using a simple Markov chain, which you can also
 instantiate to generate your own pieces of pseudo-random text.")
     (license #f)))
 
-(define-public rust-pulldown-cmark-0.4
-  (package
-    (name "rust-pulldown-cmark")
-    (version "0.4.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pulldown-cmark" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1db8vlhm3n72051bkq4am80q28rfrh88796i3y9ajf5hhk3lrdyi"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-getopts" ,rust-getopts-0.2)
-        ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-unicase" ,rust-unicase-2.4))
-       #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion-0.2)
-        ("rust-html5ever" ,rust-html5ever)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-tendril" ,rust-tendril-0.4))))
-    (home-page
-     "https://github.com/raphlinus/pulldown-cmark")
-    (synopsis "A pull parser for CommonMark")
-    (description
-     "This package provides a pull parser for CommonMark")
-    (license #f)))
-
 (define-public rust-url-2.0
   (package
     (name "rust-url")
@@ -1315,40 +1282,6 @@ guidelines on macOS.")
         (base32
          "0l74ldicw6gpkly3jdiq8vq8g597x7akvych2cgy7gr8q8apnckj"))))))
 
-(define-public rust-html5ever
-  (package
-    (name "rust-html5ever")
-    (version "0.23.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "html5ever" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1dx8k7synrmf3fl6gcfm5q1cybfglvhc9xnvly3s5xcc0b45mrjw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-log" ,rust-log-0.4)
-        ("rust-mac" ,rust-mac-0.1)
-        ("rust-markup5ever" ,rust-markup5ever))
-       #:cargo-development-inputs
-       (("rust-criterion" ,rust-criterion-0.2)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test-0.3)
-        ("rust-syn" ,rust-syn-0.15)
-        ("rust-typed-arena" ,rust-typed-arena-1.4))))
-    (home-page "https://github.com/servo/html5ever")
-    (synopsis
-     "High-performance browser-grade HTML5 parser")
-    (description
-     "High-performance browser-grade HTML5 parser")
-    (license #f)))
-
 (define-public rust-idna-0.2
   (package
     (name "rust-idna")
@@ -1541,40 +1474,6 @@ maps of many strings (> 1 billion is possible).")
         ("rust-log" ,rust-log-0.4)
         ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm" ,rust-wasm))))))
-
-(define-public rust-markup5ever
-  (package
-    (name "rust-markup5ever")
-    (version "0.8.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "markup5ever" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "08ayl9aqjnmf7ly1ipy6dk3wjvyfn4w51l40jzh1fh984ykldbzi"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-log" ,rust-log-0.4)
-        ("rust-phf" ,rust-phf-0.7)
-        ("rust-string-cache" ,rust-string-cache-0.7)
-        ("rust-tendril" ,rust-tendril-0.4))
-       #:cargo-development-inputs
-       (("rust-phf-codegen" ,rust-phf-codegen-0.7)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-string-cache-codegen"
-         ,rust-string-cache-codegen-0.4))))
-    (home-page "https://github.com/servo/html5ever")
-    (synopsis
-     "Common code for xml5ever and html5ever")
-    (description
-     "Common code for xml5ever and html5ever")
-    (license #f)))
 
 (define-public rust-futf
   (package
@@ -11910,7 +11809,7 @@ pitfalls in Rust")
         ("rust-unicase" ,rust-unicase-2.4))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
-        ("rust-html5ever" ,rust-html5ever)
+        ("rust-html5ever" ,rust-html5ever-0.23)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-tendril" ,rust-tendril-0.4))))
