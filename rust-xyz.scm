@@ -1936,7 +1936,7 @@ Levenshtein automata.")
     (arguments
      `(#:cargo-inputs
        (("rust-phf-macros" ,rust-phf-macros)
-        ("rust-phf-shared" ,rust-phf-shared))))
+        ("rust-phf-shared" ,rust-phf-shared-0.7))))
     (home-page
      "https://github.com/sfackler/rust-phf")
     (synopsis
@@ -1964,7 +1964,7 @@ Levenshtein automata.")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-new-debug-unreachable"
          ,rust-new-debug-unreachable)
-        ("rust-phf-shared" ,rust-phf-shared)
+        ("rust-phf-shared" ,rust-phf-shared-0.7)
         ("rust-precomputed-hash" ,rust-precomputed-hash)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-string-cache-codegen" ,rust-string-cache-codegen)
@@ -2251,7 +2251,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-phf-generator" ,rust-phf-generator)
-        ("rust-phf-shared" ,rust-phf-shared)
+        ("rust-phf-shared" ,rust-phf-shared-0.7)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15))
@@ -2497,7 +2497,7 @@ to be linked into Rust code.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-phf-shared" ,rust-phf-shared)
+       (("rust-phf-shared" ,rust-phf-shared-0.7)
         ("rust-rand" ,rust-rand-0.4))))
     (home-page
      "https://github.com/sfackler/rust-phf")
@@ -8806,31 +8806,6 @@ implementation of Bresenham's line algorithm.")
      "Union-find, congruence closure, and other unification code.  Based on code from rustc.")
     (license #f)))
 
-(define-public rust-phf-shared
-  (package
-    (name "rust-phf-shared")
-    (version "0.7.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "phf-shared" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "18371fla0vsj7d6d5rlfb747xbr2in11ar9vgv5qna72bnhp2kr3"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-siphasher" ,rust-siphasher-0.2)
-        ("rust-unicase" ,rust-unicase-2.4))))
-    (home-page
-     "https://github.com/sfackler/rust-phf")
-    (synopsis "Support code shared by PHF libraries")
-    (description
-     "Support code shared by PHF libraries")
-    (license license:expat)))
-
 (define-public rust-string-cache-shared
   (package
     (name "rust-string-cache-shared")
@@ -8870,7 +8845,7 @@ implementation of Bresenham's line algorithm.")
     (arguments
      `(#:cargo-inputs
        (("rust-phf-generator" ,rust-phf-generator)
-        ("rust-phf-shared" ,rust-phf-shared)
+        ("rust-phf-shared" ,rust-phf-shared-0.7)
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-string-cache-shared"
@@ -9473,7 +9448,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-phf-generator" ,rust-phf-generator)
-        ("rust-phf-shared" ,rust-phf-shared))))
+        ("rust-phf-shared" ,rust-phf-shared-0.7))))
     (home-page
      "https://github.com/sfackler/rust-phf")
     (synopsis "Codegen library for PHF types")
