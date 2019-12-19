@@ -1908,10 +1908,10 @@ Levenshtein automata.")
         ("rust-new-debug-unreachable"
          ,rust-new-debug-unreachable-1.0)
         ("rust-phf-shared" ,rust-phf-shared-0.7)
-        ("rust-precomputed-hash" ,rust-precomputed-hash)
+        ("rust-precomputed-hash" ,rust-precomputed-hash-0.1)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-string-cache-codegen" ,rust-string-cache-codegen)
-        ("rust-string-cache-shared" ,rust-string-cache-shared))
+        ("rust-string-cache-shared" ,rust-string-cache-shared-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
     (home-page
@@ -2176,29 +2176,6 @@ checking")
         ("rust-scopeguard" ,rust-scopeguard-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
-
-(define-public rust-precomputed-hash
-  (package
-    (name "rust-precomputed-hash")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "precomputed-hash" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "075k9bfy39jhs53cb2fpb9klfakx2glxnf28zdw08ws6lgpq6lwj"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/emilio/precomputed-hash")
-    (synopsis
-     "Base dependency to expose a precomputed hash")
-    (description
-     "This package provides a library intending to be a base
-dependency to expose a precomputed hash.")
-    (license #f)))
 
 (define-public rust-blake2-rfc
   (package
@@ -8339,28 +8316,6 @@ implementation of Bresenham's line algorithm.")
      "Union-find, congruence closure, and other unification code.  Based on code from rustc.")
     (license #f)))
 
-(define-public rust-string-cache-shared
-  (package
-    (name "rust-string-cache-shared")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "string-cache-shared" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1z7dpdix1m42x6ddshdcpjf91ml9mhvnskmiv5kd8hcpq0dlv25i"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/servo/string-cache")
-    (synopsis
-     "Code share between string_cache and string_cache_codegen.")
-    (description
-     "Code share between string_cache and string_cache_codegen.")
-    (license #f)))
-
 (define-public rust-string-cache-codegen
   (package
     (name "rust-string-cache-codegen")
@@ -8382,7 +8337,7 @@ implementation of Bresenham's line algorithm.")
         ("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-string-cache-shared"
-         ,rust-string-cache-shared))))
+         ,rust-string-cache-shared-0.3))))
     (home-page
      "https://github.com/servo/string-cache")
     (synopsis
