@@ -12679,97 +12679,6 @@ function's body.")
      "println! and eprintln! macros on libc without stdlib")
     (license (list license:asl2.0 license:expat))))
 
-(define-public rust-rustfix
-  (package
-    (name "rust-rustfix")
-    (version "0.4.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rustfix" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "01zn0ysnass3mmrhxk90584y713vjfq1x97mi4saac99g9vsql3i"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-failure" ,rust-failure-0.1)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0))
-       #:cargo-development-inputs
-       (("rust-difference" ,rust-difference-2.0)
-        ("rust-duct" ,rust-duct)
-        ("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-proptest" ,rust-proptest-0.9)
-        ("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://github.com/rust-lang-nursery/rustfix")
-    (synopsis
-     "Automatically apply the suggestions made by rustc")
-    (description
-     "Automatically apply the suggestions made by rustc")
-    (license #f)))
-
-(define-public rust-duct
-  (package
-    (name "rust-duct")
-    (version "0.13.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "duct" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ir3884i1yznkfdccqqbcb9v5sdpcgxlv41hgzncrqaljv18r0wj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-once-cell" ,rust-once-cell-1.2)
-        ("rust-os-pipe" ,rust-os-pipe)
-        ("rust-shared-child" ,rust-shared-child))
-       #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://github.com/oconnor663/duct.rs")
-    (synopsis
-     "a library for running child processes")
-    (description
-     "a library for running child processes")
-    (license license:expat)))
-
-(define-public rust-os-pipe
-  (package
-    (name "rust-os-pipe")
-    (version "0.8.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "os-pipe" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "049ax8shxik7mm68r2nf7xnrcq3z3p7hz54sbrcxwywxqsjdzs41"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-nix" ,rust-nix-0.15)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/oconnor663/os_pipe.rs")
-    (synopsis
-     "a cross-platform library for opening OS pipes")
-    (description
-     "a cross-platform library for opening OS pipes")
-    (license license:expat)))
-
 (define-public rust-derive-builder
   (package
     (name "rust-derive-builder")
@@ -12810,32 +12719,6 @@ function's body.")
      "Rust macro to automatically implement the builder pattern for
 arbitrary structs.")
     (license #f)))
-
-(define-public rust-shared-child
-  (package
-    (name "rust-shared-child")
-    (version "0.3.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "shared-child" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1lmjmr7931dr9cpalw2n7ss4i9mnl7285j2dygxflk9y80xczswc"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/oconnor663/shared_child.rs")
-    (synopsis
-     "Use child processes from multiple threads")
-    (description
-     "a library for using child processes from multiple threads")
-    (license license:expat)))
 
 (define-public rust-tester
   (package
