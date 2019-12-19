@@ -12979,7 +12979,7 @@ function's body.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2)
-        ("rust-once-cell" ,rust-once-cell)
+        ("rust-once-cell" ,rust-once-cell-1.2)
         ("rust-os-pipe" ,rust-os-pipe)
         ("rust-shared-child" ,rust-shared-child))
        #:cargo-development-inputs
@@ -12991,35 +12991,6 @@ function's body.")
     (description
      "a library for running child processes")
     (license license:expat)))
-
-(define-public rust-once-cell
-  (package
-    (name "rust-once-cell")
-    (version "1.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "once-cell" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1vdz8xlg3r05w3wfjimnc347hgm54i5nrqf72r4mlp0fcdplh7w9"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-parking-lot" ,rust-parking-lot-0.9))
-       #:cargo-development-inputs
-       (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-regex" ,rust-regex-1.1))))
-    (home-page
-     "https://github.com/matklad/once_cell")
-    (synopsis
-     "Single assignment cells and lazy values")
-    (description
-     "Single assignment cells and lazy values.")
-    (license (list license:expat license:asl2.0))))
 
 (define-public rust-os-pipe
   (package
