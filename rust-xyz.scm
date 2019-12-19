@@ -1710,37 +1710,6 @@ maps of many strings (> 1 billion is possible).")
     (description "Atomically swappable Arc")
     (license #f)))
 
-(define-public rust-parking-lot
-  (package
-    (name "rust-parking-lot")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "parking_lot" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0lk2vq3hp88ygpgsrypdr3ss71fidnqbykva0csgxhmn5scb2hpq"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lock-api" ,rust-lock-api-0.3)
-        ("rust-parking-lot-core" ,rust-parking-lot-core-0.6))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/Amanieu/parking_lot")
-    (synopsis
-     "More compact and efficient implementations of the standard synchronization primitives.")
-    (description
-     "More compact and efficient implementations of the standard synchronization primitives.")
-    (license #f)))
-
 (define-public rust-parking-lot-0.7
   (package
     (name "rust-parking-lot")
@@ -6959,7 +6928,7 @@ functions.")
         ("rust-log" ,rust-log-0.4)
         ("rust-objc" ,rust-objc)
         ("rust-osmesa-sys" ,rust-osmesa-sys)
-        ("rust-parking-lot" ,rust-parking-lot)
+        ("rust-parking-lot" ,rust-parking-lot-0.9)
         ("rust-wayland-client" ,rust-wayland-client-0.21.13)
         ("rust-smithay-client-toolkit" ,rust-smithay-client-toolkit-0.4)
         ("rust-winapi" ,rust-winapi-0.3)
@@ -11705,7 +11674,7 @@ for computer graphics.")
         ("rust-jobserver" ,rust-jobserver)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
-        ("rust-parking-lot" ,rust-parking-lot)
+        ("rust-parking-lot" ,rust-parking-lot-0.9)
         ("rust-rustc-ap-graphviz" ,rust-rustc-ap-graphviz)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize)
         ("rust-rustc-hash" ,rust-rustc-hash)
@@ -13039,7 +13008,7 @@ function's body.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-parking-lot" ,rust-parking-lot))
+       (("rust-parking-lot" ,rust-parking-lot-0.9))
        #:cargo-development-inputs
        (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
@@ -13399,7 +13368,7 @@ testing.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-matchers" ,rust-matchers)
         ("rust-owning-ref" ,rust-owning-ref-0.4)
-        ("rust-parking-lot" ,rust-parking-lot)
+        ("rust-parking-lot" ,rust-parking-lot-0.9)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-tracing-core" ,rust-tracing-core-0.1)
@@ -13569,7 +13538,7 @@ log crates.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-matchers" ,rust-matchers)
         ("rust-owning-ref" ,rust-owning-ref-0.4)
-        ("rust-parking-lot" ,rust-parking-lot)
+        ("rust-parking-lot" ,rust-parking-lot-0.9)
         ("rust-regex" ,rust-regex-1.1)
         ("rust-smallvec" ,rust-smallvec-0.6)
         ("rust-tracing-core" ,rust-tracing-core-0.1)
