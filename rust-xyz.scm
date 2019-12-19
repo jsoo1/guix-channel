@@ -1563,7 +1563,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-string-cache" ,rust-string-cache-0.7)
         ("rust-tendril" ,rust-tendril-0.4))
        #:cargo-development-inputs
-       (("rust-phf-codegen" ,rust-phf-codegen)
+       (("rust-phf-codegen" ,rust-phf-codegen-0.7)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-serde-json" ,rust-serde-json-1.0)
@@ -8817,36 +8817,12 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-fnv" ,rust-fnv-1.0)
         ("rust-nom" ,rust-nom-4.2)
         ("rust-phf" ,rust-phf-0.7)
-        ("rust-phf-codegen" ,rust-phf-codegen))))
+        ("rust-phf-codegen" ,rust-phf-codegen-0.7))))
     (home-page
      "https://github.com/meh/rust-terminfo")
     (synopsis "Terminal information.")
     (description "Terminal information.")
     (license #f)))
-
-(define-public rust-phf-codegen
-  (package
-    (name "rust-phf-codegen")
-    (version "0.7.24")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "phf-codegen" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0zjiblicfm0nrmr2xxrs6pnf6zz2394wgch6dcbd8jijkq98agmh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-phf-generator" ,rust-phf-generator-0.7)
-        ("rust-phf-shared" ,rust-phf-shared-0.7))))
-    (home-page
-     "https://github.com/sfackler/rust-phf")
-    (synopsis "Codegen library for PHF types")
-    (description "Codegen library for PHF types")
-    (license license:expat)))
 
 (define-public rust-vte
   (package
