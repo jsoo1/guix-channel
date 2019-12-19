@@ -127,59 +127,6 @@ and static initializers are available.")
         (base32
          "1sqvl06884cy3hh14shik5afcv6bhsvb0gh2y267rv5lmyfg1prn"))))))
 
-(define-public rust-ucd-parse
-  (package
-    (name "rust-ucd-parse")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ucd-parse" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "13mq6c85r6ak10gjlq74mzdhsi0g0vps2y73by420513gfnipm97"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-regex" ,rust-regex-1.1))))
-    (home-page
-     "https://github.com/BurntSushi/ucd-generate")
-    (synopsis
-     "Parse data files in the Unicode character database")
-    (description
-     "This package provides a library for parsing data files in the
-Unicode character database.")
-    (license #f)))
-
-(define-public rust-unicode-segmentation
-  (package
-    (name "rust-unicode-segmentation")
-    (version "1.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unicode-segmentation" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1a9jqg7rb1yq6w2xc9jgxcs111yk5vxm9afjfvykfnrmzk6z8rqr"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page
-     "https://github.com/unicode-rs/unicode-segmentation")
-    (synopsis
-     "Grapheme Cluster, Word and Sentence boundaries")
-    (description
-     "This crate provides Grapheme Cluster, Word and Sentence
-boundaries according to Unicode Standard Annex #29 rules.")
-    (license #f)))
-
 (define-public rust-ansi-term
   (package
     (name "rust-ansi-term")
@@ -657,7 +604,7 @@ are updated when the crate version changes.")
         ("rust-unicode-normalization"
          ,rust-unicode-normalization-0.1)
         ("rust-unicode-segmentation"
-         ,rust-unicode-segmentation))))
+         ,rust-unicode-segmentation-1.3))))
     (home-page
      "https://github.com/tapeinosyne/hyphenation")
     (synopsis
@@ -3267,20 +3214,6 @@ reading and writing git repositories.")
     (description
      "The uninhabited void type for use in statically impossible cases.")
     (license #f)))
-
-(define-public rust-generic-array-0.12.3
-  (package
-    (inherit rust-generic-array-0.13)
-    (version "0.12.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "generic-array" version))
-       (file-name
-        (string-append (package-name rust-generic-array-0.13) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1v5jg7djicq34nbiv1dwaki71gkny002wyy9qfn3y0hfmrs053y6"))))))
 
 (define-public rust-foreign-types
   (package
@@ -6938,7 +6871,7 @@ testing harness")
     (arguments
      `(#:cargo-inputs
        (("rust-unicode-segmentation"
-         ,rust-unicode-segmentation))))
+         ,rust-unicode-segmentation-1.3))))
     (home-page
      "https://github.com/withoutboats/heck")
     (synopsis "heck is a case conversion library")
