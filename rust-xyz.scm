@@ -630,7 +630,7 @@ instantiate to generate your own pieces of pseudo-random text.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-getopts" ,rust-getopts-0.2)
         ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-unicase" ,rust-unicase))
+        ("rust-unicase" ,rust-unicase-2.4))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-html5ever" ,rust-html5ever)
@@ -1314,31 +1314,6 @@ guidelines on macOS.")
        (sha256
         (base32
          "0l74ldicw6gpkly3jdiq8vq8g597x7akvych2cgy7gr8q8apnckj"))))))
-
-(define-public rust-unicase
-  (package
-    (name "rust-unicase")
-    (version "2.4.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unicase" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1xmpmkakhhblq7dzab1kwyv925kv7fqjkjsxjspg6ix9n88makm8"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-version-check" ,rust-version-check-0.1))))
-    (home-page
-     "https://github.com/seanmonstar/unicase")
-    (synopsis
-     "A case-insensitive wrapper around strings")
-    (description
-     "This package provides a case-insensitive wrapper around strings.")
-    (license #f)))
 
 (define-public rust-html5ever
   (package
@@ -2329,7 +2304,7 @@ checking")
     (arguments
      `(#:cargo-inputs
        (("rust-siphasher" ,rust-siphasher)
-        ("rust-unicase" ,rust-unicase))))
+        ("rust-unicase" ,rust-unicase-2.4))))
     (home-page
      "https://github.com/sfackler/rust-phf")
     (synopsis "Support code shared by PHF libraries")
@@ -4578,7 +4553,7 @@ and private (encrypted + signed) jars.")
         ("rust-mime" ,rust-mime-0.3)
         ("rust-percent-encoding" ,rust-percent-encoding-1.0)
         ("rust-time" ,rust-time-0.1)
-        ("rust-unicase" ,rust-unicase))))
+        ("rust-unicase" ,rust-unicase-2.4))))
     (home-page "https://hyper.rs")
     (synopsis "HTTP types from hyper 0.11.x")
     (description "HTTP types from hyper 0.11.x")
@@ -4664,10 +4639,10 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-mime" ,rust-mime-0.3)
-        ("rust-unicase" ,rust-unicase))
+        ("rust-unicase" ,rust-unicase-2.4))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
-        ("rust-unicase" ,rust-unicase))))
+        ("rust-unicase" ,rust-unicase-2.4))))
     (home-page
      "https://github.com/abonander/mime_guess")
     (synopsis
@@ -8870,7 +8845,7 @@ implementation of Bresenham's line algorithm.")
     (arguments
      `(#:cargo-inputs
        (("rust-siphasher" ,rust-siphasher-0.2)
-        ("rust-unicase" ,rust-unicase))))
+        ("rust-unicase" ,rust-unicase-2.4))))
     (home-page
      "https://github.com/sfackler/rust-phf")
     (synopsis "Support code shared by PHF libraries")
@@ -11348,7 +11323,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-native-tls" ,rust-native-tls)
         ("rust-rustls" ,rust-rustls)
-        ("rust-unicase" ,rust-unicase)
+        ("rust-unicase" ,rust-unicase-2.4)
         ("rust-webpki" ,rust-webpki)
         ("rust-webpki-roots" ,rust-webpki-roots))))
     (home-page
@@ -12610,7 +12585,7 @@ pitfalls in Rust")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-getopts" ,rust-getopts-0.2)
         ("rust-memchr" ,rust-memchr-2.2)
-        ("rust-unicase" ,rust-unicase))
+        ("rust-unicase" ,rust-unicase-2.4))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
         ("rust-html5ever" ,rust-html5ever)
