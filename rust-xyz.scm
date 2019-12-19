@@ -1332,7 +1332,7 @@ guidelines on macOS.")
     (arguments
      `(#:cargo-inputs
        (("rust-log" ,rust-log-0.4)
-        ("rust-mac" ,rust-mac)
+        ("rust-mac" ,rust-mac-0.1)
         ("rust-markup5ever" ,rust-markup5ever))
        #:cargo-development-inputs
        (("rust-criterion" ,rust-criterion-0.2)
@@ -1368,7 +1368,7 @@ guidelines on macOS.")
        (("rust-encoding" ,rust-encoding-0.2)
         ("rust-encoding-rs" ,rust-encoding-rs-0.8)
         ("rust-futf" ,rust-futf)
-        ("rust-mac" ,rust-mac)
+        ("rust-mac" ,rust-mac-0.1)
         ("rust-utf-8" ,rust-utf-8))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))
@@ -1572,28 +1572,6 @@ maps of many strings (> 1 billion is possible).")
         ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm" ,rust-wasm))))))
 
-(define-public rust-mac
-  (package
-    (name "rust-mac")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "mac" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "194vc7vrshqff72rl56f9xgb0cazyl4jda7qsv31m5l6xx7hq7n4"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/reem/rust-mac.git")
-    (synopsis
-     "A collection of great and ubiqutitous macros.")
-    (description
-     "This package provides a collection of great and ubiqutitous macros.")
-    (license #f)))
-
 (define-public rust-markup5ever
   (package
     (name "rust-markup5ever")
@@ -1644,7 +1622,7 @@ maps of many strings (> 1 billion is possible).")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-mac" ,rust-mac)
+       (("rust-mac" ,rust-mac-0.1)
         ("rust-new-debug-unreachable"
          ,rust-new-debug-unreachable))))
     (home-page "https://github.com/servo/futf")
