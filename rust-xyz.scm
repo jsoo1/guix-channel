@@ -2352,7 +2352,7 @@ threadpools.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-gcc" ,rust-gcc))))
+       (("rust-gcc" ,rust-gcc-0.3))))
     (home-page "https://github.com/bryant/argon2rs")
     (synopsis
      "Wrapper around the Argon2 C library")
@@ -2393,37 +2393,6 @@ bench suite.")
     (description
      "Library for retrieving and interacting with the crates.io
 index")
-    (license #f)))
-
-(define-public rust-gcc
-  (package
-    (name "rust-gcc")
-    (version "0.3.55")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "gcc" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1hng1sajn4r67hndvhjysswz8niayjwvcj42zphpxzhbz89kjpwg"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rayon" ,rust-rayon-1.1))
-       #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://github.com/alexcrichton/gcc-rs")
-    (synopsis
-     "Invoke the native C compiler from Cargo")
-    (description
-     "**Deprecated** crate, renamed to rust-cc
-
-A build-time dependency for Cargo build scripts to assist in invoking
-the native C compiler to compile native C code into a static archive
-to be linked into Rust code.")
     (license #f)))
 
 (define-public rust-siphasher-0.2
@@ -6843,33 +6812,6 @@ functions.")
      "Cross-platform interface to the `errno` variable.")
     (license #f)))
 
-(define-public rust-errno
-  (package
-    (name "rust-errno")
-    (version "0.2.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "errno" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kn8mlygxxr02cm97401nppd2dbkwsalpcbai67rh6yh3rh73862"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-errno-dragonfly" ,rust-errno-dragonfly)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/lfairy/rust-errno")
-    (synopsis
-     "Cross-platform interface to the `errno` variable.")
-    (description
-     "Cross-platform interface to the `errno` variable.")
-    (license #f)))
-
 (define-public rust-errno-dragonfly
   (package
     (name "rust-errno-dragonfly")
@@ -6887,7 +6829,7 @@ functions.")
     (arguments
      `(#:cargo-inputs
        (("rust-libc" ,rust-libc-0.2.58)
-        ("rust-gcc" ,rust-gcc))))
+        ("rust-gcc" ,rust-gcc-0.3))))
     (home-page
      "https://github.com/mneumann/errno-dragonfly-rs")
     (synopsis
@@ -7941,7 +7883,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-gcc" ,rust-gcc))))
+       (("rust-gcc" ,rust-gcc-0.3))))
     (home-page
      "http://github.com/SSheldon/rust-objc-exception")
     (synopsis
@@ -8342,7 +8284,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-gcc" ,rust-gcc))))
+       (("rust-gcc" ,rust-gcc-0.3))))
     (home-page
      "http://github.com/SSheldon/rust-objc")
     (synopsis
