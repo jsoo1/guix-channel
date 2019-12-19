@@ -1590,7 +1590,7 @@ maps of many strings (> 1 billion is possible).")
      `(#:cargo-inputs
        (("rust-log" ,rust-log-0.4)
         ("rust-phf" ,rust-phf-0.7)
-        ("rust-string-cache" ,rust-string-cache)
+        ("rust-string-cache" ,rust-string-cache-0.7)
         ("rust-tendril" ,rust-tendril))
        #:cargo-development-inputs
        (("rust-phf-codegen" ,rust-phf-codegen)
@@ -1887,41 +1887,6 @@ Levenshtein automata.")
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
-
-(define-public rust-string-cache
-  (package
-    (name "rust-string-cache")
-    (version "0.7.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "string_cache" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "08sly9s92l0g0ai1iyj9pawl05xbwm4m8kl3zqkv2wkijw4h3mr5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-new-debug-unreachable"
-         ,rust-new-debug-unreachable-1.0)
-        ("rust-phf-shared" ,rust-phf-shared-0.7)
-        ("rust-precomputed-hash" ,rust-precomputed-hash-0.1)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-string-cache-codegen" ,rust-string-cache-codegen-0.4)
-        ("rust-string-cache-shared" ,rust-string-cache-shared-0.3))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/servo/string-cache")
-    (synopsis
-     "A string interning library for Rust")
-    (description
-     "This package provides a string interning library for Rust,
-developed as part of the Servo project.")
-    (license #f)))
 
 (define-public rust-argon2rs
   (package
@@ -4852,7 +4817,7 @@ exposed as Reader/Writer streams.")
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-sha2" ,rust-sha2)
-        ("rust-string-cache" ,rust-string-cache)
+        ("rust-string-cache" ,rust-string-cache-0.7)
         ("rust-term" ,rust-term-0.5)
         ("rust-unicode-xid" ,rust-unicode-xid-0.1))
        #:cargo-development-inputs
