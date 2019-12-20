@@ -1668,20 +1668,6 @@ Levenshtein automata.")
 of configuration possible intended.")
     (license #f)))
 
-(define-public rust-lock-api-0.3
-  (package
-    (inherit rust-lock-api-0.2)
-    (version "0.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "lock_api" version))
-       (file-name
-        (string-append (package-name rust-lock-api-0.2) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1p04271jikw69ja0ap0plrfwm9incf1iny48g0b3ma9k4mw2x4gq"))))))
-
 (define-public rust-lock-api-0.1
   (package
     (name "rust-lock-api")
@@ -1708,20 +1694,6 @@ of configuration possible intended.")
     (description
      "Wrappers to create fully-featured Mutex and RwLock types.  Compatible with no_std.")
     (license #f)))
-
-(define-public rust-parking-lot-core-0.6
-  (package
-    (inherit rust-parking-lot-core-0.5)
-    (version "0.6.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "parking_lot_core" version))
-       (file-name
-        (string-append (package-name rust-parking-lot-core-0.5) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ay67dpnrn68ryyvp720m9i8hzp189fd4d6slrs1lvmcwywv2xmq"))))))
 
 (define-public rust-parking-lot-core-0.4
   (package
@@ -1918,40 +1890,6 @@ threadpools.")
 bench suite.")
     (license #f)))
 
-;; DO THESE DEPS
-(define-public rust-crates-index-0.13
-  (package
-    (name "rust-crates-index")
-    (version "0.13.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crates-index" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1n7pp6mk59hw3nqlh8irxc9pp0g5ziw7bprqsw2lxvg13cvdp76s"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-error-chain" ,rust-error-chain-0.12)
-        ("rust-git2" ,rust-git2)
-        ("rust-glob" ,rust-glob-0.3)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0))
-       #:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://github.com/frewsxcv/rust-crates-index")
-    (synopsis
-     "Retrieving and interacting with the crates.io index")
-    (description
-     "Library for retrieving and interacting with the crates.io
-index")
-    (license #f)))
-
 (define-public rust-constant-time-eq
   (package
     (name "rust-constant-time-eq")
@@ -1972,46 +1910,6 @@ index")
      "Compares two equal-sized byte strings in constant time")
     (description
      "Compares two equal-sized byte strings in constant time.")
-    (license #f)))
-
-(define-public rust-git2
-  (package
-    (name "rust-git2")
-    (version "0.9.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "git2" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0cayf5w7wkvclvs8brbi7lyfxbdklwls9s49mpf2brl655yjwjwj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-libgit2-sys" ,rust-libgit2-sys-0.8)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-openssl-probe" ,rust-openssl-probe-0.1)
-        ("rust-openssl-sys" ,rust-openssl-sys-0.9)
-        ("rust-url" ,rust-url-1.7))
-       #:cargo-development-inputs
-       (("rust-docopt" ,rust-docopt-1.1)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-tempdir" ,rust-tempdir-0.3)
-        ("rust-thread-id" ,rust-thread-id-3.3)
-        ("rust-time" ,rust-time-0.1))))
-    (home-page
-     "https://github.com/rust-lang/git2-rs")
-    (synopsis
-     "Rust bindings to libgit2")
-    (description
-     "Bindings to libgit2 for interoperating with git repositories.
-This library is both threadsafe and memory safe and allows both
-reading and writing git repositories.")
     (license #f)))
 
 (define-public rust-adler32
@@ -2164,56 +2062,6 @@ reading and writing git repositories.")
        (sha256
         (base32
          "0fk8nl0rmk43jrh6hjz6c6d83ri7l6fikag6lh0ffz3di9cwznfm"))))))
-
-(define-public rust-ref-cast
-  (package
-    (name "rust-ref-cast")
-    (version "0.2.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ref-cast" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jgj1zxaikqm030flpifbp517fy4z21lly6ysbwyciii39bkzcf1"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-ref-cast-impl" ,rust-ref-cast-impl))))
-    (home-page "https://github.com/dtolnay/ref-cast")
-    (synopsis
-     "Safely cast &T to &U where the struct U contains a single field of type T.")
-    (description
-     "Safely cast &T to &U where the struct U contains a single field of type T.")
-    (license #f)))
-
-(define-public rust-ref-cast-impl
-  (package
-    (name "rust-ref-cast-impl")
-    (version "0.2.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ref-cast-impl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0hw0frpzna5rf5szix56zyzd0vackcb3svj94ndj629xi75dkb32"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page "https://github.com/dtolnay/ref-cast")
-    (synopsis
-     "Derive implementation for ref_cast::RefCast.")
-    (description
-     "Derive implementation for ref_cast::RefCast.")
-    (license #f)))
 
 (define-public rust-winapi-build
   (package
