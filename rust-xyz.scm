@@ -740,40 +740,9 @@ patterns.")
 remove_dir_all for Windows")
     (license #f)))
 
-;; DO THESE DEPS
-(define-public rust-getrandom
-  (package
-    (name "rust-getrandom")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "getrandom" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0macrjfkgsjn6ikr94agapp4fkxmr8w7y2g7qis4icc4a17cwp76"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-stdweb" ,rust-stdweb-0.4)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2))))
-    (home-page
-     "https://github.com/rust-random/getrandom")
-    (synopsis
-     "Retrieve random data from system source")
-    (description
-     "This package provides a small cross-platform library for
-retrieving random data from system source")
-    (license #f)))
-
 (define-public rust-getrandom-0.1.12
   (package
-    (inherit rust-getrandom)
+    (inherit rust-getrandom-0.1)
     (version "0.1.12")
     (source
      (origin
@@ -781,7 +750,7 @@ retrieving random data from system source")
        (uri (crate-uri "getrandom" version))
        (file-name
         (string-append
-         (package-name rust-getrandom) "-" version ".tar.gz"))
+         (package-name rust-getrandom-0.1) "-" version ".tar.gz"))
        (sha256
         (base32
          "0w9mj0nrzhhkl4n8l18n14hfabiwxs6az8fhij01xzy8miji4fj7"))))
@@ -1997,27 +1966,6 @@ bench suite.")
 index")
     (license #f)))
 
-(define-public rust-siphasher-0.2
-  (package
-    (name "rust-siphasher")
-    (version "0.2.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "siphasher" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1b53m53l24lyhr505lwqzrpjyq5qfnic71mynrcfvm43rybf938b"))))
-    (build-system cargo-build-system)
-    (home-page "https://docs.rs/siphasher")
-    (synopsis
-     "SipHash functions from rust-core < 1.13")
-    (description
-     "SipHash functions from rust-core < 1.13")
-    (license #f)))
-
 (define-public rust-constant-time-eq
   (package
     (name "rust-constant-time-eq")
@@ -2578,37 +2526,6 @@ reading and writing git repositories.")
      "https://github.com/maciejhirsz/json-rust")
     (synopsis "JSON implementation in Rust")
     (description "JSON implementation in Rust")
-    (license #f)))
-
-(define-public rust-ordermap-0.3
-  (package
-    (name "rust-ordermap")
-    (version "0.3.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ordermap" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0qr0a50l0qakbjcck93qdayd0xl8gzpp42x0n7b75cs4ybsx6vm8"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-fnv" ,rust-fnv-1.0)
-        ("rust-itertools" ,rust-itertools-0.8)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde-test" ,rust-serde-test-1.0))))
-    (home-page "https://github.com/bluss/ordermap")
-    (synopsis
-     "A hash table with consistent order and fast iteration. NOTE: This crate was renamed to indexmap. Please use it under its new name.")
-    (description
-     "This package provides a hash table with consistent order and fast iteration.  NOTE: This crate was renamed to indexmap.  Please use it under its new name.")
     (license #f)))
 
 (define-public rust-nodrop-union
@@ -4429,7 +4346,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-getrandom" ,rust-getrandom)
+       (("rust-getrandom" ,rust-getrandom-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-mach-o-sys" ,rust-mach-o-sys)
         ("rust-winapi" ,rust-winapi-0.3))))
@@ -4457,7 +4374,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-failure" ,rust-failure-0.1)
-        ("rust-getrandom" ,rust-getrandom)
+        ("rust-getrandom" ,rust-getrandom-0.1)
         ("rust-libc" ,rust-libc-0.2.58)
         ("rust-nettle-sys" ,rust-nettle-sys))))
     (home-page
