@@ -1371,30 +1371,6 @@ maps of many strings (> 1 billion is possible).")
         ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm" ,rust-wasm))))))
 
-(define-public rust-futf
-  (package
-    (name "rust-futf")
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "futf" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0fxc18bnabird5jl941nsd6d25vq8cn8barmz4d30dlkzbiir73w"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-mac" ,rust-mac-0.1)
-        ("rust-new-debug-unreachable"
-         ,rust-new-debug-unreachable-1.0))))
-    (home-page "https://github.com/servo/futf")
-    (synopsis "Handling fragments of UTF-8")
-    (description "Handling fragments of UTF-8")
-    (license #f)))
-
 (define-public rust-utf-8
   (package
     (name "rust-utf-8")
