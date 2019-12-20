@@ -722,7 +722,7 @@ instantiate to generate your own pieces of pseudo-random text.")
         ("rust-mio" ,rust-mio-0.6)
         ("rust-mio-uds" ,rust-mio-uds-0.6)
         ("rust-signal-hook-registry"
-         ,rust-signal-hook-registry)
+         ,rust-signal-hook-registry-1.0)
         ("rust-tokio-reactor" ,rust-tokio-reactor-0.1))
        #:cargo-development-inputs
        (("rust-tokio" ,rust-tokio-0.1)
@@ -1310,33 +1310,6 @@ guidelines on macOS.")
      "IDNA (Internationalizing Domain Names in Applications) and Punycode")
     (description
      "IDNA (Internationalizing Domain Names in Applications) and Punycode.")
-    (license #f)))
-
-(define-public rust-signal-hook-registry
-  (package
-    (name "rust-signal-hook-registry")
-    (version "1.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "signal-hook-registry" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1mw5v909fn99h5qb96ma4almlik80lr1c7xbakn24rql6bx4zvfd"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-arc-swap" ,rust-arc-swap-0.3)
-        ("rust-libc" ,rust-libc-0.2.58))
-       #:cargo-development-inputs
-       (("rust-signal-hook" ,rust-signal-hook)
-        ("rust-version-sync" ,rust-version-sync-0.8))))
-    (home-page
-     "https://github.com/vorner/signal-hook")
-    (synopsis "Backend crate for signal-hook")
-    (description "Backend crate for signal-hook")
     (license #f)))
 
 (define-public rust-keystream
@@ -5440,7 +5413,7 @@ response body.")
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-parking-lot" ,rust-parking-lot-0.8)
         ("rust-signal-hook-registry"
-         ,rust-signal-hook-registry)
+         ,rust-signal-hook-registry-1.0)
         ("rust-slab" ,rust-slab-0.4)
         ("rust-tokio-codec" ,rust-tokio-codec-0.1)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
