@@ -1328,7 +1328,7 @@ guidelines on macOS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-arc-swap" ,rust-arc-swap)
+       (("rust-arc-swap" ,rust-arc-swap-0.3)
         ("rust-libc" ,rust-libc-0.2.58))
        #:cargo-development-inputs
        (("rust-signal-hook" ,rust-signal-hook)
@@ -1547,36 +1547,6 @@ maps of many strings (> 1 billion is possible).")
      "A Rust library to access Redox users and groups functionality")
     (description
      "This package provides a Rust library to access Redox users and groups functionality")
-    (license #f)))
-
-(define-public rust-arc-swap
-  (package
-    (name "rust-arc-swap")
-    (version "0.3.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "arc-swap" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ha8724dpki985v52ifq5sd98xvpa5q51hyma52di75dbqbn4imw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-crossbeam" ,rust-crossbeam-0.7)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
-        ("rust-itertools" ,rust-itertools-0.8)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-model" ,rust-model-0.1)
-        ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-parking-lot" ,rust-parking-lot-0.8)
-        ("rust-proptest" ,rust-proptest-0.9)
-        ("rust-version-sync" ,rust-version-sync-0.8))))
-    (home-page "https://github.com/vorner/arc-swap")
-    (synopsis "Atomically swappable Arc")
-    (description "Atomically swappable Arc")
     (license #f)))
 
 (define-public rust-parking-lot-0.7
@@ -9683,7 +9653,7 @@ The intersection of `std::ffi::CStr` and `str`")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-arc-swap" ,rust-arc-swap)
+       (("rust-arc-swap" ,rust-arc-swap-0.3)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-slog" ,rust-slog-2.4))
        #:cargo-development-inputs
