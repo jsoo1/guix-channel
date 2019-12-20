@@ -1589,20 +1589,6 @@ Levenshtein automata.")
      "Complex numbers implementation for Rust")
     (license #f)))
 
-(define-public rust-crossbeam-deque-0.6
-  (package
-    (inherit rust-crossbeam-deque-0.7)
-    (version "0.6.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crossbeam-deque" version))
-       (file-name
-        (string-append (package-name rust-crossbeam-deque-0.7) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "04rcpgjs6ns57vag8a3dzx26190dhbvy2l0p9n22b9p1yf64pr05"))))))
-
 (define-public rust-crossbeam-deque-0.2
   (package
     (inherit rust-crossbeam-deque-0.7)
