@@ -1586,34 +1586,6 @@ of configuration possible intended.")
      "Wrappers to create fully-featured Mutex and RwLock types.  Compatible with no_std.")
     (license #f)))
 
-(define-public rust-loom
-  (package
-    (name "rust-loom")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "loom" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1jmp5mffwwyqgp914cwz92ij2s6vk1hsnkvgndvzw74xrcfraibj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-futures" ,rust-futures-0.1)
-        ("rust-generator" ,rust-generator)
-        ("rust-scoped-tls" ,rust-scoped-tls-1.0)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page "https://github.com/carllerche/loom")
-    (synopsis "Model checker for concurrent code")
-    (description "Model checker for concurrent code")
-    (license #f)))
-
 (define-public rust-semver-0.2
   (package
     (inherit rust-semver-0.9)
@@ -5102,7 +5074,7 @@ client or server.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-development-inputs
-       (("rust-loom" ,rust-loom))))
+       (("rust-loom" ,rust-loom-0.1))))
     (home-page "https://github.com/seanmonstar/spmc")
     (synopsis "Simple SPMC channel")
     (description "Simple SPMC channel")
@@ -11502,34 +11474,6 @@ on CPUs, as well as raw interfaces to platform-specific instructions.
     (description
      "An implementation detail of rental.  Should not be used
 directly.")
-    (license #f)))
-
-(define-public rust-generator
-  (package
-    (name "rust-generator")
-    (version "0.6.18")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "generator" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0p4iq1n53dy72dhma02wfjrazf2hq2745f9si9yi7jxviks7c8l7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0)
-        ("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/Xudong-Huang/generator-rs.git")
-    (synopsis "Stackfull Generator Library in Rust")
-    (description "Stackfull Generator Library in Rust")
     (license #f)))
 
 (define-public rust-rle-decode-fast
