@@ -1399,37 +1399,6 @@ maps of many strings (> 1 billion is possible).")
      "This package provides a Rust library to access Redox users and groups functionality")
     (license #f)))
 
-(define-public rust-tokio-io-pool
-  (package
-    (name "rust-tokio-io-pool")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-io-pool" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17lrjj7lcw13wchpbvr8cynmypd29h40clf9qxabh6fxva40kwm5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-tokio" ,rust-tokio-0.1)
-        ("rust-tokio-executor" ,rust-tokio-executor-0.1))
-       #:cargo-development-inputs
-       (("rust-tokio-current-thread"
-         ,rust-tokio-current-thread-0.1))))
-    (home-page
-     "https://github.com/jonhoo/tokio-io-pool")
-    (synopsis
-     "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
-    (description
-     "Alternative tokio thread pool for executing short, I/O-heavy futures efficiently")
-    (license #f)))
-
 (define-public rust-fst-levenshtein
   (package
     (name "rust-fst-levenshtein")
@@ -1615,42 +1584,6 @@ of configuration possible intended.")
      "Wrappers to create fully-featured Mutex and RwLock types. Compatible with no_std.")
     (description
      "Wrappers to create fully-featured Mutex and RwLock types.  Compatible with no_std.")
-    (license #f)))
-
-(define-public rust-parking-lot-core-0.4
-  (package
-    (name "rust-parking-lot-core")
-    (version "0.4.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "parking_lot_core" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1jcq8aq4wv9y5fip7jg12jdwjd5g5r3x857xdma8vcin769cgj4l"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace-0.3)
-        ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-cloudabi" ,rust-cloudabi-0.0)
-        ("rust-libc" ,rust-libc-0.2.58)
-        ("rust-petgraph" ,rust-petgraph-0.4)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
-        ("rust-smallvec" ,rust-smallvec-0.6)
-        ("rust-thread-id" ,rust-thread-id-3.3)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/Amanieu/parking_lot")
-    (synopsis
-     "An advanced API for creating custom synchronization primitives.")
-    (description
-     "An advanced API for creating custom synchronization primitives.")
     (license #f)))
 
 (define-public rust-loom
