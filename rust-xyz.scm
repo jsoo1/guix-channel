@@ -1569,7 +1569,7 @@ maps of many strings (> 1 billion is possible).")
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-itertools" ,rust-itertools-0.8)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-model" ,rust-model)
+        ("rust-model" ,rust-model-0.1)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-parking-lot" ,rust-parking-lot-0.8)
         ("rust-proptest" ,rust-proptest-0.9)
@@ -1814,32 +1814,6 @@ Levenshtein automata.")
     (description
      "Utilities for handling networking sockets with a maximal amount
 of configuration possible intended.")
-    (license #f)))
-
-(define-public rust-model
-  (package
-    (name "rust-model")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "model" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0kx6hy5i1fn2qs4x6hpng9jixpm68g83vm24z8bqqscr317yinb6"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-permutohedron" ,rust-permutohedron-0.2)
-        ("rust-proptest" ,rust-proptest-0.9))))
-    (home-page "https://github.com/spacejam/model")
-    (synopsis
-     "model-based testing for data structures")
-    (description
-     "model-based testing for data structures, with linearizability
-checking")
     (license #f)))
 
 (define-public rust-lock-api-0.3
