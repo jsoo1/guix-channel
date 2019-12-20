@@ -144,7 +144,7 @@
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-serde-yaml" ,rust-serde-yaml-0.8)
         ("rust-servo-fontconfig" ,rust-servo-fontconfig)
-        ("rust-signal-hook" ,rust-signal-hook)
+        ("rust-signal-hook" ,rust-signal-hook-0.1)
         ("rust-smithay" ,rust-smithay)
         ("rust-smithay-clipboard" ,rust-smithay-clipboard)
         ("rust-socket2" ,rust-socket2)
