@@ -1371,28 +1371,6 @@ maps of many strings (> 1 billion is possible).")
         ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm" ,rust-wasm))))))
 
-(define-public rust-utf-8
-  (package
-    (name "rust-utf-8")
-    (version "0.7.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "utf-8" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1iw5rp4i3mfi9k51picbr5bgjqhjcmnxx7001clh5ydq31y2zr05"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/SimonSapin/rust-utf8")
-    (synopsis
-     "Incremental, zero-copy UTF-8 decoding with error handling")
-    (description
-     "Incremental, zero-copy UTF-8 decoding with error handling")
-    (license #f)))
-
 (define-public rust-redox-users
   (package
     (name "rust-redox-users")
@@ -1419,38 +1397,6 @@ maps of many strings (> 1 billion is possible).")
      "A Rust library to access Redox users and groups functionality")
     (description
      "This package provides a Rust library to access Redox users and groups functionality")
-    (license #f)))
-
-(define-public rust-parking-lot-0.7
-  (package
-    (name "rust-parking-lot")
-    (version "0.7.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "parking_lot" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0dz32cqx9200n1lk3kwyb599vabfid3f8sj1aq85sw42s2pb8hdb"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lock-api" ,rust-lock-api-0.1)
-        ("rust-parking-lot-core" ,rust-parking-lot-core-0.4))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/Amanieu/parking_lot")
-    (synopsis
-     "Compact implementations synchronization primitives")
-    (description
-     "More compact and efficient implementations of the standard
-synchronization primitives.")
     (license #f)))
 
 (define-public rust-tokio-io-pool
