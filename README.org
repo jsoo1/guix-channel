@@ -3,24 +3,19 @@
   Many packages are works in progress, some might not work correctly.
   I just thought I'd share my work and see if anyone can help ;) ;) ;)
 ** Working
-   - yaft
-   - libsixel
-   - sdump
-   - idump
-   - +purescript+ (upstreamed)
+   - alacritty
+   - bower (needs tweaks)
    - dhall
-   - purescript-spago
    - ghc-servant
    - ghcid (needs tweaks)
-   - bower (needs tweaks)
+   - idump
+   - libsixel
    - pijul
-   - +ripgrep+ (upstreamed)
-   - +xmobar with dbus and alsa support+ (upstreamed)
+   - purescript-spago
    - rustfmt
-   - +cbindgen+ (upstreamed)
+   - sdump
+   - yaft
 ** In progress
-   - alacritty
-   - emacs@27
    - firefox
    - termonad
    - urweb (waiting for upstream MLton)
