@@ -4,11 +4,12 @@
   #:use-module (gnu packages crates-io)
   #:use-module ((gnu packages fontutils) #:select (fontconfig freetype))
   #:use-module ((gnu packages freedesktop) #:select (wayland))
-  #:use-module ((gnu packages gl) #:select (glew mesa mesa-utils))
+  #:use-module ((gnu packages gl) #:select (glew freeglut mesa mesa-utils))
   #:use-module ((gnu packages ncurses) #:select (ncurses))
   #:use-module ((gnu packages pkg-config) #:select (pkg-config))
   #:use-module ((gnu packages python) #:select (python-wrapper))
   #:use-module ((gnu packages version-control) #:select (git))
+  #:use-module ((gnu packages vulkan) #:select (vulkan-loader))
   #:use-module ((gnu packages xdisorg) #:select (libxkbcommon))
   #:use-module ((gnu packages xml) #:select (expat))
   #:use-module ((gnu packages xorg)
@@ -43,6 +44,7 @@
     (inputs
      `(("expat" ,expat)
        ("fontconfig" ,fontconfig)
+       ("freeglut" ,freeglut)
        ("freetype" ,freetype)
        ("glew" ,glew)
        ("gzip" ,gzip)
@@ -55,11 +57,9 @@
        ("libxrandr" ,libxrandr)
        ("mesa" ,mesa)
        ("ncurses" ,ncurses)
-       ("python-wrapper" ,python-wrapper)
-       ("wayland" ,wayland)))
+       ("python-wrapper" ,python-wrapper)))
     (native-inputs
      `(("cmake" ,cmake)
-       ("mesa-utils" ,mesa-utils)
        ("pkg-config" ,pkg-config)))
     (arguments
      `(#:cargo-inputs
@@ -167,6 +167,7 @@
         ("rust-url" ,rust-url-1.7)
         ("rust-vcpkg" ,rust-vcpkg-0.2)
         ("rust-vec-map" ,rust-vec-map-0.8)
+        ("rust-version-check" ,rust-version-check-0.1)
         ("rust-vte" ,rust-vte)
         ("rust-widestring" ,rust-widestring-0.4)
         ("rust-winapi" ,rust-winapi-0.2)
