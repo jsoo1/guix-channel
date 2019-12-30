@@ -687,31 +687,6 @@ instantiate to generate your own pieces of pseudo-random text.")
         (base32
          "1n8qr52sw9y6yxzyfxi1phh55rsxms7ry4iipdd8vmd16ag8jq17"))))))
 
-(define-public rust-glob-0.2
-  (package
-    (name "rust-glob")
-    (version "0.2.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "glob" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ysvi72slkw784fcsymgj4308c3y03gwjjzqxp80xdjnkbh8vqcb"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page "https://github.com/rust-lang/glob")
-    (synopsis
-     "Support for matching file paths against Unix shell style patterns")
-    (description
-     "Support for matching file paths against Unix shell style
-patterns.")
-    (license #f)))
-
 (define-public rust-remove-dir-all
   (package
     (name "rust-remove-dir-all")
