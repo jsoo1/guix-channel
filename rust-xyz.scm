@@ -2486,25 +2486,6 @@ bench suite.")
     (description "WASM tools")
     (license #f)))
 
-(define-public rust-version-check-0.1
-  (package
-    (name "rust-version-check")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "version_check" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1pf91pvj8n6akh7w6j5ypka6aqz08b3qpzgs0ak2kjf4frkiljwi"))))
-    (build-system cargo-build-system)
-    (home-page "")
-    (synopsis "")
-    (description "")
-    (license license:expat)))
-
 (define-public rust-data-encoding
   (package
     (name "rust-data-encoding")
