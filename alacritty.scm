@@ -2,8 +2,10 @@
   #:use-module ((gnu packages cmake) #:select (cmake))
   #:use-module ((gnu packages compression) #:select (gzip))
   #:use-module (gnu packages crates-io)
+  #:use-module ((gnu packages elf) #:select (patchelf))
   #:use-module ((gnu packages fontutils) #:select (fontconfig freetype))
-  #:use-module ((gnu packages freedesktop) #:select (wayland))
+  #:use-module ((gnu packages freedesktop) #:select (wayland xdg-utils))
+  #:use-module ((gnu packages gcc) #:select (gcc))
   #:use-module ((gnu packages gl) #:select (glew freeglut mesa mesa-utils))
   #:use-module ((gnu packages ncurses) #:select (ncurses))
   #:use-module ((gnu packages pkg-config) #:select (pkg-config))
@@ -46,6 +48,7 @@
        ("fontconfig" ,fontconfig)
        ("freeglut" ,freeglut)
        ("freetype" ,freetype)
+       ("gcc-lib" ,gcc "lib")
        ("glew" ,glew)
        ("gzip" ,gzip)
        ("libx11" ,libx11)
@@ -57,10 +60,12 @@
        ("libxrandr" ,libxrandr)
        ("mesa" ,mesa)
        ("ncurses" ,ncurses)
-       ("python-wrapper" ,python-wrapper)))
+       ("patchelf" ,patchelf)
+       ("xdg-utils" ,xdg-utils)))
     (native-inputs
      `(("cmake" ,cmake)
-       ("pkg-config" ,pkg-config)))
+       ("pkg-config" ,pkg-config)
+       ("python-wrapper" ,python-wrapper)))
     (arguments
      `(#:cargo-inputs
        (("rust-aho-corasick" ,rust-aho-corasick-0.7)
@@ -181,16 +186,53 @@
         ("rust-zip" ,rust-zip))
        #:phases
        (modify-phases %standard-phases
+         (add-after 'unpack 'patch-xdg-utils-reference
+           (lambda* (#:key inputs #:allow-other-keys)
+             (let ((xdg-utils (assoc-ref inputs "xdg-utils")))
+               (substitute* "alacritty_terminal/src/config/mouse.rs"
+                 (("xdg-open")
+                  (string-append xdg-utils "/bin/xdg-open"))))))
+
          (replace 'install
            (lambda* (#:key inputs outputs #:allow-other-keys)
-             (let ((out (assoc-ref outputs "out"))
-                   (gzip (string-append
-                          (assoc-ref inputs "gzip") "/bin/gzip"))
-                   (tic (string-append
-                         (assoc-ref inputs "ncurses") "/bin/tic")))
+             (let* ((out (assoc-ref outputs "out"))
+                    (gzip (string-append
+                           (assoc-ref inputs "gzip") "/bin/gzip"))
+                    (tic (string-append
+                          (assoc-ref inputs "ncurses") "/bin/tic"))
+                    (lib-path (lambda (in)
+                                (string-append
+                                 (assoc-ref inputs in) "/lib")))
+                    (additional-library-paths
+                     (string-join (map lib-path
+                                       '("expat"
+                                         "fontconfig"
+                                         "freetype"
+                                         "gcc-lib"
+                                         "libx11"
+                                         "libxcb"
+                                         "libxcursor"
+                                         "libxi"
+                                         "libxrandr"
+                                         "libxxf86vm"
+                                         "mesa"))
+                                  ":"))
+                    (target "target/release/alacritty"))
+
                ;; Binary
-               (install-file
-                "target/release/alacritty" (string-append out "/bin"))
+               (use-modules (ice-9 popen)
+                            (ice-9 textual-ports))
+               (let* ((cmd (string-append
+                            (assoc-ref inputs "patchelf")
+                            "/bin/patchelf --print-rpath " target))
+                      (pipe (open-input-pipe cmd))
+                      (old-rpath (get-string-all pipe)))
+                 (invoke
+                  "patchelf" "--set-rpath"
+                  (string-append old-rpath ":" additional-library-paths)
+                  target)
+                 (close-pipe pipe))
+               (install-file target (string-append out "/bin"))
 
                ;; Completions
                (install-file
@@ -227,6 +269,7 @@
                 "-o" (string-append out "/share/terminfo/")
                 "extra/alacritty.info")
                #t))))))
+    (outputs '("out" "terminfo"))
     (home-page "https://github.com/jwilm/alacritty")
     (synopsis "GPU accelerated terminal emulator")
     (description "GPU accelerated terminal emulator")
