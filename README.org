@@ -8,8 +8,10 @@
    - dhall
    - ghc-servant
    - ghcid (needs tweaks)
+   - ghc-*
    - idump
    - libsixel
+   - ormolu
    - pijul
    - purescript-spago
    - rustfmt
