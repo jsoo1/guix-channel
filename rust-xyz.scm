@@ -12110,7 +12110,8 @@ log crates.")
          "1hb2bajmf18kgbg6rzvxa78ph7bbsrlnlacq52vi021cwlrf9lqc"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs
+     `(#:skip-build? #t
+       #:cargo-inputs
        (("rust-darling-core" ,rust-darling-core)
         ("rust-quote" ,rust-quote-1.0)
         ("rust-syn" ,rust-syn-0.15))))
@@ -12139,7 +12140,8 @@ your code.")
          "1nzg8809n0p7g3giq3ca8wi77kcpzv1cihzq07i2kl8l281y9290"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs
+     `(#:skip-build? #t
+       #:cargo-inputs
        (("rust-serde" ,rust-serde-1.0))
        #:cargo-development-inputs
        (("rust-serde-json" ,rust-serde-json-1.0))))
@@ -12169,7 +12171,8 @@ first-class Rust objects.")
             "0bnm19w791q6kp79s0zl1cj9w51bw5xrifrxfy3g1p05i676y4vf"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs
+     `(#:skip-build? #t
+       #:cargo-inputs
         (("rust-byteorder" ,rust-byteorder-1.3)
          ("rust-datetime" ,rust-datetime-0.4))))
     (home-page
@@ -12195,7 +12198,8 @@ first-class Rust objects.")
             "1kxl3y2hcrqqip7jpqn5mz7xlpbwmmpfmaza0xnyrhx0mrkl4by7"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
+     `(#:skip-build? #t
+       #:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
     (home-page "https://github.com/ogham/rust-users")
     (synopsis
       "Library for getting information on Unix users and groups")
@@ -12218,7 +12222,8 @@ first-class Rust objects.")
             "1kq2sy3b8329jrsrpcvijvyz4gbqjyvyy6c3n0wmmvda9y03w393"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs
+     `(#:skip-build? #t
+       #:cargo-inputs
         (("rust-unicode-width" ,rust-unicode-width-0.1))))
     (home-page
       "https://github.com/ogham/rust-term-grid")
@@ -12242,6 +12247,7 @@ first-class Rust objects.")
           (base32
             "0slm4mqmpgs6hvz22ycny9lvyvl9ivs80a1lncslp7lszz02zc0p"))))
     (build-system cargo-build-system)
+    (arguments `(#:skip-build? #t))
     (home-page
       "https://github.com/ogham/rust-number-prefix")
     (synopsis
@@ -12265,7 +12271,8 @@ first-class Rust objects.")
             "1mr16riz544zwn0qpd02a5rgszsdcig9p868pwafrlwj4dhdqagn"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs
+     `(#:skip-build? #t
+       #:cargo-inputs
         (("rust-compiler-builtins" ,rust-compiler-builtins-0.1)
          ("rust-libc" ,rust-libc-0.2)
          ("rust-rustc-std-workspace-core"
@@ -12294,7 +12301,8 @@ It is used to build the target x86_64-unknown-hermit.")
             "0wlxs00cpg16z09fwchj1gdz1jxnf5dgg1cbidvq0sc75bnwbnkn"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs
+     `(#:skip-build? #t
+       #:cargo-inputs
         (("rust-hermit-abi" ,rust-hermit-abi-0.1)
          ("rust-libc" ,rust-libc-0.2))
         #:cargo-development-inputs
@@ -12321,7 +12329,8 @@ It is used to build the target x86_64-unknown-hermit.")
             "1qy0r26r52gp034fv252mmg0s599a55h9nr4xswy04hvky49pbfj"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs
+     `(#:skip-build? #t
+       #:cargo-inputs
         (("rust-unicode-width" ,rust-unicode-width-0.1))))
     (home-page "https://github.com/ogham/rust-pad")
     (synopsis
@@ -12345,7 +12354,8 @@ It is used to build the target x86_64-unknown-hermit.")
             "1z87wc7z6889x1pqlrwjw8f1crshzi15q5m102lqs8y0m69f9nsz"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
+     `(#:skip-build? #t
+       #:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
     (home-page
       "https://github.com/ogham/rust-locale")
     (synopsis
@@ -12355,10 +12365,10 @@ It is used to build the target x86_64-unknown-hermit.")
 for 0.3!")
     (license license:expat)))
 
-(define-public rust-iso8601-0.3
+(define-public rust-iso8601-0.1
   (package
     (name "rust-iso8601")
-    (version "0.3.0")
+    (version "0.1.1")
     (source
       (origin
         (method url-fetch)
@@ -12367,10 +12377,11 @@ for 0.3!")
           (string-append name "-" version ".tar.gz"))
         (sha256
           (base32
-            "0vvn6f9gv2295ik77nvaz99wzbwz1bmasrd787sz6d9mlwa6ks23"))))
+           "0xy48qyfmirslaj4dy6n4g8b564jap3cjiql35fmj5vgii7ldp0i"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs (("rust-nom" ,rust-nom-5.0))))
+     `(#:skip-build? #t
+       #:cargo-inputs (("rust-nom" ,rust-nom-5.0))))
     (home-page "https://github.com/badboy/iso8601")
     (synopsis "Parsing ISO8601 dates using nom")
     (description "Parsing ISO8601 dates using nom.")
@@ -12391,8 +12402,9 @@ for 0.3!")
             "1fd74bq48xg8ki5yw1mr1pa5hd3j5lbk4iqc5r0kh3l62b0vci2w"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs
-        (("rust-iso8601" ,rust-iso8601-0.3)
+     `(#:skip-build? #t
+       #:cargo-inputs
+        (("rust-iso8601" ,rust-iso8601-0.1)
          ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
          ("rust-libc" ,rust-libc-0.2)
          ("rust-locale" ,rust-locale-0.2)
@@ -12425,8 +12437,41 @@ for 0.3!")
         (base32
          "0z75spwag3ch20841pvfwhh3892i2z2sli4pzp1jgizbipdrd39h"))))
     (build-system cargo-build-system)
+    (arguments `(#:skip-build? #t))
     (home-page
      "https://github.com/lifthrasiir/rust-natord")
     (synopsis "Natural ordering for Rust")
     (description "Natural ordering for Rust")
+    (license license:expat)))
+
+(define-public rust-ansi-term-0.12
+  (package
+    (name "rust-ansi-term")
+    (version "0.12.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "ansi-term" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1ljmkbilxgmhavxvxqa7qvm6f3fjggi7q2l3a72q9x0cxjvrnanm"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+       (("rust-serde" ,rust-serde-1.0)
+        ("rust-winapi" ,rust-winapi-0.3))
+       #:cargo-development-inputs
+       (("rust-doc-comment" ,rust-doc-comment-0.3)
+        ("rust-regex" ,rust-regex-1.1)
+        ("rust-serde-json" ,rust-serde-json-1.0))))
+    (home-page
+     "https://github.com/ogham/rust-ansi-term")
+    (synopsis
+     "ANSI terminal colours and styles (bold, underline)")
+    (description
+     "Library for ANSI terminal colours and styles (bold,
+underline).")
     (license license:expat)))

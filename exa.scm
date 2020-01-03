@@ -22,7 +22,7 @@
     (build-system cargo-build-system)
     (arguments
       `(#:cargo-inputs
-        (("rust-ansi-term" ,rust-ansi-term-0.11)
+        (("rust-ansi-term" ,rust-ansi-term-0.12)
          ("rust-datetime" ,rust-datetime-0.4)
          ("rust-env-logger" ,rust-env-logger-0.6)
          ("rust-git2" ,rust-git2-0.9)
