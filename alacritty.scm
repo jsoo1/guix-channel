@@ -90,7 +90,7 @@
         ("rust-either" ,rust-either-1.5)
         ("rust-embed-resource" ,rust-embed-resource)
         ("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-errno" ,rust-errno-2.4)
+        ("rust-errno" ,rust-errno-0.2)
         ("rust-euclid" ,rust-euclid)
         ("rust-failure-derive" ,rust-failure-derive-0.1)
         ("rust-foreign-types" ,rust-foreign-types)
