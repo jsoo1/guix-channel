@@ -11700,7 +11700,7 @@ arbitrary structs.")
      `(#:cargo-inputs
        (("rust-cgmath" ,rust-cgmath)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-rgb" ,rust-rgb)
+        ("rust-rgb" ,rust-rgb-0.8)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
@@ -11732,7 +11732,7 @@ the Windows API.")
     (arguments
      `(#:cargo-inputs
        (("rust-darling-core" ,rust-darling-core)
-        ("rust-darling-macro" ,rust-darling-macro))
+        ("rust-darling-macro" ,rust-darling-macro-0.10))
        #:cargo-development-inputs
        (("rust-proc-macro2" ,rust-proc-macro2-0.4)
         ("rust-quote" ,rust-quote-1.0)
@@ -12095,7 +12095,7 @@ log crates.")
      "Utilities for implementing and composing tracing subscribers.")
     (license license:expat)))
 
-(define-public rust-darling-macro
+(define-public rust-darling-macro-0.10
   (package
     (name "rust-darling-macro")
     (version "0.10.1")
@@ -12124,7 +12124,7 @@ into structs when implementing custom derives.  Use rust-darling in
 your code.")
     (license license:expat)))
 
-(define-public rust-rgb
+(define-public rust-rgb-0.8
   (package
     (name "rust-rgb")
     (version "0.8.14")
@@ -12152,4 +12152,281 @@ and convenience methods for color manipulation.  Allows no-copy
 high-level interoperability.  Also adds common convenience methods and
 implements standard Rust traits to make RGB/RGBA pixels and slices
 first-class Rust objects.")
+    (license license:expat)))
+
+(define-public rust-zoneinfo-compiled-0.4
+  (package
+    (name "rust-zoneinfo-compiled")
+    (version "0.4.8")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "zoneinfo_compiled" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0bnm19w791q6kp79s0zl1cj9w51bw5xrifrxfy3g1p05i676y4vf"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-byteorder" ,rust-byteorder-1.3)
+         ("rust-datetime" ,rust-datetime-0.4))))
+    (home-page
+      "https://github.com/rust-datetime/zoneinfo-compiled/")
+    (synopsis
+      "Library for parsing compiled zoneinfo files")
+    (description
+      "Library for parsing compiled zoneinfo files.")
+    (license license:expat)))
+
+(define-public rust-users-0.9
+  (package
+    (name "rust-users")
+    (version "0.9.1")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "users" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1kxl3y2hcrqqip7jpqn5mz7xlpbwmmpfmaza0xnyrhx0mrkl4by7"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
+    (home-page "https://github.com/ogham/rust-users")
+    (synopsis
+      "Library for getting information on Unix users and groups")
+    (description
+      "Library for getting information on Unix users and groups.")
+    (license license:expat)))
+
+(define-public rust-term-grid-0.1
+  (package
+    (name "rust-term-grid")
+    (version "0.1.7")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "term_grid" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1kq2sy3b8329jrsrpcvijvyz4gbqjyvyy6c3n0wmmvda9y03w393"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-unicode-width" ,rust-unicode-width-0.1))))
+    (home-page
+      "https://github.com/ogham/rust-term-grid")
+    (synopsis
+      "Library for formatting strings into a grid layout")
+    (description
+      "Library for formatting strings into a grid layout")
+    (license license:expat)))
+
+(define-public rust-number-prefix-0.3
+  (package
+    (name "rust-number-prefix")
+    (version "0.3.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "number_prefix" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0slm4mqmpgs6hvz22ycny9lvyvl9ivs80a1lncslp7lszz02zc0p"))))
+    (build-system cargo-build-system)
+    (home-page
+      "https://github.com/ogham/rust-number-prefix")
+    (synopsis
+      "Format numeric prefixes: kilo, giga, kibi")
+    (description
+      "Library for formatting numeric prefixes: kilo, giga, kibi.")
+    (license license:expat)))
+
+(define-public rust-hermit-abi-0.1
+  (package
+    (name "rust-hermit-abi")
+    (version "0.1.5")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "hermit-abi" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1mr16riz544zwn0qpd02a5rgszsdcig9p868pwafrlwj4dhdqagn"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-compiler-builtins" ,rust-compiler-builtins-0.1)
+         ("rust-libc" ,rust-libc-0.2)
+         ("rust-rustc-std-workspace-core"
+          ,rust-rustc-std-workspace-core-1.0))))
+    (home-page
+      "https://github.com/hermitcore/rusty-hermit")
+    (synopsis
+      "Small interface to call functions from RustyHermit")
+    (description
+      "hermit-abi is small interface to call functions from the unikernel RustyHermit.
+It is used to build the target x86_64-unknown-hermit.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-num-cpus-1.11
+  (package
+    (name "rust-num-cpus")
+    (version "1.11.1")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "num_cpus" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0wlxs00cpg16z09fwchj1gdz1jxnf5dgg1cbidvq0sc75bnwbnkn"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-hermit-abi" ,rust-hermit-abi-0.1)
+         ("rust-libc" ,rust-libc-0.2))
+        #:cargo-development-inputs
+        (("rust-doc-comment" ,rust-doc-comment-0.3))))
+    (home-page
+      "https://github.com/seanmonstar/num_cpus")
+    (synopsis "Get the number of CPUs on a machine.")
+    (description
+      "Get the number of CPUs on a machine.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-pad-0.1
+  (package
+    (name "rust-pad")
+    (version "0.1.6")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "pad" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1qy0r26r52gp034fv252mmg0s599a55h9nr4xswy04hvky49pbfj"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-unicode-width" ,rust-unicode-width-0.1))))
+    (home-page "https://github.com/ogham/rust-pad")
+    (synopsis
+      "Library for padding strings at runtime")
+    (description
+      "Library for padding strings at runtime.")
+    (license license:expat)))
+
+(define-public rust-locale-0.2
+  (package
+    (name "rust-locale")
+    (version "0.2.2")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "locale" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1z87wc7z6889x1pqlrwjw8f1crshzi15q5m102lqs8y0m69f9nsz"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
+    (home-page
+      "https://github.com/ogham/rust-locale")
+    (synopsis
+      "Library for basic localisation")
+    (description
+      "Library for basic localisation.  Warning: Major rewrite pending
+for 0.3!")
+    (license license:expat)))
+
+(define-public rust-iso8601-0.3
+  (package
+    (name "rust-iso8601")
+    (version "0.3.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "iso8601" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0vvn6f9gv2295ik77nvaz99wzbwz1bmasrd787sz6d9mlwa6ks23"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs (("rust-nom" ,rust-nom))))
+    (home-page "https://github.com/badboy/iso8601")
+    (synopsis "Parsing ISO8601 dates using nom")
+    (description "Parsing ISO8601 dates using nom.")
+    (license license:expat)))
+
+(define-public rust-datetime-0.4
+  (package
+    (name "rust-datetime")
+    (version "0.4.7")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "datetime" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1fd74bq48xg8ki5yw1mr1pa5hd3j5lbk4iqc5r0kh3l62b0vci2w"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-iso8601" ,rust-iso8601-0.3)
+         ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
+         ("rust-libc" ,rust-libc-0.2)
+         ("rust-locale" ,rust-locale-0.2)
+         ("rust-num-traits" ,rust-num-traits-0.1)
+         ("rust-pad" ,rust-pad-0.1)
+         ("rust-redox-syscall" ,rust-redox-syscall-0.1)
+         ("rust-winapi" ,rust-winapi-0.3))
+        #:cargo-development-inputs
+        (("rust-regex" ,rust-regex-1.1)
+         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3))))
+    (home-page
+      "https://github.com/rust-datetime/datetime")
+    (synopsis
+      "Library for date and time formatting and arithmetic")
+    (description
+      "Library for date and time formatting and arithmetic.")
+    (license license:expat)))
+
+(define-public rust-natord-1.0
+  (package
+    (name "rust-natord")
+    (version "1.0.9")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "natord" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0z75spwag3ch20841pvfwhh3892i2z2sli4pzp1jgizbipdrd39h"))))
+    (build-system cargo-build-system)
+    (home-page
+     "https://github.com/lifthrasiir/rust-natord")
+    (synopsis "Natural ordering for Rust")
+    (description "Natural ordering for Rust")
     (license license:expat)))
