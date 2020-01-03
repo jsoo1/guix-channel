@@ -52,7 +52,7 @@
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu packages readline)
   #:use-module (gnu packages sqlite)
-  #:use-module (gnu packages rust-cbindgen)
+  #:use-module (gnu packages rust-apps)
   #:use-module (rust-xyz)
   #:use-module (rustfmt))
 
