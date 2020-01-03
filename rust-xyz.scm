@@ -215,7 +215,7 @@ and static initializers are available.")
      `(#:cargo-inputs
        (("rust-clippy" ,rust-clippy-0.0)
         ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/kbknapp/term_size-rs.git")
@@ -512,7 +512,7 @@ integer keys.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-numtoa" ,rust-numtoa-0.1.0)
         ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-redox-termios" ,rust-redox-termios))))
@@ -662,7 +662,7 @@ instantiate to generate your own pieces of pseudo-random text.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-tempdir" ,rust-tempdir-0.3))))
     (home-page
      "https://github.com/rbranson/rust-mmap")
@@ -732,7 +732,7 @@ remove_dir_all for Windows")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
@@ -1246,7 +1246,7 @@ guidelines on macOS.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
         ("rust-winapi" ,rust-winapi-0.3))
@@ -1277,7 +1277,7 @@ guidelines on macOS.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-redox-users" ,rust-redox-users)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/soc/dirs-sys-rs")
@@ -1338,7 +1338,7 @@ maps of many strings (> 1 billion is possible).")
      `(#:cargo-inputs
        (("rust-cloudabi" ,rust-cloudabi-0.0)
         ("rust-fuchsia-cprng" ,rust-fuchsia-cprng)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-rdrand" ,rust-rdrand-0.4)
         ("rust-winapi" ,rust-winapi-0.3)
@@ -1520,7 +1520,7 @@ Levenshtein automata.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-redox-syscall" ,rust-redox-syscall-0.1)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
@@ -1755,7 +1755,7 @@ bench suite.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-vcpkg" ,rust-vcpkg-0.2))
        #:cargo-development-inputs
        (("rust-autocfg" ,rust-autocfg-0.1)
@@ -1784,7 +1784,7 @@ bench suite.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-libz-sys" ,rust-libz-sys-1.0)
         ("rust-openssl-sys" ,rust-openssl-sys-0.9))
        #:cargo-development-inputs
@@ -2003,7 +2003,7 @@ bench suite.")
     (arguments
      `(#:cargo-inputs
        (("rust-glob" ,rust-glob-0.2)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-libloading" ,rust-libloading))
        #:cargo-development-inputs
        (("rust-glob" ,rust-glob-0.3))))))
@@ -2201,7 +2201,7 @@ bench suite.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-rand-core" ,rust-rand-core-0.5)
         ("rust-winapi" ,rust-winapi-0.3))))
@@ -2552,7 +2552,7 @@ size 2, 4, 8, 16, 32, and 64.")
     (arguments
      `(#:cargo-inputs
        (("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://pijul.org/cryptovec")
     (synopsis
@@ -2578,7 +2578,7 @@ and reallocations.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-termios" ,rust-termios-0.2))))
     (home-page
      "https://nest.pijul.com/pijul_org/getch")
@@ -2649,7 +2649,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-utf8parse" ,rust-utf8parse))))
     (home-page "")
     (synopsis
@@ -2696,7 +2696,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/conradkdotcom/rpassword")
@@ -2722,7 +2722,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/conradkdotcom/rpassword")
@@ -2834,7 +2834,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page
      "https://github.com/conradkdotcom/rpassword")
@@ -3571,7 +3571,7 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-openssl" ,rust-openssl-0.10)
         ("rust-openssl-probe" ,rust-openssl-probe-0.1)
@@ -3672,7 +3672,7 @@ and private (encrypted + signed) jars.")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-winapi" ,rust-winapi-0.3)
         ("rust-ws2-32-sys" ,rust-ws2-32-sys-0.2))))
     (home-page
@@ -3885,7 +3885,7 @@ types.  The Client can be used for other queries.")
      `(#:cargo-inputs
        (("rust-bzip2" ,rust-bzip2)
         ("rust-flate2" ,rust-flate2-1.0)
-        ("rust-libc" ,rust-libc-0.2.58))))
+        ("rust-libc" ,rust-libc-0.2))))
     (home-page "https://sequoia-pgp.org/")
     (synopsis "A super-powered Reader")
     (description
@@ -3910,7 +3910,7 @@ types.  The Client can be used for other queries.")
      `(#:cargo-inputs
        (("rust-bzip2-sys" ,rust-bzip2-sys)
         ("rust-futures" ,rust-futures-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-tokio-io" ,rust-tokio-io-0.1))
        #:cargo-development-inputs
        (("rust-partial-io" ,rust-partial-io)
@@ -3964,7 +3964,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-getrandom" ,rust-getrandom-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-mach-o-sys" ,rust-mach-o-sys)
         ("rust-winapi" ,rust-winapi-0.3))))
     (home-page "https://github.com/quininer/memsec")
@@ -3992,7 +3992,7 @@ exposed as Reader/Writer streams.")
      `(#:cargo-inputs
        (("rust-failure" ,rust-failure-0.1)
         ("rust-getrandom" ,rust-getrandom-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-nettle-sys" ,rust-nettle-sys))))
     (home-page
      "https://gitlab.com/sequoia-pgp/nettle-rs")
@@ -4086,7 +4086,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-pkg-config" ,rust-pkg-config-0.3))
        #:cargo-development-inputs ()))
     (home-page
@@ -4265,7 +4265,7 @@ exposed as Reader/Writer streams.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-tempdir" ,rust-tempdir-0.3))))
@@ -4564,14 +4564,14 @@ extension for the Trust-DNS client to use rustls for TLS.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-spin" ,rust-spin)
         ("rust-untrusted" ,rust-untrusted-0.7)
         ("rust-web-sys" ,rust-web-sys)
         ("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-wasm-bindgen-test"
          ,rust-wasm-bindgen-test-0.2))))
     (home-page "https://github.com/briansmith/ring")
@@ -4624,7 +4624,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
        (("rust-core-foundation" ,rust-core-foundation)
         ("rust-core-foundation-sys"
          ,rust-core-foundation-sys-0.6)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-security-framework-sys"
          ,rust-security-framework-sys-0.3))
        #:cargo-development-inputs
@@ -4863,7 +4863,7 @@ response body.")
          ,rust-futures-util-preview-0.3)
         ("rust-iovec" ,rust-iovec-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-mio-named-pipes" ,rust-mio-named-pipes)
         ("rust-mio-uds" ,rust-mio-uds-0.6)
@@ -5193,7 +5193,7 @@ client or server.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
+       (("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0))))
     (home-page
@@ -5269,7 +5269,7 @@ exposed as Reader/Writer streams.")
         ("rust-futures-cpupool" ,rust-futures-cpupool-0.1)
         ("rust-http" ,rust-http-0.1)
         ("rust-httparse" ,rust-httparse-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
@@ -5454,7 +5454,7 @@ accessor functions on enums.")
        (("rust-chrono" ,rust-chrono-0.4)
         ("rust-core-foundation-sys"
          ,rust-core-foundation-sys-0.6)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-uuid" ,rust-uuid-0.7))))
     (home-page
      "https://github.com/servo/core-foundation-rs")
@@ -5883,7 +5883,7 @@ functions.")
     (arguments
      `(#:cargo-inputs
        (("rust-gleam" ,rust-gleam)
-        ("rust-libc" ,rust-libc-0.2.58))))
+        ("rust-libc" ,rust-libc-0.2))))
     (home-page "https://github.com/servo/cgl-rs")
     (synopsis "Rust bindings for CGL on Mac")
     (description "Rust bindings for CGL on Mac")
@@ -5905,7 +5905,7 @@ functions.")
     (arguments
      `(#:cargo-inputs
        (("rust-gleam" ,rust-gleam-0.6)
-        ("rust-libc" ,rust-libc-0.2.58))))))
+        ("rust-libc" ,rust-libc-0.2))))))
 
 (define-public rust-cocoa
   (package
@@ -5928,7 +5928,7 @@ functions.")
         ("rust-core-foundation" ,rust-core-foundation)
         ("rust-core-graphics" ,rust-core-graphics)
         ("rust-foreign-types" ,rust-foreign-types-0.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-objc" ,rust-objc))))
     (home-page
      "https://github.com/servo/core-foundation-rs")
@@ -5969,7 +5969,7 @@ functions.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-core-foundation" ,rust-core-foundation)
         ("rust-foreign-types" ,rust-foreign-types-0.3)
-        ("rust-libc" ,rust-libc-0.2.58))))
+        ("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/servo/core-graphics-rs")
     (synopsis "Bindings to Core Graphics for OS X")
@@ -6187,7 +6187,7 @@ functions.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-calloop" ,rust-calloop)
         ("rust-downcast-rs" ,rust-downcast-rs)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-commons" ,rust-wayland-commons)
@@ -6223,7 +6223,7 @@ functions.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-calloop" ,rust-calloop)
         ("rust-downcast-rs" ,rust-downcast-rs)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-commons" ,rust-wayland-commons-0.21)
@@ -6259,7 +6259,7 @@ functions.")
         ("rust-derivative" ,rust-derivative)
         ("rust-dispatch" ,rust-dispatch)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-objc" ,rust-objc)
         ("rust-objc" ,rust-objc)
@@ -6331,7 +6331,7 @@ functions.")
         ("rust-core-foundation-sys"
          ,rust-core-foundation-sys-0.6)
         ("rust-core-graphics" ,rust-core-graphics)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-metal" ,rust-metal)
         ("rust-objc" ,rust-objc))))
     (home-page
@@ -6379,7 +6379,7 @@ functions.")
          "11wfzz3w2jqkjlk478765imwwf9lzy5rmhpgf4hzzcsk20p3ngdg"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2.58))))
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/rust-windowing/raw-window-handle")
     (synopsis
@@ -6470,7 +6470,7 @@ functions.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-maybe-uninit" ,rust-maybe-uninit)
         ("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
@@ -6595,7 +6595,7 @@ supports type parameters, associated types, and type constraints.")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-void" ,rust-void-1.0))
        #:cargo-development-inputs
        (("rust-bytes" ,rust-bytes-0.4)
@@ -6669,7 +6669,7 @@ supports type parameters, associated types, and type constraints.")
      `(#:cargo-inputs
        (("rust-dlib" ,rust-dlib)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58))))
+        ("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/smithay/wayland-rs")
     (synopsis
@@ -6750,7 +6750,7 @@ supports type parameters, associated types, and type constraints.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58))))
+        ("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/tomaka/shared_library/")
     (synopsis
@@ -6774,7 +6774,7 @@ supports type parameters, associated types, and type constraints.")
          "1zap9m0xmd5sdsxil7v2rgb1dzlq0308f826pwvqdvjyaz0chciz"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2.58))))
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/SSheldon/malloc_buf")
     (synopsis
@@ -7188,7 +7188,7 @@ supports type parameters, associated types, and type constraints.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-calloop" ,rust-calloop)
         ("rust-downcast-rs" ,rust-downcast-rs)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-nix" ,rust-nix-0.15)
         ("rust-wayland-commons" ,rust-wayland-commons)
@@ -7336,7 +7336,7 @@ hardware font rendering.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-time" ,rust-time-0.1))
        #:cargo-development-inputs
@@ -7870,7 +7870,7 @@ complex, rational, range iterators, generic integers, and more!
         ("rust-fsevent-sys" ,rust-fsevent-sys)
         ("rust-inotify" ,rust-inotify-0.6)
         ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-mio-extras" ,rust-mio-extras)
         ("rust-serde" ,rust-serde-1.0)
@@ -7992,7 +7992,7 @@ complex, rational, range iterators, generic integers, and more!
          "18246vxk7rqn52m0sfrhivxq802i34p2wqqx5zsa0pamjj5086zl"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2.58))))
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/octplane/fsevent-rust/tree/master/fsevent-sys")
     (synopsis
@@ -8020,7 +8020,7 @@ complex, rational, range iterators, generic integers, and more!
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-inotify-sys" ,rust-inotify-sys)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-mio" ,rust-mio-0.6)
         ("rust-tokio" ,rust-tokio-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
@@ -8062,7 +8062,7 @@ complex, rational, range iterators, generic integers, and more!
          "1h2nwgajz80qddjm4mpma94zahxw84nscbycy9pgzbjrgjl1ljp7"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2.58))))
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/inotify-rs/inotify-sys")
     (synopsis
@@ -8160,7 +8160,7 @@ complex, rational, range iterators, generic integers, and more!
     (arguments
      `(#:cargo-inputs
        (("rust-color-quant" ,rust-color-quant)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-lzw" ,rust-lzw))
        #:cargo-development-inputs
        (("rust-glob" ,rust-glob-0.3))))
@@ -8685,7 +8685,7 @@ UNC where possible")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-libdbus-sys" ,rust-libdbus-sys))
        #:cargo-development-inputs
        (("rust-tempfile" ,rust-tempfile-3.0))))
@@ -8765,7 +8765,7 @@ inter-process communication.")
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-drm" ,rust-drm)
         ("rust-gbm-sys" ,rust-gbm-sys)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-wayland-server" ,rust-wayland-server))
        #:cargo-development-inputs
        (("rust-drm" ,rust-drm))))
@@ -8792,7 +8792,7 @@ inter-process communication.")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-input-sys" ,rust-input-sys)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-udev" ,rust-udev))))
     (home-page
      "https://github.com/Drakulix/input.rs")
@@ -8845,7 +8845,7 @@ inter-process communication.")
     (arguments
      `(#:cargo-inputs
        (("rust-cstr-argument" ,rust-cstr-argument)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-libsystemd-sys" ,rust-libsystemd-sys)
         ("rust-log" ,rust-log-0.4)
         ("rust-utf8-cstr" ,rust-utf8-cstr))))
@@ -8873,7 +8873,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-libudev-sys" ,rust-libudev-sys))))
     (home-page "https://github.com/Smithay/udev-rs")
     (synopsis "libudev bindings for Rust")
@@ -8896,7 +8896,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-memmap" ,rust-memmap-0.7)
         ("rust-xcb" ,rust-xcb))))
     (home-page
@@ -8953,11 +8953,11 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-log" ,rust-log-0.4)
         ("rust-x11" ,rust-x11))
        #:cargo-development-inputs
-       (("rust-libc" ,rust-libc-0.2.58))))
+       (("rust-libc" ,rust-libc-0.2))))
     (home-page "https://github.com/rtbo/rust-xcb")
     (synopsis "Rust bindings and wrappers for XCB")
     (description
@@ -8980,7 +8980,7 @@ inter-process communication.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
+       (("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
@@ -9032,7 +9032,7 @@ to null terminated strings")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
+       (("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
@@ -9134,7 +9134,7 @@ The intersection of `std::ffi::CStr` and `str`")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
+       (("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-bindgen" ,rust-bindgen-0.50))))
     (home-page
@@ -9288,7 +9288,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
+       (("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-bindgen" ,rust-bindgen-0.50))))
     (home-page
@@ -9360,7 +9360,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
+       (("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-bindgen" ,rust-bindgen-0.50)
         ("rust-pkg-config" ,rust-pkg-config-0.3))))
@@ -9388,7 +9388,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
+       (("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-pkg-config" ,rust-pkg-config-0.3))))
     (home-page
@@ -9588,7 +9588,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-bitflags" ,rust-bitflags-1)
         ("rust-freetype-sys" ,rust-freetype-sys-0.7)
-        ("rust-libc" ,rust-libc-0.2.58))
+        ("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-unicode-normalization"
          ,rust-unicode-normalization-0.1))))
@@ -9615,7 +9615,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-libz-sys" ,rust-libz-sys-1.0))
        #:cargo-development-inputs
        (("rust-pkg-config" ,rust-pkg-config-0.3))))
@@ -9657,7 +9657,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-servo-fontconfig-sys"
          ,rust-servo-fontconfig-sys))))
     (home-page
@@ -9762,7 +9762,7 @@ for computer graphics.")
        (("rust-core-foundation" ,rust-core-foundation)
         ("rust-core-graphics" ,rust-core-graphics)
         ("rust-foreign-types" ,rust-foreign-types-0.3)
-        ("rust-libc" ,rust-libc-0.2.58))))
+        ("rust-libc" ,rust-libc-0.2))))
     (home-page
      "https://github.com/servo/core-foundation-rs")
     (synopsis "Bindings to the Core Text framework.")
@@ -9787,7 +9787,7 @@ for computer graphics.")
     (arguments
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2.58)
+        ("rust-libc" ,rust-libc-0.2)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-winapi" ,rust-winapi-0.3))))
@@ -9863,7 +9863,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58)
+       (("rust-libc" ,rust-libc-0.2)
         ("rust-vswhom-sys" ,rust-vswhom-sys))))
     (home-page
      "https://github.com/nabijaczleweli/vswhom.rs")
@@ -9889,7 +9889,7 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2.58))
+       (("rust-libc" ,rust-libc-0.2))
        #:cargo-development-inputs
        (("rust-cc" ,rust-cc-1.0))))
     (home-page
