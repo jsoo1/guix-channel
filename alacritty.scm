@@ -176,7 +176,7 @@
         ("rust-vte" ,rust-vte)
         ("rust-widestring" ,rust-widestring-0.4)
         ("rust-winapi" ,rust-winapi-0.2)
-        ("rust-winapi-build" ,rust-winapi-build)
+        ("rust-winapi-build" ,rust-winapi-build-0.1)
         ("rust-winapi-util" ,rust-winapi-util-0.1)
         ("rust-wincolor" ,rust-wincolor-1.0)
         ("rust-winpty-sys" ,rust-winpty-sys)

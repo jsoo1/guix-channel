@@ -64,7 +64,7 @@
         ("rust-utf8-ranges" ,rust-utf8-ranges-1.0)
         ("rust-vec-map" ,rust-vec-map-0.8)
         ("rust-winapi" ,rust-winapi-0.2)
-        ("rust-winapi-build" ,rust-winapi-build)
+        ("rust-winapi-build" ,rust-winapi-build-0.1)
         ("rust-winapi-util" ,rust-winapi-util-0.1)
         ("rust-wincolor" ,rust-wincolor-1.0))
        #:tests? #f ; FIXME: Tests fail

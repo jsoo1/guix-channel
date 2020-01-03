@@ -96,7 +96,7 @@
         ("rust-vec-map" ,rust-vec-map-0.8)
         ("rust-version-check" ,rust-version-check-0.1)
         ("rust-winapi" ,rust-winapi-0.2)
-        ("rust-winapi-build" ,rust-winapi-build)
+        ("rust-winapi-build" ,rust-winapi-build-0.1)
         ("rust-wincolor" ,rust-wincolor-1.0)
         ("rust-xattr" ,rust-xattr-0.2))
        #:cargo-development-inputs

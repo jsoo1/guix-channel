@@ -1865,28 +1865,6 @@ bench suite.")
         (base32
          "0fk8nl0rmk43jrh6hjz6c6d83ri7l6fikag6lh0ffz3di9cwznfm"))))))
 
-(define-public rust-winapi-build
-  (package
-    (name "rust-winapi-build")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "winapi-build" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1g4rqsgjky0a7530qajn2bbfcrl2v0zb39idgdws9b1l7gp5wc9d"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/retep998/winapi-rs")
-    (synopsis
-     "Common code for build.rs in WinAPI -sys crates.")
-    (description
-     "Common code for build.rs in WinAPI -sys crates.")
-    (license #f)))
-
 (define-public rust-bindgen-0.47
   (package
     (name "rust-bindgen")
@@ -4215,7 +4193,7 @@ exposed as Reader/Writer streams.")
      `(#:cargo-inputs
        (("rust-winapi" ,rust-winapi-0.3))
        #:cargo-development-inputs
-       (("rust-winapi-build" ,rust-winapi-build))))
+       (("rust-winapi-build" ,rust-winapi-build-0.1))))
     (home-page
      "https://github.com/retep998/winapi-rs")
     (synopsis

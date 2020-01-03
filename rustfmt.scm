@@ -56,7 +56,7 @@
         ("rust-ucd-util" ,rust-ucd-util-0.1)
         ("rust-unicode-segmentation" ,rust-unicode-segmentation-1.3)
         ("rust-winapi" ,rust-winapi-0.2)
-        ("rust-winapi-build" ,rust-winapi-build))))
+        ("rust-winapi-build" ,rust-winapi-build-0.1))))
     (home-page
      "https://github.com/rust-lang-nursery/rustfmt")
     (synopsis
