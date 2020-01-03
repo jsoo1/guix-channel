@@ -2008,7 +2008,7 @@ bench suite.")
        #:cargo-development-inputs
        (("rust-glob" ,rust-glob-0.3))))))
 
-(define-public rust-nom
+(define-public rust-nom-5.0
   (package
     (name "rust-nom")
     (version "5.0.0")
@@ -2042,14 +2042,14 @@ bench suite.")
 
 (define-public rust-nom-3
   (package
-    (inherit rust-nom)
+    (inherit rust-nom-5.0)
     (version "3.2.1")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "nom" version))
        (file-name
-        (string-append (package-name rust-nom) "-" version ".tar.gz"))
+        (string-append (package-name rust-nom-5.0) "-" version ".tar.gz"))
        (sha256
         (base32
          "0yr8fazcspgawl6s7wmx5llz61s68jl88cnrph18fa7xf06cbbh5"))))
@@ -2067,14 +2067,14 @@ bench suite.")
 
 (define-public rust-nom-1
   (package
-    (inherit rust-nom)
+    (inherit rust-nom-5.0)
     (version "1.2.4")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "nom" version))
        (file-name
-        (string-append (package-name rust-nom) "-" version ".tar.gz"))
+        (string-append (package-name rust-nom-5.0) "-" version ".tar.gz"))
        (sha256
         (base32
          "1kjh42w67z1hh1dw3jrilgqrf54jk2xcvhw4rcdm4wclzmbc5f55"))))
@@ -11504,7 +11504,7 @@ your own implementation.")
          "0r0i2kllvkn9jil6cjzxdi1zsc6p1gjyk751w8lyclaii1q3zd1v"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-nom" ,rust-nom))))
+     `(#:cargo-inputs (("rust-nom" ,rust-nom-5.0))))
     (home-page "https://github.com/rustwasm/weedle")
     (synopsis "A WebIDL Parser")
     (description
@@ -12370,7 +12370,7 @@ for 0.3!")
             "0vvn6f9gv2295ik77nvaz99wzbwz1bmasrd787sz6d9mlwa6ks23"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs (("rust-nom" ,rust-nom))))
+      `(#:cargo-inputs (("rust-nom" ,rust-nom-5.0))))
     (home-page "https://github.com/badboy/iso8601")
     (synopsis "Parsing ISO8601 dates using nom")
     (description "Parsing ISO8601 dates using nom.")
