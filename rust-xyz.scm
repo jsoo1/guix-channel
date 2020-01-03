@@ -195,7 +195,7 @@ and static initializers are available.")
          "0cpznss2fbb2im0yhmlw0k9cz5av9bd0l71w66d43xnxg7wsnksv"))))
     (arguments
      `(#:cargo-inputs
-       (("rust-term" ,rust-term-0.5.1))))))
+       (("rust-term" ,rust-term-0.5))))))
 
 (define-public rust-term-size
   (package
