@@ -7,7 +7,6 @@
    - bower (needs tweaks)
    - dhall
    - ghc-servant
-   - ghcid (needs tweaks)
    - ghc-*
    - idump
    - libsixel
