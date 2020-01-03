@@ -6,6 +6,7 @@
    - alacritty
    - bower (needs tweaks)
    - dhall
+   - exa
    - ghc-servant
    - ghc-*
    - idump
