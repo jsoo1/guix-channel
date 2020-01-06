@@ -12453,3 +12453,311 @@ for 0.3!")
      "Library for ANSI terminal colours and styles (bold,
 underline).")
     (license license:expat)))
+
+(define-public rust-handlebars-2.0
+  (package
+    (name "rust-handlebars")
+    (version "2.0.4")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "handlebars" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1m99gwjd7q7q79bk4f716wsdvcyhsrcsq4vbzcavbkmc48d194mg"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+        (("rust-log" ,rust-log-0.4)
+         ("rust-pest" ,rust-pest-2.1)
+         ("rust-pest-derive" ,rust-pest-derive-2.1)
+         ("rust-quick-error" ,rust-quick-error-1.2)
+         ("rust-serde" ,rust-serde-1.0)
+         ("rust-serde-json" ,rust-serde-json-1.0)
+         ("rust-walkdir" ,rust-walkdir-2.2))
+        #:cargo-development-inputs
+        (("rust-criterion" ,rust-criterion-0.2)
+         ("rust-env-logger" ,rust-env-logger-0.6)
+         ("rust-maplit" ,rust-maplit-1.0)
+         ("rust-serde-derive" ,rust-serde-derive-1.0)
+         ("rust-tempfile" ,rust-tempfile-3.0))))
+    (home-page
+      "https://github.com/sunng87/handlebars-rust")
+    (synopsis
+      "Handlebars templating implemented in Rust")
+    (description
+      "Handlebars templating implemented in Rust.")
+    (license license:expat)))
+
+(define-public rust-toml-0.5.5
+  (package
+    (name "rust-toml")
+    (version "0.5.5")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "toml" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1kwqpin2w5fk51yamajdb18s949s80i47yngpwb2pcf88i341l81"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+        (("rust-indexmap" ,rust-indexmap-1.0)
+         ("rust-serde" ,rust-serde-1.0))
+        #:cargo-development-inputs
+        (("rust-serde-derive" ,rust-serde-derive-1.0)
+         ("rust-serde-json" ,rust-serde-json-1.0))))
+    (home-page
+      "https://github.com/alexcrichton/toml-rs")
+    (synopsis
+      "Dncoder and decoder of TOML-formatted files and streams")
+    (description
+      "This package provides a native Rust encoder and decoder of
+TOML-formatted files and streams.  Provides implementations of the
+standard Serialize/Deserialize traits for TOML data to facilitate
+deserializing and serializing Rust structures.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-hex-0.4
+  (package
+    (name "rust-hex")
+    (version "0.4.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "hex" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0glsfrx2pxfsf6ivxj7vfrvd7g78j4z47ssgm5idm8p376z3jfq2"))))
+    (build-system cargo-build-system)
+    (arguments `(#:skip-build? #t))
+    (home-page
+      "https://github.com/KokaKiwi/rust-hex")
+    (synopsis
+      "Encoding and decoding hexadecimal data")
+    (description
+      "Encoding and decoding data into/from hexadecimal
+representation.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-crossbeam-channel-0.4
+  (package
+    (name "rust-crossbeam-channel")
+    (version "0.4.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "crossbeam-channel" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "135ncx9680afs8jkjz8g3iq3naay9rn7942gxrdg2n9m1cxrmv5c"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+        (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
+        #:cargo-development-inputs
+        (("rust-num-cpus" ,rust-num-cpus-1.10)
+         ("rust-rand" ,rust-rand-0.6)
+         ("rust-signal-hook" ,rust-signal-hook-0.1))))
+    (home-page
+      "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-channel")
+    (synopsis
+      "Multi-producer multi-consumer channels for message passing")
+    (description
+      "Multi-producer multi-consumer channels for message passing.")
+    (license
+      (list license:expat
+            license:asl2.0
+            license:bsd-2))))
+
+(define-public rust-dirs-2.0
+  (package
+    (name "rust-dirs")
+    (version "2.0.2")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "dirs" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1qymhyq7w7wlf1dirq6gsnabdyzg6yi2yyxkx6c4ldlkbjdaibhk"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-cfg-if" ,rust-cfg-if-0.1)
+         ("rust-dirs-sys" ,rust-dirs-sys))))
+    (home-page "https://github.com/soc/dirs-rs")
+    (synopsis
+     "Abstractions for standard locations for various platforms")
+    (description
+      "This package provides a tiny low-level library that provides
+platform-specific standard locations of directories for config, cache
+and other data on Linux, Windows, macOS and Redox by leveraging the
+mechanisms defined by the XDG base/user directory specifications on
+Linux, the Known Folder API on Windows, and the Standard Directory
+guidelines on macOS.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-env-logger-0.7
+  (package
+    (inherit rust-env-logger-0.6)
+    (version "0.7.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "env_logger" version))
+       (file-name
+        (string-append (package-name rust-env-logger-0.6) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0djx8h8xfib43g5w94r1m1mkky5spcw4wblzgnhiyg5vnfxknls4"))))))
+
+(define-public rust-grep-searcher-0.1.6
+  (package
+    (inherit rust-grep-searcher-0.1)
+    (version "0.1.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "grep-searcher" version))
+       (file-name
+        (string-append (package-name rust-grep-searcher-0.1) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "09ag16im12v6k0lzkyvbvamn1iw15kfx1jbfldb7z5xa7208l04a"))))))
+
+(define-public rust-rayon-1.3
+  (package
+    (inherit rust-rayon-1.1)
+    (version "1.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "rayon" version))
+       (file-name
+        (string-append (package-name rust-rayon-1.1) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1650g13bxlmywhdlw65q3g1zyyb7l0wcm35v45kf31cwgwly6v6v"))))))
+
+(define-public rust-serde-1.0.104
+  (package
+    (inherit rust-serde-1.0)
+    (version "1.0.104")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde" version))
+       (file-name (string-append (package-name rust-serde-1.0) "-" version ".crate"))
+       (sha256
+        (base32
+         "0ja4mgw4p42syjk7jkzwhj2yg6llfrfm7vn8rvy7v3c1bzr1aha1"))))))
+
+(define-public rust-serde-cbor-0.10.2
+  (package
+    (inherit rust-serde-cbor-0.10)
+    (version "0.10.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde_cbor" version))
+       (file-name
+        (string-append (package-name rust-serde-cbor-0.10) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0kyizacjabsa78p9f7qvj31zirpnsgsr4zpfv1p6lwpcb3biw27p"))))))
+
+(define-public rust-serde-derive-1.0.104
+  (package
+    (inherit rust-serde-derive-1.0)
+    (version "1.0.104")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde-derive" version))
+       (file-name (string-append (package-name rust-serde-derive-1.0) "-" version ".crate"))
+       (sha256
+        (base32
+         "0r7gjlwfry44b4ylz524ynjp9v3qiwdj4c588lh94aas78q9x3qj")))) ))
+
+(define-public rust-serde-json-1.0.44
+  (package
+    (inherit rust-serde-json-1.0)
+    (version "1.0.44")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde-json" version))
+       (file-name (string-append (package-name rust-serde-json-1.0) "-" version ".crate"))
+       (sha256
+        (base32
+         "1mysl675nqhzzkbcrqy4x63cbbsrrx3gcc7k8ydx1gajrkh7bia8"))))))
+
+(define-public rust-serde-yaml-0.8.11
+  (package
+    (inherit rust-serde-yaml-0.8)
+    (version "0.8.11")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "serde_yaml" version))
+       (file-name
+        (string-append (package-name rust-serde-yaml-0.8) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0d9wdjrlx9gxg80kzc6pvdwz5pwhja2n8n0bxja9vv61kzqif6v9"))))))
+
+(define-public rust-git2-0.11
+  (package
+    (inherit rust-git2-0.9)
+    (version "0.11.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "git2" version))
+       (file-name
+        (string-append (package-name rust-git2-0.9) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1i0fgsr91r97hsjbgqnymkcyiyg0057m7m04116k3vmyqpvrwlbp"))))))
+
+(define-public rust-lazy-static-1.4
+  (package
+    (inherit rust-lazy-static-1.3)
+    (version "1.4.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "lazy_static" version))
+        (file-name (string-append (package-name rust-lazy-static-1.3) "-" version ".crate"))
+        (sha256
+         (base32
+          "0in6ikhw8mgl33wjv6q6xfrb5b9jr16q8ygjy803fay4zcisvaz2"))))))
+
+(define-public rust-regex-1.3
+  (package
+    (inherit rust-regex-1.1)
+    (version "1.3.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "regex" version))
+       (file-name
+        (string-append (package-name rust-regex-1.1) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1g8wp160vzxgralyd4imydd0xsxq6yh25zhs229z1s6w7g9hn8nw"))))))
