@@ -1263,7 +1263,7 @@ guidelines on macOS.")
 (define-public rust-dirs-sys
   (package
     (name "rust-dirs-sys")
-    (version "0.3.3")
+    (version "0.3.4")
     (source
      (origin
        (method url-fetch)
@@ -1272,7 +1272,7 @@ guidelines on macOS.")
         (string-append name "-" version ".tar.gz"))
        (sha256
         (base32
-         "0b8ynb5g8hjf6qndfy8l2ai0klb7k3bcjfnwv4niyzf75qwmcxwk"))))
+         "0yyykdcmbc476z1v9m4z5jb8y91dw6kgzpkiqi2ig07xx0yv585g"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
