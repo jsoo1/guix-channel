@@ -12638,7 +12638,15 @@ guidelines on macOS.")
         (string-append (package-name rust-env-logger-0.6) "-" version ".tar.gz"))
        (sha256
         (base32
-         "0djx8h8xfib43g5w94r1m1mkky5spcw4wblzgnhiyg5vnfxknls4"))))))
+         "0djx8h8xfib43g5w94r1m1mkky5spcw4wblzgnhiyg5vnfxknls4"))))
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+       (("rust-atty" ,rust-atty-0.2)
+        ("rust-humantime" ,rust-humantime-1.3)
+        ("rust-log" ,rust-log-0.4)
+        ("rust-regex" ,rust-regex-1.1)
+        ("rust-termcolor" ,rust-termcolor-1.0))))))
 
 (define-public rust-grep-searcher-0.1.6
   (package
