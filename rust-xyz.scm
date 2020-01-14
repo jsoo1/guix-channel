@@ -12669,20 +12669,6 @@ guidelines on macOS.")
         (base32
          "09ag16im12v6k0lzkyvbvamn1iw15kfx1jbfldb7z5xa7208l04a"))))))
 
-(define-public rust-rayon-1.3
-  (package
-    (inherit rust-rayon-1.1)
-    (version "1.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rayon" version))
-       (file-name
-        (string-append (package-name rust-rayon-1.1) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1650g13bxlmywhdlw65q3g1zyyb7l0wcm35v45kf31cwgwly6v6v"))))))
-
 (define-public rust-serde-1.0.104
   (package
     (inherit rust-serde-1.0)
