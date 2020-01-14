@@ -12566,7 +12566,7 @@ representation.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs
-        (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
+        (("rust-crossbeam-utils" ,rust-crossbeam-utils-0.7))
         #:cargo-development-inputs
         (("rust-num-cpus" ,rust-num-cpus-1.10)
          ("rust-rand" ,rust-rand-0.6)
