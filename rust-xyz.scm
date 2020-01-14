@@ -12612,6 +12612,20 @@ Linux, the Known Folder API on Windows, and the Standard Directory
 guidelines on macOS.")
     (license (list license:expat license:asl2.0))))
 
+(define-public rust-humantime-1.3
+  (package
+    (inherit rust-humantime-1.2)
+    (version "1.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "humantime" version))
+       (file-name
+        (string-append (package-name rust-humantime-1.2) "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0krwgbf35pd46xvkqg14j070vircsndabahahlv3rwhflpy4q06z"))))))
+
 (define-public rust-env-logger-0.7
   (package
     (inherit rust-env-logger-0.6)
