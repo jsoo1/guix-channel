@@ -1052,7 +1052,7 @@ don't use this crate directly, depend on winapi instead.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-dirs-sys" ,rust-dirs-sys))))
+        ("rust-dirs-sys" ,rust-dirs-sys-0.3))))
     (home-page "https://github.com/soc/dirs-rs")
     (synopsis
      "Provides platform-specific standard locations of directories for config")
@@ -1082,7 +1082,7 @@ guidelines on macOS.")
     (arguments
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-dirs-sys" ,rust-dirs-sys))))
+        ("rust-dirs-sys" ,rust-dirs-sys-0.3))))
     (home-page "https://github.com/soc/dirs-rs")
     (synopsis
      "Provides platform-specific standard locations of directories or config")
@@ -1267,33 +1267,6 @@ guidelines on macOS.")
      "Utilities for working with time-related functions in Rust.")
     (license #f)))
 
-(define-public rust-dirs-sys
-  (package
-    (name "rust-dirs-sys")
-    (version "0.3.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "dirs-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0yyykdcmbc476z1v9m4z5jb8y91dw6kgzpkiqi2ig07xx0yv585g"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-redox-users" ,rust-redox-users)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page "https://github.com/soc/dirs-sys-rs")
-    (synopsis
-     "System-level helper functions for the dirs and directories crates.")
-    (description
-     "System-level helper functions for the dirs and directories crates.")
-    (license #f)))
-
 (define-public rust-fst
   (package
     (name "rust-fst")
@@ -1352,34 +1325,6 @@ maps of many strings (> 1 billion is possible).")
         ("rust-log" ,rust-log-0.4)
         ("rust-stdweb" ,rust-stdweb-0.4)
         ("rust-wasm" ,rust-wasm))))))
-
-(define-public rust-redox-users
-  (package
-    (name "rust-redox-users")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "redox_users" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0a1q5jv76vj1mwmqf2mmhknmkpw5wndx91gjfgg7vs8p79621r9z"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-argon2rs" ,rust-argon2rs)
-        ("rust-failure" ,rust-failure-0.1)
-        ("rust-rand-os" ,rust-rand-os-0.2)
-        ("rust-redox-syscall" ,rust-redox-syscall-0.1))))
-    (home-page
-     "https://gitlab.redox-os.org/redox-os/users")
-    (synopsis
-     "A Rust library to access Redox users and groups functionality")
-    (description
-     "This package provides a Rust library to access Redox users and groups functionality")
-    (license #f)))
 
 (define-public rust-fst-levenshtein
   (package
