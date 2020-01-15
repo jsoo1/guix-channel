@@ -12640,30 +12640,3 @@ guidelines on macOS.")
        (sha256
         (base32
          "0d9wdjrlx9gxg80kzc6pvdwz5pwhja2n8n0bxja9vv61kzqif6v9"))))))
-
-(define-public rust-lazy-static-1.4
-  (package
-    (inherit rust-lazy-static-1.3)
-    (version "1.4.0")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "lazy_static" version))
-        (file-name (string-append (package-name rust-lazy-static-1.3) "-" version ".crate"))
-        (sha256
-         (base32
-          "0in6ikhw8mgl33wjv6q6xfrb5b9jr16q8ygjy803fay4zcisvaz2"))))))
-
-(define-public rust-regex-1.3
-  (package
-    (inherit rust-regex-1.1)
-    (version "1.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "regex" version))
-       (file-name
-        (string-append (package-name rust-regex-1.1) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1g8wp160vzxgralyd4imydd0xsxq6yh25zhs229z1s6w7g9hn8nw"))))))
