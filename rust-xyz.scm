@@ -12461,30 +12461,6 @@ for 0.3!")
 underline).")
     (license license:expat)))
 
-(define-public rust-hex-0.4
-  (package
-    (name "rust-hex")
-    (version "0.4.0")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "hex" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "0glsfrx2pxfsf6ivxj7vfrvd7g78j4z47ssgm5idm8p376z3jfq2"))))
-    (build-system cargo-build-system)
-    (arguments `(#:skip-build? #t))
-    (home-page
-      "https://github.com/KokaKiwi/rust-hex")
-    (synopsis
-      "Encoding and decoding hexadecimal data")
-    (description
-      "Encoding and decoding data into/from hexadecimal
-representation.")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-crossbeam-channel-0.4
   (package
     (name "rust-crossbeam-channel")
