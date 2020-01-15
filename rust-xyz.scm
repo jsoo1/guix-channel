@@ -197,55 +197,6 @@ and static initializers are available.")
      `(#:cargo-inputs
        (("rust-term" ,rust-term-0.5))))))
 
-(define-public rust-term-size
-  (package
-    (name "rust-term-size")
-    (version "1.0.0-beta1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "term_size" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "13w9cqjhzh3mmx6zami8lxyf42xx53yy866zxhxqcm71k637v8d8"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-clippy" ,rust-clippy-0.0)
-        ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/kbknapp/term_size-rs.git")
-    (synopsis
-     "Determine terminal sizes and dimensions")
-    (description
-     "Functions for determining terminal sizes and dimensions")
-    (license #f)))
-
-(define-public rust-term-size-0.3
-  (package
-    (inherit rust-term-size)
-    (version "0.3.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "term_size" version))
-       (file-name
-        (string-append (package-name rust-term-size) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09wk3173ngmb710qs9rwgibq4w250q8lgnwjvb9cypc1vdk9lnwy"))))
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs
-       (("rust-clippy" ,rust-clippy-0.0)
-        ("rust-kernel32-sys" ,rust-kernel32-sys-0.2)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-winapi" ,rust-winapi-0.2))))))
-
 (define-public rust-textwrap
   (package
     (name "rust-textwrap")
