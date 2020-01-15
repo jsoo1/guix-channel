@@ -12499,39 +12499,6 @@ underline).")
       "Handlebars templating implemented in Rust.")
     (license license:expat)))
 
-(define-public rust-toml-0.5.5
-  (package
-    (name "rust-toml")
-    (version "0.5.5")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "toml" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "1kwqpin2w5fk51yamajdb18s949s80i47yngpwb2pcf88i341l81"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs
-        (("rust-indexmap" ,rust-indexmap-1.0)
-         ("rust-serde" ,rust-serde-1.0))
-        #:cargo-development-inputs
-        (("rust-serde-derive" ,rust-serde-derive-1.0)
-         ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-      "https://github.com/alexcrichton/toml-rs")
-    (synopsis
-      "Dncoder and decoder of TOML-formatted files and streams")
-    (description
-      "This package provides a native Rust encoder and decoder of
-TOML-formatted files and streams.  Provides implementations of the
-standard Serialize/Deserialize traits for TOML data to facilitate
-deserializing and serializing Rust structures.")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-hex-0.4
   (package
     (name "rust-hex")
@@ -12735,20 +12702,6 @@ guidelines on macOS.")
        (sha256
         (base32
          "0d9wdjrlx9gxg80kzc6pvdwz5pwhja2n8n0bxja9vv61kzqif6v9"))))))
-
-(define-public rust-git2-0.11
-  (package
-    (inherit rust-git2-0.9)
-    (version "0.11.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "git2" version))
-       (file-name
-        (string-append (package-name rust-git2-0.9) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1i0fgsr91r97hsjbgqnymkcyiyg0057m7m04116k3vmyqpvrwlbp"))))))
 
 (define-public rust-lazy-static-1.4
   (package
