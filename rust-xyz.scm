@@ -1427,34 +1427,6 @@ Levenshtein automata.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
 
-(define-public rust-argon2rs
-  (package
-    (name "rust-argon2rs")
-    (version "0.2.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "argon2rs" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "14mkgkrjd4b4zy92pflz6yb4j1wn2chbd8jczxknxbkdm2vb0rrz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-blake2-rfc" ,rust-blake2-rfc)
-        ("rust-scoped-threadpool"
-         ,rust-scoped-threadpool-0.1))
-       #:cargo-development-inputs
-       (("rust-cargon" ,rust-cargon))))
-    (home-page "https://github.com/bryant/argon2rs")
-    (synopsis
-     "The pure Rust password hashing library that runs on Argon2")
-    (description
-     "The pure Rust password hashing library that runs on Argon2.")
-    (license #f)))
-
 (define-public rust-socket2
   (package
     (name "rust-socket2")
@@ -1562,61 +1534,6 @@ of configuration possible intended.")
         ("rust-scopeguard" ,rust-scopeguard-0.3))
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
-
-(define-public rust-blake2-rfc
-  (package
-    (name "rust-blake2-rfc")
-    (version "0.2.18")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "blake2-rfc" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0034g47hyq2bzmk40895ill1mbnpmmjakdq3dmm9clidvl5m6vax"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-arrayvec" ,rust-arrayvec-0.4)
-        ("rust-clippy" ,rust-clippy-0.0)
-        ("rust-constant-time-eq" ,rust-constant-time-eq-0.1))
-       #:cargo-development-inputs
-       (("rust-data-encoding" ,rust-data-encoding-2.1))))
-    (home-page
-     "https://github.com/cesarb/blake2-rfc")
-    (synopsis
-     "Rust implementation of BLAKE2 based on RFC 7693")
-    (description
-     "This package provides a pure Rust implementation of BLAKE2 based
-on RFC 7693.")
-    (license #f)))
-
-(define-public rust-cargon
-  (package
-    (name "rust-cargon")
-    (version "0.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cargon" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1cszlab7jk736p0lb50ag4l9nv72m7j41bwrmygl0lr4iz0350w2"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-gcc" ,rust-gcc-0.3))))
-    (home-page "https://github.com/bryant/argon2rs")
-    (synopsis
-     "Wrapper around the Argon2 C library")
-    (description
-     "Thin wrapper around the Argon2 C library.  Used in argon2rs'
-bench suite.")
-    (license #f)))
 
 (define-public rust-adler32
   (package
