@@ -1445,7 +1445,7 @@ Levenshtein automata.")
      `(#:cargo-inputs
        (("rust-blake2-rfc" ,rust-blake2-rfc)
         ("rust-scoped-threadpool"
-         ,rust-scoped-threadpool))
+         ,rust-scoped-threadpool-0.1))
        #:cargo-development-inputs
        (("rust-cargon" ,rust-cargon))))
     (home-page "https://github.com/bryant/argon2rs")
@@ -1591,32 +1591,6 @@ of configuration possible intended.")
     (description
      "This package provides a pure Rust implementation of BLAKE2 based
 on RFC 7693.")
-    (license #f)))
-
-(define-public rust-scoped-threadpool
-  (package
-    (name "rust-scoped-threadpool")
-    (version "0.1.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "scoped_threadpool" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1a26d3lk40s9mrf4imhbik7caahmw2jryhhb6vqv6fplbbgzal8x"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3))))
-    (home-page
-     "https://github.com/Kimundi/scoped-threadpool-rs")
-    (synopsis
-     "Library for scoped and cached threadpools")
-    (description
-     "This package provides a library for scoped and cached
-threadpools.")
     (license #f)))
 
 (define-public rust-cargon
@@ -6433,7 +6407,7 @@ functions.")
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-png" ,rust-png)
         ("rust-scoped-threadpool"
-         ,rust-scoped-threadpool)
+         ,rust-scoped-threadpool-0.1)
         ("rust-tiff" ,rust-tiff))
        #:cargo-development-inputs
        (("rust-crc32fast" ,rust-crc32fast-1.2)
@@ -6470,7 +6444,7 @@ functions.")
         ("rust-num-rational" ,rust-num-rational)
         ("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-png" ,rust-png-0.14)
-        ("rust-scoped-threadpool" ,rust-scoped-threadpool)
+        ("rust-scoped-threadpool" ,rust-scoped-threadpool-0.1)
         ("rust-tiff" ,rust-tiff-0.2))
        #:cargo-development-inputs
        (("rust-crc32fast" ,rust-crc32fast-1.2)
