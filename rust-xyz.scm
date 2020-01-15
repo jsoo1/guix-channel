@@ -12524,42 +12524,6 @@ Linux, the Known Folder API on Windows, and the Standard Directory
 guidelines on macOS.")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-humantime-1.3
-  (package
-    (inherit rust-humantime-1.2)
-    (version "1.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "humantime" version))
-       (file-name
-        (string-append (package-name rust-humantime-1.2) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0krwgbf35pd46xvkqg14j070vircsndabahahlv3rwhflpy4q06z"))))))
-
-(define-public rust-env-logger-0.7
-  (package
-    (inherit rust-env-logger-0.6)
-    (version "0.7.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "env_logger" version))
-       (file-name
-        (string-append (package-name rust-env-logger-0.6) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0djx8h8xfib43g5w94r1m1mkky5spcw4wblzgnhiyg5vnfxknls4"))))
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs
-       (("rust-atty" ,rust-atty-0.2)
-        ("rust-humantime" ,rust-humantime-1.3)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-termcolor" ,rust-termcolor-1.0))))))
-
 (define-public rust-grep-searcher-0.1.6
   (package
     (inherit rust-grep-searcher-0.1)
