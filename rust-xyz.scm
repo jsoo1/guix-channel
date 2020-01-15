@@ -12461,20 +12461,6 @@ for 0.3!")
 underline).")
     (license license:expat)))
 
-(define-public rust-grep-searcher-0.1.6
-  (package
-    (inherit rust-grep-searcher-0.1)
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "grep-searcher" version))
-       (file-name
-        (string-append (package-name rust-grep-searcher-0.1) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "09ag16im12v6k0lzkyvbvamn1iw15kfx1jbfldb7z5xa7208l04a"))))))
-
 (define-public rust-serde-1.0.104
   (package
     (inherit rust-serde-1.0)
