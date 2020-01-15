@@ -1581,7 +1581,7 @@ of configuration possible intended.")
      `(#:cargo-inputs
        (("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-clippy" ,rust-clippy-0.0)
-        ("rust-constant-time-eq" ,rust-constant-time-eq))
+        ("rust-constant-time-eq" ,rust-constant-time-eq-0.1))
        #:cargo-development-inputs
        (("rust-data-encoding" ,rust-data-encoding))))
     (home-page
@@ -1616,28 +1616,6 @@ on RFC 7693.")
     (description
      "Thin wrapper around the Argon2 C library.  Used in argon2rs'
 bench suite.")
-    (license #f)))
-
-(define-public rust-constant-time-eq
-  (package
-    (name "rust-constant-time-eq")
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "constant_time_eq" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17janp8n9dd6kjbbgqiayrh9fw81v4cq9rz04926s5nf4pi15w4g"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/cesarb/constant_time_eq")
-    (synopsis
-     "Compares two equal-sized byte strings in constant time")
-    (description
-     "Compares two equal-sized byte strings in constant time.")
     (license #f)))
 
 (define-public rust-adler32
