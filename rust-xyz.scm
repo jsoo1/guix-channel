@@ -12460,17 +12460,3 @@ for 0.3!")
      "Library for ANSI terminal colours and styles (bold,
 underline).")
     (license license:expat)))
-
-(define-public rust-serde-yaml-0.8.11
-  (package
-    (inherit rust-serde-yaml-0.8)
-    (version "0.8.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde_yaml" version))
-       (file-name
-        (string-append (package-name rust-serde-yaml-0.8) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0d9wdjrlx9gxg80kzc6pvdwz5pwhja2n8n0bxja9vv61kzqif6v9"))))))
