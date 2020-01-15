@@ -1583,7 +1583,7 @@ of configuration possible intended.")
         ("rust-clippy" ,rust-clippy-0.0)
         ("rust-constant-time-eq" ,rust-constant-time-eq-0.1))
        #:cargo-development-inputs
-       (("rust-data-encoding" ,rust-data-encoding))))
+       (("rust-data-encoding" ,rust-data-encoding-2.1))))
     (home-page
      "https://github.com/cesarb/blake2-rfc")
     (synopsis
@@ -2367,27 +2367,6 @@ bench suite.")
     (synopsis "WASM tools")
     (description "WASM tools")
     (license #f)))
-
-(define-public rust-data-encoding
-  (package
-    (name "rust-data-encoding")
-    (version "2.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "data_encoding" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "15xd6afhsjl08285piwczrafmckpp8i29padj8v12xhahshprx7l"))))
-    (build-system cargo-build-system)
-    (home-page "")
-    (synopsis "Efficient and customizable data-encoding functions")
-    (description
-     "Provides little-endian ASCII base-conversion encodings for bases of
-size 2, 4, 8, 16, 32, and 64.")
-    (license license:expat)))
 
 (define-public rust-bs58
   (package
@@ -4258,7 +4237,7 @@ exposed as Reader/Writer streams.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-data-encoding" ,rust-data-encoding)
+        ("rust-data-encoding" ,rust-data-encoding-2.1)
         ("rust-failure" ,rust-failure-0.1)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-h2" ,rust-h2)
@@ -4364,7 +4343,7 @@ extension for the Trust-DNS client to use tokio-openssl for TLS.")
   (build-system cargo-build-system)
   (arguments
     `(#:cargo-inputs
-      (("rust-data-encoding" ,rust-data-encoding)
+      (("rust-data-encoding" ,rust-data-encoding-2.1)
        ("rust-enum-as-inner" ,rust-enum-as-inner)
        ("rust-failure" ,rust-failure-0.1)
        ("rust-futures" ,rust-futures-0.1)
