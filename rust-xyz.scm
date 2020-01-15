@@ -12461,32 +12461,6 @@ for 0.3!")
 underline).")
     (license license:expat)))
 
-(define-public rust-serde-derive-1.0.104
-  (package
-    (inherit rust-serde-derive-1.0)
-    (version "1.0.104")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde-derive" version))
-       (file-name (string-append (package-name rust-serde-derive-1.0) "-" version ".crate"))
-       (sha256
-        (base32
-         "0r7gjlwfry44b4ylz524ynjp9v3qiwdj4c588lh94aas78q9x3qj")))) ))
-
-(define-public rust-serde-json-1.0.44
-  (package
-    (inherit rust-serde-json-1.0)
-    (version "1.0.44")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde-json" version))
-       (file-name (string-append (package-name rust-serde-json-1.0) "-" version ".crate"))
-       (sha256
-        (base32
-         "1mysl675nqhzzkbcrqy4x63cbbsrrx3gcc7k8ydx1gajrkh7bia8"))))))
-
 (define-public rust-serde-yaml-0.8.11
   (package
     (inherit rust-serde-yaml-0.8)
