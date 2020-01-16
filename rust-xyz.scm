@@ -6999,7 +6999,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-linked-hash-map" ,rust-linked-hash-map-0.5)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-ordered-float" ,rust-ordered-float)
-        ("rust-rustc-hash" ,rust-rustc-hash)
+        ("rust-rustc-hash" ,rust-rustc-hash-1.0)
         ("rust-stb-truetype" ,rust-stb-truetype))))
     (home-page
      "https://gitlab.redox-os.org/redox-os/rusttype")
@@ -7127,31 +7127,6 @@ hardware font rendering.")
     (description
      "Wrappers for total ordering on floats")
     (license license:expat)))
-
-(define-public rust-rustc-hash
-  (package
-    (name "rust-rustc-hash")
-    (version "1.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rustc-hash" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1f4cnbcmz2c3zjidqszc9c4fip37ch4xl74nkkp9dw291j5zqh3m"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3))))
-    (home-page
-     "https://github.com/rust-lang-nursery/rustc-hash")
-    (synopsis
-     "speed, non-cryptographic hash used in rustc")
-    (description
-     "speed, non-cryptographic hash used in rustc")
-    (license #f)))
 
 (define-public rust-stb-truetype
   (package
@@ -10022,7 +9997,7 @@ for computer graphics.")
         ("rust-parking-lot" ,rust-parking-lot-0.9)
         ("rust-rustc-ap-graphviz" ,rust-rustc-ap-graphviz)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize)
-        ("rust-rustc-hash" ,rust-rustc-hash)
+        ("rust-rustc-hash" ,rust-rustc-hash-1.0)
         ("rust-rustc-rayon" ,rust-rustc-rayon)
         ("rust-rustc-rayon-core" ,rust-rustc-rayon-core)
         ("rust-smallvec" ,rust-smallvec-0.6)
@@ -10062,7 +10037,7 @@ for computer graphics.")
         ("rust-parking-lot" ,rust-parking-lot-0.7)
         ("rust-rustc-ap-graphviz" ,rust-rustc-ap-graphviz-583)
         ("rust-rustc-ap-serialize" ,rust-rustc-ap-serialize-583)
-        ("rust-rustc-hash" ,rust-rustc-hash)
+        ("rust-rustc-hash" ,rust-rustc-hash-1.0)
         ("rust-rustc-rayon" ,rust-rustc-rayon)
         ("rust-rustc-rayon-core" ,rust-rustc-rayon-core)
         ("rust-smallvec" ,rust-smallvec-0.6)
