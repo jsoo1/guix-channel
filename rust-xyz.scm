@@ -7404,25 +7404,6 @@ complex, rational, range iterators, generic integers, and more!
         (base32
          "1cjwa57kzfgzs681a27m5pjmq580pv3hkcg23smf270bgqz60jp8"))))))
 
-(define-public rust-rustc-std-workspace-alloc
-  (package
-    (name "rust-rustc-std-workspace-alloc")
-    (version "1.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rustc-std-workspace-alloc" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "11psmqk6glglxl3zwh8slz6iynfxaifh4spd2wcnws552dqdarpz"))))
-    (build-system cargo-build-system)
-    (home-page "")
-    (synopsis "workspace hack")
-    (description "workspace hack")
-    (license #f)))
-
 (define-public rust-notify
   (package
     (name "rust-notify")
@@ -10605,7 +10586,7 @@ for computer graphics.")
      `(#:cargo-inputs
        (("rust-compiler-builtins" ,rust-compiler-builtins-0.1)
         ("rust-rustc-std-workspace-alloc"
-         ,rust-rustc-std-workspace-alloc)
+         ,rust-rustc-std-workspace-alloc-1.0)
         ("rust-rustc-std-workspace-core"
          ,rust-rustc-std-workspace-core-1.0))))
     (home-page
