@@ -4594,7 +4594,7 @@ response body.")
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-mio-named-pipes" ,rust-mio-named-pipes)
+        ("rust-mio-named-pipes" ,rust-mio-named-pipes-0.1)
         ("rust-mio-uds" ,rust-mio-uds-0.6)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-parking-lot" ,rust-parking-lot-0.8)
@@ -5191,37 +5191,6 @@ accessor functions on enums.")
      "Bindings to Core Foundation for macOS")
     (description
      "Bindings to Core Foundation for macOS")
-    (license #f)))
-
-(define-public rust-mio-named-pipes
-  (package
-    (name "rust-mio-named-pipes")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "mio-named-pipes" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1cwwfx1yr9vws8x971x34ijnirs377vcxi47frdirki5yppp9qzm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-log" ,rust-log-0.4)
-        ("rust-mio" ,rust-mio-0.6)
-        ("rust-miow" ,rust-miow-0.3)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/alexcrichton/mio-named-pipes")
-    (synopsis
-     "Windows named pipe bindings for mio")
-    (description
-     "Windows named pipe bindings for mio.")
     (license #f)))
 
 (define-public rust-tracing
@@ -8148,37 +8117,6 @@ UNC where possible")
      "Single-producer single-consumer lock-free buffer")
     (license license:expat)))
 
-(define-public rust-mio-named-pipes
-  (package
-    (name "rust-mio-named-pipes")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "mio-named-pipes" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1cwwfx1yr9vws8x971x34ijnirs377vcxi47frdirki5yppp9qzm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-log" ,rust-log-0.4)
-        ("rust-mio" ,rust-mio-0.6)
-        ("rust-miow" ,rust-miow-0.3)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/alexcrichton/mio-named-pipes")
-    (synopsis
-     "Windows named pipe bindings for mio")
-    (description
-     "Windows named pipe bindings for mio.")
-    (license #f)))
-
 (define-public rust-smithay
   (package
     (name "rust-smithay")
@@ -10553,7 +10491,7 @@ for computer graphics.")
         ("rust-log" ,rust-log-0.4)
         ("rust-log" ,rust-log-0.4)
         ("rust-mio" ,rust-mio-0.6)
-        ("rust-mio-named-pipes" ,rust-mio-named-pipes)
+        ("rust-mio-named-pipes" ,rust-mio-named-pipes-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)
         ("rust-tokio-net" ,rust-tokio-net)
         ("rust-tokio-net" ,rust-tokio-net)

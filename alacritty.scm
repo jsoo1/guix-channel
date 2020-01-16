@@ -112,7 +112,7 @@
         ("rust-miniz-oxide" ,rust-miniz-oxide-0.2)
         ("rust-miniz-oxide-c-api" ,rust-miniz-oxide-c-api-0.2)
         ("rust-mio-anonymous-pipes" ,rust-mio-anonymous-pipes)
-        ("rust-mio-named-pipes" ,rust-mio-named-pipes)
+        ("rust-mio-named-pipes" ,rust-mio-named-pipes-0.1)
         ("rust-miow" ,rust-miow-0.2)
         ("rust-named-pipe" ,rust-named-pipe)
         ("rust-net2" ,rust-net2-0.2)
