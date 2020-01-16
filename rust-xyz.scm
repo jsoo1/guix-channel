@@ -7448,59 +7448,6 @@ complex, rational, range iterators, generic integers, and more!
     (description "workspace hack")
     (license #f)))
 
-(define-public rust-const-random
-  (package
-    (name "rust-const-random")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "const-random" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1znp5r6qrxs1g406w4mndk7bh3i53hxj0r2m57rl3qv7k261lr3v"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-const-random-macro"
-         ,rust-const-random-macro)
-        ("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5))))
-    (home-page
-     "https://github.com/tkaitchuck/constrandom")
-    (synopsis
-     "Provides compile time random number generation.")
-    (description
-     "Provides compile time random number generation.")
-    (license (list license:expat license:asl2.0))))
-
-(define rust-const-random-macro
-  (package
-    (name "rust-const-random-macro")
-    (version "0.1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "const-random-macro" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ncc88bzfkm9y7djnvmiqh35p2cfw1d7z9fm21qn6xrkp09fql67"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro-hack" ,rust-proc-macro-hack-0.5)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/tkaitchuck/constrandom")
-    (synopsis
-     "Provides the procedural macro used by const-random")
-    (description
-     "Provides the procedural macro used by const-random")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-notify
   (package
     (name "rust-notify")
