@@ -1660,7 +1660,7 @@ of configuration possible intended.")
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.6)
         ("rust-fxhash" ,rust-fxhash-0.2)
-        ("rust-hashbrown" ,rust-hashbrown-0.5)
+        ("rust-hashbrown" ,rust-hashbrown-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-peeking-take-while"
@@ -1704,7 +1704,7 @@ of configuration possible intended.")
         ("rust-clap" ,rust-clap-2)
         ("rust-env-logger" ,rust-env-logger-0.5)
         ("rust-fxhash" ,rust-fxhash-0.2)
-        ("rust-hashbrown" ,rust-hashbrown-0.5)
+        ("rust-hashbrown" ,rust-hashbrown-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-peeking-take-while" ,rust-peeking-take-while-0.1)
@@ -11972,3 +11972,31 @@ for 0.3!")
      "Library for ANSI terminal colours and styles (bold,
 underline).")
     (license license:expat)))
+
+(define-public rust-hashbrown-0.1
+  (package
+    (inherit rust-hashbrown-0.5)
+    (version "0.1.8")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "hashbrown" version))
+       (file-name
+        (string-append (package-name rust-hashbrown-0.5)
+                       "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1np350nrzysy021ndn2135q5vpzrp5nli78ywz114d1vcnv2kbiv"))))
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+       (("rust-byteorder" ,rust-byteorder-1.3)
+        ("rust-rayon" ,rust-rayon-1.3)
+        ("rust-scopeguard" ,rust-scopeguard-0.3)
+        ("rust-serde" ,rust-serde-1.0))
+       #:cargo-development-inputs
+       (("rust-lazy-static" ,rust-lazy-static-1.4)
+        ("rust-rand" ,rust-rand-0.7)
+        ("rust-rayon" ,rust-rayon-1.3)
+        ("rust-rustc-hash" ,rust-rustc-hash-1.0)
+        ("rust-serde-test" ,rust-serde-test-1.0))))))

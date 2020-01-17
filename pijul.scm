@@ -49,6 +49,7 @@
         ("rust-futures" ,rust-futures-0.1)
         ("rust-getch" ,rust-getch)
         ("rust-glob" ,rust-glob-0.2)
+        ("rust-hashbrown" ,rust-hashbrown-0.1)
         ("rust-hex" ,rust-hex-0.3)
         ("rust-ignore" ,rust-ignore-0.4)
         ("rust-libloading" ,rust-libloading-0.5)
