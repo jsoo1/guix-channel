@@ -62,7 +62,7 @@
         ("rust-progrs" ,rust-progrs)
         ("rust-rand" ,rust-rand-0.4)
         ("rust-rand-chacha" ,rust-rand-chacha-0.1)
-        ("rust-rand-core-0.4.0" ,rust-rand-core-0.4.0)
+        ("rust-rand-core-0.4.0" ,rust-rand-core-0.4)
         ("rust-rand-core-0.3" ,rust-rand-core-0.3)
         ("rust-rand-hc" ,rust-rand-hc-0.1.0)
         ("rust-rand-isaac" ,rust-rand-isaac-0.1.1)

@@ -407,25 +407,6 @@ integer keys.")
         (base32
          "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
-(define-public rust-rand-core-0.4.0
-  (package
-    (inherit rust-rand-core-0.5)
-    (version "0.4.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_core" version))
-       (file-name
-        (string-append (package-name rust-rand-core-0.5) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1h3dbrhi5qgflqnzzd86s48v1dn1l17bmdssi5q170whsm4sbryh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))))))
-
 (define-public rust-termion
   (package
     (name "rust-termion")
