@@ -407,20 +407,6 @@ integer keys.")
         (base32
          "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
-(define-public rust-env-logger-0.4
-  (package
-    (inherit rust-env-logger-0.6)
-    (version "0.4.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "env_logger" version))
-       (file-name
-        (string-append (package-name rust-env-logger-0.6) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0nydz2lidsvx9gs0v2zcz68rzqx8in7fzmiprgsrhqh17vkj3prx"))))))
-
 (define-public rust-rand-core-0.4.0
   (package
     (inherit rust-rand-core-0.5)
