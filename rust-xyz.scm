@@ -123,20 +123,6 @@ the stack.")
      `(#:cargo-inputs
        (("rust-term" ,rust-term-0.5))))))
 
-(define-public rust-aho-corasick-0.6
-  (package
-    (inherit rust-aho-corasick-0.7)
-    (version "0.6.10")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "aho-corasick" version))
-       (file-name
-        (string-append (package-name rust-aho-corasick-0.7) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "19f8v503ibvlyr824g5ynicrh1lsmp2i0zmpszr8lqay0qw3vkl1"))))))
-
 (define-public rust-regex-syntax-0.5
   (package
     (inherit rust-regex-syntax-0.6)
