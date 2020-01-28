@@ -165,37 +165,6 @@ the stack.")
         (base32
          "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
-(define-public rust-lipsum
-  (package
-    (name "rust-lipsum")
-    (version "0.6.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "lipsum" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0nlxkz8zjxqmbrxqasr36a5fqn2n33cxy11w0x0a0b6mcx04dr2q"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rand" ,rust-rand-0.4))
-       #:cargo-development-inputs
-       (("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
-        ("rust-version-sync" ,rust-version-sync-0.8))))
-    (home-page "https://github.com/mgeisler/lipsum/")
-    (synopsis
-     "Lorem ipsum text generation library")
-    (description
-     "Lipsum is a lorem ipsum text generation library.  Use this if
-you need some filler text for your application.
-
-The text is generated using a simple Markov chain, which you can also
-instantiate to generate your own pieces of pseudo-random text.")
-    (license #f)))
-
 (define-public rust-url-2.0
   (package
     (name "rust-url")
