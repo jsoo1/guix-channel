@@ -326,20 +326,6 @@ can't ever panic.")
      "Convert numbers into stack-allocated byte arrays")
     (license #f)))
 
-(define-public rust-numtoa-0.1.0
-  (package
-    (inherit rust-numtoa)
-    (version "0.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "numtoa" version))
-       (file-name
-        (string-append (package-name rust-numtoa) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1vs9rhggqbql1p26x8nkha1j06wawwgb2jp5fs88b5gi7prvvy5q"))))))
-
 (define-public rust-redox-termios
   (package
     (name "rust-redox-termios")
