@@ -123,20 +123,6 @@ the stack.")
      `(#:cargo-inputs
        (("rust-term" ,rust-term-0.5))))))
 
-(define-public rust-regex-syntax-0.5
-  (package
-    (inherit rust-regex-syntax-0.6)
-    (version "0.5.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "regex-syntax" version))
-       (file-name
-        (string-append (package-name rust-regex-syntax-0.6) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "19zp25jr3dhmclg3qqjk3bh1yrn7bqi05zgr5v52szv3l97plw3x"))))))
-
 (define-public rust-regex-syntax-0.3
   (package
     (inherit rust-regex-syntax-0.6)
