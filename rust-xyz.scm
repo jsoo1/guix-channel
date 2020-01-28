@@ -702,7 +702,7 @@ of configuration possible intended.")
      `(#:cargo-inputs
        (("rust-glob" ,rust-glob-0.2)
         ("rust-libc" ,rust-libc-0.2)
-        ("rust-libloading" ,rust-libloading))
+        ("rust-libloading" ,rust-libloading-0.5))
        #:cargo-development-inputs
        (("rust-glob" ,rust-glob-0.3))))))
 
@@ -787,33 +787,6 @@ of configuration possible intended.")
         ("rust-doc-comment" ,rust-doc-comment-0.3)
         ("rust-jemallocator" ,rust-jemallocator-0.3)
         ("rust-version-check" ,rust-version-check-0.9))))))
-
-(define-public rust-libloading
-  (package
-    (name "rust-libloading")
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "libloading" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0682nn0g7zias4dcgsrk0vlrpvlav70fbcqq85yf48qqnn12ysd5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/nagisa/rust_libloading/")
-    (synopsis
-     "A safer binding to platformâ\x80\x99s dynamic library loading utilities")
-    (description
-     "This package provides a safer binding to platformâ\x80\x99s dynamic library loading utilities")
-    (license #f)))
 
 (define-public rust-foreign-types
   (package
@@ -4476,7 +4449,7 @@ functions.")
         ("rust-glutin-glx-sys" ,rust-glutin-glx-sys)
         ("rust-glutin-wgl-sys" ,rust-glutin-wgl-sys)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libloading" ,rust-libloading)
+        ("rust-libloading" ,rust-libloading-0.5)
         ("rust-log" ,rust-log-0.4)
         ("rust-objc" ,rust-objc)
         ("rust-osmesa-sys" ,rust-osmesa-sys)
@@ -5647,7 +5620,7 @@ supports type parameters, associated types, and type constraints.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-libloading" ,rust-libloading))))
+       (("rust-libloading" ,rust-libloading-0.5))))
     (home-page "https://github.com/vberger/dlib")
     (synopsis
      "Helper macros for handling manually loading optional system libraries.")
@@ -7055,7 +7028,7 @@ UNC where possible")
         ("rust-image" ,rust-image)
         ("rust-input" ,rust-input)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libloading" ,rust-libloading)
+        ("rust-libloading" ,rust-libloading-0.5)
         ("rust-nix" ,rust-nix-0.15)
         ("rust-slog" ,rust-slog-2.4)
         ("rust-slog-stdlog" ,rust-slog-stdlog)
