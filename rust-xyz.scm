@@ -326,36 +326,6 @@ can't ever panic.")
      "Convert numbers into stack-allocated byte arrays")
     (license #f)))
 
-(define-public rust-dirs
-  (package
-    (name "rust-dirs")
-    (version "2.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "dirs" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "18aggvhdg6jcgf1gz8z51rzcx4mgfgjpyb1akqrr7lq2p6lgakhw"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-dirs-sys" ,rust-dirs-sys-0.3))))
-    (home-page "https://github.com/soc/dirs-rs")
-    (synopsis
-     "Provides platform-specific standard locations of directories for config")
-    (description
-     "This package provides a tiny low-level library that provides
-platform-specific standard locations of directories for config, cache
-and other data on Linux, Windows, macOS and Redox by leveraging the
-mechanisms defined by the XDG base/user directory specifications on
-Linux, the Known Folder API on Windows, and the Standard Directory
-guidelines on macOS.")
-    (license #f)))
-
 (define-public rust-dirs-1
   (package
     (name "rust-dirs")
@@ -2067,7 +2037,7 @@ _getch on Windows, and termios on Unix.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-dirs" ,rust-dirs)
+       (("rust-dirs" ,rust-dirs-2.0)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
@@ -2102,7 +2072,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-bit-vec" ,rust-bit-vec-0.4)
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-cryptovec" ,rust-cryptovec)
-        ("rust-dirs" ,rust-dirs)
+        ("rust-dirs" ,rust-dirs-2.0)
         ("rust-futures" ,rust-futures-0.1)
         ("rust-hex" ,rust-hex-0.3)
         ("rust-log" ,rust-log-0.4)
