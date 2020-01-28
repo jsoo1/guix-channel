@@ -9805,33 +9805,6 @@ pitfalls in Rust")
      "Drop-in replacement to panics in proc-macros")
     (license license:expat)))
 
-(define-public rust-rustversion
-  (package
-    (name "rust-rustversion")
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rustversion" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1s3ib2paa5gq17x4qsmjmnsw68z7b5d5av1wsiqcrihmqb7kk0dl"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page
-     "https://github.com/dtolnay/rustversion")
-    (synopsis
-     "Conditional compilation according to rustc compiler version")
-    (description
-     "Conditional compilation according to rustc compiler version")
-    (license (list license:expat license:asl2.0))))
-
 ;; FIXME
 (define-public rust-simd
   (package
