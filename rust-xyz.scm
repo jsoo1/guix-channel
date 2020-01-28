@@ -356,36 +356,6 @@ Linux, the Known Folder API on Windows, and the Standard Directory
 guidelines on macOS.")
     (license #f)))
 
-(define-public rust-atlatl
-  (package
-    (name "rust-atlatl")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "atlatl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "18kyvdm56fdb52b1sryi80xgs3nkjdylynsv324aiqnj85l1bfrj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-fnv" ,rust-fnv-1.0)
-        ("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-fst" ,rust-fst)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/tapeinosyne/atlatl")
-    (synopsis "Double-array tries.")
-    (description "Double-array tries.")
-    (license #f)))
-
 (define-public rust-pocket-resources
   (package
     (name "rust-pocket-resources")
