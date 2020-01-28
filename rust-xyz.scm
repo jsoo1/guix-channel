@@ -1011,31 +1011,6 @@ of configuration possible intended.")
      "(Note: superseded by `macro-attr`) This crate provides a macro that enables the use of custom derive attributes.")
     (license #f)))
 
-(define-public rust-rdrand-0.4
-  (package
-    (name "rust-rdrand")
-    (version "0.4.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rdrand" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1cjq0kwx1bk7jx3kzyciiish5gqsj7620dm43dc52sr8fzmm9037"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core-0.5))))
-    (home-page
-     "https://github.com/nagisa/rust_rdrand/")
-    (synopsis
-     "An implementation of random number generator based on rdrand and rdseed instructions")
-    (description
-     "An implementation of random number generator based on rdrand and rdseed instructions")
-    (license #f)))
-
 (define-public rust-wasm
   (package
     (name "rust-wasm")
