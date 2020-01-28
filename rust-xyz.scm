@@ -1011,28 +1011,6 @@ of configuration possible intended.")
      "(Note: superseded by `macro-attr`) This crate provides a macro that enables the use of custom derive attributes.")
     (license #f)))
 
-(define-public rust-fuchsia-cprng
-  (package
-    (name "rust-fuchsia-cprng")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "fuchsia-cprng" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1fnkqrbz7ixxzsb04bsz9p0zzazanma8znfdqjvh39n14vapfvx0"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://fuchsia.googlesource.com/fuchsia/+/master/garnet/public/rust/fuchsia-cprng")
-    (synopsis
-     "Rust crate for the Fuchsia cryptographically secure pseudorandom number generator")
-    (description
-     "Rust crate for the Fuchsia cryptographically secure pseudorandom number generator")
-    (license #f)))
-
 (define-public rust-rdrand-0.4
   (package
     (name "rust-rdrand")
