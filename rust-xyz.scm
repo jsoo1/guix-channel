@@ -214,32 +214,6 @@ the stack.")
         (base32
          "0hs62r35bgxslawyrn1vp9rmvrkkm76fqv0vqcwd048vs876r7a8"))))))
 
-(define-public rust-mmap
-  (package
-    (name "rust-mmap")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "mmap" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "08xqhvr4l3rf1fkz2w4cwz3z5wd0m1jab1d34sxd4v80lr459j0b"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-tempdir" ,rust-tempdir-0.3))))
-    (home-page
-     "https://github.com/rbranson/rust-mmap")
-    (synopsis
-     "A library for dealing with memory-mapped I/O")
-    (description
-     "This package provides a library for dealing with memory-mapped I/O")
-    (license #f)))
-
 (define-public rust-crossbeam-utils-0.2
   (package
     (inherit rust-crossbeam-utils-0.6)
