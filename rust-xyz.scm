@@ -9432,7 +9432,7 @@ for computer graphics.")
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-ena" ,rust-ena)
         ("rust-indexmap" ,rust-indexmap-1.0)
-        ("rust-jobserver" ,rust-jobserver)
+        ("rust-jobserver" ,rust-jobserver-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-parking-lot" ,rust-parking-lot-0.9)
@@ -9472,7 +9472,7 @@ for computer graphics.")
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
         ("rust-ena" ,rust-ena)
         ("rust-indexmap" ,rust-indexmap-1.0)
-        ("rust-jobserver" ,rust-jobserver)
+        ("rust-jobserver" ,rust-jobserver-0.1)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-log" ,rust-log-0.4)
         ("rust-parking-lot" ,rust-parking-lot-0.7)
@@ -9854,39 +9854,6 @@ for computer graphics.")
      "Build code annotations")
     (description
      "Library for building code annotations")
-    (license #f)))
-
-(define-public rust-jobserver
-  (package
-    (name "rust-jobserver")
-    (version "0.1.17")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "jobserver" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0q61p39nw0bdx6w0wkjv1kcha5mbhcfdl4z1hxrhpcskyhpd9cgj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-getrandom" ,rust-getrandom-0.1.12)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-log" ,rust-log-0.4))
-       #:cargo-development-inputs
-       (("rust-futures" ,rust-futures-0.1)
-        ("rust-num-cpus" ,rust-num-cpus-1.10)
-        ("rust-tempdir" ,rust-tempdir-0.3)
-        ("rust-tokio-core" ,rust-tokio-core)
-        ("rust-tokio-process" ,rust-tokio-process))))
-    (home-page
-     "https://github.com/alexcrichton/jobserver-rs")
-    (synopsis
-     "GNU make jobserver for Rust")
-    (description
-     "An implementation of the GNU make jobserver for Rust")
     (license #f)))
 
 (define-public rust-rustc-ap-graphviz
