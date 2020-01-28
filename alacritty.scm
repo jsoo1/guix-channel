@@ -138,7 +138,7 @@
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.1)
         ("rust-rayon-core" ,rust-rayon-core-1.5)
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
-        ("rust-remove-dir-all" ,rust-remove-dir-all)
+        ("rust-remove-dir-all" ,rust-remove-dir-all-0.5)
         ("rust-rustc-demangle" ,rust-rustc-demangle-0.1)
         ("rust-rustc-tools-util" ,rust-rustc-tools-util)
         ("rust-rustc-version" ,rust-rustc-version-0.2)

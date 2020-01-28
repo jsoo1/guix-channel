@@ -71,7 +71,7 @@
         ("rust-rand-pcg" ,rust-rand-pcg-0.1.2)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.1)
         ("rust-regex" ,rust-regex-1.1)
-        ("rust-remove-dir-all" ,rust-remove-dir-all)
+        ("rust-remove-dir-all" ,rust-remove-dir-all-0.5)
         ("rust-reqwest" ,rust-reqwest)
         ("rust-rpassword" ,rust-rpassword-2.1.0)
         ("rust-sequoia-openpgp" ,rust-sequoia-openpgp-0.9.0)

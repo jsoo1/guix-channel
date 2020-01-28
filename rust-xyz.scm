@@ -229,34 +229,6 @@ the stack.")
         (base32
          "1n8qr52sw9y6yxzyfxi1phh55rsxms7ry4iipdd8vmd16ag8jq17"))))))
 
-(define-public rust-remove-dir-all
-  (package
-    (name "rust-remove-dir-all")
-    (version "0.5.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "remove_dir_all" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0bkrlyg26mgizpiy1yb2hhpgscxcag8r5fnckqsvk25608vzm0sa"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment-0.3))))
-    (home-page
-     "https://github.com/XAMPPRocky/remove_dir_all.git")
-    (synopsis
-     "A safe, reliable implementation of remove_dir_all for Windows")
-    (description
-     "This package provides a safe, reliable implementation of
-remove_dir_all for Windows")
-    (license #f)))
-
 (define-public rust-getrandom-0.1.12
   (package
     (inherit rust-getrandom-0.1)
