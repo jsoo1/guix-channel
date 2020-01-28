@@ -571,34 +571,6 @@ of configuration possible intended.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
 
-(define-public rust-ci-info
-  (package
-    (name "rust-ci-info")
-    (version "0.7.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ci_info" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "01n3gxmwp765m6xg1fl8v1y12wsvbqvlcai27kdr5d2skrijyfb7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:tests? #f ; Has failing tests
-       #:cargo-inputs
-       (("rust-envmnt" ,rust-envmnt-0.6)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))))
-    (home-page
-     "http://github.com/sagiegurari/ci_info")
-    (synopsis
-     "Provides current CI environment information.")
-    (description
-     "Provides current CI environment information.")
-    (license #f)))
-
 (define-public rust-termios-0.2
   (package
     (inherit rust-termios-0.3)
