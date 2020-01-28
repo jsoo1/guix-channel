@@ -571,35 +571,6 @@ of configuration possible intended.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
 
-(define-public rust-openssl-sys-0.9.49
-  (package
-    (name "rust-openssl-sys")
-    (version "0.9.49")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "openssl-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1168vivyqbzaxl48bvv9r1x714c03f5c1za8pv5x8fyj9gjxkypl"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-vcpkg" ,rust-vcpkg-0.2))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg-0.1)
-        ("rust-cc" ,rust-cc-1.0)
-        ("rust-openssl-src" ,rust-openssl-src)
-        ("rust-pkg-config" ,rust-pkg-config-0.3))))
-    (home-page
-     "https://github.com/sfackler/rust-openssl")
-    (synopsis "FFI bindings to OpenSSL")
-    (description "FFI bindings to OpenSSL")
-    (license #f)))
-
 (define-public rust-libssh2-sys
   (package
     (name "rust-libssh2-sys")
