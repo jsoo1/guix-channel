@@ -62,30 +62,6 @@ the stack.")
     (description "Big array helper for serde.")
     (license #f)))
 
-(define-public rust-spin
-  (package
-    (name "rust-spin")
-    (version "0.5.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "spin" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0m9clchsj0rf13bggsgvbv9haiy0f6rhvnvkpvkk8720a5pkydj4"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/mvdnes/spin-rs.git")
-    (synopsis
-     "Synchronization primitives based on spinning")
-    (description
-     "Synchronization primitives based on spinning.
-They may contain data, are usable without `std`,
-and static initializers are available.")
-    (license #f)))
-
 (define-public rust-unicode-xid-0.0.3
   (package
     (inherit rust-unicode-xid-0.1)
@@ -4197,7 +4173,7 @@ extension for the Trust-DNS client to use rustls for TLS.")
      `(#:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-libc" ,rust-libc-0.2)
-        ("rust-spin" ,rust-spin)
+        ("rust-spin" ,rust-spin-0.5)
         ("rust-untrusted" ,rust-untrusted-0.7)
         ("rust-web-sys" ,rust-web-sys)
         ("rust-winapi" ,rust-winapi-0.3))
@@ -5114,7 +5090,7 @@ accessor functions on enums.")
      `(#:cargo-inputs
        (("rust-cfg-if" ,rust-cfg-if-0.1)
         ("rust-log" ,rust-log-0.4)
-        ("rust-spin" ,rust-spin)
+        ("rust-spin" ,rust-spin-0.5)
         ("rust-tracing-attributes"
          ,rust-tracing-attributes)
         ("rust-tracing-core" ,rust-tracing-core-0.1))
