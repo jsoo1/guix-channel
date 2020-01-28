@@ -165,48 +165,6 @@ the stack.")
         (base32
          "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
-(define-public rust-hyphenation
-  (package
-    (name "rust-hyphenation")
-    (version "0.7.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "hyphenation" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0k5msv8calmnfd5kw1rmq4bg5hn1vcd39kbsxl57sdld63xwd4q4"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-atlatl" ,rust-atlatl)
-        ("rust-bincode" ,rust-bincode-1.1)
-        ("rust-hyphenation-commons"
-         ,rust-hyphenation-commons)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-atlatl" ,rust-atlatl)
-        ("rust-bincode" ,rust-bincode-1.1)
-        ("rust-hyphenation-commons"
-         ,rust-hyphenation-commons)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-pocket-resources" ,rust-pocket-resources)
-        ("rust-quickcheck" ,rust-quickcheck-0.8)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-unicode-normalization"
-         ,rust-unicode-normalization-0.1)
-        ("rust-unicode-segmentation"
-         ,rust-unicode-segmentation-1.3))))
-    (home-page
-     "https://github.com/tapeinosyne/hyphenation")
-    (synopsis
-     "Knuth-Liang hyphenation for a variety of languages")
-    (description
-     "Knuth-Liang hyphenation for a variety of languages")
-    (license #f)))
-
 (define-public rust-lipsum
   (package
     (name "rust-lipsum")
