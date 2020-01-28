@@ -1011,25 +1011,6 @@ of configuration possible intended.")
      "(Note: superseded by `macro-attr`) This crate provides a macro that enables the use of custom derive attributes.")
     (license #f)))
 
-(define-public rust-wasm
-  (package
-    (name "rust-wasm")
-    (version "0.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasm" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "136d50gyi3l4nzr9mv0j3p2p50ywdqzf59kkyj33zmcbxmwi42zs"))))
-    (build-system cargo-build-system)
-    (home-page "")
-    (synopsis "WASM tools")
-    (description "WASM tools")
-    (license #f)))
-
 (define-public rust-bs58
   (package
     (name "rust-bs58")
