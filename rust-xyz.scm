@@ -356,28 +356,6 @@ Linux, the Known Folder API on Windows, and the Standard Directory
 guidelines on macOS.")
     (license #f)))
 
-(define-public rust-pocket-resources
-  (package
-    (name "rust-pocket-resources")
-    (version "0.3.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "pocket-resources" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1n2i5vmi8fdbw89wm5nz1ws1z9f1qax911p6ksg4scmdg23z6df1"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/tomaka/pocket-resources")
-    (synopsis
-     "Include resources in your applications.")
-    (description
-     "Include resources in your applications.")
-    (license #f)))
-
 (define-public rust-getopts-0.2.19
   (package
     (inherit rust-getopts-0.2)
