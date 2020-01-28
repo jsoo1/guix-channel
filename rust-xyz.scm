@@ -356,20 +356,6 @@ Linux, the Known Folder API on Windows, and the Standard Directory
 guidelines on macOS.")
     (license #f)))
 
-(define-public rust-getopts-0.2.19
-  (package
-    (inherit rust-getopts-0.2)
-    (version "0.2.19")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "getopts" version))
-       (file-name
-        (string-append (package-name rust-getopts-0.2) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0l74ldicw6gpkly3jdiq8vq8g597x7akvych2cgy7gr8q8apnckj"))))))
-
 (define-public rust-idna-0.2
   (package
     (name "rust-idna")
