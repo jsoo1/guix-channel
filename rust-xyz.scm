@@ -356,36 +356,6 @@ Linux, the Known Folder API on Windows, and the Standard Directory
 guidelines on macOS.")
     (license #f)))
 
-(define-public rust-idna-0.2
-  (package
-    (name "rust-idna")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "idna" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1a9066imqpdrm1aavfasdyb1zahqaz8jmdcwdawvb1pf60y6gqh2"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-matches" ,rust-matches-0.1)
-        ("rust-unicode-bidi" ,rust-unicode-bidi-0.3)
-        ("rust-unicode-normalization"
-         ,rust-unicode-normalization-0.1))
-       #:cargo-development-inputs
-       (("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-rustc-test" ,rust-rustc-test-0.3))))
-    (home-page "https://github.com/servo/rust-url/")
-    (synopsis
-     "IDNA (Internationalizing Domain Names in Applications) and Punycode")
-    (description
-     "IDNA (Internationalizing Domain Names in Applications) and Punycode.")
-    (license #f)))
-
 (define-public rust-keystream
   (package
     (name "rust-keystream")
