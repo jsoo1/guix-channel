@@ -326,30 +326,6 @@ can't ever panic.")
      "Convert numbers into stack-allocated byte arrays")
     (license #f)))
 
-(define-public rust-redox-termios
-  (package
-    (name "rust-redox-termios")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "redox_termios" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0xhgvdh62mymgdl3jqrngl8hr4i8xwpnbsxnldq0l47993z1r2by"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-redox-syscall" ,rust-redox-syscall-0.1))))
-    (home-page "https://github.com/redox-os/termios")
-    (synopsis
-     "A Rust library to access Redox termios functions")
-    (description
-     "This package provides a Rust library to access Redox termios functions")
-    (license #f)))
-
 (define-public rust-dirs
   (package
     (name "rust-dirs")
