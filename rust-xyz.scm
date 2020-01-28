@@ -137,33 +137,6 @@ the stack.")
         (base32
          "0ms9hgdhhsxw9w920i7gipydvagf100bb56jbs192rz86ln01v7r"))))))
 
-(define-public rust-select-rustc
-  (package
-    (name "rust-select-rustc")
-    (version "0.1.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "select-rustc" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0daqd56smi93g59nz43n4mh3d8whr6j5pa8dmwlf8bd76mdy3cpx"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page
-     "https://github.com/dtolnay/select-rustc")
-    (synopsis
-     "Conditional compilation according to rustc compiler version")
-    (description
-     "Conditional compilation according to rustc compiler version")
-    (license #f)))
-
 (define-public rust-toml-0.4
   (package
     (inherit rust-toml-0.5)
