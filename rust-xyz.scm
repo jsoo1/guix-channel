@@ -137,32 +137,6 @@ the stack.")
         (base32
          "0ms9hgdhhsxw9w920i7gipydvagf100bb56jbs192rz86ln01v7r"))))))
 
-(define-public rust-automod
-  (package
-    (name "rust-automod")
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "automod" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0pld582piq2d55z0j96zcs8izw3ml46f8h9y7sdyxg093yfvxl2h"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page "https://github.com/dtolnay/automod")
-    (synopsis
-     "Pull in every source file in a directory as a module")
-    (description
-     "Pull in every source file in a directory as a module.")
-    (license #f)))
-
 (define-public rust-select-rustc
   (package
     (name "rust-select-rustc")
