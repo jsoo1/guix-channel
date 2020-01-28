@@ -571,30 +571,6 @@ of configuration possible intended.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
 
-(define-public rust-openssl-src
-  (package
-    (name "rust-openssl-src")
-    (version "111.3.0+1.1.1c")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "openssl-src" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "15y7fdw33idbdc3y7dv3k87gdc2l4xn202mslkvzbgcls8qmzvak"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-cc" ,rust-cc-1.0))))
-    (home-page
-     "https://github.com/alexcrichton/openssl-src-rs")
-    (synopsis
-     "Source of OpenSSL and logic to build it.")
-    (description
-     "Source of OpenSSL and logic to build it.")
-    (license #f)))
-
 (define-public rust-ci-info
   (package
     (name "rust-ci-info")
