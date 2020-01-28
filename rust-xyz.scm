@@ -229,29 +229,6 @@ the stack.")
         (base32
          "1n8qr52sw9y6yxzyfxi1phh55rsxms7ry4iipdd8vmd16ag8jq17"))))))
 
-(define-public rust-chacha
-  (package
-    (name "rust-chacha")
-    (version "0.3.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "chacha" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0qj839h7fjkmxlwyx5yqrcj0rlgvw2cfkaj0arhyb8gvnn0w1wyx"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-keystream" ,rust-keystream))))
-    (home-page "https://github.com/PeterReid/chacha")
-    (synopsis "ChaCha stream ciphers")
-    (description "ChaCha stream ciphers")
-    (license #f)))
-
 (define-public rust-rand-hc
   (package
     (name "rust-rand-hc")
