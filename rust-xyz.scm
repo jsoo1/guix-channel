@@ -276,26 +276,6 @@ the stack.")
     (description "ISAAC random number generator")
     (license #f)))
 
-(define-public rust-rand-isaac-0.1.1
-  (package
-    (inherit rust-rand-isaac)
-    (version "0.1.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_isaac" version))
-       (file-name
-        (string-append (package-name rust-rand-isaac) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "027flpjr4znx2csxk7gxb7vrf9c7y5mydmvg5az2afgisp4rgnfy"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-bincode" ,rust-bincode-1.1))))))
-
 (define-public rust-no-panic
   (package
     (name "rust-no-panic")
