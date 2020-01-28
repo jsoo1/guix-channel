@@ -842,20 +842,6 @@ of configuration possible intended.")
      "Random number generator based on timing jitter")
     (license #f)))
 
-(define-public rust-rand-jitter-0.1.4
-  (package
-    (inherit rust-rand-jitter)
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_jitter" version))
-       (file-name
-        (string-append (package-name rust-rand-jitter) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "16z387y46bfz3csc42zxbjq89vcr1axqacncvv8qhyy93p4xarhi"))))))
-
 (define-public rust-average
   (package
     (name "rust-average")

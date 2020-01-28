@@ -38,7 +38,7 @@
         ("rust-rand-core-0.3" ,rust-rand-core-0.3)
         ("rust-rand-hc" ,rust-rand-hc-0.1)
         ("rust-rand-isaac" ,rust-rand-isaac-0.1)
-        ("rust-rand-jitter" ,rust-rand-jitter-0.1.4)
+        ("rust-rand-jitter" ,rust-rand-jitter-0.1)
         ("rust-rand-os" ,rust-rand-os-0.1)
         ("rust-rand-pcg" ,rust-rand-pcg-0.1.2)
         ("rust-rand-xorshift" ,rust-rand-xorshift-0.1)
