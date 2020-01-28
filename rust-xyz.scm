@@ -101,30 +101,6 @@ and static initializers are available.")
         (base32
          "1sqvl06884cy3hh14shik5afcv6bhsvb0gh2y267rv5lmyfg1prn"))))))
 
-(define-public rust-ansi-term
-  (package
-    (name "rust-ansi-term")
-    (version "0.11.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ansi_term" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "16wpvrghvd0353584i1idnsgm0r3vchg8fyrm0x8ayv1rgvbljgf"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/ogham/rust-ansi-term")
-    (synopsis
-     "ANSI terminal colours and styles")
-    (description
-     "Library for ANSI terminal colours and styles (bold, underline)")
-    (license #f)))
-
 (define-public rust-bitflags-0.9
   (package
     (inherit rust-bitflags-1)
@@ -4771,7 +4747,7 @@ client or server.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-ansi-term" ,rust-ansi-term)
+       (("rust-ansi-term" ,rust-ansi-term-0.11)
         ("rust-ctor" ,rust-ctor)
         ("rust-difference" ,rust-difference-2.0)
         ("rust-output-vt100" ,rust-output-vt100))))
@@ -10212,9 +10188,9 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-ansi-term" ,rust-ansi-term))
+       (("rust-ansi-term" ,rust-ansi-term-0.11))
        #:cargo-development-inputs
-       (("rust-ansi-term" ,rust-ansi-term)
+       (("rust-ansi-term" ,rust-ansi-term-0.11)
         ("rust-difference" ,rust-difference-2.0)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-serde" ,rust-serde-1.0)
@@ -10870,7 +10846,7 @@ your own implementation.")
        (("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-winconsole" ,rust-winconsole))
        #:cargo-development-inputs
-       (("rust-ansi-term" ,rust-ansi-term)
+       (("rust-ansi-term" ,rust-ansi-term-0.11)
         ("rust-rspec" ,rust-rspec))))
     (home-page "https://github.com/mackwic/colored")
     (synopsis
@@ -11293,7 +11269,7 @@ testing.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-ansi-term" ,rust-ansi-term)
+       (("rust-ansi-term" ,rust-ansi-term-0.11)
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-matchers" ,rust-matchers)
@@ -11463,7 +11439,7 @@ log crates.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-ansi-term" ,rust-ansi-term)
+       (("rust-ansi-term" ,rust-ansi-term-0.11)
         ("rust-chrono" ,rust-chrono-0.4)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-matchers" ,rust-matchers)
