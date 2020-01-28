@@ -1,5 +1,6 @@
 (define-module (exa)
   #:use-module (gnu packages crates-io)
+  #:use-module (gnu packages compression)
   #:use-module (guix build-system cargo)
   #:use-module (guix download)
   #:use-module ((guix licenses) #:prefix license:)
@@ -51,6 +52,8 @@
          ("rust-zoneinfo-compiled" ,rust-zoneinfo-compiled-0.4))
         #:cargo-development-inputs
         (("rust-datetime" ,rust-datetime-0.4))))
+    (inputs
+     `(("zlib" ,zlib)))
     (home-page "https://the.exa.website/")
     (synopsis "Modern replacement for ls")
     (description "This package provides a modern replacement for ls.")
