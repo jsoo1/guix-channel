@@ -815,27 +815,6 @@ of configuration possible intended.")
      "This package provides a framework for Rust wrappers over C APIs")
     (license #f)))
 
-(define-public rust-nodrop-union
-  (package
-    (name "rust-nodrop-union")
-    (version "0.1.10")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "nodrop-union" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jsnkdn9l8jlmb9h4wssi76sxnyxwnyi00p6y1p2gdq7c1gdw2b7"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/bluss/arrayvec")
-    (synopsis
-     "A wrapper type to inhibit drop (destructor)")
-    (description
-     "This package provides a wrapper type to inhibit drop (destructor).  Implementation crate for nodrop, the untagged unions implementation (which is unstable / requires nightly) as of this writing.")
-    (license #f)))
-
 (define-public rust-rand-jitter
   (package
     (name "rust-rand-jitter")
