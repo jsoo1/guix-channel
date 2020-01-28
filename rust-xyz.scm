@@ -815,26 +815,6 @@ of configuration possible intended.")
      "This package provides a framework for Rust wrappers over C APIs")
     (license #f)))
 
-(define-public rust-json
-  (package
-    (name "rust-json")
-    (version "0.11.14")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "json" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1hj8c6xj5c2aqqszi8naaflmcdbya1i9byyjrq4iybxjb4q91mq1"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/maciejhirsz/json-rust")
-    (synopsis "JSON implementation in Rust")
-    (description "JSON implementation in Rust")
-    (license #f)))
-
 (define-public rust-nodrop-union
   (package
     (name "rust-nodrop-union")
