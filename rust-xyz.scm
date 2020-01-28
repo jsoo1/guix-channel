@@ -872,7 +872,7 @@ of configuration possible intended.")
         ("rust-rand-distr" ,rust-rand-distr)
         ("rust-rand-xoshiro" ,rust-rand-xoshiro-0.3)
         ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-streaming-stats" ,rust-streaming-stats))))
+        ("rust-streaming-stats" ,rust-streaming-stats-0.2))))
     (home-page "https://github.com/vks/average")
     (synopsis "Calculate statistics iteratively")
     (description "Calculate statistics iteratively")
@@ -984,31 +984,6 @@ of configuration possible intended.")
      "Sampling from random number distributions")
     (description
      "Sampling from random number distributions")
-    (license #f)))
-
-(define-public rust-streaming-stats
-  (package
-    (name "rust-streaming-stats")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "streaming-stats" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0l7xz4g6709s80zqpvlhrg0qhgz64r94cwhmfsg8xhabgznbp2px"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-num-traits" ,rust-num-traits-0.2))))
-    (home-page
-     "https://github.com/BurntSushi/rust-stats")
-    (synopsis
-     "Experimental crate for computing basic statistics on streams")
-    (description
-     "Experimental crate for computing basic statistics on streams.")
     (license #f)))
 
 (define-public rust-custom-derive
