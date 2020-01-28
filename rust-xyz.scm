@@ -9510,47 +9510,6 @@ for computer graphics.")
     (description "Core APIs for Rayon - fork for rustc")
     (license #f)))
 
-(define-public rust-tokio-process
-  (package
-    (name "rust-tokio-process")
-    (version "0.3.0-alpha.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "tokio-process" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0wn4r3bhpf8gcwzjhm0g4989ajqqn7zc473ndd5n7370nsd0n9wc"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-queue" ,rust-crossbeam-queue-0.1)
-        ("rust-futures-core-preview"
-         ,rust-futures-core-preview-0.3)
-        ("rust-futures-util-preview"
-         ,rust-futures-util-preview-0.3)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-mio" ,rust-mio-0.6)
-        ("rust-mio-named-pipes" ,rust-mio-named-pipes-0.1)
-        ("rust-tokio-io" ,rust-tokio-io-0.1)
-        ("rust-tokio-net" ,rust-tokio-net)
-        ("rust-tokio-net" ,rust-tokio-net)
-        ("rust-tokio-sync" ,rust-tokio-sync-0.1)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-tokio" ,rust-tokio-0.1))))
-    (home-page "https://github.com/tokio-rs/tokio")
-    (synopsis
-     "Asynchronous process management backed futures")
-    (description
-     "An implementation of an asynchronous process management backed futures.")
-    (license license:expat)))
-
 (define-public rust-wasi
   (package
     (name "rust-wasi")
