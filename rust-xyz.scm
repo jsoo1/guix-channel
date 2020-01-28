@@ -123,31 +123,6 @@ the stack.")
      `(#:cargo-inputs
        (("rust-term" ,rust-term-0.5))))))
 
-(define-public rust-vec-map
-  (package
-    (name "rust-vec-map")
-    (version "0.8.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "vec_map" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "06n8hw4hlbcz328a3gbpvmy0ma46vg1lc0r5wf55900szf3qdiq5"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-serde" ,rust-serde-1.0))))
-    (home-page
-     "https://github.com/contain-rs/vec-map")
-    (synopsis
-     "Vector for small integer keys")
-    (description
-     "This package provides a simple map based on a vector for small
-integer keys.")
-    (license #f)))
-
 (define-public rust-yaml-rust-0.3
   (package
     (name "rust-yaml-rust")
