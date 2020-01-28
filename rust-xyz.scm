@@ -389,32 +389,6 @@ guidelines on macOS.")
 maps of many strings (> 1 billion is possible).")
     (license #f)))
 
-(define-public rust-rand-os-0.1.3
-  (package
-    (inherit rust-rand-os-0.2)
-    (version "0.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_os" version))
-       (file-name
-        (string-append (package-name rust-rand-os-0.2) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0wahppm0s64gkr2vmhcgwc0lij37in1lgfxg5rbgqlz0l5vgcxbv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cloudabi" ,rust-cloudabi-0.0)
-        ("rust-fuchsia-cprng" ,rust-fuchsia-cprng)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-rdrand" ,rust-rdrand-0.4)
-        ("rust-winapi" ,rust-winapi-0.3)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-stdweb" ,rust-stdweb-0.4)
-        ("rust-wasm" ,rust-wasm))))))
-
 (define-public rust-fst-levenshtein
   (package
     (name "rust-fst-levenshtein")
