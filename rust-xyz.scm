@@ -9510,35 +9510,6 @@ for computer graphics.")
     (description "Core APIs for Rayon - fork for rustc")
     (license #f)))
 
-(define-public rust-wasi
-  (package
-    (name "rust-wasi")
-    (version "0.7.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "wasi" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "03apg3sa4hjn6xwa4pkyvzjiscya51wyrygadgxwdg8lrvj3r75q"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-compiler-builtins" ,rust-compiler-builtins-0.1)
-        ("rust-rustc-std-workspace-alloc"
-         ,rust-rustc-std-workspace-alloc-1.0)
-        ("rust-rustc-std-workspace-core"
-         ,rust-rustc-std-workspace-core-1.0))))
-    (home-page
-     "https://github.com/CraneStation/rust-wasi")
-    (synopsis
-     "Experimental WASI API bindings for Rust")
-    (description
-     "Experimental WASI API bindings for Rust")
-    (license (list #f license:expat))))
-
 (define-public rust-clippy-lints
   (package
     (name "rust-clippy-lints")
