@@ -571,37 +571,6 @@ of configuration possible intended.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
 
-(define-public rust-libssh2-sys
-  (package
-    (name "rust-libssh2-sys")
-    (version "0.2.11")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "libssh2-sys" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17dz3xxy5bc73sr52maa6wdqmw1a0ymznrgfzlxid2rng101yshj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-libz-sys" ,rust-libz-sys-1.0)
-        ("rust-openssl-sys" ,rust-openssl-sys-0.9))
-       #:cargo-development-inputs
-       (("rust-cc" ,rust-cc-1.0)
-        ("rust-pkg-config" ,rust-pkg-config-0.3)
-        ("rust-vcpkg" ,rust-vcpkg-0.2))))
-    (home-page
-     "https://github.com/alexcrichton/ssh2-rs")
-    (synopsis
-     "Native bindings to the libssh2 library")
-    (description
-     "Native bindings to the libssh2 library")
-    (license #f)))
-
 (define-public rust-openssl-src
   (package
     (name "rust-openssl-src")
