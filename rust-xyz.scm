@@ -229,44 +229,16 @@ the stack.")
         (base32
          "1n8qr52sw9y6yxzyfxi1phh55rsxms7ry4iipdd8vmd16ag8jq17"))))))
 
-(define-public rust-rand-pcg
-  (package
-    (name "rust-rand-pcg")
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rand_pcg" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1dljwilv3640l1c5vlg4isiq7qz8gqa2cjbvgv3p0p5wrd36669y"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rand-core" ,rust-rand-core-0.5)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg-0.1)
-        ("rust-bincode" ,rust-bincode-1.1))))
-    (home-page "https://crates.io/crates/rand_pcg")
-    (synopsis
-     "Selected PCG random number generators")
-    (description
-     "Selected PCG random number generators")
-    (license #f)))
-
 (define-public rust-rand-pcg-0.1.2
   (package
-    (inherit rust-rand-pcg)
+    (inherit rust-rand-pcg-0.2)
     (version "0.1.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "rand_pcg" version))
        (file-name
-        (string-append (package-name rust-rand-pcg) "-" version ".tar.gz"))
+        (string-append (package-name rust-rand-pcg-0.2) "-" version ".tar.gz"))
        (sha256
         (base32
          "0i0bdla18a8x4jn1w0fxsbs3jg7ajllz6azmch1zw33r06dv1ydb"))))
@@ -1586,7 +1558,7 @@ of configuration possible intended.")
        (("rust-rand" ,rust-rand-0.4))
        #:cargo-development-inputs
        (("rust-average" ,rust-average)
-        ("rust-rand-pcg" ,rust-rand-pcg))))
+        ("rust-rand-pcg" ,rust-rand-pcg-0.2))))
     (home-page "https://crates.io/crates/rand_distr")
     (synopsis
      "Sampling from random number distributions")
