@@ -9805,21 +9805,6 @@ pitfalls in Rust")
      "Drop-in replacement to panics in proc-macros")
     (license license:expat)))
 
-(define-public rust-quote-1
-  (package
-    (inherit rust-quote-1.0)
-    (version "1.0.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "quote" version))
-       (file-name
-        (string-append
-         (package-name rust-quote-1.0) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1zkc46ryacf2jdkc6krsy2z615xbk1x8kp1830rcxz3irj5qqfh5"))))))
-
 (define-public rust-rustversion
   (package
     (name "rust-rustversion")
