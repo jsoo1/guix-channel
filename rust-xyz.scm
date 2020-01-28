@@ -123,31 +123,6 @@ the stack.")
      `(#:cargo-inputs
        (("rust-term" ,rust-term-0.5))))))
 
-(define-public rust-yaml-rust-0.3
-  (package
-    (name "rust-yaml-rust")
-    (version "0.3.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "yaml-rust" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "14m9dzwb8fb05f4jjb4nqp49rxd9c5vcmwpv3a04d2y5iphncqz6"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-clippy" ,rust-clippy-0.0)
-        ("rust-linked-hash-map" ,rust-linked-hash-map-0.5))))
-    (home-page
-     "http://chyh1990.github.io/yaml-rust/")
-    (synopsis "The missing YAML 1.2 parser for rust")
-    (description
-     "The missing YAML 1.2 parser for rust")
-    (license #f)))
-
 (define-public rust-aho-corasick-0.6
   (package
     (inherit rust-aho-corasick-0.7)
