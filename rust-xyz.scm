@@ -356,36 +356,6 @@ Linux, the Known Folder API on Windows, and the Standard Directory
 guidelines on macOS.")
     (license #f)))
 
-(define-public rust-time-0.1.42
-  (package
-    (name "rust-time")
-    (version "0.1.42")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "time" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0vsbvsz0ryxb35dy9j4anxvy8zlaplmjmi0a4z4l64bc135cz3fv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
-        ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-log" ,rust-log-0.4)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page "https://github.com/rust-lang/time")
-    (synopsis
-     "Utilities for working with time-related functions in Rust")
-    (description
-     "Utilities for working with time-related functions in Rust.")
-    (license #f)))
-
 (define-public rust-fst
   (package
     (name "rust-fst")
@@ -1688,7 +1658,7 @@ _getch on Windows, and termios on Unix.")
         ("rust-serde-json" ,rust-serde-json-1.0)
         ("rust-serde-urlencoded" ,rust-serde-urlencoded)
         ("rust-socks" ,rust-socks)
-        ("rust-time" ,rust-time-0.1.42)
+        ("rust-time" ,rust-time-0.1)
         ("rust-tokio" ,rust-tokio-0.1)
         ("rust-tokio-executor" ,rust-tokio-executor-0.1)
         ("rust-tokio-io" ,rust-tokio-io-0.1)

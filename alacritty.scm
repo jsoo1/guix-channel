@@ -162,7 +162,7 @@
         ("rust-terminfo" ,rust-terminfo)
         ("rust-tempfile" ,rust-tempfile-3.0)
         ("rust-textwrap" ,rust-textwrap-0.11)
-        ("rust-time" ,rust-time-0.1.42)
+        ("rust-time" ,rust-time-0.1)
         ("rust-ucd-util" ,rust-ucd-util-0.1)
         ("rust-unicode-bidi" ,rust-unicode-bidi-0.3)
         ("rust-unicode-normalization" ,rust-unicode-normalization-0.1)
