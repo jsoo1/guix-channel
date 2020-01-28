@@ -571,31 +571,6 @@ of configuration possible intended.")
        #:cargo-development-inputs
        (("rust-rand" ,rust-rand-0.4))))))
 
-(define-public rust-adler32
-  (package
-    (name "rust-adler32")
-    (version "1.0.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "adler32" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0p7fxlnks9l7p7rwfqi7aqgnk2bps5zc0rjiw00mdw19nnbjjlky"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/remram44/adler32-rs")
-    (synopsis
-     "Minimal Adler32 implementation for Rust")
-    (description
-     "Minimal Adler32 implementation for Rust.")
-    (license #f)))
-
 (define-public rust-openssl-sys-0.9.49
   (package
     (name "rust-openssl-sys")
@@ -2668,7 +2643,7 @@ types.  The Client can be used for other queries.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-adler32" ,rust-adler32)
+       (("rust-adler32" ,rust-adler32-1.0)
         ("rust-crc32fast" ,rust-crc32fast-1.2)
         ("rust-rle-decode-fast" ,rust-rle-decode-fast)
         ("rust-take-mut" ,rust-take-mut))
@@ -6944,7 +6919,7 @@ complex, rational, range iterators, generic integers, and more!
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-adler32" ,rust-adler32)
+       (("rust-adler32" ,rust-adler32-1.0)
         ("rust-byteorder" ,rust-byteorder-1.3)
         ("rust-gzip-header" ,rust-gzip-header))
        #:cargo-development-inputs
@@ -6986,7 +6961,7 @@ complex, rational, range iterators, generic integers, and more!
          "1zxjdn8iwa0ssxrnjmywm3r1v284wryvzrf8vkc7nyf5ijbjknqw"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:cargo-inputs (("rust-adler32" ,rust-adler32))))
+     `(#:cargo-inputs (("rust-adler32" ,rust-adler32-1.0))))
     (home-page
      "https://github.com/PistonDevelopers/inflate.git")
     (synopsis "DEFLATE decoding")
