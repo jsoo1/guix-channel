@@ -11868,38 +11868,6 @@ for 0.3!")
     (description "Natural ordering for Rust")
     (license license:expat)))
 
-(define-public rust-ansi-term-0.12
-  (package
-    (name "rust-ansi-term")
-    (version "0.12.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "ansi-term" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1ljmkbilxgmhavxvxqa7qvm6f3fjggi7q2l3a72q9x0cxjvrnanm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-winapi" ,rust-winapi-0.3))
-       #:cargo-development-inputs
-       (("rust-doc-comment" ,rust-doc-comment-0.3)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-     "https://github.com/ogham/rust-ansi-term")
-    (synopsis
-     "ANSI terminal colours and styles (bold, underline)")
-    (description
-     "Library for ANSI terminal colours and styles (bold,
-underline).")
-    (license license:expat)))
-
 (define-public rust-hashbrown-0.1
   (package
     (inherit rust-hashbrown-0.5)
