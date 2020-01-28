@@ -356,26 +356,6 @@ Linux, the Known Folder API on Windows, and the Standard Directory
 guidelines on macOS.")
     (license #f)))
 
-(define-public rust-keystream
-  (package
-    (name "rust-keystream")
-    (version "1.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "keystream" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0a4b2g4i1bxkh8ngbpcnplwbsliif8zw9q3d6mk25q4y7j1p0c63"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/PeterReid/keystream")
-    (synopsis "Cryptographic keystream traits")
-    (description "Cryptographic keystream traits")
-    (license #f)))
-
 (define-public rust-time-0.1.42
   (package
     (name "rust-time")
