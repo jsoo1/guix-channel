@@ -1322,32 +1322,6 @@ _getch on Windows, and termios on Unix.")
     (description "higher level HTTP client library")
     (license #f)))
 
-(define-public rust-rpassword
-  (package
-    (name "rust-rpassword")
-    (version "4.0.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rpassword" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1k8g5lk2y41rj9zr8syqrrd381z8flg2wr4pzmp595hsy4qxjwph"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-winapi" ,rust-winapi-0.3))))
-    (home-page
-     "https://github.com/conradkdotcom/rpassword")
-    (synopsis
-     "Read passwords in console applications.")
-    (description
-     "Read passwords in console applications.")
-    (license license:asl2.0)))
-
 (define-public rust-sequoia-openpgp
   (package
     (name "rust-sequoia-openpgp")
