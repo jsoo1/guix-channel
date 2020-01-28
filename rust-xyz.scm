@@ -386,32 +386,6 @@ guidelines on macOS.")
     (description "Double-array tries.")
     (license #f)))
 
-(define-public rust-hyphenation-commons
-  (package
-    (name "rust-hyphenation-commons")
-    (version "0.7.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "hyphenation_commons" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1pasnbk3rbdgf30jjjh1h24a9pxpdrnn0ihcivmpnzqha6mn2d4y"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-atlatl" ,rust-atlatl)
-        ("rust-serde" ,rust-serde-1.0))))
-    (home-page
-     "https://github.com/tapeinosyne/hyphenation")
-    (synopsis
-     "Proemial code for the `hyphenation` library")
-    (description
-     "Proemial code for the `hyphenation` library")
-    (license #f)))
-
 (define-public rust-pocket-resources
   (package
     (name "rust-pocket-resources")
