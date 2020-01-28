@@ -229,29 +229,6 @@ the stack.")
         (base32
          "1n8qr52sw9y6yxzyfxi1phh55rsxms7ry4iipdd8vmd16ag8jq17"))))))
 
-(define-public rust-getrandom-0.1.12
-  (package
-    (inherit rust-getrandom-0.1)
-    (version "0.1.12")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "getrandom" version))
-       (file-name
-        (string-append
-         (package-name rust-getrandom-0.1) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0w9mj0nrzhhkl4n8l18n14hfabiwxs6az8fhij01xzy8miji4fj7"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-stdweb" ,rust-stdweb-0.4)
-        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
-        ("rust-wasi" ,rust-wasi))))))
-
 (define-public rust-chacha
   (package
     (name "rust-chacha")
