@@ -6202,40 +6202,6 @@ functions.")
 supports type parameters, associated types, and type constraints.")
     (license #f)))
 
-(define-public rust-nix-0.14
-  (package
-    (name "rust-nix")
-    (version "0.14.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "nix" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1kmxdlmvnmq8cfpmr3g6wk37rwi2ybdvp1z6z3831m1p23p2nwkc"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-bitflags" ,rust-bitflags-1)
-        ("rust-cfg-if" ,rust-cfg-if-0.1)
-        ("rust-libc" ,rust-libc-0.2)
-        ("rust-void" ,rust-void-1.0))
-       #:cargo-development-inputs
-       (("rust-bytes" ,rust-bytes-0.4)
-        ("rust-caps" ,rust-caps-0.3)
-        ("rust-cc" ,rust-cc-1.0)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-sysctl" ,rust-sysctl-0.4)
-        ("rust-tempfile" ,rust-tempfile-3.0))))
-    (home-page "https://github.com/nix-rust/nix")
-    (synopsis "Rust friendly bindings to *nix APIs")
-    (description
-     "Rust friendly bindings to *nix APIs")
-    (license license:expat)))
-
 (define-public rust-wayland-commons
   (package
     (name "rust-wayland-commons")
