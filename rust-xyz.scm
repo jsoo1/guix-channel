@@ -123,43 +123,6 @@ the stack.")
      `(#:cargo-inputs
        (("rust-term" ,rust-term-0.5))))))
 
-(define-public rust-textwrap
-  (package
-    (name "rust-textwrap")
-    (version "0.11.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "textwrap" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0q5hky03ik3y50s9sz25r438bc4nwhqc6dqwynv4wylc807n29nk"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-hyphenation" ,rust-hyphenation)
-        ("rust-term-size" ,rust-term-size-1.0)
-        ("rust-unicode-width" ,rust-unicode-width-0.1))
-       #:cargo-development-inputs
-       (("rust-lipsum" ,rust-lipsum)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rand-xorshift" ,rust-rand-xorshift-0.2)
-        ("rust-version-sync" ,rust-version-sync-0.8))))
-    (home-page
-     "https://github.com/mgeisler/textwrap")
-    (synopsis
-     "Word wrapping, indenting, and dedenting strings")
-    (description
-     "Textwrap is a small library for word wrapping, indenting, and
-dedenting strings.
-
-You can use it to format strings (such as help and error messages) for
-display in commandline applications.  It is designed to be efficient
-and handle Unicode charactersec-map")
-    (license #f)))
-
 (define-public rust-vec-map
   (package
     (name "rust-vec-map")
