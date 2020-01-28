@@ -165,34 +165,6 @@ the stack.")
         (base32
          "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
-(define-public rust-termion
-  (package
-    (name "rust-termion")
-    (version "1.5.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "termion" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0c634rg520zjjfhwnxrc2jbfjz7db0rcpsjs1qici0nyghpv53va"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-libc" ,rust-libc-0.2)
-        ("rust-numtoa" ,rust-numtoa-0.1.0)
-        ("rust-redox-syscall" ,rust-redox-syscall-0.1)
-        ("rust-redox-termios" ,rust-redox-termios))))
-    (home-page
-     "https://gitlab.redox-os.org/redox-os/termion")
-    (synopsis
-     "A bindless library for manipulating terminals.")
-    (description
-     "This package provides a bindless library for manipulating terminals.")
-    (license #f)))
-
 (define-public rust-hyphenation
   (package
     (name "rust-hyphenation")
