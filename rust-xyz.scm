@@ -5305,31 +5305,6 @@ supports type parameters, associated types, and type constraints.")
         (base32
          "0ma4n66amyqn4wy73ymnpsxvqf5f1zlp5mqqzj5x5xnpl0wpix6g"))))))
 
-(define-public rust-uninit
-  (package
-    (name "rust-uninit")
-    (version "0.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "uninit" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "04q75v0hnkm0jnqch06z2a52r9pms22z5asmqq9sf56nyjpxcbsf"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-require-unsafe-in-body"
-         ,rust-require-unsafe-in-body))))
-    (home-page "https://crates.io/crates/uninit")
-    (synopsis
-     "A collection of tools for a safer usage of uninitialized memory")
-    (description
-     "This package provides a collection of tools for a safer usage of uninitialized memory")
-    (license license:expat)))
-
 (define-public rust-maybe-uninit
   (package
     (name "rust-maybe-uninit")
