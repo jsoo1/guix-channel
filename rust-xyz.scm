@@ -276,35 +276,6 @@ the stack.")
     (description "ISAAC random number generator")
     (license #f)))
 
-(define-public rust-no-panic
-  (package
-    (name "rust-no-panic")
-    (version "0.1.10")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "no-panic" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "089gmyxg7kviimqn5nmghm5kngnmi77a0c6fbv0j67jxx7pjhq3r"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))
-       #:cargo-development-inputs
-       (("rust-tempfile" ,rust-tempfile-3.0))))
-    (home-page "https://github.com/dtolnay/no-panic")
-    (synopsis
-     "Prove a function can't ever panic")
-    (description
-     "Attribute macro to require that the compiler prove a function
-can't ever panic.")
-    (license #f)))
-
 (define-public rust-numtoa
   (package
     (name "rust-numtoa")
@@ -10149,57 +10120,6 @@ and convenience methods for color manipulation.  Allows no-copy
 high-level interoperability.  Also adds common convenience methods and
 implements standard Rust traits to make RGB/RGBA pixels and slices
 first-class Rust objects.")
-    (license license:expat)))
-
-(define-public rust-zoneinfo-compiled-0.4
-  (package
-    (name "rust-zoneinfo-compiled")
-    (version "0.4.8")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "zoneinfo_compiled" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "0bnm19w791q6kp79s0zl1cj9w51bw5xrifrxfy3g1p05i676y4vf"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs
-        (("rust-byteorder" ,rust-byteorder-1.3)
-         ("rust-datetime" ,rust-datetime-0.4))))
-    (home-page
-      "https://github.com/rust-datetime/zoneinfo-compiled/")
-    (synopsis
-      "Library for parsing compiled zoneinfo files")
-    (description
-      "Library for parsing compiled zoneinfo files.")
-    (license license:expat)))
-
-(define-public rust-users-0.9
-  (package
-    (name "rust-users")
-    (version "0.9.1")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "users" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "1kxl3y2hcrqqip7jpqn5mz7xlpbwmmpfmaza0xnyrhx0mrkl4by7"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-libc" ,rust-libc-0.2))))
-    (home-page "https://github.com/ogham/rust-users")
-    (synopsis
-      "Library for getting information on Unix users and groups")
-    (description
-      "Library for getting information on Unix users and groups.")
     (license license:expat)))
 
 (define-public rust-hashbrown-0.1
