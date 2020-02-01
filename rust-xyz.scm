@@ -10202,55 +10202,6 @@ first-class Rust objects.")
       "Library for getting information on Unix users and groups.")
     (license license:expat)))
 
-(define-public rust-term-grid-0.1
-  (package
-    (name "rust-term-grid")
-    (version "0.1.7")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "term_grid" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "1kq2sy3b8329jrsrpcvijvyz4gbqjyvyy6c3n0wmmvda9y03w393"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs
-        (("rust-unicode-width" ,rust-unicode-width-0.1))))
-    (home-page
-      "https://github.com/ogham/rust-term-grid")
-    (synopsis
-      "Library for formatting strings into a grid layout")
-    (description
-      "Library for formatting strings into a grid layout")
-    (license license:expat)))
-
-(define-public rust-number-prefix-0.3
-  (package
-    (name "rust-number-prefix")
-    (version "0.3.0")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "number_prefix" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "0slm4mqmpgs6hvz22ycny9lvyvl9ivs80a1lncslp7lszz02zc0p"))))
-    (build-system cargo-build-system)
-    (arguments `(#:skip-build? #t))
-    (home-page
-      "https://github.com/ogham/rust-number-prefix")
-    (synopsis
-      "Format numeric prefixes: kilo, giga, kibi")
-    (description
-      "Library for formatting numeric prefixes: kilo, giga, kibi.")
-    (license license:expat)))
-
 (define-public rust-hashbrown-0.1
   (package
     (inherit rust-hashbrown-0.5)
