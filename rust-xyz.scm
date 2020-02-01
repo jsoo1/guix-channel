@@ -5578,7 +5578,7 @@ supports type parameters, associated types, and type constraints.")
         ("rust-arrayvec" ,rust-arrayvec-0.4)
         ("rust-crossbeam-deque" ,rust-crossbeam-deque-0.7)
         ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6)
-        ("rust-libm" ,rust-libm)
+        ("rust-libm" ,rust-libm-0.1)
         ("rust-linked-hash-map" ,rust-linked-hash-map-0.5)
         ("rust-num-cpus" ,rust-num-cpus-1.10)
         ("rust-ordered-float" ,rust-ordered-float)
@@ -5659,30 +5659,6 @@ hardware font rendering.")
     (description "Rust semaphore library")
     (license license:expat)))
 
-(define-public rust-libm
-  (package
-    (name "rust-libm")
-    (version "0.1.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "libm" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "16pc0gx4gkg0q2s1ssq8268brn14j8344623vwhadmivc4lsmivz"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-development-inputs
-       (("rust-no-panic" ,rust-no-panic)
-        ("rust-rand" ,rust-rand-0.4))))
-    (home-page
-     "https://github.com/rust-lang-nursery/libm")
-    (synopsis "libm in pure Rust")
-    (description "libm in pure Rust")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-ordered-float
   (package
     (name "rust-ordered-float")
@@ -5728,7 +5704,7 @@ hardware font rendering.")
     (arguments
      `(#:cargo-inputs
        (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-libm" ,rust-libm))
+        ("rust-libm" ,rust-libm-0.1))
        #:cargo-development-inputs
        (("rust-approx" ,rust-approx-0.3))))
     (home-page
