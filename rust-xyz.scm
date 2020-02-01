@@ -10251,64 +10251,6 @@ first-class Rust objects.")
       "Library for formatting numeric prefixes: kilo, giga, kibi.")
     (license license:expat)))
 
-(define-public rust-hermit-abi-0.1
-  (package
-    (name "rust-hermit-abi")
-    (version "0.1.5")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "hermit-abi" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "1mr16riz544zwn0qpd02a5rgszsdcig9p868pwafrlwj4dhdqagn"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs
-        (("rust-compiler-builtins" ,rust-compiler-builtins-0.1)
-         ("rust-libc" ,rust-libc-0.2)
-         ("rust-rustc-std-workspace-core"
-          ,rust-rustc-std-workspace-core-1.0))))
-    (home-page
-      "https://github.com/hermitcore/rusty-hermit")
-    (synopsis
-      "Small interface to call functions from RustyHermit")
-    (description
-      "hermit-abi is small interface to call functions from the unikernel RustyHermit.
-It is used to build the target x86_64-unknown-hermit.")
-    (license (list license:expat license:asl2.0))))
-
-(define-public rust-num-cpus-1.11
-  (package
-    (name "rust-num-cpus")
-    (version "1.11.1")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "num_cpus" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "0wlxs00cpg16z09fwchj1gdz1jxnf5dgg1cbidvq0sc75bnwbnkn"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs
-        (("rust-hermit-abi" ,rust-hermit-abi-0.1)
-         ("rust-libc" ,rust-libc-0.2))
-        #:cargo-development-inputs
-        (("rust-doc-comment" ,rust-doc-comment-0.3))))
-    (home-page
-      "https://github.com/seanmonstar/num_cpus")
-    (synopsis "Get the number of CPUs on a machine.")
-    (description
-      "Get the number of CPUs on a machine.")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-hashbrown-0.1
   (package
     (inherit rust-hashbrown-0.5)
