@@ -3534,7 +3534,7 @@ client or server.")
      "Robust domain name parsing and RFC compliant email address validation")
     (license #f)))
 
-(define rust-pretty-assertions
+(define-public rust-pretty-assertions
   (package
     (name "rust-pretty-assertions")
     (version "0.6.1")
@@ -9219,34 +9219,6 @@ pitfalls in Rust")
      "Parse command line argument by defining a struct.")
     (license #f)))
 
-(define-public rust-src
-  (package
-    (inherit rust)
-    (name "rust-src")
-    (build-system gnu-build-system)
-    (outputs '("out"))
-    (arguments
-     `(#:phases
-       (modify-phases %standard-phases
-         (delete 'configure)
-         (delete 'build)
-         (delete 'check)
-         (delete 'strip)
-         (delete 'validate-runpath)
-         (delete 'compress-documentation)
-         (delete 'delete-info-dir-file)
-         (delete 'validate-documentation-location)
-         (replace 'install
-           (lambda* (#:key outputs #:allow-other-keys)
-             (let ((out (assoc-ref outputs "out")))
-             (copy-recursively
-              "src" (string-append out "/lib/rustlib/src/rust/src"))
-             #t))))))
-    (native-search-paths
-     (list (search-path-specification
-            (variable "RUST_SRC_DIR")
-            (files '("lib/rustlib/src/rust/src")))))))
-
 (define-public rust-structopt-derive
   (package
     (name "rust-structopt-derive")
@@ -10111,3 +10083,626 @@ first-class Rust objects.")
         ("rust-rayon" ,rust-rayon-1.3)
         ("rust-rustc-hash" ,rust-rustc-hash-1.0)
         ("rust-serde-test" ,rust-serde-test-1.0))))))
+
+(define-public rust-unic-ucd-category-0.9
+  (package
+    (name "rust-unic-ucd-category")
+    (version "0.9.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "unic-ucd-category" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1h4ixzplc2s441vc8mc4zxliw6qfqh1ziaiv8pa1pzpwyn8lb38v"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-matches" ,rust-matches-0.1)
+         ("rust-unic-char-property" ,rust-unic-char-property-0.9)
+         ("rust-unic-char-range" ,rust-unic-char-range-0.9)
+         ("rust-unic-ucd-version" ,rust-unic-ucd-version-0.9))))
+    (home-page
+      "https://github.com/open-i18n/rust-unic/")
+    (synopsis
+      "UNIC - Unicode Character Database - General Category")
+    (description
+     "UNIC - Unicode Character Database - General Category")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-unic-ucd-common-0.9
+  (package
+    (name "rust-unic-ucd-common")
+    (version "0.9.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "unic-ucd-common" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1bglvzn6rs01v0d29898vg2y3v3cgj3h1gsrbjp1mypa1f8qpdz9"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-unic-char-property" ,rust-unic-char-property-0.9)
+         ("rust-unic-char-range" ,rust-unic-char-range-0.9)
+         ("rust-unic-ucd-version" ,rust-unic-ucd-version-0.9))
+        #:cargo-development-inputs
+        (("rust-unic-ucd-category" ,rust-unic-ucd-category-0.9))))
+    (home-page
+      "https://github.com/open-i18n/rust-unic/")
+    (synopsis
+      "UNIC - Unicode Character Database - Common Properties")
+    (description
+      "UNIC - Unicode Character Database - Common Properties")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-unic-common-0.9
+  (package
+    (name "rust-unic-common")
+    (version "0.9.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "unic-common" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1g1mm954m0zr497dl4kx3vr09yaly290zs33bbl4wrbaba1gzmw0"))))
+    (build-system cargo-build-system)
+    (home-page
+      "https://github.com/open-i18n/rust-unic/")
+    (synopsis "UNIC â\x80\x94 Common Utilities")
+    (description "UNIC â\x80\x94 Common Utilities")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-unic-ucd-version-0.9
+  (package
+    (name "rust-unic-ucd-version")
+    (version "0.9.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "unic-ucd-version" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1i5hnzpfnxkp4ijfk8kvhpvj84bij575ybqx1b6hyigy6wi2zgcn"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-unic-common" ,rust-unic-common-0.9))))
+    (home-page
+      "https://github.com/open-i18n/rust-unic/")
+    (synopsis
+      "UNIC - Unicode Character Database - Version")
+    (description
+      "UNIC - Unicode Character Database - Version")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-unic-char-range-0.9
+  (package
+    (name "rust-unic-char-range")
+    (version "0.9.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "unic-char-range" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1g0z7iwvjhqspi6194zsff8vy6i3921hpqcrp3v1813hbwnh5603"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs (("rust-rayon" ,rust-rayon-1.3))))
+    (home-page
+      "https://github.com/open-i18n/rust-unic/")
+    (synopsis
+      "UNIC - Unicode Character Tools - Character Range and Iteration")
+    (description
+      "UNIC - Unicode Character Tools - Character Range and Iteration")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-unic-char-property-0.9
+  (package
+    (name "rust-unic-char-property")
+    (version "0.9.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "unic-char-property" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "08g21dn3wwix3ycfl0vrbahn0835nv2q3swm8wms0vwvgm07mid8"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-unic-char-range" ,rust-unic-char-range-0.9))))
+    (home-page
+      "https://github.com/open-i18n/rust-unic/")
+    (synopsis
+      "UNIC - Unicode Character Tools - Character Property taxonomy")
+    (description
+      "UNIC - Unicode Character Tools - Character Property taxonomy,
+contracts and build macros")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-unic-ucd-segment-0.9
+  (package
+    (name "rust-unic-ucd-segment")
+    (version "0.9.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "unic-ucd-segment" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0027lczcg0r401g6fnzm2bq9fxhgxvri1nlryhhv8192lqic2y90"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-unic-char-property" ,rust-unic-char-property-0.9)
+         ("rust-unic-char-range" ,rust-unic-char-range-0.9)
+         ("rust-unic-ucd-version" ,rust-unic-ucd-version-0.9))))
+    (home-page
+      "https://github.com/open-i18n/rust-unic/")
+    (synopsis
+      "UNIC - Unicode Character Database - Segmentation Properties")
+    (description
+      "UNIC - Unicode Character Database - Segmentation Properties")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-unic-segment-0.9
+  (package
+    (name "rust-unic-segment")
+    (version "0.9.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "unic-segment" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "08wgz2q6vrdvmbd23kf9pbg8cyzm5q8hq9spc4blzy2ppqk5vvg4"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-unic-ucd-segment" ,rust-unic-ucd-segment-0.9))
+        #:cargo-development-inputs
+        (("rust-quickcheck" ,rust-quickcheck-0.8)
+         ("rust-unic-ucd-common" ,rust-unic-ucd-common-0.9))))
+    (home-page
+      "https://github.com/open-i18n/rust-unic/")
+    (synopsis
+      "UNIC - Unicode Text Segmentation Algorithms")
+    (description
+      "UNIC - Unicode Text Segmentation Algorithms")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-deunicode-1.0
+  (package
+    (name "rust-deunicode")
+    (version "1.0.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "deunicode" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0q3mhnz4mzhi088h60n5n7i6ibw2wacbj687bmh61ppdpmdhz2na"))))
+    (build-system cargo-build-system)
+    (home-page
+      "https://crates.rs/crates/deunicode#readme")
+    (synopsis
+      "Convert Unicode strings to pure ASCII")
+    (description
+      "Convert Unicode strings to pure ASCII by intelligently
+transliterating them.  Suppors Emoji and Chinese.")
+    (license license:bsd-3)))
+
+(define-public rust-slug-0.1
+  (package
+    (name "rust-slug")
+    (version "0.1.4")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "slug" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0wrk0w7mcmnvpmc27fw8dxkip6f6xgwpfgp7mp56yv2bd8p7dg5k"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-deunicode" ,rust-deunicode-1.0))))
+    (home-page
+      "https://github.com/Stebalien/slug-rs")
+    (synopsis "Convert a unicode string to a slug")
+    (description
+      "Convert a unicode string to a slug.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-humansize-1.1
+  (package
+    (name "rust-humansize")
+    (version "1.1.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "humansize" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0piadmwjah1jv6q288im4za9szlgalzjyq2811w35i6gg9ib5jmn"))))
+    (build-system cargo-build-system)
+    (home-page
+      "https://github.com/LeopoldArkham/humansize")
+    (synopsis
+      "Represent file sizes in a human-readable format")
+    (description
+      "This package provides a configurable crate to easily represent
+file sizes in a human-readable format.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-docmatic-0.1
+  (package
+    (name "rust-docmatic")
+    (version "0.1.2")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "docmatic" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1hx85n266lxswqxrbbinqlhi1qcnjgd4cc7v42abg72kmz7fnn4d"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs (("rust-which" ,rust-which-2.0))))
+    (home-page
+      "https://github.com/assert-rs/docmatic")
+    (synopsis
+      "Test Rust examples in your documentation")
+    (description
+      "Test Rust examples in your documentation.")
+    (license license:expat)))
+
+(define-public rust-globwalk-0.7
+  (package
+    (name "rust-globwalk")
+    (version "0.7.1")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "globwalk" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0yr6kcm2izsjicisjk5dzy00wh7jmh823zxqlfq9fs2rd01wzjsk"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-ignore" ,rust-ignore-0.4)
+         ("rust-walkdir" ,rust-walkdir-2.2))
+        #:cargo-development-inputs
+        (("rust-docmatic" ,rust-docmatic-0.1)
+         ("rust-tempdir" ,rust-tempdir-0.3))))
+    (home-page "https://github.com/gilnaa/globwalk")
+    (synopsis
+      "Glob-matched recursive file system walking")
+    (description
+      "Glob-matched recursive file system walking.")
+    (license license:expat)))
+
+(define-public rust-parse-zoneinfo-0.2
+  (package
+    (name "rust-parse-zoneinfo")
+    (version "0.2.1")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "parse-zoneinfo" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "01zzysdmin7fw88vsnlwqic93wnch7zxq2nhly102h1v278fkv7y"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs (("rust-regex" ,rust-regex-1.3))))
+    (home-page
+      "https://github.com/djzin/parse-zoneinfo")
+    (synopsis
+      "Parse zoneinfo files from the IANA database")
+    (description
+      "Parse zoneinfo files from the IANA database")
+    (license license:expat)))
+
+(define-public rust-chrono-tz-0.5
+  (package
+    (name "rust-chrono-tz")
+    (version "0.5.1")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "chrono-tz" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "05gaa4wgf9z0b870idzridx0i1mqs4ii4sywqgplskiqs3x31r70"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-chrono" ,rust-chrono-0.4)
+         ("rust-serde" ,rust-serde-1.0))
+        #:cargo-development-inputs
+        (("rust-parse-zoneinfo" ,rust-parse-zoneinfo-0.2)
+         ("rust-serde-test" ,rust-serde-test-1.0))))
+    (home-page "https://github.com/djzin/chrono-tz")
+    (synopsis
+      "TimeZone implementations for rust-chrono")
+    (description
+      "TimeZone implementations for rust-chrono from the IANA database")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-tera-1.0
+  (package
+    (name "rust-tera")
+    (version "1.0.2")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "tera" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0sn8jkzkxzp1wxla5s4f1li8j56137cmkhpk5662wb8w9l1sw0c5"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-chrono" ,rust-chrono-0.4)
+         ("rust-chrono-tz" ,rust-chrono-tz-0.5)
+         ("rust-globwalk" ,rust-globwalk-0.7)
+         ("rust-humansize" ,rust-humansize-1.1)
+         ("rust-lazy-static" ,rust-lazy-static-1.4)
+         ("rust-percent-encoding" ,rust-percent-encoding-2.1)
+         ("rust-pest" ,rust-pest-2.1)
+         ("rust-pest-derive" ,rust-pest-derive-2.1)
+         ("rust-rand" ,rust-rand-0.7)
+         ("rust-regex" ,rust-regex-1.3)
+         ("rust-serde" ,rust-serde-1.0)
+         ("rust-serde-json" ,rust-serde-json-1.0)
+         ("rust-slug" ,rust-slug-0.1)
+         ("rust-unic-segment" ,rust-unic-segment-0.9))
+        #:cargo-development-inputs
+        (("rust-pretty-assertions" ,rust-pretty-assertions)
+         ("rust-serde-derive" ,rust-serde-derive-1.0)
+         ("rust-tempfile" ,rust-tempfile-3.1))))
+    (home-page "https://tera.netlify.com/")
+    (synopsis
+      "Template engine based on Jinja2/Django templates")
+    (description
+      "Template engine based on Jinja2/Django templates.")
+    (license license:expat)))
+
+(define-public rust-snafu-derive-0.6
+  (package
+    (name "rust-snafu-derive")
+    (version "0.6.2")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "snafu-derive" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1qphv741zjd234fy7jr7qvj09fq9lzdqz77x09s2jgrjw2i5vixx"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-proc-macro2" ,rust-proc-macro2-1.0)
+         ("rust-quote" ,rust-quote-1.0)
+         ("rust-syn" ,rust-syn-0.15))))
+    (home-page "https://github.com/shepmaster/snafu")
+    (synopsis "Ergonomic error handling library")
+    (description
+      "An ergonomic error handling library.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-pin-project-0.4
+  (package
+    (name "rust-pin-project")
+    (version "0.4.8")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "pin-project" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0b3pfbqfy3hhgq62zvbw7m0a4d55mrgnll9w8l9jymyrm1is813q"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-pin-project-internal" ,rust-pin-project-internal))))
+    (home-page
+      "https://github.com/taiki-e/pin-project")
+    (synopsis
+      "Safe and ergonomic pin-projection")
+    (description
+      "This package provides a crate for safe and ergonomic
+pin-projection.")
+    (license (list license:asl2.0 license:expat))))
+
+(define-public rust-snafu-0.6
+  (package
+    (name "rust-snafu")
+    (version "0.6.2")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "snafu" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "18g77l26ahpmi61ajcr59idk6xivc1jkvhw3v0pa4anf3ccbjval"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-backtrace" ,rust-backtrace-0.3)
+         ("rust-doc-comment" ,rust-doc-comment-0.3)
+         ("rust-futures" ,rust-futures-0.1)
+         ("rust-futures-core" ,rust-futures-core-0.3)
+         ("rust-pin-project" ,rust-pin-project-0.4)
+         ("rust-snafu-derive" ,rust-snafu-derive-0.6))))
+    (home-page "https://github.com/shepmaster/snafu")
+    (synopsis "Ergonomic error handling library")
+    (description
+      "An ergonomic error handling library.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-shellexpand-2.0
+  (package
+    (name "rust-shellexpand")
+    (version "2.0.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "shellexpand" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "00y6kf5nvrpmbsyyxic1r1w4yqr0lkz5dxjnsdj99bws58k24aws"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs (("rust-dirs" ,rust-dirs-2.0))))
+    (home-page
+      "https://github.com/netvl/shellexpand")
+    (synopsis "Shell-like expansions in strings")
+    (description "Shell-like expansions in strings.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-console-0.9
+  (package
+    (inherit rust-console-0.7)
+    (version "0.9.2")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "console" version))
+        (file-name
+         (string-append (package-name rust-console-0.7)
+                        "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "1h765951c9mywff534f0191slazykmif4290g2yarcwhd2cg7q25"))))
+    (arguments
+      `(#:cargo-inputs
+        (("rust-clicolors-control" ,rust-clicolors-control-1.0)
+         ("rust-encode-unicode" ,rust-encode-unicode-0.3)
+         ("rust-lazy-static" ,rust-lazy-static-1)
+         ("rust-libc" ,rust-libc-0.2)
+         ("rust-regex" ,rust-regex-1.3)
+         ("rust-termios" ,rust-termios-0.3)
+         ("rust-unicode-width" ,rust-unicode-width-0.1)
+         ("rust-winapi" ,rust-winapi-0.3))))))
+
+(define-public rust-indicatif-0.14
+  (package
+    (name "rust-indicatif")
+    (version "0.14.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "indicatif" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "0h3ysblmny7a7lpx5jwvqm7wb9rf22vkb0prsz4qjy21rxqq79j9"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-console" ,rust-console-0.9)
+         ("rust-lazy-static" ,rust-lazy-static-1)
+         ("rust-number-prefix" ,rust-number-prefix-0.3)
+         ("rust-rayon" ,rust-rayon-1.3)
+         ("rust-regex" ,rust-regex-1.3))
+        #:cargo-development-inputs
+        (("rust-futures" ,rust-futures-0.1)
+         ("rust-rand" ,rust-rand-0.7)
+         ("rust-tokio-core" ,rust-tokio-core-0.1))))
+    (home-page
+      "https://github.com/mitsuhiko/indicatif")
+    (synopsis
+      "Progress bar and cli reporting library for Rust")
+    (description
+      "This package provides a progress bar and cli reporting library
+for Rust.")
+    (license license:expat)))
+
+(define-public rust-src-0.0
+  (package
+    (name "rust-src")
+    (version "0.0.5")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (crate-uri "src" version))
+        (file-name
+          (string-append name "-" version ".tar.gz"))
+        (sha256
+          (base32
+            "095gf4qii9zl40fdv6nj1g0brlzncb3ghp9xf7hflz0zvha8rrv8"))))
+    (build-system cargo-build-system)
+    (arguments
+      `(#:cargo-inputs
+        (("rust-ansi-term" ,rust-ansi-term-0.12)
+         ("rust-atty" ,rust-atty-0.2)
+         ("rust-dirs" ,rust-dirs-2.0)
+         ("rust-git2" ,rust-git2-0.11)
+         ("rust-indicatif" ,rust-indicatif-0.14)
+         ("rust-libc" ,rust-libc-0.2)
+         ("rust-rayon" ,rust-rayon-1.3)
+         ("rust-serde" ,rust-serde-1.0)
+         ("rust-serde-yaml" ,rust-serde-yaml-0.8)
+         ("rust-shellexpand" ,rust-shellexpand-2.0)
+         ("rust-snafu" ,rust-snafu-0.6)
+         ("rust-structopt" ,rust-structopt)
+         ("rust-tempfile" ,rust-tempfile-3.1)
+         ("rust-tera" ,rust-tera-1.0)
+         ("rust-xdg" ,rust-xdg-2.2))
+        #:cargo-development-inputs
+        (("rust-tempfile" ,rust-tempfile-3.1))))
+    (home-page "https://github.com/casey/just")
+    (synopsis
+      "Manage your personal zoo of repositories")
+    (description
+      "Manage your personal zoo of repositories.")
+    (license license:cc0)))
+

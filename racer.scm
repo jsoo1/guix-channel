@@ -29,8 +29,6 @@
      `(("perl" ,perl)
        ("python-wrapper" ,python-wrapper)
        ("ruby" ,ruby)))
-    (propagated-inputs
-     `(("rust-src" ,rust-src)))
     (arguments
      `(#:cargo-inputs
        (("rust-aho-corasick" ,rust-aho-corasick-0.7)
@@ -51,6 +49,7 @@
         ("rust-regex-syntax" ,rust-regex-syntax-0.6)
         ("rust-rls-span" ,rust-rls-span)
         ("rust-rustc-ap-syntax" ,rust-rustc-ap-syntax-583)
+        ("rust-src" ,rust-src-0.0)
         ("rust-strsim" ,rust-strsim-0.8)
         ("rust-syntex-errors" ,rust-syntex-errors-0.52)
         ("rust-syntex-pos" ,rust-syntex-pos-0.52)
