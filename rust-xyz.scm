@@ -91,20 +91,6 @@ the stack.")
         (base32
          "19dk39gfwmhi3iy1x0wgml1fv1bkb525ywy25zwihbm063i05zaf"))))))
 
-(define-public rust-bitflags-0.7
-  (package
-    (inherit rust-bitflags-1)
-    (version "0.7.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "bitflags" version))
-       (file-name
-        (string-append (package-name rust-bitflags-1) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0v8hh6wdkpk9my8z8442g4hqrqf05h0qj53dsay6mv18lqvqklda"))))))
-
 (define-public rust-clippy-0.0.103 ; Old - for racer
   (package
     (inherit rust-clippy-0.0)
