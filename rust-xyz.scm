@@ -4246,24 +4246,6 @@ functions.")
     (description "Rust bindings for CGL on Mac")
     (license #f)))
 
-(define-public rust-cgl-0.2
-  (package
-    (inherit rust-cgl)
-    (version "0.2.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cgl" version))
-       (file-name
-        (string-append (package-name rust-cgl) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0j8ayr8pbwvyv6l8r7m5z197rs3pqn97085w9j4rfn7yfh5yrrsm"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-gleam" ,rust-gleam-0.6)
-        ("rust-libc" ,rust-libc-0.2))))))
-
 (define-public rust-cocoa
   (package
     (name "rust-cocoa")
