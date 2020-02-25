@@ -4856,43 +4856,6 @@ functions.")
      "Imaging library written in Rust.  Provides basic filters and decoders for the most common image formats.")
     (license license:expat)))
 
-(define-public rust-image-0.21
-  (package
-    (name "rust-image")
-    (version "0.21.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "image" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1sv534xp8yyn7jj0q6yn2bgng1350f962g81sv8v7c6pgi31wdrm"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-byteorder" ,rust-byteorder-1.3)
-        ("rust-gif" ,rust-gif)
-        ("rust-jpeg-decoder" ,rust-jpeg-decoder)
-        ("rust-num-iter" ,rust-num-iter-0.1)
-        ("rust-num-rational" ,rust-num-rational)
-        ("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-png" ,rust-png-0.14)
-        ("rust-scoped-threadpool" ,rust-scoped-threadpool-0.1)
-        ("rust-tiff" ,rust-tiff-0.2))
-       #:cargo-development-inputs
-       (("rust-crc32fast" ,rust-crc32fast-1.2)
-        ("rust-glob" ,rust-glob-0.3)
-        ("rust-num-complex" ,rust-num-complex-0.2)
-        ("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page "https://github.com/image-rs/image")
-    (synopsis
-     "Imaging library written in Rust. Provides basic filters and decoders for the most common image formats.")
-    (description
-     "Imaging library written in Rust.  Provides basic filters and decoders for the most common image formats.")
-    (license license:expat)))
-
 (define-public rust-downcast-rs
   (package
     (name "rust-downcast-rs")
