@@ -5154,33 +5154,6 @@ supports type parameters, associated types, and type constraints.")
      "Code generators for creating bindings to the Khronos OpenGL APIs.")
     (license license:asl2.0)))
 
-(define-public rust-gl-generator-0.11
-  (package
-    (name "rust-gl-generator")
-    (version "0.11.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "gl-generator" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1gdchvay0k0g931b2ki33mkfixcw4radk5b8sqsm29rahxg3v8ir"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-khronos-api" ,rust-khronos-api)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-xml-rs" ,rust-xml-rs))))
-    (home-page
-     "https://github.com/brendanzab/gl-rs/")
-    (synopsis
-     "Code generators for creating bindings to the Khronos OpenGL APIs.")
-    (description
-     "Code generators for creating bindings to the Khronos OpenGL APIs.")
-    (license license:asl2.0)))
-
 (define-public rust-block
   (package
     (name "rust-block")
