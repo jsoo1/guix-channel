@@ -13,11 +13,12 @@
    - libsixel
    - ormolu
    - pijul
-   - purescript-spago
+   - spago
    - racer
    - rustfmt
    - sdump
    - yaft
+   - tealdeer
 ** In progress
    - firefox
    - termonad

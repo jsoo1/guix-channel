@@ -20,7 +20,7 @@
   (let ((revision "1")
         (commit "838e627461f58181bb69fd3828a161bc88b97e6d"))
     (package
-      (name "purescript-spago")
+      (name "spago")
       (version (git-version "0.6.3" revision commit))
       (source
        (origin
