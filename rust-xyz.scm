@@ -3906,111 +3906,6 @@ complex, rational, range iterators, generic integers, and more!
      "The Khronos XML API Registry, exposed as byte string constants.")
     (license license:asl2.0)))
 
-(define-public rust-glium
-  (package
-    (name "rust-glium")
-    (version "0.25.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "glium" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0mhjly07x10lxg802ppg16wbxddhh4fdnlg10i99qwpfamvqhzbd"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-backtrace" ,rust-backtrace-0.3)
-        ("rust-fnv" ,rust-fnv-1.0)
-        ("rust-glutin" ,rust-glutin-0.21)
-        ("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-smallvec" ,rust-smallvec-0.6)
-        ("rust-takeable-option" ,rust-takeable-option))
-       #:cargo-development-inputs
-       (("rust-cgmath" ,rust-cgmath)
-        ("rust-genmesh" ,rust-genmesh)
-        ("rust-gl-generator" ,rust-gl-generator-0.14)
-        ("rust-image" ,rust-image-0.22)
-        ("rust-obj" ,rust-obj)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-rental" ,rust-rental))))
-    (home-page "https://github.com/glium/glium")
-    (synopsis
-     "Elegant and safe OpenGL wrapper")
-  (description
-    "Glium is an intermediate layer between OpenGL and your application.
-You still need to manually handle the graphics pipeline, but without
-having to use OpenGL's old and error-prone API.
-
-Its objectives:
-
- - Be safe to use.  Many aspects of OpenGL that can trigger a crash if
-misused are automatically handled by glium.
- - Provide an API that enforces good pratices such as RAII or
-stateless function calls.
- - Be compatible with all OpenGL versions that support shaders,
-providing unified API when things diverge.
- - Avoid all OpenGL errors beforehand.
- - Produce optimized OpenGL function calls, and allow the user to
-easily use modern OpenGL techniques.")
-  (license license:asl2.0)))
-
-(define-public rust-takeable-option
-  (package
-    (name "rust-takeable-option")
-    (version "0.5.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "takeable-option" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "182axkm8pq7cynsfn65ar817mmdhayrjmbl371yqp8zyzhr8kbin"))))
-    (build-system cargo-build-system)
-    (home-page "")
-    (synopsis "A small wrapper around option.")
-    (description
-     "This package provides a small wrapper around option.")
-    (license (list license:asl2.0 license:expat))))
-
-(define-public rust-cgmath
-  (package
-    (name "rust-cgmath")
-    (version "0.17.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cgmath" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1rvgila6ivr0dh1bxza450a4yfwdi2pwj3h1vnwg0jy4xk6l8f98"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-approx" ,rust-approx-0.3)
-        ("rust-mint" ,rust-mint)
-        ("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-rand" ,rust-rand-0.4)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-simd" ,rust-simd))
-       #:cargo-development-inputs
-       (("rust-glium" ,rust-glium)
-        ("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-     "https://github.com/brendanzab/cgmath")
-    (synopsis
-     "Linear algebra and mathematics library for computer graphics")
-    (description
-     "This package provides a linear algebra and mathematics library
-for computer graphics.")
-    (license license:asl2.0)))
-
 (define-public rust-genmesh
   (package
     (name "rust-genmesh")
@@ -4027,62 +3922,13 @@ for computer graphics.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cgmath" ,rust-cgmath)
+       (("rust-cgmath" ,rust-cgmath-0.17)
         ("rust-mint" ,rust-mint))))
     (home-page "https://github.com/gfx-rs/genmesh")
     (synopsis "A package for generating 3D meshes")
     (description
      "This package provides a package for generating 3D meshes")
     (license license:asl2.0)))
-
-(define-public rust-obj
-  (package
-    (name "rust-obj")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "obj" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1p550ws511h9qic01ppn1p3kgzwyhd2gd1rnrb2z17hgc8yv9bxh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs (("rust-genmesh" ,rust-genmesh))))
-    (home-page "https://github.com/kvark/obj")
-    (synopsis
-     "A package for loading Wavefront .obj files")
-    (description
-     "This package provides a package for loading Wavefront .obj files")
-    (license license:asl2.0)))
-
-(define-public rust-rental
-  (package
-    (name "rust-rental")
-    (version "0.5.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rental" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "07ry2b2y7mj2rk3i8bj0lcnbpxa7zai455fwlmw1ks62kyynx481"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-rental-impl" ,rust-rental-impl)
-        ("rust-stable-deref-trait"
-         ,rust-stable-deref-trait-1.1))))
-    (home-page "https://github.com/jpernst/rental")
-    (synopsis
-     "A macro to generate safe self-referential structs, plus premade types for common use cases.")
-    (description
-     "This package provides a macro to generate safe self-referential structs, plus premade types for common use cases.")
-    (license #f)))
 
 (define-public rust-derive-more
   (package
@@ -5335,33 +5181,6 @@ on CPUs, as well as raw interfaces to platform-specific instructions.
 (To be obsoleted by the `std::simd` implementation RFC 2366.)")
     (license #f)))
 
-(define-public rust-rental-impl
-  (package
-    (name "rust-rental-impl")
-    (version "0.5.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "rental-impl" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1djsnbzw57fkspjgjfm159qaw7z8k1y7w7qnvw49dgicrxa0s9l2"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-syn" ,rust-syn-0.15))))
-    (home-page "https://www.jpernst.com")
-    (synopsis
-     "An implementation detail of rental")
-    (description
-     "An implementation detail of rental.  Should not be used
-directly.")
-    (license #f)))
-
 (define-public rust-rle-decode-fast
   (package
     (name "rust-rle-decode-fast")
@@ -5596,7 +5415,7 @@ arbitrary structs.")
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs
-       (("rust-cgmath" ,rust-cgmath)
+       (("rust-cgmath" ,rust-cgmath-0.17)
         ("rust-lazy-static" ,rust-lazy-static-1.3)
         ("rust-rgb" ,rust-rgb-0.8)
         ("rust-serde" ,rust-serde-1.0)
