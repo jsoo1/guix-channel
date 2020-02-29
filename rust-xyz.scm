@@ -3798,36 +3798,6 @@ complex, rational, range iterators, generic integers, and more!
 ")
     (license #f)))
 
-(define-public rust-num-rational
-  (package
-    (name "rust-num-rational")
-    (version "0.2.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "num-rational" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0m5l76rdzzq98cfhnbjsxfngz6w75pal5mnfflpxqapysmw5527j"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-num-bigint" ,rust-num-bigint)
-        ("rust-num-integer" ,rust-num-integer-0.1)
-        ("rust-num-traits" ,rust-num-traits-0.2)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-autocfg" ,rust-autocfg-0.1))))
-    (home-page
-     "https://github.com/rust-num/num-rational")
-    (synopsis
-     "Rational numbers implementation for Rust")
-    (description
-     "Rational numbers implementation for Rust")
-    (license #f)))
-
 (define-public rust-num-rational-0.1
   (package
     (name "rust-num-rational")
@@ -3857,52 +3827,6 @@ complex, rational, range iterators, generic integers, and more!
     (description
      "Rational numbers implementation for Rust")
     (license #f)))
-
-(define-public rust-khronos-api
-  (package
-    (name "rust-khronos-api")
-    (version "3.1.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "khronos-api" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1p0xj5mlbagqyvvnv8wmv3cr7l9y1m153888pxqwg3vk3mg5inz2"))))
-    (build-system cargo-build-system)
-    (home-page
-     "https://github.com/brendanzab/gl-rs/")
-    (synopsis
-     "The Khronos XML API Registry, exposed as byte string constants.")
-    (description
-     "The Khronos XML API Registry, exposed as byte string constants.")
-    (license license:asl2.0)))
-
-(define-public rust-genmesh
-  (package
-    (name "rust-genmesh")
-    (version "0.6.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "genmesh" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "17qybydyblf3hjiw7mq181jpi4vrbb8dmsj0wi347r8k0m354g89"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cgmath" ,rust-cgmath-0.17)
-        ("rust-mint" ,rust-mint))))
-    (home-page "https://github.com/gfx-rs/genmesh")
-    (synopsis "A package for generating 3D meshes")
-    (description
-     "This package provides a package for generating 3D meshes")
-    (license license:asl2.0)))
 
 (define-public rust-derive-more
   (package
@@ -3948,26 +3872,6 @@ complex, rational, range iterators, generic integers, and more!
        (sha256
         (base32
          "0wdqixd7gakanyfzyhd8qwv0p5ksqwgc4w2fml6jfidxyf6dfmrz"))))))
-
-(define-public rust-mint
-  (package
-    (name "rust-mint")
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "mint" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0z2akkbail867wr8f0hvwwz6fxf90q254q8sx8bm25dh9fdw5rn9"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/kvark/mint")
-    (synopsis "Math interoperability standard types")
-    (description
-     "Math interoperability standard types")
-    (license license:expat)))
 
 (define-public rust-strings
   (package
