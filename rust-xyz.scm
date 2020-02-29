@@ -3653,33 +3653,6 @@ functions.")
      "This package provides a `tracing` subscriber that formats and logs trace data.  Moved to the `tracing-subscriber` crate.")
     (license license:expat)))
 
-(define-public rust-gl-generator
-  (package
-    (name "rust-gl-generator")
-    (version "0.13.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "gl-generator" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jpqjqpyrl73sf8y20p5rv50qz8glnsvv9infg8h4vi52zgbp66a"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-khronos-api" ,rust-khronos-api)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-xml-rs" ,rust-xml-rs))))
-    (home-page
-     "https://github.com/brendanzab/gl-rs/")
-    (synopsis
-     "Code generators for creating bindings to the Khronos OpenGL APIs.")
-    (description
-     "Code generators for creating bindings to the Khronos OpenGL APIs.")
-    (license license:asl2.0)))
-
 (define-public rust-xml-rs
   (package
     (name "rust-xml-rs")
@@ -3958,7 +3931,7 @@ complex, rational, range iterators, generic integers, and more!
        #:cargo-development-inputs
        (("rust-cgmath" ,rust-cgmath)
         ("rust-genmesh" ,rust-genmesh)
-        ("rust-gl-generator" ,rust-gl-generator)
+        ("rust-gl-generator" ,rust-gl-generator-0.14)
         ("rust-image" ,rust-image-0.22)
         ("rust-obj" ,rust-obj)
         ("rust-rand" ,rust-rand-0.4)
