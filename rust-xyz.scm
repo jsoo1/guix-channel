@@ -7,32 +7,6 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
-(define-public rust-serde-big-array
-  (package
-    (name "rust-serde-big-array")
-    (version "0.1.5")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "serde-big-array" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0gkyqxk760mp1lfcg6lhjk95ajc89nr0qdd0vl4ic0g8pyxcy9mr"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))
-       #:cargo-development-inputs
-       (("rust-serde-json" ,rust-serde-json-1.0))))
-    (home-page
-     "https://github.com/est31/serde-big-array")
-    (synopsis "Big array helper for serde")
-    (description "Big array helper for serde.")
-    (license #f)))
-
 (define-public rust-unicode-xid-0.0.3
   (package
     (inherit rust-unicode-xid-0.1)
