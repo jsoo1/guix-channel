@@ -45,7 +45,7 @@
       ("ghc-xml-conduit" ,ghc-xml-conduit)
       ("ghc-xml-html-qq" ,ghc-xml-html-qq)))
    (native-inputs
-    `(("ghc-cabal-doctest" ,ghc-cabal-doctest)))
+    `(("cabal-doctest" ,cabal-doctest)))
    (arguments `(#:tests? #f))
    (home-page "https://github.com/cdepillabout/termonad")
    (synopsis "Terminal emulator configurable in Haskell")
@@ -632,24 +632,6 @@
    (description "Please see <https://github.com/cdepillabout/xml-html-qq#readme README.md>.")
    (license license:bsd-3)))
 
-(define ghc-cabal-doctest
-  (package
-   (name "ghc-cabal-doctest")
-   (version "1.0.6")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (string-append "mirror://hackage/package/cabal-doctest/cabal-doctest-" version ".tar.gz"))
-     (sha256 (base32 "0bgd4jdmzxq5y465r4sf4jv2ix73yvblnr4c9wyazazafddamjny"))))
-   (build-system haskell-build-system)
-   (arguments `(#:tests? #f
-                #:haskell ,ghc-8.0))
-   (home-page "https://github.com/phadej/cabal-doctest")
-   (synopsis "A Setup.hs helper for doctests running")
-   (description
-    "Currently (beginning of 2017), there isn't @cabal doctest@ command. Yet, to properly work doctest needs plenty of configuration. This library provides the common bits for writing custom Setup.hs See <https://github.com/haskell/cabal/issues/2327 Cabal/2327> for the progress of @cabal doctest@, i.e. whether this library is obsolete.")
-   (license license:bsd-3)))
-
 (define ghc-classy-prelude
   (package
    (name "ghc-classy-prelude")
@@ -684,4 +666,3 @@
    (synopsis "A typeclass-based Prelude.")
    (description "See docs and README at <http://www.stackage.org/package/classy-prelude>")
    (license license:expat)))
-
