@@ -89,15 +89,23 @@
              (lambda* (#:key inputs outputs #:allow-other-keys)
                (let* ((emacs
                        (string-append (assoc-ref inputs "emacs-next")
-                                      "/bin/emacs"))
-                      (out (assoc-ref outputs "out"))
-                      (dump-file
-                       (string-append out "/bin/my-dump.pdmp")))
+                                      "/bin/emacs")))
+                 (setenv
+                  "SHELL"
+                  (string-append
+                   (assoc-ref inputs "bash") "/bin/bash"))
+                 (invoke "ls" "emacs/pdump")
                  (invoke
                   emacs
                   "--batch"
                   "--load" "emacs/pdump/init-guix.el"
-                  "--eval" (string-append "'(dump-emacs-portable \"" dump-file "\" t)'"))))))))
+                  "--eval"
+                  "'(dump-emacs-portable \"my-dump.pdmp\" t)'"))))
+           (replace 'install
+             (lambda* (#:key outputs #:allow-other-keys)
+               (let ((out (assoc-ref outputs "out")))
+                 (mkdir-p (string-append out "/bin"))
+                 (copy-file "my-dump.pdmp" (string-append out "/bin"))))))))
       (home-page "https://github.com/jsoo1/dotfiles")
       (synopsis "Emacs, dumped for me")
       (description
