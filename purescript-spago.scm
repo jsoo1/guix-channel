@@ -70,33 +70,6 @@ as psc-package, pulp and purp.")
 
 ;; DEPENDENCIES
 
-(define ghc-hspec-discover
-  (package
-    (name "ghc-hspec-discover")
-    (version "2.7.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/hspec-discover/hspec-discover-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "1n3by0dn3x3kfy7vnyfdz0dr2wwwj82m0ijlm9s1n6aa976xddhw"))))
-    (build-system haskell-build-system)
-    (native-inputs
-     `(("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-hspec-meta" ,ghc-hspec-meta)))
-    (home-page "http://hspec.github.io/")
-    (synopsis
-     "Automatically discover and run Hspec tests")
-    (description
-     "Automatically discover and run Hspec tests.
-
-http://hspec.github.io/hspec-discover.html")
-    (license license:expat)))
-
 (define ghc-dotgen
   (package
     (name "ghc-dotgen")
