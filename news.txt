@@ -1,0 +1,9 @@
+(channel-news
+ (version 0)
+ (entry
+  (commit "9f086413c335bf01f8b48f62fdc017a6fb7a3f0c")
+  (title (en "Cargo removed from channel."))
+  (body (en "Cargo was added in ignorance of how to install different
+outputs from a package.
+
+To get cargo, use @command{guix package -i rust:cargo}"))))
