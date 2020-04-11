@@ -1,9 +1,8 @@
 (define-module (purescript-spago)
   #:use-module (dhall)
   #:use-module (ghc-parsing)
-  #:use-module (ghc-repline)
   #:use-module (ghc-system)
-  #:use-module ((ghc-cborg) #:select (ghc-serialise))
+  #:use-module (gnu packages dhall)
   #:use-module (gnu packages haskell-check)
   #:use-module (gnu packages haskell-crypto)
   #:use-module (gnu packages haskell-web)
@@ -69,30 +68,6 @@ as psc-package, pulp and purp.")
       (license license:bsd-3))))
 
 ;; DEPENDENCIES
-
-(define ghc-dotgen
-  (package
-    (name "ghc-dotgen")
-    (version "0.4.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/dotgen/dotgen-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "148q93qsmqgr5pzdwvpjqfd6bdm1pwzcp2rblfwswx2x8c5f43fg"))))
-    (build-system haskell-build-system)
-    (home-page "https://github.com/ku-fpg/dotgen")
-    (synopsis
-     "Simple interface for building .dot graph files")
-    (description
-     "This package provides a simple interface for building .dot graph
-files, for input into the dot and graphviz tools.  It includes a
-monadic interface for building graphs.")
-    (license license:bsd-3)))
 
 (define ghc-async-pool
   (let ((revision "1")
