@@ -1,6 +1,12 @@
 (channel-news
  (version 0)
  (entry
+  (commit "5f953598387088250bea4dd0ca494ffc41098703")
+  (title (en "Dhall submitted upstream."))
+  (body (en "Dhall moved out of this repo into patches upstream.
+
+See issue at @url{https://issues.guix.gnu.org/issue/40557}")))
+ (entry
   (commit "9f086413c335bf01f8b48f62fdc017a6fb7a3f0c")
   (title (en "Cargo removed from channel."))
   (body (en "Cargo was added in ignorance of how to install different
