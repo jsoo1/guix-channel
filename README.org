@@ -3,10 +3,8 @@
   Many packages are works in progress, some might not work correctly.
   I just thought I'd share my work and see if anyone can help ;) ;) ;)
 ** Working
-   - alacritty
    - bower (needs tweaks)
-   - dhall
-   - exa
+   - dhall-json
    - ghc-servant
    - ghc-*
    - idump
