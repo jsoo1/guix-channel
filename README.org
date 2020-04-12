@@ -21,3 +21,6 @@
    - firefox
    - termonad
    - urweb (waiting for upstream MLton)
+** Now with more stability
+  I figured I would try to make this channel more consumable.
+  Breaking changes will now be made in separate branches.
