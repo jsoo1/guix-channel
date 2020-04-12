@@ -1,6 +1,10 @@
 (channel-news
  (version 0)
  (entry
+  (commit "283765c97479f19f8ab35918c218b9e595021f08")
+  (title (en "Committing to stability."))
+  (body (en "Breaking changes will be made in branches.")))
+ (entry
   (commit "5f953598387088250bea4dd0ca494ffc41098703")
   (title (en "Dhall submitted upstream."))
   (body (en "Dhall moved out of this repo into patches upstream.
