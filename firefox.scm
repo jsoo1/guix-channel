@@ -102,7 +102,7 @@
        ("libxt" ,libxt)
        ("libffi" ,libffi)
        ("ffmpeg" ,ffmpeg)
-       ("libvpx" ,libvpx-1.7)
+       ("libvpx" ,libvpx)
        ("icu4c" ,icu4c)
        ("pixman" ,pixman)
        ("pulseaudio" ,pulseaudio)
@@ -205,13 +205,13 @@
                            ;; "--with-system-theora" ; wants theora-1.2, not yet released
                            "--with-system-libvpx"
                            "--with-system-icu"
-                           
+
                            ;; See <https://bugs.gnu.org/32833>
                            ;;   and related comments in the
                            ;;   'remove-bundled-libraries' phase below.
                            ;; UNBUNDLE-ME! "--with-system-nspr"
                            ;; UNBUNDLE-ME! "--with-system-nss"
-                           
+
                            "--with-system-harfbuzz"
                            "--with-system-graphite2"
                            "--enable-system-pixman"
