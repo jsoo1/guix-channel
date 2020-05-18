@@ -75,7 +75,7 @@ Features:
          (sha256 (base32 "1h29hp67ynmwffnskkhrnrp8xq8ac6cg1qipqx51zp1b6znnlcvw"))))
       (build-system gnu-build-system)
       (inputs `(("gcc" ,gcc)
-                ("libjpeg" ,libjpeg)
+                ("libjpeg" ,libjpeg-turbo)
                 ("libpng" ,libpng)
                 ("libtiff" ,libtiff)))
       (arguments
@@ -116,7 +116,7 @@ Features:
          (sha256
           (base32 "00grshn14dk7jjkmcylnn2ral815fsqwhf9w1vaiwhwh90qpbbh6"))))
       (build-system gnu-build-system)
-      (inputs `(("libjpeg" ,libjpeg)
+      (inputs `(("libjpeg" ,libjpeg-turbo)
                 ("libpng" ,libpng)
                 ("libsixel" ,libsixel)))
       (arguments
