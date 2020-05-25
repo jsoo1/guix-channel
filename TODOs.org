@@ -1,0 +1,7 @@
+* Todos
+** TODO <2020-05-25 Mon> Upstream pijul
+** TODO <2020-05-25 Mon> Upstream rustfmt
+   - Needs updating
+** TODO <2020-05-25 Mon> Upstream racer
+** TODO <2020-05-25 Mon> Make firefox work
+   - Can firefox be upstreamed?
