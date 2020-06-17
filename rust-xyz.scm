@@ -7,21 +7,6 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
-(define-public rust-unicode-xid-0.0.3
-  (package
-    (inherit rust-unicode-xid-0.1)
-    (version "0.0.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "unicode-xid" version))
-       (file-name
-        (string-append
-         (package-name rust-unicode-xid-0.1) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1sqvl06884cy3hh14shik5afcv6bhsvb0gh2y267rv5lmyfg1prn"))))))
-
 (define-public rust-bitflags-0.9
   (package
     (inherit rust-bitflags-1)
@@ -36,38 +21,6 @@
         (base32
          "19dk39gfwmhi3iy1x0wgml1fv1bkb525ywy25zwihbm063i05zaf"))))))
 
-(define-public rust-clippy-0.0.103 ; Old - for racer
-  (package
-    (inherit rust-clippy-0.0)
-    (version "0.0.103")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "clippy" version))
-       (file-name
-        (string-append
-         (package-name rust-clippy-0.0) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0cpznss2fbb2im0yhmlw0k9cz5av9bd0l71w66d43xnxg7wsnksv"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-term" ,rust-term-0.5))))))
-
-(define-public rust-regex-syntax-0.3
-  (package
-    (inherit rust-regex-syntax-0.6)
-    (version "0.3.9")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "regex-syntax" version))
-       (file-name
-        (string-append (package-name rust-regex-syntax-0.6) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0ms9hgdhhsxw9w920i7gipydvagf100bb56jbs192rz86ln01v7r"))))))
-
 (define-public rust-toml-0.4
   (package
     (inherit rust-toml-0.5)
@@ -81,20 +34,6 @@
        (sha256
         (base32
          "07qilkzinn8z13vq2sss65n2lza7wrmqpvkbclw919m3f7y691km"))))))
-
-(define-public rust-toml-0.1
-  (package
-    (inherit rust-toml-0.5)
-    (version "0.1.30")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "toml" version))
-       (file-name
-        (string-append (package-name rust-toml-0.5) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "15j7hjangq8qv8z7l35fn768zqfsi1j1rcd39nf8f3p5h8hxg405"))))))
 
 (define-public rust-url-2.0
   (package
@@ -241,26 +180,6 @@ guidelines on macOS.")
      "Complex numbers implementation for Rust")
     (license #f)))
 
-(define-public rust-crossbeam-deque-0.2
-  (package
-    (inherit rust-crossbeam-deque-0.7)
-    (version "0.2.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "crossbeam-deque" version))
-       (file-name
-        (string-append (package-name rust-crossbeam-deque-0.7) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1wwwbnvxh0rza38xiws8qc46klzhv19zgvarn37pijis6v2zhfgp"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-crossbeam-epoch" ,rust-crossbeam-epoch-0.3)
-        ("rust-crossbeam-utils" ,rust-crossbeam-utils-0.6))
-       #:cargo-development-inputs
-       (("rust-rand" ,rust-rand-0.4))))))
-
 (define-public rust-socket2
   (package
     (name "rust-socket2")
@@ -291,31 +210,6 @@ guidelines on macOS.")
      "Utilities for handling networking sockets with a maximal amount
 of configuration possible intended.")
     (license #f)))
-
-(define-public rust-semver-0.2
-  (package
-    (inherit rust-semver-0.9)
-    (version "0.2.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "semver" version))
-       (file-name
-        (string-append
-         (package-name rust-semver-0.9) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0gv28l5ggain32flkvw3sss0szz810y3pjw89vciaf7hl4w7cnrd"))))
-    (arguments
-     `(#:cargo-inputs
-       (("rust-nom" ,rust-nom-1)
-        ("rust-semver-parser" ,rust-semver-parser-0.7)
-        ("rust-serde" ,rust-serde-1.0))
-       #:cargo-development-inputs
-       (("rust-crates-index" ,rust-crates-index-0.13)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-tempdir" ,rust-tempdir-0.3))))))
 
 (define-public rust-crossbeam-epoch-0.3
   (package
@@ -1221,42 +1115,6 @@ _getch on Windows, and termios on Unix.")
 and private (encrypted + signed) jars.")
     (license #f)))
 
-(define-public rust-cookie-store
-  (package
-    (name "rust-cookie-store")
-    (version "0.9.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "cookie-store" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1sp4bqfiwzaif8g6sxbncrgphxa2z4i9h3rccyrp88g200801kai"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-cookie" ,rust-cookie)
-        ("rust-idna" ,rust-idna-0.1)
-        ("rust-log" ,rust-log-0.4)
-        ("rust-publicsuffix" ,rust-publicsuffix)
-        ("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-json" ,rust-serde-json-1.0)
-        ("rust-time" ,rust-time-0.1)
-        ("rust-url" ,rust-url-1.7))
-       #:cargo-development-inputs
-       (("rust-env-logger" ,rust-env-logger-0.6)
-        ("rust-pretty-assertions"
-         ,rust-pretty-assertions))))
-    (home-page
-     "https://github.com/pfernie/cookie_store")
-    (synopsis
-     "Implementation of Cookie storage and retrieval per [RFC6265](http://tools.ietf.org/html/rfc6265)")
-    (description
-     "Implementation of Cookie storage and retrieval per [RFC6265](http://tools.ietf.org/html/rfc6265)")
-    (license #f)))
-
 (define-public rust-cookie-store-0.7
   (package
     (name "rust-cookie-store")
@@ -1748,20 +1606,6 @@ types.  The Client can be used for other queries.")
     (description
      "Rust bindings to MS Windows Registry API")
     (license license:expat)))
-
-(define-public rust-winreg-0.5
-  (package
-    (inherit rust-winreg)
-    (version "0.5.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "winreg" version))
-       (file-name
-        (string-append (package-name rust-winreg) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0jkh4jj2g8g0bl7r1xvq9vv9hr4gdzphg9ndqm65q6f1jn9paym2"))))))
 
 (define-public rust-libflate
   (package
@@ -3627,25 +3471,6 @@ functions.")
      "This package provides a `tracing` subscriber that formats and logs trace data.  Moved to the `tracing-subscriber` crate.")
     (license license:expat)))
 
-(define-public rust-xml-rs
-  (package
-    (name "rust-xml-rs")
-    (version "0.8.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "xml-rs" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1db4v716rbpgjiasaim2s17rmvsfcq1qzwg6nji6mdf5k34i46sl"))))
-    (build-system cargo-build-system)
-    (home-page "https://github.com/netvl/xml-rs")
-    (synopsis "An XML library in pure Rust")
-    (description "An XML library in pure Rust")
-    (license license:expat)))
-
 (define-public rust-ascii-canvas
   (package
     (name "rust-ascii-canvas")
@@ -3878,21 +3703,6 @@ complex, rational, range iterators, generic integers, and more!
     (description "Backport of librustc_errors")
     (license #f)))
 
-(define-public rust-syntex-errors-0.52
-  (package
-    (inherit rust-syntex-errors)
-    (version "0.52.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "syntex-errors" version))
-       (file-name
-        (string-append
-         (package-name rust-syntex-errors) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "16qym892xi6m2qm95x7f679jdgy51qzg4k3qhxsvdkq2cbzbylly"))))))
-
 (define-public rust-syntex-syntax
   (package
     (name "rust-syntex-syntax")
@@ -3923,21 +3733,6 @@ complex, rational, range iterators, generic integers, and more!
     (description "Backport of libsyntax")
     (license #f)))
 
-(define-public rust-syntex-syntax-0.52
-  (package
-    (inherit rust-syntex-syntax)
-    (version "0.52.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "syntex-syntax" version))
-       (file-name
-        (string-append
-         (package-name rust-syntex-syntax) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1pmg6h5igjxkz0r8939v0x85cf9j70f7jxzm5wvslj732zkh58vn"))))))
-
 (define-public rust-syntex-pos
   (package
     (name "rust-syntex-pos")
@@ -3960,21 +3755,6 @@ complex, rational, range iterators, generic integers, and more!
     (synopsis "Backport of libsyntax_pos")
     (description "Backport of libsyntax_pos")
     (license #f)))
-
-(define-public rust-syntex-pos-0.52
-  (package
-    (inherit rust-syntex-pos)
-    (version "0.52.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "syntex-pos" version))
-       (file-name
-        (string-append
-         (package-name rust-syntex-pos) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1b0mbspiby8qkrj8109kgmaqya7zfgw9f50dd3j6ii7ldaqz8plm"))))))
 
 (define-public rust-extprim
   (package
@@ -4067,31 +3847,6 @@ complex, rational, range iterators, generic integers, and more!
      "This package provides a pull parser for CommonMark")
     (license license:expat)))
 
-(define-public rust-quine-mc-cluskey
-  (package
-    (name "rust-quine-mc-cluskey")
-    (version "0.2.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "quine-mc-cluskey" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0iazdlwffhrlksb8yhhs1prgwpa68rwjwqm4v26hr9hrswarcn07"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-quickcheck" ,rust-quickcheck-0.8))))
-    (home-page
-     "https://github.com/oli-obk/quine-mc_cluskey")
-    (synopsis
-     "Rust implementation of the Quine-McCluskey algorithm and Petrick's method")
-    (description
-     "Rust implementation of the Quine-McCluskey algorithm and Petrick's method")
-    (license license:expat)))
-
 (define-public rust-structopt
   (package
     (name "rust-structopt")
@@ -4177,35 +3932,6 @@ complex, rational, range iterators, generic integers, and more!
     (description
      "Drop-in replacement to panics in proc-macros")
     (license license:expat)))
-
-(define-public rust-simd
-  (package
-    (name "rust-simd")
-    (version "0.2.4")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "simd" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1dgpmfzd4favsckd5m0p6bna1dcgw19hjigkqcgwfhc4d05hxczj"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-serde" ,rust-serde-1.0)
-        ("rust-serde-derive" ,rust-serde-derive-1.0))
-       #:cargo-development-inputs
-       (("rust-cfg-if" ,rust-cfg-if-0.1))))
-    (home-page "https://github.com/hsivonen/simd")
-    (synopsis
-     "Offers limited cross-platform access to SIMD instructions on")
-    (description
-     "This simd crate offers limited cross-platform access to SIMD instructions
-on CPUs, as well as raw interfaces to platform-specific instructions.
-(To be obsoleted by the `std::simd` implementation RFC 2366.)")
-    (license #f)))
 
 (define-public rust-rle-decode-fast
   (package
@@ -5470,46 +5196,6 @@ pin-projection.")
       "This package provides a progress bar and cli reporting library
 for Rust.")
     (license license:expat)))
-
-(define-public rust-src-0.0
-  (package
-    (name "rust-src")
-    (version "0.0.5")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "src" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "095gf4qii9zl40fdv6nj1g0brlzncb3ghp9xf7hflz0zvha8rrv8"))))
-    (build-system cargo-build-system)
-    (arguments
-      `(#:cargo-inputs
-        (("rust-ansi-term" ,rust-ansi-term-0.12)
-         ("rust-atty" ,rust-atty-0.2)
-         ("rust-dirs" ,rust-dirs-2.0)
-         ("rust-git2" ,rust-git2-0.11)
-         ("rust-indicatif" ,rust-indicatif-0.14)
-         ("rust-libc" ,rust-libc-0.2)
-         ("rust-rayon" ,rust-rayon-1.3)
-         ("rust-serde" ,rust-serde-1.0)
-         ("rust-serde-yaml" ,rust-serde-yaml-0.8)
-         ("rust-shellexpand" ,rust-shellexpand-2.0)
-         ("rust-snafu" ,rust-snafu-0.6)
-         ("rust-structopt" ,rust-structopt)
-         ("rust-tempfile" ,rust-tempfile-3.1)
-         ("rust-tera" ,rust-tera-1.0)
-         ("rust-xdg" ,rust-xdg-2.2))
-        #:cargo-development-inputs
-        (("rust-tempfile" ,rust-tempfile-3.1))))
-    (home-page "https://github.com/casey/just")
-    (synopsis
-      "Manage your personal zoo of repositories")
-    (description
-      "Manage your personal zoo of repositories.")
-    (license license:cc0)))
 
 (define-public rust-utime-0.2
   (package
