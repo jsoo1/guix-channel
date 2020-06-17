@@ -4113,7 +4113,7 @@ attributes into structs when implementing custom derives.")
     (arguments
      `(#:cargo-inputs
        (("rust-bytecount" ,rust-bytecount-0.5)
-        ("rust-cargo-metadata" ,rust-cargo-metadata)
+        ("rust-cargo-metadata" ,rust-cargo-metadata-0.9)
         ("rust-error-chain" ,rust-error-chain-0.12)
         ("rust-glob" ,rust-glob-0.3)
         ("rust-pulldown-cmark" ,rust-pulldown-cmark)
