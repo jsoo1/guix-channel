@@ -3828,51 +3828,6 @@ complex, rational, range iterators, generic integers, and more!
      "Rational numbers implementation for Rust")
     (license #f)))
 
-(define-public rust-derive-more
-  (package
-    (name "rust-derive-more")
-    (version "0.15.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "derive-more" version))
-       (file-name
-        (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "1zks5bn7hmqfz927spmridk9bvy7ly4f38vls331x4hc4hq1653s"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:cargo-inputs
-       (("rust-lazy-static" ,rust-lazy-static-1.3)
-        ("rust-proc-macro2" ,rust-proc-macro2-0.4)
-        ("rust-quote" ,rust-quote-1.0)
-        ("rust-regex" ,rust-regex-1.1)
-        ("rust-syn" ,rust-syn-0.15))
-       #:cargo-development-inputs
-       (("rust-rustc-version" ,rust-rustc-version-0.2))))
-    (home-page
-     "https://github.com/JelteF/derive_more")
-    (synopsis
-     "Adds deriving macros for more traits")
-    (description
-     "Adds @code{#[derive(x)]} macros for more traits")
-    (license license:expat)))
-
-(define-public rust-derive-more-0.13
-  (package
-    (inherit rust-derive-more)
-    (version "0.13.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "derive-more" version))
-       (file-name
-        (string-append (package-name rust-derive-more) "-" version ".tar.gz"))
-       (sha256
-        (base32
-         "0wdqixd7gakanyfzyhd8qwv0p5ksqwgc4w2fml6jfidxyf6dfmrz"))))))
-
 (define-public rust-strings
   (package
     (name "rust-strings")
