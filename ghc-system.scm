@@ -8,8 +8,7 @@
   #:export (ghc-directory
             ghc-optional-args
             ghc-process
-            ghc-time
-            ghc-turtle))
+            ghc-time))
 
 (define ghc-directory
   (package
