@@ -344,7 +344,7 @@ all line endings.")
          ("rust-normalize-line-endings"
           ,rust-normalize-line-endings-0.2)
          ("rust-predicates-core" ,rust-predicates-core-1.0)
-         ("rust-regex" ,rust-regex-1.3))
+         ("rust-regex" ,rust-regex-1))
         #:cargo-development-inputs
         (("rust-predicates-tree" ,rust-predicates-tree-1.0))))
     (home-page
@@ -376,7 +376,7 @@ all line endings.")
          ("rust-predicates" ,rust-predicates-1.0)
          ("rust-predicates-core" ,rust-predicates-core-1.0)
          ("rust-predicates-tree" ,rust-predicates-tree-1.0)
-         ("rust-tempfile" ,rust-tempfile-3.1))))
+         ("rust-tempfile" ,rust-tempfile-3))))
     (home-page
       "https://github.com/assert-rs/assert_fs")
     (synopsis
@@ -626,6 +626,6 @@ ole32.  See winapi for types and constants.")
      `(#:skip-build? #t
        #:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1)
-        ("rust-regex" ,rust-regex-1.1)
+        ("rust-regex" ,rust-regex-1)
         ("rust-serde" ,rust-serde-1.0)
         ("rust-strsim" ,rust-strsim-0.7))))))
