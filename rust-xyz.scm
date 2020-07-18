@@ -155,7 +155,7 @@ don't need this crate directly.")
     (arguments
       `(#:cargo-inputs
         (("rust-ignore" ,rust-ignore-0.4)
-         ("rust-walkdir" ,rust-walkdir-2.2))
+         ("rust-walkdir" ,rust-walkdir-2.3))
         #:cargo-development-inputs
         (("rust-docmatic" ,rust-docmatic-0.1)
          ("rust-tempdir" ,rust-tempdir-0.3))))
