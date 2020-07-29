@@ -26,7 +26,7 @@
        (("rust-num-traits" ,rust-num-traits-0.2)
         ("rust-rand" ,rust-rand-0.6)
         ("rust-rustc-version" ,rust-rustc-version-0.2)
-        ("rust-serde" ,rust-serde-1.0))
+        ("rust-serde" ,rust-serde-1))
        #:cargo-development-inputs
        (("rust-extprim-literals" ,rust-extprim-literals)
         ("rust-semver" ,rust-semver-0.9))))
@@ -403,7 +403,7 @@ all line endings.")
       `(#:cargo-inputs
         (("rust-lazy-static" ,rust-lazy-static-1.4)
          ("rust-log" ,rust-log-0.4)
-         ("rust-serde" ,rust-serde-1.0)
+         ("rust-serde" ,rust-serde-1)
          ("rust-serde-json" ,rust-serde-json-1))
         #:cargo-development-inputs
         (("rust-assert-fs" ,rust-assert-fs-0.13))))
@@ -431,7 +431,7 @@ all line endings.")
       `(#:cargo-inputs
         (("rust-lazy-static" ,rust-lazy-static-1.4)
          ("rust-log" ,rust-log-0.4)
-         ("rust-serde" ,rust-serde-1.0)
+         ("rust-serde" ,rust-serde-1)
          ("rust-serde-json" ,rust-serde-json-1))
         #:cargo-development-inputs
         (("rust-assert-fs" ,rust-assert-fs-0.13))))))
@@ -627,5 +627,5 @@ ole32.  See winapi for types and constants.")
        #:cargo-inputs
        (("rust-lazy-static" ,rust-lazy-static-1)
         ("rust-regex" ,rust-regex-1)
-        ("rust-serde" ,rust-serde-1.0)
+        ("rust-serde" ,rust-serde-1)
         ("rust-strsim" ,rust-strsim-0.7))))))

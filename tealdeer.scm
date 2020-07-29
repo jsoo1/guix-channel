@@ -53,7 +53,7 @@
         ("rust-miniz-oxide-c-api" ,rust-miniz-oxide-c-api-0.2)
         ("rust-pager" ,rust-pager-0.15)
         ("rust-reqwest" ,rust-reqwest-0.9)
-        ("rust-serde" ,rust-serde-1.0)
+        ("rust-serde" ,rust-serde-1)
         ("rust-serde-derive" ,rust-serde-derive-1.0)
         ("rust-tar" ,rust-tar-0.4)
         ("rust-toml" ,rust-toml-0.5)
