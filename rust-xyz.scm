@@ -404,7 +404,7 @@ all line endings.")
         (("rust-lazy-static" ,rust-lazy-static-1.4)
          ("rust-log" ,rust-log-0.4)
          ("rust-serde" ,rust-serde-1.0)
-         ("rust-serde-json" ,rust-serde-json-1.0))
+         ("rust-serde-json" ,rust-serde-json-1))
         #:cargo-development-inputs
         (("rust-assert-fs" ,rust-assert-fs-0.13))))
     (home-page
@@ -432,7 +432,7 @@ all line endings.")
         (("rust-lazy-static" ,rust-lazy-static-1.4)
          ("rust-log" ,rust-log-0.4)
          ("rust-serde" ,rust-serde-1.0)
-         ("rust-serde-json" ,rust-serde-json-1.0))
+         ("rust-serde-json" ,rust-serde-json-1))
         #:cargo-development-inputs
         (("rust-assert-fs" ,rust-assert-fs-0.13))))))
 
