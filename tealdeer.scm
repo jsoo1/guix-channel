@@ -54,7 +54,7 @@
         ("rust-pager" ,rust-pager-0.15)
         ("rust-reqwest" ,rust-reqwest-0.9)
         ("rust-serde" ,rust-serde-1)
-        ("rust-serde-derive" ,rust-serde-derive-1.0)
+        ("rust-serde-derive" ,rust-serde-derive-1)
         ("rust-tar" ,rust-tar-0.4)
         ("rust-toml" ,rust-toml-0.5)
         ("rust-walkdir" ,rust-walkdir-2.3)
