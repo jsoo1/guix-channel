@@ -1,5 +1,6 @@
 (define-module (tealdeer)
   #:use-module (gnu packages crates-io)
+  #:use-module (gnu packages crates-graphics)
   #:use-module (gnu packages tls)
   #:use-module (gnu packages rust)
   #:use-module (guix build-system cargo)
