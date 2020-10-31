@@ -49,7 +49,7 @@
         ("rust-app-dirs" ,rust-app-dirs-1.2)
         ("rust-docopt" ,rust-docopt-1.0)
         ("rust-env-logger" ,rust-env-logger-0.7)
-        ("rust-flate2" ,rust-flate2-1.0)
+        ("rust-flate2" ,rust-flate2-1)
         ("rust-log" ,rust-log-0.4)
         ("rust-miniz-oxide-c-api" ,rust-miniz-oxide-c-api-0.2)
         ("rust-pager" ,rust-pager-0.15)
