@@ -339,7 +339,7 @@ all line endings.")
     (build-system cargo-build-system)
     (arguments
       `(#:cargo-inputs
-        (("rust-difference" ,rust-difference-2.0)
+        (("rust-difference" ,rust-difference-2)
          ("rust-float-cmp" ,rust-float-cmp-0.6)
          ("rust-normalize-line-endings"
           ,rust-normalize-line-endings-0.2)
