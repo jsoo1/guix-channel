@@ -53,8 +53,7 @@
   #:use-module (gnu packages readline)
   #:use-module (gnu packages sqlite)
   #:use-module (gnu packages rust-apps)
-  #:use-module (rust-xyz)
-  #:use-module (rustfmt))
+  #:use-module (rust-xyz))
 
 ;; Like IceCat but using bundled media libraries
 (define-public firefox
@@ -135,7 +134,7 @@
        ("autoconf" ,autoconf-2.13)
        ("rust" ,rust-1.35)
        ("rust-cbindgen" ,rust-cbindgen)
-       ("rustfmt" ,rustfmt)
+       ("rustfmt" ,rust "rustfmt")
        ("cargo" ,rust-1.35 "cargo")
        ("llvm" ,llvm-3.9.1)
        ("clang" ,clang)
