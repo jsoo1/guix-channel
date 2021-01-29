@@ -129,7 +129,7 @@ don't need this crate directly.")
             "1hx85n266lxswqxrbbinqlhi1qcnjgd4cc7v42abg72kmz7fnn4d"))))
     (build-system cargo-build-system)
     (arguments
-      `(#:cargo-inputs (("rust-which" ,rust-which-2.0))))
+      `(#:cargo-inputs (("rust-which" ,rust-which-2))))
     (home-page
       "https://github.com/assert-rs/docmatic")
     (synopsis
