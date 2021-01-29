@@ -59,7 +59,7 @@
         ("rust-tar" ,rust-tar-0.4)
         ("rust-toml" ,rust-toml-0.5)
         ("rust-walkdir" ,rust-walkdir-2)
-        ("rust-xdg" ,rust-xdg-2.2))
+        ("rust-xdg" ,rust-xdg-2))
        #:cargo-development-inputs
        (("rust-assert-cmd" ,rust-assert-cmd-0.10)
         ("rust-escargot" ,rust-escargot-0.3)

@@ -585,7 +585,7 @@ ole32.  See winapi for types and constants.")
         (("rust-ole32-sys" ,rust-ole32-sys-0.2)
          ("rust-shell32-sys" ,rust-shell32-sys-0.1)
          ("rust-winapi" ,rust-winapi-0.2)
-         ("rust-xdg" ,rust-xdg-2.2))))
+         ("rust-xdg" ,rust-xdg-2))))
     (home-page
       "https://github.com/AndyBarron/app-dirs-rs")
     (synopsis
