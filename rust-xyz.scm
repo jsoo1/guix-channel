@@ -610,14 +610,14 @@ ole32.  See winapi for types and constants.")
 
 (define-public rust-docopt-1.0
   (package
-    (inherit rust-docopt-1.1)
+    (inherit rust-docopt-1)
     (version "1.0.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "docopt" version))
        (file-name
-        (string-append (package-name rust-docopt-1.1)
+        (string-append (package-name rust-docopt-1)
                        "-" version ".tar.gz"))
        (sha256
         (base32
