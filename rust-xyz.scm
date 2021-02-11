@@ -401,7 +401,7 @@ all line endings.")
     (build-system cargo-build-system)
     (arguments
       `(#:cargo-inputs
-        (("rust-lazy-static" ,rust-lazy-static-1.4)
+        (("rust-lazy-static" ,rust-lazy-static-1)
          ("rust-log" ,rust-log-0.4)
          ("rust-serde" ,rust-serde-1)
          ("rust-serde-json" ,rust-serde-json-1))
@@ -429,7 +429,7 @@ all line endings.")
            "19fmn7bz1h6nlqy0mp825xwjwnrjn4xjdpwc06jl51j3fiz1znqr"))))
     (arguments
       `(#:cargo-inputs
-        (("rust-lazy-static" ,rust-lazy-static-1.4)
+        (("rust-lazy-static" ,rust-lazy-static-1)
          ("rust-log" ,rust-log-0.4)
          ("rust-serde" ,rust-serde-1)
          ("rust-serde-json" ,rust-serde-json-1))
