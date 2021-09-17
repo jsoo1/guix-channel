@@ -12,13 +12,10 @@
    - ormolu
    - pijul
    - spago
-   - racer
-   - rustfmt
    - sdump
    - yaft
    - tealdeer
 ** In progress
-   - firefox
    - termonad
    - urweb (waiting for upstream MLton)
 ** Now with more stability
