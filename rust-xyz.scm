@@ -413,29 +413,6 @@ all line endings.")
     (description "Cargo API written in Paris.")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-escargot-0.3
-  (package
-    (inherit rust-escargot-0.5)
-    (version "0.3.1")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "escargot" version))
-        (file-name
-         (string-append (package-name rust-escargot-0.5)
-                        "-" version ".tar.gz"))
-        (sha256
-          (base32
-           "19fmn7bz1h6nlqy0mp825xwjwnrjn4xjdpwc06jl51j3fiz1znqr"))))
-    (arguments
-      `(#:cargo-inputs
-        (("rust-lazy-static" ,rust-lazy-static-1)
-         ("rust-log" ,rust-log-0.4)
-         ("rust-serde" ,rust-serde-1)
-         ("rust-serde-json" ,rust-serde-json-1))
-        #:cargo-development-inputs
-        (("rust-assert-fs" ,rust-assert-fs-0.13))))))
-
 (define-public rust-assert-cmd-0.12
   (package
     (name "rust-assert-cmd")
