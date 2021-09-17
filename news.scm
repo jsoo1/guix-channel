@@ -1,6 +1,11 @@
 (channel-news
  (version 0)
  (entry
+  (commit "711e004ed8210ee65e8eac2dc644294ce3fe1b9c")
+  (title (en "Developed branch changed to release"))
+  (body (en "The \"master\" branch will not be updated going forward.
+Use the \"release\" branch instead")))
+ (entry
   (commit "283765c97479f19f8ab35918c218b9e595021f08")
   (title (en "Committing to stability."))
   (body (en "Breaking changes will be made in branches.")))
