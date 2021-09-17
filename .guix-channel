@@ -1,3 +1,5 @@
 (channel
  (version 0)
- (news-file "news.scm"))
+ (news-file "news.txt")
+ (keyring-reference "keyring")
+ (url "https://github.com/jsoo1/guix-channel.git"))
