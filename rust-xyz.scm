@@ -462,31 +462,6 @@ all line endings.")
          ("rust-predicates-core" ,rust-predicates-core-1.0)
          ("rust-predicates-tree" ,rust-predicates-tree-1.0))))))
 
-(define-public rust-pager-0.15
-  (package
-    (name "rust-pager")
-    (version "0.15.0")
-    (source
-      (origin
-        (method url-fetch)
-        (uri (crate-uri "pager" version))
-        (file-name
-          (string-append name "-" version ".tar.gz"))
-        (sha256
-          (base32
-            "0a35mg68s0p63ya2k5hsg620c4llkjw2fx1sfi0laz4pz8myv75n"))))
-    (build-system cargo-build-system)
-    (arguments
-      `(#:cargo-inputs
-        (("rust-errno" ,rust-errno-0.2)
-         ("rust-libc" ,rust-libc-0.2))))
-    (home-page "https://gitlab.com/imp/pager-rs.git")
-    (synopsis
-      "Helps pipe your output through an external pager")
-    (description
-      "Helps pipe your output through an external pager.")
-    (license (list license:asl2.0 license:expat))))
-
 (define-public rust-shell32-sys-0.1
   (package
     (name "rust-shell32-sys")
