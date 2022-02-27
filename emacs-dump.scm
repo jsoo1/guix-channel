@@ -45,7 +45,6 @@
          ("emacs-evil" ,emacs-evil)
          ("emacs-evil-anzu" ,emacs-evil-anzu)
          ("emacs-evil-commentary" ,emacs-evil-commentary)
-         ("emacs-evil-magit" ,emacs-evil-magit)
          ("emacs-evil-org" ,emacs-evil-org)
          ("emacs-evil-surround" ,emacs-evil-surround)
          ("emacs-exec-path-from-shell" ,emacs-exec-path-from-shell)
