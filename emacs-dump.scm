@@ -62,7 +62,7 @@
          ("emacs-magit" ,emacs-magit)
          ("emacs-markdown-mode" ,emacs-markdown-mode)
          ("emacs-multi-term" ,emacs-multi-term)
-         ("emacs-next" ,emacs-next)
+         ("emacs" ,emacs)
          ("emacs-nodejs-repl" ,emacs-nodejs-repl)
          ("emacs-projectile" ,emacs-projectile)
          ("emacs-restclient" ,emacs-restclient)
