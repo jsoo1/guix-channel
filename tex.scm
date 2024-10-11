@@ -60,7 +60,7 @@ colours, the fonts, etc.")
     (inputs
      `(("texlive-bin" ,texlive-bin)
        ("texlive-docstrip" ,(@@ (gnu packages tex) texlive-docstrip))
-       ("texlive-tex-plain" ,texlive-tex-plain)))
+       ("texlive-plain" ,texlive-plain)))
     (arguments
      `(#:phases
        (modify-phases %standard-phases
